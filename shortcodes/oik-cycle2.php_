@@ -1,0 +1,30 @@
+<?php // (C) Copyright Bobbing Wide 2013
+
+e( "This doesn't work. herb 2013/10/13 " );
+/// die();
+
+
+/**
+ * Create the jQuery code to cycle2 the selection, including the starting div
+ *
+ * This code attempts to use jQuery cycle2 
+ * @link http://jquery.malsup.com/cycle2/api/
+ *
+ * IT DOESN'T WORK for testimonials! maybe we need to read the FAQ
+ * @link http://jquery.malsup.com/cycle2/faq/  
+ */
+function bw_cycle2_jq( $atts ) {
+  oik_require( "shortcodes/oik-jquery.php" );
+  $debug = bw_array_get( $atts, "debug", false );
+  $script = bw_array_get( $atts, "script", "cycle2" );
+  $method = bw_array_get( $atts, "method", "cycle" );
+  bw_jquery_enqueue_script( $script, $debug );
+  // bw_jquery_enqueue_style( $script );
+  
+  // bw_jquery( $selector, $method, $parms, $windowload );
+  //$selector = bw_testimonial_id();
+  //$parms = _bw_testimonials_cycle_parms();
+  //bw_jquery( "#$selector", $method, $parms );
+  //$class = bw_array_get( $atts, "class", "bw_testimonial" );
+  sdiv( "cycle-slideshow" );
+}
