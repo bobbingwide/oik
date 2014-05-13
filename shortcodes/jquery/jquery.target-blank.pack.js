@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){jQuery(".nivoSlider a").attr("target","_blank")});

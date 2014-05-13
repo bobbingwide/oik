@@ -1,0 +1,124 @@
+<?php // (C) Copyright 2011-2014 Bobbing Wide
+/**
+ * Functions for a system which is NOT WordPress
+ * It could be Drupal or some other PHP based CMS, perhaps not even a CMS
+ */
+ 
+
+/**
+ * Get the value for an option field
+ *  
+ * I need to decide if I should prefix each field with bw_
+ * Decision: I didn't prefix the fields in Drupal settings
+ * 
+ */
+if ( !function_exists( "bw_get_option" ) ) {
+function bw_get_option( $field ) {
+  if ( function_exists( "variable_get" ) ) {
+    $value = variable_get( $field, "" );
+  } else {
+    $value = bw_array_get( $GLOBALS, $field, null );
+  }
+  return( $value );
+}
+}
+ 
+/** 
+ * Dummy implementation of add_filter() so that shortcodes.php can be copied unchanged from WordPress.
+ */
+if ( !function_exists( "add_filter" ) ) {
+function add_filter() {
+ // Dummy implementation of add_filter() so that shortcodes.php can be copied unchanged from WordPress.
+} 
+}
+
+/**
+ * Dummy implementation of add_action for non WordPress sites
+ */
+if ( !function_exists( "add_action" ) ) {
+function add_action( $tag, $function_to_add, $priority=NULL, $accepted_args=NULL ) {
+// e.g. add_action( admin_init', array($this, 'bw_pp_admin_init'));
+}
+}
+
+/**
+ * Dummy implementation of get_translations_for_domain for non WordPress sites
+ */
+if ( !function_exists( "get_translations_for_domain" ) ) {
+  function get_translations_for_domain( $domain ) {
+  return( new NOOP_Translations );
+}
+
+if ( !class_exists( 'NOOP_Translations' ) ):
+/**
+ * Provides the same interface as Translations, but doesn't do anything
+ */
+class NOOP_Translations {
+	var $entries = array();
+	var $headers = array();
+
+	function add_entry($entry) {
+		return true;
+	}
+
+	function set_header($header, $value) {
+	}
+
+	function set_headers($headers) {
+	}
+
+	function get_header($header) {
+		return false;
+	}
+
+	function translate_entry(&$entry) {
+		return false;
+	}
+
+	function translate($singular, $context=null) {
+		return $singular;
+	}
+
+	function select_plural_form($count) {
+		return 1 == $count? 0 : 1;
+	}
+
+	function get_plural_forms_count() {
+		return 2;
+	}
+
+	function translate_plural($singular, $plural, $count, $context = null) {
+			return 1 == $count? $singular : $plural;
+	}
+
+	function merge_with(&$other) {
+	}
+}
+endif;
+}
+
+if ( !function_exists( "wp_strip_all_tags" ) ) {
+function wp_strip_all_tags( $text ) { return( $text ); } 
+}
+
+if ( !function_exists( "esc_attr" ) ) {
+function esc_attr( $text ) { return( $text ); } 
+}
+
+/** 
+ * Drupal implementation of site_url using the 'domain' variable 
+ * This is to allow for local implementations e.g. qw/contacts
+ */
+function site_url( $path=NULL, $scheme='http:' ) {
+  $url  = $scheme; 
+  $url .= '//';
+  $url .= bw_get_option( 'domain' );
+  $url .= $path;
+  return( $url );
+} 
+
+//echo "here" . PHP_EOL; 
+
+if ( bw_is_drupal() ) {    
+  require_once( "shortcodes.php" );  // This is a copy of the WordPress include specifically for the Drupal version of oik.
+}
