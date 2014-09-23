@@ -186,7 +186,7 @@ function bw_build_akismet_query_string( $fields ) {
   $form['comment_author'] = bw_array_get( $fields, 'comment_author', null );
   $form['comment_author_email'] = bw_array_get( $fields, 'comment_author_email', null );
   $form['comment_author_url'] = bw_array_get( $fields, 'comment_author_url', null );
-  $form['comment_content'] = $fields['comment_content'];  
+  $form['comment_content'] = bw_array_get( $fields, 'comment_content', null );  
   unset( $form['HTTP_COOKIE'] ); 
   $query_string = http_build_query( $form );
   return( $query_string );

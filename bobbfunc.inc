@@ -741,10 +741,10 @@ else {
  */
 function bw_default( $value, $default=NULL ) {
   $val = $value; 
-  bw_trace( $val, __FUNCTION__, __LINE__, __FILE__, "value before" );
+  //bw_trace( $val, __FUNCTION__, __LINE__, __FILE__, "value before" );
   if ( empty( $val ))
     $val = $default;
-  bw_trace( $val, __FUNCTION__, __LINE__, __FILE__, "value returned" );
+  //bw_trace( $val, __FUNCTION__, __LINE__, __FILE__, "value returned" );
   return( $val );
 }    
   
@@ -842,7 +842,8 @@ function bw_plugin_namify( $name ) {
   $name = str_replace( ' ', '-', $name );
   $name = str_replace( '_', '-', $name );
   $name = strtolower( $name );
-  return( bw_trace2( $name ) ); 
+  //bw_trace2();
+  return( $name ); 
 }
   
 /**
@@ -872,7 +873,7 @@ function bw_funcname( $prefix, $key, $value=NULL ) {
   $keys = explode( "-", bw_plugin_namify( $key ));
   foreach ( $keys as $keyword ) {
     $testname .= '_'.$keyword;
-    bw_trace2( $testname, "testname", false );
+    //bw_trace2( $testname, "testname", false );
     if ( function_exists( $testname ) ) {
       $funcname = $testname;
     }  
@@ -896,27 +897,45 @@ function oik_url( $file=null, $plugin='oik' ) {
 }
 
 /**
+ * Display shortcode help
+ * 
+ * Display a simple line of help to explain the shortcode
+ *
  * Need to find out more about other shortcodes and 
  * then find a way of capturing the registration information for a shortcode
  * it should be possible to find the plugin that implements the shortcode
  * but we might not know the location of the function that we can call 
  * if the shortcode is a lazy shortcode.
+ * 
+ * @param string $shortcode - the shortcode name
  */
 function bw_sc_help( $shortcode="oik" ) {
   oik_require( "includes/oik-sc-help.inc" );
   bw_lazy_sc_help( $shortcode );
 }
 
-function bw_sc_syntax( $shortcode="oik" ) {
+/**
+ * Display a shortcode's syntax
+ *
+ * @param string $shortcode - the shortcode name
+ * @param string $callback - the callback function - which may not be passed 
+ */
+function bw_sc_syntax( $shortcode="oik", $callback=null ) {
   oik_require( "includes/oik-sc-help.inc" );
-  bw_lazy_sc_syntax( $shortcode );
+  bw_lazy_sc_syntax( $shortcode, $callback );
 }
 
+/**
+ * Display a shortcode example
+ */
 function bw_sc_example( $shortcode="oik", $atts=null ) {
   oik_require( "includes/oik-sc-help.inc" );
   bw_lazy_sc_example( $shortcode, $atts );
 }
 
+/**
+ * Display a shortcode snippet
+ */
 function bw_sc_snippet( $shortcode="oik" ) {
   oik_require( "includes/oik-sc-help.inc" );
   bw_lazy_sc_snippet( $shortcode );
@@ -947,6 +966,7 @@ function bw_jquery( $selector, $method, $parms=null, $windowload=false ) {
 
 /**
  * Flush the inline jQuery code to the WordPress footer 
+ * 
  * @globals bw_jq
  */
 function bw_jq_flush() {
@@ -978,7 +998,6 @@ function bw_jq( $text ) {
   }  
 }
 
-
 /**
  * json_encode without Warnings
  *
@@ -993,7 +1012,6 @@ function bw_json_encode( $parms, $option=null ) {
   } else {
     $json = json_encode( $parms, $option );
   }
-  
   return( $json ); 
 } 
 
@@ -1098,21 +1116,29 @@ function bw_file_to_url( $files, $atts=null ) {
       $numberposts--;
     }
   }  
-  bw_trace2( $urls );
+  //bw_trace2( $urls );
   return( $urls );
 }    
 
 /** 
  * Return the URL that this image links to
+ *
+ * If the returned value is numeric ( not 0 ) then we get the permalink for that value.
+ * else we return the given link.
+ *
  * @param int $postid - ID of the attachment
  * @return string $permalink URL for the link
  */
 function bw_get_image_link( $postid ) {
-  $permalink = get_post_meta( $postid, "_bw_image_link", true );    
+  $permalink = get_post_meta( $postid, "_bw_image_link", true );  
+  // bw_trace2( $permalink, "permalink" );
   if ( !$permalink ) {
     $permalink = get_permalink( $postid );
+  } elseif ( is_numeric( $permalink ) ) {
+    $permalink = get_permalink( $permalink );
   }
-  return( $permalink );
+  // bw_trace2( $permalink, "permalink after", false);
+  return( $permalink);
 }
 
 /**
@@ -1129,7 +1155,7 @@ function bw_recreate_options( $option, $autoload="no" ) {
     delete_option( $option );
   }
   add_option( $option, $options, null, $autoload );
-  bw_trace2( $options );
+  //bw_trace2( $options );
   return( $options );
 } 
 
@@ -1257,7 +1283,7 @@ function bw_current_post_id( $id=null ) {
   if ( !$current_post_id ) { 
     $current_post_id = bw_global_post_id();
   }
-  bw_trace2( $current_post_id, "current_post_id" );
+  //bw_trace2( $current_post_id, "current_post_id" );
   return( $current_post_id ); 
 }
 
@@ -1357,7 +1383,7 @@ function bw_dtt( $key, $text=null, $context=null ) {
   if ( $context ) {  
     $bw_dtt[ $key ][$context] = $text;
   }
-  bw_trace2( $bw_dtt );
+  //bw_trace2( $bw_dtt );
   return( $key );
 }
 
@@ -1408,7 +1434,7 @@ function bw_tt( $key ) {
     // $textdomain = bw_context( "textdomain" );
     $bw_l10n[ $key ] = $l10n;
   }
-  bw_trace2( $bw_l10n );
+  //bw_trace2( $bw_l10n );
   return( $l10n );
 }
 

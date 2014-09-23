@@ -3,7 +3,7 @@ if ( defined( 'OIK_PARENT_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_PARENT_SHORTCODES_INCLUDED', true );
 
 /*
-    Copyright 2012, 2013 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012, 2014 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -34,6 +34,9 @@ function bw_post_link( $link=null, $class="bw_post" ) {
   if ( is_numeric( $link ) ) {
     $url = get_permalink( $link );
     $title = get_the_title( $link );
+    if ( empty( $title ) ) {
+      $title = __( "Post: " ) . $link;
+    }
     $link = retlink( $class, $url, $title, null, "id-$link" );
   }
   e( $link );
@@ -69,17 +72,37 @@ function bw_parent__syntax( $shortcode="bw_parent" ) {
 
 /** 
  * Returns the correct inner tag given the outer
+ * 
  * Note: When formatting a list, if you give it the right class then it can be "de-listed" and appear as a normal list quite easily
  * You can even put commas between items. 
+ * But sometimes it's easier to generate simpler HTML
  */
-function bw_inner_tag() {
+function bw_inner_tag( $outer ) {
+  $inner = bw_array_get( bw_inner_tags(), $outer, null );
+  return( $inner );
+}
+  
+  
+   
+/**
+ * Return an array of inner tags for selected outer tags
+ *
+ * Special tags include "o" and "u" - which are abbreviations for "ol" and "ul" respectively.
+ *
+ */
+function bw_inner_tags() {
   $inner_tags = array( "ol" => "li"
+                     , "o" => "li"
                      , "ul" => "li"
+                     , "u" => "li"
                      , "div" => "div" 
                      , "p" => "span"
                      );
   return( $inner_tags );                     
 }
+
+
+
 
 /** 
  * Display a list of links given the post IDs 

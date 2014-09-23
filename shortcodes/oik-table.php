@@ -3,7 +3,7 @@ if ( defined( 'OIK_TABLE_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_TABLE_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -27,23 +27,26 @@ oik_require( "includes/bw_images.inc" );
 oik_require( "bobbforms.inc" );
 
 /**
+ * Display a table header
  * 
+ * @param array $title_arr - array of title header fields
  */
 function bw_table_header( $title_arr ) {
-
   stag( "table", "bw_table" );
   stag( "thead" );
-  bw_tablerow( $title_arr );
+  bw_tablerow( $title_arr, "tr", "th" );
   etag( "thead" );
-  
   stag( "tbody" );
-  
 }
 
 /**
  * Build a default title_arr from the field_arr
+ *
+ * @param array $field_arr
+ * @return array - title array
  */ 
 function bw_default_title_arr( $field_arr ) {
+  $title_arr =array();
   oik_require( "includes/bw_register.inc" );
   if ( count( $field_arr) ) {
     foreach ( $field_arr as $key => $name ) {
@@ -91,24 +94,21 @@ function bw_query_table_columns( $atts=null, $post_type ) {
     
 }
 
-/* bw_custom_column( $column, $post_id )
-(
-    [0] => title
-    [1] => excerpt
-    [_cookie_category] => _cookie_category
-    [_cookie_category_sess] => _cookie_category_sess
-    [_cookie_category_duration] => _cookie_category_duration
-)
-*/
-
+/**
+ * Format a table row
+ * 
+ * @param post $post - the current post object
+ * @param array $atts - shortcode parameters
+ * 
+ */
 function bw_format_table_row( $post, $atts ) {
   global $field_arr; 
   $atts['post'] = $post;
-  bw_trace2( $field_arr, "field_arr", false );
+  //bw_trace2( $field_arr, "field_arr", false );
   stag( "tr" );
   foreach ( $field_arr as $key => $value ) {
-    bw_trace2( $key, "key", false );
-    bw_trace2( $value, "value", false );
+    //bw_trace2( $key, "key", false );
+    //bw_trace2( $value, "value", false );
     stag( "td", $value, $key );
     
     if ( property_exists( $post, $value ) ) {
@@ -131,17 +131,19 @@ function bw_format_table_row( $post, $atts ) {
   }  
   // bw_tablerow( $field_arr );
   etag( "tr");
-
 }
 
 /**
  * Format the data in a table 
+ * 
  * The titles are returned by the post type... what if it's not a custom post type
  * The fields are returned by the post type... ditto
  * 
  * If oik-fields (v1.18 or higher) is not loaded then we need to load the functions to "theme" fields. See bw_format_table_row()
  * If the version loaded still doesn't have bw_theme_field() then we can't continue.
  *
+ * @param array $posts - array of post objectgs
+ * @param array $atts - shortcode parameters
  */
 function bw_format_table( $posts, $atts ) {
   $atts['post_type'] = $posts[0]->post_type;
@@ -175,7 +177,8 @@ function bw_format_table( $posts, $atts ) {
  * @param mixed $atts - parameters to the shortcode 
  * @return string the "raw" content - that could be put through WP-syntax
  */
-function bw_table( $atts=null ) {
+function bw_table( $atts=null, $content=null, $tag=null ) {
+  //bw_trace2();
   $atts['numberposts'] = bw_array_get( $atts, 'numberposts', 10 );
   $posts = bw_get_posts( $atts );
   if ( $posts ) { 

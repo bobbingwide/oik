@@ -44,7 +44,7 @@
 			tmp.empty();
 		},
 
-		_error = function() {
+		_error = function( errapp ) {
 			if (false === selectedOpts.onError(selectedArray, selectedIndex, selectedOpts)) {
 				loading.hide();
 				busy = false;
@@ -56,7 +56,7 @@
 			selectedOpts.width = 'auto';
 			selectedOpts.height = 'auto';
 
-			tmp.html( '<p id="fancybox-error">The requested content cannot be loaded.<br />Please try again later.</p>' );
+			tmp.html( '<p id="fancybox-error">The requested content cannot be loaded.<br />Please try again later.' + errapp + selectedOpts.href + '</p>');
 
 			_process_inline();
 		},
@@ -128,7 +128,7 @@
 			}
 
 			if (!type) {
-				_error();
+				_error( "no type" );
 				return;
 			}
 

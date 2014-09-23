@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012
+<?php // (C) Copyright Bobbing Wide 2012-2014
 if ( defined( 'OIK_TREE_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_TREE_SHORTCODES_INCLUDED', true );
 
@@ -24,13 +24,17 @@ define( 'OIK_TREE_SHORTCODES_INCLUDED', true );
 oik_require( "includes/bw_posts.inc" );
 
 /**
- * format the tree - as a nested list
- * these functions are called recursively
- * to create trees of the children for each page
+ * Format the tree - as a nested list
+ *
+ * To create trees of the children for each page, these functions are called recursively.
+ * Whether or not this works with posts_per_page set is debateable.
+ *
+ * @param post $post - the current post to process
+ * @param array $atts - shortcode parameters
  */
 function bw_format_tree( $post, $atts ) {
   stag( "li" );
-  $url= get_permalink($post->ID);
+  $url= get_permalink( $post->ID );
   $title = $post->post_title; 
   alink( "bw_tree", $url, $title ); 
   $atts['post_parent'] = $post->ID;
@@ -39,7 +43,11 @@ function bw_format_tree( $post, $atts ) {
 } 
 
 /** 
- * build and format a tree
+ * Build and format a tree
+ *
+ * Display the hierarchy of a post type in a simple tree
+ *  
+ * @param array $atts - shortcode parameters
  */
 function bw_tree_func( $atts ) {  
   $posts = bw_get_posts( $atts );
@@ -48,7 +56,7 @@ function bw_tree_func( $atts ) {
     foreach ( $posts as $post ) {
       bw_format_tree( $post, $atts );
     }
-  etag( "ul" );
+    etag( "ul" );
   }
 }
 
@@ -86,10 +94,11 @@ function bw_tree( $atts = NULL ) {
   return( bw_ret() );
 }
 
-
 /** 
- * bw_tree doesn't currently support classes
-*/
+ * Syntax hook for [bw_tree] shortcode
+ * 
+ * bw_tree doesn't currently support the "class" parameter
+ */
 function bw_tree__syntax( $shortcode="bw_tree" ) {
   $syntax = _sc_posts(); 
   // $syntax = array_merge( $syntax, _sc_classes() );

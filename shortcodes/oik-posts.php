@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2012,2013 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012,2014 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -29,6 +29,9 @@ oik_require( "shortcodes/oik-list.php" );
  * [bw_posts] 
  *
  * [bw_posts post_type='post' category_name='news' orderby='post_date' order='DESC' numberposts=8]
+ *
+ * @param array $atts 
+ * @return string result of bw_list()
  */
 function bw_posts( $atts = NULL ) {    
   $atts['post_type'] = bw_array_get( $atts, "post_type", "post" );
@@ -47,6 +50,9 @@ function bw_posts( $atts = NULL ) {
   return( bw_list( $atts )) ;
 }
 
+/**
+ * Syntax hook for [bw_posts] shortcode
+ */
 function bw_posts__syntax( $shortcode="bw_posts" ) {
   $syntax = _sc_posts(); 
   $syntax = array_merge( $syntax, _sc_classes() );

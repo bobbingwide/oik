@@ -176,7 +176,9 @@ function bw_mob( $atts=null ) {
  * 
  * Skype Online Material: the Skype buttons and widgets available for download on the 
  * Skype Website at http://www.skype.com/share/buttons/ 
- * as such may be changed from time to time by Skype in its sole discretion.  
+ * as such may be changed from time to time by Skype in its sole discretion.
+ *  
+ * Skype Buttons: http://www.skype.com/en/features/skype-buttons/create-skype-buttons/ 
 */
 function bw_skype( $atts=null, $content=null, $tag=null ) {
   $atts['index'] = bw_array_get( $atts, "index", "skype" );

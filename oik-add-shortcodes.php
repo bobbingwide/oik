@@ -172,7 +172,8 @@ function bw_shortcode_event( $atts, $content=null, $tag=null) {
     //bw_trace( $bw_sc_ev, __FUNCTION__, __LINE__, __FILE__, "bw_sc_ev" );
     $atts = apply_filters( "oik_shortcode_atts", $atts, $content, $tag );
     $shortcodefunc = bw_load_shortcodefunc( $shortcodefunc, $tag ); 
-    $result = call_user_func( $shortcodefunc, $atts, $content, $tag );   
+    $result = call_user_func( $shortcodefunc, $atts, $content, $tag );
+    $result = apply_filters( "oik_shortcode_result", $result, $atts, $content, $tag );   
   }
   
   /**
@@ -271,7 +272,10 @@ function bw_add_shortcode_event( $shortcode, $function=NULL, $eventlist='all', $
 
 /** 
  * Add the location for the lazy shortcode
-*/
+ *
+ * @param string $shortcode - the shortcode tag
+ * @param string $file - the full file name
+ */
 function bw_add_shortcode_file( $shortcode, $file=NULL ) {
   global $bw_sc_file;
   if ( $file ) {
@@ -316,7 +320,12 @@ function bw_get_shortcode_title_expansion( $shortcode ) {
  * bp_screens is included to support BuddyPress
  * get_the_excerpt is to support Artisteer 3.1 beta 1 
  * and is used in oik-plugins server
-*/
+ *
+ * @param string $shortcode - the shortcode tag
+ * @param string|array $function - the implementing function
+ * @param string  $file - the full file name to be loaded when the function is not already loaded
+ * @param book $the_title - true if the shortcode is allowed to expand in "the_title" processing 
+ */
 function bw_add_shortcode( $shortcode, $function=NULL, $file=NULL, $the_title=TRUE ) {
   bw_add_shortcode_event( $shortcode, $function ) ;
   bw_add_shortcode_title_expansion( $shortcode, $the_title );
@@ -330,6 +339,8 @@ function bw_add_shortcode( $shortcode, $function=NULL, $file=NULL, $the_title=TR
 
 /**
  * Implement 'oik_add_shortcodes' action for oik
+ * 
+ * Loads oik shortcodes and registers them
  */
 function bw_oik_add_shortcodes() {
   oik_require( "includes/oik-shortcodes.php" );
@@ -342,8 +353,8 @@ function bw_oik_add_shortcodes() {
  * Decide whether or not to register shortcodes
  * 
  * If the content includes a left square bracket ( [ ) then we assume that there is a shortcode
- * so "oik_add_shortcodes" to register our own shortcodes and other plugins to register theirs
- * if they haven't already done so.
+ * so invoke the "oik_add_shortcodes" action hook to register our own shortcodes
+ * and advise other plugins to register theirs if they haven't already done so.
  *
  * @param string $content 
  * @return string unchanged $content

@@ -106,6 +106,7 @@ function oik_check_version( $depend, $version ) {
 
 /**
  * Return an array of ALL active plugins - for single or multisite 
+ *
  * @return associative array
  * 
  */
@@ -172,16 +173,19 @@ function oik_lazy_depends( $plugin=null, $dependencies, $callback="oik_plugin_in
 
 /** 
  * Produce an install plugin link
+ *
+ * @param string $plugin - the plugin name e.g.
+ * @return string - the HTML
  */
 function oik_install_plugin( $plugin ) {
-    $path = "update.php?action=install-plugin&plugin=$plugin";
-    $url = admin_url( $path );
-    $url = wp_nonce_url( $url, "install-plugin_$plugin" ); 
-    $link = '<a href="';
-    $link .= $url;
-    $link .= '">Install';
-    $link .= " $plugin</a>";
-    return( $link );
+  $path = "update.php?action=install-plugin&plugin=$plugin";
+  $url = admin_url( $path );
+  $url = wp_nonce_url( $url, "install-plugin_$plugin" ); 
+  $link = '<a href="';
+  $link .= $url;
+  $link .= '">Install';
+  $link .= " $plugin</a>";
+  return( $link );
 }
 
 /**
@@ -211,31 +215,29 @@ function oik_activate_plugin( $plugin, $plugin_name) {
     return( $link );
 } 
  
-/**    
-    $path = "update.php?action=install-plugin&plugin=$plugin";
-    $url = admin_url( $path );
-    $url = wp_nonce_url( $url, "install-plugin_oik" ); 
-    $link = '<a href="';
-    $link .= $url;
-    $link .= '">Install oik</a>';
-    
-  $url = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=' . $update_file), 'upgrade-plugin_' . $update_file);
+/**
+ * Produce an "update" plugin link
+ *
+ * @param string $plugin - the plugin name
+ * @return string - the HTML
  */
 function oik_update_plugin( $plugin ) {
-    $path = "update.php?action=upgrade-plugin&plugin=$plugin";
-    $url = admin_url( $path );
-    $url = wp_nonce_url( $url, "upgrade-plugin_$plugin" ); 
-    $link = '<a href="';
-    $link .= $url;
-    $link .= '">Upgrade';
-    $link .= " $plugin</a>";
-    return( $link );
+  $path = "update.php?action=upgrade-plugin&plugin=$plugin";
+  $url = admin_url( $path );
+  $url = wp_nonce_url( $url, "upgrade-plugin_$plugin" ); 
+  $link = '<a href="';
+  $link .= $url;
+  $link .= '">Upgrade';
+  $link .= " $plugin</a>";
+  return( $link );
 }
 
 /** 
  * Find out of we think the plugin is installed but not activated or not even installed
+ * 
  * @param string $plugin - the plugin file name ( without plugin path info? )
  * @return string - null if it's not installed or plugin to be activated
+ * 
  C:\apache\htdocs\wordpress\wp-content\plugins\oik\shortcodes\oik-bob-bing-wide.php(289:0) 2012-05-23T07:52:15+00:00 696 cf=the_content bw_get_plugins(4)  Array
 (
 

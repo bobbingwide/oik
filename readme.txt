@@ -2,9 +2,9 @@
 Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle
-Requires at least: 3.7
-Tested up to: 3.9.1
-Stable tag: 2.2
+Requires at least: 3.9
+Tested up to: 4.0
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,16 @@ Over 80 advanced, powerful shortcodes for displaying the content of your WordPre
 The *oik base* plugin provides a series of advanced WordPress shortcodes that help you display dynamic content from your website's pages, posts, attachments, links and custom post types.
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information. 
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
+
+At a glance changes in version 2.3
+
+* Now supports pagination when the shortcode output could be very large
+* Supports pagination for multiple shortcodes being displayed on a page
+* Allows shortcodes to list posts of multiple post types. e.g. post_type="post,page" 
+* New option to display post IDs on admin pages
+* Specify logo image by post ID, fully qualified file name, or file in the uploads directory.
+* Specify oik custom image link by post ID or full qualified file name. 
+* Changes required by the oik-fields plugin.
 
 At a glance changes in version 2.2
 
@@ -44,7 +54,7 @@ At a glance changes in version 2.0
 * New and updated APIs, actions and filters
 * Fully documented using oik's dynamic API documentation
 
-oik now provides 80 shortcodes including:
+oik now provides over 80 shortcodes including:
 
 * [bw_pages], [bw_posts], [bw_thumbs], [bw_attachments], [bw_images], [bw_pdf] shortcodes to list subpages, posts, attachments or custom post types 
 * [bw_cycle] to display content using jQuery cycle.
@@ -101,7 +111,8 @@ The shortcode reference also includes the standard WordPress shortcodes and help
 = Where are the APIs documented? =
 [oik APIs](http://www.oik-plugins.com/apis/oik-apis)
 
-The Application Programming Interface (API) reference documents over 900 APIs 
+The Application Programming Interface (API) reference documents over 960 APIs, implemented in 86 files with 55 action hooks and filters.
+
 
 == Screenshots ==
 1. oik options - Options
@@ -118,6 +129,24 @@ The Application Programming Interface (API) reference documents over 900 APIs
 12. oik options - More information for [bw_show_googlemap] 
 
 == Upgrade Notice ==
+= 2.3-beta.0825 =
+Improvements for oik-plugins.com. Tested with WordPress 4.0-RC1
+
+= 2.3-alpha.0728 = 
+Improvements for RNGS.org.uk 
+
+= 2.3-alpha.0616 =
+Improvements for wp-a2z.com and some minor fixes
+
+= 2.3-alpha.0613 =
+Now supports pagination of shortcode output using posts_per_page= parameter. Required for very long lists in wp-a2z.com
+ 
+= 2.3-alpha.0604 =
+Required for any site wanting a simpler/more advanced [bw_link]. Added help and syntax help for [playlist] 
+
+= 2.3-alpha.0531 =
+Needed by sites wanting to use [bw_count] shortcode or display [bw_list] output as a numbered list
+
 = 2.3-alpha.0511 =
 Fixes for sites using [bw_code] and improvements for taxonomy fields
 
@@ -304,6 +333,78 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 2.3 = 
+* Changed: oik now implements the "init" action with priority 11. This means "oik_loaded" will be fired after other plugins have registered post types and taxonomies.
+* Changed: Updated readme.txt for official release of v2.3
+* Tested: With WordPress 4.0 and WordPress Multi-Site
+* Changed: Display of field labels is now optional, using #label arg.
+
+= 2.3-beta.0825 =
+* Added: [api bw_field_function_featured_image()] for format=F
+* Added: [api bw_format_more()] for the inline read more link
+* Added: oik-ids.php to implement optional display of post IDs on admin pages 
+* Added: filters to allow other plugins to provide shortcode help and syntax
+* Added: action [hook bw_sc_link] to allow other plugins to define the link to more shortcode help 
+* Changed: Added bw_field_function_more() for format=M to display simpler "more" link - not styled as an Artisteer button.
+* Changed: Added bw_query_shorten() and bw_shorten() to allow truncation of long option strings in select fields. Uses '#length' arg. 
+* Changed: Commented out more calls to bw_trace2()
+* Changed: For easier CSS styling, [bw_pdf] and [bw_images] set default classes; "bw_pdf" and "bw_images", instead of using "bw_attachments"
+* Changed: Improved some more docblock commments
+* Changed: Logo image can be defined using a post ID
+* Changed: Shortcode syntax help now produces links to the definition of the shortcode and parameters at oik-plugins.com
+* Changed: Removed "more oik help" column from the shortcode help table.
+* Changed: Commented out some unused shortcodes from the default_help table. 
+* Changed: Use format=R for a blocked read more link and format=M for an inline read more link.
+* Changed: bw_format_label() supports '#label' option. Set to false when the label and separator are not required.
+* Changed: bw_get_posts() now supports an "id" array with only one element for "post__in" processing. Required for oik-fields [bw_related] by= parameter.
+* Changed: oik custom image link can be defined using a post ID
+* Changed: [hook bw_syntax] now expects two parameters
+* Fixed: Added missing function bw_field_function_anchor() for format=A
+ 
+= 2.3-alpha.0728 =
+* Added: Option to replace the "Howdy," prefix in admin menu; implements "admin_bar_menu" hook
+* Added: Option to use the logo image as a login logo; implements "login_head" hook
+* Added: Optional parameter $prefix to bw_navi_s2eofn()
+* Added: bw_get_thumbnail_src()
+* Changed: Disable 'wpmem_securify' filter on oik options page to avoid Notify messages
+* Changed: Minor improvement to [bw_count] shortcode
+* Changed: Tidied logic in bw_get_thumbnail()
+* Changed: bw_load_shortcode_suffix() to cater for shortcodes containing hyphens
+* Commented out: Some tracing calls
+* Fixed: Initialise $title_arr in bw_default_title_arr() 
+* Fixed: docblock comment for bw_pp_shortcodes()
+
+= 2.3-alpha.0616 =
+* Added: "start to end of count" for paginated shortcode output. e.g. 1 to 30 of 42
+* Changed: table header now formatted usin th 
+* Fixed: Null post titles displayed as "Post: id"
+* Changed: bw_sl(), and bw_el() now handle comma separated as well as unordered and ordered list types
+* Changed: added bw_simple_list() to better handle logic to produce "simple" lists of links to posts
+* Fixed: Changed bw_inner_tag() and added bw_inner_tags() to support bw_simple_list()
+
+= 2.3-alpha.0613 = 
+* Added: bw_shortcode_event() now invokes "oik_shortcode_result" after shortcode expansion
+* Added: bw_get_posts() now supports queries for multiple post types
+* Added: [bw_navi] shortcode - Simple paginated list
+* Added: oik_navi_shortcode_result() implements "oik_shortcode_result" filter to add pagination
+* Added: oik_navi_shortcode_atts() implements "oik_shortcode_atts" filter to prepare for handling pagination 
+* Changed: Commented out some calls to bw_trace2() / bw_backtrace()
+* Changed: More documentation improvements
+* Changed: [bw_link] with no parameters will produce a link to the current post
+* Fixed: Shortcode help for [bw_list] thumbnail= parameter, default: none
+* Fixed: bw_form_field_noderef() now caters for badly stored noderef; stored as serialised post rather than post->ID
+* Fixed: bw_format_list() now displays a post with no title as "Post: id"
+
+= 2.3-alpha.0604 = 
+* Changed: [bw_link] shortcode no longer requires http:// prefix when linking to an external site. Prefix internal links with /. 
+* Added: Help and syntax help for the WordPress [playlist] shortcode
+
+= 2.3-alpha.0531 = 
+* Added: uo= parameter for [bw_list]. Use uo=o for a numbered list.
+* Added: [bw_count] shortcode
+* Fixed: Notify message from bw_build_akismet_query_string() assignment of comment_content
+* Changed: Minor changes to jquery.fancybox-1.3.4.js for problem determination
+
 = 2.3-alpha.0511 =
 * Added: Documented the unexpected gobang() function in deprecated.inc
 * Added: Help description and syntax for Artisteer shortcodes, some of which appear fairly useless!
@@ -313,7 +414,6 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Changed: Improved formatting for custom taxonomy fields
 * Changed: [bw_codes] now displays if the shortcode expands during 'the_title' filter processing
 * Fixed: bw_get_shortcode_function() needs to check for the 'all' event, in addition to 'the_content'
-
 
 = 2.3-alpha.0509 = 
 * Changed: Shortcodes expansion now supports values for current filter, not just 'the_content', 'the_excerpt' and 'the_title'
@@ -975,6 +1075,39 @@ If you want to read more about the oik plugins then please visit the
 [oik plugin](http://www.oik-plugins.com/oik) 
 **"the oik plugin - for often included key-information"**
 
+= Other plugins =
+
+Other plugins which use the oik API are also available on WordPress.org: 
+
+* [bbboing](http://www.wordpress.org/extend/plugins/bbboing) - obfuscate text but leave it readable
+* [cookie-cat](http://www.wordpress.org/extend/plugins/cookie-cat) - [cookies] shortcode to list the cookies your website may use
+* [oik-batchmove](http://www.wordpress.org/extend/plugins/oik-batchmove) - batch change post categories or published date
+* [oik-css](http://www.wordpress.org/extend/plugins/oik-css) - [bw_css] for CSS styling per page
+* [oik-nivo-slider](http://wordpress.org/extend/plugins/oik-nivo-slider/) - [nivo] shortcode for the jQuery "Nivo slider" for posts, pages, attachments and custom post types
+* [oik-privacy-policy](http://www.wordpress.org/extend/plugins/oik-privacy-policy) - generate a privacy policy page, compliant with UK cookie law (EU cookie directive)
+* [oik-read-more](https://wordpress.org/plugins/oik-read-more) - progressively reveal content by clicking on "read more" buttons
+* [uk-tides](http://wordpress.org/extend/plugins/uk-tides/) - [bw_tides] shortcode for tide times and heights in the UK  (replaces oik-tides)
+
+This plugin is not dependent upon oik.
+
+* [oik-weightcountry-shipping](http://wordpress.org/plugins/oik-weightcountry-shipping) - Weight/Country Shipping for WooCommerce
+
+
+More FREE and Premium plugins are available from [oik-plugins.com](http://www.oik-plugins.com/wordpress-plugins-from-oik-plugins/) including:
+
+* [diy-oik](http://www.oik-plugins.com/oik-plugins/diy-oik) - Do-It-Yourself shortcodes
+* [oik-External link warning jQuery](http://www.oik-plugins.com/oik-plugins/external-link-warning-jquery/) - Warns visitor when leaving your site
+* [oik-fields](http://www.oik-plugins.com/oik-plugins/oik-fields-custom-post-type-field-apis) - custom post type field APIs
+* [oik-ms](http://www.oik-plugins.com/oik-plugins/oik-ms-oik-multisite-shortcodes/) - oik MultiSite shortcodes
+* [oik-mshot](http://www.oik-plugins.com/oik-plugins/oik-mshot) - Shortcode to display the "mshot" of an URL; oik-fields extension
+* [oik-rating](http://www.oik-plugins.com/oik-plugins/oik-rating) - 5 star rating custom field; oik-fields extension
+* [oik-testimonials](http://www.oik-plugins.com/oik-plugins/oik-testimonials) - Manage and display testimonials.
+* [oik-todo](http://www.oik-plugins.com/oik-plugins/oik-todo-todo-list) - TODO list
+* [oik-types](http://www.oik-plugins.com/oik-plugins/oik-types) - custom content type, field and taxonomy manager
+* [oik-user](http://www.oik-plugins.com/oik-plugins/oik-user) - display oik information for each site user
+* [us-tides](http://www.oik-plugins.com/oik-plugins/us-tides) - US saltwater tide times and heights
+
+
 = Removal of child plugins (version 2.0) =
 
 Up to and including version 1.17 the oik plugin included a number of optional modules which could be activated as and when you needed them.
@@ -983,7 +1116,7 @@ In oik version 1.17, any activated module automatically relocated itself to beco
 Each individual plugin is supported from an oik-plugins server. 
 The version number of child plugins delivered with oik v1.17 was v1.18.
 
-In version 2.0 the child plugins have been removed from the oik base package.
+In version 2.0 the child plugins were removed from the oik base package.
 
 Plugins that were relocated and served from the oik-plugins servers were:
 
@@ -999,25 +1132,6 @@ Plugins that were relocated and served from the oik-plugins servers were:
 
 Note: For some of these plugins the oik base plugin still provides a certain amount of code.
 
-= Other plugins =
-
-Other plugins which use the oik API are also available on WordPress.org: 
-
-* [oik-nivo-slider](http://wordpress.org/extend/plugins/oik-nivo-slider/) - [nivo] shortcode for the jQuery "Nivo slider" for posts, pages, attachments and custom post types
-* [oik-privacy-policy](http://www.wordpress.org/extend/plugins/oik-privacy-policy) - generate a privacy policy page, compliant with UK cookie law (EU cookie directive)
-* [cookie-cat](http://www.wordpress.org/extend/plugins/cookie-cat) - [cookies] shortcode to list the cookies your website may use
-* [uk-tides](http://wordpress.org/extend/plugins/uk-tides/) - [bw_tides] shortcode for tide times and heights in the UK  (replaces oik-tides)
-* [bbboing](http://www.wordpress.org/extend/plugins/bbboing) - obfuscate text but leave it readable
-* [oik-css](http://www.wordpress.org/extend/plugins/oik-css) - [bw_css] for CSS styling per page
-* [oik-batchmove](http://www.wordpress.org/extend/plugins/oik-batchmove) - batch change post categories or published date
-
-More FREE and Premium plugins are available from [oik-plugins.com](http://www.oik-plugins.com/wordpress-plugins-from-oik-plugins/) including:
-
-* [oik-user](http://www.oik-plugins.com/oik-plugins/oik-user/) - display oik information for each site user
-* [oik-ms](http://www.oik-plugins.com/oik-plugins/oik-ms-oik-multisite-shortcodes/) - oik MultiSite shortcodes
-* [oik-External link warning jQuery](http://www.oik-plugins.com/oik-plugins/external-link-warning-jquery/)
-* [us-tides](http://www.oik-plugins.com/oik-plugins/us-tides/) - US saltwater tide times and heights
-
 
 oik plugins are suitable for:
 
@@ -1027,7 +1141,7 @@ oik plugins are suitable for:
 * WordPress web site developers 
 * WordPress plugin developers
 
-oik plugins are tested with: WordPress Multi Site, BuddyPress and bbPress.
+oik plugins are tested with: WordPress Multi Site.
 
 ALL of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier. 
 These are known as the [OIK Application Programming Interface (OIK API)](http://www.oik-plugins.com/apis/oik-apis)

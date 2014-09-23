@@ -1,9 +1,9 @@
-<?php // (C) Copyright Bobbing Wide 2012, 2013
+<?php // (C) Copyright Bobbing Wide 2012, 2014
 if ( defined( 'OIK_PAGES_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_PAGES_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2012, 2013 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -120,6 +120,6 @@ function bw_pages__example( $shortcode="bw_pages" ) {
  * Snippet hook for [bw_pages] shortcode
  */
 function bw_pages__snippet( $shortcode="bw_pages" ) {
- e( "No snippet available" );
+  e( "No snippet available" );
 } 
 

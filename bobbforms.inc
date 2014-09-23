@@ -349,6 +349,40 @@ function is_selected( $option_key, $option_value, $value ) {
 }
 
 /**
+ * Query the need to shorten a select field's options
+ *
+ * Get the value of '#length' if available. If this is set then we truncate the options strings
+ *
+ *
+ * @param array $args -
+ * @return integer - the length to shorten to, not including the '...'
+ *
+ */
+function bw_query_shorten( $args=null ) {
+  bw_backtrace();
+  $shorten = 0;
+  if ( $args ) {
+    $shorten = bw_array_get( $args, "#length", 0 );
+  }
+  return( $shorten );
+}
+
+/**
+ * shorten a string
+ *
+ * @param string|null $string 
+ * @param integer $shorten
+ * @return
+ */
+function bw_shorten( $string, $shorten ) {
+  if ( strlen( $string ) > ( $shorten + 3) ) {
+    $string = substr( $string, 0, $shorten );
+    $string .= "...";
+  }
+  return( $string );
+}
+
+/**
  * Return a select list with the current selection
  *
  * The current value may either be a numeric index OR the actual string 
@@ -373,8 +407,12 @@ function iselect( $name, $value, $args ) {
     $options = array( __( "None" ) ) + $options;
   }
   //bw_trace2( $options, "options" );
+  $bw_shorten = bw_query_shorten( $args );
   foreach ( $options as $option_key => $option_value ) {
     $selected = is_selected( $option_key, $option_value, $value );
+    if ( $bw_shorten ) {
+      $option_value = bw_shorten( $option_value, $bw_shorten );
+    }
     $option = "<option value=\"$option_key\" $selected>$option_value</option>";
     $iselect .= $option; 
   }

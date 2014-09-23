@@ -149,14 +149,35 @@ function bw_load_noderef( $args ) {
 }
 
 /**
+ * Return a noderef ID from a post
+ * 
+ * Temporary fix: if the $value is an object then we've got it wrong creating it. Try to extract the ID.
+ * If this fails to get the ID then don't worry. Something else might go wrong later.
+ *
+ * @param ID|post - if the $value is an object then we get the ID property
+ * @return ID - we hope we can return the ID of the object
+ */
+function bw_get_noderef_id( $value ) {
+  if ( is_object( $value ) ) {
+    if ( property_exists( $value, "ID" ) ) {
+      $value = $value->ID;
+    }
+  }
+  return( $value );
+}
+
+/**
  * Form a 'noderef' field type
  * 
  * bw_form_field_noderef - formatting for a field as a select list of a list of nodes of a particular type
  * The options come from $args[#type] 
+ *
+ * 
  */
 function bw_form_field_noderef( $name, $type, $title, $value, $args ) {
   $options = bw_load_noderef( $args );
   $args['#options'] =  $options;
+  $value = bw_get_noderef_id( $value );
   bw_select( $name, $title, $value, $args );
 }
    
@@ -431,7 +452,7 @@ function bw_effort_save_postdata( $post_id, $post ) {
     do_action( "save_post_${post_type}", $post_id, $post );
   
     global $bw_mapping; 
-    bw_trace( $bw_mapping, __FUNCTION__, __LINE__, __FILE__, "bw_mapping" );
+    //bw_trace( $bw_mapping, __FUNCTION__, __LINE__, __FILE__, "bw_mapping" );
     if ( isset(  $bw_mapping['field'][$post_type] )) {
       foreach ( $bw_mapping['field'][$post_type] as $field ) {
         bw_effort_update_field( $post_id, $field );

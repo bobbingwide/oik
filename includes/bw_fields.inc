@@ -155,7 +155,7 @@ function bw_pre_theme_field() {
  * 
  */
 function bw_theme_field( $key, $value, $field=null ) {
-  bw_trace2();
+  //bw_trace2();
   $type = bw_array_get( $field, "#field_type", null );
   //
   //if ( function_exists( "bw_pre_theme_field" ) ) {
@@ -172,7 +172,7 @@ function bw_theme_field( $key, $value, $field=null ) {
   }  
   
   if ( is_callable( $funcname ) ) {
-    bw_trace2( $funcname, "funcname chosen", false );
+    //bw_trace2( $funcname, "funcname chosen", false );
     call_user_func( $funcname,  $key, $value, $field );
   } else {
     bw_trace2( $funcname, "funcname chosen not callable, using default _bw_theme_field_default", false );
@@ -198,7 +198,7 @@ function bw_theme_field__post_title( $key, $value, $field ) {
  *
  */
 function bw_theme_field__title( $key, $value, $field ) {
-  bw_trace2();
+  //bw_trace2();
   $post = bw_array_get( $field, "post", null );
   if ( $post ) { 
     $link = get_permalink( $post->ID );
@@ -280,6 +280,7 @@ function bw_label_from_key( $key ) {
  * Format the label for a field
  * 
  * @param array $customfield - a simple array of $key => $value
+ * @return bool - true if the label was required
  *
  * Should this be  **?** <label for="_oikp_type">Plugin type</label>
  */
@@ -292,13 +293,18 @@ function bw_format_label( $customfield ) {
       //bw_trace2( $field );
       //bw_theme_label( $key, $value, $field );
       $label = bw_array_get( $field, "#title", $key );
+      $do_label = bw_array_get( $field['#args'], "#label", true );
     } else {  
       $label = bw_label_from_key( $key );  
+      $do_label = true;
     }
-    span( "label $key" ); 
-    e( $label );
-    epan( $key );
+    if ( $do_label ) {
+      span( "label $key" ); 
+      e( $label );
+      epan( $key );
+    }  
   }
+  return( $do_label );
 }
 
 /**
@@ -357,18 +363,21 @@ function bw_format_sep( $type="field" ) {
  * Most of them simply extract array[0] 
  *
  * @uses bw_format_field
+ * @param array $customfields - array of fields to display
  */
 if ( !function_exists( "bw_format_meta" ) ) {
 function bw_format_meta( $customfields ) {
-  bw_trace2();
   //bw_backtrace();
   foreach  ( $customfields as $key => $customfield ) {
     $value = $customfield;
     // $value = bw_array_get( $customfield, 0, $customfield ); **?** is it OK to pass an array everywhere?   Herb 2013/10/24
     $cf = array( $key => $value );
+    //bw_trace2( $cf, "cf" );
     sdiv( "bw_metadata $key" );
-    bw_format_label( $cf );
-    bw_format_sep( $cf );
+    $do_label = bw_format_label( $cf );
+    if ( $do_label ) {
+      bw_format_sep( $cf );
+    }  
     bw_format_field( $cf );
     ediv( "metadata $key" );
   }  

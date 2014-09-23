@@ -572,9 +572,11 @@ function bw_lazy_trace2( $value=NULL, $text=NULL, $show_args=true ) {
 
 /**
  * Implement (lazy) trace startup from wp-config.php
+ * 
  * We cater for the follow defined constants
  * - define( 'BW_TRACE_ON', true );
  * - define( 'BW_ACTIONS_ON', true );
+ * - define( 'BW_COUNT_ON', true );
  * - define( 'BW_TRACE_RESET', true );
  * - define( 'BW_ACTIONS_RESET', true );
  */
@@ -589,6 +591,11 @@ function bw_lazy_trace_config_startup() {
     $actions_on = BW_ACTIONS_ON;
   else
     $actions_on = false;
+    
+  if ( defined( 'BW_COUNT_ON' ) )
+    $count_on = BW_COUNT_ON;
+  else
+    $count_on = false;
     
   if ( defined( 'BW_TRACE_RESET' ) )
     $trace_reset = BW_TRACE_RESET;
@@ -608,7 +615,7 @@ function bw_lazy_trace_config_startup() {
     }   
   }
 
-  if ( $actions_on ) {     
+  if ( $actions_on || $count_on ) {     
     oik_require2( "includes/oik-bwtrace.inc", "oik-bwtrace" );
     bw_action_inc_init();
     bw_trace_actions_on();     

@@ -1,6 +1,4 @@
 <?php
-if ( !defined( 'OIK_CODES_SHORTCODES_INCLUDED' ) ) {
-define( 'OIK_CODES_SHORTCODES_INCLUDED', true );
 /*
 
     Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
@@ -49,7 +47,7 @@ function bw_code_link( $shortcode ) {
 function bw_get_shortcode_callback( $shortcode ) {
   global $shortcode_tags; 
   $callback = bw_array_get( $shortcode_tags, $shortcode, null );
-  bw_trace2( $callback, "shortcode callback" );
+  //bw_trace2( $callback, "shortcode callback" );
   return( $callback ); 
 }
 
@@ -116,35 +114,46 @@ function bw_get_shortcode_expands_in_titles( $shortcode ) {
 /**
  * Display the shortcode, syntax and link
  *
+ * Note: This used to display a separate link to the oik shortcode server help.
+ * Now this is incorporated into the syntax help, along with a link to the oik shortcode parameter
+ *
  * @param string $shortcode - the shortcode tag
  * @param string $callback - the registered callback for the shortcode
  */
 function bw_get_shortcode_syntax_link( $shortcode, $callback ) {
-  //p( "Shortcode $shortcode, callback $callback" );
-  //bw_tablerow( array( $shortcode, $link ) );
   stag( "tr" );
   stag( "td" );
   bw_code_link( $shortcode );
   do_action( "bw_sc_help", $shortcode );
-  //do_action( "bw_sc_example", $shortcode );
   etag( "td" );
   stag( "td" );
   do_action( "bw_sc_syntax", $shortcode );
   etag( "td" );
-  
   stag( "td" );
   e( bw_get_shortcode_expands_in_titles( $shortcode ) );
   etag( "td" );
-  
-  stag( "td" );
-  $function = bw_get_shortcode_function( $shortcode, $callback );
-  $link = "http://www.oik-plugins.com/oik-shortcodes/$shortcode/$function"; 
-  alink( NULL, $link, "$shortcode help" );   
-  etag( "td");
-  //bw_td( $shortcode );
-  //bw_td( $link );
   etag( "tr" );
 }
+
+/**
+ * Display a link to "external" shortcode help
+ *
+ * Plugins can intercept the shortcode link to provide their own links to further documentation
+ * e.g. diy-oik will produce a link to the user's own definition of the DIY shortcode.
+ *
+ * @param string $shortcode - the shortcode
+ * @param mixed $callback - the callback function - which may not be passed
+ */
+function bw_sc_link( $shortcode, $callback=null ) {
+  $function = bw_get_shortcode_function( $shortcode, $callback );
+  $link = "http://www.oik-plugins.com/oik-shortcodes/$shortcode/$function"; 
+  $link = apply_filters( "bw_sc_link", $link, $shortcode, $function );
+  if ( $link ) {
+    alink( NULL, $link, "$shortcode", "$shortcode help" );   
+  } else {
+    e( $shortcode );
+  } 
+} 
 
 /**
  * Table header for bw_codes
@@ -167,7 +176,7 @@ function bw_help_table( $table=true ) {
     th( "Help" );
     th( "Syntax" );
     th( "Expands in titles?" );
-    th( "more oik help" );
+    //th( "more oik help" );
     etag( "tr" );
     etag( "thead" );
  
@@ -209,6 +218,7 @@ function bw_shortcode_list( $atts=null ) {
 
 /**
  * Produce a table of shortcodes
+ * 
  * @param array $atts - shortcode parameters
  */
 function bw_list_shortcodes( $atts = NULL ) {
@@ -223,7 +233,7 @@ function bw_list_shortcodes( $atts = NULL ) {
   //bw_trace2( $shortcode_tags, "shortcode_tags" );
   add_action( "bw_sc_help", "bw_sc_help" );
   add_action( "bw_sc_example", "bw_sc_example" );
-  add_action( "bw_sc_syntax", "bw_sc_syntax" );
+  add_action( "bw_sc_syntax", "bw_sc_syntax", 10, 2 );
   bw_help_table();
   foreach ( $shortcode_tags as $shortcode => $callback ) {
     bw_get_shortcode_syntax_link( $shortcode, $callback );
@@ -368,6 +378,3 @@ function bw_code_example_link( $atts ) {
     epan();
   }   
 }
-   
-
-} /* end !defined */

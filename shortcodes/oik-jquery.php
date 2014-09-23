@@ -286,7 +286,8 @@ function bwsc_jquery( $atts=null, $content=null, $tag=null ) {
 }
 
 /**
- * Directly add the jQuery/JavaScript file to the generated HTML 
+ * Directly add the jQuery/JavaScript file to the generated HTML
+ *  
  * We can't do this since it could come out before jQuery is defined!
  * Note: This is OK for external JavaScript files but not for jQuery code.
  */

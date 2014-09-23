@@ -147,5 +147,71 @@ function bw_oik_lazy_add_shortcodes() {
   bw_add_shortcode( "bw_countdown", "bw_countdown", oik_path( "shortcodes/oik-countdown.php" ), false );
   /* New shortcode for oik v2.0.2 / v2.1 */
   bw_add_shortcode( "bw_cycle", "bw_cycle", oik_path( "shortcodes/oik-cycle.php" ), false ); 
+  /* New shortcode for oik v2.3 */
+  bw_add_shortcode( "bw_count", "bw_count", oik_path( "shortcodes/oik-count.php" ) );
   
-}  
+  
+  bw_add_shortcode( "bw_navi", "bw_navi", oik_path( "shortcodes/oik-navi.php" ), false );
+  
+  add_filter( "oik_shortcode_result", "oik_navi_shortcode_result", 10, 4 );
+  add_filter( "oik_shortcode_atts", "oik_navi_shortcode_atts", 10, 3 );
+  
+} 
+
+/**
+ * Implement "oik_shortcode_atts" filter for pagination
+ *
+ * If the shortcode parameters includes "posts_per_page" then we need to consider pagination
+ * This means that need to be able to access the WP_Query instance used to retrieve posts
+ * So we have to create some 'slightly hidden' entries in the $atts array.
+ * 
+ * 'bwscid' - the shortcode identifier
+ * 'paged' - instructs WP_Query to access a particular page
+ * 'bw_query' - the new instance of WP_Query to be used to perform the DB access
+ *
+ *
+ * @param array $atts - shortcode parameters to filter
+ * @param string $content - content of enclosed shortcode
+ * @param string $tag - shortcode name
+ * @return array - the filtered atts array
+ */
+function oik_navi_shortcode_atts(  $atts=null, $content=null, $tag=null ) {
+  $posts_per_page = bw_array_get( $atts, "posts_per_page", null );
+  if ( $posts_per_page ) {
+    oik_require( "shortcodes/oik-navi.php" );
+    $bwscid = bw_get_shortcode_id( true );
+    $page = bw_check_paged_shortcode( $bwscid );
+    $atts['bwscid'] = $bwscid;
+    $atts['paged'] = $page;
+    if ( !is_numeric( $posts_per_page ) ) {
+      $atts['posts_per_page'] = get_option( "posts_per_page" ); 
+    }  
+    $atts['bw_query'] = new WP_Query();
+  }  
+  return( $atts );
+}
+
+/**
+ * Implement "oik_shortcode_result" for pagination
+ *
+ * @param string $result - the result of the shortcode expansion so far
+ * @param array $atts - shortcode parameters - including our amendments
+ * @param string $content - future use
+ * @param string $tag - future use
+ * @return string - the modified result
+ *
+ */
+function oik_navi_shortcode_result( $result=null, $atts=null, $content=null, $tag=null ) {
+  $posts_per_page = bw_array_get( $atts, "posts_per_page", null );
+  if ( $posts_per_page ) {
+    oik_require( "shortcodes/oik-navi.php" ); // belt and braces 
+    oik_navi_s2eofn_from_query( $atts );
+    $prepend = bw_ret();
+    $result = $prepend . $result; 
+    oik_navi_lazy_paginate_links( $atts );
+    $result .= bw_ret(); 
+  }
+  return( $result ); 
+} 
+
+

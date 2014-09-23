@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011,2013 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011,2014 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -257,6 +257,28 @@ function bw_link_thumbnail( $thumbnail, $post_id=NULL, $atts=NULL )  {
   }
 }
 
+/**
+ * Return the source file name for the appropriately sized thumbnail image
+ * 
+ * @TODO - handle the post_id being the actual post ID of the image 
+ * 
+ * @param ID $post_id - ID of the attached image
+ * @param string|array $size - the required thumbnail size
+ * @return array - array of the attached images array, which consists of url, width, height
+ */
+function bw_get_thumbnail_src( $post_id, $size ) {
+  $thumb_id = get_post_thumbnail_id( $post_id );
+  if ( $thumb_id ) {
+    $thumbnail =  wp_get_attachment_image_src( $thumb_id, $size ) ;
+  } elseif ( $arr_thumb = bw_get_attached_image( $post_id, 1, 'rand', $size )) {
+    //bw_trace( $arr_thumb, __FUNCTION__, __LINE__, __FILE__, "arr_thumb" );
+    $thumbnail = $arr_thumb[0];
+  } else {
+    $thumbnail = false; 
+  }  
+  return( $thumbnail );
+}
+
 /** 
  * Get the post thumbnail 
  * 
@@ -270,26 +292,12 @@ function bw_link_thumbnail( $thumbnail, $post_id=NULL, $atts=NULL )  {
  */
 function bw_get_thumbnail( $post_id = null, $size = 'thumbnail', $atts=NULL ) {
   $return_value = FALSE;
-  if ($post_id == null) 
+  if ($post_id == null) { 
     $post_id = get_the_id();
-  
-  bw_trace( $post_id, __FUNCTION__, __LINE__, __FILE__, "post_id" );
-  
-  if ( has_post_thumbnail( $post_id ) ) {
-    //bw_trace( $size, __FUNCTION__, __LINE__, __FILE__, "size" );
-    $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size );
-  }
-  elseif ( function_exists('get_post_thumbnail_id') && $thumb_id = get_post_thumbnail_id( $post_id ) ) {
-    // bw_trace( $thumb_id, __FUNCTION__, __LINE__, __FILE__, "thumb_id" );
-    $thumbnail =  wp_get_attachment_image_src( $thumb_id, $size ) ;
-  }  
-  elseif ( $arr_thumb = bw_get_attached_image( $post_id, 1, 'rand', $size )) {
-    //bw_trace( $arr_thumb, __FUNCTION__, __LINE__, __FILE__, "arr_thumb" );
-    $thumbnail = $arr_thumb[0];
-  } else {
-    $thumbnail = NULL; 
-  }  
-  // bw_trace( $thumbnail, __FUNCTION__, __LINE__, __FILE__, "thumbnail" ); 
+  } 
+  //bw_trace( $post_id, __FUNCTION__, __LINE__, __FILE__, "post_id" );
+  $thumbnail =  bw_get_thumbnail_src( $post_id, $size );
+  bw_trace2( $thumbnail, "thumbnail" ); 
   if ( bw_array_get( $thumbnail, 0, FALSE)  ) {
     $text = bw_array_get( $atts, "title", NULL );
     $thumbnail = bw_force_size( $thumbnail, $size );

@@ -303,7 +303,7 @@ function bw_oik( $atts=null ) {
   $bw .= "oik"; 
   $bw .= retetag( "abbr" );
   $bw .= nullretetag( "span", $class ); 
-  bw_trace2( $bw, "bw" );
+  //bw_trace2( $bw, "bw" );
   return( $bw );
 }
 
@@ -552,7 +552,7 @@ function bw_year_range( $yearfrom, $yearto, $atts=NULL ) {
  */
 function bw_get_yearfrom() {
   $users = bw_get_users();
-  bw_trace2( $users );
+  //bw_trace2( $users );
   $yearfrom = bw_format_date( $users[0]->user_registered, 'Y' );
 
   return $yearfrom;
@@ -603,7 +603,8 @@ function bw_user_array( $users ) {
   foreach ($users as $user ) {
     $options[$user->ID] = $user->display_name; 
   }
-  return bw_trace2( $options );
+  //bw_trace2( $options );
+  return( $options );
 }
 
 /**
@@ -696,7 +697,7 @@ function bw_as_array( $mixed ) {
       $mixed = str_replace( ",", " ", $mixed );
       $mixed_array = explode( " ", $mixed );
     } 
-    bw_trace2( $mixed_array, "mixed_array" ); 
+    //bw_trace2( $mixed_array, "mixed_array" ); 
   } else {
     $mixed_array = array();
   }      

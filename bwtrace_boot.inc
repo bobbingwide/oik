@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012,2013
+<?php // (C) Copyright Bobbing Wide 2012-2014
 if ( defined( 'OIK_BWTRACE_BOOT_INCLUDED' ) ) return;
 define( 'OIK_BWTRACE_BOOT_INCLUDED', true );
 
@@ -18,6 +18,7 @@ define( 'OIK_BWTRACE_BOOT_INCLUDED', true );
  * 
  * define( 'BW_TRACE_ON', true );
  * define( 'BW_ACTIONS_ON', true );
+ * define( 'BW_COUNT_ON', true );
  * define( 'BW_TRACE_RESET', true );
  * define( 'BW_ACTIONS_RESET', true );
 */ 

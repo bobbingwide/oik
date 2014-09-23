@@ -1,9 +1,6 @@
 <?php 
-if ( defined( 'OIK_ATTACHMENTS_SHORTCODES_INCLUDED' ) ) return;
-define( 'OIK_ATTACHMENTS_SHORTCODES_INCLUDED', true );
-
 /*
-    Copyright 2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -24,11 +21,10 @@ oik_require( "includes/bw_posts.inc" );
 oik_require( "includes/bw_images.inc" );
 
 /**
- * 
- * find the correct file name for this image
- * 
+ * Find the correct file name for this image
+ *
+ * ` 
   C:\apache\htdocs\wordpress\wp-content\plugins\oik\shortcodes\oik-attachments.php(26:0) 2012-07-16T10:14:35+00:00 397 cf=the_content bw_thumbnail_full(2) attachment_meta Array
-(
     [0] => Array
         (
             [width] => 350
@@ -69,11 +65,13 @@ oik_require( "includes/bw_images.inc" );
 
         )
 
-)
-*/
+  `
+ * @param post $post - the post
+ * @return string - HTML to display the image
+ */
 function bw_thumbnail_full( $post ) {
   $attachment_meta = get_post_meta( $post->ID, "_wp_attachment_metadata", false );
-  bw_trace2( $attachment_meta, "attachment_meta", false );
+  //bw_trace2( $attachment_meta, "attachment_meta", false );
   $first = bw_array_get( $attachment_meta, 0, null );
   
   if ( $first ) { 
@@ -206,10 +204,14 @@ function bw_attachments( $atts = NULL ) {
 
 /**
  * [bw_pdf] shortcode - display attached PDF files
+ *
+ * @param array $atts - shortcode parameters
+ * @return string HTML for the attached PDF file list
  */
 function bw_pdf( $atts = NULL ) {
   $atts['post_mime_type'] = 'application/pdf';
   $atts['thumbnail'] = "none";
+  $atts['class'] = bw_array_get( $atts, "class", "bw_pdf" );
   return( bw_attachments( $atts ));
 }  
 
@@ -223,6 +225,7 @@ function bw_pdf( $atts = NULL ) {
 function bw_images( $atts = NULL ) {
   $atts['post_mime_type'] = bw_array_get( $atts, 'post_mime_type', 'image' );
   $atts['thumbnail'] = bw_array_get( $atts, 'thumbnail', 'full' );
+  $atts['class'] = bw_array_get( $atts, "class", "bw_images" );
   return( bw_attachments( $atts ));
 }
 

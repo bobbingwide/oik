@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2013
+<?php // (C) Copyright Bobbing Wide 2011-2014
 if ( defined( "BWTRACE_INCLUDED" ) ) return;
 define( "BWTRACE_INCLUDED", true );
 
@@ -24,8 +24,9 @@ if ( !isset( $bw_trace_on )) {
  */
 function bw_trace( $text, $function=__FUNCTION__, $lineno=__LINE__, $file=__FILE__, $text_label=NULL) {
   global $bw_trace_on;
-  if ( $bw_trace_on  )
-    bw_lazy_trace( $text, $function, $lineno, $file, $text_label );  
+  if ( $bw_trace_on  ) {
+    bw_lazy_trace( $text, $function, $lineno, $file, $text_label );
+  }  
 }
 
 /**
@@ -40,10 +41,11 @@ function bw_trace( $text, $function=__FUNCTION__, $lineno=__LINE__, $file=__FILE
 if ( !function_exists( "bw_trace2" ) ) { 
 function bw_trace2( $value=NULL, $text=NULL, $show_args=true ) { 
   global $bw_trace_on;
-  if ( $bw_trace_on ) 
+  if ( $bw_trace_on ) { 
     return( bw_lazy_trace2( $value, $text, $show_args ));
-  else  
+  } else {  
     return( $value );
+  }
 } 
 }
 
@@ -51,7 +53,6 @@ function bw_trace2( $value=NULL, $text=NULL, $show_args=true ) {
  * Log a debug_backtrace() to the trace log file if tracing is active
  * 
  */
- 
 if ( !function_exists( "bw_backtrace" ) ) { 
 function bw_backtrace() {
   global $bw_trace_on;

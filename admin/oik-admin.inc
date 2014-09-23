@@ -27,10 +27,13 @@ function oik_options_init() {
   register_setting( 'oik_options_options1', 'bw_options1', 'oik_options_validate' );
   register_setting( 'oik_plugins_options', 'bw_plugins', 'oik_plugins_validate' ); // No validation yet
   register_setting( 'oik_buttons_options', 'bw_buttons', 'oik_buttons_validate' );
+  register_setting( 'oik_admin_options', 'bw_admin_options', 'oik_options_validate' );
+  
   bw_load_plugin( "bw_buttons", "oik-paypal-shortcodes" );
   bw_load_plugin( "bw_buttons", "oik-button-shortcodes" );
   bw_load_plugin( "bw_buttons", "oik-shortc-shortcodes" );
   bw_load_plugin( "bw_buttons", "oik-quicktags" );
+  bw_load_plugin( "bw_admin_options", "show_ids", "oik-ids.php" );
   // For WordPress 3.5 these filters are added in oik.php
   //add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
   //add_filter( "attachment_fields_to_save", "oik_attachment_fields_to_save", null, 2 );
@@ -71,7 +74,8 @@ function oik_options_add_page() {
   add_submenu_page( 'oik_menu', __( 'oik plugins', 'oik' ), __('Plugins', 'oik'), 'manage_options', 'oik_plugins', 'oik_plugins_do_page' );
   add_submenu_page( 'oik_menu', __( 'oik themes', 'oik' ), __('Themes', 'oik'), 'manage_options', 'oik_themes', 'oik_themes_do_page' );
   add_submenu_page( 'oik_menu', __( 'oik buttons', 'oik'), __('Buttons', 'oik'), 'manage_options', 'oik_buttons', 'oik_buttons_do_page' );
-  add_submenu_page( 'oik_menu', __( 'oik shortcode help', 'oik') , __("Shortcode help", 'oik'), 'manage_options', 'oik_sc_help', "oik_help_do_page" );
+  add_submenu_page( 'oik_menu', __( 'oik shortcode help', 'oik' ), __("Shortcode help", 'oik'), 'manage_options', 'oik_sc_help', "oik_help_do_page" );
+  //add_submenu_page( 'oik_menu', __( 'oik admin options', 'oik' ), __("Admin options", 'oik'), 'manage_options', 'oik_admin_options", "oik_admin_options_do_page" );
 }
 
 /**
@@ -126,6 +130,9 @@ function ecolumn() {
 
 /**
  * Create an oik menu header 
+ *
+ * @param string $title - title for the box
+ * @param string $class - class for the box 
  */
 function oik_menu_header( $title="Overview", $class="w70pc" ) {
   oik_require( "bobbforms.inc" );
@@ -294,6 +301,18 @@ function oik_support() {
 }
 
 /**
+ * Display the oik admin options
+ */
+function oik_admin_options() { 
+$option = 'bw_admin_options'; 
+  $options = bw_form_start( $option, 'oik_admin_options' );
+  bw_checkbox_arr( "bw_admin_options", "Show IDs on admin pages", $options, 'show_ids' );
+  etag( "table" );
+  e( isubmit( "ok", __("Save changes", "oik" ), null, "button-secondary" ) ); 
+  etag( "form" );
+}
+
+/**
  * Enqueue jQuery scripts required by oik
  * 
  * What jQuery scripts do we need to make the page work as if they were dashboard widgets?
@@ -344,6 +363,7 @@ function oik_menu() {
   scolumn( "w30pc" );
   oik_box( NULL, NULL, "oik documentation", "oik_documentation" );
   oik_box( NULL, NULL, "support oik", "oik_support" );
+  oik_box( null, null, "Admin options", "oik_admin_options" );
   oik_menu_footer();
   bw_flush();
 }
@@ -397,6 +417,8 @@ function oik_themes_server_settings() {
  * Draw the oik options page 
 */
 function oik_options_do_page() {
+  oik_require( "includes/oik-filters.inc" );
+  bw_disable_filter( "the_content", "wpmem_securify", 1 );
   oik_menu_header( "shortcode options", "w60pc" );
   oik_box( null, null, "Often included key information", "oik_main_shortcode_options" );
   ecolumn();
@@ -567,7 +589,8 @@ function oik_main_shortcode_options() {
   $upload_dir = wp_upload_dir();
   $baseurl = $upload_dir['baseurl'];
     
-  bw_textfield_arr( $option, _bwtnt( "Logo image in uploads:<br />", " $baseurl [bw_logo]" ), $options, 'logo-image', 50 );
+  bw_textfield_arr( $option, _bwtnt( "Logo image ID/URL/in uploads", "<br />$baseurl [bw_logo]" ), $options, 'logo-image', 50 );
+  bw_checkbox_arr(  $option, "Use as login logo?", $options, "login-logo" ); 
   bw_textfield_arr( $option, _bwtnt( "QR code image in uploads", " [bw_qrcode]" ), $options, 'qrcode-image', 50 );
   
   $artisteer_versions = array( "na", "41", "40", "31", "30" ,"25" );
@@ -576,6 +599,10 @@ function oik_main_shortcode_options() {
 
   $options['yearfrom'] = bw_array_get_dcb( $options, "yearfrom", NULL, "bw_get_yearfrom" );
   bw_textfield_arr( $option, _bwtnt( "Copyright from year", " [bw_copyright]" ), $options, 'yearfrom', 4 );
+  
+
+  $options['howdy'] = bw_array_get( $options, "howdy", null );
+  bw_textfield_arr( $option, _bwtnt( "'Howdy,'", " replacement string" ), $options, 'howdy', 10 );
 
   //tablerow( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" />" ); 
   //bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 
@@ -813,7 +840,7 @@ function oik_load_plugins() {
  * Display help information for all the active shortcodes
  *
  * When a shortcode is selected for further display then we invoke the __example and __snippet routine
- * **?** For some reason, when the shortcode is 'nivo' the columns get wide than normal. Don't yet know why Herb 2012/04/26
+ * **?** For some reason, when the shortcode is 'nivo' the columns get wider than normal. Don't yet know why Herb 2012/04/26
 */ 
 function oik_help_do_page() {
   do_action( "oik_add_shortcodes" );
@@ -835,10 +862,10 @@ function oik_help_do_page() {
  * Display the introduction to oik shortcode help
  */
 function oik_code_about() {
-  p( "This page lists all the currently active shortcodes. To find out more information about a shortcode click on the shortcode name." );
+  p( "This page lists all the currently active shortcodes. To find out more information about a shortcode click on the shortcode name in the Help column." );
   p( "Depending on how the shortcode is implemented you will either be shown some more information with one or more examples, or an 'oik generated example.' "); 
   p( "You will also be shown the HTML snippet for the example. There should be no need to do anything with this output." );
-  p( "For further information click on the links in the <b>more oik help</b> column" );
+  p( "For further information on a shortcode or its parameters click on the links in the Syntax column." );
 }
 
 /** 

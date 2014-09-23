@@ -23,7 +23,9 @@ define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
 
 
 
-/* PayPal generated code for the buttons was
+/** 
+
+   PayPal generated code for the buttons was
    
    Pay now - rather than Buy Now
                             
@@ -158,7 +160,7 @@ function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
 
 		  case "add":
 			$code .= ihidden( "cmd", "_cart" );
-                        $code .= ihidden( "amount", $atts['amount'] );
+                        $code .= ihidden( "amount", bw_array_get( $atts, 'amount', "0.00" ) );
                         $code .= ihidden( "button_subtype", "products" );
                         $code .= ihidden( "no_note", "0" );
                         $code .= ihidden( "tax_rate", "0.000" );

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013
+<?php // (C) Copyright Bobbing Wide 2013, 2014
 
 /**
  * Format the post as specified by the user  
@@ -33,10 +33,10 @@ function bw_format_as_required( $post, $atts ) {
  * F Featured image      thumbnail=            Currently same as I-Image
  * C Content                                   
  * E Excerpt
- * M Read more           readmore=
- * R Read more           readmore=             same as M-Read more
+ * R Read more           readmore=             block - using art_button
+ * M Read more           readmore=             inline - class "bw_more"
  * L Link 
- * A Anchor                                    currently same as L - Link
+ * A Attachment(s)                             Display links to Attachments
  *
  * / div                                       Dummy <div></div>             
  *   space                                     Add a &nbsp; 
@@ -95,13 +95,13 @@ function _bw_field_functions() {
     $fields = array();
     $fields['T'] = "bw_field_function_title";
     $fields['I'] = "bw_field_function_image"; 
-    $fields['F'] = "bw_field_function_image"; 
+    $fields['F'] = "bw_field_function_featured_image"; 
     $fields['C'] = "bw_field_function_content"; 
     $fields['E'] = "bw_field_function_excerpt"; 
-    $fields['M'] = "bw_field_function_readmore"; 
+    $fields['M'] = "bw_field_function_more"; 
     $fields['R'] = "bw_field_function_readmore"; 
     $fields['L'] = "bw_field_function_link"; 
-    $fields['A'] = "bw_field_function_anchor"; 
+    $fields['A'] = "bw_field_function_attachment"; 
     $fields['/'] = "bw_field_function_div"; 
     $fields[' '] = "bw_field_function_nbsp"; 
     $fields['c'] = "bw_field_function_categories"; 
@@ -124,6 +124,11 @@ function _bw_field_functions() {
  */
 function bw_field_function_title( $post, &$atts, $f ) {
   $atts['title'] = get_the_title( $post->ID );
+  bw_trace2( $atts, "look for title", false );
+  if ( empty( $atts['title'] ) ) {
+    $atts['title'] = __( "Post: " ) . $post->ID;
+    
+  } 
   span( "title" );
   strong( $atts['title'] );
   epan();
@@ -139,6 +144,24 @@ function bw_field_function_image( $post, &$atts, $f ) {
   $thumbnail = bw_thumbnail( $post->ID, $atts );
   if ( $thumbnail ) {
     bw_format_thumbnail( $thumbnail, $post, $atts );
+  }
+}
+
+/**
+ * Format the 'thumbnail' featured image (format=F)
+ * 
+ * Displays the featured image.
+ * Applies the thumbnail= parameter to determine the size of the featured image.
+ *
+ */ 
+function bw_field_function_featured_image( $post, &$atts, $f ) {
+  $atts['post_id'] = $post->ID; 
+  $thumbnail = bw_get_thumbnail_size( $atts );
+  if ( $thumbnail ) {
+    $thumbnail_image = bw_get_thumbnail( $post->ID, $thumbnail, $atts );
+    if ( $thumbnail_image ) {
+      bw_format_thumbnail( $thumbnail_image, $post, $atts );
+    }
   }
 }
 
@@ -185,18 +208,50 @@ function bw_field_function_excerpt( $post, &$atts, $f ) {
 }
 
 /**
- * Format the "read more" link
+ * Format the "read more" link (format=R)
  */
 function bw_field_function_readmore( $post, &$atts, $f ) {
   bw_format_read_more( $post, $atts );  
 }
 
 /**
- * Format the link
+ * Format the "more" link (format=M)
+ * 
+ */
+function bw_field_function_more( $post, &$atts, $f ) {
+  bw_format_more( $post, $atts );  
+}
+
+/**
+ * Format the link (format=L)
  */
 function bw_field_function_link( $post, &$atts, $f ) {
   oik_require( "shortcodes/oik-parent.php" );
   bw_post_link( $post->ID );
+}
+
+
+/**
+ * Format links to the Attachment(s) (format=A)
+ * 
+ * When the post we're currently processing is an "attachment" we already
+ * have the ID of the post but we need to find the attachment file name
+ * 
+ * When the post is something else we still need to find the attachments
+ * 
+ * 
+ */
+function bw_field_function_attachment( $post, &$atts, $f ) {
+  oik_require( "shortcodes/oik-attachments.php" );
+  $atts['titles'] = bw_array_get( $atts, "titles", "n" );
+  if ($post->post_type == "attachment" ) {
+    bw_format_attachment( $post, $atts );
+  } else {
+    $args = array( "post_parent" => $post->ID ); 
+    $args['titles'] = $atts['titles'];
+    $attachments = bw_attachments( $args );
+    e( $attachments );
+  }  
 }
 
 /**

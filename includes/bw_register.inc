@@ -134,6 +134,7 @@ function bw_register_post_type( $post_type, $post_type_args ) {
   $post_type_args['label'] = bw_array_get_dcb( $post_type_args, 'label', $post_type, "bw_ucfirst"  );
   $post_type_args['singular_label'] = bw_array_get_dcb( $post_type_args, 'singular_label', $post_type_args['label'] , "bw_singularize" );
   $post_type_args['labels'] = bw_array_get_dcb( $post_type_args, 'labels', array( 'singular_name' => $post_type_args['singular_label'], 'name' => $post_type_args['label'] ) , "bw_default_labels" );
+  //bw_trace2();
   register_post_type( $post_type, $post_type_args );
 }
 
@@ -223,16 +224,20 @@ function bw_default_taxonomy_labels( $labels = array() ) {
   $labels['add_or_remove_items'] = bw_array_get( $labels, "add_or_remove_items", "Add or remove $ucplural" ); 
   $labels['choose_from_most_used'] = bw_array_get( $labels, "choose_from_most_used", "Choose from most used $ucplural" );
   // $labels['not_found'] = bw_array_get( $labels, "not_found", "No $ucplural found" );
-  bw_trace2();
+  //bw_trace2();
   return( $labels );
 }  
 
 /**
+ * Set default args for a taxonomy
  * 
+ * @param string $taxonomy - the taxonomy name e.g. "country" 
+ * @param array $args - parameters for the taxonomy
+ * return array - updated args
  */
 function bw_default_taxonomy_args( $taxonomy, $arg ) {
-  bw_trace2();
-  bw_backtrace();
+  //bw_trace2();
+  //bw_backtrace();
   if ( !is_array( $arg ) ) {
     $labels = array( "name" => $arg );
   } else { 
@@ -258,16 +263,36 @@ function bw_default_taxonomy_args( $taxonomy, $arg ) {
  * 
  */
 function bw_register_taxonomy( $taxonomy, $object_type=NULL, $args=NULL ) {
-  bw_trace2( $args );  
-  register_taxonomy( $taxonomy, $object_type, $args );
+  //bw_trace2( $args );  
+  if ( !bw_query_taxonomy( $taxonomy ) ) {
+    register_taxonomy( $taxonomy, $object_type, $args );
+  }  
   $field_title = bw_array_get( $args['labels'], 'name', $taxonomy );
   bw_register_field( $taxonomy, "taxonomy", $field_title, $args );
 }
 
+/**
+ * Query the registered taxonomies to see if this is registered
+ * @param string $taxonomy - the taxonomy name
+ * @return bool - true if registered, false if not. 
+ *   
+ */
+function bw_query_taxonomy( $taxonomy=null ) {
+  global $wp_taxonomies;
+  //bw_trace2( $wp_taxonomies );
+  $exists = taxonomy_exists( $taxonomy );
+  return( $exists );
+}
+
 /** 
  * Register a custom "tags" taxonomy
+ * 
+ * @param string $taxonomy - the taxonomy name
+ * @param array|string $object_type - post types to associate the taxonomy to
+ * @param mixed - $args for the taxonomy
  */
 function bw_register_custom_tags( $taxonomy, $object_type=null, $arg=null ) {
+  //bw_trace2();
   $args = bw_default_taxonomy_args( $taxonomy, $arg );
   $args['hierarchical'] = false;
   bw_register_taxonomy( $taxonomy, $object_type, $args) ; 
@@ -275,6 +300,10 @@ function bw_register_custom_tags( $taxonomy, $object_type=null, $arg=null ) {
 
 /**
  * Register a custom "category" taxonomy
+ *
+ * @param string $taxonomy - the taxonomy name
+ * @param array|string $object_type - post types to associate the taxonomy to
+ * @param mixed - $args for the taxonomy
  */
 function bw_register_custom_category( $taxonomy, $object_type=null, $arg=null ) {
   $args = bw_default_taxonomy_args( $taxonomy, $arg );

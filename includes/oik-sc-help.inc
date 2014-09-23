@@ -1,17 +1,61 @@
 <?php // (C) Copyright Bobbing Wide 2012-2014
 
+/**
+ * Get first parm name
+ *
+ * Return the first name for the parameter. This is used to generate the link for the shortcode parameter.
+ *
+ * Some shortcodes have parameters which can have multiple keys for the basically the same content e.g. src,mp3,m4a,ogg... for [audio]
+ * other shortcode accepts positional parameters - e.g. api|0 for the [api] shortcode
+ * 
+ * @param string $parameter
+ * @return string - returned value
+ */
+function bw_form_sc_get_first_parm_name( $parameter ) {
+  $parm = str_replace( array("|", ",") , " ", $parameter );
+  $parms = explode(" ", $parm ); 
+  return( $parms[0] );
+}
+
+/**
+ * Return link to shortcode parameter help
+ *
+ * Links are of the form
+ *
+ * http://oik-plugins.co.uk/oik_sc_param/$shortcode-$key-parameter/
+ *
+ * @TODO where the URL should come from wherever we've defined the oik-shortcode server to be for the selected shortcode!
+ *
+ * @param string $parameter
+ * @param string $shortcode
+ *
+ */
+function bw_form_sc_parm_help( $parameter, $shortcode ) {
+  $parm = bw_form_sc_get_first_parm_name( $parameter );
+  //$url = siteurl();
+  $url = "http://www.oik-plugins.com/";
+  $url .= "oik_sc_param/$shortcode-$parm-parameter";
+  $ret = retlink( null, $url, $parameter, "$shortcode $parameter parameter" );
+  return( $ret );
+}
 
 /**
  * Format the shortcode syntax for returning in HTML
  *
+ * @TODO - create links to the oik shortcode parameter help
+ * for the specific shortcode and parameter name
+ * 
+ * 
  * @param array $syntax - array of key => shortcode key values
+ * @param string $shortcode - the shortcode
  */
-function bw_form_sc_syntax( $syntax ) {
+function bw_form_sc_syntax( $syntax, $shortcode ) {
   if ( count( $syntax ) ) { 
     foreach ( $syntax as $key => $value ) {
       br();
       span( "key" );
-      e( $key );
+      //e( $key );
+      e( bw_form_sc_parm_help( $key, $shortcode ) );
       epan();
       e( "=" );
       span( "value");
@@ -25,20 +69,25 @@ function bw_form_sc_syntax( $syntax ) {
 
 /**
  * Attempt to find the function that will handle the additional processing for the shortcode
- * 
- * @param string $shortcode - the name of the shortcode - NOT the shortcode function
- * @param string $suffix - the additional processing required: e.g. __help, __example, __syntax
- * @return string $funcname - the function that exists to handle this request
- * 
+ *
+ * Some shortcodes contain hyphens rather than underscores. e.g. wp-members
+ * We need to translate these to underscores before searching for the function. 
  * If the function does not exist we see if it's in the file that implements the shortcode
  * If it's not then we return the default function name
  * which is:
  * _sc__help: for shortcode help
  * _sc__example: for shortcode example
- * _sc_syntax: for shortcode syntax    
+ * _sc__syntax: for shortcode syntax 
+ *   
+ * @param string $shortcode - the name of the shortcode - NOT the shortcode function
+ * @param string $suffix - the additional processing required: e.g. __help, __example, __syntax
+ * @return string $funcname - the function that exists to handle this request
+ * 
 */
 function bw_load_shortcode_suffix( $shortcode, $suffix ) {
-  $testfunc = $shortcode . $suffix; 
+  $_shortcode = str_replace( "-", "_", $shortcode );
+  bw_trace2( $_shortcode, "underscored shortcode" );
+  $testfunc = $_shortcode . $suffix; 
   if ( function_exists( $testfunc ) ) {
     $funcname = $testfunc;
   } else {
@@ -50,42 +99,81 @@ function bw_load_shortcode_suffix( $shortcode, $suffix ) {
   return( $funcname );
 }
 
+/**
+ * Return shortcode help
+ *
+ * @param string $shortcode - the shortcode e.g. bw_codes
+ * @return string - the shortcode help
+ */
 function _bw_lazy_sc_help( $shortcode ) { 
   $funcname = bw_load_shortcode_suffix( $shortcode, "__help" ); 
   $help = $funcname( $shortcode );
   return( $help );
-}  
- 
+}
+
+/**
+ * Display shortcode help
+ *
+ * @param string $shortcode - the shortcode e.g. bw_codes
+ */   
 function bw_lazy_sc_help( $shortcode ) {
   e( _bw_lazy_sc_help( $shortcode )) ;
 }
 
+/**
+ * Display a shortcode example
+ * 
+ * @param string $shortcode
+ * @param array $atts - shortcode example parameters
+ */
 function bw_lazy_sc_example( $shortcode, $atts=null ) {
   $funcname = bw_load_shortcode_suffix( $shortcode, "__example" ); 
   $funcname( $shortcode, $atts ); 
 }
 
+/**
+ * Return shortcode syntax
+ *
+ * @param string $shortcode
+ * @return array - shortcode syntax as an associative array 
+ */
 function _bw_lazy_sc_syntax( $shortcode ) {
   $funcname = bw_load_shortcode_suffix( $shortcode, "__syntax" ); 
   $syntax = $funcname( $shortcode );
   return( $syntax );
-}  
+} 
 
-function bw_lazy_sc_syntax( $shortcode ) {
+/**
+ * Display shortcode syntax
+ *
+ * @param string $shortcode - the shortcode name
+ *
+ */ 
+function bw_lazy_sc_syntax( $shortcode, $callback=null ) {
   stag("code");
-  e( '['.$shortcode );
+  e( '[' );
+  bw_sc_link( $shortcode, $callback );
   $syntax = _bw_lazy_sc_syntax( $shortcode );
-  bw_form_sc_syntax( $syntax );
+  bw_form_sc_syntax( $syntax, $shortcode );
   e( ']' );
   etag( "code" );
 }
 
+/**
+ * Save original scripts
+ *
+ */
 function bw_save_scripts() {
   global $wp_scripts, $bw_scripts;
   $bw_scripts = $wp_scripts;
   bw_trace2( $bw_scripts );
 }
-
+/*
+ * Report queued scripts
+ * 
+ * @TODO - Implement logic to report changes in the wp_scripts indicating that the shortcode has added these.
+ *
+ */ 
 function bw_report_scripts() {
   global $wp_scripts, $bw_scripts;
   if ( $wp_scripts != $bw_scripts ) {
@@ -116,7 +204,12 @@ function _sc__snippet( $shortcode="bw_code", $atts=null ) {
   etag( "p" );
 }
 
-
+/**
+ * Display the HTML snippet for a shortcode example
+ *
+ * @param string $shortcode - shortcode name
+ * @param string $example - shortcode parameter string
+ */
 function bw_lazy_sc_snippet( $shortcode=null, $example=null ) {
   $funcname = bw_load_shortcode_suffix( $shortcode, "__snippet" ); 
   bw_trace2( $funcname, "funcname" );
@@ -141,7 +234,7 @@ function _sc__help( $shortcode="bw_code" ) {
 "OIK" => "Spells out the <span class=\"b1\">o<\/span><span class=\"o\">i<\/span><span class=\"b2\">k<\/span> backronym",
 "WOW" => "Spells out Wonder of WordPress",
 "WoW" => "Spells out Wonder of WordPress",
-"abt_slider_hero" => "",
+//"abt_slider_hero" => "",
 "ad" => "Show an advertisement block (Artisteer theme)",
 "artisteer" => "Styled form of Artisteer",
 "audio" => "Embed audio files",
@@ -247,6 +340,7 @@ function _sc__help( $shortcode="bw_code" ) {
 "ngslideshow" => "NextGen gallery slideshow",
 "oik" => "Expand to the logo for oik",
 "paypal" => "Paypal shortcodes",
+"playlist" => "Playlist",
 "post_link" => "Produce a post link (Artisteer themes)",
 "rss" => "Produce an RSS feeds button (Artisteer themes)",
 "rss_title" => "Produce an RSS title (Artisteer themes)",
@@ -261,23 +355,36 @@ function _sc__help( $shortcode="bw_code" ) {
 "wide" => "Styled form of wide",
 "wow" => "Styled form of WoW",
 "wp" => "Display a styled form of WordPress. ",
-"wp-1" => "Sample hyphenated shortcode",
-"wp-2" => "Sample hyphenated shortcode",
-"wp-3" => "Sample hyphenated shortcode",
+//"wp-1" => "Sample hyphenated shortcode",
+//"wp-2" => "Sample hyphenated shortcode",
+//"wp-3" => "Sample hyphenated shortcode",
 "wp_caption" => "Caption (WordPress shortcode - alias)",
 "wpms" => "Styled form of WordPress Multi Site",
 "xhtml" => "Valid XHTML button (Artisteer theme)",
 "year" => "Current year (Artisteer theme)",
 );
-                        
-                      
+
+  $default_help = apply_filters( "_sc__help", $default_help, $shortcode );
   $help = bw_array_get( $default_help, $shortcode, "?" );
   return( $help );
 }
 
+/**
+ * Return default syntax for this shortcode
+ *
+ * Originally this returned "oik doesn't know about this shortcode's syntax: ". $shortcode 
+ * but this was changed to support the AJAX interface
+ * 
+ * It has now been extended to invoke filters which enable plugins to return the
+ * syntax IF they don't support the $shortcode__syntax() dynamic hook method.
+ * 
+ * @param string $shortcode 
+ * @return array $syntax array
+ */ 
 function _sc__syntax( $shortcode="bw_code" ) {
-  //return( "oik doesn't know about this shortcode's syntax: ". $shortcode );
-  return( null );
+  $syntax = null;
+  $syntax = apply_filters( "_sc__syntax", $syntax, $shortcode );
+  return( $syntax );
 }
 
 function _sc__example( $shortcode="bw_code", $atts=null ) {
@@ -297,20 +404,21 @@ function _sc_classes() {
 
  
 /**
- * Helper function for shortcodes that use get_posts() 
  *
- *   post_mime_type=
+ * Helper function for shortcodes that use bw_get_posts() 
+ *
+ * Note: post_mime_type= can have sub values. eg.
  *     application/pdf
  *      image/gif
  * 	image/jpeg
  * 	image/png
  * 	text/css
  *      video/mp4
- *  
- *               , 'block'           => bw_skv( "true", "false", "Enclose in an Artisteer block" )
- *               , 'posts_per_page'  => bw_skv( -1, "", "Not supported in OIK" )
-
-*/
+ *
+ * 'posts_per_page' added in oik v2.3
+ *
+ * @return array - associative array of bw_skv()'s  
+ */
 function _sc_posts() {
   return( array( 'numberposts'  => bw_skv( "5", "numeric", "number to return" )
                , 'offset'          => bw_skv( 0, "numeric", "offset from which to start" )
@@ -328,9 +436,15 @@ function _sc_posts() {
                , 'post_parent'     => bw_skv( null, "ID", "Parent ID to use if not current post" )
                , 'post_status'     => bw_skv( 'publish', "pending|draft|auto-draft|future|private|trash|any", "Post status" )
                , 'id'              => bw_skv( null, "<i>id1,id2</i>", "IDs of posts to display"  )
+               , 'posts_per_page'  => bw_skv( null, "numeric|.", "Number of posts per page. Use '.' for current value " . get_option( "posts_per_page" ) )
                ));
 } 
 
+/**
+ * Helper function for shortcodes that display images
+ * 
+ * @return array - associative array of bw_skv()'s
+ */
 function _sc_thumbnail() {   
   return( array( 'thumbnail'       => bw_skv( "thumbnail", "medium|large|full|nnn|wxh", "image size" )   
                ));
@@ -338,8 +452,7 @@ function _sc_thumbnail() {
 
 /**  
  * These functions return the help and syntax for the shortcodes that are activated
-*/
-
+ */
 function div__help() {
   return( "start a &lt;div&gt; tag" );
 }
@@ -508,6 +621,7 @@ function bw_codes__syntax() {
 
 /** 
  * Return the default, values and notes for a shortcode parameter
+ *
  *  bw_skv is an abbreviation of bw_sc_key_values  
  */
 function bw_skv( $default, $values, $notes ) {
@@ -780,8 +894,11 @@ function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
   e( $expanded );
   bw_trace2( $expanded );
   //bw_backtrace();
-}  
+}
 
+/**
+ * Syntax for [ad] shortcode - Artisteer themes
+ */  
 function ad__syntax( $shortcode='ad' ) {
   $syntax = array( "code" => bw_skv( 1, "2|3|4|5", "Advertisement selection - Artisteer theme options" )
                  , "align" => bw_skv( "left", "center|right", "Alignment" )
@@ -809,3 +926,23 @@ function collage__syntax( $shortcode="collage" ) {
   $syntax = array( "id" => bw_skv( null, "<i>collage ID</i>", "Index of the theme_collages post meta to display" ) );
   return( $syntax  );
 }
+
+/**
+ * Syntax for [playlist] shortcode
+ */
+function playlist__syntax( $shortcode="playlist" ) {
+  $syntax = array( "ids" => bw_skv( null, "<i>id1,id2,</i", "IDs for the playlist" )
+                 , "id" => bw_skv( "current post", "<i>id</i>", "Post from which the playlist is chosen" )
+                 , "type" => bw_skv( "audio", "video", "Content type" )
+                 , "order" => bw_skv( "ASC", "DESC|RAND", "Ordering" )
+                 , "orderby" => bw_skv( "post__in", "<i>menu_order|ID|title|rand</i>", "Order by field" )
+                 , "include" => bw_skv( null, "<i>id1,id2</i>", "IDs to include" )
+                 , "exclude" => bw_skv( null, "<i>id1,id2</i>", "IDs to exclude" )
+                 , "style" => bw_skv( "light", "dark", "Playlist style" )
+                 , "tracklist" => bw_skv( "true", "false", "Display track list?" )
+                 , "tracknumbers" => bw_skv( "true", "false", "Display track numbers?" )
+                 , "images" => bw_skv( "true", "false", "Display images?" )
+                 , "artists" => bw_skv( "true", "false", "Display artists?" )
+                 );
+  return( $syntax );
+}                

@@ -218,7 +218,7 @@ function bw_format_post( $post, $atts ) {
 }
 
 /** 
- * Produce a read_more link as required
+ * Produce a read_more link as required ( block )
  *
  * If the read_more parameter is blank then we don't include the read more link
  * otherwise, we do using the value given, 
@@ -234,6 +234,26 @@ function bw_format_read_more( $post, $atts ) {
     $read_more = bw_more_text( null, $atts );
     art_button( get_permalink( $post->ID ), $read_more, $read_more ); 
     ep(); 
+  }  
+}
+
+/** 
+ * Produce a more link as required ( inline )
+ *
+ * If the read_more parameter is blank then we don't include the read more link
+ * otherwise, we do using the value given, 
+ * allowing each post's excerpt to have overridden the value through the <!--more custom_read_more --> tag
+ * 
+ * @param post $post - the actual post from which we extract the ID 
+ * @param array $atts - shortcode parameters - which may contain read_more=
+ */
+function bw_format_more( $post, $atts ) {
+  $read_more = bw_array_get( $atts, "read_more", true );
+  if ( trim( $read_more ) !== '') {
+    //sp();
+    $read_more = bw_more_text( null, $atts );
+    alink( "bw_more", get_permalink( $post->ID ), $read_more, $read_more ); 
+    //ep(); 
   }  
 }
 
@@ -273,6 +293,9 @@ function bw_format_list( $post, $atts ) {
   } else {
     $title = $atts['title'];
   }
+  if ( !$title ) {
+    $title = __( "Post: " ) . $post->ID;
+  } 
   stag( 'li' );
   alink( NULL, get_permalink( $post->ID ), $title );
   etag( 'li' );
@@ -324,12 +347,13 @@ function bw_get_categories() {
  * 10-12 custom  any         ?
  *
  * As you can see from the table above the default behaviour for listing posts on pages and vice-versa is not (yet) defined
+ *
+ * @param array $atts - shortcode parameters
+ * @return array - posts
  */
-function bw_get_posts( $atts = NULL ) {
-  
+function bw_get_posts( $atts=null ) {
   // Copy the atts from the shortcode to create the array for the query
   // removing the class and title parameter that gets passed to bw_block()    **?** 2013/07/01 - is this still done?
- 
   $attr = $atts;
   bw_trace( $atts, __FUNCTION__, __LINE__, __FILE__, "atts" );
   //bw_trace( $attr, __FUNCTION__, __LINE__, __FILE__, "attr" );    
@@ -341,44 +365,50 @@ function bw_get_posts( $atts = NULL ) {
   $id = bw_array_get_from( $attr, array( "id", "post__in", "p", "page_id" ),  null );
   
   if ( !$id ) {
+    $post_types = bw_as_array( $attr['post_type'] );
+    if ( count( $post_types ) > 1 ) {
+      $attr['post_type'] = $post_types;
+    } else {
     
-    // Only default post_parent for post_type of 'page' 
-    // This allows [bw_pages] to be used without parameters on a page
-    // and to be used to list 'page's from other post types.
-    //
-    // Note: Pass a non-numeric value of post_parent to cause this parameter to not be used by get_posts()
-    
-    // 
-    if ( $attr['post_type'] == 'page' || $attr['post_type'] == 'attachment' ) {
-      $attr['post_parent'] = bw_array_get_dcb( $attr, "post_parent", NULL, "bw_current_post_id" );
+      // Only default post_parent for post_type of 'page' 
+      // This allows [bw_pages] to be used without parameters on a page
+      // and to be used to list 'page's from other post types.
+      //
+      // Note: Pass a non-numeric value of post_parent to cause this parameter to not be used by get_posts()
+      
+      // 
+      if ( $attr['post_type'] == 'page' || $attr['post_type'] == 'attachment' ) {
+        $attr['post_parent'] = bw_array_get_dcb( $attr, "post_parent", NULL, "bw_current_post_id" );
+      }
+      
+      /** If we're listing posts and the category is not specified then determine the category from the global post
+          This finds "related" posts. 
+          Not sure how to find ANY post if that's what we want **?** 2013/06/21
+      */ 
+      if ( $attr['post_type'] == 'post' ) {
+        $attr['category_name'] = bw_array_get( $attr, "category_name", NULL );
+        $attr['category'] = bw_array_get( $attr, "category", null );
+        if ( NULL == $attr['category_name'] && null == $attr['category'] ) {
+          $categories = bw_get_categories();
+          if ( $categories ) {
+            $attr['category_name'] = $categories;
+          } else {
+            // What do we do now? 
+          }    
+        }  
+      }
+            
+      $attr['numberposts'] = bw_array_get( $attr, "numberposts", -1 );
+      $attr['orderby'] = bw_array_get( $attr, "orderby", "title" );
+      $attr['order'] = bw_array_get( $attr, "order", "ASC" );
     }
-    
-    /** If we're listing posts and the category is not specified then determine the category from the global post
-        This finds "related" posts. 
-        Not sure how to find ANY post if that's what we want **?** 2013/06/21
-    */ 
-    if ( $attr['post_type'] == 'post' ) {
-      $attr['category_name'] = bw_array_get( $attr, "category_name", NULL );
-      $attr['category'] = bw_array_get( $attr, "category", null );
-      if ( NULL == $attr['category_name'] && null == $attr['category'] ) {
-        $categories = bw_get_categories();
-        if ( $categories ) {
-          $attr['category_name'] = $categories;
-        } else {
-          // What do we do now? 
-        }    
-      }  
-    }
-          
-    $attr['numberposts'] = bw_array_get( $attr, "numberposts", -1 );
-    $attr['orderby'] = bw_array_get( $attr, "orderby", "title" );
-    $attr['order'] = bw_array_get( $attr, "order", "ASC" );
   } else {
     /* Allow the shortcode to specify a set of post IDs to load. id=1,2,3,4 or id="1 2 3 4" should load posts IDs 1, 2, 3 and 4
-    * Note: This currently overrides the "post__in" parameter 
+     * Note: This currently overrides the "post__in" parameter 
+     * If $id was already an array then we must use 'post__in'
     */
     $ids = bw_as_array( $id );
-    if ( count( $ids ) > 1 ) {
+    if ( is_array( $id ) || count( $ids ) > 1 ) {
       $attr['post__in'] = $ids; 
       $attr['orderby'] = bw_array_get( $attr, "orderby", "post__in" );
       unset( $attr['p'] );
@@ -403,14 +433,78 @@ function bw_get_posts( $atts = NULL ) {
   
   bw_trace( $attr, __FUNCTION__, __LINE__, __FILE__, "attr" );
   
-  // if ( $attr['post_type'] == 'post' ) {
+  $bw_query = bw_array_get( $atts, "bw_query", null );
+  if ( $bw_query ) {
+    $posts = _bw_get_posts( $attr );
+  } else {
     $posts = get_posts( $attr );
-  // } else {
-  //  $posts = get_pages( $attr );
-  // }  
+  }   
   bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts" );
   return( $posts );
+}
+
+/**
+ * Wrapper to WP_query::query()
+ * 
+ * Sometimes we need to know more about the results of the query than just the posts
+ * 
+ * We need to find the total number of posts in order to work out how many pages there are.
+ * This information is available from WP_Query when displaying paged content.
+ *
+ * This function implements most of get_posts() but it returns the WP_Query object that was used. 
+ *
+ * @param array $args - parameters to get_posts or WP_query::query()
+ * @return array $posts - the posts
+ * 
+ */
+function _bw_get_posts( $args=null ) {
+ $defaults = array(
+    'numberposts' => 5, 'offset' => 0,
+    'category' => 0, 'orderby' => 'date',
+    'order' => 'DESC', 'include' => array(),
+    'exclude' => array(), 'meta_key' => '',
+    'meta_value' =>'', 'post_type' => 'post',
+    'suppress_filters' => true
+  );
+
+  $r = wp_parse_args( $args, $defaults );
+  if ( empty( $r['post_status'] ) )
+    $r['post_status'] = ( 'attachment' == $r['post_type'] ) ? 'inherit' : 'publish';
+  if ( ! empty($r['numberposts']) && empty($r['posts_per_page']) )
+    $r['posts_per_page'] = $r['numberposts'];
+  if ( ! empty($r['category']) )
+    $r['cat'] = $r['category'];
+  if ( ! empty($r['include']) ) {
+    $incposts = wp_parse_id_list( $r['include'] );
+    $r['posts_per_page'] = count($incposts);  // only the number of posts included
+    $r['post__in'] = $incposts;
+  } elseif ( ! empty($r['exclude']) )
+    $r['post__not_in'] = wp_parse_id_list( $r['exclude'] );
+
+  $r['ignore_sticky_posts'] = true;
   
+  // no_found_rows means don't count the number of found rows.
+  // We need to set this to true most of the time - as we either get the lot or limit ourselves to numberposts
+  // AND set it to false when we do want to know how many rows there are when paging.
+  // no_found_rows = true - don't count the found rows
+  // no_found_rows = false - do count the found rows
+  // 
+  if ( $r['posts_per_page'] ) {
+    $r['no_found_rows'] = bw_array_get( $args, "no_found_rows", false );
+  } else {
+    $r['no_found_rows'] = bw_array_get( $args, "no_found_rows", true ); 
+  }
+  
+  $get_posts = bw_array_get( $args, "bw_query", null );
+  $posts = $get_posts->query( $r );
+  bw_trace2( $get_posts->post_count, "new WP_Query post_count", false );
+  bw_trace2( $get_posts, "new WP_Query", false );
+  bw_trace2( $get_posts->found_posts, "new WP_Query found_posts", false );
+  bw_trace2( $get_posts->max_num_pages, "new WP_Query max_num_pages", false );
+  //$result = array( $posts
+  //               , $get_posts
+  //               );
+  return( $posts );
 }
 
 /**
@@ -418,6 +512,11 @@ function bw_get_posts( $atts = NULL ) {
  * 
  * Note: If we know the ID then why not just call get_post()? **?**  2012/11/03
  * Changed from is_int() to is_numeric() but not yet done above 2012/12/03
+ *
+ * @param integer $post_id - the ID of the post to retrieve
+ * @param string $post_type - the post type of the post ( could be "any" )
+ * @param array $atts - shortcode parameters
+ * @return post - a single post
  */
 function bw_get_post( $post_id, $post_type, $atts=null ) {
   if ( null == $atts ) {
@@ -448,7 +547,6 @@ function bw_get_post( $post_id, $post_type, $atts=null ) {
  * @param string $meta_key - the name of the meta value to match
  * @param array $value_array - the set of values to load 
  * @return array $posts - the array of posts returned
- * 
  */
 function bw_get_by_metakey_array( $post_type, $meta_key, $value_array ) { 
   $atts = array();
