@@ -130,6 +130,7 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
                , "current" => $page
                , "before_page_number" => "["
                , "after_page_number" => "]"
+               , "add_args" => false
                );
   // We don't need to worry about these yet             
   //  'show_all' => false,
@@ -141,7 +142,10 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
   //  'type' => 'plain',
   //  'add_args' => false, // array of query args to add
   //  'add_fragment' => '',
-  e( paginate_links( $args ) );
+  $links = paginate_links( $args ); 
+  //bw_trace2( $args, "args" );
+  //bw_trace2( $links, "links", false );
+  e( $links );
 }
 
 /**

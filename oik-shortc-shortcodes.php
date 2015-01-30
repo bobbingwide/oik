@@ -42,9 +42,9 @@ function bw_shortc_filter_mce_plugin( $plugins ) {
   bw_load_admin_scripts();
   global $tinymce_version;
   if ( version_compare( $tinymce_version, '4018' ) >= 0 ) {
-    $plugins['bwshortc'] = plugin_dir_url( __FILE__ ) . 'admin/oik_shortc_plugin_4.js';
+    $plugins['bwshortc'] = oik_url( 'admin/oik_shortc_plugin_4.js' );
   } else {
-    $plugins['bwshortc'] = plugin_dir_url( __FILE__ ) . 'admin/oik_shortc_plugin.js';
+    $plugins['bwshortc'] = oik_url( 'admin/oik_shortc_plugin.js' );
   }
   
   

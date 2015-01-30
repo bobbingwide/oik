@@ -24,16 +24,21 @@ define( 'OIK_PARENT_SHORTCODES_INCLUDED', true );
 /**
  * Display a link to a post
  *
+ * Note: get_the_title() may invoke shortcodes so we need to call bw_push() and bw_pop()
+ *
+ * If the $link is an integer then we format the link ourselves
+ * otherwise just bung it out. 
+ * 
  * @param ID/string $link - post_ID OR the actual link
  * @param string $class - list of classes to apply to the link
  * 
- * If the $link is an integer then we format the link ourselves
- * otherwise just bung it out. 
  */
 function bw_post_link( $link=null, $class="bw_post" ) {  
   if ( is_numeric( $link ) ) {
     $url = get_permalink( $link );
+    bw_push();
     $title = get_the_title( $link );
+    bw_pop();
     if ( empty( $title ) ) {
       $title = __( "Post: " ) . $link;
     }
@@ -46,7 +51,11 @@ function bw_post_link( $link=null, $class="bw_post" ) {
  * Display a link to the post->parent
  * 
  * Now the question on everyone's mind is - which $post ID do we get when we're working on nested shortcodes? 
- *
+ * 
+ * @param array $atts - shortcode parameters
+ * @param string $content - shortcode content - not expected
+ * @param string $tag - shortcode
+ * @return string - generated HTML
  */
 function bw_parent( $atts=null, $content=null, $tag=null ) {
   $id = bw_array_get( $atts, "id", null );
@@ -76,13 +85,14 @@ function bw_parent__syntax( $shortcode="bw_parent" ) {
  * Note: When formatting a list, if you give it the right class then it can be "de-listed" and appear as a normal list quite easily
  * You can even put commas between items. 
  * But sometimes it's easier to generate simpler HTML
+ *
+ * @param string $outer - the outer tag for the 'list'
+ * @return string - the inner tag - without any <>'s
  */
 function bw_inner_tag( $outer ) {
   $inner = bw_array_get( bw_inner_tags(), $outer, null );
   return( $inner );
 }
-  
-  
    
 /**
  * Return an array of inner tags for selected outer tags
@@ -101,12 +111,10 @@ function bw_inner_tags() {
   return( $inner_tags );                     
 }
 
-
-
-
 /** 
  * Display a list of links given the post IDs 
  *
+ * 
  */ 
 function bw_links( $atts=null, $content=null, $tag=null ) {
   $ids = bw_array_get( $atts, "id", null );

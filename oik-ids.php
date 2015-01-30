@@ -63,7 +63,7 @@ function oik_ids_sortable_column( $cols ) {
  * @param string $id - post ID
  */ 
 function oik_ids_value( $column_name, $id ) {
-  bw_backtrace(); 
+  //bw_backtrace(); 
 	if ( $column_name == 'ID' ) {
 		echo $id;
   }
@@ -105,12 +105,12 @@ function oik_ids_css() {
  * Can we make media sortable by adding logic when handling manager_media_columns ?
  * Ditto for post
  
- * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_edit-post_type_columns
+ * {@link http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_edit-post_type_columns}
  * 
  * In the codex we get told that the manage_edit-post_type_columns filter has been supplanted by manage_${post_type}_posts_columns
  * 
  * So what about the filter for custom post types?
- * @link http://codex.wordpress.org/Plugin_API/Action_Reference/manage_$post_type_posts_custom_column
+ * {@link http://codex.wordpress.org/Plugin_API/Action_Reference/manage_$post_type_posts_custom_column}
  * 
  * For custom post types we see the following actions/filters
  *                       

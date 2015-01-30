@@ -266,46 +266,65 @@ function _bw_theme_field_default_bw_header_image( $key, $value ) {
 
 /** 
  * Create a field label given the key name
+ * 
+ * Similar to bw_titleify()
+ * 
  * @param string $key - the field name e.g. yoast_wpseo_title
- * @return string - the invented label e.g. yoast wpseo title
- *
+ * @return string - the invented label e.g. Yoast Wpseo Title
  */
 function bw_label_from_key( $key ) {
   $label = str_replace( "_", " ", $key );
   $label = trim( $label );
+  $label = ucwords( $label );
   return( $label );
 }
 
 /**
  * Format the label for a field
  * 
+ * @TODO Decide if this should really be e.g. <label for="_oikp_type">Plugin type</label> rather than <span>
+ *
  * @param array $customfield - a simple array of $key => $value
  * @return bool - true if the label was required
  *
- * Should this be  **?** <label for="_oikp_type">Plugin type</label>
  */
 function bw_format_label( $customfield ) {
   //bw_trace2();
   foreach ( $customfield as $key => $value ) {
-    global $bw_fields; 
-    $field = bw_array_get( $bw_fields, $key, null );
-    if ( $field ) { 
-      //bw_trace2( $field );
-      //bw_theme_label( $key, $value, $field );
-      $label = bw_array_get( $field, "#title", $key );
-      $do_label = bw_array_get( $field['#args'], "#label", true );
-    } else {  
-      $label = bw_label_from_key( $key );  
-      $do_label = true;
-    }
-    if ( $do_label ) {
+    $label = bw_query_field_label( $key );
+    if ( $label ) {
       span( "label $key" ); 
       e( $label );
       epan( $key );
     }  
   }
-  return( $do_label );
+  return( $label );
 }
+
+/** 
+ * Get the label for a field
+ * 
+ * 
+ */
+function bw_query_field_label( $key ) {
+  global $bw_fields; 
+  $label = null;
+  $field = bw_array_get( $bw_fields, $key, null );
+  if ( $field ) { 
+    //bw_trace2( $field );
+    //bw_theme_label( $key, $value, $field );
+    $do_label = bw_array_get( $field['#args'], "#label", true );
+    if ( $do_label ) {
+      $label = bw_array_get( $field, "#title", $key );
+    }
+  } else {  
+    $label = bw_label_from_key( $key );  
+    $do_label = true;
+  }
+  //e("label:$label" );
+  return( $label );
+}
+ 
 
 /**
  * Theme an array of custom fields

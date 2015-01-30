@@ -45,9 +45,9 @@ function bw_filter_mce_button( $buttons ) {
 function bw_filter_mce_plugin( $plugins ) {
   global $tinymce_version;
   if ( version_compare( $tinymce_version, '4018' ) >= 0 ) {
-    $plugins['bwbutton'] = plugin_dir_url( __FILE__ ) . 'admin/oik_button_plugin_4.js';
+    $plugins['bwbutton'] = oik_url( 'admin/oik_button_plugin_4.js' );
   } else {
-    $plugins['bwbutton'] = plugin_dir_url( __FILE__ ) . 'admin/oik_button_plugin.js';
+    $plugins['bwbutton'] = oik_url( 'admin/oik_button_plugin.js' );
   }
   return $plugins;
 }

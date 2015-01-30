@@ -39,10 +39,11 @@ function bw_global_post_type() {
 /** 
  * Return the value of the GLOBAL post's excerpt field setting it to the new value
  * 
+ * Use this function in pairs to save and then reset the global value.
+ 
  * @param string $excerpt - the new value that we want to set
  * @return string the previously stored value
  * 
- * Use this function in pairs to save and then reset the global value.
  * 
  */
 function bw_global_excerpt( $excerpt=null ) {
@@ -73,6 +74,8 @@ function bw_process_this_post( $id ) {
 
 /**
  * Clear the array of processed posts
+ * 
+ * 
  */
 function bw_clear_processed_posts() {
   global $processed_posts;
@@ -81,25 +84,35 @@ function bw_clear_processed_posts() {
 }
 
 /**
- * Safely invoke the "the_content" filter
- * We only really want shortcode expansion to take place against the content
+ * Expand shortcodes in the content
  * 
+ * Originally entitled 'Safely invoke the "the_content" filter'
+ * 
+ * We only really want shortcode expansion to take place against the content
+ * So why not use "get_the_excerpt" instead?
+ * 
+ * It's probably because some shortcodes don't work for that filter. 
+ * OR is that a load of bolleaux?
+ *
+ * Why not just invoke do_shortcode() ?
+ *  
  */
 function bw_get_the_content( $content ) { 
   $doit = strpos( $content, "[" );
   if ( $doit !== false ) {
     bw_push(); 
-    // $saved_excerpt = bw_global_excerpt( null ); 
-    $content = apply_filters( "the_content", $content );
-    // bw_trace2( $excerpt, "excerpt after", false );
-    // bw_global_excerpt( $saved_excerpt );
+    //$content = apply_filters( "the_content", $content );
+    //$content = apply_filters( "get_the_excerpt", $content );
+    $content = do_shortcode( $content );
     bw_pop();
   }  
   return( $content );
 }
 
 /**
- * Safely invoke the "get_the_excerpt" filter
+ * Expands shortcodes in the excerpt
+ * 
+ * Originally entitles, 'Safely invoke the "get_the_excerpt" filter'
  * 
  * The reason we apply filters here is to expand shortcodes.
  * And we want to expand only those shortcodes that are allowed to expand in excerpts.
@@ -115,7 +128,8 @@ function bw_get_the_excerpt( $excerpt ) {
   if ( $doit !== false ) {
     bw_push(); 
     $saved_excerpt = bw_global_excerpt( null ); 
-    $excerpt = apply_filters( "get_the_excerpt", $excerpt );
+    //$excerpt = apply_filters( "get_the_excerpt", $excerpt );
+    $excerpt = do_shortcode( $excerpt );
     // bw_trace2( $excerpt, "excerpt after", false );
     bw_global_excerpt( $saved_excerpt );
     bw_pop();
@@ -271,17 +285,20 @@ function bw_format_more( $post, $atts ) {
  * 
  */
 function bw_format_thumbnail( $thumbnail, $post, $atts ) {
-  sdiv( );
+  sdiv( "bw_thumbnail" );
   bw_link_thumbnail( $thumbnail, $post->ID, $atts );
   ediv();
 }
 
 /**
  * Format the "post" - in a simple list item list
+ *
  * If there is a thumbnail parameter we include the image as well! 
  * We originally expected the thumbnail parameter to be a small number e.g. thumbnail=80
  * but now we support any size since the list may be displayed with the Flexslider jQuery
  * 
+ * @param post $post - the post object to be displayed
+ * @param array $atts - shortcode parameters
  */
 function bw_format_list( $post, $atts ) {
   // bw_trace( $post, __FUNCTION__, __LINE__, __FILE__, "post" );
@@ -332,21 +349,21 @@ function bw_get_categories() {
  * e.g for a 'page' it should list the child pages
  *     for a 'post' it should show related posts in the same category as the current post
  * 
- * # $atts       $post->     Default
- *   post_type   post_type   processing
- * - ---------   ---------   -----------------------------------
- * 1 -           page        list child pages - first level only
- * 2 -           post        list related posts - same categories
- * 3 -           custom      none
- * 4 page        page        as 1.
- * 5 page        post        ?
- * 6 page        custom      ?
- * 7 post        page        ?
- * 8 post        post        as 2.
- * 9 post        custom      ?
- * 10-12 custom  any         ?
+ * Nos | $atts['post_type']  | $post->post_type | Default processing
+ * --- | ---------  | ---------  | -----------------------------------
+ * 1   | -          | page       | list child pages - first level only
+ * 2   | -          | post       | list related posts - same categories
+ * 3   | -          | custom     | none
+ * 4   | page       |  page      |  as 1.
+ * 5   | page       | post       | ?
+ * 6   | page       | custom     | ?
+ * 7   | post       | page       | ?
+ * 8   | post       | post       | as 2.
+ * 9   | post       | custom     | ?
+ * 10-12 | custom | any          | ?
  *
  * As you can see from the table above the default behaviour for listing posts on pages and vice-versa is not (yet) defined
+ * 
  *
  * @param array $atts - shortcode parameters
  * @return array - posts
@@ -360,12 +377,12 @@ function bw_get_posts( $atts=null ) {
   
   /* Set default values if not already set */
   $attr['post_type'] = bw_array_get_dcb( $attr, 'post_type', NULL, "bw_global_post_type"  );
+  $post_types = bw_as_array( $attr['post_type'] );
   
   /* Allow specific post IDs to be defined in a variety of ways. */
   $id = bw_array_get_from( $attr, array( "id", "post__in", "p", "page_id" ),  null );
   
   if ( !$id ) {
-    $post_types = bw_as_array( $attr['post_type'] );
     if ( count( $post_types ) > 1 ) {
       $attr['post_type'] = $post_types;
     } else {
@@ -416,8 +433,11 @@ function bw_get_posts( $atts=null ) {
       $attr['p'] = $id; 
       $attr['page_id'] = $id; 
       // Normally we don't need to worry about orderby or numberposts when we're only getting one post
-      
     }  
+    
+    if ( count( $post_types ) > 1 ) {
+      $attr['post_type'] = $post_types;
+    }
   }
   // Regardless of the post type, exclude the current post, if exclude= parameter NOT specified
   // If you want to retrieve the current post use exclude=-1

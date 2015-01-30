@@ -1,10 +1,7 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
-if ( defined( 'OIK_TREE_SHORTCODES_INCLUDED' ) ) return;
-define( 'OIK_TREE_SHORTCODES_INCLUDED', true );
-
+<?php // (C) Copyright Bobbing Wide 2012-2015
 /*
 
-    Copyright 2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -36,6 +33,9 @@ function bw_format_tree( $post, $atts ) {
   stag( "li" );
   $url= get_permalink( $post->ID );
   $title = $post->post_title; 
+  bw_push();
+  $title = do_shortcode( $title );
+  bw_pop();
   alink( "bw_tree", $url, $title ); 
   $atts['post_parent'] = $post->ID;
   bw_tree_func( $atts );

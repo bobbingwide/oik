@@ -50,7 +50,8 @@ function bw_default_title_arr( $field_arr ) {
   oik_require( "includes/bw_register.inc" );
   if ( count( $field_arr) ) {
     foreach ( $field_arr as $key => $name ) {
-      $title_arr[$name] = bw_titleify( $name );
+      //$title_arr[$name] = bw_titleify( $name );
+      $title_arr[$name] = bw_query_field_label( $name ); 
     }
   }
   return( $title_arr ); 
@@ -63,7 +64,7 @@ function bw_default_title_arr( $field_arr ) {
  * @uses "oik_table_fields_${post_type} - filter to determine fields to display in the table
  * @uses "oik_table_titles_${post_type} - filter to determine titles to display in the table
  *
- * Default fields are title and description (excerpt) 
+ * Default fields, if not set are title and description (excerpt) 
  * 
  * @param array $atts - shortcode parameters including "fields="
  * @param string $post_type - the post type being displayed
@@ -76,16 +77,19 @@ function bw_query_table_columns( $atts=null, $post_type ) {
   $title_arr = array();
 
 
-  $fields = bw_array_get( $atts, "fields", "title,excerpt" );
+  $fields = bw_array_get( $atts, "fields", null );
   if ( $fields ) { 
     $field_arr = explode( ",", $fields ); 
     $field_arr = bw_assoc( $field_arr );
-    bw_trace2( $field_arr, "field_arr", false );
+  } else {
+    $field_arr = apply_filters( "oik_table_fields_${post_type}", $field_arr, $post_type );
+    if ( empty( $field_arr ) ) {
+      $field_arr['title'] = 'title';
+      $field_arr['excerpt'] = 'excerpt'; 
+    }  
   }
-  
-  $field_arr = apply_filters( "oik_table_fields_${post_type}", $field_arr, $post_type );
+  bw_trace2( $field_arr, "field_arr", false );
   $title_arr = bw_default_title_arr( $field_arr ); 
-  
   $title_arr = apply_filters( "oik_table_titles_${post_type}", $title_arr, $post_type, $field_arr );
  
   bw_table_header( $title_arr );  

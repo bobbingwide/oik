@@ -38,7 +38,7 @@ oik_require( "shortcodes/oik-attachments.php" );
  *
  */
 function bw_format_thumb( $post, $atts ) {
-  //  setup_postdata( $post );
+  //setup_postdata( $post );
   bw_trace( $post, __FUNCTION__, __LINE__, __FILE__, "post" );
   $atts['title'] = get_the_title( $post->ID );
   $thumbnail = bw_thumbnail( $post->ID, $atts );

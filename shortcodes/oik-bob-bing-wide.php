@@ -151,7 +151,19 @@ function bw_wp( $suffix=false ) {
   $bw .= '<span class="bw_word">Word</span>';
   $bw .= '<span class="bw_press">Press</span>';
   if ( $suffix ) {
-    $bw .= '<span class="bw_dotorg">.org</span>';
+    $ver = bw_array_get_from( $suffix, "v,0", null );
+    if ( $ver == "v" ) {
+      global $wp_version;
+      $bw .= " ";
+      $bw .= $wp_version;
+      $phpver = bw_array_get_from( $suffix, "p,1", null );
+      if ( $phpver == "p" ) {
+        $bw .= ". PHP: " . phpversion();
+      }
+    } else {
+      $bw .= '<span class="bw_dotorg">.org</span>';
+    }
+      
   }
   $bw .= nullretetag( "span", "wordpress" ); 
   return( $bw );
@@ -184,5 +196,5 @@ function wp3( $atts=NULL) {
 
 } /* End if !defined() */
 
-bw_trace2( "oik-bob-bing-wide-loaded" );
-bw_backtrace();
+//bw_trace2( "oik-bob-bing-wide-loaded" );
+//bw_backtrace();

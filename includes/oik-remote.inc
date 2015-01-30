@@ -1,13 +1,54 @@
-<?php // (C) Copyright Bobbing Wide 2012, 2013
+<?php // (C) Copyright Bobbing Wide 2012, 2014
+
+/**
+ * Wrapper to wp_remote_head
+ */
+function bw_remote_head( $url ) {
+
+  $request = wp_remote_head( $url );
+  bw_trace2( $request );
+  return( $request );
+}
+
+/**
+ * wrapper to wp_remote_get for both HEAD and json body
+ *
+ * The resulting array contains the request returned from the call - so that we can look at information in the 'headers' -
+ * and the decoded JSON from the retrieved body, if set.
+ * Note: The default method, 'GET', can be overridden in the $args array. This allows us to use 'PUT' as well. 
+ * 
+ * @param string $url - the target URL for the GET
+ * @param array $args - additional parameters to wp_remote_get
+ * @return array - consisting of the result of the request and the JSON result
+ */
+function bw_remote_geth( $url, $args=null ) {
+  $request = wp_remote_get( $url, $args );
+  bw_trace2( $request, "request" );
+  if ( is_wp_error( $request ) ) {
+    bw_trace2( $request, "request is_wp_error" );
+    $result = null;
+  } else {
+    $json = wp_remote_retrieve_body( $request );
+    bw_trace2( $json );
+    if ( empty( $json ) ) {
+      $result = null;
+    } else {
+      $result = json_decode( $json );
+    }  
+  }
+  //bw_trace2( $result, "result", false );
+  return( array( $request, $result ) );
+}
 
 /**
  * Wrapper to wp_remote_get
+ * 
  * @param string $url with parameters already added
  * @return decoded result - a json object OR null 
  */ 
 function bw_remote_get( $url ) {
   $request = wp_remote_get( $url );
-  if ( is_wp_error ($request ) ) {
+  if ( is_wp_error( $request ) ) {
     bw_trace2( $request, "request is_wp_error" );
     $result = null;
   } else {
@@ -25,6 +66,7 @@ function bw_remote_get( $url ) {
 
 /**
  * Wrapper to wp_remote_get2
+ * 
  * @param string $url with parameters already added
  * @return 
  */ 
@@ -67,6 +109,7 @@ function bw_retrieve_result( $request ) {
 
 /**
  * Wrapper to wp_remote_post
+ * 
  * @param string $url the request URL
  * @param array $args - array of args including body array 
  * @return unserialized result or null
@@ -126,23 +169,123 @@ function oik_lazy_altapi_check( $transient ) {
   if ( !$responses_built ) {
     $checked = bw_array_get( $transient, "checked", null );
     if ( $checked ) {
+      $responses = oik_check_checked_for_update( $checked );
+      /*
       foreach ( $checked as $plugin => $version ) {
         $response = oik_check_for_update( $plugin, $version );
         if ( $response && !is_wp_error( $response ) ) {
           $responses[$plugin] = $response;
         }  
       } 
+      */
       $responses_built = true;
     }
   }
+  bw_trace2( $responses, "responses", false );
   if ( $responses_built ) {
-    foreach ( $responses as $plugin => $response ) {      
+    foreach ( $responses as $plugin => $response ) {
       $transient->response[$plugin] = $response;
     }
-    bw_trace2( $responses, "transient updated" );
-  }  
+  } 
+  bw_trace2( $transient, "transient updated", false );
+   
   return( $transient );  
 }
+
+/**
+ * Check the checked array for updates
+ *
+ * Attempted performance improvement
+ * We only make one call to each server for all the plugins that it supports
+ * 
+ * 1. Find the servers to talk to
+ * 2. Check with each server - passing the cut down checked array
+ * 3. Update $responses with updated plugins and, if defined, the apikey for premium plugins
+ * 
+ * @param array $checked - the array of checked plugins
+ * @return array - the responses
+ */
+function oik_check_checked_for_update( $checked ) {
+  $responses = array();
+  bw_trace2();
+  $servers = array();
+  $apikeys = array();
+  foreach ( $checked as $plugin => $version ) {
+    $plugin_settings = oik_query_plugins_server( bw_get_slug( $plugin ) );
+    //bw_trace2( $plugin_settings, "plugin_settings", false );
+    if ( $plugin_settings ) {
+      $server = bw_array_get( $plugin_settings, "server", null ); 
+      $server = rtrim( $server, "/" );
+      $servers[$server]['checked'][$plugin] = $version;
+      $apikeys[$plugin] = bw_array_get( $plugin_settings, "apikey", null );
+    }
+  }
+  bw_trace2( $servers, "servers", false );
+  foreach ( $servers as $server => $check_these ) {
+    //session_write_close();
+    //bw_trace2( $_SESSION, "session", false );
+    $server_response = oik_check_these_for_update( $server, $check_these );  
+    bw_trace2( $server_response, "server_response" );
+    if ( !is_wp_error( $server_response) && count( $server_response ) ) {
+      foreach ( $server_response as $plugin => $aresponse ) {
+        if ( $apikeys[$plugin] ) {
+          $package = $aresponse->package;
+          $package .= "&apikey=" . $apikeys[$plugin];
+          $aresponse->package = $package;  
+        }
+        $responses[$plugin] = $aresponse;
+      }
+    }  
+  }
+  //gobang();
+  return( $responses );
+}
+
+/**
+ * Check these plugins for updated versions
+ *
+ * Pass the array of plugins and their current version to the server and check for updates
+ * The server is only expected to return responses for any plugin where there are updates.
+ *
+ * If the server does not support "check-these" then we'll get an error? 
+ */
+function oik_check_these_for_update( $server, $check_these ) {
+  $url = $server;
+  //$url = "http://qw/wordpress";
+  $url .= '/plugins/check-these/';
+  $body = array( "action" => "check-these" 
+               //  , "plugin_name" => $plugin 
+               //  , "version" => $version
+               //  , "apikey" => $apikey
+                 , "check" => serialize( $check_these )
+                 );
+  $args = array( "body" => $body, "timeout" => 20 );
+  $result = bw_remote_post( $url, $args ); 
+  if ( $result ) {
+    bw_trace2( $result );
+    if ( is_wp_error( $result ) ) {
+        $response = $result;
+    } else { 
+      //bw_trace2( $result->new_version, "$version!", false ); 
+      //$vc = version_compare( $result->new_version, $version, ">" );
+      //bw_trace2( $result->new_version, "new version", false );
+      //bw_trace2( $version, "old version", false );
+      //bw_trace2( $vc, "vc result", false );
+      //  if( isset( $result->new_version ) && version_compare( $result->new_version, $version, '>' ) ) {
+      $response = $result;  
+      //bw_trace2( $response, "response", );
+      if ( !is_array( $response ) && false !== strpos( $response, "Invalid request" ) ) {
+        $response = null;
+      }
+      //    }  
+    } 
+  } else {
+    $response = null;
+  }
+  return( $response );
+
+}  
+
 
 
 /**
@@ -217,6 +360,7 @@ function oik_lazy_alttheme_check( $transient ) {
 
 /**
  * Check an oik-plugins server for an updated plugin 
+ * 
  * @param string $plugin plugin name e.g. oik-edd/oik-edd.php
  * @param string $version currently installed version e.g 1.03
  * @return $response if there is a new version else null
@@ -458,7 +602,7 @@ function oik_lazy_themes_api_result( $result, $action, $args ) {
   *
   */
   $url = "http://www.oik-plugins.com";
-  $url = "http://qw/wpit";
+  //$url = "http://qw/wpit";
   $url .= "/themes/info/";
   $post_args =  array( 'timeout' => 15
                      , 'body' => array('action' => $action, 'request' => serialize($args))

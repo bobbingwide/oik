@@ -1,7 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2010-2014
 
 /**
- * create a styled follow me button
+ * Create a styled follow me button
  * 
  * @param array atts - array of shortcode attributes
  * 
@@ -9,6 +9,7 @@
  * url = override of who to follow. value defaults to the oik option for the network
  * me = who to follow - defaults to "me"
  * text = currently ignored 
+ * theme = currently supports 'dash' or 'gener' or leave null
  */
 function bw_follow( $atts=null ) {
   $social_network = bw_array_get( $atts, 'network', 'Facebook' );
@@ -18,12 +19,8 @@ function bw_follow( $atts=null ) {
     $social = bw_get_option_arr( $lc_social, null, $atts );
   }
   if ( $social ) {
-    $social = bw_social_url( $lc_social, $social );
-  }  
-  $me = bw_get_me( $atts );
-  $imagefile = oik_url( 'images/'. $lc_social . '_48.png' );
-  $image = retimage( "bw_follow", $imagefile, "Follow $me on ".$social_network );
-  alink( null , $social, $image, "Follow $me on ".$social_network );
+    bw_follow_link( $social, $lc_social, $social_network, $atts );  
+  }
   return( bw_ret());
 }
 
@@ -167,11 +164,7 @@ function bw_follow_e( $atts=null ) {
   $lc_social = strtolower( $social_network );
   $social = bw_get_option_arr( $lc_social, null, $atts );
   if ( $social ) {
-    $social = bw_social_url( $lc_social, $social );
-    $me = bw_array_get( $atts, "me", "me" );
-    $imagefile = oik_url( 'images/'. $lc_social . '_48.png' );
-    $image = retimage( "bw_follow", $imagefile, "Follow $me on ".$social_network );
-    alink( NULL, $social, $image, "Follow $me on ".$social_network );
+    bw_follow_link( $social, $lc_social, $social_network, $atts );
   }     
 }
 
@@ -192,3 +185,124 @@ function bw_follow_me( $atts=null ) {
   }
   return( bw_ret());
 }
+
+
+/**
+ * Create the link for the selected theme= parameter
+ * 
+ *
+ */
+function bw_follow_link( $social, $lc_social, $social_network, $atts ) {
+  $social = bw_social_url( $lc_social, $social );
+  $me = bw_get_me( $atts );
+  $theme = bw_array_get( $atts, "theme", null );
+  $class = bw_array_get( $atts, "class", null );
+  $theme_functions = array( "dash" => "bw_follow_link_dash"
+                          , "gener" => "bw_follow_link_gener"
+                          );
+  $themefunc = bw_array_get( $theme_functions, $theme, "bw_follow_link_" );
+  call_user_func( $themefunc, $social, $lc_social, $social_network, $me, $class );
+}
+
+/**
+ * Create a follow me link using dashicons
+ * 
+ * WordPress's dashicons font currently supports:
+ *  facebook
+ *  twitter
+ *  googleplus
+ * 
+ * We can try simulating LinkedIn using "in"
+ * but it's not as good as using the genericons font. 
+ *
+ * @param string $social - the URL
+ * @param string $lc_social - lower case version of the social_network e.g. facebook
+ * @param string $social_network - the social network e.g. Facebook
+ * @param string $me - whoever me has resolved to be
+ */
+function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class ) {
+  // bw_dash( $social );
+  if ( $lc_social == "facebook" ) {
+    $lc_social .= "-alt";
+  }
+  wp_enqueue_style( 'dashicons' );
+  $dash = retstag( "span", "dashicons dashicons-$lc_social bw_follow_me $class" );
+  if ( $lc_social == "linkedin" ) {
+    $dash .= retstag( "span" );
+    $dash .= "in";
+    $dash .= retetag( "span" );
+  }
+  $dash .= retetag( "span" );
+  $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
+  alink( null, $social, $dash, $follow_me_tooltip );  
+}
+
+/**
+ * Create a follow me link using genericons
+ * 
+ * The genericons font currently supports:
+ * 
+ * - facebook
+ * - twitter
+ * - googleplus
+ * - linkedin
+ * - pinterest
+ * - instagram
+ * - flickr
+ * - foursquare
+ * - github 
+ * - youtube
+ * but not
+ * - picasa
+ * 
+ * That's not considered to be a great problem! 
+ * From 
+Twitch and Spotify mark the last social icons that will be added to Genericons.
+Future social icons will have to happen in a separate font. 
+ *
+ * @param string $social - the URL
+ * @param string $lc_social - lower case version of the social_network e.g. facebook
+ * @param string $social_network - the social network e.g. Facebook
+ * @param string $me - whoever me has resolved to be
+ */
+function bw_follow_link_gener( $social, $lc_social, $social_network, $me, $class ) {
+  switch ( $lc_social ) {
+    case "googleplus":
+    case "facebook":
+      $lc_social .= "-alt";
+  }
+  
+  if ( !wp_style_is( 'genericons', 'registered' ) ) {
+    wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
+  }
+  wp_enqueue_style( 'genericons' );
+  $dash = retstag( "span", "genericon genericon-$lc_social bw_follow_me $class" );
+  $dash .= retetag( "span" );
+  $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
+  alink( null, $social, $dash, $follow_me_tooltip );  
+} 
+
+/**
+ * Display a default Follow me link using oik icons
+ *
+ * This is the original solution that used .png files of 48x48 pixels
+ * 
+ *
+ */ 
+function bw_follow_link_( $social, $lc_social, $social_network, $me, $class ) {
+  $imagefile = oik_url( 'images/'. $lc_social . '_48.png' );
+  $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
+  $image = retimage( "bw_follow ", $imagefile, $follow_me_tooltip );
+  alink( $class , $social, $image, $follow_me_tooltip );
+}
+
+/**
+ * Syntax for [bw_follow_me] shortcode
+ */
+function bw_follow_me__syntax( $shortcode="bw_follow_me" ) {
+  $syntax = array( "theme" => bw_skv( null, "gener|dash", "Icon font selection" )
+                 , "class" => bw_skv( null, "<i>class names</i>", "CSS class names" )
+                 , "alt" => bw_skv( null, "0|1", "Use alternative value" )
+                 );
+  return( $syntax );
+}                 

@@ -25,48 +25,45 @@ function bw_format_as_required( $post, $atts ) {
  * Return the field function to invoke
  *
  * Returns the function to invoke to format the field 
- * <code>
- * A Field               Other atts            Notes
- * - ------------------  -------------------   ------------------------------
- * T Title                                     This is NOT a link
- * I Image               thumbnail=
- * F Featured image      thumbnail=            Currently same as I-Image
- * C Content                                   
- * E Excerpt
- * R Read more           readmore=             block - using art_button
- * M Read more           readmore=             inline - class "bw_more"
- * L Link 
- * A Attachment(s)                             Display links to Attachments
- *
- * / div                                       Dummy <div></div>             
- *   space                                     Add a &nbsp; 
  * 
- * Meta data - lower case
- * c  categories
- * o  comments
- * t  tags
- * a  author
- * d  date
- * e  edit
- * 
- * _ Fields              fields=               only works when oik-fields enabled
+ * A | Field              | Other atts          | Notes
+ * - | ------------------ | ------------------- | ------------------------------
+ * T | Title              |                     | This is NOT a link
+ * I | Image              | thumbnail=          |
+ * F | Featured image     | thumbnail=          | Currently same as I-Image
+ * C | Content            |                     | 
+ * E | Excerpt            |                     | 
+ * R | Read more          | readmore=           | block - using art_button
+ * M | Read more          | readmore=           | inline - class "bw_more"
+ * L | Link               |                     |
+ * A | Attachment(s)      |                     | Display links to Attachments
+ * / | div                |                     | Dummy <div></div>             
+ *   | space              |                     | Add a &nbsp; 
+ * c | categories         |                     | post categories only
+ * o | comments           |                     |
+ * t | tags               |                     | post tags only
+ * a | author             |                     |
+ * d | date               |                     |
+ * e | edit               |                     |
+ * _ | Fields             | fields=             | only works when oik-fields enabled
  * 
  * Future use?
- * ! span                                      Americans know this as bang, sounds like span
- * + span                                      Dummy <span></span>
- * - span
- * $ Price                                     
- * ? Caption                                   For attachments
- * S Status                                    Displays the post_status
- * Y tYpe                                      Displays the post_type
- * P Parent                                    Displays the post_parent as a link
- * B block                                     Creates an Artisteer block
  * 
- * , reserved for field name separator when the full field names are used
+ * - ! span                                      Americans know this as bang, sounds like span
+ * - + span                                      Dummy <span></span>
+ * - - span
+ * - $ Price                                     
+ * - ? Caption                                   For attachments
+ * - S Status                                    Displays the post_status
+ * - Y tYpe                                      Displays the post_type
+ * - P Parent                                    Displays the post_parent as a link
+ * - B block                                     Creates an Artisteer block
+ * 
+ * - , separator                                 reserved for field name separator when the full field names are used
  *
  * Characters we can't use, since these would mess up the shortcode logic:
- * = ' "  [ ] 
- * </code>
+ * * = ' "  [ ] 
+ * * </code>
  *
  */    
 function bw_field_function( $abbrev ) {
@@ -121,9 +118,13 @@ function _bw_field_functions() {
  * 
  * The initial formatting is as coded in [bw_pages]
  * **?** 2013/06/08 Should the title be styled as h3 rather than strong?
+ * 
+ * 
  */
 function bw_field_function_title( $post, &$atts, $f ) {
+  bw_push();
   $atts['title'] = get_the_title( $post->ID );
+  bw_pop();
   bw_trace2( $atts, "look for title", false );
   if ( empty( $atts['title'] ) ) {
     $atts['title'] = __( "Post: " ) . $post->ID;

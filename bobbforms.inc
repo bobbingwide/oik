@@ -71,6 +71,8 @@ function ihidden( $name, $value ) {
  * @return string the HTML input tag
  */
 function itext( $name, $len, $value, $class=null, $extras=null ) {
+  //bw_trace2();
+  //bw_backtrace();
   //$width = ($len * 20) ;
   $it = "<input type=\"text\" size=\"";
   $it.= $len;
@@ -172,24 +174,41 @@ function tablerow( $td1, $td2 ) {
 
 /**
  * Create a table data cell
+ *
+ * In the first version the cell was not created if there was no value.
+ * In oik v2.4 the cell is created even when there is no contents. 
+ * This may make it easier for [bw_csv] with blanks and zeros. 
+ *
+ * @param string $text - cell contents
+ * @param string $class - table data class
+ * @param string $id - table data ID
+ *
  */
 function bw_td( $text=NULL, $class=NULL, $id=NULL ) {
-  if ( $text ) {
+  //if ( $text ) {
     stag( "td", $class, $id );
     e( $text );
     etag( "td");
-  }
+  //}
 }
 
 /**
  * Create a table heading cell
+ *
+ * In the first version the cell was not created if there was no value.
+ * In oik v2.4 the cell is created even when there is no contents. 
+ * This may make it easier for [bw_csv] with blanks and zeros. 
+ *
+ * @param string $text - cell contents
+ * @param string $class - table heading class
+ * @param string $id - table heading ID
  */
 function bw_th( $text=NULL, $class=NULL, $id=NULL ) {
-  if ( $text ) {
+  //if ( $text ) {
     stag( "th", $class, $id );
     e( $text );
     etag( "th");
-  }
+  //}
 }
 
 /**
@@ -239,7 +258,14 @@ function textarea( $name, $len, $text, $value, $rows=10 ) {
   
 /**
  * Form a text field
- * 
+ *
+ * @param string $name - the name of the field
+ * @param integer $len - the length of the field
+ * @param string $text - the label for the field
+ * @param string $value - the value of the field
+ * @param string $class - CSS class name
+ * @param string $extras - the extras passed to itext() is expected to be a string
+ * @TODO accept array so that #hint can be applied 2014/11/28  
  * 
  */
 function bw_textfield( $name, $len, $text, $value, $class=null, $extras=null ) {

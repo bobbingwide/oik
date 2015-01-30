@@ -30,7 +30,7 @@
 function bw_get_image_size( $size=100 ) {
   $pattern = "/([\d]+)/";
   preg_match_all( $pattern, $size, $thumbnail );
-  bw_trace2( $thumbnail );
+  //bw_trace2( $thumbnail );
   if ( count( $thumbnail[0] ) < 2 ) 
     $thumbnail[0][1] = $thumbnail[0][0];
     
@@ -139,7 +139,7 @@ function bw_get_thumbnail_size( $atts ) {
         $thumbnail = bw_get_image_size( $thumbnail ); 
       } 
   } 
-  bw_trace2( $thumbnail );
+  //bw_trace2( $thumbnail );
   return( $thumbnail );
 }  
  
@@ -155,7 +155,7 @@ function bw_thumbnail( $post_id, $atts=NULL, $attachment=false ) {
   $atts['post_id'] = $post_id; 
   $thumbnail = bw_get_thumbnail_size( $atts );
   if ( $thumbnail ) {
-    bw_trace( $post_id, __FUNCTION__, __LINE__, __FILE__, "post_id" );
+    //bw_trace( $post_id, __FUNCTION__, __LINE__, __FILE__, "post_id" );
     
     switch ( $thumbnail ) {
       case 'full';
@@ -207,7 +207,7 @@ function bw_get_fullimage( $post_id, $size='full', $atts=null ) {
   if ( !$return_value ) {
     $return_value = bw_get_random_image( $post_id, $size, $atts );
   }     
-  bw_trace( $return_value, __FUNCTION__, __LINE__, __FILE__, "return_value" ); 
+  //bw_trace( $return_value, __FUNCTION__, __LINE__, __FILE__, "return_value" ); 
   return( $return_value );
 }
 
@@ -219,7 +219,7 @@ function bw_get_fullimage( $post_id, $size='full', $atts=null ) {
  */
 function bw_get_random_image( $post_id, $size, $atts ) {
   $arr_thumb = bw_get_attached_image( $post_id, 1, 'rand', $size );
-  bw_trace( $arr_thumb, __FUNCTION__, __LINE__, __FILE__, "arr_thumb" );
+  //bw_trace( $arr_thumb, __FUNCTION__, __LINE__, __FILE__, "arr_thumb" );
   $thumbnail = bw_array_get( $arr_thumb, 0, null );
   $img = bw_array_get( $thumbnail, 0, null );
   if ( $img ) {
@@ -245,7 +245,7 @@ function bw_get_random_image( $post_id, $size, $atts ) {
  * As of v1.13 this supports custom image links
  */
 function bw_link_thumbnail( $thumbnail, $post_id=NULL, $atts=NULL )  {
-  bw_trace2();
+  //bw_trace2();
   $link_id = bw_array_get( $atts, "link", $post_id );
   if ( $link_id ) {
     $text = bw_array_get( $atts, "title", NULL );
@@ -297,7 +297,7 @@ function bw_get_thumbnail( $post_id = null, $size = 'thumbnail', $atts=NULL ) {
   } 
   //bw_trace( $post_id, __FUNCTION__, __LINE__, __FILE__, "post_id" );
   $thumbnail =  bw_get_thumbnail_src( $post_id, $size );
-  bw_trace2( $thumbnail, "thumbnail" ); 
+  //bw_trace2( $thumbnail, "thumbnail" ); 
   if ( bw_array_get( $thumbnail, 0, FALSE)  ) {
     $text = bw_array_get( $atts, "title", NULL );
     $thumbnail = bw_force_size( $thumbnail, $size );
@@ -305,37 +305,57 @@ function bw_get_thumbnail( $post_id = null, $size = 'thumbnail', $atts=NULL ) {
     $classes = "bw_thumbnail " . bw_get_post_class( $post_id );
     $return_value = retimage( $classes, $thumbnail[0], $text, $thumbnail[1], $thumbnail[2], $data_thumb ); 
   }
-  bw_trace( $return_value, __FUNCTION__, __LINE__, __FILE__, "return_value" ); 
+  //bw_trace( $return_value, __FUNCTION__, __LINE__, __FILE__, "return_value" ); 
   return( $return_value );
 }
 
 /**
- * get the attached image 
+ * Get the attached image 
  *
  * Return an array of images attached to a specific post ID
  *   
  * Return Value: An array containing:
+ * `
  *       $image[0] => url
  *       $image[1] => width
  *       $image[2] => height
  *       $image[3] => attachment id
+ * `
+ * Fix: In v2.4-beta.1218 we incorrectly tried using $args['ID'] instead og $args['post_parent'].
+ * A lot of the images displayed were incorrect. This has now been reverted to using $args['post_parent']
+ *  
+ *
+ * @param integer $post_id - the parent post ID, or null
+ * @param integer $number - the number of posts to retrieve
+ * @param string $orderby - how to select the image
+ * @param string $image_size
+ * @return array - the selected image 
+ *
  */
 function bw_get_attached_image( $post_id = null, $number = 1, $orderby = 'rand', $image_size = 'thumbnail') {
-  if ($post_id == null) 
-    $post_id = get_the_id();
-  bw_trace2(); 
+  $args = array( 'post_type'      => 'attachment'
+               , 'numberposts'    => $number
+               , 'post_mime_type' => 'image'
+               , 'orderby'        => $orderby 
+               );
+  if ( $post_id == null) { 
+    $post_id = get_the_id();  
+    $args['post_parent'] = $post_id;
+  } else {
+    //$args['ID'] = $post_id;
+    $args['post_parent'] = $post_id;
+  }  
+  //bw_trace2( $args, "args" ); 
+  //bw_backtrace();
   $number = intval( $number );
-  $arr_attachment = get_posts( array( 'post_parent'    => $post_id,
-                                      'post_type'      => 'attachment',
-                                      'numberposts'    => $number,
-                                      'post_mime_type' => 'image',
-                                      'orderby'        => $orderby ));
+  $arr_attachment = get_posts( $args );
+  
   if ( count( $arr_attachment ) ) {
     foreach ( $arr_attachment as $index => $attachment ) {
       $arr_attachment[$index] = array_merge ( (array) wp_get_attachment_image_src($attachment->ID, $image_size), array($attachment->ID) );
     }
   }
-  bw_trace( $arr_attachment, __FUNCTION__, __LINE__, __FILE__, "arr_attachment" );
+  //bw_trace( $arr_attachment, __FUNCTION__, __LINE__, __FILE__, "arr_attachment" );
   return $arr_attachment;
 }
 
@@ -353,7 +373,7 @@ function bw_get_attached_image( $post_id = null, $number = 1, $orderby = 'rand',
 function bw_get_attachment_thumbnail( $post_id, $size, $atts ) {
   //bw_backtrace();
   $thumbnail_arr = wp_get_attachment_image_src( $post_id, $size, false );
-  bw_trace2( $thumbnail_arr, "thumbnail_arr" );
+  //bw_trace2( $thumbnail_arr, "thumbnail_arr" );
   $thumbnail = bw_array_get( $thumbnail_arr, 0, null);
   $text = bw_array_get( $atts, "title", NULL );
   if ( $thumbnail ) {

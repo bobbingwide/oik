@@ -1,5 +1,5 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
-if ( defined( 'OIK_BOOT_INCLUDED' ) ) return;
+<?php // (C) Copyright Bobbing Wide 2012-2015
+if ( !defined( 'OIK_BOOT_INCLUDED' ) ) {
 define( 'OIK_BOOT_INCLUDED', true );
 /**
  * Return the path of the oik base plugin or any particular file
@@ -75,8 +75,10 @@ function oik_require2( $include_file="bobbfunc.inc", $to_plugin, $from_plugin="o
  * OR, if add_action() is not yet available, call this function, if it's available.
  * In most cases all that is required initially is bwtrace.inc
 */ 
+if ( !function_exists( "oik_init" ) ) {
 function oik_init( ) {
   oik_require( 'bwtrace.inc' );
+}
 } 
  
 /** 
@@ -149,3 +151,5 @@ function oik_depends( $plugin=null, $dependencies="oik", $callback=null ) {
   }  
 }
 
+
+} /* end if !defined */

@@ -75,9 +75,9 @@ function bw_paypal_filter_mce_button( $buttons ) {
 function bw_paypal_filter_mce_plugin($plugins) {
   global $tinymce_version;
   if ( version_compare( $tinymce_version, '4018' ) >= 0 ) {
-    $plugins['bwpaypal'] = plugin_dir_url( __FILE__ ) . 'admin/oik_paypal_plugin_4.js';
+    $plugins['bwpaypal'] = oik_url( 'admin/oik_paypal_plugin_4.js' );
   } else {
-    $plugins['bwpaypal'] = plugin_dir_url( __FILE__ ) . 'admin/oik_paypal_plugin.js';
+    $plugins['bwpaypal'] = oik_url( 'admin/oik_paypal_plugin.js' );
   }
   return $plugins;
 }

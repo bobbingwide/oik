@@ -219,7 +219,7 @@ div.bw_messages div.error { color: red; font-weight: bold; }
 /* We may also need to style these similarly */
 
 /**
- * TinyMCE button images... until we implement dashicons
+ * TinyMCE button images... until we can find appropriate dashicons
  */
 .mce-container .mce-i-bw-sc-icon { background-image: url( 'bw-sc-icon.gif' ); }
 .mce-container .mce-i-bw-bn-icon { background-image: url( 'bw-bn-icon.gif' ); }
@@ -228,4 +228,57 @@ div.bw_messages div.error { color: red; font-weight: bold; }
 /* Styling for the edit CSS link - {} */
 .bw_custom_css { background: #444; color: #eee !important; font-size: 32px; text-decoration: none !important; padding: 0px 10px 10px 10px;  }
 .bw_custom_css:hover { background: #222; color: #0074a2 !important;}
+
+/** 
+ * Styling for theme=dash or theme=gener on the [bw_follow] based shortcodes 
+ * and also for the dummy theme called texticons which is used by [bw_dash] when the 
+ * icon is not recognised as being in dashicons or genericons but is implemented as a 'text icon'.
+ */
+a span.bw_follow_me { text-decoration: none; width: auto; height: auto; vertical-align: bottom;  } 
+.bw_follow_me { background-color: #222; padding: 4px; margin-right: 4px;  border-radius: 10% 10%; } 
+.bw_code.bw_follow_me { background-color: transparent; }
+a span.dashicons-linkedin span { vertical-align: text-bottom; font-family: 'Myriad Pro',Futura,Arial,sans-serif; font-weight: bold; padding: 0px 5px 10px; 5px; }
+ 
+.dashicons.x2, .genericon.x2 { font-size: 200%; width: auto; }
+.dashicons.x24, .genericon.x24 { font-size: 39px; width: auto; }
+.dashicons.x3, .genericon.x3 { font-size: 300%; width: auto; }
+.dashicons.x4, .genericon.x4 { font-size: 400%; width: auto; }
+.dashicons.x5, .genericon.x5 { font-size: 500%; width: auto; height: auto; }
+
+.texticons.x1, .texticons { font-size: .9em; font-family: arial, serif; vertical-align: top;}
+.texticons.x2 { font-size: 190%; margin-top: -2px; display: inline-block; }
+.texticons.x3 { font-size: 290%; margin-top: -2px; display: inline-block;}
+.texticons.x4 { font-size: 390%;  margin-top: -2px; display: inline-block;}
+.texticons.x5 { font-size: 435%;  margin-top: 0px; display: inline-block;}
+
+.texticons-cent:before { content: "\00a2"; }
+.texticons-css:before { content: "{}"; }
+.texticons-dollar:before { content: "$"; }
+.texticons-euro:before { content: "\20ac"; }
+.texticons-shortcode:before { content: "[]"; }
+.texticons-sterling:before { content: "\00a3"; }
+.texticons-yen:before { content: "\00a5"; }
+
+/* Special classes for defining border-radius */
+.br0  { border-radius: 0% 0%; }
+.br10 { border-radius: 10% 10% }
+.br15 { border-radius: 15% 15% }
+.br20 { border-radius: 20% 20% } 
+.br25 { border-radius: 25% 25% }
+.br50 { border-radius: 50% 50% }
+
+
+/* Sizing for the original images used by bw_follow_me. 
+ * x24 matches the original default image size, but the margins would have been set by the theme.
+ */
+a.x1 img.bw_follow { max-width: 25px; margin: 0 4px 0 0;}
+a.x2 img.bw_follow { max-width: 41px; margin: 0 4px 0 0;}
+a.x24 img.bw_follow { max-width: 48px; margin: 0 4px 0 0; } 
+a.x3 img.bw_follow { max-width: 48px; margin: 2px;}
+
+
+
+
+
+
 

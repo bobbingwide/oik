@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
+<?php // (C) Copyright Bobbing Wide 2012-2015
 
 /**
  * Get first parm name
@@ -86,7 +86,7 @@ function bw_form_sc_syntax( $syntax, $shortcode ) {
 */
 function bw_load_shortcode_suffix( $shortcode, $suffix ) {
   $_shortcode = str_replace( "-", "_", $shortcode );
-  bw_trace2( $_shortcode, "underscored shortcode" );
+  //  bw_trace2( $_shortcode, "underscored shortcode" );
   $testfunc = $_shortcode . $suffix; 
   if ( function_exists( $testfunc ) ) {
     $funcname = $testfunc;
@@ -502,10 +502,11 @@ function wp_caption__help() {
 }
 
 function caption__syntax() {
-  $syntax = array( 'id' => "value for CSS id= keyword"
-                 , 'align' => "CSS alignment class (default=alignnone)"
-                 , 'width' => "width in pixels (Note: 10 is added to this number)"
-                 , 'caption' => "caption text"
+  $syntax = array( 'id' => bw_skv( null, "text", "value for CSS id= keyword" )
+                 , 'class' => bw_skv( null, "classname", "custom class " )
+                 , 'align' => bw_skv( "alignnone", "aligncenter|alignright|alignleft", "CSS alignment class" )
+                 , 'width' => bw_skv( null, "numeric", "width in pixels (Note: 10 is added to this number)" )
+                 , 'content' => bw_skv( null, "text", "caption text" )
                  );
   return( $syntax );               
 }
@@ -518,17 +519,36 @@ function gallery__help() {
   return( "Display the attached images in a gallery" );
 }
 
+/**
+ * Syntax help for the gallery shortcode
+ *
+  $atts = shortcode_atts( array(
+    'order'      => 'ASC',
+    'orderby'    => 'menu_order ID', 
+                 , "orderby" => bw_skv( "post__in", "<i>menu_order|ID|title|rand</i>", "Order by field" )
+    'id'         => $post ? $post->ID : 0,
+    'itemtag'    => $html5 ? 'figure'     : 'dl',
+    'icontag'    => $html5 ? 'div'        : 'dt',
+    'captiontag' => $html5 ? 'figcaption' : 'dd',
+    'columns'    => 3,
+    'size'       => 'thumbnail',
+    'include'    => '',
+    'exclude'    => '',
+    'link'       => ''
+ */
+
 function gallery__syntax() {
-  $syntax = array( 'order'      => 'ASC',
-		'orderby'    => 'menu_order ID',
-		'id'         => 'Post ID. Default: Current post ID',
-		'itemtag'    => 'dl',
-		'icontag'    => 'dt',
-		'captiontag' => 'dd',
-		'columns'    => 3,
-		'size'       => 'thumbnail',
-		'include'    => '',
-		'exclude'    => '' );
+  $syntax = array( 'order'   => bw_skv( 'ASC', "DESC", "Order" )
+		, 'orderby'    => bw_skv( 'menu_order ID', "ID|title|rand", "Order by field" )
+		, 'ids'         => bw_skv( "", "ID", 'Post ID. Default: Current post ID' )
+		, 'itemtag'    => bw_skv( 'dl', "<i>tag</i>", "Item tag" )
+		, 'icontag'    => bw_skv( 'dt', "<i>tag</i>", "Icon tag" )
+		, 'captiontag' => bw_skv( 'dd', "<i>tag</i>", "Caption tag" )
+	        , 'columns'    => bw_skv( 3, "numeric", "Columns" )
+		, 'size'       => bw_skv( 'thumbnail', "medium|full", "Thumbnail image size" ) 
+		, 'include'    => bw_skv( '', "<i>id1,id2</i>", "IDs to include" )
+		, 'exclude'    => bw_skv( '', "<i>id1,id2</i>", "IDs to exclude" )
+                );
   return( $syntax );
 } 
  
@@ -643,6 +663,9 @@ function bw_format_skv( $value ) {
     $values = bw_array_get( $value, "values", null );
     $values = str_replace( "|", "| ", $values );
     $notes = bw_array_get( $value, "notes", null );
+    if ( is_array( $values ) ) { bw_trace2(); }
+    if ( is_array( $notes ) ) {bw_trace2(); }
+    
     return( "<b>$default</b>|$values - $notes" );
   } else {
     return( $value );

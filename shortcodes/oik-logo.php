@@ -106,17 +106,19 @@ function oik_login_headertitle( $login_header_title ) {
  */
 function bw_get_logo_image_url( $logo_image ) {
   $logo_image_url = null;
-  if ( is_numeric( $logo_image ) )  {
-    //$logo_image_url = get_attached_file( $logo_image, true );
-    $file = get_post_meta( $logo_image, "_wp_attached_file", true );
-    $upload_dir = wp_upload_dir();
-    $logo_image_url = $upload_dir['baseurl'] . '/' . $file;
-  } elseif ( $logo_image[0] == '/' ) {
-    $upload_dir = wp_upload_dir();
-    $baseurl = $upload_dir['baseurl'];
-    $logo_image_url = $baseurl . $logo_image;
-  } else {
-    $logo_image_url = $logo_image;
+  if ( $logo_image ) {
+    if ( is_numeric( $logo_image ) )  {
+      //$logo_image_url = get_attached_file( $logo_image, true );
+      $file = get_post_meta( $logo_image, "_wp_attached_file", true );
+      $upload_dir = wp_upload_dir();
+      $logo_image_url = $upload_dir['baseurl'] . '/' . $file;
+    } elseif ( $logo_image[0] == '/' ) {
+      $upload_dir = wp_upload_dir();
+      $baseurl = $upload_dir['baseurl'];
+      $logo_image_url = $baseurl . $logo_image;
+    } else {
+      $logo_image_url = $logo_image;
+    }
   }
   bw_trace2( $logo_image_url, "logo_image_url" );
   return( $logo_image_url );
@@ -147,13 +149,15 @@ function bw_logo( $atts=null ) {
   }
   //$image_url = $baseurl . $logo_image;
   $image_url = bw_get_logo_image_url( $logo_image );
-  $image = retimage( "bw_logo", $image_url, $company, $width, $height );
-  if ( $link ) {
-    alink( "bw_logo", $link, $image, $company );
-  }  
-  else {
-    e( $image );  
-  }  
+  if ( $image_url ) {
+    $image = retimage( "bw_logo", $image_url, $company, $width, $height );
+    if ( $link ) {
+      alink( "bw_logo", $link, $image, $company );
+    }  
+    else {
+      e( $image );  
+    } 
+  } 
   return( bw_ret());
 }
 

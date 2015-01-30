@@ -765,6 +765,7 @@ function bw_default( $value, $default=NULL ) {
   For more information on sizes see WordPress admin panel under Settings > Media
   
 */
+if ( !function_exists( "bw_gallery" ) ) {
 function bw_gallery() {
   c( "gallery processing");
   global $post;
@@ -777,6 +778,7 @@ function bw_gallery() {
    
   $gallery_options = array( 'columns' => $columns, 'size' => $size );
   e( gallery_shortcode( $gallery_options ));
+}
 }
 
 /**

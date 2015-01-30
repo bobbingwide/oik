@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -194,8 +194,10 @@ function bw_format_attachment( $post, $atts ) {
  */
 function bw_attachments( $atts = NULL ) {
   $atts[ 'post_type'] = bw_array_get( $atts, "post_type", "attachment" );
+  $atts['id'] = bw_array_get_from( $atts, "id,0", null );
+  $atts['post_status'] = 'inherit';
   $posts = bw_get_posts( $atts );
-  bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts" );
+  //bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts" );
   foreach ( $posts as $post ) {
     bw_format_attachment( $post, $atts );
   }

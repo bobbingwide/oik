@@ -1,6 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2014
-if ( defined( 'OIK_ADMIN_ADMIN_INCLUDED' ) ) return;
-define( 'OIK_ADMIN_ADMIN_INCLUDED', true );
+<?php // (C) Copyright Bobbing Wide 2011-2015
 
 /**
  * Load 'plugin' file if the options checkbox is set on
@@ -33,6 +31,7 @@ function oik_options_init() {
   bw_load_plugin( "bw_buttons", "oik-button-shortcodes" );
   bw_load_plugin( "bw_buttons", "oik-shortc-shortcodes" );
   bw_load_plugin( "bw_buttons", "oik-quicktags" );
+  bw_load_plugin( "bw_buttons", "oik-shortcake", "oik-shortcake.php" );
   bw_load_plugin( "bw_admin_options", "show_ids", "oik-ids.php" );
   // For WordPress 3.5 these filters are added in oik.php
   //add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
@@ -43,10 +42,12 @@ function oik_options_init() {
 
 /**
  * Load the oik-quicktags jQuery/JavaScript for when TinyMCE or the advanced HTML editor is being used
+ * 
+ * 
  * @TODO Question: Does this work in full screen? **?**
  */
 function bw_load_admin_scripts() {
-  wp_register_script( "oik-quicktags", plugin_dir_url( __FILE__). "bw_shortcodes.js", array('quicktags') );  
+  wp_register_script( "oik-quicktags", oik_url( "admin/bw_shortcodes.js" ), array('quicktags') );  
   wp_enqueue_script( "oik-quicktags" );
 }
 
@@ -227,6 +228,8 @@ function oik_plugins_servers() {
 
 /**
  * Return default values for the Tiny MCE buttons
+ *
+ * Note: oik-shortcake is not done this way **?** 2015/01/28
  */
 function oik_default_tinymce_buttons() {
   $defaults = array();
@@ -251,13 +254,14 @@ function oik_tinymce_buttons() {
   $options = bw_reset_options( $option, $options, "oik_default_tinymce_buttons", "_oik_reset_buttons" );
   $options = bw_recreate_options( 'bw_buttons' );
   
-  $imagefile_bw = retimage( NULL, plugin_dir_url(__FILE__ ).'bw-bn-icon.gif', "Button shortcodes" );
-  $imagefile_pp = retimage( NULL, plugin_dir_url( __FILE__ ).'bw-pp-icon.gif', "PayPal shortcodes" );
-  $imagefile_sc = retimage( NULL, plugin_dir_url( __FILE__ ).'bw-sc-icon.gif', "ALL shortcodes" );
+  $imagefile_bw = retimage( NULL, oik_url( 'admin/bw-bn-icon.gif' ), "Button shortcodes" );
+  $imagefile_pp = retimage( NULL, oik_url( 'admin/bw-pp-icon.gif' ), "PayPal shortcodes" );
+  $imagefile_sc = retimage( NULL, oik_url( 'admin/bw-sc-icon.gif' ), "ALL shortcodes" );
   bw_checkbox_arr( "bw_buttons", $imagefile_bw . bw_translate(" Button shortcodes" ), $options, 'oik-button-shortcodes' ); 
   bw_checkbox_arr( "bw_buttons", $imagefile_pp . bw_translate(" PayPal shortcodes" ), $options, 'oik-paypal-shortcodes' ); 
   bw_checkbox_arr( "bw_buttons", $imagefile_sc . bw_translate(" ALL shortcodes"), $options, 'oik-shortc-shortcodes' ); 
   bw_checkbox_arr( "bw_buttons", bw_translate( "[] quicktag for HTML editor"), $options, "oik-quicktags" );
+  bw_checkbox_arr( "bw_buttons", bw_translate( "Integrate with shortcake" ), $options, "oik-shortcake" );
   //bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 
   etag( "table" );
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
@@ -304,7 +308,7 @@ function oik_support() {
  * Display the oik admin options
  */
 function oik_admin_options() { 
-$option = 'bw_admin_options'; 
+  $option = 'bw_admin_options'; 
   $options = bw_form_start( $option, 'oik_admin_options' );
   bw_checkbox_arr( "bw_admin_options", "Show IDs on admin pages", $options, 'show_ids' );
   etag( "table" );
@@ -616,6 +620,8 @@ function oik_main_shortcode_options() {
 
 /**
  * Display usage notes for some oik shortcodes
+ * 
+ *
  */
 function oik_usage_notes() {
   $alt0_suffix = str_replace( " ", "", _oik_alt0_suffix() );
@@ -628,6 +634,7 @@ function oik_usage_notes() {
   bw_invoke_shortcode( "bw_show_googlemap", $alt0_suffix, "Display a Googlemap for your primary address." );
   bw_invoke_shortcode( "bw_directions", $alt0_suffix, "Display a button for obtaining directions to your address." );
   bw_invoke_shortcode( "bw_follow_me", $alt0_suffix, "Show all your <b>Follow me</b> buttons" );
+  bw_invoke_shortcode( "bw_follow_me", "$alt0_suffix theme=gener", "Show your <b>Follow me</b> buttons using genericons" );
   p( "For more information about the shortcodes you can use select <b>Shortcode help</b>" );
   alink( "button-secondary", admin_url( "admin.php?page=oik_sc_help"), "Shortcode help", "Discover shortcodes you can use" );
   bw_flush();
@@ -674,8 +681,9 @@ function oik_extra_shortcode_options() {
   bw_textfield_arr( $option, "Latitude [bw_geo alt=1] [bw_directions alt=1]", $options, 'lat', 50 );
   bw_textfield_arr( $option, "Longitude [bw_show_googlemap alt=1]", $options, 'long', 50 );
  
-  bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 
-  etag( "table" ); 			
+  //bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 
+  etag( "table" ); 
+  e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
   etag( "form" );
   bw_flush();
 }  
@@ -986,18 +994,28 @@ function bw_last_path( $file ) {
 /**
  * Return the slug part of a plugin name
  *
- * This function should only be called when we know it's a plugin name with a directory 
- *
+ * This function should only be called when we know it's a plugin name with a directory.
+ * 
  * Sample results
  * "slug" for "slug/plugin_name.php" - when called for "update-check"
  * "slugonly" for "slugonly" - when called for "plugin_information"
  * "hello" for "hello.php" - does this ever happen?
+ * null for null
+ * 
+ * @param string $plugin - a plugin name
+ * @return string $slug - the slug used to identify the plugin 
+ *
  */
 function bw_get_slug( $plugin ) {
-  $pathinfo = pathinfo( $plugin );
-  $slug = $pathinfo['dirname'] ;
-  if ( $slug == '.' ) 
-    $slug = $pathinfo['filename'];
+  if ( $plugin ) {
+    $pathinfo = pathinfo( $plugin );
+    $slug = $pathinfo['dirname'] ;
+    if ( $slug == '.' ) { 
+      $slug = $pathinfo['filename'];
+    }
+  } else {
+    $slug = null;
+  }  
   return( $slug );    
 }
 
@@ -1162,8 +1180,12 @@ function oik_site_transient_update_themes( $transient ) {
   }     
   //bw_backtrace();
   return( $transient );
-}  
+}
 
+/**
+ * Check for plugin updates
+ *
+ */  
 function oik_altapi_check( $transient ) {
   //bw_backtrace();
   oik_require( "includes/oik-remote.inc" );
@@ -1193,6 +1215,7 @@ function oik_themes_api_result( $result, $action, $args ) {
 
 /**
  * Perform plugin relocation just before the plugins are listed on the admin page
+ *
  * for action: pre_current_active_plugins
  */
 function bw_relocate_pre_current_active_plugins( $plugins ) {

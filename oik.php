@@ -3,7 +3,7 @@
 Plugin Name: oik base plugin 
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 2.3
+Version: 2.4
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -11,7 +11,7 @@ Domain Path: /languages/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2010-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2010-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -43,21 +43,26 @@ function oik_version() {
  *
  * All of the oik plugins and many of the common functions, include calls to bw_trace(), bw_trace2() or bw_backtrace() so we need to include bwtrace.inc
  * As of oik v2.3 the "init" action is invoked after most other plugins.
- * This allows oik-fields and oik-types to define overrides to registered post types and taxonomies.   
+ * This allows oik-fields and oik-types to define overrides to registered post types and taxonomies. 
+ * In oik 2.4 I tried not calling oik_main_init() for AJAX requests but this was more troublesome than beneficial since
+ * there are many vanilla WordPress functions that can fail if post types are not registered.
+ *z   
  */
 function oik_plugin_file_loaded() {
   require_once( "oik_boot.inc" );
   require_once( 'bwtrace.inc' );
   require_once( "bobbfunc.inc" );
-  //require_once( "bobbcomp.inc" );
   require_once( "oik-add-shortcodes.php" );
-  add_action('wp_enqueue_scripts', 'oik_enqueue_stylesheets', 11);
-  add_action('init', 'oik_main_init', 11 );
    
   if ( defined('DOING_AJAX') && DOING_AJAX ) {
     oik_require( "includes/oik-ajax.php" );
     oik_ajax_lazy_init();
-  }  
+  } else {
+    //require_once( "bobbcomp.inc" );
+    add_action('wp_enqueue_scripts', 'oik_enqueue_stylesheets', 11);
+  }
+  add_action( 'init', 'oik_main_init', 11 );
+    
   add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
   add_filter( "attachment_fields_to_save", "oik_attachment_fields_to_save", null, 2 );
 }
@@ -220,8 +225,10 @@ function oik_admin_bar_menu( &$wp_admin_bar ) {
   	$howdy = sprintf( __('Howdy, %1$s'), $current_user->display_name );
     //bw_trace2( $node, "node" );
     $replace = $replace . " " . $current_user->display_name; 
-    $node->title = str_replace( $howdy, $replace, $node->title );
-    $wp_admin_bar->add_node( $node );
+    if ( $node->title ) {
+      $node->title = str_replace( $howdy, $replace, $node->title );
+      $wp_admin_bar->add_node( $node );
+    }  
   }
 }
 
