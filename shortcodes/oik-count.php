@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2014,2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -33,8 +33,17 @@ function bw_count( $atts=null, $content=null, $tag=null ) {
     e( "No count available for $post_type $status" );
   } 
   bw_trace2( $count, "count", false );
-  
-  
-
   return( bw_ret() );
 }
+
+function bw_count__help( $shortcode="bw_count" ) {
+  return( "Count posts for the selected post type" );
+}
+
+function bw_count__syntax( $shortcode="bw_count" ) {
+  $syntax = array( "post_type,0" => bw_skv( "post", "<i>post_types</i>", "Post type to count" )
+                 , "status,1" => bw_skv( "publish", "pending|draft|auto-draft|future|private|trash|inherit", "Post status" )
+                 );
+  return( $syntax );
+}                 
+

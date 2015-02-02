@@ -506,7 +506,7 @@ function caption__syntax() {
                  , 'class' => bw_skv( null, "classname", "custom class " )
                  , 'align' => bw_skv( "alignnone", "aligncenter|alignright|alignleft", "CSS alignment class" )
                  , 'width' => bw_skv( null, "numeric", "width in pixels (Note: 10 is added to this number)" )
-                 , 'content' => bw_skv( null, "text", "caption text" )
+                 , 'content' => bw_skv( null, "textarea", "caption text" )
                  );
   return( $syntax );               
 }

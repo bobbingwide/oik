@@ -73,41 +73,121 @@ function oik_register_shortcodes_to_shortcake() {
 }
 
 /**
- * Return the image to use for the shortcode
+ * Return the 'image' to use for the shortcode
  * 
- * The image can either be a dashicon - fully prefixed
- * or an actual image file. 
- * Assume the logic works the same way as the admin menu
+ * The image can be one of the following
+ * - a dashicon - fully prefixed with "dashicons-" at the start of the string
+ * - plain text in dashicons styling (see bw)
+ * - a genericon
+ * - an actual image file
+ * - just HTML. 
  * 
- * 
- * can we also use genericons - no NOT yet
- * nor "texticons" 
  *
  * This is a Quick and Dirty prototype. 
  * In a future version there will be an API to enable each shortcode to specify its own icon... on demand
  * It should not be necessary to register the information until it's needed.
  *
  */
-function oik_select_shortcake_image( $shortcode ) {
-  $shortcode_images = array( "artisteer" => "dashicons-art"
-                           , "wp" => "wordpress" 
+function oik_select_shortcake_image( $shortcode, $help ) {
+  $dashicons_images = array( "artisteer" => "dashicons-art"
+                           , "wp" => "dashicons-wordpress" 
                            , "bw_pages" => "dashicons-admin-page"
                            , "bw_posts" => "dashicons-admin-post"
                            , "bw_wtf" => "dashicons-sos"
-                           , "bw_dash" => "genericons-minus"
+                           //, "bw_dash" => "genericons-minus"
                            , "gallery" => "dashicons-format-gallery"
                            , "bw_images" => "dashicons-format-image"
                            , "bw_attachments" => "dashicons-admin-media"
                            , "bw_alt_slogan" => "dashicons-megaphone"
                            , "add_to_cart" => "dashicons-cart"
                            , "add_to_cart_url" => "dashicons-cart"
-                           , "audio" => "dashicons-format_audio"
+                           , "audio" => "dashicons-format-audio"
                            , "bw_address" => "dashicons-business"
+                           , "best_selling_products" => "dashicons-products"
+                           , "bw" => "bw"
+                           , "product" => "dashicons-products"
+                           , "bw_countdown" => "dashicons-clock"
+                           , "bbboing" => oik_shortcake_image( "bbboing" )
+                           //, "bw_accordion" => oik_shortcake_text( "Display posts in an accordion" ) 
+                           //, "bw_twitter" => oik_shortcake_genericon( "twitter" )
+                           //, "bw_facebook" => oik_shortcake_genericon( "facebook" )
+                           , "bw_address" => "dashicons-location"
+                           , "bw_name" => "dashicons-businessman"
+                           , "bw_admin" => "dashicons-admin-users"
+                           //, "bw_blockquote" => oik_shortcake_genericon( "quote" )
+                           , "oik" => "oik"
+                           , "bw_bookmarks" => "dashicons-admin-links"
+                           , "bw_copyright" => "&#169;" // "©" // "&copy;"
                            ); 
-  $image = bw_array_get( $shortcode_images, $shortcode, "" );
+  $image = bw_array_get( $dashicons_images, $shortcode, null );
+  
+  if ( !$image ) {
+    $genericons_images = array( "bw_twitter" => "twitter" 
+                              , "bw_youtube" => "youtube"
+                              , "bw_facebook" => "facebook"
+                              , "bw_blockquote" => "quote"
+                              , "bw_dash" => "minus"
+                              );
+    $image = bw_array_get( $genericons_images, $shortcode, null );
+    if ( $image ) {
+      $image = oik_shortcake_genericon( $image );
+    }  
+  }
+  
+  /**
+   * Try for an image
+   * 
+   * This works for the bbboing icon
+   */
+  if ( !$image ) {
+  
+  }
+  
+  /** Default to the shortcode help
+   */
+  if ( !$image ) {
+    $image = oik_shortcake_text( $help );
+  }
   
   return( $image );
 
+}
+
+/**
+ * Display an icon image
+ *  
+ */
+function oik_shortcake_image( $shortcode ) {
+  $icon = oik_url( "images/$shortcode-icon-256x256.jpg" );
+  $image = retimage( null, $icon, $shortcode ); 
+  return( $image );
+}
+
+/* 
+ * Simulate a "texticon"  
+ */                                      
+function oik_shortcake_text( $text ) { 
+  $texticon = "<p>";
+  $texticon .= $text;
+  $texticon .= "</p>";
+  return( $texticon );
+}
+
+/**
+ * Display a genericon instead of a dashicon
+ */ 
+function oik_shortcake_genericon( $icon ) {
+  if ( !wp_style_is( 'genericons', 'registered' ) ) {
+    wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
+  }
+  $font = "genericons";
+  $enqueued = wp_style_is( $font, "enqueued" );
+  if ( !$enqueued ) {
+    wp_enqueue_style( $font );
+  }
+  $dash = retstag( "span", "genericon genericon-$icon dashicons" );
+  $dash .= retetag( "span" );
+  return( $dash );
 }
 
 /**
@@ -150,33 +230,50 @@ function oik_select_shortcake_image( $shortcode ) {
  So initially everything would be a text field
      
     
+     
+                   //, 'value' => $default
     
  */
 function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
   $default = $data['default'];
+  
+  $default = str_replace( "<i>", "", $default );
+  $default = str_replace( "</i>", "", $default );
   if ( is_numeric( $default ) ) {
     $attr['type'] = "number";
-  } 
+  }
+  if ( $default ) {
+    $attr['placeholder'] = $default;
+  }  
+   
   $values = $data['values'];
   $values = str_replace( "<i>", "", $values );
   $values = str_replace( "</i>", "", $values );
   $options = explode( "|", $values );
   $first_alternative = $options[0];
   $lc_alternative = strtolower( $first_alternative );
-  $mapping = array( "asc" => "select" 
-                  , "desc" => "select" 
-                  , "email" => "email" 
-                  , "id" => "number"
-                  , "url" => "url"
-                  , "n" => "checkbox"
-                  , "y" => "checkbox"
-                  , "date" => "date" 
-                  , "numeric" => "number" 
-                  );
-  $attr['type'] = bw_array_get( $mapping, $lc_alternative, $attr['type'] );
+  if ( count( $options ) > 1 ) {
+    $attr['type'] = 'select';
+  } else {
+    $mapping = array( "asc" => "select" 
+                    , "desc" => "select" 
+                    , "email" => "email" 
+                    , "id" => "number"
+                    , "url" => "url"
+                    , "n" => "checkbox"
+                    , "y" => "checkbox"
+                    , "date" => "date" 
+                    , "numeric" => "number" 
+                    , "textarea" => "textarea"
+                    );
+    $attr['type'] = bw_array_get( $mapping, $lc_alternative, $attr['type'] );
+  }
+  
   if ( $attr['type'] == "select" ) {
     array_unshift( $options, $default );
-    $attr['options'] = bw_assoc( $options ); 
+    sort( $options );
+    $attr['options'] =  bw_assoc( $options ); 
+    $attr['value'] = $default;
   }
   
   
@@ -223,16 +320,14 @@ function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
       $attr = array( 'label' => "$parameter - $notes"
                    , 'attr' => $parameter
                    , 'type' => 'text'
-                   , 'value' => $default
                    ); 
       $attr = oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data );              
       $attrs[] = $attr;
     }
   }
   $parm2 = array();
-  $parm2['label'] = $shortcode; // $help;
-  $parm2['listItemImage'] = oik_select_shortcake_image( $shortcode );
-  $parm2['listItemText'] = $shortcode;
+  $parm2['label'] = $shortcode; // - $help";
+  $parm2['listItemImage'] = oik_select_shortcake_image( $shortcode, $help );
   $parm2['attrs'] = $attrs;
   shortcode_ui_register_for_shortcode( $shortcode, $parm2 );
 } 

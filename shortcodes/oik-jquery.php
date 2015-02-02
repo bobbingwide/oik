@@ -1,5 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012, 2013
-
+<?php // (C) Copyright Bobbing Wide 2012-2015
 /**
  * Determine the jQuery script file URL
  * 
@@ -29,7 +28,7 @@ function bw_jquery_script( $script, $debug=false ) {
  *
  */
 function bw_jquery_script_url( $script_url, $script, $debug ) {
-  $script_path = plugin_dir_path( __FILE__ ) ;
+  $script_path = oik_path( "shortcodes/" ) ;
   $script_path .= "jquery/";
   $script_path .= bw_jquery_filename( $script, $debug );
   if ( !file_exists( $script_path ) ) {
