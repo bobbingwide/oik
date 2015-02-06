@@ -154,6 +154,9 @@ The Application Programming Interface (API) reference documents over 960 APIs, i
 12. oik options - More information for [bw_show_googlemap] 
 
 == Upgrade Notice ==
+= 2.5-alpha.0204 =
+Upgrade to fix problems with [bw_show_googlemap] 
+
 = 2.5-alpha.0130
 First version with support for the shortcake UI plugin
 
@@ -388,6 +391,17 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 2.5-alpha.0204 = 
+* Added: Help and syntax for [bw_count]
+* Added: Temporary debug code for shortcake pre and post shortcode expansion actions 
+* Added: Temporary debug code in oik_boot.inc to attempt to detect symlinks to missing files 
+* Added: [bw_show_googlemap] zoom parameter. Default: 12
+* Changed: Improved support for shortcake UI
+* Changed: [bw_show_googlemap] markers parameter accepts "lat:lng" format for additional markers 
+* Fixed: For shortcake, caption content field defined as textarea
+* Fixed: More support for symlinks.
+* Fixed: [bw_show_googlemap] control visibility problem ( GitHub Issue #1 )
+ 
 = 2.5-alpha.0130
 * Added: Action "wp_ajax_do_shortcode" supported by "oik_ajax_do_shortcode" - invokes "oik_add_shortcodes" 
 * Added: oik-shortcake.php 'module' - enable by setting the checkbox on oik options > Buttons

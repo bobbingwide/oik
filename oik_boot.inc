@@ -41,7 +41,13 @@ if (!function_exists( 'oik_path' )) {
  
 if (!function_exists( 'oik_require' )) {
   function oik_require( $include_file = "bobbfunc.inc", $plugin="oik" ) {
-    require_once( oik_path( $include_file, $plugin ) ); 
+    $path = oik_path( $include_file, $plugin );
+    if ( !file_exists( $path ) ) { 
+      echo "File does not exist: $path" ;
+      print_r( debug_backtrace() );
+      
+    }  
+    require_once( $path ); 
   }  
 } 
 

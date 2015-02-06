@@ -17,11 +17,12 @@
 /**
  * Implement "admin_enqueue_scripts" actions for oik's integration with shortcake
  *
- * If we're editing content and shortcode is active then we should
+ * If we're editing content and shortcake is active then we should
  * register our shortcodes with shortcake
  * 
  * @TODO There are some shortcodes we wouldn't want to register to shortcake
  * 
+ * @param string $hook indicating the admin page we're on
  */
 function oik_shortcake_admin_enqueue_scripts( $hook ) {
   //bw_trace2();
@@ -51,6 +52,8 @@ function oik_registered_to_shortcake( $shortcode ) {
  *
  * The oik base plugin provides a service which allows each shortcode
  * to specify help, shortcode syntax etc.
+ * Each shortcode implements a function with __syntax as the function name suffix
+ * The $syntax array is constructed using the bw_skv() helper API.
  * 
  * shortcake provides a similar service, although this is not currently lazy.
  *
@@ -86,6 +89,9 @@ function oik_register_shortcodes_to_shortcake() {
  * This is a Quick and Dirty prototype. 
  * In a future version there will be an API to enable each shortcode to specify its own icon... on demand
  * It should not be necessary to register the information until it's needed.
+ * 
+ * @TODO - break down into quicker to resolve chunks. Only call functions when necessary
+ * @TODO - populate with all the dashicons, genericons or 'texticons' that are relevant
  *
  */
 function oik_select_shortcake_image( $shortcode, $help ) {
@@ -107,7 +113,7 @@ function oik_select_shortcake_image( $shortcode, $help ) {
                            , "bw" => "bw"
                            , "product" => "dashicons-products"
                            , "bw_countdown" => "dashicons-clock"
-                           , "bbboing" => oik_shortcake_image( "bbboing" )
+                           //, "bbboing" => oik_shortcake_image( "bbboing" )
                            //, "bw_accordion" => oik_shortcake_text( "Display posts in an accordion" ) 
                            //, "bw_twitter" => oik_shortcake_genericon( "twitter" )
                            //, "bw_facebook" => oik_shortcake_genericon( "facebook" )
@@ -138,6 +144,8 @@ function oik_select_shortcake_image( $shortcode, $help ) {
    * Try for an image
    * 
    * This works for the bbboing icon
+   * Commented out for now.
+   * oik_shortcake_image() should return the icon associated with the shortcode.
    */
   if ( !$image ) {
   
@@ -155,6 +163,9 @@ function oik_select_shortcake_image( $shortcode, $help ) {
 
 /**
  * Display an icon image
+ *
+ * @TODO: Implement a solution that doesn't expect the image to be in oik's folder
+ * @TODO: Do a lookup for supported images
  *  
  */
 function oik_shortcake_image( $shortcode ) {
@@ -164,7 +175,9 @@ function oik_shortcake_image( $shortcode ) {
 }
 
 /* 
- * Simulate a "texticon"  
+ * Simulate a "texticon"
+ *
+ * For very short shortcodes we just return a few letters  
  */                                      
 function oik_shortcake_text( $text ) { 
   $texticon = "<p>";
@@ -192,51 +205,55 @@ function oik_shortcake_genericon( $icon ) {
 
 /**
  * Map default and values to type and options
- 
-   'attrs'         => array(
-                array(
-                    'label'   => 'Alignement',
-                    'attr'    => 'float',
-                    'type'    => 'select',
-                    'value'   => 'right', // default value 
-                    'options' => array( // List of options  value => label
-                        'left'  => 'Left',
-                        'right' => 'Right',
-                        'none'  => 'None'
-                    ),
-                ),
  *
- These are the types that shortcake currently support
- 
- 'text' => array(),
-		'textarea' => array(   'template' => 'shortcode-ui-field-textarea',
-		),
-		'url' => array(    'template' => 'shortcode-ui-field-url',
-		),
-		'select' => array(    'template' => 'shortcode-ui-field-select',
-		),
-		'checkbox' => array(  'template' => 'shortcode-ui-field-checkbox',
-		),
-		'radio' => array(    'template' => 'shortcode-ui-field-radio',
-		),
-		'email' => array(   'template' => 'shortcode-ui-field-email',
-		),
-		'number' => array(   'template' => 'shortcode-ui-field-number',
-		),
-		'date' => array(    'template' => 'shortcode-ui-field-date',
-		),
-    
- oik's values are fairly free form.
- So initially everything would be a text field
-     
-    
-     
-                   //, 'value' => $default
-    
+ * The source structure for $data is fairly free form.
+ *
+ * Created using the bw_skv() helper function
+ * - $data['default'] - the default value - may be null, a literal, the result of a function call or a current piece of data
+ * - $data['values'] - | separated values which may be enclosed in italics
+ * - $data['notes'] - free form text not used in this function
+ * 
+ * The target array for each attr in the attrs array is
+ *
+ * `
+ *  'attrs'         => array(
+ *               array(
+ *                   'label'   => 'Alignement',
+ *                   'attr'    => 'float',
+ *                   'type'    => 'select',
+ *                   'placeholder' => 'right' // default value - for text and textarea fields, perhaps other types
+ *                   'value'   => 'right', // default value 
+ *                   'options' => array( // List of options  value => label
+ *                       'left'  => 'Left',
+ *                       'right' => 'Right',
+ *                       'none'  => 'None'
+ *                   ),
+ *               ),
+ * `
+ * These are the 'types' that shortcake currently support
+ * 
+ * - 'text' => array(),
+ * - 'textarea' => array(   'template' => 'shortcode-ui-field-textarea',
+ * - 'url' => array(    'template' => 'shortcode-ui-field-url',
+ * - 'select' => array(    'template' => 'shortcode-ui-field-select',
+ * - 'checkbox' => array(  'template' => 'shortcode-ui-field-checkbox',
+ * - 'radio' => array(    'template' => 'shortcode-ui-field-radio',
+ * - 'email' => array(   'template' => 'shortcode-ui-field-email',
+ * - 'number' => array(   'template' => 'shortcode-ui-field-number',
+ * - 'date' => array(    'template' => 'shortcode-ui-field-date',
+ *
+ * The mapping performed below was built up using trial and error. 
+ * In the longer term the bw_skv() arrays may become the new target. 
+ *   
+ * @param array $attr - the field we're building for the parameter
+ * @param string $shortcode - looks like it's not needed here yet!
+ * @param string $help - ditto
+ * @param string $parameter - ditto
+ * @param array $data - see above
+ * @return array - the updated attr array    
  */
 function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
   $default = $data['default'];
-  
   $default = str_replace( "<i>", "", $default );
   $default = str_replace( "</i>", "", $default );
   if ( is_numeric( $default ) ) {
@@ -252,6 +269,13 @@ function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
   $options = explode( "|", $values );
   $first_alternative = $options[0];
   $lc_alternative = strtolower( $first_alternative );
+  /** 
+   * If it looks like a select then don't try to map it to something else
+   * This stops us from treating the 'date' value for 'orderby' incorrectly
+   * 
+   * Q. Should we map "text" to "textarea" ?
+   * 
+   */
   if ( count( $options ) > 1 ) {
     $attr['type'] = 'select';
   } else {
@@ -268,21 +292,18 @@ function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
                     );
     $attr['type'] = bw_array_get( $mapping, $lc_alternative, $attr['type'] );
   }
-  
+  /** 
+   * If we're creating a select then
+     a. Set the default value
+     b. Produce a consistent sort sequence
+   */
   if ( $attr['type'] == "select" ) {
     array_unshift( $options, $default );
     sort( $options );
     $attr['options'] =  bw_assoc( $options ); 
     $attr['value'] = $default;
   }
-  
-  
-  bw_trace2( $attr );
-  
-  
-  
-  
-  
+  // bw_trace2( $attr );
   return( $attr );
 }
 
@@ -300,7 +321,8 @@ function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
  *                  [notes] => number to return
  *              )
  * `              
-                                       
+ * 
+ *                                   
                                        
     shortcode_ui_register_for_shortcode( "wp" 
                                        , array( 'label' => "WordPress"
@@ -310,6 +332,9 @@ function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
                                                                 )
                                               )
                                        );
+ * @param string $shortcode - the shortcode tag
+ * @param string $help - one line description of the shortcode
+ * @param string $syntax - array of parameters - built using bw_skv() helper function
  */
 function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
   $attrs = array();
@@ -330,12 +355,13 @@ function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
   $parm2['listItemImage'] = oik_select_shortcake_image( $shortcode, $help );
   $parm2['attrs'] = $attrs;
   shortcode_ui_register_for_shortcode( $shortcode, $parm2 );
-} 
+}
 
-
-
+/**
+ * Function to invoke when the oik-shortcake module is loaded
+ * 
+ */
 function oik_shortcake_loaded() {
-
   //bw_trace2();
   add_action( "admin_enqueue_scripts", "oik_shortcake_admin_enqueue_scripts", 9 );
 }
