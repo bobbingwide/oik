@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014
+<?php // (C) Copyright Bobbing Wide 2014,2015
 
 /**
  * Return the next unique shortcode ID
@@ -86,43 +86,29 @@ function oik_navi_lazy_paginate_links( $atts ) {
  * These work independently of WordPress pagination, which uses "page".
  *
  * When the user is visiting the page, 
- * since each shortcode produces its own shortcode ID ( bwscid$id ), 
- * then the URL will slowly build up the pagination information for each shortcode. 
- * This avoids the need for cookies and/or jQuery to remember the page state of each shortcode.
+ * - since each shortcode produces its own shortcode ID ( bwscid$id ), 
+ * - then the URL will slowly build up the pagination information for each shortcode. 
+ * - This avoids the need for cookies and/or jQuery to remember the page state of each shortcode.
  * 
  * Theoretically, this solution works on archive pages.
  * 
  * Things can go awry if the displayed content changes, such that a nested shortcode
  * with pagination suddenly appears. That's some complicated page we'd rather not attempt to deal with right now.
+ *
+ * Note: In WordPress 4.1.1 a fix was introduced that caused a new problem when you return to the first page.
+ * The workaround below is to remove the special query arg ( bwscid$id ) from $_SERVER['REQUEST_URI']
  * 
  * @param integer $id - the 'unique' shortcode ID for this instance of a paged shortcode
  * @param integer $page - the current page number ( starts from 1 )
  * @param integer $pages - the total number of pages
- *
- 
- add_query_arg( "bwscid$id", $page );
- 
-  //'base' => '%_%', // http://example.com/all_posts.php%_% : %_% is replaced by format (below)
-    'format' => '?page=%#%', // ?page=%#% : %#% is replaced by the page number
-    'total' => 1,
-    'current' => $page
-    'show_all' => false,
-    'prev_next' => true,
-    'prev_text' => __('« Previous'),
-    'next_text' => __('Next »'),
-    'end_size' => 1,
-    'mid_size' => 2,
-    'type' => 'plain',
-    'add_args' => false, // array of query args to add
-    'add_fragment' => '',
-    'before_page_number' => '',
-    'after_page_number' => ''
-  );
- *
  */ 
 function bw_navi_paginate_links( $id, $page, $pages ) {
-  //bw_trace2();
+  //bw_trace2(  $_SERVER['REQUEST_URI'], "request_URI" );
+  $string = remove_query_arg( "bwscid$id" );
+  $_SERVER['REQUEST_URI'] = $string; 
+  //bw_trace2( $string, "removed request_URI", false );
   $base = add_query_arg( "bwscid$id", "%_%" );
+  //bw_trace2( $base, "base", false );
   $format = "%#%";
   $args = array( "base" => $base
                , "format" => $format

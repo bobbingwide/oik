@@ -3,7 +3,7 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.1
+* Tested up to: 4.2-beta4
 * Stable tag: 2.4
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,9 @@ The functionality in the oik base plugin is used by over 40 other WordPress plug
 
 At a glance changes in version 2.5
 
-* Supports shortcake UI plugin
+* Supports shortcode UI plugin
+* noderef field type supports hierarchical post types
+
 
 At a glance changes in version 2.4
 
@@ -154,6 +156,9 @@ The Application Programming Interface (API) reference documents over 960 APIs, i
 12. oik options - More information for [bw_show_googlemap]
 
 ## Upgrade Notice 
+# 2.5-beta.0409 
+Workaround for shortcode pagination problems. See WordPress TRAC #31939
+
 # 2.5-alpha.0204 
 Upgrade to fix problems with [bw_show_googlemap]
 
@@ -391,6 +396,16 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 2.5-beta.0409 
+* Added: Now caters for "noderef" fields for hieararchical post types
+* Added: includes/bw_noderef2.php
+* Changed: Debug code in oik_require(). Attempting to track down a random problem with symlinked plugins
+* Changed: More support for symlinks: bw_logo()
+* Changed: bw_effort_meta_boxes() only creates a meta box for the current post type
+* Changed: bw_navi_paginate_links() to workaround WordPress TRAC #31939
+* Changed: bw_sl() now supports definition lists
+* Fixed: oik_checked_check_for_update() tests if $server_response is an array; it could be garbage
+
 # 2.5-alpha.0204 
 * Added: Help and syntax for [bw_count]
 * Added: Temporary debug code for shortcake pre and post shortcode expansion actions

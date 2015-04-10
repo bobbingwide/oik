@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013, 2014 
+<?php // (C) Copyright Bobbing Wide 2013-2015 
 
 /**
  * Query the field type given the field name
@@ -15,8 +15,8 @@ function bw_query_field_type( $name ) {
   if ( $field ) {
     $field_type = bw_array_get( $field, "#field_type", null );
   } else {
-    bw_trace2( $name, "Invalid field name" );
-    bw_backtrace();
+    bw_trace2( $name, "Invalid/unrecognised field name" );
+    //bw_backtrace();
     $field_type = null;
   }
   return( $field_type );

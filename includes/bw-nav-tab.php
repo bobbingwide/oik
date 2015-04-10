@@ -46,6 +46,7 @@ function bw_nav_tab_link( $nav_tab, $nav_label, $page, $tab ) {
  */
 function bw_nav_tabs( $default_tab=null, $default_label=null ) { 
   $tab = bw_array_get( $_REQUEST, "tab", $default_tab );
+  //bw_trace2( $tab, "tab" );
   $_REQUEST['tab'] = $tab;
   $page = bw_array_get( $_REQUEST, "page", null );
   stag( "h2", "nav-tab-wrapper");

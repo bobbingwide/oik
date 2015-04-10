@@ -1,4 +1,11 @@
-<?php // (C) Copyright Bobbing Wide 2012
+<?php // (C) Copyright Bobbing Wide 2012-2015
+
+bw_trace2( "oik-depends.inc loaded" );
+
+if ( !defined( "OIK_DEPENDS_INC_LOADED" ) ) {
+  define( "OIK_DEPENDS_INC_LOADED", true  );
+
+
 
 /**
  * Return an associative version of the active plugins array  
@@ -315,4 +322,4 @@ function oik_oik_install_link( $plugin, $problem ) {
   return( $link );
 }
  
-   
+} /* endif !defined */

@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -133,7 +133,7 @@ function bw_get_logo_image_url( $logo_image ) {
  * @return string HTML for the company logo image
  */ 
 function bw_logo( $atts=null ) {
-  wp_register_script( "oik_bw_logo", plugin_dir_url( __FILE__). "oik_bw_logo.js", array( 'jquery') );  
+  wp_register_script( "oik_bw_logo", oik_url( "shortcodes/oik_bw_logo.js" ), array( 'jquery') );  
   wp_enqueue_script( "oik_bw_logo" );
   $link = bw_array_get( $atts, 'link', null );
   $text = bw_array_get( $atts, 'text', null );

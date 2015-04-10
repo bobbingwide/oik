@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -23,13 +23,14 @@
  * Start a list
  *
  * Defaulting to "uo=u" for an unordered list
- * the other options are for an ordered list or a comma separated
+ * the other options are for an ordered list  or a comma separated
  *
- * @TODO For an ordereed list, if the optional start= parameter is included then the list numbering starts from the value given
+ * @TODO For an ordered list, if the optional start= parameter is included then the list numbering starts from the value given
+ * @TODO Document how to use comma separated - which makes use of the span tag
  
  * BTW. This function has nothing to do with http://en.wikipedia.org/wiki/Bandra%E2%80%93Worli_Sea_Link
  *
- * @param array $atts - shortcode parameters
+ * @param array $atts - shortcode parameters including the optional uo= parameter
  * @return string - list type
  */
 function bw_sl( $atts=null ) { 
@@ -43,6 +44,10 @@ function bw_sl( $atts=null ) {
     case "o":
     case "ol":
       sol( $class);
+      break;
+    case "d":
+    case "dl":
+      stag( "dl", $class );
       break;
     default:
       span( $class );
@@ -66,6 +71,10 @@ function bw_el( $uo ) {
     case "o":
     case "ol":
       eol();
+      break;
+    case "d":
+    case "dl":
+      etag( "dl" );
       break;
     default:
       epan();

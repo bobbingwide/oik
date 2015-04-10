@@ -3,7 +3,7 @@
 Plugin Name: oik base plugin 
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 2.5-alpha.0204
+Version: 2.5-beta.0409
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012,2014
+<?php // (C) Copyright Bobbing Wide 2012-2015
 /**
  * Logic to create metaboxes for each of the custom fields defined for a particular post type
  *
@@ -8,9 +8,13 @@
 
 /** 
  * Function to invoke when bw_metadata.inc is loaded
+ *
+ * We create generic meta boxes for fields
+ * with a generic function to save fields
+ * 
  */
 function bw_metadata_loaded() {
-  add_action( 'add_meta_boxes', 'bw_effort_meta_boxes' );
+  add_action( 'add_meta_boxes', 'bw_effort_meta_boxes', 10, 2 );
   /* Do something with the data entered */
   add_action( 'save_post', 'bw_effort_save_postdata', 10, 2 );
 }
@@ -18,24 +22,34 @@ function bw_metadata_loaded() {
 /**
  * Create "Fields" meta box for each field associated with each object type in the mapping
  *
- * @TODO We only need to create this for the active object type
+ * We only need to create a Fields box if we have fields for the active post_type.
+ * The $bw_mapping['fields'][$post_type] array will not exist until a field has been added. for the post type.
+ * We also check that $bw_mapping contains 'fields'
+ *
+ *
+ * @param string $post_type - the post type being edited
+ * @param object $post - the post being edited
  *
  */
-function bw_effort_meta_boxes() {
+function bw_effort_meta_boxes( $post_type, $post ) {
   oik_require( 'bobbforms.inc' );
   global $bw_mapping;
   bw_trace2( $bw_mapping );
   if ( is_array( $bw_mapping ) && count( $bw_mapping['field'] ) ) {
-  
-    foreach ( $bw_mapping['field'] as $object_type => $fields ) {
+    $fields = bw_array_get( $bw_mapping['field'], $post_type, null );
+    if ( $fields ) {
+      add_meta_box( 'bw_effort', __( "Fields", "oik"), 'bw_effort_box', $post_type, 'normal' , 'high' , $fields );
+    }
+    //foreach ( $bw_mapping['field'] as $object_type => $fields ) {
       // bw_trace( "object_type", __FUNCTION__, __LINE__, __FILE__, $object_type );
       // bw_trace2( $fields );
-      add_meta_box( 'bw_effort', __( "Fields", "oik"), 'bw_effort_box', $object_type, 'normal' , 'high' , $fields );
-    }
+    //  if ( $object_type == $post_type ) {
+    //  }
+    //}
   }  
 }
 
-/*
+/**
  * Return a default value from $args if $value is not set
  *
  * @param string $value the current value
@@ -175,7 +189,8 @@ function bw_get_noderef_id( $value ) {
  * 
  */
 function bw_form_field_noderef( $name, $type, $title, $value, $args ) {
-  $options = bw_load_noderef( $args );
+  oik_require( "includes/bw_noderef2.php" );
+  $options = bw_load_noderef2( $args );
   $args['#options'] =  $options;
   $value = bw_get_noderef_id( $value );
   bw_select( $name, $title, $value, $args );
@@ -356,7 +371,6 @@ function bw_form_field( $field_name, $field_type, $field_title, $field_value, $a
   $funcname( $field_name, $field_type, $field_title, $field_value, $args );
 }
 
-
 /**
  * Check if the field should be displayed in the metabox
  *
@@ -485,13 +499,14 @@ function bw_update_post_meta( $post_id, $field, $mydata ) {
  * 
  * What happens if the field is blank **?** 
  * 
- * 
+ * @param ID $post_id - the ID of the post being saved
+ * @param  
  * 
  */
 function bw_effort_update_field( $post_id, $field ) {
   global $bw_mapping;
   global $bw_fields;
-  bw_trace2( $bw_fields, "bw_fields" ); 
+  //bw_trace2( $bw_fields, "bw_fields" ); 
   $mydata = bw_array_get( $_POST, $field, NULL ) ;
   bw_trace( $mydata, __FUNCTION__, __LINE__, __FILE__, "mydata" );
   if ( $mydata != null ) {

@@ -226,7 +226,7 @@ function oik_check_checked_for_update( $checked ) {
     //bw_trace2( $_SESSION, "session", false );
     $server_response = oik_check_these_for_update( $server, $check_these );  
     bw_trace2( $server_response, "server_response" );
-    if ( !is_wp_error( $server_response) && count( $server_response ) ) {
+    if ( !is_wp_error( $server_response) && is_array( $server_response ) && count( $server_response ) ) {
       foreach ( $server_response as $plugin => $aresponse ) {
         if ( $apikeys[$plugin] ) {
           $package = $aresponse->package;
