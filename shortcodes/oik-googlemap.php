@@ -286,6 +286,7 @@ function bw_show_googlemap__syntax( $shortcode = "bw_show_googlemap" ) {
                  , "width" => bw_skv( "100%", "width", "width of the Google map" )
                  , "height" => bw_skv( "400px", "height", "height of the map" )
                  , "markers" => bw_skv( null, "marker1,marker2", "Additional markers" )
+                 , "zoom" => bw_skv( 12, "number", "Zoom level" )
                  );
   return( $syntax );
 }

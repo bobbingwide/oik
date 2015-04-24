@@ -3,7 +3,7 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.2-beta4
+* Tested up to: 4.2
 * Stable tag: 2.4
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -156,6 +156,9 @@ The Application Programming Interface (API) reference documents over 960 APIs, i
 12. oik options - More information for [bw_show_googlemap]
 
 ## Upgrade Notice 
+# 2.5 
+Tested with WordPress 4.2 and WordPress MultiSite. Contains security fix for workaround for shortcode pagination problems.
+
 # 2.5-beta.0409 
 Workaround for shortcode pagination problems. See WordPress TRAC #31939
 
@@ -396,8 +399,13 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 2.5 
+* Changed: Added esc_url() to workaround in bw_navi_paginate_links(). Security fix.
+* Fixed: bw_build_url() tests the path is not empty before calling unltrim()
+* Changed: bw_retrieve_result() accepts 201 HTTP code as well as 200.
+
 # 2.5-beta.0409 
-* Added: Now caters for "noderef" fields for hieararchical post types
+* Added: Now caters for "noderef" fields for hierarchical post types
 * Added: includes/bw_noderef2.php
 * Changed: Debug code in oik_require(). Attempting to track down a random problem with symlinked plugins
 * Changed: More support for symlinks: bw_logo()
@@ -1059,7 +1067,7 @@ For details see below or visit [oik plugin](http://www.oik-plugins.com/oik)
 * Added: files for deprecated functions - but these are TOTALLY lazy
 * Added: help and syntax information for (some) NextGEN and Portfolio slideshow shortcodes
 * Added: help and syntax information for the NextGEN [nggallery] shortcode
-* Added: shortcode quicktag (labelled [] ) with jQuery code shared with th existing TinyMCE buttons
+* Added: shortcode quicktag (labelled [] ) with jQuery code shared with the existing TinyMCE buttons
 * Added: shortcodes can now provide: help, syntax, examples, live examples and snippets
 * Added: trace options, trace actions and trace reset buttons
 * Changed: Improved API for form fields

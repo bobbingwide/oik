@@ -1,15 +1,18 @@
-<?php // (C) Copyright Bobbing Wide 2013,2014
+<?php // (C) Copyright Bobbing Wide 2013-2015
 
 
 /**
  * Performs the reverse of ltrim(), up to a point
  *
  * Prepends the specified $char if it's not already there
+ * 
  * @param string $path - the string to be checked
  * @param char $char - the character to prepend if not already present
  * @return string - the string with the character prepended if required
  */
 function unltrim( $path, $char='/' ) {
+  //bw_backtrace();
+  //bw_trace2();
   if ( $path[0] != $char ) {
     $path = $char . $path;
   }
@@ -31,7 +34,7 @@ function bw_build_url( $parts ) {
   bw_trace2();
   $newurl = $parts['scheme'];
   $newurl .= $parts['host'];
-  if ( isset( $parts['path'] ) ) {
+  if ( !empty( $parts['path'] ) ) {
     $newurl .= unltrim( $parts['path'] );
   }  
   if ( isset( $parts['query'] ) ) {

@@ -107,7 +107,7 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
   $string = remove_query_arg( "bwscid$id" );
   $_SERVER['REQUEST_URI'] = $string; 
   //bw_trace2( $string, "removed request_URI", false );
-  $base = add_query_arg( "bwscid$id", "%_%" );
+  $base = esc_url( add_query_arg( "bwscid$id", "%_%" ) );
   //bw_trace2( $base, "base", false );
   $format = "%#%";
   $args = array( "base" => $base
@@ -121,8 +121,8 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
   // We don't need to worry about these yet             
   //  'show_all' => false,
   //  'prev_next' => true,
-  //  'prev_text' => __('« Previous'),
-  //  'next_text' => __('Next »'),
+  //  'prev_text' => __('ï¿½ Previous'),
+  //  'next_text' => __('Next ï¿½'),
   //  'end_size' => 1,
   //  'mid_size' => 2,
   //  'type' => 'plain',

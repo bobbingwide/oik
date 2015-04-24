@@ -1,10 +1,13 @@
-<?php // (C) Copyright Bobbing Wide 2012, 2014
+<?php // (C) Copyright Bobbing Wide 2012-2015
 
 /**
  * Wrapper to wp_remote_head
+ *
+ * @param string $url - URL for the HEAD request
+ * @return request - result of the request
+ *
  */
 function bw_remote_head( $url ) {
-
   $request = wp_remote_head( $url );
   bw_trace2( $request );
   return( $request );
@@ -83,13 +86,27 @@ function bw_remote_get2( $url ) {
 }
 
 /**
- * Return the result if the response code is 200 ( OK ) 
- * @param $result from wp_remote_post()
- * @return 
+ * Return the result if the response code is 200 ( OK )
+ *
+ * For the REST API we also support 201 ( Created ) 
+ *
+ * @TODO - better handling of error code and body
+ *
+ * `
+ * [body] => [{"code":"empty_password","message":"<strong>ERROR<\/strong>: The password field is empty."}]
+ * [response] => Array
+ *    (
+ *        [code] => 500
+ *        [message] => Internal Server Error
+ *    )
+ * `
+ * 
+ * @param $request from wp_remote_post()
+ * @return result - if it's acceptable 
  */
 function bw_retrieve_result( $request ) {
   $response_code = wp_remote_retrieve_response_code( $request );
-  if ( $response_code == 200 ) {
+  if ( $response_code == 200 || $response_code == 201 ) {
     $response = wp_remote_retrieve_body( $request );
     bw_trace2( $response, $response_code );
     if ( empty( $response ) ) {
