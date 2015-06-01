@@ -51,7 +51,7 @@
     scs.append( opt );
 
     jQuery.each( data, function( key, value ) {
-      var opt = '<option value="' + key + '">[' + key + '] - ' +  value + '</option>'; 
+      var opt = '<option value="' + key + '">' + key + ' - ' +  value + '</option>'; 
       scs.append( opt );
     }); 
     bw_shortcodes_local.data = data;

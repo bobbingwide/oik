@@ -3,8 +3,8 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.2
-* Stable tag: 2.4
+* Tested up to: 4.2.2
+* Stable tag: 2.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,17 +145,18 @@ The Application Programming Interface (API) reference documents over 960 APIs, i
 1. oik options - Options
 2. Demonstrating [bw_pages] and [bw_thumbs]
 3. [bw_contact_form] - Contact form and [bw_show_googlemap] - Google Map
-4. [bw_countdown] - Countdown timers
-5. [bw_address] and shortcode snippets
+4. Option to display post IDs on admin pages
+5. Custom CSS button
 6. oik button dialog - to create the [bw_button] shortcode
 * 7. oik PayPal dialog - create PayPal buttons: Pay Now, Buy Now, Donate, Add to Cart and View Cart/Checkout
 8. oik shortcodes dialog - showing syntax for [bw_block]
 9. oik options - Shortcode help - lists ALL active shortcodes
 10. oik options - Buttons
-11. oik options - More options
-12. oik options - More information for [bw_show_googlemap]
 
 ## Upgrade Notice 
+# 2.6-alpha.0525 
+Tested with WordPress 4.2.2, WordPress MultiSite.
+
 # 2.5 
 Tested with WordPress 4.2 and WordPress MultiSite. Contains security fix for workaround for shortcode pagination problems.
 
@@ -399,6 +400,23 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 2.6-alpha.0525 
+* Changed: Some .inc files deprecated and replaced by .php files: bwtrace.php, oik_boot.php, bwtrace_boot.php
+* Changed: Prototype support for the shortcake (shortcode-UI plugin) 'inner_content' field: hardcoded for bw_geshi, bw_csv, caption and wp_caption
+* Changed: No longer wraps shortcodes in square brackets in the shortcode list editor dialog
+* Changed: Some bw_trace2() calls commented out. Others added.
+* Changed: docblock improvements
+* Added: includes/bwtrace-config.php... failover for when oik-bwtrace is inactive or not present
+* Changed: Rebuilt language files, at long last
+* Changed: Corrected nonce field for [bw_contact_form]
+* Changed: Added $args parameter to itext() to allow the field type to be set using '#type'
+* Changed: Added $extras and $args parameter to textfield
+* Changed: Added $args parameter to bw_textfield()
+* Changed: Added $args parameter to bw_form_field_()
+* Changed: bw_form_field_numeric() now passes $args with '#type' set to $type
+* Changed: bw_load_plugin_textdomain() supports symlinked plugins
+* Changed: now implements 'admin_notices' with priority 9, to load oik_plugin_lazy_activation()
+
 # 2.5 
 * Changed: Added esc_url() to workaround in bw_navi_paginate_links(). Security fix.
 * Fixed: bw_build_url() tests the path is not empty before calling unltrim()

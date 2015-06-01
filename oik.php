@@ -3,7 +3,7 @@
 Plugin Name: oik base plugin 
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 2.5
+Version: 2.6-alpha.0525
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -49,8 +49,8 @@ function oik_version() {
  *z   
  */
 function oik_plugin_file_loaded() {
-  require_once( "oik_boot.inc" );
-  require_once( 'bwtrace.inc' );
+  require_once( "oik_boot.php" );
+  require_once( 'bwtrace.php' );
   require_once( "bobbfunc.inc" );
   require_once( "oik-add-shortcodes.php" );
    
@@ -105,6 +105,7 @@ function oik_main_init() {
   add_action( "network_admin_notices", "oik_network_admin_menu" );
   add_action( "admin_bar_menu", "oik_admin_bar_menu", 20 );
   add_action( 'login_head', 'oik_login_head');
+	add_action( 'admin_notices', "oik_admin_notices", 9 );
   bw_load_plugin_textdomain();
   /**
    * Tell plugins that oik has been loaded.
@@ -123,7 +124,7 @@ function oik_main_init() {
 function oik_admin_menu() {
   require_once( 'admin/oik-admin.inc' );
   oik_options_add_page();
-  add_action('admin_init', 'oik_admin_init' );
+  add_action( 'admin_init', 'oik_admin_init' );
   do_action( 'oik_admin_menu' );
   add_action('admin_enqueue_scripts', 'oik_enqueue_stylesheets', 11 );
 }
@@ -242,6 +243,18 @@ function oik_login_head() {
   oik_require( "shortcodes/oik-logo.php" );
   oik_lazy_login_head();
 }
+
+/**
+ * Implement "admin_notices" for oik 
+ *
+ * Load admin/oik-activation.php before any other plugins 
+ * 
+ */
+function oik_admin_notices() {
+  if ( !function_exists( "oik_plugin_lazy_activation" ) ) {
+	  oik_require( "admin/oik-activation.php" );
+	}
+}	
 
 /**
  * Initiate oik processing 

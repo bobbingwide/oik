@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
+<?php // (C) Copyright Bobbing Wide 2012-2015
 
 /**
  * Register functions for custom post types, taxonomies and fields
@@ -332,7 +332,7 @@ function bw_register_field_for_object_type( $field_name, $object_type ) {
  * @param string $field_type - type of field e.g. text, textarea, radio button
  * @param string $field_title - title of the field
  * @param string $args - $field_type specific values including:
- * <code>
+ * `
  *   #length - for text fields
  *   #validate - for any field
  *   #type - for noderef 
@@ -340,7 +340,7 @@ function bw_register_field_for_object_type( $field_name, $object_type ) {
  *   #multiple - for multiple select fields
  *   #form - bool - whether or not to display the field on an "Add New" form - defaults to true 
  *   #theme - bool - whether or not to display the field during "theming" - defaults to true
- * </code>   
+ * `  
  */
 function bw_register_field( $field_name, $field_type, $field_title, $args=NULL ) {
   global $bw_fields;

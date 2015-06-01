@@ -340,22 +340,58 @@ function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
   $attrs = array();
   if ( is_array( $syntax ) && count( $syntax ) ) {
     foreach ( $syntax as $parameter => $data ) {
-      $notes = $data['notes'];
-      $default = $data['default'];
-      $attr = array( 'label' => "$parameter - $notes"
-                   , 'attr' => $parameter
-                   , 'type' => 'text'
-                   ); 
-      $attr = oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data );              
-      $attrs[] = $attr;
+		  $parameters = explode( ",", $parameter );
+			foreach ( $parameters as $parameter ) { 
+				$notes = $data['notes'];
+				$default = $data['default'];
+				$attr = array( 'label' => "$parameter - $notes"
+										 , 'attr' => $parameter
+										 , 'type' => 'text'
+										 ); 
+				$attr = oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data );              
+				$attrs[] = $attr;
+			}	
     }
   }
   $parm2 = array();
   $parm2['label'] = $shortcode; // - $help";
   $parm2['listItemImage'] = oik_select_shortcake_image( $shortcode, $help );
   $parm2['attrs'] = $attrs;
+	$parm2['inner_content'] = oik_shortcake_inner_content( $shortcode, $syntax );
   shortcode_ui_register_for_shortcode( $shortcode, $parm2 );
 }
+
+/** 
+ * Set the "inner_content" attribute
+ *
+ * This is a hardcoded test of the logic that caters for shortcodes which accept content
+ * 
+ * - bw_geshi was the example used in issue #126
+ * - bw_csv is the one that's causing most problems - issue #317 
+ * 
+ * I'm sure there are many more but this'll do for now.
+ *
+ * @TODO - populate the 'inner_content' as an array when true
+ *
+ * @param string $shortcode - shortcode name
+ * @param array $syntax oik shortcode syntax - may contain "content" key
+ * 
+ *
+ */
+function oik_shortcake_inner_content( $shortcode, $syntax ) {
+  $inner_content = false;
+  switch ( $shortcode ) {
+	  case 'bw_geshi':
+		case 'bw_csv':
+		case 'caption':
+		case 'wp_caption':
+		  $inner_content = true;
+		  break;
+		
+	}
+	return( $inner_content );
+}
+		  
 
 /**
  * Function to invoke when the oik-shortcake module is loaded

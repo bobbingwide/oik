@@ -48,7 +48,7 @@ function bw_mkdir( $tofile ) {
   } else {  
     $success = mkdir( $dir, 0755, true );
   }
-  bw_trace2( $success, "success?" );
+  //bw_trace2( $success, "success?" );
   return( $success );
 }
  

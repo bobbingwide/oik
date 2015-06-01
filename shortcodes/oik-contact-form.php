@@ -68,7 +68,7 @@ function _bw_show_contact_form_oik( $atts ) {
   bw_textfield( "oiku_subject", 30, "Subject", null, "textBox" );
   bw_textarea( "oiku_text", 30, "Message", null, 10 );
   etag( "table" );
-  e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false ) );
+  e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false, false ) );
   e( ihidden( "oiku_email_to", $email_to ) );
   bw_contact_form_submit_button( $atts );
   etag( "form" );

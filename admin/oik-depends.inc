@@ -145,7 +145,7 @@ function bw_get_active_plugins() {
 function oik_lazy_depends( $plugin=null, $dependencies, $callback="oik_plugin_inactive" ) {
   //bw_backtrace();
   $names = bw_get_active_plugins();
-  //bw_trace2( $names );
+  bw_trace2( $names );
   
   $depends = explode( ",", $dependencies );
   foreach ( $depends as $dependcolver ) {

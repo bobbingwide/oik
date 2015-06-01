@@ -1,5 +1,12 @@
-<?php // Copyright Bobbing Wide 2009-2014
-// bobbfunc.inc
+<?php // Copyright Bobbing Wide 2009-2015
+
+/**
+ * bobbfunc.inc
+ *
+ * Common functions.
+ *
+ * @since 0.1
+ */
 
 /** 
  * Return the plugin version of the oik base plugin
@@ -11,7 +18,7 @@ function bw_oik_version() {
   return( $version );
 }
 
-require_once( "oik_boot.inc" );   /* Don't use oik_require here */
+require_once( "oik_boot.php" );   /* Don't use oik_require here */
 
 /**
  * bw API partial equivalent of PHP's output buffering
@@ -1189,14 +1196,20 @@ function bw_pick_one( $preferred, $alternate ) {
 }
 
 /**
- * Load the language specific stuff for "oik"
+ * Load the language specific stuff for the selected domain/plugin
+ *
+ * The plugin domain and plugin name are expected to match e.g. "oik", "oik-clone"
+ * The language files are expected to be in the languages folder for the plugin
  *
  * @link http://codex.wordpress.org/Function_Reference/load_plugin_textdomain
  * If the path is not given then it will be the root of the plugin directory.
+ *
+ * @param string $domain the plugin name
  */
 function bw_load_plugin_textdomain( $domain="oik" ) {
-  //gobang();
-  load_plugin_textdomain( $domain, false, dirname( plugin_basename(__FILE__)).'/languages/' );
+  $languages_dir =  "$domain/languages";
+  //bw_trace2( $languages_dir, "languages dir" );
+  load_plugin_textdomain( $domain, false, $languages_dir );
 }  
 
 /**

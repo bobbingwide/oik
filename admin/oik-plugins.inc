@@ -423,7 +423,9 @@ function bw_delete_option( $field, $options="bw_options" ) {
 function bw_get_plugin_slugs() {
   $plugin_slugs = get_transient( 'plugin_slugs' );
   if ( false === $plugin_slugs ) {
-    $plugin_slugs = array_keys( get_plugins() );
+    $plugins = get_plugins();
+    bw_trace2( $plugins );
+    $plugin_slugs = array_keys( $plugins );
     set_transient( 'plugin_slugs', $plugin_slugs, 86400 );
   }
   bw_trace2( $plugin_slugs );

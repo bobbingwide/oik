@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2009-2014
+<?php // (C) Copyright Bobbing Wide 2009-2015
 // Note: This file uses functions from bobbfunc.inc. You must ensure this is already loaded
 
 /**
@@ -68,15 +68,18 @@ function ihidden( $name, $value ) {
  * @param integer $len - the field length
  * @param string $class - any class name to apply
  * @param string $extras - additional values for the HTML input tag
+ * @param array $args even more options
  * @return string the HTML input tag
  */
-function itext( $name, $len, $value, $class=null, $extras=null ) {
+function itext( $name, $len, $value, $class=null, $extras=null, $args=null ) {
   //bw_trace2();
   //bw_backtrace();
   //$width = ($len * 20) ;
-  $it = "<input type=\"text\" size=\"";
-  $it.= $len;
-  $it.= "\" ";
+  $type = bw_array_get( $args, "#type", "text" );
+  
+  $it = "<input";
+  $it.= kv( "type", $type );
+  $it.= kv( "size", $len );
   //$it.= "width=\"".$width;
   //$it.= "\" 
   $it.= "name=\"";
@@ -237,11 +240,20 @@ function bw_tablerow( $td_array=array(), $trtag="tr", $tdtag="td" ) {
 }
 
 /**
- * Create a text field
+ * Create a text input field
+ *
+ * Create a text field with a label formatted as two columns using tablerow
+ * 
+ * @param string $name the field name e.g. myfield
+ * @param integer $len field length
+ * @param string $value the field value... it doesn't have to be escaped
+ * @param string $class CSS classes to apply
+ * @param string $extras extra attributes which aren't supported by $args
+ * @param array $args Additional parameters for the field
  */
-function textfield($name, $len, $text, $value, $class=null ) {
+function textfield( $name, $len, $text, $value, $class=null, $extras=null, $args=null ) {
   $lab = label( $name, $text );
-  $itext = itext( $name, $len, $value, $class ); 
+  $itext = itext( $name, $len, $value, $class, $extras, $args ); 
   tablerow( $lab, $itext );
   return;
 }
@@ -265,15 +277,16 @@ function textarea( $name, $len, $text, $value, $rows=10 ) {
  * @param string $value - the value of the field
  * @param string $class - CSS class name
  * @param string $extras - the extras passed to itext() is expected to be a string
+ * @param array $args - even more options
  * @TODO accept array so that #hint can be applied 2014/11/28  
  * 
  */
-function bw_textfield( $name, $len, $text, $value, $class=null, $extras=null ) {
+function bw_textfield( $name, $len, $text, $value, $class=null, $extras=null, $args=null ) {
   $lab = label( $name, $text );
   if ( $value === null ) {
     $value = bw_array_get( $_REQUEST, $name, null );
   }
-  $itext = itext( $name, $len, $value, $class, $extras ); 
+  $itext = itext( $name, $len, $value, $class, $extras, $args ); 
   bw_tablerow( array( $lab, $itext ) );
   return;
 }

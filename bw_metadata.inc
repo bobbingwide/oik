@@ -67,13 +67,19 @@ function bw_default_value( $value, $args ) {
  * bw_form_field_ - default formatting for a field - as a textfield
  *
  * e.g. textfield( '_bw_header_image', 80, "Custom header image", $value );
+ *
+ * @param string $name Field name
+ * @param string $type Field type
+ * @param string $title Field label - l10n'ed
+ * @param string $value Field value
+ * @param array $args a load of options
  */
 function bw_form_field_( $name, $type, $title, $value, $args ) {
   $length = bw_array_get( $args, '#length', 40 );
   $value = bw_default_value( $value, $args );
   $class = bw_array_get( $args, "#class", null );
   $extras = bw_array_get( $args, "#extras", null );
-  bw_textfield( $name, $length, $title, $value, $class, $extras );
+  bw_textfield( $name, $length, $title, $value, $class, $extras, $args );
 } 
 
 /**
@@ -239,6 +245,7 @@ function bw_form_field_date( $name, $type, $title, $value, $args ) {
  */
 function bw_form_field_numeric( $name, $type, $title, $value, $args ) {
   $args['#length'] = bw_array_get( $args, '#length', 10 );
+  $args['#type'] = bw_array_get( $args, '#type', $type );
   bw_form_field_( $name, $type, $title, $value, $args ); 
 }
  

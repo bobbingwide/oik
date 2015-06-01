@@ -66,12 +66,15 @@ function oik_options_add_page() {
   // It's better as a background image which can be hovered, in focus etc
   // plugins_url( "images/oik-icon.png", __FILE__ )
   // BUT in order to make this work we need to pass the parameter as 'div' 
-  add_menu_page( __('[oik] Options', 'oik'), __('oik options', 'oik'), 'manage_options', 'oik_menu', 'oik_menu', 'div' ); 
-  
+  $hook = add_menu_page( __('[oik] Options', 'oik'), __('oik options', 'oik'), 'manage_options', 'oik_menu', 'oik_menu', 'div' );
+  bw_trace2( $hook, "oik options hook", false );
   // add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function ); 
-  add_submenu_page( 'oik_menu', __( 'oik overview', 'oik' ), __( 'Overview', 'oik'), 'manage_options', 'oik_menu', 'oik_menu');
-  add_submenu_page( 'oik_menu', __( 'oik options', 'oik' ), __('Options', 'oik'), 'manage_options', 'oik_options', 'oik_options_do_page');
-  add_submenu_page( 'oik_menu', __( 'oik options-1', 'oik' ), __('More Options', 'oik'), 'manage_options', 'oik_options-1', 'oik_options_do_page_1');
+  $hook = add_submenu_page( 'oik_menu', __( 'oik overview', 'oik' ), __( 'Overview', 'oik'), 'manage_options', 'oik_menu', 'oik_menu');
+  bw_trace2( $hook, "oik options Overview hook", false );
+  $hook = add_submenu_page( 'oik_menu', __( 'oik options', 'oik' ), __('Options', 'oik'), 'manage_options', 'oik_options', 'oik_options_do_page');
+  bw_trace2( $hook, "oik options Options hook", false );
+  $hook = add_submenu_page( 'oik_menu', __( 'oik options-1', 'oik' ), __('More Options', 'oik'), 'manage_options', 'oik_options-1', 'oik_options_do_page_1');
+  bw_trace2( $hook, "oik options More Options hook", false );
   add_submenu_page( 'oik_menu', __( 'oik plugins', 'oik' ), __('Plugins', 'oik'), 'manage_options', 'oik_plugins', 'oik_plugins_do_page' );
   add_submenu_page( 'oik_menu', __( 'oik themes', 'oik' ), __('Themes', 'oik'), 'manage_options', 'oik_themes', 'oik_themes_do_page' );
   add_submenu_page( 'oik_menu', __( 'oik buttons', 'oik'), __('Buttons', 'oik'), 'manage_options', 'oik_buttons', 'oik_buttons_do_page' );

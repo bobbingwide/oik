@@ -1,4 +1,4 @@
-<?php
+<?php // (C) Copyright Bobbing Wide 2014,2015
 
 /**
  * Base class for displaying a list of items in an ajaxified HTML table.
@@ -761,6 +761,7 @@ class BW_List_Table {
 		if ( isset( $this->_column_headers ) ) {
       //echo "_column_headers";
       bw_trace2( $this->_column_headers, "t_ch" );
+			bw_backtrace();
       //gobang();
 			return $this->_column_headers;
     }
