@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
+<?php // (C) Copyright Bobbing Wide 2012-2015
 /**
  * oik plugins settings page 
  *
@@ -432,7 +432,16 @@ function bw_get_plugin_slugs() {
   return( $plugin_slugs );
 }
 
+/**
+ * Return the plugin version
+ * 
+ * Note: get_plugin_data() may not find a plugin that's been renamed
+ * 
+ * @param string $plugin_name expected form "plugin/plugin.php"
+ * @return string plugin version
+ */
 function _bw_get_plugin_version( $plugin_name ) {
+  //bw_trace2();
   $file = WP_PLUGIN_DIR . '/'. $plugin_name;
   $plugin_data = get_plugin_data( $file, false, false );
   // We assume get_plugins() is loaded since we're doing admin stuff! 
@@ -457,6 +466,7 @@ function _bw_get_plugins() {
  * Get the full plugin name given the slug
  * 
  * Note: This may return the wrong name if there are two plugins with the same plugin slug! 
+ * Which can happen if someone manually renames a plugin folder in order to apply a new version.
  *
  * @return string $plugin_name
  */

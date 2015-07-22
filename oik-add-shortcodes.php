@@ -1,6 +1,9 @@
-<?php // (C) Copyright Bobbing Wide 2011-2014
-/* Shortcodes for each of the more useful "often included key-information" fields
- * PLUS many more dynamic shortcodes that make use of your website's content 
+<?php // (C) Copyright Bobbing Wide 2011-2015
+
+/**
+ * OIK Shortcodes APIs
+ *
+ * Note: The logic to add the OIK shortcodes is in includes/oik-shortcodes.php
  */
 
 /**

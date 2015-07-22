@@ -3,7 +3,7 @@ if ( defined( 'OIK_PARENT_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_PARENT_SHORTCODES_INCLUDED', true );
 
 /*
-    Copyright 2012, 2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -64,7 +64,7 @@ function bw_parent( $atts=null, $content=null, $tag=null ) {
   } else {
     $post = get_post( $id ); 
   }
-  if ( $post ) {
+  if ( $post && $post->post_parent ) {
     bw_post_link( $post->post_parent, "bw_parent" );   
   }  
   return( bw_ret());

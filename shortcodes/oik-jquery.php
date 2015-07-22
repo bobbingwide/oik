@@ -228,11 +228,37 @@ function bw_jquery_enqueue_style( $script ) {
   //wp_enqueue_style( $script );
   //wp_enqueue_style( "jquery-ui-datepicker-css", plugin_dir_url( __FILE__). "css/jquery.ui.datepicker.css" ); 
   //wp_enqueue_style( "jquery-ui-theme-css", oik_url( "css/jquery.ui.theme.css" ) );
-  wp_enqueue_style( "jquery-ui-theme-css", oik_url( "css/jquery-ui-1.9.2.custom.css" ) );
   //wp_enqueue_style( "jquery-ui-theme-css", oik_url( "css/jquery-ui-1.8.19.custom.css" ) );
+	bw_jquery_enqueue_ui_theme();
   //do_action( "bw_jquery_enqueue_style_file", $script );
   bw_jquery_enqueue_style_url( $script ); 
 }
+
+/**
+ * Enqueue the jQuery UI style file
+ *
+ * This function allows you to specify your own URL for the custom CSS
+ *
+ * The jQuery UI custom CSS file delivered with the oik base plugin is quite old; v1.9.2 whereas the latest (as of July 2015) is v1.11
+ * The original file was built using {@link http://jqueryui.com/themeroller}
+ *
+ * If you want a different theme then you can build a custom file
+ * and include this in your theme, or download the jQuery UI themes 
+ * http://jqueryui.com/download/#!version=1.9.2
+ *
+ * Upload the required theme folder and specify the full URL of the jquery-ui.css file
+ * e.g. `http://qw/wordpress/wp-content/themes/jquery-UI/themes/base/jquery-ui.css`
+ * 
+ */
+function bw_jquery_enqueue_ui_theme() {
+	$customjQCSS = bw_get_option( 'customjQCSS' ); 
+	//bw_trace2( $customjQCSS, "customjQCSS" );
+	if ( empty( $customjQCSS ) ) {
+		$customjQCSS = oik_url( "css/jquery-ui-1.9.2.custom.css" );
+	} 
+	wp_enqueue_style( "jquery-ui-theme-css", $customjQCSS );
+}
+
 
 /**
  * Implement the [bw_jq] shortcode

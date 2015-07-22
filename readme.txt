@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.2.2
+Tested up to: 4.3-beta3
 Stable tag: 2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,6 +14,11 @@ Over 80 advanced, powerful shortcodes for displaying the content of your WordPre
 The *oik base* plugin provides a series of advanced WordPress shortcodes that help you display dynamic content from your website's pages, posts, attachments, links and custom post types.
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information. 
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
+
+At a glance changes in version 2.6
+
+* oik base plugin now delivers shared library functionality
+* Languages supported: French
 
 At a glance changes in version 2.5
 
@@ -140,6 +145,22 @@ The shortcode reference also includes the standard WordPress shortcodes and help
 
 The Application Programming Interface (API) reference documents over 960 APIs, implemented in 86 files with 55 action hooks and filters.
 
+= Where are the shared libraries documented? =
+
+[oik libs](http://www.oik-plugins.com/oik-plugins/oik-lib)
+
+Shared libraries delivered in the oik base plugin include:
+
+* bobbforms
+* bobbfunc
+* bwtrace - Mandatory
+* bwtrace_boot  
+* oik_boot - Mandatory
+* oik-activation
+* oik-admin
+* oik-depends
+* oik-sc-help
+
 
 == Screenshots ==
 1. oik options - Options
@@ -154,6 +175,13 @@ The Application Programming Interface (API) reference documents over 960 APIs, i
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 2.6-alpha.0722 =
+Upgrade to use the Custom jQuery UI CSS URL
+
+= 2.6-alpha.0714 =
+Please upgrade oik-bwtrace to v1.28.
+Compatible with oik-lib v0.1 and oik-bwtrace v1.28.
+
 = 2.6-alpha.0525 =
 Tested with WordPress 4.2.2, WordPress MultiSite. 
 
@@ -400,6 +428,36 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 2.6-alpha.0722 = 
+* Added: oik options "Custom jQuery UI CSS URL", used by [bw_accordion]
+* Changed: Moved logic for [bw_abbr], [bw_acronym], [bw_blockquote], [bw] and [bw_cite] to separately loaded source files
+* Changed: Renamed some functions to prepend _bw_ prefix; e.g. _bw_cite(), _bw_abbr(), _bw_acronym()
+* Added: _bw_c() to eventually replace c()
+* Changed: Moved some functions from libs/bobbfunc.php
+* Changed: Started creating the 'oik-sc-help' shared library
+* Changed: bw_jquery_enqueue_style() calls bw_jquery_enqueue_ui_theme() to enqueue the preferred jQuery UI CSS
+* Changed: [bw_parent] doesn't display anything when there is no parent
+* Changed: More removed from bobbfunc.inc; now in the "bobbfunc" library ( libs/bobbfunc.php )
+ 
+= 2.6-alpha.0714 =
+* Added: Now delivers language versions: bb_BB ( bbboing language ), fr_FR ( French, Francais ). Note: i18n incomplete though.
+* Added: Shared library support compatible with oik-lib v0.1 and oik-bwtrace v1.28
+* Added: bw_get_field_data()
+* Added: oik implements "oik_query_libs" to list the shared libraries that oik provides.
+* Added: oik_query_libs_query_libs() uses oik_lib_check_libs() - which is provided by oik-lib, the plugin that invokes "oik_query_libs"
+* Changed: Some files moved to the libs folder: bwtrace.php, oik_boot.php  (Note: Deprecated files not left behind this time! )
+* Changed: Some functions moved from the  'admin' or 'includes' folders to the shared libraries in the 'libs' folder
+* Changed: Some of the original files now report themselves as being deprecated, then include the shared library file
+* Changed: art_button() logic now in bobbcomp.inc, was in bobbfunc.inc
+* Changed: bwtrace.inc ( deprecated already ) now loads /libs/bwtrace.php
+* Changed: bwtrace_boot.php ( now deprecated ) now loads /libs/bwtrace_boot.php
+* Changed: oik_admin_menu() requires the 'oik-admin' library
+* Changed: oik_admin_notices() loads 'oik-depends' and 'oik-activation' libraries before any other plugin ( priority 9 ) to provide a better implementation of plugin dependency checking  
+* Changed: oik_main_init() requires the 'bobbfunc' library
+* Changed: oik_plugin_file_loaded() now uses libs/oik_boot.php with oik_require_lib()
+* Fixed: oik_admin_bar_menu() test for $node->title before attempting update
+* Tested: Up to 4.3-beta2 including WPMS
+
 = 2.6-alpha.0525 =
 * Changed: Some .inc files deprecated and replaced by .php files: bwtrace.php, oik_boot.php, bwtrace_boot.php
 * Changed: Prototype support for the shortcake (shortcode-UI plugin) 'inner_content' field: hardcoded for bw_geshi, bw_csv, caption and wp_caption

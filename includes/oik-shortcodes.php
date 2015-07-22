@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2014
+<?php // (C) Copyright Bobbing Wide 2011-2015
 
 /**
  * Implement "oik_add_shortcodes" action for oik
@@ -15,7 +15,7 @@ function bw_oik_lazy_add_shortcodes() {
   //bw_add_shortcode_file( 'bw_directions', oik_path( "shortcodes/oik-geo.php" ) );
   bw_add_shortcode( 'bw_directions', 'bw_directions', oik_path( "shortcodes/oik-geo.php" ), false ); 
 
-  bw_add_shortcode( 'bw', 'bw' );
+  bw_add_shortcode( 'bw', 'bw_bw', oik_path( "shortcodes/oik-bw.php" ) );
   //bw_add_shortcode_event( "bw", "bw" );
   //bw_add_shortcode_event( "bw", "bw", 'the_title', 'bw_admin_strip_tags' );
 
@@ -79,10 +79,10 @@ function bw_oik_lazy_add_shortcodes() {
   bw_add_shortcode( 'sediv', 'bw_sediv' );
 
   bw_add_shortcode( 'bw_emergency', 'bw_emergency', oik_path( "shortcodes/oik-phone.php" ) );
-  bw_add_shortcode( 'bw_abbr', 'bw_abbr' );
-  bw_add_shortcode( 'bw_acronym', 'bw_acronym' );
-  bw_add_shortcode( 'bw_blockquote', 'bw_blockquote' );
-  bw_add_shortcode( 'bw_cite', 'bw_cite' );
+  bw_add_shortcode( 'bw_abbr', 'bw_abbr', oik_path( "shortcodes/oik-abbr.php" ) );
+  bw_add_shortcode( 'bw_acronym', 'bw_acronym', oik_path( "shortcodes/oik-acronym.php" ) );
+  bw_add_shortcode( 'bw_blockquote', 'bw_blockquote', oik_path( "shortcodes/oik-blockquote.php" ) );
+  bw_add_shortcode( 'bw_cite', 'bw_cite', oik_path( "shortcodes/oik-cite.php" ) );
   bw_add_shortcode( 'bw_copyright', 'bw_copyright' );
   bw_add_shortcode( 'stag', 'bw_stag' ); 
   bw_add_shortcode( 'etag', 'bw_etag' );

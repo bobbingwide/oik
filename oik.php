@@ -3,7 +3,7 @@
 Plugin Name: oik base plugin 
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 2.6-alpha.0525
+Version: 2.6-alpha.0722
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -49,16 +49,18 @@ function oik_version() {
  *z   
  */
 function oik_plugin_file_loaded() {
-  require_once( "oik_boot.php" );
-  require_once( 'bwtrace.php' );
-  require_once( "bobbfunc.inc" );
+  require_once( "libs/oik_boot.php" );
+	oik_lib_fallback( __DIR__ . '/libs' );
+	add_action( "oik_query_libs", "oik_query_libs_query_libs" );
+	oik_require_lib( "bwtrace" );
+	oik_require_lib( "bobbfunc" );
   require_once( "oik-add-shortcodes.php" );
+  require_once( "bobbcomp.inc" );
    
   if ( defined('DOING_AJAX') && DOING_AJAX ) {
     oik_require( "includes/oik-ajax.php" );
     oik_ajax_lazy_init();
   } else {
-    //require_once( "bobbcomp.inc" );
     add_action('wp_enqueue_scripts', 'oik_enqueue_stylesheets', 11);
   }
   add_action( 'init', 'oik_main_init', 11 );
@@ -106,14 +108,18 @@ function oik_main_init() {
   add_action( "admin_bar_menu", "oik_admin_bar_menu", 20 );
   add_action( 'login_head', 'oik_login_head');
 	add_action( 'admin_notices', "oik_admin_notices", 9 );
-  bw_load_plugin_textdomain();
-  /**
-   * Tell plugins that oik has been loaded.
-   *
-   * This allows plugins which are dependent upon oik to start using the oik APIs
-   * It doesn't mean that all the APIs are available.
-   */
-  do_action( 'oik_loaded' );
+	if ( oik_require_lib( "bobbfunc" ) ) {
+    bw_load_plugin_textdomain();
+		/**
+		 * Tell plugins that oik has been loaded.
+		*
+		* This allows plugins which are dependent upon oik to start using the oik APIs
+		* It doesn't mean that all the APIs are available.
+		*/
+		do_action( 'oik_loaded' );
+	}	else {
+		//gob();
+	}
 }
 
 /**
@@ -122,7 +128,8 @@ function oik_main_init() {
  * Note: This action comes before 'admin_init' and after '_admin_menu'
  */ 
 function oik_admin_menu() {
-  require_once( 'admin/oik-admin.inc' );
+	oik_require_lib( "oik-admin" );
+	require_once( 'admin/oik-admin.inc' );
   oik_options_add_page();
   add_action( 'admin_init', 'oik_admin_init' );
   do_action( 'oik_admin_menu' );
@@ -226,7 +233,7 @@ function oik_admin_bar_menu( &$wp_admin_bar ) {
   	$howdy = sprintf( __('Howdy, %1$s'), $current_user->display_name );
     //bw_trace2( $node, "node" );
     $replace = $replace . " " . $current_user->display_name; 
-    if ( $node->title ) {
+    if ( $node && $node->title ) {
       $node->title = str_replace( $howdy, $replace, $node->title );
       $wp_admin_bar->add_node( $node );
     }  
@@ -245,17 +252,51 @@ function oik_login_head() {
 }
 
 /**
+ * Implement "oik_query_libs" for oik
+ *
+ * When the oik-lib shared library plugin is active we can register the libraries
+ * that we 'Provide' by responding to this filter.
+ * 
+ * The libraries should be defined with their dependencies.
+ *  
+ * The libraries are NOT loaded at this time, just checked and registered.
+ * using oik_lib_check_libs() to build the OIK_lib objects for each library that actually exists.
+ 
+ * 
+ * @param array $libraries array of OIK_libs
+ * @return array updated array of OIK_libs
+ */
+function oik_query_libs_query_libs( $libraries ) {
+	$libs = array( "bobbfunc" => null
+						, "bobbforms" => "bobbfunc"
+						, "oik-admin" => "bobbforms"
+						, "oik-sc-help" => null
+						, "oik-activation" => "oik-depends"
+						, "oik-depends" => null 
+						);
+	$libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
+	bw_trace2();
+	return( $libraries );
+}
+
+/**
  * Implement "admin_notices" for oik 
  *
- * Load admin/oik-activation.php before any other plugins 
+ * Load admin/oik-activation.php before any other plugins which may be dependent upon it.
+ * This saves them from loading their own version of the same code.
+ *
+ * Note: If oik-lib is not loaded then the dependency checking will not be performed
+ * so we need to ensure "oik-depends" is loaded prior to "oik-activation".
+ *
+ *
  * 
  */
 function oik_admin_notices() {
-  if ( !function_exists( "oik_plugin_lazy_activation" ) ) {
-	  oik_require( "admin/oik-activation.php" );
-	}
-}	
-
+	oik_require_lib( "oik-depends" );
+  $loaded = oik_require_lib( "oik-activation" );
+	bw_trace2( $loaded, "oik-activation loaded?", false );
+}
+	
 /**
  * Initiate oik processing 
  */

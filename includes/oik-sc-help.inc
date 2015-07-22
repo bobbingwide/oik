@@ -846,21 +846,6 @@ function bw_qrcode__syntax( $shortcode="bw_qrcode" ) {
                  );
   return( $syntax );
 }
-                   
-function bw_blockquote__syntax( $shortcode="bw_blockquote" ) {
-  $syntax = array( "text" => bw_skv( "", "<i>text</i>", "Text for the blockquote" )
-                 ,  "class"=> bw_skv( "", "<i>class names</i>", "CSS class names" )
-                 );
-  return( $syntax );
-}
-  
-function bw_cite__syntax( $shortcode="bw_cite" ) {
-  $syntax = array( "text" => bw_skv( "", "<i>text</i>", "Text for the citation" )
-                 ,  "class"=> bw_skv( "", "<i>class names</i>", "CSS class names" )
-                 );
-  return( $syntax );
-}
-
 function bw_contact__syntax( $shortcode="bw_contact" ) {
   $syntax = array( "alt" => bw_skv( null, "1", "Use alternative value" ) );
   return( $syntax );

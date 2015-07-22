@@ -2,1126 +2,1091 @@
 # This file is distributed under the same license as the oik base plugin package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik base plugin 2.6-alpha.0722\n"
+"Project-Id-Version: oik base plugin 2.6-alpha.0525\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2015-07-22 08:52:18+00:00\n"
+"POT-Creation-Date: 2015-06-01 16:48:38+00:00\n"
 "MIME-Version: 1.0\n"
-"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
-"Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+
 #: admin/class-bw-list-table.php:283
 msgid "No items found."
-msgstr "NO itmes fonud."
+msgstr ""
 
 #: admin/class-bw-list-table.php:409
 msgid "Select bulk action"
-msgstr "Secelt bulk aoitcn"
+msgstr ""
 
 #: admin/class-bw-list-table.php:411
 msgid "Bulk Actions"
-msgstr "Bluk Actnios"
+msgstr ""
 
 #: admin/class-bw-list-table.php:421
 msgid "Apply"
-msgstr "Alppy"
+msgstr ""
 
 #: admin/class-bw-list-table.php:507
 msgid "Filter by date"
-msgstr "Feltir by dtae"
+msgstr ""
 
 #: admin/class-bw-list-table.php:509
 msgid "All dates"
-msgstr "All dteas"
+msgstr ""
 
 #. translators: 1: month name, 2: 4-digit year
 #: admin/class-bw-list-table.php:522
 msgid "%1$s %2$d"
-msgstr "%1$s %2$d"
+msgstr ""
 
 #: admin/class-bw-list-table.php:538
 msgid "List View"
-msgstr "Lsit Veiw"
+msgstr ""
 
 #: admin/class-bw-list-table.php:539
 msgid "Excerpt View"
-msgstr "Eexpcrt Veiw"
+msgstr ""
 
 #: admin/class-bw-list-table.php:572
 msgid "%s pending"
-msgstr "%s peidnng"
+msgstr ""
 
 #: admin/class-bw-list-table.php:647 admin/class-bw-list-table.php:1089
 msgid "1 item"
 msgid_plural "%s items"
-msgstr[0] "1 ietm"
-msgstr[1] "%s iemts"
+msgstr[0] ""
+msgstr[1] ""
 
 #: admin/class-bw-list-table.php:666
 msgid "Go to the first page"
-msgstr "GO tO thE frsit pgae"
+msgstr ""
 
 #: admin/class-bw-list-table.php:673
 msgid "Go to the previous page"
-msgstr "GO tO thE puroveis pgae"
+msgstr ""
 
 #: admin/class-bw-list-table.php:682
 msgid "Select Page"
-msgstr "Slecet Pgae"
+msgstr ""
 
 #: admin/class-bw-list-table.php:683
 msgid "Current page"
-msgstr "Crreunt pgae"
+msgstr ""
 
 #: admin/class-bw-list-table.php:689
 msgctxt "paging"
 msgid "%1$s of %2$s"
-msgstr "%1$s Of %2$s"
+msgstr ""
 
 #: admin/class-bw-list-table.php:693
 msgid "Go to the next page"
-msgstr "GO tO thE nxet page"
+msgstr ""
 
 #: admin/class-bw-list-table.php:700
 msgid "Go to the last page"
-msgstr "GO tO thE lsat pgae"
+msgstr ""
 
 #: admin/class-bw-list-table.php:844
 msgid "Select All"
-msgstr "Slceet All"
+msgstr ""
 
-#: admin/oik-activation.php:22 libs/oik-activation.php:21
+#: admin/oik-activation.php:17
 msgid "Install"
-msgstr "Isnlatl"
+msgstr ""
 
-#: admin/oik-activation.php:50 libs/oik-activation.php:49
+#: admin/oik-activation.php:45
 msgid "Activate"
-msgstr "Aaitctve"
+msgstr ""
 
-#: admin/oik-activation.php:72 libs/oik-activation.php:71
+#: admin/oik-activation.php:67
 msgid " Upgrade"
-msgstr " Udgarpe"
+msgstr ""
 
-#: admin/oik-activation.php:187 libs/oik-activation.php:186
-#: libs/oik-depends.php:139
+#: admin/oik-activation.php:180
 msgid "%1$s may not be fully functional."
-msgstr "%1$s mAy nOt bE fluly ftnciaonul."
+msgstr ""
 
-#: admin/oik-activation.php:189 libs/oik-activation.php:188
-#: libs/oik-depends.php:141
+#: admin/oik-activation.php:182
 msgid ""
 "Please install and activate the required minimum version of this plugin:"
 msgstr ""
-"Plsaee islatnl And avttcaie thE rqeeriud minumim voeirsn Of tihs piulgn:"
 
-#: admin/oik-admin.inc:71
+#: admin/oik-admin.inc:69
 msgid "[oik] Options"
-msgstr "[oik] Ooptins"
+msgstr ""
 
-#: admin/oik-admin.inc:71 admin/oik-admin.inc:76
+#: admin/oik-admin.inc:69 admin/oik-admin.inc:74
 msgid "oik options"
-msgstr "OIk ontipos"
+msgstr ""
 
-#: admin/oik-admin.inc:74
+#: admin/oik-admin.inc:72
 msgid "oik overview"
-msgstr "OIk overveiw"
+msgstr ""
 
-#: admin/oik-admin.inc:74
+#: admin/oik-admin.inc:72
 msgid "Overview"
-msgstr "Oevrview"
+msgstr ""
 
-#: admin/oik-admin.inc:76 admin/oik-admin.inc:106
+#: admin/oik-admin.inc:74 admin/oik-admin.inc:170
 msgid "Options"
-msgstr "Oinpots"
+msgstr ""
 
-#: admin/oik-admin.inc:78
+#: admin/oik-admin.inc:76
 msgid "oik options-1"
-msgstr "OIk opntios-1"
+msgstr ""
+
+#: admin/oik-admin.inc:76
+msgid "More Options"
+msgstr ""
 
 #: admin/oik-admin.inc:78
-msgid "More Options"
-msgstr "More Oiontps"
+msgid "oik plugins"
+msgstr ""
+
+#: admin/oik-admin.inc:78 admin/oik-admin.inc:226
+msgid "Plugins"
+msgstr ""
+
+#: admin/oik-admin.inc:79
+msgid "oik themes"
+msgstr ""
+
+#: admin/oik-admin.inc:79 admin/oik-admin.inc:228
+msgid "Themes"
+msgstr ""
 
 #: admin/oik-admin.inc:80
-msgid "oik plugins"
-msgstr "OIk pgniuls"
+msgid "oik buttons"
+msgstr ""
 
-#: admin/oik-admin.inc:80 admin/oik-admin.inc:162
-msgid "Plugins"
-msgstr "Pgiluns"
+#: admin/oik-admin.inc:80 admin/oik-admin.inc:179
+msgid "Buttons"
+msgstr ""
 
 #: admin/oik-admin.inc:81
-msgid "oik themes"
-msgstr "OIk tmehes"
-
-#: admin/oik-admin.inc:81 admin/oik-admin.inc:164
-msgid "Themes"
-msgstr "Thmees"
-
-#: admin/oik-admin.inc:82
-msgid "oik buttons"
-msgstr "OIk bntouts"
-
-#: admin/oik-admin.inc:82 admin/oik-admin.inc:115
-msgid "Buttons"
-msgstr "Btnotus"
-
-#: admin/oik-admin.inc:83
 msgid "oik shortcode help"
-msgstr "OIk sodohcrte hlep"
+msgstr ""
 
-#: admin/oik-admin.inc:83 admin/oik-admin.inc:112 admin/oik-admin.inc:532
+#: admin/oik-admin.inc:81 admin/oik-admin.inc:176 admin/oik-admin.inc:642
 msgid "Shortcode help"
-msgstr "Shctrdooe help"
+msgstr ""
 
-#: admin/oik-admin.inc:94
+#: admin/oik-admin.inc:92
 msgid "This box intentionally left blank"
-msgstr "This bOx iatnntlolniey lfet banlk"
+msgstr ""
 
-#: admin/oik-admin.inc:101
+#: admin/oik-admin.inc:105
+msgid "Click to toggle"
+msgstr ""
+
+#: admin/oik-admin.inc:165
 msgid ""
 "oik provides sets of lazy smart shortcodes that you can use just about "
 "anywhere in your WordPress site."
 msgstr ""
-"OIk peodvris stes Of lzay sramt sdoeochtrs that yOU cAn UsE jsut aobut "
-"anweyrhe In your WosPrders stie."
 
-#: admin/oik-admin.inc:103
+#: admin/oik-admin.inc:167
 msgid ""
 "You enter your common information, such as contact details, slogans, "
 "location information, PayPal payment information and your social networking "
 "and bookmarking information using oik Options"
 msgstr ""
-"YOU etner yuor coommn ifmaiornotn, such As ctcnaot dialtes, slgonas, "
-"latioocn iiotmfnroan, PayaPl pnyemat ifotrmaonin And yuor scaoil neowntrkig "
-"And bmiokorankg iotmfrnioan uinsg OIk Otnipos"
 
-#: admin/oik-admin.inc:104
+#: admin/oik-admin.inc:168
 msgid "If required, you enter alternative information using More options"
-msgstr "If rieeruqd, yOU etner aatvtlrniee irmaoftnoin unsig Mroe otpnios"
+msgstr ""
 
-#: admin/oik-admin.inc:106
+#: admin/oik-admin.inc:170
 msgid "Enter your common information"
-msgstr "Eentr yuor comomn itomionrafn"
+msgstr ""
 
-#: admin/oik-admin.inc:108
+#: admin/oik-admin.inc:172
 msgid "More options"
-msgstr "More ootnpis"
+msgstr ""
 
-#: admin/oik-admin.inc:108
+#: admin/oik-admin.inc:172
 msgid "Enter additional information"
-msgstr "Etner adiiotandl ionmaortfin"
+msgstr ""
 
-#: admin/oik-admin.inc:110
+#: admin/oik-admin.inc:174
 msgid ""
 "Discover the shortcodes that you can use in your content and widgets using "
 "Shortcode help"
 msgstr ""
-"Dvoiecsr thE shceordtos that yOU cAn UsE In yuor ctennot And wgdites unsig "
-"Stdoroche hlep"
 
-#: admin/oik-admin.inc:112 admin/oik-admin.inc:532
+#: admin/oik-admin.inc:176 admin/oik-admin.inc:642
 msgid "Discover shortcodes you can use"
-msgstr "Dovceisr socotdhres yOU cAn UsE"
+msgstr ""
 
-#: admin/oik-admin.inc:114
+#: admin/oik-admin.inc:178
 msgid ""
 "Choose the helper buttons that help you to insert shortcodes when editing "
 "your content"
 msgstr ""
-"Cohose thE hepler butntos taht hlep yOU tO inesrt seootrdchs wehn edintig "
-"yuor cenntot"
 
-#: admin/oik-admin.inc:115
+#: admin/oik-admin.inc:179
 msgid "Select TinyMCE and HTML edit helper buttons"
-msgstr "Scleet TiMynCE And HTML eidt hpeler bnuttos"
+msgstr ""
 
-#: admin/oik-admin.inc:124
+#: admin/oik-admin.inc:188
 msgid ""
 "To style the output from shortcodes you can create and edit a custom CSS "
 "file for your theme."
 msgstr ""
-"TO stlye thE otuput form soohrtcdes yOU cAn cetare And eidt A coustm CSS "
-"flie fOr your thmee."
 
-#: admin/oik-admin.inc:125
+#: admin/oik-admin.inc:189
 msgid ""
 "Use the [bw_editcss] shortcode to create the <b>edit CSS</b> link anywhere "
 "on your website."
 msgstr ""
-"UsE thE [bw_editcss] sdorcothe tO cteare thE <b>edit CSS</b> lnik aernwhye "
-"On yuor wtsbeie."
 
-#: admin/oik-admin.inc:126
+#: admin/oik-admin.inc:190
 msgid ""
 "Note: If you change themes then you will start with a new custom CSS file."
 msgstr ""
-"Ntoe: If yOU cganhe temhes tehn yOU wlil srtat with A nEw cusotm CSS flie."
 
-#: admin/oik-admin.inc:127
+#: admin/oik-admin.inc:191
 msgid "You should save your custom CSS file before updating your theme."
-msgstr "YOU slhuod svae yuor ctsuom CSS flie borefe uatdipng yuor tmehe."
+msgstr ""
 
-#: admin/oik-admin.inc:132
+#: admin/oik-admin.inc:196
 msgid "Click on this button to edit your custom CSS file."
-msgstr "Ciclk On this btoutn tO eidt yuor ctuosm CSS flie."
+msgstr ""
 
-#: admin/oik-admin.inc:135
+#: admin/oik-admin.inc:199
 msgid "You have not defined a custom CSS file."
-msgstr "YOU have nOt deinefd A ctosum CSS flie."
+msgstr ""
 
-#: admin/oik-admin.inc:136
+#: admin/oik-admin.inc:200
 msgid "Name your custom CSS file"
-msgstr "Nmae your ctsuom CSS flie"
+msgstr ""
 
-#: admin/oik-admin.inc:136
+#: admin/oik-admin.inc:200
 msgid "Enter the name of your custom CSS file on the Options page"
-msgstr "Etner thE nmae Of yuor cuotsm CSS flie On thE Oiotnps pgae"
+msgstr ""
 
-#: admin/oik-admin.inc:159
+#: admin/oik-admin.inc:223
 msgid ""
 "Some oik plugins and themes are supported from servers other than WordPress."
 "org"
 msgstr ""
-"Smoe OIk pgilnus And theems ArE sepptuord form srevers ohetr tahn WPsedrors."
-"Org"
-
-#: admin/oik-admin.inc:160
-msgid "Premium plugin and theme versions require API keys."
-msgstr "Perumim piglun And tmhee vneisors rqierue API kyes."
-
-#: admin/oik-admin.inc:161
-msgid "Use the Plugins page to manage oik plugins servers and API keys"
-msgstr "UsE thE Punigls pgae tO maagne OIk pnulgis sreervs And API kyes"
-
-#: admin/oik-admin.inc:162
-msgid "Manage plugin servers and API keys"
-msgstr "Maagne pugiln srevers And API kyes"
-
-#: admin/oik-admin.inc:163
-msgid "Use the Themes page to manage oik themes servers and API keys"
-msgstr "UsE thE Thmees page tO maagne OIk teehms sevrers And API kyes"
-
-#: admin/oik-admin.inc:164
-msgid "Manage theme servers and API keys"
-msgstr "Magane tmhee serervs And API kyes"
-
-#: admin/oik-admin.inc:199
-msgid " Button shortcodes"
-msgstr " Butotn stcodheros"
-
-#: admin/oik-admin.inc:200
-msgid " PayPal shortcodes"
-msgstr " PaPyal sheoctrods"
-
-#: admin/oik-admin.inc:201
-msgid " ALL shortcodes"
-msgstr " ALL sotcdheors"
-
-#: admin/oik-admin.inc:202
-msgid "[] quicktag for HTML editor"
-msgstr "[] qtaikucg fOr HMTL eoitdr"
-
-#: admin/oik-admin.inc:203
-msgid "Integrate with shortcake"
-msgstr "Itgetrnae wtih shktacore"
-
-#: admin/oik-admin.inc:206 admin/oik-admin.inc:255 admin/oik-admin.inc:508
-#: admin/oik-admin.inc:579
-msgid "Save changes"
-msgstr "Svae cnehgas"
-
-#: admin/oik-admin.inc:219
-msgid "For more information:"
-msgstr "FOr mroe itroaifomnn:"
-
-#: admin/oik-admin.inc:222
-msgid "Getting started"
-msgstr "Gtinteg sartetd"
 
 #: admin/oik-admin.inc:224
-msgid "Frequently Asked Questions"
-msgstr "Ftlqerneuy Aeskd Qoniseuts"
+msgid "Premium plugin and theme versions require API keys."
+msgstr ""
+
+#: admin/oik-admin.inc:225
+msgid "Use the Plugins page to manage oik plugins servers and API keys"
+msgstr ""
+
+#: admin/oik-admin.inc:226
+msgid "Manage plugin servers and API keys"
+msgstr ""
 
 #: admin/oik-admin.inc:227
-msgid "Forum"
-msgstr "Furom"
+msgid "Use the Themes page to manage oik themes servers and API keys"
+msgstr ""
 
-#: admin/oik-admin.inc:232 admin/oik-admin.inc:272
-msgid "oik documentation"
-msgstr "OIk dinoetutmacon"
+#: admin/oik-admin.inc:228
+msgid "Manage theme servers and API keys"
+msgstr ""
 
-#: admin/oik-admin.inc:232
-msgid "Read the documentation for the oik plugin"
-msgstr "Raed thE daitnueoomctn fOr thE OIk piglun"
+#: admin/oik-admin.inc:263
+msgid " Button shortcodes"
+msgstr ""
 
-#: admin/oik-admin.inc:242
-msgid "Support the development of %1$s by making a donation to %2$s"
-msgstr "Srpupot thE dnpeomveelt Of %1$s by mikang A dnitaoon tO %2$s"
+#: admin/oik-admin.inc:264
+msgid " PayPal shortcodes"
+msgstr ""
 
 #: admin/oik-admin.inc:265
-msgid "overview"
-msgstr "oreeivvw"
+msgid " ALL shortcodes"
+msgstr ""
 
 #: admin/oik-admin.inc:266
-msgid "Shortcode options"
-msgstr "Sothcodre oopnits"
+msgid "[] quicktag for HTML editor"
+msgstr ""
 
 #: admin/oik-admin.inc:267
+msgid "Integrate with shortcake"
+msgstr ""
+
+#: admin/oik-admin.inc:270 admin/oik-admin.inc:318 admin/oik-admin.inc:618
+#: admin/oik-admin.inc:689
+msgid "Save changes"
+msgstr ""
+
+#: admin/oik-admin.inc:283
+msgid "For more information:"
+msgstr ""
+
+#: admin/oik-admin.inc:286
+msgid "Getting started"
+msgstr ""
+
+#: admin/oik-admin.inc:288
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: admin/oik-admin.inc:291
+msgid "Forum"
+msgstr ""
+
+#: admin/oik-admin.inc:296 admin/oik-admin.inc:371
+msgid "oik documentation"
+msgstr ""
+
+#: admin/oik-admin.inc:296
+msgid "Read the documentation for the oik plugin"
+msgstr ""
+
+#: admin/oik-admin.inc:305
+msgid "Support the development of %1$s by making a donation to %2$s"
+msgstr ""
+
+#: admin/oik-admin.inc:364
+msgid "overview"
+msgstr ""
+
+#: admin/oik-admin.inc:365
+msgid "Shortcode options"
+msgstr ""
+
+#: admin/oik-admin.inc:366
 msgid "Custom CSS"
-msgstr "Cotusm CSS"
+msgstr ""
 
-#: admin/oik-admin.inc:269
+#: admin/oik-admin.inc:368
 msgid "Servers and keys"
-msgstr "Seerrvs And kyes"
+msgstr ""
 
-#: admin/oik-admin.inc:273
+#: admin/oik-admin.inc:372
 msgid "support oik"
-msgstr "sopuprt OIk"
+msgstr ""
 
-#: admin/oik-admin.inc:274
+#: admin/oik-admin.inc:373
 msgid "Admin options"
-msgstr "Aidmn opnitos"
+msgstr ""
 
-#: admin/oik-admin.inc:284
+#: admin/oik-admin.inc:383
 msgid "button selection"
-msgstr "btuotn scelioetn"
+msgstr ""
 
-#: admin/oik-admin.inc:285
+#: admin/oik-admin.inc:384
 msgid "TinyMCE buttons"
-msgstr "TiyCnME bonttus"
+msgstr ""
 
-#: admin/oik-admin.inc:330
+#: admin/oik-admin.inc:429
 msgid "shortcode options"
-msgstr "shrcdoote otnpois"
+msgstr ""
 
-#: admin/oik-admin.inc:331
+#: admin/oik-admin.inc:430
 msgid "Often included key information"
-msgstr "Otfen inledcud kEy ifamonotirn"
+msgstr ""
 
-#: admin/oik-admin.inc:334
+#: admin/oik-admin.inc:433
 msgid "Usage notes"
-msgstr "Uasge netos"
+msgstr ""
 
-#: admin/oik-admin.inc:344
+#: admin/oik-admin.inc:456
 msgid "Telephone"
-msgstr "Theelnpoe"
+msgstr ""
 
-#: admin/oik-admin.inc:345 shortcodes/oik-phone.php:138
+#: admin/oik-admin.inc:457 shortcodes/oik-phone.php:138
 #: shortcodes/oik-phone.php:170
 msgid "Mobile"
-msgstr "Mlboie"
+msgstr ""
 
-#: admin/oik-admin.inc:346 shortcodes/oik-phone.php:129
+#: admin/oik-admin.inc:458 shortcodes/oik-phone.php:129
 msgid "Fax"
-msgstr "FAx"
+msgstr ""
 
-#: admin/oik-admin.inc:347 shortcodes/oik-phone.php:147
+#: admin/oik-admin.inc:459 shortcodes/oik-phone.php:147
 msgid "Emergency"
-msgstr "Emneregcy"
+msgstr ""
 
-#: admin/oik-admin.inc:385
+#: admin/oik-admin.inc:497
 msgid "Contact button text"
-msgstr "Ctconat btotun text"
+msgstr ""
 
-#: admin/oik-admin.inc:386
+#: admin/oik-admin.inc:498
 msgid "Contact button tooltip"
-msgstr "Catcnot btuton ttoliop"
+msgstr ""
 
-#: admin/oik-admin.inc:401 admin/oik-admin.inc:567
+#: admin/oik-admin.inc:513 admin/oik-admin.inc:677
 msgid "Street-address"
-msgstr "Serett-arsddes"
+msgstr ""
 
-#: admin/oik-admin.inc:402 admin/oik-admin.inc:568
+#: admin/oik-admin.inc:514 admin/oik-admin.inc:678
 msgid "Locality"
-msgstr "Lciloaty"
+msgstr ""
 
-#: admin/oik-admin.inc:403 admin/oik-admin.inc:569
+#: admin/oik-admin.inc:515 admin/oik-admin.inc:679
 msgid "Region"
-msgstr "Rgeoin"
+msgstr ""
 
-#: admin/oik-admin.inc:404 admin/oik-admin.inc:570
+#: admin/oik-admin.inc:516 admin/oik-admin.inc:680
 msgid "Post Code"
-msgstr "Psot Cdoe"
+msgstr ""
 
-#: admin/oik-admin.inc:405 admin/oik-admin.inc:571
+#: admin/oik-admin.inc:517 admin/oik-admin.inc:681
 msgid "Country name"
-msgstr "Cnutroy nmae"
+msgstr ""
 
-#: admin/oik-admin.inc:452
+#: admin/oik-admin.inc:564
 msgid "Google Map width"
-msgstr "Gogloe MAp wdtih"
+msgstr ""
 
-#: admin/oik-admin.inc:453
+#: admin/oik-admin.inc:565
 msgid "Google Map height"
-msgstr "Ggoole MAp hihget"
+msgstr ""
 
-#: admin/oik-admin.inc:465
+#: admin/oik-admin.inc:575
 msgid "PayPal country"
-msgstr "PaayPl crntuoy"
+msgstr ""
 
-#: admin/oik-admin.inc:483 shortcodes/oik-paypal.php:239
+#: admin/oik-admin.inc:593 shortcodes/oik-paypal.php:239
 msgid "PayPal currency"
-msgstr "PayaPl cnurcrey"
+msgstr ""
 
-#: admin/oik-admin.inc:495
+#: admin/oik-admin.inc:605
 msgid "Artisteer version"
-msgstr "Aettsirer viosern"
+msgstr ""
 
-#: admin/oik-admin.inc:522 admin/oik-admin.inc:589
+#: admin/oik-admin.inc:632 admin/oik-admin.inc:699
 msgid "Use the shortcodes in your pages, widgets and titles. e.g."
-msgstr "UsE thE srcheodtos In yuor pgeas, wgtides And tiltes. E.g."
+msgstr ""
 
-#: admin/oik-admin.inc:531
+#: admin/oik-admin.inc:641
 msgid ""
 "For more information about the shortcodes you can use select <b>Shortcode "
 "help</b>"
 msgstr ""
-"FOr more iofrmoiantn aoubt thE sotohercds yOU cAn UsE seclet <b>Shortcode "
-"help</b>"
 
-#: admin/oik-admin.inc:542
+#: admin/oik-admin.inc:652
 msgid "extra shortcode options"
-msgstr "etxra srdhctooe oopntis"
+msgstr ""
 
-#: admin/oik-admin.inc:543
+#: admin/oik-admin.inc:653
 msgid "alternative values using alt=1"
-msgstr "aetrnavtile vluaes usnig alt=1"
+msgstr ""
 
-#: admin/oik-admin.inc:546
+#: admin/oik-admin.inc:656
 msgid "usage notes"
-msgstr "ugase noets"
+msgstr ""
 
-#: admin/oik-admin.inc:561
+#: admin/oik-admin.inc:671
 msgid "Contact [bw_contact alt=1]"
-msgstr "Coatnct [bw_contact alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:562
+#: admin/oik-admin.inc:672
 msgid "Email [bw_email alt=1]"
-msgstr "Eaiml [bw_email alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:563
+#: admin/oik-admin.inc:673
 msgid "Telephone [bw_telephone alt=1]"
-msgstr "Tplheoene [bw_telephone alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:564
+#: admin/oik-admin.inc:674
 msgid "Mobile [bw_mobile alt=1]"
-msgstr "Mliboe [bw_mobile alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:566
+#: admin/oik-admin.inc:676
 msgid "Extended-address [bw_address alt=1]"
-msgstr "Etexendd-aedsdrs [bw_address alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:573
+#: admin/oik-admin.inc:683
 msgid "Google Maps introductory text for [bw_show_googlemap alt=1]"
-msgstr "Ggoloe Mpas icutrdtrnooy text fOr [bw_show_googlemap alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:574
+#: admin/oik-admin.inc:684
 msgid "Latitude [bw_geo alt=1] [bw_directions alt=1]"
-msgstr "Ldattuie [bw_geo alt=1] [bw_directions alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:575
+#: admin/oik-admin.inc:685
 msgid "Longitude [bw_show_googlemap alt=1]"
-msgstr "Ldgtionue [bw_show_googlemap alt=1]"
+msgstr ""
 
-#: admin/oik-admin.inc:741
+#: admin/oik-admin.inc:858
 msgid "shortcode help"
-msgstr "stdrhcooe hlep"
+msgstr ""
 
-#: admin/oik-admin.inc:742
+#: admin/oik-admin.inc:859
 msgid "About shortcodes"
-msgstr "Aubot sochtodres"
+msgstr ""
 
-#: admin/oik-admin.inc:750
+#: admin/oik-admin.inc:867
 msgid "Shortcode summary"
-msgstr "Sotodchre smmaruy"
+msgstr ""
 
-#: admin/oik-admin.inc:759
+#: admin/oik-admin.inc:876
 msgid ""
 "This page lists all the currently active shortcodes. To find out more "
 "information about a shortcode click on the shortcode name in the Help column."
 msgstr ""
-"Tihs pgae ltiss All thE crlutreny acivte shrtdooces. TO find OUt more "
-"iafionrotmn abuot A sdcrohote ccilk On thE stcdoorhe nmae In thE Help clomun."
 
-#: admin/oik-admin.inc:760
+#: admin/oik-admin.inc:877
 msgid ""
 "Depending on how the shortcode is implemented you will either be shown some "
 "more information with one or more examples, or an 'oik generated example.' "
 msgstr ""
-"Ddnniepeg On hOw thE scdothroe Is ilemtnepmed yOU will etiher bE swohn smoe "
-"mroe iitrnfoamon wtih OnE Or mroe empaelxs, Or An 'OIk grtaeened epmxale.' "
 
-#: admin/oik-admin.inc:761
+#: admin/oik-admin.inc:878
 msgid ""
 "You will also be shown the HTML snippet for the example. There should be no "
 "need to do anything with this output."
 msgstr ""
-"YOU wlil aslo bE sowhn thE HTML snieppt fOr thE elaxmpe. Three sholud bE nO "
-"need tO dO anhitnyg wtih tihs otuput."
 
-#: admin/oik-admin.inc:762
+#: admin/oik-admin.inc:879
 msgid ""
 "For further information on a shortcode or its parameters click on the links "
 "in the Syntax column."
 msgstr ""
-"FOr freuthr iotifmnaorn On A sohtcdore Or Its prtearames ciclk On thE lniks "
-"In thE Snatyx culmon."
 
 #: admin/oik-plugins.inc:19
 msgid "plugin server settings"
-msgstr "pilugn sreevr senttigs"
+msgstr ""
 
 #: admin/oik-plugins.inc:40 admin/oik-themes.inc:41
 msgid "Check"
-msgstr "Cchek"
+msgstr ""
 
 #: admin/oik-plugins.inc:67 admin/oik-themes.inc:68
 msgid "Add new"
-msgstr "Add nEw"
+msgstr ""
 
 #: admin/oik-plugins.inc:71
 msgid "Edit plugin"
-msgstr "Eidt pgluin"
+msgstr ""
 
 #: admin/oik-plugins.inc:73 admin/oik-themes.inc:74
 msgid "Settings"
-msgstr "Sttenigs"
+msgstr ""
 
 #: admin/oik-plugins.inc:192 admin/oik-themes.inc:179
 msgid "settings must not be blank"
-msgstr "snegtits msut nOt bE bnalk"
+msgstr ""
 
 #: admin/oik-plugins.inc:242
 msgid "plugin"
-msgstr "plugin"
+msgstr ""
 
 #: admin/oik-plugins.inc:243 admin/oik-plugins.inc:255
 #: admin/oik-themes.inc:228 admin/oik-themes.inc:240
 msgid "server"
-msgstr "sreevr"
+msgstr ""
 
 #: admin/oik-plugins.inc:244 admin/oik-themes.inc:229
 msgid "apikey"
-msgstr "akiepy"
+msgstr ""
 
 #: admin/oik-plugins.inc:256 admin/oik-themes.inc:241
 msgid "apikey?"
-msgstr "akiepy?"
+msgstr ""
 
 #: admin/oik-plugins.inc:288
 msgid "A new version of the plugin is available"
-msgstr "A nEw vseiorn Of thE pguiln Is alaaiblve"
+msgstr ""
 
 #: admin/oik-plugins.inc:295
 msgid "Plugin is up to date."
-msgstr "Pilgun Is Up tO date."
+msgstr ""
 
 #: admin/oik-themes.inc:20
 msgid "theme server settings"
-msgstr "tmhee severr setingts"
+msgstr ""
 
 #: admin/oik-themes.inc:72
 msgid "Edit theme"
-msgstr "Edit thmee"
+msgstr ""
 
 #: admin/oik-themes.inc:227
 msgid "theme"
-msgstr "theme"
+msgstr ""
 
 #: admin/oik-themes.inc:267
 msgid "A new version of the theme is available"
-msgstr "A nEw visreon Of thE thmee Is alailabve"
+msgstr ""
 
 #: admin/oik-themes.inc:274
 msgid "Theme is up to date."
-msgstr "Thmee Is Up tO date."
+msgstr ""
 
-#: bobbcomp.inc:257
+#: bobbcomp.inc:255
 msgid "me"
-msgstr "mE"
+msgstr ""
 
-#: bobbcomp.inc:304 bobbcomp.inc:322
+#: bobbcomp.inc:302 bobbcomp.inc:320
 msgid "OIK Information Kit"
-msgstr "OIK Imaroitnfon KIt"
+msgstr ""
 
-#: bobbcomp.inc:488
+#: bobbcomp.inc:523
 msgid ","
-msgstr ","
+msgstr ""
 
-#: bobbcomp.inc:492
+#: bobbcomp.inc:527
 msgid "-"
-msgstr "-"
+msgstr ""
 
-#: bobbcomp.inc:597
+#: bobbcomp.inc:632
 msgid "&copy; Copyright"
-msgstr "&copy; Cpryihgot"
+msgstr ""
 
-#: bobbcomp.inc:598 shortcodes/oik-qrcode.php:10
+#: bobbcomp.inc:633 shortcodes/oik-qrcode.php:10
 msgid "company"
-msgstr "caopmny"
+msgstr ""
 
-#: bobbcomp.inc:599
+#: bobbcomp.inc:634
 msgid ". All rights reserved."
-msgstr ". All rihtgs reeversd."
+msgstr ""
 
-#: bobbcomp.inc:602
+#: bobbcomp.inc:637
 msgid "yearfrom"
-msgstr "yroarfem"
+msgstr ""
 
-#: bobbforms.inc:448 libs/bobbforms.php:462
+#: bobbforms.inc:446
 msgid "None"
-msgstr "Nnoe"
+msgstr ""
 
 #: bw_metadata.inc:41
 msgid "Fields"
-msgstr "Fiedls"
+msgstr ""
 
 #: includes/bw_fields.inc:355 includes/bw_formatter.inc:392
 msgid ": "
-msgstr ": "
+msgstr ""
 
 #: includes/bw_formatter.inc:130 includes/bw_posts.inc:314
 #: shortcodes/oik-parent.php:43
 msgid "Post: "
-msgstr "Psot: "
+msgstr ""
 
 #: includes/bw_posts.inc:154
 msgid "read more"
-msgstr "raed more"
+msgstr ""
 
 #: includes/bw_register.inc:152
 msgid "Post"
-msgstr "Psot"
+msgstr ""
 
 #: includes/deprecated.inc:378
 msgid ""
 "oik comes with a set of companion plugins. Activate these when you find a "
 "need for them."
 msgstr ""
-"OIk cmoes wtih A sEt Of coapimnon pluigns. Acattvie teshe wehn yOU fnid A "
-"need fOr them."
 
 #: includes/deprecated.inc:380
 msgid "email signature - build an email signature for your email client"
-msgstr "eamil santrugie - bulid An eaiml srutiagne fOr yuor eamil cilent"
+msgstr ""
 
 #: includes/deprecated.inc:381
 msgid "custom header image - define a custom header image for any post/page"
-msgstr "csoutm hedaer iagme - dfniee A coustm haeder imgae fOr Any psot/pgae"
+msgstr ""
 
 #: includes/deprecated.inc:382
 msgid ""
 "oik sidebar - apply widget wrangler sidebar functionality to Artisteer themes"
 msgstr ""
-"OIk sbidear - alppy wgdeit wgralenr sbdiear fintloicatuny tO Areitetsr tehems"
 
 #: includes/deprecated.inc:383
 msgid ""
 "oik fields - allow custom fields to be shown within the content of your page "
 "or post"
 msgstr ""
-"OIk fedils - allow ctousm fileds tO bE sohwn witihn thE ceontnt Of yuor page "
-"Or psot"
 
 #: includes/deprecated.inc:384
 msgid "oik trace - problem determination trace "
-msgstr "OIk tcare - peblorm detoanmteirin tcrae "
+msgstr ""
 
 #: includes/deprecated.inc:385
 msgid "oik action trace - trace WordPress actions and filters"
-msgstr "OIk acoitn tarce - tarce WPdesrors acontis And flerits"
+msgstr ""
 
 #: includes/deprecated.inc:386
 msgid "oik bbpress - strip tags from bbPress forum title tooltips"
-msgstr "OIk bpresbs - stirp tags form besbPrs furom tlite totplios"
+msgstr ""
 
 #: includes/deprecated.inc:387
 msgid ""
 "oik bob bing wide shortcodes - activate this plugin to enable the "
 "<code>[bw_plug]</code> shortcode"
 msgstr ""
-"OIk bOb bnig wdie shotdoecrs - aticvtae tihs pugiln tO ealbne thE "
-"<code>[bw_plug]</code> schordote"
 
 #: includes/deprecated.inc:388
 msgid ""
 "oik BuddyPress signup email - Send sign up verification emails via site "
 "admin for verification before accepting a user"
 msgstr ""
-"OIk ByeudPdsrs sigunp eaiml - Sned sgin Up vecaiiitrfon emlais vIA stie "
-"amidn fOr vitaocierifn brofee aiptcecng A user"
 
 #: includes/oik-contact-form-email.inc:36
 msgid "Contact form submission"
-msgstr "Cncatot from sismbiousn"
+msgstr ""
 
 #: includes/oik-sc-help.inc:180
 msgid "Some scripts were changed!"
-msgstr "Smoe srtcpis wree caeghnd!"
+msgstr ""
 
 #: includes/oik-sc-help.inc:399 includes/oik-sc-help.inc:766
 #: includes/oik-sc-help.inc:817 includes/oik-sc-help.inc:827
-#: shortcodes/oik-blockquote.php:32 shortcodes/oik-cite.php:19
+#: includes/oik-sc-help.inc:852 includes/oik-sc-help.inc:859
 #: shortcodes/oik-follow.php:304
 msgid "<i>class names</i>"
-msgstr "<i>class names</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:399 includes/oik-sc-help.inc:766
-#: shortcodes/oik-blockquote.php:32 shortcodes/oik-cite.php:19
+#: includes/oik-sc-help.inc:852 includes/oik-sc-help.inc:859
 #: shortcodes/oik-cycle.php:127 shortcodes/oik-follow.php:304
 msgid "CSS class names"
-msgstr "CSS calss naems"
+msgstr ""
 
-#: includes/oik-sc-help.inc:400 includes/oik-sc-help.inc:943
+#: includes/oik-sc-help.inc:400 includes/oik-sc-help.inc:958
 #: shortcodes/oik-galleries.php:29
 msgid "<i>id</i>"
-msgstr "<i>id</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:400
 msgid "unique identifier"
-msgstr "uunqie idenftiier"
+msgstr ""
 
 #: includes/oik-sc-help.inc:423 includes/oik-sc-help.inc:424
 #: includes/oik-sc-help.inc:508 includes/oik-sc-help.inc:547
 #: shortcodes/oik-list.php:175 shortcodes/oik-posts.php:59
 msgid "numeric"
-msgstr "nerumic"
+msgstr ""
 
 #: includes/oik-sc-help.inc:423 shortcodes/oik-posts.php:59
 msgid "number to return"
-msgstr "nbemur tO rutern"
+msgstr ""
 
 #: includes/oik-sc-help.inc:424
 msgid "offset from which to start"
-msgstr "ofsfet form wichh tO srtat"
+msgstr ""
 
 #: includes/oik-sc-help.inc:425
 msgid "<i>category ID</i>"
-msgstr "<i>category ID</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:425
 msgid "numeric ID of the post category"
-msgstr "nemuric ID Of thE psot ceaogtry"
+msgstr ""
 
 #: includes/oik-sc-help.inc:426
 msgid "<i>category-slug</i>"
-msgstr "<i>category-slug</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:426
 msgid "category slugs (comma separated)"
-msgstr "cotaegry slgus (cmoma seeprtaad)"
+msgstr ""
 
 #: includes/oik-sc-help.inc:427
 msgid "category-slug"
-msgstr "cgortaey-slug"
+msgstr ""
 
 #: includes/oik-sc-help.inc:427
 msgid "custom category slug"
-msgstr "ctsoum cretoagy sulg"
+msgstr ""
 
 #: includes/oik-sc-help.inc:428
 msgid "ID|title|parent|rand|menu_order"
-msgstr "ID|ttile|penrat|rnad|mneu_oderr"
+msgstr ""
 
 #: includes/oik-sc-help.inc:428 shortcodes/oik-attachments.php:345
 #: shortcodes/oik-thumbs.php:85
 msgid "Sort sequence"
-msgstr "Sort sqceenue"
+msgstr ""
 
 #: includes/oik-sc-help.inc:429
 msgid "ASC"
-msgstr "ASC"
+msgstr ""
 
 #: includes/oik-sc-help.inc:429 shortcodes/oik-attachments.php:346
 msgid "Sort order."
-msgstr "Sort odrer."
+msgstr ""
 
 #: includes/oik-sc-help.inc:430 includes/oik-sc-help.inc:431
 #: includes/oik-sc-help.inc:438 includes/oik-sc-help.inc:549
-#: includes/oik-sc-help.inc:550 includes/oik-sc-help.inc:947
-#: includes/oik-sc-help.inc:948
+#: includes/oik-sc-help.inc:550 includes/oik-sc-help.inc:962
+#: includes/oik-sc-help.inc:963
 msgid "<i>id1,id2</i>"
-msgstr "<i>id1,id2</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:430 includes/oik-sc-help.inc:549
-#: includes/oik-sc-help.inc:947
+#: includes/oik-sc-help.inc:962
 msgid "IDs to include"
-msgstr "IDs tO iludcne"
+msgstr ""
 
 #: includes/oik-sc-help.inc:431 includes/oik-sc-help.inc:550
-#: includes/oik-sc-help.inc:948
+#: includes/oik-sc-help.inc:963
 msgid "IDs to exclude"
-msgstr "IDs tO excudle"
+msgstr ""
 
 #: includes/oik-sc-help.inc:432
 msgid "meta key"
-msgstr "mtea kEy"
+msgstr ""
 
 #: includes/oik-sc-help.inc:432
 msgid "post metadata key"
-msgstr "psot mtedataa kEy"
+msgstr ""
 
 #: includes/oik-sc-help.inc:433
 msgid "meta value"
-msgstr "mtea vlaue"
+msgstr ""
 
 #: includes/oik-sc-help.inc:433
 msgid "post metadata value"
-msgstr "psot maedatta vulae"
+msgstr ""
 
 #: includes/oik-sc-help.inc:434
 msgid "post|attachment|custom post type"
-msgstr "post|ahmttcaent|csotum psot type"
+msgstr ""
 
 #: includes/oik-sc-help.inc:434
 msgid "Content type to display"
-msgstr "Cnetont tpye tO dapsliy"
+msgstr ""
 
 #: includes/oik-sc-help.inc:435
 msgid "image|application|text|video|mime type"
-msgstr "igmae|aiclotpapin|txet|vedio|mime tpye"
+msgstr ""
 
 #: includes/oik-sc-help.inc:435
 msgid "Attached media MIME type"
-msgstr "Ahttaecd mdeia MMIE tpye"
+msgstr ""
 
 #: includes/oik-sc-help.inc:436 includes/oik-sc-help.inc:543 oik-ids.php:34
 #: shortcodes/oik-login.php:63
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: includes/oik-sc-help.inc:436
 msgid "Parent ID to use if not current post"
-msgstr "Parnet ID tO UsE If nOt cnerrut post"
+msgstr ""
 
 #: includes/oik-sc-help.inc:437
 msgid "pending|draft|auto-draft|future|private|trash|any"
-msgstr "pindeng|darft|atuo-dafrt|futrue|patvrie|tsrah|Any"
+msgstr ""
 
 #: includes/oik-sc-help.inc:437 shortcodes/oik-count.php:45
 msgid "Post status"
-msgstr "Psot sattus"
+msgstr ""
 
 #: includes/oik-sc-help.inc:438
 msgid "IDs of posts to display"
-msgstr "IDs Of posts tO dlpisay"
+msgstr ""
 
 #: includes/oik-sc-help.inc:449
 msgid "medium|large|full|nnn|wxh"
-msgstr "mueidm|lgrae|flul|nnn|wxh"
+msgstr ""
 
 #: includes/oik-sc-help.inc:449 shortcodes/oik-attachments.php:355
 #: shortcodes/oik-list.php:176
 msgid "image size"
-msgstr "image szie"
+msgstr ""
 
 #: includes/oik-sc-help.inc:505 shortcodes/oik-trace.php:30
 msgid "text"
-msgstr "txet"
+msgstr ""
 
 #: includes/oik-sc-help.inc:505
 msgid "value for CSS id= keyword"
-msgstr "vulae fOr CSS id= kroewyd"
+msgstr ""
 
 #: includes/oik-sc-help.inc:506
 msgid "classname"
-msgstr "cssnamlae"
+msgstr ""
 
 #: includes/oik-sc-help.inc:506
 msgid "custom class "
-msgstr "cuotsm csals "
+msgstr ""
 
 #: includes/oik-sc-help.inc:507
 msgid "aligncenter|alignright|alignleft"
-msgstr "aecgnineltr|alhnggiirt|agfllient"
+msgstr ""
 
 #: includes/oik-sc-help.inc:507
 msgid "CSS alignment class"
-msgstr "CSS agminnlet clsas"
+msgstr ""
 
 #: includes/oik-sc-help.inc:508
 msgid "width in pixels (Note: 10 is added to this number)"
-msgstr "wdith In pxeils (Ntoe: 10 Is aeddd tO tihs nbmeur)"
+msgstr ""
 
 #: includes/oik-sc-help.inc:541 shortcodes/oik-attachments.php:346
 #: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:86
 msgid "DESC"
-msgstr "DESC"
+msgstr ""
 
 #: includes/oik-sc-help.inc:541
 msgid "Order"
-msgstr "Oerdr"
+msgstr ""
 
 #: includes/oik-sc-help.inc:542
 msgid "ID|title|rand"
-msgstr "ID|ttile|rnad"
+msgstr ""
 
-#: includes/oik-sc-help.inc:542 includes/oik-sc-help.inc:946
+#: includes/oik-sc-help.inc:542 includes/oik-sc-help.inc:961
 msgid "Order by field"
-msgstr "Oredr by field"
+msgstr ""
 
 #: includes/oik-sc-help.inc:543
 msgid "Post ID. Default: Current post ID"
-msgstr "Psot ID. Defluat: Cruernt psot ID"
+msgstr ""
 
 #: includes/oik-sc-help.inc:544 includes/oik-sc-help.inc:545
 #: includes/oik-sc-help.inc:546 includes/oik-sc-help.inc:745
 #: includes/oik-sc-help.inc:754 includes/oik-sc-help.inc:765
 #: includes/oik-sc-help.inc:783 includes/oik-sc-help.inc:807
-#: includes/oik-sc-help.inc:865 includes/oik-sc-help.inc:871
+#: includes/oik-sc-help.inc:880 includes/oik-sc-help.inc:886
 #: shortcodes/oik-blocks.php:126
 msgid "<i>tag</i>"
-msgstr "<i>tag</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:544
 msgid "Item tag"
-msgstr "Ietm tAg"
+msgstr ""
 
 #: includes/oik-sc-help.inc:545
 msgid "Icon tag"
-msgstr "Iocn tAg"
+msgstr ""
 
 #: includes/oik-sc-help.inc:546
 msgid "Caption tag"
-msgstr "Capiton tAg"
+msgstr ""
 
 #: includes/oik-sc-help.inc:547
 msgid "Columns"
-msgstr "Colnmus"
+msgstr ""
 
 #: includes/oik-sc-help.inc:548
 msgid "medium|full"
-msgstr "mdeium|flul"
+msgstr ""
 
 #: includes/oik-sc-help.inc:548
 msgid "Thumbnail image size"
-msgstr "Tanhibmul igmae size"
+msgstr ""
 
 #: includes/oik-sc-help.inc:560
 msgid "Embed example"
-msgstr "Emebd elmpxae"
+msgstr ""
 
 #: includes/oik-sc-help.inc:564
 msgid "500|embed_size_w|content_width"
-msgstr "500|eembd_szie_w|cnetnot_wdtih"
+msgstr ""
 
 #: includes/oik-sc-help.inc:564 includes/oik-sc-help.inc:595
 msgid "Required width"
-msgstr "Reirqued wdith"
+msgstr ""
 
 #: includes/oik-sc-help.inc:565
 msgid "700|embed_size_h"
-msgstr "700|eebmd_szie_h"
+msgstr ""
 
 #: includes/oik-sc-help.inc:565 includes/oik-sc-help.inc:594
 msgid "Required height"
-msgstr "Reuieqrd hghiet"
+msgstr ""
 
 #: includes/oik-sc-help.inc:575 includes/oik-sc-help.inc:589
 msgid "<i>source_url</i>"
-msgstr "<i>source_url</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:575 includes/oik-sc-help.inc:589
 msgid "If omitted uses first attachment"
-msgstr "If otemitd uess fsrit atethncmat"
+msgstr ""
 
 #: includes/oik-sc-help.inc:576 includes/oik-sc-help.inc:577
 #: includes/oik-sc-help.inc:591 includes/oik-sc-help.inc:592
 msgid "on"
-msgstr "On"
+msgstr ""
 
 #: includes/oik-sc-help.inc:576 includes/oik-sc-help.inc:591
 msgid "Allow looping of media"
-msgstr "Alolw lonipog Of midea"
+msgstr ""
 
 #: includes/oik-sc-help.inc:577 includes/oik-sc-help.inc:592
 msgid "Causes media to autoplay"
-msgstr "Ceauss mieda tO aalpotuy"
+msgstr ""
 
 #: includes/oik-sc-help.inc:578 includes/oik-sc-help.inc:593
 msgid "auto|metadata"
-msgstr "atuo|metdtaaa"
+msgstr ""
 
 #: includes/oik-sc-help.inc:578 includes/oik-sc-help.inc:593
 msgid "How the audio should be loaded"
-msgstr "HOw thE auido slhuod bE laeodd"
+msgstr ""
 
 #: includes/oik-sc-help.inc:590
 msgid "<i>image_url</i>"
-msgstr "<i>image_url</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:590
 msgid "Placeholder image"
-msgstr "Pcoeallehdr igame"
+msgstr ""
 
 #: includes/oik-sc-help.inc:594 includes/oik-sc-help.inc:595
 msgid "<i>integer</i>"
-msgstr "<i>integer</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:614
 msgid "<i>shortcode</i>"
-msgstr "<i>shortcode</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:614
 msgid "The shortcode you want explained"
-msgstr "ThE sctordohe yOU wnat elniaxepd"
+msgstr ""
 
 #: includes/oik-sc-help.inc:615 includes/oik-sc-help.inc:616
 #: includes/oik-sc-help.inc:617
 msgid "N"
-msgstr "N"
+msgstr ""
 
 #: includes/oik-sc-help.inc:615
 msgid "Display help for the shortcode"
-msgstr "Dipsaly hlep fOr thE scoohrdte"
+msgstr ""
 
 #: includes/oik-sc-help.inc:616
 msgid "Display the syntax"
-msgstr "Dspaliy thE snatyx"
+msgstr ""
 
 #: includes/oik-sc-help.inc:617
 msgid "Display an example, if possible"
-msgstr "Dlapisy An elamxpe, If plsiosbe"
+msgstr ""
 
 #: includes/oik-sc-help.inc:618 includes/oik-sc-help.inc:619
 #: includes/oik-sc-help.inc:637
 msgid "Y"
-msgstr "Y"
+msgstr ""
 
 #: includes/oik-sc-help.inc:618
 msgid "Display the live results using default values"
-msgstr "Dailpsy thE lvie rutsles uinsg daufelt vaeuls"
+msgstr ""
 
 #: includes/oik-sc-help.inc:619
 msgid "Display the generated HTML"
-msgstr "Dpailsy thE geetneard HMTL"
+msgstr ""
 
 #: includes/oik-sc-help.inc:637
 msgid "Sort the shortcode codes by name."
-msgstr "Sort thE srdhcotoe cdeos by name."
+msgstr ""
 
 #: includes/oik-sc-help.inc:719
 msgid "<i>type</i>"
-msgstr "<i>type</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:719
 msgid "Address type."
-msgstr "Adsreds tpye."
+msgstr ""
 
 #: includes/oik-sc-help.inc:720 includes/oik-sc-help.inc:737
-#: includes/oik-sc-help.inc:763 includes/oik-sc-help.inc:850
-#: includes/oik-sc-help.inc:855 includes/oik-sc-help.inc:860
-#: includes/oik-sc-help.inc:913 shortcodes/oik-iframe.php:47
+#: includes/oik-sc-help.inc:763 includes/oik-sc-help.inc:865
+#: includes/oik-sc-help.inc:870 includes/oik-sc-help.inc:875
+#: includes/oik-sc-help.inc:928 shortcodes/oik-iframe.php:47
 msgid "1"
-msgstr "1"
+msgstr ""
 
 #: includes/oik-sc-help.inc:720
 msgid "suffix for alternative address"
-msgstr "siffux fOr aratilnvtee aedsrds"
+msgstr ""
 
 #: includes/oik-sc-help.inc:735 includes/oik-sc-help.inc:736
 #: includes/oik-sc-help.inc:762 includes/oik-sc-help.inc:774
@@ -1130,1179 +1095,1166 @@ msgstr "siffux fOr aratilnvtee aedsrds"
 #: includes/oik-sc-help.inc:832 includes/oik-sc-help.inc:834
 #: includes/oik-sc-help.inc:843
 msgid "<i>string</i>"
-msgstr "<i>string</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:735 includes/oik-sc-help.inc:774
 #: includes/oik-sc-help.inc:789 includes/oik-sc-help.inc:798
 #: includes/oik-sc-help.inc:813 includes/oik-sc-help.inc:823
 msgid "Prefix string"
-msgstr "Pfierx stirng"
+msgstr ""
 
 #: includes/oik-sc-help.inc:736 includes/oik-sc-help.inc:762
 msgid "Separator string"
-msgstr "Soertpaar sitnrg"
+msgstr ""
 
 #: includes/oik-sc-help.inc:737 includes/oik-sc-help.inc:763
-#: includes/oik-sc-help.inc:850 includes/oik-sc-help.inc:855
-#: includes/oik-sc-help.inc:860 shortcodes/oik-follow.php:305
+#: includes/oik-sc-help.inc:865 includes/oik-sc-help.inc:870
+#: includes/oik-sc-help.inc:875 shortcodes/oik-follow.php:305
 msgid "Use alternative value"
-msgstr "UsE aneravtltie vulae"
+msgstr ""
 
 #: includes/oik-sc-help.inc:738
 msgid "<i>title string</i>"
-msgstr "<i>title string</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:738 shortcodes/oik-link.php:322
 msgid "Tool tip text"
-msgstr "Tool tIp txet"
+msgstr ""
 
 #: includes/oik-sc-help.inc:745 includes/oik-sc-help.inc:754
 #: includes/oik-sc-help.inc:765 includes/oik-sc-help.inc:783
 #: includes/oik-sc-help.inc:807
 msgid "enclosing HTML tag"
-msgstr "enocsnlig HMTL tAg"
+msgstr ""
 
 #: includes/oik-sc-help.inc:746 includes/oik-sc-help.inc:755
 #: includes/oik-sc-help.inc:775 includes/oik-sc-help.inc:790
 #: includes/oik-sc-help.inc:799 includes/oik-sc-help.inc:814
 #: includes/oik-sc-help.inc:824
 msgid "<i>field</i>"
-msgstr "<i>field</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:746 includes/oik-sc-help.inc:755
 #: includes/oik-sc-help.inc:775 includes/oik-sc-help.inc:790
 #: includes/oik-sc-help.inc:799 includes/oik-sc-help.inc:814
 #: includes/oik-sc-help.inc:824
 msgid "oik options field to use"
-msgstr "OIk oiptnos filed tO UsE"
+msgstr ""
 
 #: includes/oik-sc-help.inc:764 shortcodes/oik-slideshows.php:79
 #: shortcodes/oik-slideshows.php:81 shortcodes/oik-slideshows.php:92
 msgid "<i>number</i>"
-msgstr "<i>number</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:764
 msgid "Number override"
-msgstr "Nebumr orevirde"
+msgstr ""
 
 #: includes/oik-sc-help.inc:767
 msgid "n|y|t|s|<i>other</i>:"
-msgstr "n|y|t|s|<i>other</i>:"
+msgstr ""
 
 #: includes/oik-sc-help.inc:767
 msgid "tel: or sms: link"
-msgstr "tEl: Or sms: lnik"
+msgstr ""
 
 #: includes/oik-sc-help.inc:817 includes/oik-sc-help.inc:827
 msgid "additional CSS class names"
-msgstr "antdiioadl CSS casls nmeas"
+msgstr ""
 
 #: includes/oik-sc-help.inc:832
 msgid "Copyright text prefix"
-msgstr "Cryoihpgt text prfiex"
+msgstr ""
 
 #: includes/oik-sc-help.inc:833
 msgid "<i>company name</i>"
-msgstr "<i>company name</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:833 includes/oik-sc-help.inc:843
 msgid "from oik options - company"
-msgstr "from OIk onipots - cnpmaoy"
+msgstr ""
 
 #: includes/oik-sc-help.inc:834
 msgid "copyright suffix text"
-msgstr "cgyrhipot sfufix text"
+msgstr ""
 
 #: includes/oik-sc-help.inc:835
 msgid "<i>year</i>"
-msgstr "<i>year</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:835
 msgid "from oik options - yearfrom"
-msgstr "form OIk oipntos - yroaerfm"
+msgstr ""
 
 #: includes/oik-sc-help.inc:836
 msgid ",|<i>string</i>"
-msgstr ",|<i>string</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:836
 msgid "default: ',' if one year difference '-' otherwise"
-msgstr "deaflut: ',' If OnE yaer dcefnfiree '-' otesiwrhe"
+msgstr ""
 
 #: includes/oik-sc-help.inc:842 shortcodes/oik-countdown.php:73
 msgid "<i>URL</i>"
-msgstr "<i>URL</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:842
 msgid "Link URL for QR code image"
-msgstr "Lnik URL fOr QR code igmae"
+msgstr ""
 
 #: includes/oik-sc-help.inc:844 shortcodes/oik-logo.php:170
 msgid "<i>width</i>"
-msgstr "<i>width</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:844
 msgid "width of QR code image, if required"
-msgstr "wdtih Of QR cdoe iagme, If reriqeud"
+msgstr ""
 
 #: includes/oik-sc-help.inc:845 shortcodes/oik-logo.php:171
 msgid "<i>height</i>"
-msgstr "<i>height</i>"
+msgstr ""
 
 #: includes/oik-sc-help.inc:845
 msgid "height of QR code image, if required"
-msgstr "hhgeit Of QR code igmae, If rriueeqd"
+msgstr ""
 
-#: includes/oik-sc-help.inc:865
+#: includes/oik-sc-help.inc:851 includes/oik-sc-help.inc:858
+#: shortcodes/oik-contact-form.php:279 shortcodes/oik-countdown.php:72
+#: shortcodes/oik-countdown.php:74 shortcodes/oik-link.php:321
+#: shortcodes/oik-paypal.php:241
+msgid "<i>text</i>"
+msgstr ""
+
+#: includes/oik-sc-help.inc:851
+msgid "Text for the blockquote"
+msgstr ""
+
+#: includes/oik-sc-help.inc:858
+msgid "Text for the citation"
+msgstr ""
+
+#: includes/oik-sc-help.inc:880
 msgid "HTML start tag"
-msgstr "HMTL satrt tAg"
+msgstr ""
 
-#: includes/oik-sc-help.inc:871
+#: includes/oik-sc-help.inc:886
 msgid "paired HTML tag for the stag shortcode"
-msgstr "paerid HMTL tAg fOr thE stag sdchootre"
+msgstr ""
 
-#: includes/oik-sc-help.inc:911
+#: includes/oik-sc-help.inc:926
 msgid "2|3|4|5"
-msgstr "2|3|4|5"
+msgstr ""
 
-#: includes/oik-sc-help.inc:911
+#: includes/oik-sc-help.inc:926
 msgid "Advertisement selection - Artisteer theme options"
-msgstr "Avnsimeteerdt sceoletin - Atsireter thmee opnitos"
+msgstr ""
 
-#: includes/oik-sc-help.inc:912
+#: includes/oik-sc-help.inc:927
 msgid "center|right"
-msgstr "ceetnr|rgiht"
+msgstr ""
 
-#: includes/oik-sc-help.inc:912
+#: includes/oik-sc-help.inc:927
 msgid "Alignment"
-msgstr "Amlnnegit"
+msgstr ""
 
-#: includes/oik-sc-help.inc:913
+#: includes/oik-sc-help.inc:928
 msgid "0 if inline, 1 for block"
-msgstr "0 If innlie, 1 fOr bclok"
+msgstr ""
 
-#: includes/oik-sc-help.inc:926
+#: includes/oik-sc-help.inc:941
 msgid "<i>page_name</i>"
-msgstr "<i>page_name</i>"
+msgstr ""
 
-#: includes/oik-sc-help.inc:926
+#: includes/oik-sc-help.inc:941
 msgid "Page to link to"
-msgstr "Page tO lnik tO"
+msgstr ""
 
-#: includes/oik-sc-help.inc:934
+#: includes/oik-sc-help.inc:949
 msgid "<i>collage ID</i>"
-msgstr "<i>collage ID</i>"
+msgstr ""
 
-#: includes/oik-sc-help.inc:934
+#: includes/oik-sc-help.inc:949
 msgid "Index of the theme_collages post meta to display"
-msgstr "Inedx Of thE thmee_celalogs psot meta tO dailpsy"
+msgstr ""
 
-#: includes/oik-sc-help.inc:942
+#: includes/oik-sc-help.inc:957
 msgid "<i>id1,id2,</i"
-msgstr "<i>id1,id2,</i"
+msgstr ""
 
-#: includes/oik-sc-help.inc:942
+#: includes/oik-sc-help.inc:957
 msgid "IDs for the playlist"
-msgstr "IDs fOr thE psyallit"
+msgstr ""
 
-#: includes/oik-sc-help.inc:943
+#: includes/oik-sc-help.inc:958
 msgid "Post from which the playlist is chosen"
-msgstr "Psot from wcihh thE psailylt Is coshen"
+msgstr ""
 
-#: includes/oik-sc-help.inc:944
+#: includes/oik-sc-help.inc:959
 msgid "video"
-msgstr "vedio"
+msgstr ""
 
-#: includes/oik-sc-help.inc:944
+#: includes/oik-sc-help.inc:959
 msgid "Content type"
-msgstr "Cnentot type"
+msgstr ""
 
-#: includes/oik-sc-help.inc:945
+#: includes/oik-sc-help.inc:960
 msgid "DESC|RAND"
-msgstr "DESC|RNAD"
+msgstr ""
 
-#: includes/oik-sc-help.inc:945
+#: includes/oik-sc-help.inc:960
 msgid "Ordering"
-msgstr "Ordreing"
+msgstr ""
 
-#: includes/oik-sc-help.inc:946
+#: includes/oik-sc-help.inc:961
 msgid "<i>menu_order|ID|title|rand</i>"
-msgstr "<i>menu_order|ID|title|rand</i>"
+msgstr ""
 
-#: includes/oik-sc-help.inc:949
+#: includes/oik-sc-help.inc:964
 msgid "dark"
-msgstr "drak"
+msgstr ""
 
-#: includes/oik-sc-help.inc:949
+#: includes/oik-sc-help.inc:964
 msgid "Playlist style"
-msgstr "Piaylslt sytle"
+msgstr ""
 
-#: includes/oik-sc-help.inc:950 includes/oik-sc-help.inc:951
-#: includes/oik-sc-help.inc:952 includes/oik-sc-help.inc:953
+#: includes/oik-sc-help.inc:965 includes/oik-sc-help.inc:966
+#: includes/oik-sc-help.inc:967 includes/oik-sc-help.inc:968
 msgid "false"
-msgstr "fslae"
+msgstr ""
 
-#: includes/oik-sc-help.inc:950
+#: includes/oik-sc-help.inc:965
 msgid "Display track list?"
-msgstr "Dapsily tarck lsit?"
+msgstr ""
 
-#: includes/oik-sc-help.inc:951
+#: includes/oik-sc-help.inc:966
 msgid "Display track numbers?"
-msgstr "Dipasly tcrak nmbreus?"
+msgstr ""
 
-#: includes/oik-sc-help.inc:952
+#: includes/oik-sc-help.inc:967
 msgid "Display images?"
-msgstr "Dalsipy igmeas?"
+msgstr ""
 
-#: includes/oik-sc-help.inc:953
+#: includes/oik-sc-help.inc:968
 msgid "Display artists?"
-msgstr "Dialpsy aristts?"
+msgstr ""
 
-#: libs/oik-admin.php:50
-msgid "Click to toggle"
-msgstr "Cclik tO tgloge"
-
-#: oik-add-shortcodes.php:16
+#: oik-add-shortcodes.php:13
 msgid "<b>Unable to locate routine to expand shortcode.</b>"
-msgstr "<b>Unable tO lactoe roitune tO eapxnd shortcode.</b>"
+msgstr ""
 
-#: oik-add-shortcodes.php:193
+#: oik-add-shortcodes.php:190
 msgid "missing post processing function: %1$s"
-msgstr "mnissig psot pcionressg futniocn: %1$s"
+msgstr ""
 
-#: oik.php:178
+#: oik.php:171
 msgid "oik custom image link URL"
-msgstr "OIk cosutm igame lnik URL"
+msgstr ""
 
-#: oik.php:233
+#: oik.php:226
 msgid "Howdy, %1$s"
-msgstr "Hdowy, %1$s"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:319 shortcodes/oik-cycle.php:129
 msgid "y"
-msgstr "y"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:319
 msgid "Display attachment's Caption and Description"
-msgstr "Dspaliy aetamthnct's Ctopian And Deoscriiptn"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:325 shortcodes/oik-attachments.php:334
 #: shortcodes/oik-attachments.php:343 shortcodes/oik-attachments.php:353
 msgid "<i>post type</i>"
-msgstr "<i>post type</i>"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:325 shortcodes/oik-attachments.php:334
 #: shortcodes/oik-attachments.php:343 shortcodes/oik-attachments.php:353
 msgid "Post type to display"
-msgstr "Psot tpye tO dlapsiy"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:345 shortcodes/oik-thumbs.php:85
 msgid "date|ID|parent|rand|menu_order"
-msgstr "dtae|ID|prneat|rand|menu_oedrr"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:354
 msgid "<i>post mime types</i>"
-msgstr "<i>post mmie types</i>"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:354
 msgid "Image type"
-msgstr "Imgae tpye"
+msgstr ""
 
 #: shortcodes/oik-attachments.php:355
 msgid "thumbnail|medium|large|nnn|wxh"
-msgstr "tminbuahl|muiedm|lgrae|nnn|wxh"
-
-#: shortcodes/oik-blockquote.php:31 shortcodes/oik-cite.php:18
-#: shortcodes/oik-contact-form.php:281 shortcodes/oik-countdown.php:72
-#: shortcodes/oik-countdown.php:74 shortcodes/oik-link.php:321
-#: shortcodes/oik-paypal.php:241
-msgid "<i>text</i>"
-msgstr "<i>text</i>"
-
-#: shortcodes/oik-blockquote.php:31
-msgid "Text for the blockquote"
-msgstr "Txet fOr thE bcqlktouoe"
+msgstr ""
 
 #: shortcodes/oik-blocks.php:125
 msgid "<i>title</i>"
-msgstr "<i>title</i>"
+msgstr ""
 
 #: shortcodes/oik-blocks.php:125
 msgid "block title"
-msgstr "boclk tlite"
+msgstr ""
 
 #: shortcodes/oik-blocks.php:126
 msgid "HTML tag for heading"
-msgstr "HMTL tAg fOr haidneg"
+msgstr ""
 
 #: shortcodes/oik-blocks.php:127
 msgid "false|Y|N"
-msgstr "flase|Y|N"
+msgstr ""
 
 #: shortcodes/oik-blocks.php:127
 msgid "Use Artisteer styled frame"
-msgstr "UsE Arstetier steyld frmae"
+msgstr ""
 
 #: shortcodes/oik-blocks.php:128
 msgid "<i>CSS classes</i>"
-msgstr "<i>CSS classes</i>"
+msgstr ""
 
 #: shortcodes/oik-blocks.php:128
 msgid "CSS classes for block"
-msgstr "CSS clessas fOr bolck"
+msgstr ""
 
 #: shortcodes/oik-bookmarks.php:57 shortcodes/oik-googlemap.php:289
 msgid "number"
-msgstr "nbmuer"
+msgstr ""
 
 #: shortcodes/oik-bookmarks.php:57
 msgid "Number of bookmarks to return. -1=unlimited"
-msgstr "Nbemur Of bmaokrkos tO rutren. -1=unlimited"
+msgstr ""
 
 #: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:86
 msgid "Sort order"
-msgstr "Srot oderr"
+msgstr ""
 
 #: shortcodes/oik-bookmarks.php:60
 msgid "<i>category name</i>"
-msgstr "<i>category name</i>"
+msgstr ""
 
 #: shortcodes/oik-bookmarks.php:60
 msgid "Category name"
-msgstr "Crtaegoy nmae"
+msgstr ""
 
 #: shortcodes/oik-button.php:45 shortcodes/oik-button.php:95
 #: shortcodes/oik-iframe.php:42 shortcodes/oik-iframe.php:43
 msgid "URL"
-msgstr "URL"
+msgstr ""
 
 #: shortcodes/oik-button.php:45 shortcodes/oik-button.php:95
 msgid "URL for the link"
-msgstr "URL fOr thE lnik"
+msgstr ""
 
 #: shortcodes/oik-button.php:94
 msgid "contact name"
-msgstr "ctocnat nmae"
+msgstr ""
 
 #: shortcodes/oik-button.php:94
 msgid "who to contact"
-msgstr "whO tO ctocnat"
+msgstr ""
 
 #: shortcodes/oik-button.php:96
 msgid "contact-text"
-msgstr "catncot-text"
+msgstr ""
 
 #: shortcodes/oik-button.php:96
 msgid "text for the button"
-msgstr "txet fOr thE btuotn"
+msgstr ""
 
 #: shortcodes/oik-button.php:97
 msgid "contact-title"
-msgstr "ctnoact-title"
+msgstr ""
 
 #: shortcodes/oik-button.php:97
 msgid "title for the tooltip"
-msgstr "tilte fOr thE ttoolip"
-
-#: shortcodes/oik-cite.php:18
-msgid "Text for the citation"
-msgstr "Txet fOr thE ciiatotn"
+msgstr ""
 
 #: shortcodes/oik-codes.php:105
 msgid "yes"
-msgstr "yEs"
+msgstr ""
 
 #: shortcodes/oik-codes.php:107
 msgid "No"
-msgstr "NO"
+msgstr ""
 
 #: shortcodes/oik-codes.php:109
 msgid "Yes"
-msgstr "YEs"
+msgstr ""
 
 #: shortcodes/oik-codes.php:176
 msgid "Help"
-msgstr "Hlep"
+msgstr ""
 
 #: shortcodes/oik-codes.php:177 shortcodes/oik-codes.php:301
 msgid "Syntax"
-msgstr "Sntyax"
+msgstr ""
 
 #: shortcodes/oik-codes.php:178
 msgid "Expands in titles?"
-msgstr "Edxnaps In ttleis?"
+msgstr ""
 
 #: shortcodes/oik-codes.php:306
 msgid "Example"
-msgstr "Emlapxe"
+msgstr ""
 
 #: shortcodes/oik-codes.php:312
 msgid "Live example"
-msgstr "Lvie empxale"
+msgstr ""
 
 #: shortcodes/oik-codes.php:319
 msgid "Snippet"
-msgstr "Spnepit"
+msgstr ""
 
 #: shortcodes/oik-contact-form.php:44
 msgid "Contact %s"
-msgstr "Coacntt %s"
+msgstr ""
 
 #: shortcodes/oik-contact-form.php:66
 msgid "Name *"
-msgstr "Nmae *"
+msgstr ""
 
 #: shortcodes/oik-contact-form.php:67
 msgid "Email *"
-msgstr "Eamil *"
+msgstr ""
 
 #: shortcodes/oik-contact-form.php:68
 msgid "Subject"
-msgstr "Secujbt"
+msgstr ""
 
 #: shortcodes/oik-contact-form.php:69
 msgid "Message"
-msgstr "Magesse"
+msgstr ""
+
+#: shortcodes/oik-contact-form.php:205
+msgid "Thank you for your submission."
+msgstr ""
 
 #: shortcodes/oik-contact-form.php:207
-msgid "Thank you for your submission."
-msgstr "Tnahk yOU fOr yuor sisusbmoin."
-
-#: shortcodes/oik-contact-form.php:209
 msgid "Thank you for your submission. Something went wrong. Please try again."
-msgstr "Tahnk yOU fOr yuor ssmouisbin. Smiethnog went worng. Pasele try aaign."
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:212
+#: shortcodes/oik-contact-form.php:210
 msgid "We would like to thank you for your submission."
-msgstr "WE wluod lkie tO tnhak yOU fOr yuor ssbuiiosmn."
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:256
+#: shortcodes/oik-contact-form.php:254
 msgid "Invalid. Please correct and retry."
-msgstr "Iinlvad. Plasee cerroct And rtery."
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:278
+#: shortcodes/oik-contact-form.php:276
 msgid "<i>id</i>|<i>email</i>|<i>slug</i>|<i>login</i>"
-msgstr "<i>id</i>|<i>email</i>|<i>slug</i>|<i>login</i>"
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:278
+#: shortcodes/oik-contact-form.php:276
 msgid "Value to identify the user"
-msgstr "Vaule tO iintdefy thE uesr"
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:281
+#: shortcodes/oik-contact-form.php:279
 msgid "Text for submit button"
-msgstr "Text fOr sumbit buottn"
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:282 shortcodes/oik-paypal.php:237
+#: shortcodes/oik-contact-form.php:280 shortcodes/oik-paypal.php:237
 msgid "<i>email</i>"
-msgstr "<i>email</i>"
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:282
+#: shortcodes/oik-contact-form.php:280
 msgid "Email address for submission"
-msgstr "Eaiml addesrs fOr sbimssuion"
+msgstr ""
 
-#: shortcodes/oik-contact-form.php:307
+#: shortcodes/oik-contact-form.php:305
 msgid ""
 "Note: If the form is submitted from Shortcode help then two emails would be "
 "sent."
 msgstr ""
-"Ntoe: If thE from Is sumtietbd form Shocotdre hlep tehn twO eliams wuold bE "
-"snet."
 
-#: shortcodes/oik-contact-form.php:308
+#: shortcodes/oik-contact-form.php:306
 msgid "So the normal snippet code is not invoked in this case."
-msgstr "SO thE naomrl seipnpt code Is nOt ivenokd In tihs csae."
+msgstr ""
 
 #: shortcodes/oik-count.php:44
 msgid "<i>post_types</i>"
-msgstr "<i>post_types</i>"
+msgstr ""
 
 #: shortcodes/oik-count.php:44
 msgid "Post type to count"
-msgstr "Psot tpye tO conut"
+msgstr ""
 
 #: shortcodes/oik-count.php:45
 msgid "pending|draft|auto-draft|future|private|trash|inherit"
-msgstr "pneindg|dafrt|atuo-darft|ftruue|pvtiare|tsrah|irenhit"
+msgstr ""
 
 #: shortcodes/oik-countdown.php:70 shortcodes/oik-countdown.php:71
 msgid "<i>date</i>"
-msgstr "<i>date</i>"
+msgstr ""
 
 #: shortcodes/oik-countdown.php:70
 msgid "Target date in format yyyy-mm-dd-hh-mm-ss"
-msgstr "Treagt dtae In frmoat yyyy-mm-dd-hh-mm-ss"
+msgstr ""
 
 #: shortcodes/oik-countdown.php:71
 msgid "Start date in format yyyy-mm-dd-hh-mm-ss"
-msgstr "Sartt dtae In fmarot yyyy-mm-dd-hh-mm-ss"
+msgstr ""
 
 #: shortcodes/oik-countdown.php:72
 msgid "Description for countdown"
-msgstr "Dtroiepsicn fOr ctouowdnn"
+msgstr ""
 
 #: shortcodes/oik-countdown.php:73
 msgid "Target URL when countdown reaches zero"
-msgstr "Tgerat URL wehn cotdounwn raeechs zero"
+msgstr ""
 
 #: shortcodes/oik-countdown.php:74
 msgid "Text to replace time when countdown reaches zero"
-msgstr "Txet tO rceaple tmie wehn cnwotdoun rheeacs zreo"
+msgstr ""
 
 #: shortcodes/oik-countdown.php:93
 msgid "No snippet available for this shortcode"
-msgstr "NO sppenit allabviae fOr tihs sodohrcte"
+msgstr ""
 
 #: shortcodes/oik-cycle.php:119
 msgid "Display pages using jQuery cycle"
-msgstr "Daspliy pgeas unsig juerQy cclye"
+msgstr ""
 
 #: shortcodes/oik-cycle.php:127
 msgid "<i>class</i>"
-msgstr "<i>class</i>"
+msgstr ""
 
 #: shortcodes/oik-cycle.php:128
 msgid "0"
-msgstr "0"
+msgstr ""
 
 #: shortcodes/oik-cycle.php:128
 msgid "Fit parameter. Use fit=0 with fx=scrollVert|scrollHorz"
-msgstr "FIt pemtaarer. UsE fit=0 wtih fx=scrollVert|scrollHorz"
+msgstr ""
 
 #: shortcodes/oik-cycle.php:129
 msgid "Display Prev and Next links"
-msgstr "Dipasly Perv And Nxet lnkis"
+msgstr ""
 
 #: shortcodes/oik-email.php:73
 msgid "Email"
-msgstr "Eamil"
+msgstr ""
 
 #: shortcodes/oik-email.php:75
 msgid "Send email to: "
-msgstr "Sned eimal tO: "
+msgstr ""
 
 #: shortcodes/oik-follow.php:236 shortcodes/oik-follow.php:281
 #: shortcodes/oik-follow.php:294
 msgid "Follow %1$s on %2$s"
-msgstr "Foollw %1$s On %2$s"
+msgstr ""
 
 #: shortcodes/oik-follow.php:303
 msgid "gener|dash"
-msgstr "gener|dsah"
+msgstr ""
 
 #: shortcodes/oik-follow.php:303
 msgid "Icon font selection"
-msgstr "Icon font stloceein"
+msgstr ""
 
 #: shortcodes/oik-follow.php:305 shortcodes/oik-paypal.php:243
 msgid "0|1"
-msgstr "0|1"
+msgstr ""
 
 #: shortcodes/oik-galleries.php:29
 msgid "Gallery ID. Must be specified."
-msgstr "Gelraly ID. Msut bE siepciefd."
+msgstr ""
 
 #: shortcodes/oik-galleries.php:30 shortcodes/oik-iframe.php:44
 #: shortcodes/oik-iframe.php:45
 msgid "<i>numeric</i>"
-msgstr "<i>numeric</i>"
+msgstr ""
 
 #: shortcodes/oik-galleries.php:30
 msgid "Number of images per page. 0=unlimited"
-msgstr "Nbmuer Of igaems pEr pgae. 0=unlimited"
+msgstr ""
 
 #: shortcodes/oik-galleries.php:31
 msgid "<i>template</i>|carousel|"
-msgstr "<i>template</i>|carousel|"
+msgstr ""
 
 #: shortcodes/oik-galleries.php:31
 msgid "Name for a gallery template"
-msgstr "Nmae fOr A gellary teaptlme"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:270
 msgid "Some of the default values are extracted from oik information:"
-msgstr "Smoe Of thE daulfet vleaus ArE eaxctrted from OIk iftmoiraonn:"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:272
 msgid "company - for the Company name"
-msgstr "coanpmy - fOr thE Cpamony nmae"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:273
 msgid "lat - for the latitude"
-msgstr "lAt - fOr thE ldutitae"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:274
 msgid "long - for the longitude"
-msgstr "lnog - fOr thE lutgidnoe"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:275
 msgid "width - map width (  100% )"
-msgstr "wdtih - mAp wdith (  100% )"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:276
 msgid "height - map height ( 400px - to allow for the info window )"
-msgstr "heihgt - mAp hiehgt ( 400px - tO aollw fOr thE ifno widonw )"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:282
 msgid "company name"
-msgstr "cmopnay name"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:282
 msgid "type your company name"
-msgstr "tpye your coapnmy name"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:283
 msgid "latitude"
-msgstr "ltdutaie"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:284
 msgid "longitude"
-msgstr "logtiunde"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:285
 msgid "postcode"
-msgstr "potcdsoe"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:285
 msgid "post code or zip code"
-msgstr "post code Or zIp cdoe"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:286
 msgid "width"
-msgstr "wdith"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:286
 msgid "width of the Google map"
-msgstr "witdh Of thE Gglooe mAp"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:287
 msgid "height"
-msgstr "hhgiet"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:287
 msgid "height of the map"
-msgstr "hihegt Of thE mAp"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:288
 msgid "marker1,marker2"
-msgstr "mkrear1,mraekr2"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:288
 msgid "Additional markers"
-msgstr "Adiatdniol mkerras"
+msgstr ""
 
 #: shortcodes/oik-googlemap.php:289
 msgid "Zoom level"
-msgstr "Zoom lveel"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:42
 msgid "Full URL for the page"
-msgstr "Flul URL fOr thE pgae"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:43
 msgid "Full URL for the page - use as an alternative to the url= parameter"
-msgstr "Flul URL fOr thE pgae - UsE As An aevtlrnitae tO thE url= permaaetr"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:44 shortcodes/oik-logo.php:170
 msgid "Width in pixels"
-msgstr "Wtidh In pixles"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:45 shortcodes/oik-logo.php:171
 msgid "Height in pixels"
-msgstr "Hhiget In pielxs"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:46
 msgid "|yes"
-msgstr "|yEs"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:46
 msgid "Support vertical scrolling"
-msgstr "Sopurpt vracietl sinlcolrg"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:47
 msgid "Value for frameborder parameter"
-msgstr "Vulae fOr fmeoedbrarr pmtreeaar"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:48
 msgid "string"
-msgstr "strnig"
+msgstr ""
 
 #: shortcodes/oik-iframe.php:48
 msgid "Type of the iframe"
-msgstr "Tpye Of thE ifmare"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:465
+#: shortcodes/oik-jquery.php:439
 msgid "handle"
-msgstr "hnadle"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:466
+#: shortcodes/oik-jquery.php:440
 msgid "version"
-msgstr "virsoen"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:467
+#: shortcodes/oik-jquery.php:441
 msgid "dependencies"
-msgstr "dpednieeencs"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:503
+#: shortcodes/oik-jquery.php:477
 msgid "<i>script-name</i>"
-msgstr "<i>script-name</i>"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:503
+#: shortcodes/oik-jquery.php:477
 msgid "Handle for the jQuery script"
-msgstr "Hndale fOr thE jrQuey srcpit"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:504
+#: shortcodes/oik-jquery.php:478
 msgid "<i>selector</i>"
-msgstr "<i>selector</i>"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:504
+#: shortcodes/oik-jquery.php:478
 msgid "jQuery selector"
-msgstr "jeruQy sceeoltr"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:505
+#: shortcodes/oik-jquery.php:479
 msgid "<i>method</i>"
-msgstr "<i>method</i>"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:505
+#: shortcodes/oik-jquery.php:479
 msgid "jQuery method to perform"
-msgstr "jeQruy mtheod tO pfrerom"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:506 shortcodes/oik-jquery.php:507
+#: shortcodes/oik-jquery.php:480 shortcodes/oik-jquery.php:481
 msgid "<i>bool</i>"
-msgstr "<i>bool</i>"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:506
+#: shortcodes/oik-jquery.php:480
 msgid "Use true when you want to debug the jQuery"
-msgstr "UsE ture wehn yOU want tO deubg thE jeruQy"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:507
+#: shortcodes/oik-jquery.php:481
 msgid "Use true when the jQuery is to run when the window has loaded"
-msgstr "UsE ture when thE jruQey Is tO rUn wehn thE wondiw hAs laedod"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:508
+#: shortcodes/oik-jquery.php:482
 msgid "<i>parm=value1,parm2=value2</i>"
-msgstr "<i>parm=value1,parm2=value2</i>"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:508
+#: shortcodes/oik-jquery.php:482
 msgid "Variable list of parameters"
-msgstr "Vliabrae lsit Of prmraeates"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:509 shortcodes/oik-link.php:320
+#: shortcodes/oik-jquery.php:483 shortcodes/oik-link.php:320
 msgid "<i>ID</i>|<i>URL</i>"
-msgstr "<i>ID</i>|<i>URL</i>"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:509
+#: shortcodes/oik-jquery.php:483
 msgid "ID or full URL of JavaScript"
-msgstr "ID Or flul URL Of JrpiaacSvt"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:510
+#: shortcodes/oik-jquery.php:484
 msgid "T|Y"
-msgstr "T|Y"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:510
+#: shortcodes/oik-jquery.php:484
 msgid "Set to T=True or Y=Yes when the script tag must be inline"
-msgstr "SEt tO T=True Or Y=Yes wehn thE sircpt tAg msut bE iilnne"
+msgstr ""
 
-#: shortcodes/oik-jquery.php:516
+#: shortcodes/oik-jquery.php:490
 msgid "Example to be completed! "
-msgstr "Eapmxle tO bE cmleoetpd! "
+msgstr ""
 
 #: shortcodes/oik-link.php:320
 msgid "ID of the post to link to or external URL"
-msgstr "ID Of thE psot tO lnik tO Or eantxrel URL"
+msgstr ""
 
 #: shortcodes/oik-link.php:321
 msgid "Text for the link"
-msgstr "Txet fOr thE link"
+msgstr ""
 
 #: shortcodes/oik-link.php:322
 msgid "<i>tool tip string</i>"
-msgstr "<i>tool tIp string</i>"
+msgstr ""
 
 #: shortcodes/oik-link.php:323
 msgid "<i>href</i>"
-msgstr "<i>href</i>"
+msgstr ""
 
 #: shortcodes/oik-link.php:323
 msgid "URL to link to"
-msgstr "URL tO lnik tO"
+msgstr ""
 
 #: shortcodes/oik-list.php:175
 msgid "number of items to list. -1=list all"
-msgstr "nbmuer Of imtes tO lsit. -1=list All"
+msgstr ""
 
 #: shortcodes/oik-list.php:176
 msgid "thumbnail|medium|large|full|nnn|wxh"
-msgstr "tuniahbml|muedim|lrage|flul|nnn|wxh"
+msgstr ""
 
 #: shortcodes/oik-list.php:177
 msgid "o"
-msgstr "O"
+msgstr ""
 
 #: shortcodes/oik-list.php:177
 msgid "Display unordered or ordered list"
-msgstr "Dsaiply uerdnored Or oredred list"
+msgstr ""
 
 #: shortcodes/oik-login.php:63
 msgid "post ID to redirect to"
-msgstr "psot ID tO rireecdt tO"
+msgstr ""
 
 #: shortcodes/oik-login.php:64
 msgid "|N"
-msgstr "|N"
+msgstr ""
 
 #: shortcodes/oik-login.php:64
 msgid "display 'Remember me?' checkbox"
-msgstr "dailpsy 'Rmebemer mE?' ckocbhex"
+msgstr ""
 
 #: shortcodes/oik-logo.php:168
 msgid ".|<i>URL</i>"
-msgstr ".|<i>URL</i>"
+msgstr ""
 
 #: shortcodes/oik-logo.php:168
 msgid "Link when clicked"
-msgstr "Lnik wehn ckelicd"
+msgstr ""
 
 #: shortcodes/oik-logo.php:169
 msgid "<i>company</i>"
-msgstr "<i>company</i>"
+msgstr ""
 
 #: shortcodes/oik-logo.php:169
 msgid "Text for tooltip"
-msgstr "Text fOr tlotiop"
+msgstr ""
 
 #: shortcodes/oik-navi.php:186
 msgid "%1s to %2s of %3s"
-msgstr "%1s tO %2s Of %3s"
+msgstr ""
 
 #: shortcodes/oik-navi.php:288
 msgid "Simple paginated list"
-msgstr "Smpile paniategd list"
+msgstr ""
 
 #: shortcodes/oik-navi.php:298
 msgid "<i>integer</i>|."
-msgstr "<i>integer</i>|."
+msgstr ""
 
 #: shortcodes/oik-navi.php:298
 msgid "Number of posts per page. Default from Reading Settings."
-msgstr "Nubemr Of potss pEr page. Dauelft form Rendiag Sttigens."
+msgstr ""
 
 #: shortcodes/oik-pages.php:95
 msgid "<i>format</i>"
-msgstr "<i>format</i>"
+msgstr ""
 
 #: shortcodes/oik-pages.php:95
 msgid "field format string"
-msgstr "felid fraomt stinrg"
+msgstr ""
 
 #: shortcodes/oik-pages.php:96
 msgid "''|<i>string</i>"
-msgstr "''|<i>string</i>"
+msgstr ""
 
 #: shortcodes/oik-pages.php:96
 msgid "text for read more button"
-msgstr "text fOr raed mroe butotn"
+msgstr ""
 
 #: shortcodes/oik-parent.php:78
 msgid "<i>ID</id>"
-msgstr "<i>ID</id>"
+msgstr ""
 
 #: shortcodes/oik-parent.php:78
 msgid "ID from which to find the parent"
-msgstr "ID from wichh tO fnid thE perant"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:91
 msgid "paypal-email"
-msgstr "ppyaal-eamil"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:92
 msgid "paypal-country"
-msgstr "paaypl-crutony"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:94
 msgid "paypal-currency"
-msgstr "papyal-crrcuney"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:236
 msgid "pay|buy|add|view"
-msgstr "pAy|bUy|Add|veiw"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:236
 msgid "Button type"
-msgstr "Butotn type"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:237
 msgid "PayPal email address"
-msgstr "PPaayl eaiml adsders"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:238
 msgid "<i>country</i>"
-msgstr "<i>country</i>"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:238
 msgid "PayPal Country code"
-msgstr "PaayPl Cnruoty cdoe"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:239
 msgid "<i>currency</i>"
-msgstr "<i>currency</i>"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:240
 msgid "<i>nn.mm</i>"
-msgstr "<i>nn.mm</i>"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:240
 msgid "Amount without currency symbol"
-msgstr "Auonmt wouitht ccenurry sombyl"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:241
 msgid "Product name"
-msgstr "Podrcut nmae"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:242
 msgid "<i>SKU</i>"
-msgstr "<i>SKU</i>"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:242
 msgid "Stock Keeping Unit"
-msgstr "Stcok Kneiepg Uint"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:243
 msgid ""
 "Shipping Address Required? 0=prompt, optional, 1=do not prompt, 2=prompt and "
 "require"
 msgstr ""
-"Sphiping Aedrsds Reeuqrid? 0=prompt, oitaponl, 1=do nOt pmrpot, 2=prompt And "
-"ruqerie"
 
 #: shortcodes/oik-paypal.php:244 shortcodes/oik-paypal.php:245
 #: shortcodes/oik-paypal.php:246
 msgid "nn.mm"
-msgstr "nn.mm"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:244
 msgid "Weight in kilos or pounds"
-msgstr "Wghiet In klois Or puonds"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:245
 msgid "Shipping cost"
-msgstr "Spihipng csot"
+msgstr ""
 
 #: shortcodes/oik-paypal.php:246
 msgid "Shipping cost2"
-msgstr "Snpihpig cost2"
+msgstr ""
 
 #: shortcodes/oik-phone.php:88
 msgid "Tel"
-msgstr "TEl"
+msgstr ""
 
 #: shortcodes/oik-phone.php:185
 msgid "Skype name"
-msgstr "Skpye nmae"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:77
 msgid "thumbnail|medium|large|full"
-msgstr "thabunmil|miduem|lagre|flul"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:77
 msgid "Image size"
-msgstr "Iagme szie"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:78 shortcodes/oik-slideshows.php:82
 #: shortcodes/oik-slideshows.php:83 shortcodes/oik-slideshows.php:86
 #: shortcodes/oik-slideshows.php:87 shortcodes/oik-slideshows.php:88
 #: shortcodes/oik-slideshows.php:91
 msgid "true|false"
-msgstr "true|flase"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:78
 msgid "Disable slideshow wrapping"
-msgstr "Dsiable ssdholeiw wrianppg"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:79
 msgid "Transition speed in milliseconds"
-msgstr "Tsitirnoan seped In msoceillndis"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:80
 msgid "fade|scrollHorz"
-msgstr "fdae|sroolcrHlz"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:80
 msgid "Transition effect"
-msgstr "Tantiosirn efecft"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:81
 msgid "Time per slide when slideshow is playing"
-msgstr "Tmie pEr silde wehn shoedlsiw Is pilynag"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:82
 msgid "Exclude the featured image"
-msgstr "Eucxlde thE feturead imgae"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:83
 msgid "Autoplay the slideshow"
-msgstr "Alapotuy thE sdihlesow"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:84
 msgid "top|bottom|disabed"
-msgstr "tOp|btootm|diabsed"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:84
 msgid "Position of the pager"
-msgstr "Pioiotsn Of thE pgear"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:85
 msgid "top|bottom|disabled"
-msgstr "tOp|boottm|dilbsaed"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:85
 msgid "Position of the navigation links"
-msgstr "Poositin Of thE nataiiovgn lkins"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:86
 msgid "Show the image caption"
-msgstr "Sohw thE iagme caotipn"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:87
 msgid "Show the image title"
-msgstr "Show thE imgae ttlie"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:88
 msgid "Show the image description"
-msgstr "Sohw thE igame dtiroeicpsn"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:89
 msgid "advance|openurl"
-msgstr "aacvnde|oprneul"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:89
 msgid "Behaviour when image clicked"
-msgstr "Bvuoeahir wehn iagme ceklcid"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:90 shortcodes/oik-thumbs.php:87
 msgid "true"
-msgstr "ture"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:90
 msgid "Alternative to pagerpos=bottom"
-msgstr "Alteinartve tO pagerpos=bottom"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:91
 msgid "Support fluid layouts"
-msgstr "Suoprpt fulid lyatous"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:92
 msgid "Force slide container height, in pixels"
-msgstr "Fcore silde ceaontnir hhgiet, In pxleis"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:93
 msgid "post-id"
-msgstr "psot-Id"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:93
 msgid "ID of post from which the slides should be taken"
-msgstr "ID Of psot form wichh thE sledis shuold bE tkean"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:94 shortcodes/oik-slideshows.php:95
 msgid "id1,id2,etc"
-msgstr "Id1,Id2,Etc"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:94
 msgid "IDs of attachments to exclude"
-msgstr "IDs Of aheattnctms tO excdlue"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:95
 msgid "IDs of attachments to include"
-msgstr "IDs Of achtmetants tO idnlcue"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:102
 msgid ""
 "To display the slideshow using thumbnail sized images, changing every 10 "
 "secs, using <i>fadeZoom</i>"
 msgstr ""
-"TO diaslpy thE sdlsehoiw usnig tbaihnmul seizd imgeas, cnanihgg evrey 10 "
-"sces, uisng <i>fadeZoom</i>"
 
 #: shortcodes/oik-slideshows.php:107
 msgid "Note: Default values are set on the Portfolio slideshow options page"
-msgstr "Ntoe: Dlfeuat valeus ArE sEt On thE Pflroioto shlodesiw onoipts pgae"
+msgstr ""
 
 #: shortcodes/oik-slideshows.php:108
 msgid "You can choose from any documented jQuery cycle transition listed here:"
-msgstr "YOU cAn chsooe from Any dcomeentud jQeruy cclye ttiairsnon lsetid hree:"
+msgstr ""
 
 #: shortcodes/oik-table.php:162
 msgid "oik-fields plugin version must be version 1.31 or higher"
-msgstr "OIk-fileds pliugn vreoisn must bE vroisen 1.31 Or heghir"
+msgstr ""
 
 #: shortcodes/oik-table.php:201
 msgid "<i>fields</i>"
-msgstr "<i>fields</i>"
+msgstr ""
 
 #: shortcodes/oik-table.php:201
 msgid "CSV of field names"
-msgstr "CSV Of flied neams"
+msgstr ""
 
 #: shortcodes/oik-thumbs.php:87
 msgid "Enclose in an Artisteer block"
-msgstr "Eslnoce In An Aritester bclok"
+msgstr ""
 
 #: shortcodes/oik-trace.php:30
 msgid "text for the trace button"
-msgstr "txet fOr thE tcare butotn"
+msgstr ""
 
 #: shortcodes/oik-trace.php:31
 msgid "view|reset"
-msgstr "veiw|reest"
+msgstr ""
 
 #: shortcodes/oik-trace.php:31
 msgid "trace control links to display"
-msgstr "tarce crnotol lknis tO dlspaiy"
+msgstr ""
 
 #: shortcodes/oik-wtf.php:70
 msgid "click"
-msgstr "clcik"
+msgstr ""
 
 #: shortcodes/oik-wtf.php:70
 msgid "Event to trigger the revealing"
-msgstr "Enevt tO teigrgr thE revnaielg"
+msgstr ""
 
 #: shortcodes/oik-wtf.php:71
 msgid "slideToggle"
-msgstr "sldeTggolie"
+msgstr ""
 
 #: shortcodes/oik-wtf.php:71
 msgid "Method used to reveal the content"
-msgstr "Mtehod uesd tO raevel thE cntonet"
+msgstr ""
 
 #: shortcodes/oik-wtf.php:72
 msgid "<i>text</i>text"
-msgstr "<i>text</i>text"
+msgstr ""
 
 #: shortcodes/oik-wtf.php:72
 msgid "Text above the hidden content"
-msgstr "Txet aobve thE hdedin cennott"
+msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "oik base plugin"
-msgstr "OIk bsae piglun"
+msgstr ""
 
 #. Plugin URI of the plugin/theme
 msgid "http://www.oik-plugins.com/oik-plugins/oik"
-msgstr "http://www.oik-plugins.com/oik-plugins/oik"
+msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
 "OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress "
 "content"
 msgstr ""
-"OIK Imornaifton KIt - Oevr 80 lzay srmat sdhocrteos fOr dyapiinslg WroderPss "
-"cennott"
 
 #. Author of the plugin/theme
 msgid "bobbingwide"
-msgstr "bibnwiodgbe"
+msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.oik-plugins.com/author/bobbingwide"
-msgstr "http://www.oik-plugins.com/author/bobbingwide"
-
+msgstr ""

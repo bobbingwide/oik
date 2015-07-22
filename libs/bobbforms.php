@@ -1,7 +1,15 @@
 <?php // (C) Copyright Bobbing Wide 2009-2015
 if ( !defined( "BOBBFORMS_INCLUDED" ) ) {
 define( "BOBBFORMS_INCLUDED", "2.6" );
-// Note: This file uses functions from bobbfunc.inc. You must ensure this is already loaded
+
+/**
+ * Library: bobbforms
+ * Provides: bobbforms
+ * Depends: bobbfunc
+ * 
+ * Note: This file uses functions from the bobbfunc library. You must ensure this is already loaded
+ * e.g. use oik_require_lib()
+ */
 
 /**
  * Create a form tag
@@ -182,7 +190,12 @@ function tablerow( $td1, $td2 ) {
  *
  * In the first version the cell was not created if there was no value.
  * In oik v2.4 the cell is created even when there is no contents. 
- * This may make it easier for [bw_csv] with blanks and zeros. 
+ * This may make it easier for [bw_csv] with blanks and zeros.
+ * 
+ * If the cell is an array we treat it as a simple array.
+ * @TODO Since this array may be partially associative we need to unassoc it first
+ * 
+ *  
  *
  * @param string $text - cell contents
  * @param string $class - table data class
@@ -190,11 +203,12 @@ function tablerow( $td1, $td2 ) {
  *
  */
 function bw_td( $text=NULL, $class=NULL, $id=NULL ) {
-  //if ( $text ) {
     stag( "td", $class, $id );
-    e( $text );
+		if ( is_array( $text ) ) {
+			$text = implode( ", ",  $text );
+		}
+		e( $text );
     etag( "td");
-  //}
 }
 
 /**

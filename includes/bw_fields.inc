@@ -435,4 +435,16 @@ function bw_theme_object_property( $post_id, $value, $atts=null ) {
   } 
 }
 }    
- 
+
+/**
+ * Return the field data
+ *
+ * @param string $field
+ * @return array field data
+ */
+function bw_get_field_data( $field ) {
+  global $bw_fields;
+  $data = bw_array_get( $bw_fields, $field, null );
+  return( $data );
+}
+

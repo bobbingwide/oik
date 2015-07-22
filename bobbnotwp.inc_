@@ -1,6 +1,7 @@
-<?php // (C) Copyright 2011-2014 Bobbing Wide
+<?php // (C) Copyright 2011-2015 Bobbing Wide
 /**
  * Functions for a system which is NOT WordPress
+ *
  * It could be Drupal or some other PHP based CMS, perhaps not even a CMS
  */
  

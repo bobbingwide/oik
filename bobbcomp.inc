@@ -1,7 +1,9 @@
-<?php // (C) Copyright Bobbing Wide 2010-2014
-//namespace bw_oik; 
-
-// bobbcomp.inc - Company Information
+<?php // (C) Copyright Bobbing Wide 2010-2015
+/**
+ * Company information
+ *
+ * namespace bw_oik; 
+ */
 
 /**
  * Determine the CMS type
@@ -352,29 +354,6 @@ function bw_sediv( $atts=null ) {
   sediv( $class, $id );
   return( bw_ret());
 }
- 
-/** 
- * Display the company abbreviation using an abbr tag
- */
-function bw_abbr( $atts = NULL ) {
-  $abbr = bw_get_option( "abbr" );
-  $company = bw_get_option( "company" );
-  abbr( $company, $abbr );
-  return( bw_ret());
-}
-  
-/** 
- * Display the company abbreviation using an acronym tag
- * there is a subtle difference between the two: abbr and acronym
- * see (for example) http://www.benmeadowcroft.com/webdev/articles/abbr-vs-acronym/   
- */
-function bw_acronym( $atts = NULL ) {
-  $abbr = bw_get_option( "abbr" );
-  $company = bw_get_option( "company" );
-  acronym( $company, $abbr );
-  return( bw_ret());
-}
-
 
 /**
  * Set a default value for an empty attribute value from the oik options or a hardcoded value
@@ -477,26 +456,12 @@ if (!function_exists( 'bw_wp_title' )) {
   }
 }
 
-/** 
- * Display a blockquote unaffected by wpautop
- */
-function bw_blockquote( $atts = NULL ) {
-  $text = bw_array_get( $atts, "text", NULL ); 
-  $class = bw_array_get( $atts, "class", NULL );
-  _bw_blockquote( $text, $class );
-  return( bw_ret());
-}
-
 /**
- * Display a <cite> unaffected by wpautop 
+ * Functions moved to other locations
+ * Moved bw_blockquote to shortcodes/oik-blockquote.php
+ * Moved bw_cite to shortcodes/oik-cite.php
  */
- 
-function bw_cite( $atts = NULL ) {
-  $text = bw_array_get( $atts, "text", NULL ); 
-  $class = bw_array_get( $atts, "class", NULL );
-  cite( $text, $class );
-  return( bw_ret());
-}
+
 
 /**
  *  Format a range of years
@@ -746,3 +711,22 @@ function bw_array_get_unkeyed( $array=null, $split=true ) {
 
 
 
+
+if ( bw_is_wordpress() ) {
+  /**
+    * In WordPress Artisteer provides code to deal with buttons
+    * but in Drupal it needs more wrapping.
+    */
+  function art_button( $linkurl, $text, $title=NULL, $class=NULL  ) {
+    alink( "button " . $class , $linkurl, $text, $title ) ;
+  }
+}
+else {
+  function art_button( $linkurl, $text, $title=NULL, $class=NULL  ) {
+    span("art-button-wrapper" );
+    sepan("art-button-l l");
+    sepan("art-button-r r");
+    alink( "button art-button " . $class , $linkurl, $text, $title ) ;
+    epan();
+  }
+}
