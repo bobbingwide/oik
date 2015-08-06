@@ -648,26 +648,7 @@ function bw_array_get_from( $atts, $from, $default ) {
   return( $result );      
 }
 
-/** 
- * Split a string into an array if necessary
- *
- * @param mixed $mixed - either an array already or a string of comma or blank separated values
- * @return array - an unkeyed array 
- */
-function bw_as_array( $mixed ) {
-  if ( $mixed ) {
-    if ( is_array( $mixed ) ) {
-      $mixed_array = $mixed;
-    } else { 
-      $mixed = str_replace( ",", " ", $mixed );
-      $mixed_array = explode( " ", $mixed );
-    } 
-    //bw_trace2( $mixed_array, "mixed_array" ); 
-  } else {
-    $mixed_array = array();
-  }      
-  return( $mixed_array );
-}
+// Moved bw_as_array() to libs/bobbfunc.php
 
 /**
  * Return all the unkeyed items as an unkeyed array

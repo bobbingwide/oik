@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2009-2015
 if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
-define( "BOBBFUNC_INCLUDED", "2.6" );
+define( "BOBBFUNC_INCLUDED", "3.0.0" );
 
 /**
  * HTML output library functions
@@ -10,6 +10,7 @@ define( "BOBBFUNC_INCLUDED", "2.6" );
  * Provides: bobbfunc
  *
  * These functions were part of the oik base plugin in bobbfunc.inc and bobbcomp.inc
+ * Some functions may now be unused. This hasn't yet been confirmed.
  * 
  * 
  */
@@ -480,8 +481,10 @@ function e( $text = NULL ) {
  * Produce a break tag with optional text to follow
  */
 function br( $text=NULL ) {
-   bw_echo( '<br />' );
-   e( bw_translate( $text ) ); 
+	bw_echo( '<br />' );
+	if ( $text ) {
+		e( bw_translate( $text ) ); 
+	}
 }   
 
 /**
@@ -658,10 +661,10 @@ function _bw_acronym( $title="OIK Information Kit", $acronym="oik" ) {
 		$acro .= '</acronym>';
 		e( $acro );
 	}  
-} 
+}
 
 /**
- * Create an html comment
+ * Create an HTML comment
  *
  * Renamed from c() which will be deprecated
  */
@@ -669,6 +672,11 @@ function _bw_c( $text ) {
   bw_echo( '<!--' . $text . '-->' );
 }
 
+/**
+ * Create an HTML comment
+ *
+ * @TODO Deprecate in favour of _bw_c()
+ */
 function c( $text ) { _bw_c( $text ); } 
 
 function bw_debug_on() {
@@ -693,9 +701,10 @@ function bw_debug( $text ) {
   }     
 }
 
+
 // Deleted bw()
 // Deleted ebw()
-
+// Moved logic for art_button() to bobbcomp.inc
 // Deleted bw_default()
 // Deleted bw_gallery()
 
@@ -1401,6 +1410,27 @@ function bw_is_loaded( $file, $is_main=true ) {
  */
 function bw_unassoc( $array, $sep=":" ) {
 	return( $array );
+}
+
+/** 
+ * Split a string into an array if necessary
+ *
+ * @param mixed $mixed - either an array already or a string of comma or blank separated values
+ * @return array - an unkeyed array 
+ */
+function bw_as_array( $mixed ) {
+	if ( $mixed ) {
+		if ( is_array( $mixed ) ) {
+			$mixed_array = $mixed;
+		} else { 
+			$mixed = str_replace( ",", " ", $mixed );
+			$mixed_array = explode( " ", $mixed );
+		} 
+		//bw_trace2( $mixed_array, "mixed_array" ); 
+	} else {
+		$mixed_array = array();
+	}      
+	return( $mixed_array );
 }
 
 
