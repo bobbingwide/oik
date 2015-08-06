@@ -1,10 +1,10 @@
 <?php // (C) Copyright Bobbing Wide 2012-2015
 if ( !defined( 'OIK_BOOT_INCLUDED' ) ) {
-define( 'OIK_BOOT_INCLUDED', "2.6" );
+define( 'OIK_BOOT_INCLUDED', "3.0.0" );
 define( 'OIK_BOOT_FILE', __FILE__ );
 /**
  * Library: oik_boot
- * Provides: lib-boot
+ * Provides: oik_boot
  * Type: MU
  *
  * Implements shared library functions that each plugin that uses oik may expect to be loaded
@@ -101,7 +101,7 @@ function oik_require2( $include_file="bobbfunc.inc", $to_plugin, $from_plugin="o
 */ 
 if ( !function_exists( "oik_init" ) ) {
 function oik_init( ) {
-  oik_require( 'libs/bwtrace.php' );
+  oik_require_lib( 'bwtrace' );
 }
 } 
  
@@ -148,23 +148,19 @@ if ( !function_exists( 'bw_array_get' ) ) {
 }
 
 /**
- * Require a library, without oik-libs
+ * Require a library, with/without oik-libs
  *
- * Locates and loads (once) a library in order to make functions available to the invoking routine
- * 
- * This replaces oik_require() for simple library files where the plugin provides these files
+ * Locates and loads (once) a library in order to make functions available to the invoking routine.
+ * This replaces oik_require() for simple library files where the plugin provides these files.
  * The library file name is expected to match the library name and to be stored in the same folder as
  * the file containing this function.	
- * Notes: 
- * - We don't expect "oik_boot.php" to appear anywhere in __FILE__ except the end.
- * - Limitation: Each plugin that relies on this logic expects the library file to be shared by all the plugins that may be instantiated first.
- * As they are all expected to be in the same folder as __FILE__
- *
- * @TODO Use a global variable to reflect the possible library folders instead of __FILE__ 
+ * Note: We don't expect "oik_boot.php" to appear anywhere in __FILE__ except the end.
+ * If the oik_libs() function is not defined then we use the fallback method
+ * which simply loads files and doesn't perform any version checking.
  *
  * @param string $library the name of the (registered) library
  * @param string $version the required library version. null means don't care
- * @return object/bool the library loaded or a simple bool if oik_libs is not loaded
+ * @return object/bool the library loaded or a simple bool if oik_libs is not loaded, so we used the fallback
  */
 if ( !function_exists( "oik_require_lib" ) ) { 
 	function oik_require_lib( $library, $version=null, $args=null ) {
@@ -172,15 +168,14 @@ if ( !function_exists( "oik_require_lib" ) ) {
 		if ( function_exists( "oik_libs" ) ) {
 			$oik_libs = oik_libs();
 			$library_file = $oik_libs->require_lib( $library, $version, $args );
-		} 
-		if ( !$library_file ) {
+		} else { 
+		// if ( !$library_file ) {
 			$library_file = oik_require_lib_fallback( $library );
 		}
 		// We are dependent upon the 'bwtrace' library for these functions
 		bw_trace2( $library_file, "library_file: $library", true);
 		bw_backtrace();
 		return( $library_file );
-			 
 	}
 }
 
@@ -216,8 +211,6 @@ if ( !function_exists( "oik_require_lib" ) ) {
  * @return array fallback directories so far
  */
 function oik_lib_fallback( $lib_dir ) {
-	//echo "Fallback dir: $lib_dir" ;
-	//gob();
 	global $oik_lib_fallback;
 	if ( empty( $oik_lib_fallback ) ) {
 		if ( __DIR__ == $lib_dir ) {
@@ -229,5 +222,6 @@ function oik_lib_fallback( $lib_dir ) {
 	$oik_lib_fallback[] = $lib_dir;
 	return( $oik_lib_fallback );
 } 
+
 
 } /* end if !defined */

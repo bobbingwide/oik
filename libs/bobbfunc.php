@@ -1433,5 +1433,4 @@ function bw_as_array( $mixed ) {
 	return( $mixed_array );
 }
 
-
 } /* end !defined */
