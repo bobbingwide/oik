@@ -3,7 +3,7 @@
 Plugin Name: oik base plugin 
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 2.6-alpha.0724
+Version: 3.0.0-alpha.0806
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -52,6 +52,7 @@ function oik_plugin_file_loaded() {
   require_once( "libs/oik_boot.php" );
 	oik_lib_fallback( __DIR__ . '/libs' );
 	add_action( "oik_query_libs", "oik_query_libs_query_libs" );
+	add_action( "oik_lib_loaded", "oik_oik_lib_loaded" );
 	oik_require_lib( "bwtrace" );
 	oik_require_lib( "bobbfunc" );
   require_once( "oik-add-shortcodes.php" );
@@ -260,7 +261,7 @@ function oik_login_head() {
  * 
  * The libraries should be defined with their dependencies.
  *  
- * The libraries are NOT loaded at this time, just checked and registered.
+ * The libraries are NOT loaded at this time, just checked and registered
  * using oik_lib_check_libs() to build the OIK_lib objects for each library that actually exists.
  
  * 
@@ -268,17 +269,63 @@ function oik_login_head() {
  * @return array updated array of OIK_libs
  */
 function oik_query_libs_query_libs( $libraries ) {
-	$libs = array( "bobbfunc" => null
-						, "bobbforms" => "bobbfunc"
+	$libs = array( "bobbforms" => "bobbfunc"
 						, "oik-admin" => "bobbforms"
 						, "oik-sc-help" => null
 						, "oik-activation" => "oik-depends"
 						, "oik-depends" => null 
+						, "bobbfunc" => null
 						);
-	$libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
-	bw_trace2();
+	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
+	
+	// @TODO Replace this temporary fiddle of the version of bobbfunc with something more acceptable
+	$last = end( $new_libraries );
+	$last->version = "3.0.0";
+	
+	//$versions = array( "bobbfunc" => "3.0.0" );
+	//$new_libraries = oik_lib_set_lib_versions( $libraries, $libs, $versions, "oik" );
+	bw_trace2( $new_libraries, "new libraries" );
+	
+	return( $new_libraries );
+}
+
+/**
+ * Implement "oik_lib_loaded" for oik
+ *
+ * We might decide that we want to register some more libraries
+ * when a particular one has been loaded.
+ *
+ * Note: Each new library is added to the list of  registered libraries
+ * It doesn't replace any entry that's already there.
+ */	
+function oik_oik_lib_loaded( $lib ) {
+	//bw_trace2();
+	//if ( $lib->library == "bwtrace" ) {
+	//	oik_register_lib( "bobbfunc", oik_path( "libs/bobbfunc.php" ), null, "3.0.0" );
+	//}
+}
+
+/**
+ * 
+ */	
+if ( !function_exists( "oik_lib_set_lib_versions" ) ) { 
+function oik_lib_set_lib_versions( $libraries, $libs, $versions, $plugin ) {
+	$lib_args = array();
+	foreach ( $libs as $library => $depends ) {
+		$src = oik_path( "libs/$library.php", $plugin ); 
+		//if ( file_exists( $src ) ) {
+		$lib_args['library'] = $library;
+    $lib_args['src'] = $src;
+		$lib_args['deps'] = $depends;
+		$lib_args['version'] = bw_array_get( $versions, $library, null );
+		$lib = new OIK_lib( $lib_args );
+		$libraries[] = $lib;
+	}
 	return( $libraries );
 }
+}		
+
+
 
 /**
  * Implement "admin_notices" for oik 

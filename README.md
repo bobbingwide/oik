@@ -3,7 +3,7 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.3-beta4
+* Tested up to: 4.3-RC1
 * Stable tag: 2.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,6 +14,10 @@ Over 80 advanced, powerful shortcodes for displaying the content of your WordPre
 The *oik base* plugin provides a series of advanced WordPress shortcodes that help you display dynamic content from your website's pages, posts, attachments, links and custom post types.
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information.
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
+
+At a glance changes in version 3.0.0
+* Now uses semantic versioning
+
 
 At a glance changes in version 2.6
 
@@ -175,6 +179,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.0.0-alpha.0806 
+Upgrade to use with oik-bwtrace v2.0.1 and oik-lib v0.0.2
+
 # 2.6-alpha.0724 
 Fixes a previously undetected problem in 2.6-alpha.0722, that was masked by oik-bwtrace and oik-lib shared library logic
 
@@ -431,6 +438,15 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 3.0.0-alpha.0806 
+* Added: oik_lib_set_lib_versions() - prototype code to eventually replace oik_lib_check_libs()
+* Changed: Noted that logic for art_button() moved to bobbcomp.inc
+* Changed: Now uses semantic versioning
+* Changed: bobbfunc library now v3.0.0.
+* Changed: bw_as_array() now delivered as part of the "bobbfunc" library; was in bobbcomp.inc
+* Changed: Other libraries synchronized with: oik-lib, oik-bwtrace and oik-libs
+* Fixed: br() doesn't attempt to translate a null string
+
 # 2.6-alpha.0724 
 * Fixed: admin needs to oik_require_lib( "bobbforms" ) when neither oik-lib nor oik-bwtrace is activated
 * Tested: With WordPress 4.3-beta4
