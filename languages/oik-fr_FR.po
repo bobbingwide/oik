@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik base plugin package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik base plugin 2.6-alpha.0722\n"
+"Project-Id-Version: oik base plugin 2.6-alpha.0724\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2015-07-22 08:52:18+00:00\n"
+"POT-Creation-Date: 2015-07-24 17:05:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: fr_FR\n"
@@ -79,7 +79,7 @@ msgstr "Page actuelle"
 #: admin/class-bw-list-table.php:689
 msgctxt "paging"
 msgid "%1$s of %2$s"
-msgstr "%1$s de %2$s"
+msgstr ""
 
 #: admin/class-bw-list-table.php:693
 msgid "Go to the next page"
@@ -1334,11 +1334,11 @@ msgstr "<B> Impossible de localiser la routine d'élargir shortcode. </ B>"
 msgid "missing post processing function: %1$s"
 msgstr "manquant fonction de post-traitement: %1$s"
 
-#: oik.php:178
+#: oik.php:179
 msgid "oik custom image link URL"
 msgstr "personnalisé oik lien URL de l'image"
 
-#: oik.php:233
+#: oik.php:234
 msgid "Howdy, %1$s"
 msgstr "Salutations, %1$s"
 
