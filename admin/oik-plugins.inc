@@ -1,4 +1,14 @@
 <?php // (C) Copyright Bobbing Wide 2012-2015
+_doing_it_wrong( __FILE__, '<br />Please use oik_require_lib( "oik_plugins" );<br />', "oik v3.0.0" );
+bw_backtrace();
+echo "<!--";
+var_dump( debug_backtrace() );
+echo "-->";
+oik_require_lib( "oik_plugins" );
+
+if ( !defined( "OIK_PLUGINS_INCLUDED" ) ) {
+define( "OIK_PLUGINS_INCLUDED", "0.0.1" );
+
 /**
  * oik plugins settings page 
  *
@@ -491,3 +501,4 @@ function bw_get_plugin_version( $plugin="oik" ) {
   return( $version );      
 }  
 
+}
