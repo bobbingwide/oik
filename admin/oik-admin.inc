@@ -309,7 +309,10 @@ function oik_themes_do_page() {
  * Process the oik plugins server settings page
  */
 function oik_plugins_server_settings() { 
-  oik_require( "admin/oik-plugins.inc" ); 
+  //oik_require( "admin/oik-plugins.inc" ); 
+	//oik_require_file( "admin/oik_plugins.php", "oik_plugins" );
+	$oik_plugins = oik_require_lib( "oik_plugins" );
+	bw_trace2( $oik_plugins, "oik_plugins?" );
   oik_lazy_plugins_server_settings();
 }  
 
@@ -809,13 +812,18 @@ define( 'OIK_PLUGINS_COUK', "http://www.oik-plugins.co.uk" );
 
  * 
  */
+if ( !function_exists( "oik_get_plugins_server" ) ) { 
 function oik_get_plugins_server() {
   if ( defined( 'BW_OIK_PLUGINS_SERVER' )) {
     $url = BW_OIK_PLUGINS_SERVER;
   } else {
+		if ( !defined( "OIK_PLUGINS_COM" ) ) {
+			define( "OIK_PLUGINS_COM", "http://www.oik-plugins.com" );
+		}
     $url = OIK_PLUGINS_COM;
   }
   return( $url );
+}
 }
 
 /**
