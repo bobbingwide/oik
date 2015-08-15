@@ -307,14 +307,18 @@ function oik_themes_do_page() {
 
 /**
  * Process the oik plugins server settings page
+ * 
+ * Dynamically load the "oik_plugins" library 
+ * If OK, call oik_lazy_plugins_server_settings() to process the page
  */
 function oik_plugins_server_settings() { 
-  //oik_require( "admin/oik-plugins.inc" ); 
-	//oik_require_file( "admin/oik_plugins.php", "oik_plugins" );
 	$oik_plugins = oik_require_lib( "oik_plugins" );
-	bw_trace2( $oik_plugins, "oik_plugins?" );
-  oik_lazy_plugins_server_settings();
-}  
+	if ( $oik_plugins && !is_wp_error( $oik_plugins ) ) {
+		oik_lazy_plugins_server_settings();
+	} else {
+		bw_trace2( $oik_plugins, "oik_plugins?" );
+	}
+}
 
 /**
  * Process the oik themes server settings page
