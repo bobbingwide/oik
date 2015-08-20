@@ -3,7 +3,7 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.3-RC1
+* Tested up to: 4.3
 * Stable tag: 2.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -179,6 +179,12 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.0.0-alpha.0820 
+Contains a fix for WPMS when oik-bwtrace not active
+
+# 3.0.0-alpha.0814 
+Unreleased version to support oik-fum's use of Composer packages for shared libraries
+
 # 3.0.0-alpha.0806 
 Upgrade to use with oik-bwtrace v2.0.1 and oik-lib v0.0.2
 
@@ -438,6 +444,22 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 3.0.0-alpha.0820 
+* Fixed: Fatal in WPMS due to oik-admin library not being loaded in 'network_admin_menu' action hook
+
+# 3.0.0-alpha.0814 
+* Unreleased version.
+* Added: "oik_plugins" library
+* Added: Support Composer packages as libraries
+* Changed: Started deprecating admin/oik-plugins.inc
+* Changed: Support objects being passed to bw_echo() and _bw_c()
+* Changed: Synchronize with oik-libs and oik-bwtrace
+* Changed: admin/oik-admin.inc now uses the "oik_plugins" library
+* Changed: bw_oik_version() now uses 'oik_plugins' library
+* Changed: oik-depends library now v3.0.0
+* Changed: oik_plugins_server_settings now satisfied using "oik_plugins" library
+* Fixed: oik_lib_fallback()
+
 # 3.0.0-alpha.0806 
 * Added: oik_lib_set_lib_versions() - prototype code to eventually replace oik_lib_check_libs()
 * Changed: Noted that logic for art_button() moved to bobbcomp.inc
