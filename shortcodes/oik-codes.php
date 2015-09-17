@@ -378,3 +378,266 @@ function bw_code_example_link( $atts ) {
     epan();
   }   
 }
+
+/**
+ * Implement "bw_sc_shortcake_compatible" for oik 
+ * 
+ * Filter out the shortcodes that aren't compatible with shortcake.
+ *
+ * Note: In this first version of oik we'll handle shortcodes for other plugins as well.
+ *
+ * Decisions are:
+ * Value | Meaning
+ * ----- | --------------
+ * blank | not yet decided
+ * n | shortcode will not be registered to shortcake, shortcake will not attempt to expand it
+ * y | shortcode will be registered to shortcake, shortcake will attempt to expand it
+ * 0 | shortcode will not work properly if written using positional parameters - but we'll let it pass for the time being
+ *
+ *
+ * 
+ * We'll err towards y even though the shortcode may produce a lot of output
+ * diy-oik shortcodes should implement their own filter.
+ * In this list diy-oik shortcodes had a ? - as I was using the wrong version of diy-oik
+ * Shortcodes which used to have a ? may now show the implementing function
+ 
+ 
+ y   [OIK] => Spells out the <span class="bw_oik"><abbr  title="OIK Information Kit">oik</abbr></span> backronym
+ y   [api] => Simple API link
+ y   [apiref] => ?
+ y  [apis] => Link to API definitions
+ y   [archives] => ?
+ y  [artisteer] => Styled form of Artisteer
+    [audio] => Displays uploaded audio file as an audio player
+    [bandcamp] => ?
+    [bbboing] => Obfuscate some text but leave it readable, apparently
+    [blip.tv] => ?
+ y   [bp] => Styled form of BuddyPress
+ y  [bw] => Expand to the logo for Bobbing Wide
+ y   [bw_abbr] => Format an abbreviation
+    [bw_accordion] => Display posts in an accordion
+ y  [bw_acronym] => Format an acronym
+    [bw_action] => ?
+ y   [bw_address] => Display the address
+ y  [bw_admin] => Display the Admin contact name
+ y   [bw_alt_slogan] => Alternative slogan
+ y  [bw_api] => Dynamic API syntax help
+    [bw_attachments] => List attachments with links
+    [bw_autop] => Dynamically re-enable/disable automatic paragraph generation
+    [bw_background] => Use attached image as the background
+    [bw_block] => Format an Artisteer block
+    [bw_blockquote] => Format a blockquote
+    [bw_blog] => Select blog to process
+    [bw_blogs] => List blogs using bw_pages style display
+    [bw_bookmarks] => List bookmarks
+    [bw_business] => Display your Business name
+    [bw_button] => Show a link as a button
+    [bw_cite] => Cite a blockquote
+  n  [bw_code] => Display the help and syntax for a shortcode
+  n  [bw_codes] => Display the currently available shortcodes
+    [bw_company] => Company name
+    [bw_contact] => Primary contact name
+    [bw_contact_button] => Contact form button
+    [bw_contact_form] => Display a contact form for the specific user
+    [bw_copyright] => Format a Copyright statement
+    [bw_count] => Count posts for the selected post type
+    [bw_countdown] => Countdown timer
+    [bw_crumbs] => Display breadcrumbs
+    [bw_css] => Add internal CSS styling
+    [bw_csv] => Display CSV data in a table or list
+    [bw_cycle] => Display pages using jQuery cycle
+    [bw_dash] => Display a dash icon
+    [bw_directions] => Display a 'Google directions' button.
+    [bw_domain] => Display the domain name
+    [bw_eblock] => end a [bw_block]
+    [bw_editcss] => Edit Custom CSS file button
+    [bw_email] => Email primary contact (formal)
+    [bw_emergency] => Emergency telephone number
+    [bw_facebook] => Facebook link
+    [bw_fax] => Fax number
+    [bw_field] => Format custom fields without labels
+    [bw_fields] => Format custom fields, with labels
+    [bw_flickr] => Flickr link
+    [bw_follow_me] => Display defined social media follow me links
+    [bw_formal] => Formal company name
+    [bw_geo] => Latitude and Longitude
+  n  [bw_geshi] => Generic Syntax Highlighting
+    [bw_google] => Google+ link
+    [bw_google-plus] => Google+ link
+    [bw_google_plus] => Google+ link
+    [bw_googleplus] => Google+ link
+    [bw_graphviz] => Display a GraphViz diagram
+    [bw_iframe] => Embed a page in an iframe
+    [bw_images] => Display attached images
+    [bw_instagram] => Follow me on Instagram
+    [bw_jq] => Perform a jQuery method
+    [bw_link] => Display a link to a post.
+    [bw_linkedin] => Follow me on LinkedIn
+    [bw_list] => Simple list of pages/posts or custom post types
+    [bw_login] => Display the login form or protected content
+    [bw_loginout] => Display the Login or Logout link
+    [bw_logo] => Display the company logo
+    [bw_mailto] => Mailto (inline)
+    [bw_mob] => Mobile phone number (inline) 
+    [bw_mobile] => Mobile phone number (block)
+    [bw_more] => Hide remaining content behind 'read more' button
+    [bw_mshot] => ?
+    [bw_navi] => Simple paginated list
+    [bw_new] => Display a form to create a new post
+    [bw_option] => Display the value of an option field
+    [bw_otd] => Display 'On this day' in history related content 
+    [bw_page] => Add page button
+    [bw_pages] => Display page thumbnails and excerpts as links
+    [bw_parent] => Display a link back to the parent page
+    [bw_pdf] => Display attached PDF files
+    [bw_picasa] => Follow me on Picasa
+    [bw_pinterest] => Follow me on Pinterest
+    [bw_plug] => Show plugin information
+    [bw_popup] => Display a popup after a timed delay
+    [bw_portfolio] => Display matched portfolio files
+    [bw_post] => Add Post button
+    [bw_posts] => Display posts
+    [bw_power] => Powered by WordPress
+    [bw_qrcode] => Display an uploaded QR code image
+    [bw_register] => Display a link to the Registration form, if Registration is enabled
+    [bw_related] => Display related content
+    [bw_rpt] => ?
+    [bw_rwd] => Dynamically generate oik responsive web design CSS classes
+    [bw_search] => Display search form
+    [bw_show_googlemap] => Show Google map [bw_show_googlemap]
+    [bw_skype] => Skype name
+    [bw_slogan] => Primary slogan
+    [bw_table] => Display custom post data in a tabular form
+    [bw_tabs] => Display posts in tabbed blocks
+    [bw_tel] => Telephone number (inline)
+    [bw_telephone] => Telephone number (block)
+    [bw_testimonials] => Display testimonials
+    [bw_text] => ?
+    [bw_thumbs] => List pages as fluid thumbnail links
+    [bw_tides] => Display times and tides for a UK location
+    [bw_tree] => Simple tree of pages/posts or custom post types
+    [bw_twitter] => Follow me on Twitter
+    [bw_user] => Display information about a user
+    [bw_users] => Display information about site users
+    [bw_video] => Display the video specified (url=) or attached videos
+    [bw_wpadmin] => Site: link to wp-admin
+    [bw_wtf] => WTF
+    [bw_youtube] => Follow me on YouTube
+    [bwtrace] => Trace facility form
+    [bwtroff] => Force trace off
+    [bwtron] => Force trace on
+    [caption] => Display the caption for an image. Standard WordPress shortcode
+    [classes] => Link to class definitions
+    [clear] => Clear divs 
+    [cloned] => Display clones of this content
+  0 [codes] => Create links to related shortcodes
+    [contact-field] => Display Grunion Contact field
+    [contact-form] => Display Grunion Contact form
+    [cookies] => Display table of cookies, by category
+    [dailymotion] => ?
+    [dailymotion-channel] => ?
+    [digg] => ?
+    [div] => start a &lt;div&gt; tag
+    [diy] => ?
+    [drupal] => Styled form of Drupal
+    [ediv] => end a &lt;div&gt; with &lt;/div&gt;
+    [embed] => Embed media
+    [etag] => End a tag started with [stag]
+    [facebook] => ?
+    [file] => Display reference for a file
+    [files] => Link to files definitions
+    [flickr] => ?
+    [footer_backtotop] => ?
+    [footer_childtheme_link] => ?
+    [footer_copyright] => ?
+    [footer_genesis_link] => ?
+    [footer_loginout] => ?
+    [footer_studiopress_link] => ?
+    [footer_wordpress_link] => ?
+    [gallery] => Display the attached images in a gallery
+    [getnivo] => ?
+    [getoik] => ?
+    [gist] => ?
+    [googlemaps] => ?
+    [googleplus] => ?
+    [googlevideo] => ?
+    [gpslides] => Display a Slideshow Gallery Pro slideshow
+    [hook] => ?
+    [hooks] => Link to hook definitions
+    [instagram] => ?
+    [lartisteer] => Link to Artisteer 
+    [lazy] => ?
+ y   [lbp] => Link to BuddyPress
+    [lbw] => Link to Bobbing Wide sites
+    [ldrupal] => Link to drupal.org
+    [loik] => Link to [oik]-plugins
+    [loikeu] => ?
+    [loikp] => ?
+    [loikuk] => ?
+    [lssc] => ?
+    [lwp] => Link to WordPress.org
+    [lwpms] => Link to WordPress Multi Site
+    [md] => ?
+    [medium] => ?
+    [mixcloud] => ?
+    [ngslideshow] => NextGen gallery slideshow
+    [nivo] => Display the nivo slideshow for attachments or other post types.
+    [oik] => Expand to the logo for oik
+    [oik_edd_apikey] => get API key form for EDD
+    [oikp_download] => Produce a download button for a plugin
+    [oikth_download] => Produce a download button for a theme
+    [paypal] => Paypal shortcodes
+    [playlist] => Playlist
+    [polldaddy] => ?
+    [post_author] => ?
+    [post_author_link] => ?
+    [post_author_posts_link] => ?
+    [post_categories] => ?
+    [post_comments] => ?
+    [post_date] => ?
+    [post_edit] => ?
+    [post_modified_date] => ?
+    [post_modified_time] => ?
+    [post_tags] => ?
+    [post_terms] => ?
+    [post_time] => ?
+    [presentation] => ?
+    [recipe] => Embeds a recipe
+    [scribd] => ?
+    [sdiv] => Start a div
+    [sediv] => Start and end a div
+    [slide] => ?
+    [slideshare] => ?
+    [slideshow] => ?
+    [smart] => ?
+    [soundcloud] => ?
+    [stag] => Start a tag
+    [ted] => ?
+    [twitter-timeline] => ?
+    [us_tides] => Display tide times and heights for a US location
+    [video] => Embed video files
+    [videopress] => ?
+    [vimeo] => ?
+    [vine] => ?
+    [wp] => Display a styled form of WordPress. 
+    [wp_caption] => Display the caption for an image. Standard WordPress shortcode
+    [wpms] => Styled form of WordPress Multi Site
+    [wpseo_breadcrumb] => ?
+    [wpseo_sitemap] => ?
+    [wpvideo] => ?
+    [wufoo] => ?
+    [youtube] => ?
+ 
+
+ */										
+function bw_sc_shortcake_compatible( $sclist ) {
+	bw_trace2();
+	bw_backtrace();
+	unset( $sclist['bw_code']);
+	// unset( $sclist['bw_codes']);
+	unset( $sclist['bw_cycle']);
+	unset( $sclist['bw_geshi']);
+	unset( $sclist['codes']);
+	//gob();
+	return( $sclist );
+}
