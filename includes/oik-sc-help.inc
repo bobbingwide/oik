@@ -33,8 +33,10 @@ function bw_form_sc_get_first_parm_name( $parameter ) {
 function bw_form_sc_parm_help( $parameter, $shortcode ) {
   $parm = bw_form_sc_get_first_parm_name( $parameter );
   //$url = siteurl();
-  $url = "http://www.oik-plugins.com/";
-  $url .= "oik_sc_param/$shortcode-$parm-parameter";
+  //$url = "http://www.oik-plugins.com/";
+	oik_require( "admin/oik-admin.inc" );
+	$url = oik_get_plugins_server();
+  $url .= "/oik_sc_param/$shortcode-$parm-parameter";
   $ret = retlink( null, $url, $parameter, "$shortcode $parameter parameter" );
   return( $ret );
 }
@@ -211,9 +213,11 @@ function _sc__snippet( $shortcode="bw_code", $atts=null ) {
  * @param string $example - shortcode parameter string
  */
 function bw_lazy_sc_snippet( $shortcode=null, $example=null ) {
+	$saved = bw_global_post();
   $funcname = bw_load_shortcode_suffix( $shortcode, "__snippet" ); 
   bw_trace2( $funcname, "funcname" );
   $funcname( $shortcode, $example ); 
+	bw_global_post( $saved );
 }
 
 /**
@@ -431,10 +435,10 @@ function _sc_posts() {
                , 'exclude'         => bw_skv( null, "<i>id1,id2</i>", "IDs to exclude" )
                , 'meta_key'        => bw_skv( null, "meta key", "post metadata key" )
                , 'meta_value'      => bw_skv( null, "meta value", "post metadata value" )
-               , 'post_type'       => bw_skv( "page", "post|attachment|custom post type", "Content type to display" )
+               , 'post_type'       => bw_skv( null, "page|post|attachment|custom post type", "Content type to display" )
                , 'post_mime_type'  => bw_skv( null, "image|application|text|video|mime type", "Attached media MIME type" )
                , 'post_parent'     => bw_skv( null, "ID", "Parent ID to use if not current post" )
-               , 'post_status'     => bw_skv( 'publish', "pending|draft|auto-draft|future|private|trash|any", "Post status" )
+               , 'post_status'     => bw_skv( null,  "publish|inherit|pending|draft|auto-draft|future|private|trash|any", "Post status" )
                , 'id'              => bw_skv( null, "<i>id1,id2</i>", "IDs of posts to display"  )
                , 'posts_per_page'  => bw_skv( null, "numeric|.", "Number of posts per page. Use '.' for current value " . get_option( "posts_per_page" ) )
                ));
@@ -686,18 +690,6 @@ function bw_codes__example() {
   // See wp-1, wp-2, wp and wp-3 ");
 }
 
-function bw__help( $shortcode=NULL ) {
-  if ( $shortcode == "bw" ) 
-     return( "Expand to the logo for Bobbing Wide" );
-}
-
-function bw__example( $shortcode = NULL ) {
-  if ( $shortcode == "bw" ) {
-    br( "e.g. " );
-    e( bw() );
-  }
-}
-
 function oik__help( $shortcode=NULL ) {
  if ( $shortcode == "OIK" ) {
     return( "Spells out the ". bw_oik(). " backronym" );
@@ -898,9 +890,11 @@ function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
   etag( "code" ); 
   ep();
   //p( $example );
+	$saved = bw_global_post();
   $expanded = apply_filters( 'the_content', $example );
+	bw_global_post( $saved );
   e( $expanded );
-  bw_trace2( $expanded );
+  bw_trace2( $expanded, "expanded", true, BW_TRACE_DEBUG );
   //bw_backtrace();
 }
 
