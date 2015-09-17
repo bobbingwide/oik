@@ -69,14 +69,14 @@ function oik_options_add_page() {
   // plugins_url( "images/oik-icon.png", __FILE__ )
   // BUT in order to make this work we need to pass the parameter as 'div' 
   $hook = add_menu_page( __('[oik] Options', 'oik'), __('oik options', 'oik'), 'manage_options', 'oik_menu', 'oik_menu', 'div' );
-  bw_trace2( $hook, "oik options hook", false );
+  bw_trace2( $hook, "oik options hook", false, BW_TRACE_DEBUG );
   // add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function ); 
   $hook = add_submenu_page( 'oik_menu', __( 'oik overview', 'oik' ), __( 'Overview', 'oik'), 'manage_options', 'oik_menu', 'oik_menu');
-  bw_trace2( $hook, "oik options Overview hook", false );
+  bw_trace2( $hook, "oik options Overview hook", false, BW_TRACE_DEBUG );
   $hook = add_submenu_page( 'oik_menu', __( 'oik options', 'oik' ), __('Options', 'oik'), 'manage_options', 'oik_options', 'oik_options_do_page');
-  bw_trace2( $hook, "oik options Options hook", false );
+  bw_trace2( $hook, "oik options Options hook", false, BW_TRACE_DEBUG );
   $hook = add_submenu_page( 'oik_menu', __( 'oik options-1', 'oik' ), __('More Options', 'oik'), 'manage_options', 'oik_options-1', 'oik_options_do_page_1');
-  bw_trace2( $hook, "oik options More Options hook", false );
+  bw_trace2( $hook, "oik options More Options hook", false, BW_TRACE_DEBUG );
   add_submenu_page( 'oik_menu', __( 'oik plugins', 'oik' ), __('Plugins', 'oik'), 'manage_options', 'oik_plugins', 'oik_plugins_do_page' );
   add_submenu_page( 'oik_menu', __( 'oik themes', 'oik' ), __('Themes', 'oik'), 'manage_options', 'oik_themes', 'oik_themes_do_page' );
   add_submenu_page( 'oik_menu', __( 'oik buttons', 'oik'), __('Buttons', 'oik'), 'manage_options', 'oik_buttons', 'oik_buttons_do_page' );
@@ -316,7 +316,7 @@ function oik_plugins_server_settings() {
 	if ( $oik_plugins && !is_wp_error( $oik_plugins ) ) {
 		oik_lazy_plugins_server_settings();
 	} else {
-		bw_trace2( $oik_plugins, "oik_plugins?" );
+		bw_trace2( $oik_plugins, "oik_plugins?", false, BW_TRACE_WARNING );
 	}
 }
 
@@ -630,7 +630,7 @@ function oik_options_validate( $input ) {
  */
 function oik_set_latlng( $input ) {
   $long = false;
-  bw_trace2( $long, "long", false);
+  bw_trace2( $long, "long", false, BW_TRACE_DEBUG );
   
   $lat = bw_array_get( $input, "lat", false );
   $long = bw_array_get( $input, "long", $long );
@@ -919,9 +919,12 @@ function bw_get_slug( $plugin ) {
 
 /**
  * Return the plugins server if the requested plugin is one of ours
+ *
  * Note: $bw_registered_plugins is an array of filenames
  * we create $bw_slugs as an array of "slug" => array( 'basename' => "slug/plugin_name.php", 'file'=> 'server'=>, 'apikey'=> )
  * $bw_plugins (stored in WordPress options) also contains 'server' and 'apikey'
+ * 
+ * @param string $slug plugin slug
  * 
  */
 function oik_query_plugins_server( $slug ) {
@@ -970,10 +973,13 @@ function oik_query_plugins_server( $slug ) {
 
 /**
  * Return the themes server if the requested theme is one of ours
+ *
  * Note: $bw_registered_themes is an array of filenames
  * we create $bw_theme_slugs as an array of "slug" => array( 'basename' => "theme name", 'file'=> 'server'=>, 'apikey'=> )
  * $bw_themes (stored in WordPress options) also contains 'server' and 'apikey'
  * 
+ * @param string $slug theme name
+ * @return array 
  */
 function oik_query_themes_server( $slug ) {
   global $bw_registered_themes, $bw_theme_slugs;
@@ -1017,7 +1023,7 @@ function oik_query_themes_server( $slug ) {
 
   if ( $theme_settings ) {
     $theme_settings['server'] = $server;
-    bw_trace2( $server, "server" );  
+    bw_trace2( $server, "server", false, BW_TRACE_INFO );  
   }
   return( $theme_settings ); 
 }
