@@ -65,6 +65,8 @@ function oik_register_shortcodes_to_shortcake() {
   do_action( "oik_add_shortcodes" );
   oik_require( 'shortcodes/oik-codes.php' );
   $sc_list = bw_shortcode_list();
+	add_filter( "bw_sc_shortcake_compatible", "bw_sc_shortcake_compatible" );
+	$sc_list = apply_filters( "bw_sc_shortcake_compatible", $sc_list );
   bw_trace2( $sc_list, "shortcode list", false );
   foreach ( $sc_list as $shortcode => $help ) {
     $registered = oik_registered_to_shortcake( $shortcode );
@@ -180,6 +182,7 @@ function oik_shortcake_image( $shortcode ) {
  * For very short shortcodes we just return a few letters  
  */                                      
 function oik_shortcake_text( $text ) { 
+	$text = str_replace( "_", " ", $text );
   $texticon = "<p>";
   $texticon .= $text;
   $texticon .= "</p>";
@@ -284,8 +287,8 @@ function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
                     , "email" => "email" 
                     , "id" => "number"
                     , "url" => "url"
-                    , "n" => "checkbox"
-                    , "y" => "checkbox"
+                    , "n" =>  "checkbox" //   "select
+                    , "y" => "checkbox" //  "select" 
                     , "date" => "date" 
                     , "numeric" => "number" 
                     , "textarea" => "textarea"
@@ -344,6 +347,7 @@ function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
 			foreach ( $parameters as $parameter ) { 
 				$notes = $data['notes'];
 				$default = $data['default'];
+				list( $parameter ) = explode( "|", $parameter );
 				$attr = array( 'label' => "$parameter - $notes"
 										 , 'attr' => $parameter
 										 , 'type' => 'text'
@@ -368,6 +372,7 @@ function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
  * 
  * - bw_geshi was the example used in issue #126
  * - bw_csv is the one that's causing most problems - issue #317 
+ * - bw_blockquote is also a good example
  * 
  * I'm sure there are many more but this'll do for now.
  *
@@ -381,6 +386,8 @@ function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
 function oik_shortcake_inner_content( $shortcode, $syntax ) {
   $inner_content = false;
   switch ( $shortcode ) {
+		case 'bw_api':
+		case 'bw_blockquote':
 	  case 'bw_geshi':
 		case 'bw_csv':
 		case 'caption':

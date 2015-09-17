@@ -154,7 +154,7 @@ function bw_shortcode_event( $atts, $content=null, $tag=null) {
     $expand = true;
   }
   $shortcodefunc = null; 
-  bw_trace2( $cf, "current_filter $tag $expand $shortcodefunc" );  
+  bw_trace2( $cf, "current_filter $tag $expand $shortcodefunc", true, BW_TRACE_DEBUG );  
   if ( $expand ) {
     if ( isset( $bw_sc_ev[ $tag ][ 'all' ] ) ) {
       $shortcodefunc = $bw_sc_ev[ $tag ][ 'all' ];
@@ -305,7 +305,7 @@ function bw_add_shortcode_title_expansion( $shortcode, $the_title ) {
  */
 function bw_get_shortcode_title_expansion( $shortcode ) {
   global $bw_sc_te;
-  bw_trace2( $bw_sc_te, "bw_sc_te" );
+  bw_trace2( $bw_sc_te, "bw_sc_te", true, BW_TRACE_DEBUG );
   $expand = bw_array_get( $bw_sc_te, $shortcode, null );
   return( $expand );
 }
