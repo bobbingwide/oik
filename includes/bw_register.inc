@@ -7,10 +7,10 @@
 /**
  * Singularize a plural string 
  * 
+ * @uses bw_porter_stemmer() if it exists
+ * 
  * @param string $plural - a plural string - or anything with a 'stem'
- * @returns string $singular - the singularized version of the string
- * @uses bw_porter_stemmer if it exists
- *
+ * @return string $singular - the singularized version of the string
  */
 function bw_singularize( $plural ) {
   //bw_backtrace();
@@ -32,6 +32,9 @@ function bw_singularize( $plural ) {
  * Converts underscores to blanks, trims and uppercases first letter of each word
  * DOES NOT remove a prefix that may match the post_type's slug 
  * So the field title may be quite long. 
+ *
+ * @param string $name field name to titleify
+ * @return string title
  */
 if ( !function_exists( "bw_titleify" ) ) {
 function bw_titleify( $name ) {
@@ -45,7 +48,10 @@ function bw_titleify( $name ) {
 /**
  * Return the Upper case first letter version of the string
  *
- * Required since ucfirst() only accepts on parameter but sometimes we pass more
+ * Required since ucfirst() only accepts one parameter but sometimes we pass more parameters
+ * e.g. when invoked as a callback in bw_array_get_dcb()
+ * 
+ *
  * @param string $str - the string to pass to ucfirst()
  * @return string - the result of ucfirst()
  */
@@ -57,9 +63,9 @@ function bw_ucfirst( $str ) {
 /**
  * Register a custom post type using as many defaults as we can
  *
- * Refer to the WordPress codex or [bw_plug name='custom UI,types']
+ * Refer to the WordPress codex or [bw_plug name='oik-types']
  *
- <pre>
+ * `
   'capability_type' => $cpt_post_type["capability_type"],
   'description' => esc_html($cpt_post_type["description"]),
   'has_archive' => $cpt_has_archive,
@@ -75,7 +81,7 @@ function bw_ucfirst( $str ) {
   'singular_label' => $cpt_post_type["singular_label"],
   'supports' => $cpt_supports,
   'taxonomies' => $cpt_taxonomies,
-  </pre>
+ * `
  * @arguments                         
  * label - optional - default $post_type
  * labels - optional 
@@ -129,6 +135,7 @@ function bw_ucfirst( $str ) {
  * - _edit_link - URL segement to use for edit link of this post type. THIS IS FOR INTERNAL USE ONLY!
  */
 function bw_register_post_type( $post_type, $post_type_args ) {
+  bw_trace2( null, null, true, BW_TRACE_DEBUG );
   $post_type_args['public'] = bw_array_get( $post_type_args, 'public', true );
   $post_type_args['query_var'] = bw_array_get( $post_type_args, 'query_var', $post_type );
   $post_type_args['label'] = bw_array_get_dcb( $post_type_args, 'label', $post_type, "bw_ucfirst"  );
@@ -145,22 +152,19 @@ function bw_register_post_type( $post_type, $post_type_args ) {
  * OR let the Porter Stemmer algorithm come up with a solution.
  *
  * @uses bw_singularize
+ * 
+ * @param array $labels subset of the total set
+ * @return array hopefully all of the required labels
  */
 function bw_default_labels( $labels= array() ) {
-  //bw_trace2();
-  //bw_backtrace();
   $ucplural = bw_array_get_dcb( $labels, 'name', 'Post', "bw_ucfirst" );
   $lcplural = strtolower( $ucplural );
-  
   $labels['name'] = bw_array_get( $labels, 'name', $ucplural );
   $labels['menu_name'] = bw_array_get( $labels, 'menu_name', $ucplural );
-  //bw_trace2( $labels, "labels-array" );
-  
   $ucsingular = bw_array_get( $labels, 'singular_name', null );
   if ( !$ucsingular ) {
     $ucsingular = bw_singularize( $ucplural );
   }
-  //bw_trace2( $ucsingular );
   $labels['singular_name'] = $ucsingular; 
   $labels['all_items'] = bw_array_get( $labels, 'all_items', "All $ucplural" );
   $labels['add_new'] = bw_array_get( $labels, 'add_new', "New $ucsingular" );
@@ -173,10 +177,13 @@ function bw_default_labels( $labels= array() ) {
   $labels['search_items'] = bw_array_get( $labels, 'search_items', "View $ucplural" );
   $labels['not_found'] = bw_array_get( $labels, 'not_found', "No $lcplural found" );
   $labels['not_found_in_trash'] = bw_array_get( $labels, 'not_found_in_trash', "No $lcplural found in Trash" ); 
-  // 'parent_item_colon'  => __( 'Forum:',                   'bbpress' )
-
+	// These labels were added in WordPress 4.3.0
+  $labels['featured_image'] = bw_array_get( $labels, 'featured_image', 'Featured Image' );
+	$labels['set_featured_image'] = bw_array_get( $labels, 'set_featured_image', 'Set featured image' );
+	$labels['remove_featured_image'] = bw_array_get( $labels, 'remove_featured_image', 'Remove featured image' );
+	$labels['use_featured_image'] = bw_array_get( $labels, 'use_featured_image', 'Use as featured image' );
   // should each array element now be translated? 
-  //bw_trace2( $labels, "labels" );
+  bw_trace2( $labels, "labels", true, BW_TRACE_VERBOSE );
   return( $labels );
 } 
 
@@ -184,14 +191,12 @@ function bw_default_labels( $labels= array() ) {
  * Set default custom taxonomy labels
  * 
  * It looks like these are the same as for post types - let's check
- * OK there are a few more. We'll call default_labels first then
- * 
- labels
-(array) (optional) labels - An array of labels for this taxonomy. 
-By default tag labels are used for non-hierarchical types and category labels for hierarchical ones.
-
-Default: if empty, name is set to label value, and singular_name is set to name value
-
+ * OK, there are a few more... we'll call default_labels first then.
+ *
+ * By default tag labels are used for non-hierarchical types and category labels for hierarchical ones.
+ *
+ * Default: if empty, name is set to label value, and singular_name is set to name value
+ * `
 x 'name' - general name for the taxonomy, usually plural. The same as and overridden by $tax->label. Default is _x( 'Post Tags', 'taxonomy general name' ) or _x( 'Categories', 'taxonomy general name' ). When internationalizing this string, please use a gettext context matching your post type. Example: _x('Writers', 'taxonomy general name');
 x 'singular_name' - name for one object of this taxonomy. Default is _x( 'Post Tag', 'taxonomy singular name' ) or _x( 'Category', 'taxonomy singular name' ). When internationalizing this string, please use a gettext context matching your post type. Example: _x('Writer', 'taxonomy singular name');
 x 'menu_name' - the menu name text. This string is the name to give menu items. Defaults to value of name
@@ -210,6 +215,10 @@ x 'search_items' - the search items text. Default is __( 'Search Tags' ) or __( 
   'add_or_remove_items' - the add or remove items text and used in the meta box when JavaScript is disabled. This string isn't used on hierarchical taxonomies. Default is __( 'Add or remove tags' ) or null
   'choose_from_most_used' - the choose from most used text used in the taxonomy meta box. This string isn't used on hierarchical taxonomies. Default is __( 'Choose from the most used tags' ) or null
   'not_found' (3.6+) - the text displayed via clicking 'Choose from the most used tags' in the taxonomy meta box when no tags are available. This string isn't used on hierarchical taxonomies. Default is __( 'No tags found.' ) or null
+ * `
+ * 	
+ * @param array $labels - An array of labels for this taxonomy. 
+ * @return array labels with defaults applied
  */
 function bw_default_taxonomy_labels( $labels = array() ) {
   $labels = bw_default_labels( $labels );
@@ -233,7 +242,7 @@ function bw_default_taxonomy_labels( $labels = array() ) {
  * 
  * @param string $taxonomy - the taxonomy name e.g. "country" 
  * @param array $args - parameters for the taxonomy
- * return array - updated args
+ * @return array - updated args
  */
 function bw_default_taxonomy_args( $taxonomy, $arg ) {
   //bw_trace2();
@@ -260,7 +269,6 @@ function bw_default_taxonomy_args( $taxonomy, $arg ) {
  * @param string $taxonomy - custom taxonomy name
  * @param string $object_type - the post type for which this taxonomy applies
  * @param mixed $args - array of arguments passed to register_taxonomy() 
- * 
  */
 function bw_register_taxonomy( $taxonomy, $object_type=NULL, $args=NULL ) {
   //bw_trace2( $args );  
@@ -273,6 +281,7 @@ function bw_register_taxonomy( $taxonomy, $object_type=NULL, $args=NULL ) {
 
 /**
  * Query the registered taxonomies to see if this is registered
+ *
  * @param string $taxonomy - the taxonomy name
  * @return bool - true if registered, false if not. 
  *   

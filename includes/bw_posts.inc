@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2015 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -68,7 +68,7 @@ function bw_process_this_post( $id ) {
   if ( !$processed ) {
     $processed_posts[$id] = $id ;
   }
-  bw_trace2( $processed_posts );
+  bw_trace2( $processed_posts, "processed posts", true, BW_TRACE_DEBUG );
   return( !$processed );
 }
 
@@ -80,7 +80,7 @@ function bw_process_this_post( $id ) {
 function bw_clear_processed_posts() {
   global $processed_posts;
   $processed_posts = array();
-  bw_trace2( $processed_posts, "cleared" );
+  bw_trace2( $processed_posts, "cleared", false, BW_TRACE_DEBUG );
 }
 
 /**
@@ -156,7 +156,7 @@ function bw_more_text( $more_text=null, $atts=null ) {
     $bw_more = $bw_more_text;
   }
   $bw_more_text = $more_text; 
-  bw_trace2( $bw_more, "bw_more" );
+  bw_trace2( $bw_more, "bw_more", true, BW_TRACE_DEBUG );
   return( $bw_more );
 }
 
@@ -200,7 +200,7 @@ function bw_excerpt( $post ) {
  *
  */
 function bw_format_post( $post, $atts ) {
-  bw_trace( $post, __FUNCTION__, __LINE__, __FILE__, "post" );
+  bw_trace( $post, __FUNCTION__, __LINE__, __FILE__, "post", BW_TRACE_DEBUG );
   $atts['title'] = get_the_title( $post->ID );
   $thumbnail = bw_thumbnail( $post->ID, $atts );
   $in_block = bw_validate_torf( bw_array_get( $atts, "block", TRUE ));
@@ -325,7 +325,7 @@ function bw_format_list( $post, $atts ) {
  */
 function bw_get_categories() {
   global $post;
-  bw_trace2( $post, "global post" );
+  bw_trace2( $post, "global post", false, BW_TRACE_DEBUG );
   //  bw_backtrace();
   if ( $post ) {
     $categories = get_the_category( $post->ID );
@@ -339,7 +339,7 @@ function bw_get_categories() {
   } else {
     $cats = null;
   }    
-  return bw_trace2( $cats );
+  return bw_trace2( $cats, null, false, BW_TRACE_DEBUG );
 }
 
 /**
@@ -372,7 +372,7 @@ function bw_get_posts( $atts=null ) {
   // Copy the atts from the shortcode to create the array for the query
   // removing the class and title parameter that gets passed to bw_block()    **?** 2013/07/01 - is this still done?
   $attr = $atts;
-  bw_trace( $atts, __FUNCTION__, __LINE__, __FILE__, "atts" );
+  bw_trace( $atts, __FUNCTION__, __LINE__, __FILE__, "atts", BW_TRACE_DEBUG );
   //bw_trace( $attr, __FUNCTION__, __LINE__, __FILE__, "attr" );    
   
   /* Set default values if not already set */
@@ -451,7 +451,7 @@ function bw_get_posts( $atts=null ) {
     $attr['suppress_filters'] = false;
   }
   
-  bw_trace( $attr, __FUNCTION__, __LINE__, __FILE__, "attr" );
+  bw_trace( $attr, __FUNCTION__, __LINE__, __FILE__, "attr", BW_TRACE_INFO );
   
   $bw_query = bw_array_get( $atts, "bw_query", null );
   if ( $bw_query ) {
@@ -459,7 +459,7 @@ function bw_get_posts( $atts=null ) {
   } else {
     $posts = get_posts( $attr );
   }   
-  bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts" );
+  bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts", BW_TRACE_INFO );
   return( $posts );
 }
 
@@ -517,10 +517,10 @@ function _bw_get_posts( $args=null ) {
   
   $get_posts = bw_array_get( $args, "bw_query", null );
   $posts = $get_posts->query( $r );
-  bw_trace2( $get_posts->post_count, "new WP_Query post_count", false );
-  bw_trace2( $get_posts, "new WP_Query", false );
-  bw_trace2( $get_posts->found_posts, "new WP_Query found_posts", false );
-  bw_trace2( $get_posts->max_num_pages, "new WP_Query max_num_pages", false );
+  bw_trace2( $get_posts->post_count, "new WP_Query post_count", false, BW_TRACE_INFO );
+  bw_trace2( $get_posts, "new WP_Query", false, BW_TRACE_INFO );
+  bw_trace2( $get_posts->found_posts, "new WP_Query found_posts", false, BW_TRACE_INFO );
+  bw_trace2( $get_posts->max_num_pages, "new WP_Query max_num_pages", false, BW_TRACE_INFO );
   //$result = array( $posts
   //               , $get_posts
   //               );
@@ -556,7 +556,7 @@ function bw_get_post( $post_id, $post_type, $atts=null ) {
     // gobang() or doingitwrong or something
     $post = null;
   }  
-  bw_trace2( $post );
+  bw_trace2( $post, "post", true, BW_TRACE_INFO );
   return( $post );
 }
 
