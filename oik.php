@@ -3,7 +3,7 @@
 Plugin Name: oik base plugin 
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 3.0.0-alpha.0820
+Version: 3.0.0-alpha.0917
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -288,7 +288,7 @@ function oik_query_libs_query_libs( $libraries ) {
 	
 	//$versions = array( "bobbfunc" => "3.0.0" );
 	//$new_libraries = oik_lib_set_lib_versions( $libraries, $libs, $versions, "oik" );
-	bw_trace2( $new_libraries, "new libraries" );
+	bw_trace2( $new_libraries, "new libraries", true, BW_TRACE_DEBUG );
 	
 	return( $new_libraries );
 }
@@ -346,7 +346,7 @@ function oik_lib_set_lib_versions( $libraries, $libs, $versions, $plugin ) {
 function oik_admin_notices() {
 	oik_require_lib( "oik-depends" );
   $loaded = oik_require_lib( "oik-activation" );
-	bw_trace2( $loaded, "oik-activation loaded?", false );
+	bw_trace2( $loaded, "oik-activation loaded?", false, BW_TRACE_DEBUG );
 }
 	
 /**

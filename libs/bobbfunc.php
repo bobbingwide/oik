@@ -688,7 +688,6 @@ function _bw_acronym( $title="OIK Information Kit", $acronym="oik" ) {
 function _bw_c( $text ) {
 	if ( is_object( $text ) ) {
 		$text = print_r( $text, true );
-		bw_backtrace();
 	}
   bw_echo( '<!--' . $text . '-->' );
 }
@@ -1418,19 +1417,6 @@ function bw_is_loaded( $file, $is_main=true ) {
     }   
   }
   return( $loaded );
-}
-
-/**
- * Create an unassociative array from a partially associative array
- *
- * Given array( "foo", "bar", "baz" => "qux", "qux" => "qux" );
- * return array( "foo", "bar", "baz:qux", "qux" );
- * 
- * @param array a simple partially associative array
- * @param string
- */
-function bw_unassoc( $array, $sep=":" ) {
-	return( $array );
 }
 
 /** 

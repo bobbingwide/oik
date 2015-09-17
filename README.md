@@ -179,6 +179,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.0.0-alpha.0917 
+Synchronized with oik-bwtrace v2.0.7 - now using the trace level parameter
+
 # 3.0.0-alpha.0820 
 Contains a fix for WPMS when oik-bwtrace not active
 
@@ -444,8 +447,18 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 3.0.0-alpha.0917
+* Added: Add bw_sc_shortcake_compatible() function
+* Changed: Add trace level to some bw_trace2 calls
+* Changed: Better integration with shortcake ( shortcode-ui ) plugin
+* Changed: Caters for changes to labels in WordPress 4.3.0
+* Changed: Improve [bw_blockquote] shortcode
+* Changed: Prefix content and excerpt class name for spans with 'bw_'
+* Changed: Synchronized shared libraries with oik-bwtrace v2.0.7
+* Fixed: Comment out gobang() in bw_link_url()
+
 # 3.0.0-alpha.0820 
-* Fixed: Fatal in WPMS due to oik-admin library not being loaded in 'network_admin_menu' action hook
+* Fixed: Fatal in WPMS due to oik-admin and bobbfunc libraries not being loaded in 'network_admin_menu' action hook
 
 # 3.0.0-alpha.0814 
 * Unreleased version.
