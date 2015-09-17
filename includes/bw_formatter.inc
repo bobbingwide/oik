@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013, 2014
+<?php // (C) Copyright Bobbing Wide 2013-2015
 
 /**
  * Format the post as specified by the user  
@@ -186,30 +186,41 @@ function bw_content( $post ) {
  * Format the content (format=C)
  *
  * Note that this is supposed to display the full content AFTER shortcode expansion
- * BUT excluding other filters that may be applied during "the_content" processing
+ * BUT excluding other filters that may be applied during "the_content" processing.
  * 
+ * @param object $post
+ * @param array $atts
+ * @param mixed $f
  */
 function bw_field_function_content( $post, &$atts, $f ) {
   $content = bw_content( $post );
-  span( "content" );
+  span( "bw_content" );
   e( $content );
-  epan( "content" );
+  epan( "bw_content" );
 }
 
 /**
  * Format the excerpt (format=E)
  *
  * @uses bw_excerpt();
+ *
+ * @param object $post
+ * @param array $atts
+ * @param mixed $f
  */
 function bw_field_function_excerpt( $post, &$atts, $f ) {
   $excerpt = bw_excerpt( $post );
-  span( "excerpt" );
+  span( "bw_excerpt" );
   e( $excerpt );
-  epan( "excerpt" );
+  epan( "bw_excerpt" );
 }
 
 /**
  * Format the "read more" link (format=R)
+ *
+ * @param object $post
+ * @param array $atts
+ * @param mixed $f
  */
 function bw_field_function_readmore( $post, &$atts, $f ) {
   bw_format_read_more( $post, $atts );  
@@ -218,6 +229,9 @@ function bw_field_function_readmore( $post, &$atts, $f ) {
 /**
  * Format the "more" link (format=M)
  * 
+ * @param object $post
+ * @param array $atts
+ * @param mixed $f
  */
 function bw_field_function_more( $post, &$atts, $f ) {
   bw_format_more( $post, $atts );  
@@ -225,12 +239,15 @@ function bw_field_function_more( $post, &$atts, $f ) {
 
 /**
  * Format the link (format=L)
+ *
+ * @param object $post
+ * @param array $atts
+ * @param mixed $f
  */
 function bw_field_function_link( $post, &$atts, $f ) {
   oik_require( "shortcodes/oik-parent.php" );
   bw_post_link( $post->ID );
 }
-
 
 /**
  * Format links to the Attachment(s) (format=A)
@@ -240,6 +257,9 @@ function bw_field_function_link( $post, &$atts, $f ) {
  * 
  * When the post is something else we still need to find the attachments
  * 
+ * @param object $post
+ * @param array $atts
+ * @param mixed $f
  * 
  */
 function bw_field_function_attachment( $post, &$atts, $f ) {
