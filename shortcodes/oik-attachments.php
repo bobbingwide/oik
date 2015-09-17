@@ -173,7 +173,7 @@ function bw_format_attachment( $post, $atts ) {
  * This function is similar to bw_pages but formats attachments
  * It works in conjunction with Artisteer blocks - to enable the page list to be styled as a series of blocks
  * Well, that's the plan
- *
+ * `
  * [bw_attachments class="classes for bw_block" 
  *   post_type='atachment'
  *   post_mime_type='
@@ -191,6 +191,7 @@ function bw_format_attachment( $post, $atts ) {
  *   block=true or false
  *   thumbnail=specification - see bw_thumbnail()
  *   customcategoryname=custom category value  
+ * `
  */
 function bw_attachments( $atts = NULL ) {
   $atts[ 'post_type'] = bw_array_get( $atts, "post_type", "attachment" );

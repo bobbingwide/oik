@@ -149,6 +149,7 @@ function oik_network_admin_menu() {
   static $actioned = null;
   if ( !$actioned ) { 
     $actioned = current_filter();
+		oik_require_lib( "bobbforms" );
 		oik_require_lib( "oik-admin" );
     require_once( 'admin/oik-admin.inc' );
     oik_options_add_page();
