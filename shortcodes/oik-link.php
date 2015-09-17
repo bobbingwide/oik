@@ -250,7 +250,7 @@ function bw_link_url( $url, $atts ) {
     if ( $parts['host'] ) {
       // No need to check if this is a domain, just use it.
       // OR do we?
-      gobang();
+      //gobang();
     } else {
       // No host... 
       // check to see if the path is a domain?
