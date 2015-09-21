@@ -685,6 +685,27 @@ function oik_lazy_themes_api_result( $result, $action, $args ) {
 
 )
 */ 
+
+
+/**
+ * Safer json_decode() 
+ * 
+ * @param string $json - what we believe to be JSON 
+ * @param bool $assoc - set true to convert objects into associative arrays
+ */
+function bw_json_decode( $json, $assoc=false ) {
+	$decoded = null;
+	if ( $json ) {
+		$pos = strpos( $json, '{' );
+		if ( $pos ) {
+			$unexpected = substr( $json, 0, $pos );
+			bw_trace2( $unexpected, "Unexpected data", true, BW_TRACE_WARNING );
+			$json = substr( $json, $pos );
+		} 
+		$decoded = json_decode( $json, $assoc );
+	}
+	return( $decoded );
+}
                
 
 
