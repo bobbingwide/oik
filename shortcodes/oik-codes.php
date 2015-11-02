@@ -146,7 +146,9 @@ function bw_get_shortcode_syntax_link( $shortcode, $callback ) {
  */
 function bw_sc_link( $shortcode, $callback=null ) {
   $function = bw_get_shortcode_function( $shortcode, $callback );
-  $link = "http://www.oik-plugins.com/oik-shortcodes/$shortcode/$function"; 
+	oik_require( "admin/oik-admin.inc" );
+	$link = oik_get_plugins_server();
+  $link .= "/oik-shortcodes/$shortcode/$function"; 
   $link = apply_filters( "bw_sc_link", $link, $shortcode, $function );
   if ( $link ) {
     alink( NULL, $link, "$shortcode", "$shortcode help" );   
