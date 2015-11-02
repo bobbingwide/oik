@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik base plugin package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik base plugin 3.0.0-alpha.0806\n"
+"Project-Id-Version: oik base plugin 3.0.0-alpha.0820\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2015-08-06 15:30:45+00:00\n"
+"POT-Creation-Date: 2015-08-20 12:20:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: fr_FR\n"
@@ -172,7 +172,7 @@ msgstr "Boutons"
 msgid "oik shortcode help"
 msgstr "oik aide shortcode"
 
-#: admin/oik-admin.inc:83 admin/oik-admin.inc:112 admin/oik-admin.inc:532
+#: admin/oik-admin.inc:83 admin/oik-admin.inc:112 admin/oik-admin.inc:539
 msgid "Shortcode help"
 msgstr "Shortcode aide"
 
@@ -215,7 +215,7 @@ msgid ""
 "Shortcode help"
 msgstr "Découvrez les shortcodes que vous pouvez utiliser dans votre contenu et les widgets utilisant Shortcode aide"
 
-#: admin/oik-admin.inc:112 admin/oik-admin.inc:532
+#: admin/oik-admin.inc:112 admin/oik-admin.inc:539
 msgid "Discover shortcodes you can use"
 msgstr "Découvrez shortcodes vous pouvez utiliser"
 
@@ -312,8 +312,8 @@ msgstr "[] Quicktag pour l'éditeur HTML"
 msgid "Integrate with shortcake"
 msgstr "Intégration avec shortcake"
 
-#: admin/oik-admin.inc:206 admin/oik-admin.inc:255 admin/oik-admin.inc:508
-#: admin/oik-admin.inc:579
+#: admin/oik-admin.inc:206 admin/oik-admin.inc:255 admin/oik-admin.inc:515
+#: admin/oik-admin.inc:586
 msgid "Save changes"
 msgstr "Sauvegarder les changements"
 
@@ -377,219 +377,220 @@ msgstr "bouton de sélection"
 msgid "TinyMCE buttons"
 msgstr "boutons de TinyMCE"
 
-#: admin/oik-admin.inc:330
+#: admin/oik-admin.inc:337
 msgid "shortcode options"
 msgstr "options de shortcode"
 
-#: admin/oik-admin.inc:331
+#: admin/oik-admin.inc:338
 msgid "Often included key information"
 msgstr "Informations clés souvent inclus"
 
-#: admin/oik-admin.inc:334
+#: admin/oik-admin.inc:341
 msgid "Usage notes"
 msgstr "Notes d'utilisation"
 
-#: admin/oik-admin.inc:344
+#: admin/oik-admin.inc:351
 msgid "Telephone"
 msgstr "Téléphone"
 
-#: admin/oik-admin.inc:345 shortcodes/oik-phone.php:138
+#: admin/oik-admin.inc:352 shortcodes/oik-phone.php:138
 #: shortcodes/oik-phone.php:170
 msgid "Mobile"
 msgstr "Portable"
 
-#: admin/oik-admin.inc:346 shortcodes/oik-phone.php:129
+#: admin/oik-admin.inc:353 shortcodes/oik-phone.php:129
 msgid "Fax"
 msgstr ""
 
-#: admin/oik-admin.inc:347 shortcodes/oik-phone.php:147
+#: admin/oik-admin.inc:354 shortcodes/oik-phone.php:147
 msgid "Emergency"
 msgstr "Urgence"
 
-#: admin/oik-admin.inc:385
+#: admin/oik-admin.inc:392
 msgid "Contact button text"
 msgstr "Contactez texte de bouton"
 
-#: admin/oik-admin.inc:386
+#: admin/oik-admin.inc:393
 msgid "Contact button tooltip"
 msgstr "Contact Bouton infobulle"
 
-#: admin/oik-admin.inc:401 admin/oik-admin.inc:567
+#: admin/oik-admin.inc:408 admin/oik-admin.inc:574
 msgid "Street-address"
 msgstr "Adresse de la rue"
 
-#: admin/oik-admin.inc:402 admin/oik-admin.inc:568
+#: admin/oik-admin.inc:409 admin/oik-admin.inc:575
 msgid "Locality"
 msgstr "Localité"
 
-#: admin/oik-admin.inc:403 admin/oik-admin.inc:569
+#: admin/oik-admin.inc:410 admin/oik-admin.inc:576
 msgid "Region"
 msgstr "Région"
 
-#: admin/oik-admin.inc:404 admin/oik-admin.inc:570
+#: admin/oik-admin.inc:411 admin/oik-admin.inc:577
 msgid "Post Code"
 msgstr "Code Postal"
 
-#: admin/oik-admin.inc:405 admin/oik-admin.inc:571
+#: admin/oik-admin.inc:412 admin/oik-admin.inc:578
 msgid "Country name"
 msgstr "Nom du pays"
 
-#: admin/oik-admin.inc:452
+#: admin/oik-admin.inc:459
 msgid "Google Map width"
 msgstr "Largeur Google Map"
 
-#: admin/oik-admin.inc:453
+#: admin/oik-admin.inc:460
 msgid "Google Map height"
 msgstr "Google Map hauteur"
 
-#: admin/oik-admin.inc:465
+#: admin/oik-admin.inc:472
 msgid "PayPal country"
 msgstr "PayPal pays"
 
-#: admin/oik-admin.inc:483 shortcodes/oik-paypal.php:239
+#: admin/oik-admin.inc:490 shortcodes/oik-paypal.php:239
 msgid "PayPal currency"
 msgstr "Monnaie PayPal"
 
-#: admin/oik-admin.inc:495
+#: admin/oik-admin.inc:502
 msgid "Artisteer version"
 msgstr "Version Artisteer"
 
-#: admin/oik-admin.inc:522 admin/oik-admin.inc:589
+#: admin/oik-admin.inc:529 admin/oik-admin.inc:596
 msgid "Use the shortcodes in your pages, widgets and titles. e.g."
 msgstr "Utilisez les shortcodes dans vos pages, des widgets et des titres. par exemple,"
 
-#: admin/oik-admin.inc:531
+#: admin/oik-admin.inc:538
 msgid ""
 "For more information about the shortcodes you can use select <b>Shortcode "
 "help</b>"
 msgstr "Pour plus d'informations sur les numéros courts, vous pouvez utiliser select <b> Shortcode aide </ b>"
 
-#: admin/oik-admin.inc:542
+#: admin/oik-admin.inc:549
 msgid "extra shortcode options"
 msgstr "options de shortcode supplémentaires"
 
-#: admin/oik-admin.inc:543
+#: admin/oik-admin.inc:550
 msgid "alternative values using alt=1"
 msgstr "des valeurs alternatives utilisant alt = 1"
 
-#: admin/oik-admin.inc:546
+#: admin/oik-admin.inc:553
 msgid "usage notes"
 msgstr "notes d'utilisation"
 
-#: admin/oik-admin.inc:561
+#: admin/oik-admin.inc:568
 msgid "Contact [bw_contact alt=1]"
 msgstr "Contact [bw_contact alt = 1]"
 
-#: admin/oik-admin.inc:562
+#: admin/oik-admin.inc:569
 msgid "Email [bw_email alt=1]"
 msgstr "Email [bw_email alt = 1]"
 
-#: admin/oik-admin.inc:563
+#: admin/oik-admin.inc:570
 msgid "Telephone [bw_telephone alt=1]"
 msgstr "Téléphone [bw_telephone alt = 1]"
 
-#: admin/oik-admin.inc:564
+#: admin/oik-admin.inc:571
 msgid "Mobile [bw_mobile alt=1]"
 msgstr "Mobile [bw_mobile alt = 1]"
 
-#: admin/oik-admin.inc:566
+#: admin/oik-admin.inc:573
 msgid "Extended-address [bw_address alt=1]"
 msgstr "Extended-adresse [bw_address alt = 1]"
 
-#: admin/oik-admin.inc:573
+#: admin/oik-admin.inc:580
 msgid "Google Maps introductory text for [bw_show_googlemap alt=1]"
 msgstr "Google Maps texte d'introduction pour [bw_show_googlemap alt = 1]"
 
-#: admin/oik-admin.inc:574
+#: admin/oik-admin.inc:581
 msgid "Latitude [bw_geo alt=1] [bw_directions alt=1]"
 msgstr "Latitude [bw_geo alt = 1] [bw_directions alt = 1]"
 
-#: admin/oik-admin.inc:575
+#: admin/oik-admin.inc:582
 msgid "Longitude [bw_show_googlemap alt=1]"
 msgstr "Longitude [bw_show_googlemap alt = 1]"
 
-#: admin/oik-admin.inc:741
+#: admin/oik-admin.inc:748
 msgid "shortcode help"
 msgstr "shortcode aide"
 
-#: admin/oik-admin.inc:742
+#: admin/oik-admin.inc:749
 msgid "About shortcodes"
 msgstr "À propos de shortcodes"
 
-#: admin/oik-admin.inc:750
+#: admin/oik-admin.inc:757
 msgid "Shortcode summary"
 msgstr "Résumé de Shortcode"
 
-#: admin/oik-admin.inc:759
+#: admin/oik-admin.inc:766
 msgid ""
 "This page lists all the currently active shortcodes. To find out more "
 "information about a shortcode click on the shortcode name in the Help column."
 msgstr "Cette page répertorie tous les shortcodes actuellement actifs. Pour de plus amples renseignements au sujet d'un shortcode cliquez sur le nom de shortcode dans la colonne Aide."
 
-#: admin/oik-admin.inc:760
+#: admin/oik-admin.inc:767
 msgid ""
 "Depending on how the shortcode is implemented you will either be shown some "
 "more information with one or more examples, or an 'oik generated example.' "
 msgstr "Selon la façon dont le shortcode est mis en ouvre, soit vous serez montré quelques plus d'informations avec un ou plusieurs exemples, ou un 'oik exemple généré."
 
-#: admin/oik-admin.inc:761
+#: admin/oik-admin.inc:768
 msgid ""
 "You will also be shown the HTML snippet for the example. There should be no "
 "need to do anything with this output."
 msgstr "Vous serez également montré l'extrait HTML pour l'exemple. Il devrait y avoir aucun besoin de faire quelque chose avec cette sortie."
 
-#: admin/oik-admin.inc:762
+#: admin/oik-admin.inc:769
 msgid ""
 "For further information on a shortcode or its parameters click on the links "
 "in the Syntax column."
 msgstr "Pour plus d'informations sur un numéro court ou de ses paramètres, cliquez sur les liens dans la colonne de syntaxe."
 
-#: admin/oik-plugins.inc:19
+#: admin/oik-plugins.inc:29 libs/oik_plugins.php:34
 msgid "plugin server settings"
 msgstr "les paramètres du serveur plugins"
 
-#: admin/oik-plugins.inc:40 admin/oik-themes.inc:41
+#: admin/oik-plugins.inc:50 admin/oik-themes.inc:41 libs/oik_plugins.php:55
 msgid "Check"
 msgstr "Chèque"
 
-#: admin/oik-plugins.inc:67 admin/oik-themes.inc:68
+#: admin/oik-plugins.inc:77 admin/oik-themes.inc:68 libs/oik_plugins.php:82
 msgid "Add new"
 msgstr "Ajouter un nouveau"
 
-#: admin/oik-plugins.inc:71
+#: admin/oik-plugins.inc:81 libs/oik_plugins.php:86
 msgid "Edit plugin"
 msgstr "Modifier le plugin"
 
-#: admin/oik-plugins.inc:73 admin/oik-themes.inc:74
+#: admin/oik-plugins.inc:83 admin/oik-themes.inc:74 libs/oik_plugins.php:88
 msgid "Settings"
 msgstr "Paramètres"
 
-#: admin/oik-plugins.inc:192 admin/oik-themes.inc:179
+#: admin/oik-plugins.inc:202 admin/oik-themes.inc:179 libs/oik_plugins.php:207
 msgid "settings must not be blank"
 msgstr "paramètres ne doivent pas être vide"
 
-#: admin/oik-plugins.inc:242
+#: admin/oik-plugins.inc:252 libs/oik_plugins.php:257
 msgid "plugin"
 msgstr "brancher"
 
-#: admin/oik-plugins.inc:243 admin/oik-plugins.inc:255
-#: admin/oik-themes.inc:228 admin/oik-themes.inc:240
+#: admin/oik-plugins.inc:253 admin/oik-plugins.inc:265
+#: admin/oik-themes.inc:228 admin/oik-themes.inc:240 libs/oik_plugins.php:258
+#: libs/oik_plugins.php:270
 msgid "server"
 msgstr "serveur"
 
-#: admin/oik-plugins.inc:244 admin/oik-themes.inc:229
+#: admin/oik-plugins.inc:254 admin/oik-themes.inc:229 libs/oik_plugins.php:259
 msgid "apikey"
 msgstr "clé API (apikey)"
 
-#: admin/oik-plugins.inc:256 admin/oik-themes.inc:241
+#: admin/oik-plugins.inc:266 admin/oik-themes.inc:241 libs/oik_plugins.php:271
 msgid "apikey?"
 msgstr "clé API?"
 
-#: admin/oik-plugins.inc:288
+#: admin/oik-plugins.inc:298 libs/oik_plugins.php:303
 msgid "A new version of the plugin is available"
 msgstr "Une nouvelle version du plugin est disponible"
 
-#: admin/oik-plugins.inc:295
+#: admin/oik-plugins.inc:305 libs/oik_plugins.php:310
 msgid "Plugin is up to date."
 msgstr "Plugin est à jour."
 
@@ -1334,11 +1335,11 @@ msgstr "<B> Impossible de localiser la routine d'élargir shortcode. </ B>"
 msgid "missing post processing function: %1$s"
 msgstr "manquant fonction de post-traitement: %1$s"
 
-#: oik.php:180
+#: oik.php:183
 msgid "oik custom image link URL"
 msgstr "personnalisé oik lien URL de l'image"
 
-#: oik.php:235
+#: oik.php:238
 msgid "Howdy, %1$s"
 msgstr "Salutations, %1$s"
 
