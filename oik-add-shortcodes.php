@@ -26,15 +26,40 @@ function _bw_missing_shortcodefunc( $atts, $content, $tag ) {
  * @param string $file - filename of file to load
  * @return bool - return code from include_once or false if file does not exist
  *
-*/
+ */
 function bw_include_once( $file ) {
-  if ( file_exists( $file )) {
-    $rc = include_once( $file );
+  if ( $efile = bw_file_exists( $file )) {
+    $rc = include_once( $efile );
   } else {
     $rc = false; 
-    bw_trace2( $file, "File does not exist" );
+    bw_trace2( $file, "File does not exist", BW_TRACE_ERROR );
   }  
   return( $rc );    
+}
+
+/** 
+ * Check the "enhanced" file exists
+ *
+ * An enhanced file is where we convert the drive letter to uppercase
+ * and convert backslashes to forward.
+ * BUT we don't look for the real file in plugin_paths
+ * 
+ */
+function bw_file_exists( $file ) {
+	$efile = $file;
+  //if ( ':' === substr( $efile, 1, 1 ) ) { 
+		$efile = ucfirst( $efile ); 
+	//}	         
+  $efile = str_replace( "\\", "/", $efile );
+	if ( $efile <> $file ) { 
+		bw_trace2( $efile, "enhanced file", true, BW_TRACE_DEBUG );
+		bw_backtrace( BW_TRACE_DEBUG );
+	}
+	if ( !file_exists( $efile ) ) {
+		bw_trace2( $efile, "enhanced file", true, BW_TRACE_WARNING );
+		$efile = null;
+	}	 
+	return( $efile );
 }
 
 /**
@@ -48,6 +73,7 @@ function bw_include_once( $file ) {
  */  
 function bw_load_shortcodefile( $shortcode ) {
   global $bw_sc_file;
+	bw_trace2( $bw_sc_file, "bw_sc_file", true, BW_TRACE_VERBOSE );
   $file = bw_array_get( $bw_sc_file, $shortcode, false );
   if ( $file ) { 
     $file = bw_include_once( $file );
