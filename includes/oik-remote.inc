@@ -695,7 +695,9 @@ function oik_lazy_themes_api_result( $result, $action, $args ) {
  */
 function bw_json_decode( $json, $assoc=false ) {
 	$decoded = null;
-	if ( $json ) {
+	if ( is_object( $json ) ) {
+		bw_trace2( null, null, true, BW_TRACE_ERROR );
+	} elseif ( $json ) {
 		$pos = strpos( $json, '{' );
 		if ( $pos ) {
 			$unexpected = substr( $json, 0, $pos );

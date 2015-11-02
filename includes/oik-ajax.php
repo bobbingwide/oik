@@ -81,7 +81,6 @@ function oik_shortcake_shortcode_ui_after_do_shortcode() {
  */
 function oik_ajax_do_shortcode() {
   do_action( "oik_add_shortcodes" );
-  
   add_action( "shortcode_ui_before_do_shortcode", "oik_shortcake_shortcode_ui_before_do_shortcode" );
   add_action( "shortcode_ui_after_do_shortcode", "oik_shortcake_shortcode_ui_after_do_shortcode" );
 } 
