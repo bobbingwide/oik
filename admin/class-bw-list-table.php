@@ -769,10 +769,13 @@ class BW_List_Table {
     //echo "this screen" . $this->screen->id;
 
 		$columns = get_column_headers( $this->screen );
-    var_dump( $columns );
+    //var_dump( $columns );
 		$hidden = get_hidden_columns( $this->screen );
+		
+		
 
 		$sortable_columns = $this->get_sortable_columns();
+		bw_trace2( $sortable_columns, "sortable_columns", false, BW_TRACE_VERBOSE );
 		/**
 		 * Filter the list table sortable columns for a specific screen.
 		 *
@@ -796,6 +799,8 @@ class BW_List_Table {
 
 			$sortable[$id] = $data;
 		}
+		
+		bw_trace2( $sortable, "sortable", false, BW_TRACE_VERBOSE );
 
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 
@@ -894,7 +899,7 @@ class BW_List_Table {
 	 */
 	public function display() {
 		$singular = $this->_args['singular'];
-    bw_trace2();
+    //bw_trace2();
 
 		$this->display_tablenav( 'top' );
     
@@ -1138,7 +1143,7 @@ class BW_List_Table {
     $it .= kv( "name", $name );
     $it .= kv( "value", $value );
     $it .= "/>";
-    bw_trace2();
+    //bw_trace2();
 		//die( 'function BW_List_Table::column_cb() must be over-ridden in a sub-class.' );
     return( $it );
 	}
@@ -1158,9 +1163,12 @@ class BW_List_Table {
 	 */
 	public function column_default( $item, $column_name ) {
     //echo "column_default " . __LINE__ . __FILE__;
-    bw_trace2();
+    //bw_trace2();
 		//die( 'function BW_List_Table::column_default() must be over-ridden in a sub-class.' );
     $value = bw_array_get( $item, $column_name, null );
+		if ( is_array( $value ) )	{
+			$value = implode( ",", $value); 
+		}
     
   //$this->gob();
     return( $value );
