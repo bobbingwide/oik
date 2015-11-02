@@ -120,7 +120,7 @@ function oik_main_init() {
 		*/
 		do_action( 'oik_loaded' );
 	}	else {
-		bw_trace2( $bobbfunc, "bobbfunc?" );
+		bw_trace2( $bobbfunc, "bobbfunc?", false, BW_TRACE_ERROR );
 	}
 }
 
@@ -156,7 +156,7 @@ function oik_network_admin_menu() {
     add_action('admin_init', 'oik_admin_init' );
     do_action( 'oik_admin_menu' );
   } else {
-    bw_trace2( $actioned, "actioned" );
+    bw_trace2( $actioned, "actioned", false, BW_TRACE_INFO );
   }   
 }
  
@@ -288,7 +288,7 @@ function oik_query_libs_query_libs( $libraries ) {
 	
 	//$versions = array( "bobbfunc" => "3.0.0" );
 	//$new_libraries = oik_lib_set_lib_versions( $libraries, $libs, $versions, "oik" );
-	bw_trace2( $new_libraries, "new libraries", true, BW_TRACE_DEBUG );
+	bw_trace2( $new_libraries, "new libraries", true, BW_TRACE_VERBOSE );
 	
 	return( $new_libraries );
 }
