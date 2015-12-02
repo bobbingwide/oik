@@ -1,4 +1,16 @@
-<?php // (C) Copyright Bobbing Wide 2014
+<?php // (C) Copyright Bobbing Wide 2014,2015
+if ( !defined( "BW_LIST_TABLE_INCLUDED" ) ) {
+define( "BW_LIST_TABLE_INCLUDED", "0.0.1" );
+define( 'BW_LIST_TABLE_FILE', __FILE__ );
+
+/**
+ * oik-list-table is destined to becoming a shared library called bw_list_table
+ * Here we're going to use the BW_LIST_TABLE_INCLUDED constant 
+ * to attempt to prevent problems...
+ * but may use oik_require_lib( "bw_list_table") when this file gets deprecated
+ * so perhaps it's not a good idea after all.
+ * That's OK, we can use CLASS_BW_LIST_TABLE for the BW_List_Table class
+ */
 
 /**
  * Fetch an instance of the BW_List_Table class
@@ -33,6 +45,11 @@ function bw_get_list_table( $class, $args=array() ) {
 
 /**
  * Find where the class is implemented and load it
+ *
+ * @TODO Decide whether or not use to autoload for classes
+ * If so, determine the loading rules that will apply for all classes
+ * since we don't want hundreds of rules.
+ * Can this function actually be the spl loader function?
  *
  * @param string $class - the class name to load
  * @param array $args - 
@@ -75,7 +92,9 @@ function _bw_get_list_table_args_screen( $args ) {
   else
     $args['screen'] = null;
   return( $args );
-}  
+}
+
+} /* endif */ 
 
 
 
