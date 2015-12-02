@@ -900,7 +900,7 @@ class BW_List_Table {
 		// If the primary column doesn't exist fall back to the
 		// first non-checkbox column.
 		if ( ! isset( $columns[ $default ] ) ) {
-			$default = WP_List_Table::get_default_primary_column_name();
+			$default = BW_List_Table::get_default_primary_column_name();
 		}
 
 		/**
@@ -931,14 +931,17 @@ class BW_List_Table {
 	protected function get_column_info() {
 		// $_column_headers is already set / cached
 		if ( isset( $this->_column_headers ) && is_array( $this->_column_headers ) ) {
+			if ( count( $this->_column_headers ) < 4 ) {
+				$this->_column_headers[] = $this->get_primary_column_name();
+			}	
 			// Back-compat for list tables that have been manually setting $_column_headers for horse reasons.
 			// In 4.3, we added a fourth argument for primary column.
-			$column_headers = array( array(), array(), array(), $this->get_primary_column_name() );
-			foreach ( $this->_column_headers as $key => $value ) {
-				$column_headers[ $key ] = $value;
-			}
+			//$column_headers = array( array(), array(), array(), $this->get_primary_column_name() );
+			//foreach ( $this->_column_headers as $key => $value ) {
+			//	$column_headers[ $key ] = $value;
+			//}
 
-			return $column_headers;
+			return $this->_column_headers;
 		}
 
 		$columns = get_column_headers( $this->screen );
