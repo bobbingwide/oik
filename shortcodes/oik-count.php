@@ -20,9 +20,7 @@
 */
 function bw_count( $atts=null, $content=null, $tag=null ) {
   $post_type = bw_array_get_from( $atts, "post_type,0", "post" );
-  //if ( $post_type ) {
-    $count = wp_count_posts( $post_type );
-  //}
+  $count = wp_count_posts( $post_type );
   $status = bw_array_get_from( $atts, "status,1", "publish" );
   
   if ( property_exists( $count, $status ) ) { 
@@ -45,5 +43,6 @@ function bw_count__syntax( $shortcode="bw_count" ) {
                  , "status,1" => bw_skv( "publish", "pending|draft|auto-draft|future|private|trash|inherit", "Post status" )
                  );
   return( $syntax );
-}                 
+} 
+	
 
