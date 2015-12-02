@@ -7,7 +7,7 @@
  * 
  * The code is pretty much the same as in WP_List_Table except for these comments AND the changes from WP_ to BW_, where required.
  * Source copied from WordPress 4.0 on 2014/10/19
- * @TODO This needs to be updated to reflect what's in WordPress 4.3
+ * updated to reflect WordPress 4.3(.1) on 2015/11/03
  *
  * For more information about WP_List_Table and how to use it see:
  *
