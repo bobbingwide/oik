@@ -1,4 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2012-2015
+bw_backtrace2();
+bw_trace2( "Wrong oik_boot.php", __FILE__ );
+gobang();
 if ( !defined( 'OIK_BOOT_INCLUDED' ) ) {
 define( 'OIK_BOOT_INCLUDED', true );
 /**
@@ -34,11 +37,11 @@ if (!function_exists( 'oik_path' )) {
 /**
  * invoke require_once on an oik include file or other file
  *
+ * @uses oik_path()
+ *
  * @param string $include_file - the include file (or any other file) that you want to load
  * @param string $plugin - the plugin in which the file is located (default="oik")
- * @uses oik_path()
  */
- 
 if (!function_exists( 'oik_require' )) {
   function oik_require( $include_file = "bobbfunc.inc", $plugin="oik" ) {
     $path = oik_path( $include_file, $plugin );
