@@ -336,20 +336,32 @@ function bw_register_field_for_object_type( $field_name, $object_type ) {
 
 /** 
  * Register a field named $field_name of type $field_type with title $field_title and additional values $args
- * 
+ *
+ * Arg name | Purpose
+ * --- | -------
+ * #length | for text fields
+ * #validate | for any field
+ * #type | for noderef type fields 
+ * #options | for select type fields
+ * #multiple | for multiple select fields
+ * #form | bool - whether or not to display the field on an "Add New" form - defaults to true 
+ * #theme | bool - whether or not to display the field during "theming" - defaults to true
+ * #theme_null | bool - whether or not to display the field when null - defaults to true
+ * #hint | Field hint
+ *
+ * Additional parameters for virtual fields
+ *
+ * Arg name | Purpose
+ * --------- | ---------
+ * #callback | callback function for virtual fields
+ * #parms | metadata field to pass to callback function
+ * #plugin | implementing plugin for #callback
+ * #file | file in implementing plugin for #callback
+ *
  * @param string $field_name - meta_key of the field - precede with an underscore so it's not in custom fields
  * @param string $field_type - type of field e.g. text, textarea, radio button
  * @param string $field_title - title of the field
- * @param string $args - $field_type specific values including:
- * `
- *   #length - for text fields
- *   #validate - for any field
- *   #type - for noderef 
- *   #options - for select 
- *   #multiple - for multiple select fields
- *   #form - bool - whether or not to display the field on an "Add New" form - defaults to true 
- *   #theme - bool - whether or not to display the field during "theming" - defaults to true
- * `  
+ * @param string $args - $field_type specific values
  */
 function bw_register_field( $field_name, $field_type, $field_title, $args=NULL ) {
   global $bw_fields;
@@ -362,6 +374,8 @@ function bw_register_field( $field_name, $field_type, $field_title, $args=NULL )
 
 /**
  * Return a list of defined fields 
+ *
+ * @return array associated array of field names
  */
 function bw_list_fields() {
   global $bw_fields;
