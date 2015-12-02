@@ -119,10 +119,7 @@ function bw_gmap_infowindow( $title, $postcode ) {
  */
 function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $markers=null, $zoom=12 ) {
   static $map = 0;
-  
-
   $latlng = $lat . ',' . $lng ;
-  
   if ( !$map ) {
     bw_echo( '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB">' );
     bw_echo( '</script>' );
