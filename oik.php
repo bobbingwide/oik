@@ -279,6 +279,7 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "oik-depends" => null 
 						, "oik_plugins" => null
 						, "bobbfunc" => null
+						, "oik-autoload" => null
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	
