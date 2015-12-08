@@ -265,7 +265,7 @@ function oik_require_file( $file, $library, $args=null ) {
 	} else {
 		$library_file = oik_require_lib_fallback( $file );
 	}
-	//bw_trace2( $library_file, "library_file" );
+	bw_trace2( $library_file, "library_file", true, BW_TRACE_VERBOSE );
 	return( $library_file );	
 }
 } 
