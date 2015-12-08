@@ -356,11 +356,14 @@ function bw_get_shortcode_title_expansion( $shortcode ) {
  * @param book $the_title - true if the shortcode is allowed to expand in "the_title" processing 
  */
 function bw_add_shortcode( $shortcode, $function=NULL, $file=NULL, $the_title=TRUE ) {
-  bw_add_shortcode_event( $shortcode, $function ) ;
-  bw_add_shortcode_title_expansion( $shortcode, $the_title );
-  if ( $the_title ) {
-    bw_add_shortcode_event( $shortcode, $function, 'the_title', 'bw_admin_strip_tags' );
-  }   
+	$function = apply_filters( "oik_add_shortcode", $function, $shortcode ); 
+	if ( $function ) {
+		bw_add_shortcode_event( $shortcode, $function ) ;
+		bw_add_shortcode_title_expansion( $shortcode, $the_title );
+		if ( $the_title ) {
+			bw_add_shortcode_event( $shortcode, $function, 'the_title', 'bw_admin_strip_tags' );
+		}
+	}	   
   if ( $file ) { 
     bw_add_shortcode_file( $shortcode, $file );
   }  
