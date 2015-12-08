@@ -10,6 +10,7 @@ define( 'BW_LIST_TABLE_FILE', __FILE__ );
  * but may use oik_require_lib( "bw_list_table") when this file gets deprecated
  * so perhaps it's not a good idea after all.
  * That's OK, we can use CLASS_BW_LIST_TABLE for the BW_List_Table class
+ * and CLASS_BW_OPTIONS_LIST_TABLE for the BW_Options_List_Table class
  */
 
 /**
