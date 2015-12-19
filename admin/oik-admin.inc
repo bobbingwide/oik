@@ -40,6 +40,7 @@ function oik_options_init() {
   //add_filter( "attachment_fields_to_save", "oik_attachment_fields_to_save", null, 2 );
   // Add support for plugin relocation during "pre_current_active_plugins" 
   add_action( "pre_current_active_plugins", "bw_relocate_pre_current_active_plugins", 10, 1 );
+	add_action( "pre_current_active_plugins", "bw_check_symlinks", 10 );
 }
 
 /**
@@ -1139,5 +1140,52 @@ function bw_add_relocation( $from, $to ) {
   }
   $bw_relocations[ $from ] = $to;
   bw_trace2( $bw_relocations );
+}
+
+
+/**
+ * Disable updates for symlinked plugins.
+ * 
+ * There must be at least one plugin in the $wp_list_table if it's set; since we're that plugin. 
+ */ 															
+function bw_check_symlinks() {
+	global $wp_list_table;
+	if ( isset( $wp_list_table ) ) {
+	
+		global $wp_plugin_paths;
+		if ( is_array( $wp_plugin_paths ) && count( $wp_plugin_paths ) ) {
+			$slugs = array();
+			foreach ( $wp_plugin_paths as $dir => $realdir ) {
+				$slug = basename( $dir );
+				$slugs[ $slug ] = $slug;
+			}
+			
+			$myplugins = $wp_list_table->items;
+			bw_trace2( $wp_plugin_paths, "wp_plugin_paths" );
+			bw_trace2( $slugs, "slugs" ); 
+			
+			foreach ( $myplugins as $plugin => $plugin_data ) {
+				//if ( array_key_exists( $wp_plugin_paths
+				if ( array_key_exists( $plugin_data['slug'], $slugs ) ) {
+					$myplugins[ $plugin ][ 'update'] = 0;
+					
+					add_action( "after_plugin_row_" . $plugin_data['plugin'], "bw_symlinked_plugin" );  
+					bw_trace2( $plugin_data, "plugin_data" );
+				} 
+			
+			}
+			$wp_list_table->items = $myplugins;
+		}
+				
+	}
+}
+
+function bw_symlinked_plugin() {
+	bw_trace2();
+	bw_backtrace();
+	echo "It's a symlinked plugin. Updates won't be applied";
+					gob();
+	
+
 }
 
