@@ -78,7 +78,8 @@ class OIK_Autoload {
 	 * 
 	 */
 	function file( $class_file ) {
-		//bw_trace2();
+		bw_trace2();
+		bw_backtrace();
 		$file = $class_file->file;
 		if ( !$file ) {
 			$file = str_replace( "_", "-", $class_file->class );
