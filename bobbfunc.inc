@@ -1,5 +1,7 @@
-<?php // Copyright Bobbing Wide 2009-2014
-// bobbfunc.inc
+<?php // Copyright Bobbing Wide 2009-2015
+
+if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
+define( "BOBBFUNC_INCLUDED", "2.5.1" );
 
 /** 
  * Return the plugin version of the oik base plugin
@@ -1465,3 +1467,5 @@ function bw_is_loaded( $file, $is_main=true ) {
   }
   return( $loaded );
 }
+
+} /* end if defined */

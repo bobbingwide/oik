@@ -1,4 +1,5 @@
-<?php // (C) Copyright Bobbing Wide 2010-2014
+<?php // (C) Copyright Bobbing Wide 2010-2015
+
 //namespace bw_oik; 
 
 // bobbcomp.inc - Company Information
@@ -689,6 +690,7 @@ function bw_array_get_from( $atts, $from, $default ) {
  * @param mixed $mixed - either an array already or a string of comma or blank separated values
  * @return array - an unkeyed array 
  */
+if ( !function_exists( "bw_as_array" ) ) {
 function bw_as_array( $mixed ) {
   if ( $mixed ) {
     if ( is_array( $mixed ) ) {
@@ -702,6 +704,7 @@ function bw_as_array( $mixed ) {
     $mixed_array = array();
   }      
   return( $mixed_array );
+}
 }
 
 /**

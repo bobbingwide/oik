@@ -1,5 +1,5 @@
-<?php // (C) Copyright Bobbing Wide 2011-2014
-if ( defined( "BWTRACE_INCLUDED" ) ) return;
+<?php // (C) Copyright Bobbing Wide 2011-2015 
+if ( !defined( "BWTRACE_INCLUDED" ) ) { 
 define( "BWTRACE_INCLUDED", true );
 
 /** 
@@ -69,3 +69,4 @@ if ( defined('BW_TRACE_CONFIG_STARTUP' ) && BW_TRACE_CONFIG_STARTUP == true ) {
   require_once( dirname( __FILE__ ) . '/bwtrace_boot.inc' );
 }  
 
+} /* end if defined */
