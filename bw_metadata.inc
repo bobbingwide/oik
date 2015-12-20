@@ -376,7 +376,9 @@ function bw_form_field( $field_name, $field_type, $field_title, $field_value, $a
   $field_title = bw_l10n_field_title( $field_name, $field_title, $field_type, $field_value, $args );
   $funcname = bw_form_function( "bw_form_field_", $field_type, $field_name );
 	bw_trace2( $funcname, "funcname", true, BW_TRACE_VERBOSE );
-  $funcname( $field_name, $field_type, $field_title, $field_value, $args );
+	if ( $funcname ) {
+		$funcname( $field_name, $field_type, $field_title, $field_value, $args );
+	}
 }
 
 /**
