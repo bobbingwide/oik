@@ -133,6 +133,7 @@ class BW_List_Table {
 		$this->screen = convert_to_screen( $args['screen'] );
 
 		add_filter( "manage_{$this->screen->id}_columns", array( $this, 'get_columns' ), 0 );
+		bw_trace2( $this, "this", false, BW_TRACE_VERBOSE );
 
 		if ( !$args['plural'] )
 			$args['plural'] = $this->screen->base;
@@ -435,6 +436,7 @@ class BW_List_Table {
 			 *
 			 * @param array $actions An array of the available bulk actions.
 			 */
+			bw_trace2( $this, "this", false, BW_TRACE_VERBOSE );
 			$this->_actions = apply_filters( "bulk_actions-{$this->screen->id}", $this->_actions );
 			$this->_actions = array_intersect_assoc( $this->_actions, $no_new_actions );
 			$two = '';
@@ -931,6 +933,7 @@ class BW_List_Table {
 	protected function get_column_info() {
 		// $_column_headers is already set / cached
 		if ( isset( $this->_column_headers ) && is_array( $this->_column_headers ) ) {
+		bw_trace2( $this->_column_headers, "this column_headers", false, BW_TRACE_VERBOSE );
 			if ( count( $this->_column_headers ) < 4 ) {
 				$this->_column_headers[] = $this->get_primary_column_name();
 			}	
@@ -940,6 +943,8 @@ class BW_List_Table {
 			//foreach ( $this->_column_headers as $key => $value ) {
 			//	$column_headers[ $key ] = $value;
 			//}
+			
+		 //gob();
 
 			return $this->_column_headers;
 		}
@@ -961,7 +966,7 @@ class BW_List_Table {
 		 */
 		$_sortable = apply_filters( "manage_{$this->screen->id}_sortable_columns", $sortable_columns );
 		
-		bw_trace2( $_sortable, "_sortable", false );
+		bw_trace2( $_sortable, "_sortable", false, BW_TRACE_VERBOSE );
 
 		$sortable = array();
 		foreach ( $_sortable as $id => $data ) {
