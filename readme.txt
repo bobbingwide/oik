@@ -1,10 +1,10 @@
 === oik ===
 Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
-Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
+Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.3.1
-Stable tag: 2.5
+Tested up to: 4.4
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,13 +15,9 @@ The *oik base* plugin provides a series of advanced WordPress shortcodes that he
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information. 
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
 
-At a glance changes in version 3.0.0
-* Now uses semantic versioning
-
-
-At a glance changes in version 2.6
-
-* oik base plugin now delivers shared library functionality
+At a glance changes in version 3.0.0, previously known as v2.6
+* Tested with WordPress 4.4	and WordPress MultiSite
+* oik base plugin now delivers and supports shared library functionality
 * Languages supported: French, UK English
 
 At a glance changes in version 2.5
@@ -179,6 +175,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.0.0-beta.1220
+Tested with WordPress 4.4. Contains a workaround for TRAC #35172, a follow on to TRAC #34060
+
 = 3.0.0-alpha.0917 = 
 Synchronized with oik-bwtrace v2.0.7 - now using the trace level parameter
 
@@ -447,6 +446,25 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.0.0-beta.1220
+* Added: Add 'oik_add_shortcode' filter.  Fixes #8
+* Added: Add bw_file_exists() and use in bw_include_once()
+* Added: Add oik-autoload shared library for autoloading PHP classes. Issue oik-lib #2
+* Added: BW_Options_List_Table class to administer serialized data from wp_options. Issue #12
+* Added: Logic to prevent updates to Symlinked plugins. Fixes #11 - Selectively disable plugin update requests
+* Changed: Allow bw_codes shortcode to display links to the defined oik-plugins server.
+* Changed: Better setting of ABSPATH when not already defined  Fixes #6
+* Changed: Changes to some trace calls
+* Changed: Create bw_json_decode() API for safer JSON decoding  Fixes #5
+* Changed: Docblock and comment updates and whitespace removal.
+* Changed: Update BW_List_Table to reflect improvement to WP_List_Table in WordPress 4.3. Issue #4
+* Changed: Update French language files. Part of Issue #9
+* Changed: Update comments to reflect WP 4.3 updates applied
+* Changed: Workaround for stack overflow problem in oik-shortcodes
+* Changed: _bw_get_posts() no longer passes offset=>0. Fixes #13. Pagination not working in WordPress 4.4. Workaround for #35171. 
+* Fixed: Don't call $funcname if value is not set. Related to oik-weightcountry-shipping issue #1
+* Tested: With WordPress 4.4. 
+
 = 3.0.0-alpha.0917 
 * Added: Add bw_sc_shortcake_compatible() function
 * Changed: Add trace level to some bw_trace2 calls

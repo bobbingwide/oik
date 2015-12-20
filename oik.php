@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: oik base plugin 
+Plugin Name: oik
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
 Version: 3.0.0-alpha.0917
@@ -330,8 +330,6 @@ function oik_lib_set_lib_versions( $libraries, $libs, $versions, $plugin ) {
 }
 }		
 
-
-
 /**
  * Implement "admin_notices" for oik 
  *
@@ -348,6 +346,7 @@ function oik_admin_notices() {
 	oik_require_lib( "oik-depends" );
   $loaded = oik_require_lib( "oik-activation" );
 	bw_trace2( $loaded, "oik-activation loaded?", false, BW_TRACE_DEBUG );
+	
 }
 	
 /**
