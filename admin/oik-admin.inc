@@ -1147,44 +1147,73 @@ function bw_add_relocation( $from, $to ) {
  * Disable updates for symlinked plugins.
  * 
  * There must be at least one plugin in the $wp_list_table if it's set; since we're that plugin. 
+ * 
+ * The plugin_data['plugin'] is only set if there is an update available
+ * 
  */ 															
 function bw_check_symlinks() {
 	global $wp_list_table;
 	if ( isset( $wp_list_table ) ) {
-	
-		global $wp_plugin_paths;
-		if ( is_array( $wp_plugin_paths ) && count( $wp_plugin_paths ) ) {
-			$slugs = array();
-			foreach ( $wp_plugin_paths as $dir => $realdir ) {
-				$slug = basename( $dir );
-				$slugs[ $slug ] = $slug;
-			}
-			
-			$myplugins = $wp_list_table->items;
-			bw_trace2( $wp_plugin_paths, "wp_plugin_paths" );
-			bw_trace2( $slugs, "slugs" ); 
-			
-			foreach ( $myplugins as $plugin => $plugin_data ) {
-				//if ( array_key_exists( $wp_plugin_paths
-				if ( array_key_exists( $plugin_data['slug'], $slugs ) ) {
-					$myplugins[ $plugin ][ 'update'] = 0;
-					
-					add_action( "after_plugin_row_" . $plugin_data['plugin'], "bw_symlinked_plugin" );  
+		$myplugins = $wp_list_table->items;
+		$normalized = wp_normalize_path( WP_PLUGIN_DIR );
+		foreach ( $myplugins as $plugin => $plugin_data ) {
+			$new_version = bw_array_get( $plugin_data, "new_version", null );
+			if ( $new_version ) {
+				$plugin_file = $plugin_data['plugin']; 
+				$plugin_path = $normalized . '/' . $plugin_file;
+				bw_trace2( $plugin_path, "plugin_path", false );
+				$real_path = realpath( $plugin_path );
+				$real_path = wp_normalize_path( $real_path );
+				bw_trace2( $real_path, "real_path" );
+				if ( $real_path != $plugin_path ) { 
+					$myplugins[ $plugin ]['update'] = 0;
+					$myplugins[ $plugin ]['real_path'] = $real_path;
+					unset( $myplugins[ $plugin ]['package'] );
+					//remove_action( "after_plugin_row_" . $plugin_data['plugin'], "
+					add_action( "in_plugin_update_message-" . $plugin_file, "bw_symlinked_plugin", 10, 2 ); 
+					 
+					remove_action( "after_plugin_row_$plugin_file", 'wp_plugin_update_row', 10, 2 );
+					add_action( "after_plugin_row_" . $plugin_file, "bw_symlinked_after_plugin_row", 10, 2 ); 
 					bw_trace2( $plugin_data, "plugin_data" );
-				} 
-			
+				}
 			}
-			$wp_list_table->items = $myplugins;
 		}
-				
+		bw_trace2( $wp_list_table->items, "Items" ); 
+		bw_trace2( $myplugins, "myplugins" );
+		$wp_list_table->items = $myplugins;
 	}
 }
 
-function bw_symlinked_plugin() {
+/**
+ * Display a message for a symlinked plugin
+ */
+function bw_symlinked_plugin( $plugin_data, $r ) {
 	bw_trace2();
 	bw_backtrace();
-	echo "It's a symlinked plugin. Updates won't be applied";
-					gob();
+	$text = "WordPress has previously determined that there is a new version available: ";
+	$text .= $plugin_data['new_version'];
+	$text .= "<br />However, this is a symlinked plugin, located at <br /> ";
+	$text .= $plugin_data['real_path'];
+	$text .= "&nbsp;";
+	$text .= "<br /><strong>So please don't attempt to apply updates.</strong>";
+
+	$message = '<tr class="plugin-update-tr">';
+	$message .= '<td colspan="3" class="plugin-update colspanchange">';
+	$message .= '<div class="update-message">';
+	$message .= $text;
+	$message .= "</div>";
+	$message .= "</td>";
+	$message .= "</tr>";
+		
+	echo $message;
+}
+
+/**
+ * 
+ */
+function bw_symlinked_after_plugin_row( $file, $plugin_data ) {
+	$r = null;
+	bw_symlinked_plugin( $plugin_data, $r );
 	
 
 }
