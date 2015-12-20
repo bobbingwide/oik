@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.2
-Stable tag: 2.4
+Tested up to: 4.4
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -156,6 +156,9 @@ The Application Programming Interface (API) reference documents over 960 APIs, i
 12. oik options - More information for [bw_show_googlemap] 
 
 == Upgrade Notice ==
+= 2.5.1 =
+Tested with WordPress 4.4. Contains a workaround for TRAC #35172, follow on to TRAC #34060
+
 = 2.5 =
 Tested with WordPress 4.2 and WordPress MultiSite. Contains security fix for workaround for shortcode pagination problems.
 
@@ -399,6 +402,10 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 2.5.1 =
+* Changed: Pagination not working in WordPress 4.4  ( workaround for TRAC #35172 ). Fixes #13
+* Changed: Updates to make oik v2.5 compatible with oik-bwtrace v2.0.9 and oik-lib. Fixes #14
+
 = 2.5 = 
 * Changed: Added esc_url() to workaround in bw_navi_paginate_links(). Security fix.
 * Fixed: bw_build_url() tests the path is not empty before calling unltrim() 

@@ -479,7 +479,7 @@ function bw_get_posts( $atts=null ) {
  */
 function _bw_get_posts( $args=null ) {
  $defaults = array(
-    'numberposts' => 5, 'offset' => 0,
+    'numberposts' => 5,
     'category' => 0, 'orderby' => 'date',
     'order' => 'DESC', 'include' => array(),
     'exclude' => array(), 'meta_key' => '',
