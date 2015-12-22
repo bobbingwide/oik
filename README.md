@@ -447,22 +447,22 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 ## Changelog 
 # 3.0.0-beta.1220
-* Added: Add 'oik_add_shortcode' filter.  Fixes #8
+* Added: Add 'oik_add_shortcode' filter.  Fixes github 8
 * Added: Add bw_file_exists() and use in bw_include_once()
-* Added: Add oik-autoload shared library for autoloading PHP classes. Issue oik-lib #2
-* Added: BW_Options_List_Table class to administer serialized data from wp_options. Issue #12
-* Added: Logic to prevent updates to Symlinked plugins. Fixes #11 - Selectively disable plugin update requests
+* Added: Add oik-autoload shared library for autoloading PHP classes. Issue oik-lib 2
+* Added: BW_Options_List_Table class to administer serialized data from wp_options. github Issue 12
+* Added: Logic to prevent updates to Symlinked plugins. Fixes github 11 - Selectively disable plugin update requests
 * Changed: Allow bw_codes shortcode to display links to the defined oik-plugins server.
-* Changed: Better setting of ABSPATH when not already defined  Fixes #6
+* Changed: Better setting of ABSPATH when not already defined  Fixes github issue 6
 * Changed: Changes to some trace calls
-* Changed: Create bw_json_decode() API for safer JSON decoding  Fixes #5
+* Changed: Create bw_json_decode() API for safer JSON decoding  Fixes github issue 5
 * Changed: Docblock and comment updates and whitespace removal.
-* Changed: Update BW_List_Table to reflect improvement to WP_List_Table in WordPress 4.3. Issue #4
-* Changed: Update French language files. Part of Issue #9
+* Changed: Update BW_List_Table to reflect improvement to WP_List_Table in WordPress 4.3. Github Issue 4
+* Changed: Update French language files. Part of github Issue 9
 * Changed: Update comments to reflect WP 4.3 updates applied
 * Changed: Workaround for stack overflow problem in oik-shortcodes
-* Changed: _bw_get_posts() no longer passes offset=>0. Fixes #13. Pagination not working in WordPress 4.4. Workaround for #35171.
-* Fixed: Don't call $funcname if value is not set. Related to oik-weightcountry-shipping issue #1
+* Changed: _bw_get_posts() no longer passes offset=>0. Fixes 13. Pagination not working in WordPress 4.4. Workaround for #35172.
+* Fixed: Don't call $funcname if value is not set. Related to github oik-weightcountry-shipping issue 1
 * Tested: With WordPress 4.4.
 
 # 3.0.0-alpha.0917
@@ -576,7 +576,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Changed: [bw_show_googlemap] markers parameter accepts "lat:lng" format for additional markers
 * Fixed: For shortcake, caption content field defined as textarea
 * Fixed: More support for symlinks.
-* Fixed: [bw_show_googlemap] control visibility problem ( GitHub Issue #1 )
+* Fixed: [bw_show_googlemap] control visibility problem ( GitHub Issue 1 )
 
 # 2.5-alpha.0130
 * Added: Action "wp_ajax_do_shortcode" supported by "oik_ajax_do_shortcode" - invokes "oik_add_shortcodes"
