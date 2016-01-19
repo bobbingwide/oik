@@ -42,7 +42,7 @@ function bw_build_url( $parts ) {
     $newurl .= $parts['query'];
   }
   if ( isset( $parts['fragment'] ) ) {  
-    $newurl .= "#";
+    $newurl .= "/#";
     $newurl .= $parts['fragment'];
   }
   return( $newurl );
