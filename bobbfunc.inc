@@ -1,7 +1,10 @@
-<?php // Copyright Bobbing Wide 2009-2015
+<?php // Copyright Bobbing Wide 2009-2016
 bw_trace2( __FILE__ , "loaded" ) ;
 
 $bobbfunc_loaded = oik_require_lib( "bobbfunc" );
+if ( $bobbfunc_loaded && $bobbfunc_loaded instanceof WP_Error ) {
+	bw_trace2( $bobbfunc_loaded, "bobbfunc error", false, BW_TRACE_ERROR );
+}
  
 /**
  * Original bobbfunc functions not in the 'bobbfunc' library
@@ -158,7 +161,7 @@ function ebw( $bw_class_prefix=NULL ) {
 	echo bw( $bw_class_prefix );
 }
 
-// Herb 2016/06/28	
+// Herb 2015/06/28	
 //oik_require( "bobbcomp.inc" );
 // Moved logic for art_button to bobbcomp.inc
 
