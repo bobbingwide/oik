@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.4
+Tested up to: 4.4.2
 Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,13 +18,11 @@ The functionality in the oik base plugin is used by over 40 other WordPress plug
 At a glance changes in version 3.0.0, previously known as v2.6
 * Tested with WordPress 4.4	and WordPress MultiSite
 * oik base plugin now delivers and supports shared library functionality
-* Languages supported: French, UK English
 
 At a glance changes in version 2.5
 
 * Supports shortcode UI plugin
 * noderef field type supports hierarchical post types
-
 
 At a glance changes in version 2.4
 
@@ -175,6 +173,10 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.0.0-RC1 = 
+Tested with WordPress 4.4.2 and WordPress MultiSite. 
+
+
 = 3.0.0-beta.1220
 Tested with WordPress 4.4. Contains a workaround for TRAC #35172, a follow on to TRAC #34060
 
@@ -446,6 +448,14 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.0.0-RC1 =
+* Changed: Change to possibly help with [github bobbingwide oik-shortcodes issue 9]
+* Changed: Some trace calls
+* Changed: Tidied some comments
+* Fixed: Add support for internal ( fragment ) links using [bw_link]	[github bobbingwide oik issue 16]
+* Fixed: Improved change for Issue 11	- compare 'new_version' with 'Version'
+* Tested: With WordPress 4.4.2 and WordPress MultiSite
+
 = 3.0.0-beta.1220
 * Added: Add 'oik_add_shortcode' filter.  Fixes github 8
 * Added: Add bw_file_exists() and use in bw_include_once()
