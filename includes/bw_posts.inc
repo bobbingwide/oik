@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -563,23 +563,41 @@ function bw_get_post( $post_id, $post_type, $atts=null ) {
 /**
  * Load posts by meta_key array 
  *
+ * Note: If there is only one value in the value_array we try to improve performance
+ * by simplifying the request to use meta_key rather than meta_query
+ *
  * @param string $post_type - the post type required
  * @param string $meta_key - the name of the meta value to match
- * @param array $value_array - the set of values to load 
+ * @param array $value_array - the set of values to load. There may be only one 
  * @return array $posts - the array of posts returned
  */
 function bw_get_by_metakey_array( $post_type, $meta_key, $value_array ) { 
-  $atts = array();
-  $atts['post_type'] = $post_type;
-  $atts['numberposts'] = -1; 
-  $meta_query = array();
-  $meta_query[] = array( "key" => $meta_key
-                       , "value" => $value_array 
-                       , "compare" => "IN"  
-                       );
-  $atts['meta_query'] = $meta_query;
-  $atts['exclude'] = -1;
-  $posts = bw_get_posts( $atts ); 
-  return( $posts );
+	$atts = array();
+	$atts['post_type'] = $post_type;
+	$atts['numberposts'] = -1; 
+	if ( is_array( $value_array ) ) {
+		if ( count( $value_array ) > 1 ) {
+			$meta_query = array();
+			$meta_query[] = array( "key" => $meta_key
+													 , "value" => $value_array 
+													 , "compare" => "IN"  
+													 );
+			$atts['meta_query'] = $meta_query;
+		} else {
+			$atts['meta_key'] = $meta_key;
+			$atts['meta_value'] = $value_array[0];
+		}
+	} else { 
+		$atts['meta_key'] = $meta_key;
+		$atts['meta_value'] = $value_array;
+		/*
+		 * @TODO Is it safe to limit ourselves to a single API? 
+		 * Or should this be controlled by the application?
+		 */
+		//$atts['numberposts'] = 1; 
+	}
+	$atts['exclude'] = -1;
+	$posts = bw_get_posts( $atts ); 
+	return( $posts );
 } 
 
