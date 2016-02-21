@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015
+<?php // (C) Copyright Bobbing Wide 2015, 2016
 if ( !defined( "OIK_AUTOLOAD_LOADED" ) ) {
 define( "OIK_AUTOLOAD_LOADED", "0.0.1" );
 
@@ -21,7 +21,7 @@ define( "OIK_AUTOLOAD_LOADED", "0.0.1" );
  * @param array $args
  */
 function oik_require_class( $class, $args=null ) {
-	bw_trace2();
+	bw_trace2( null, null, true, BW_TRACE_DEBUG );
 	$oik_autoload = oik_autoload();
 	bw_trace2( $oik_autoload, "oik_autoload", false, BW_TRACE_VERBOSE );
 	$oik_autoload->autoload( $class );
@@ -32,7 +32,7 @@ function oik_require_class( $class, $args=null ) {
  * Load the OIK_Autoload logic
  * 
  * You might think that the fact that you invoke oik_require_lib( "oik_autoload" ); 
- * whould be enough to tell the autoload library that you'll be using autoloading for your classes.
+ * would be enough to tell the autoload library that you'll be using autoloading for your classes.
  * But I think it's better to implicitely invoke either oik_require_class() or oik_autoload() to instantiate the
  * autoloading logic when you know that OO code will be used.
  * 
