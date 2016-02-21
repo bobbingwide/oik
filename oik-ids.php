@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2014-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -95,17 +95,11 @@ function oik_ids_css() {
 /**
  * Function to invoke when oik-ids is loaded
  * 
- * Define action and filter hooks for various content types
- * 
- * Commented out:
- * - Comments
+ * Define action and filter hooks to include the ID column in the admin list page for various content types, except comments.
  * 
  * We also make the ID field sortable. 
- * @TODO Can we also reduce the filters we add based on the $ptype?
- * Can we make media sortable by adding logic when handling manager_media_columns ?
- * Ditto for post
  
- * {@link http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_edit-post_type_columns}
+ * 
  * 
  * In the codex we get told that the manage_edit-post_type_columns filter has been supplanted by manage_${post_type}_posts_columns
  * 
@@ -113,50 +107,52 @@ function oik_ids_css() {
  * {@link http://codex.wordpress.org/Plugin_API/Action_Reference/manage_$post_type_posts_custom_column}
  * 
  * For custom post types we see the following actions/filters
- *                       
+ * `                      
  *   [manage_edit-oik_location_columns] => 1
  *   [manage_taxonomies_for_oik_location_columns] => 2
  *   [manage_posts_columns] => 2
  *   [manage_oik_location_posts_columns] => 2
+ * `
  * 
  * Whether or not it's more efficient to respond to the action for the particular 'screen' has not been determined
  * BUT we're doing it anyway.
- * `
- * URI                 action                  Invoked for
- * ------------        ----------------------- ---------------------------
- * "edit.php"          "load-edit.php"         posts, pages and CPTs 
- * "edit-tags.php"     "load-edit-tags.php"    taxonomies
- * "upload.php"        "load-upload.php"       media attachments
- * "link-manager.php"  "load-link-manager.php" links
- * "users.php"         "load-users.php"        users
- * `
+ * 
+ * URI                |  action                  | Invoked for
+ * ------------       |  ----------------------- | ---------------------------
+ * "edit.php"         |  "load-edit.php"         | posts, pages and CPTs 
+ * "edit-tags.php"    |  "load-edit-tags.php"    | taxonomies
+ * "upload.php"       |  "load-upload.php"       | media attachments
+ * "link-manager.php" |  "load-link-manager.php" | links
+ * "users.php"        |  "load-users.php"        | users
+ *
  * 
  * The most efficient method would be to dynamically define the function to match the action
  * e.g. oik_ids_load_edit - for "load_edit" 
  * IF the function exists AND we know the screen->id.
  * which we can get from the first file loaded?  
  * 
+ * `
  * $_SERVER[ 'REQUEST_URI' ] = /wordpress/wp-admin/users.php
  * $_SERVER[ 'SCRIPT_FILENAME ' ]
  * $_SERVER[ 'PHP_SELF' ]
  * $_SERVER[ 'SCRIPT_NAME' ] 
- 
+ * `
+ * 
  * admin.php uses $pagenow - which is set to the URI without the prefix
+ * 
+ * @TODO Can we make media sortable by adding logic when handling manager_media_columns ?
+ * Ditto for post  {@link http://codex.wordpress.org/Plugin_API/Filter_Reference/manage_edit-post_type_columns}
   
  */ 
 function oik_ids_loaded() {
-  //bw_backtrace();
-  //bw_trace2( $GLOBALS, "globals" );
-	//add_action( 'admin_head', 'oik_ids_css');
-  
-  global $pagenow;
-  if ( $pagenow ) {
-    $pagenow_function = "oik_ids_load_";
-    $pagenow_function .= str_replace( array( ".", "-" ), "_", $pagenow );
-    if ( function_exists( $pagenow_function ) ) {
-      add_action( "load-" . $pagenow, $pagenow_function );
-    }
-  }
+	global $pagenow;
+	if ( $pagenow ) {
+		$pagenow_function = "oik_ids_load_";
+		$pagenow_function .= str_replace( array( ".", "-" ), "_", $pagenow );
+		if ( function_exists( $pagenow_function ) ) {
+			add_action( "load-" . $pagenow, $pagenow_function );
+		}
+	}
 }
 
 /**
