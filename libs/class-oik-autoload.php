@@ -103,7 +103,9 @@ class OIK_Autoload {
 			$this->set_classes();
 		}
 		$class_file = bw_array_get( $this->classes, $class, null );
-		$class_file = (object) $class_file;
+		if ( $class_file ) {
+			$class_file = (object) $class_file;
+		}
 		bw_trace2( $class_file, "class_file" );
 		return( $class_file );
 	}
