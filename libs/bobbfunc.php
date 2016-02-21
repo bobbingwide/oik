@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2009-2015
+<?php // (C) Copyright Bobbing Wide 2009-2016
 if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
 define( "BOBBFUNC_INCLUDED", "3.0.0" );
 
@@ -565,22 +565,23 @@ function th( $data, $class=NULL, $id=NULL ) {
   stag( "th", $class, $id );
   bwt( $data );
   etag( "th" );
-}         
+} 
 
-// This routine finds the subdirectory under which this local version of the website is installed
-// we need to remove this from index lookups but add it to links! 
-// Example: on betterbfar in the twentyte directory it's set:
-// $docroot_suffix = "/twentyte/" ;
-
+/**
+ * Get the document root suffix
+ * 
+ * This routine finds the subdirectory under which this local version of the website is installed.
+ * Sometimes we need to remove this from index lookups but add it to links! 
+ *
+ * @TODO Shouldn't this function be deprecated?
+ */
 function bw_get_docroot_suffix() {
-  bw_backtrace();
-  //gobang();
+  bw_backtrace( BW_TRACE_DEBUG );
   $docroot_suffix = "/";
   if ( $_SERVER['SERVER_NAME'] == bw_get_option( "betterbyfar") )
   {
      $exdr = explode( '/', $_SERVER["DOCUMENT_ROOT"] );
      $exsf = explode( '/', $_SERVER['SCRIPT_FILENAME'] );
-     
      $docroot_suffix = '/' . $exsf[ count( $exdr) ] . '/';
      
      // bw_debug( "_SERVER[DOCUMENT_ROOT]: " . $_SERVER["DOCUMENT_ROOT"] );
