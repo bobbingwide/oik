@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2015
+<?php // (C) Copyright Bobbing Wide 2011-2016
 
 /**
  * oik admin functions not in the oik-admin library
@@ -1142,13 +1142,16 @@ function bw_add_relocation( $from, $to ) {
   bw_trace2( $bw_relocations );
 }
 
-
 /**
+ * Implement 'pre_current_active_plugins' to perform symlink checking
+ *
  * Disable updates for symlinked plugins.
  * 
  * There must be at least one plugin in the $wp_list_table if it's set; since we're that plugin. 
  * 
- * The plugin_data['plugin'] is only set if there is an update available
+ * The plugin_data['plugin'] is only set if there is an update available.
+ *
+ * @TODO Trying to change the items in the wp_list_table doesn't appear to work. Remove this logic if that's the case.  
  * 
  */ 															
 function bw_check_symlinks() {
@@ -1159,7 +1162,10 @@ function bw_check_symlinks() {
 		foreach ( $myplugins as $plugin => $plugin_data ) {
 			$new_version = bw_array_get( $plugin_data, "new_version", null );
 			if ( $new_version ) {
-				$plugin_file = $plugin_data['plugin']; 
+				//bw_trace2( $new_version, "new_version", false );
+				// For some plugins the $plugin key and $plugin_data['plugin'] are different.
+				// so we should be using $plugin here
+				$plugin_file = $plugin; 
 				$plugin_path = $normalized . '/' . $plugin_file;
 				bw_trace2( $plugin_path, "plugin_path", false );
 				$real_path = realpath( $plugin_path );
@@ -1185,36 +1191,51 @@ function bw_check_symlinks() {
 }
 
 /**
- * Display a message for a symlinked plugin
+ * Implement "in_plugin_update_message-$plugin_file" for a symlinked plugin
+ *  
+ * Display a message for a symlinked plugin that appears to need updating
+ *
+ * @param array $plugin_data information about the plugin and any new version that's available
+ * @param mixed $r 	YGIAGAM ???
  */
 function bw_symlinked_plugin( $plugin_data, $r ) {
-	bw_trace2();
-	bw_backtrace();
-	$text = "WordPress has previously determined that there is a new version available: ";
-	$text .= $plugin_data['new_version'];
-	$text .= "<br />However, this is a symlinked plugin, located at <br /> ";
-	$text .= $plugin_data['real_path'];
-	$text .= "&nbsp;";
-	$text .= "<br /><strong>So please don't attempt to apply updates.</strong>";
+	bw_trace2( null, null, true, BW_TRACE_VERBOSE );
+	bw_backtrace( BW_TRACE_VERBOSE );
+	
+	$version = bw_array_get( $plugin_data, "Version", null );
+	$new_version = bw_array_get( $plugin_data, "new_version", null ); 
+	if ( $new_version != $version ) {
+	
+		$text = "WordPress has previously determined that there is a new version available: ";
+		$text .= $new_version;
+		$text .= "<br />";
+		$text .= "Current version: ";
+		$text .= $version;
+		$text .= "<br />However, this is a symlinked plugin, located at <br /> ";
+		$text .= $plugin_data['real_path'];
+		$text .= "&nbsp;";
+		$text .= "<br /><strong>So please don't attempt to apply updates.</strong>";
 
-	$message = '<tr class="plugin-update-tr">';
-	$message .= '<td colspan="3" class="plugin-update colspanchange">';
-	$message .= '<div class="update-message">';
-	$message .= $text;
-	$message .= "</div>";
-	$message .= "</td>";
-	$message .= "</tr>";
+		$message = '<tr class="plugin-update-tr">';
+		$message .= '<td colspan="3" class="plugin-update colspanchange">';
+		$message .= '<div class="update-message">';
+		$message .= $text;
+		$message .= "</div>";
+		$message .= "</td>";
+		$message .= "</tr>";
 		
-	echo $message;
+		echo $message;
+	}
 }
 
 /**
- * 
+ * Implement 'after_plugin_row_$plugin_file' 
+ *  
+ * @param string $file
+ * @param array $plugin_data 
  */
 function bw_symlinked_after_plugin_row( $file, $plugin_data ) {
 	$r = null;
 	bw_symlinked_plugin( $plugin_data, $r );
-	
-
 }
 
