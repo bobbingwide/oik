@@ -1,10 +1,11 @@
-<?php // (C) Copyright Bobbing Wide 2015
+<?php // (C) Copyright Bobbing Wide 2015, 2016
 
 /**
  * Implement autoloading for shared libraries
  *
- * The autoload function is not supposed to load the class willy nilly
- * it needs to check compatibility with the libraries that are already loaded
+ * The autoload function is not supposed to load the classes willy nilly.
+ * It needs to check compatibility with the libraries that are already loaded
+ * @TODO Add this logic.
  * 
  * {@link http://woocommerce.wp-a2z.org/oik_api/wc_autoloaderautoload}
  * 
