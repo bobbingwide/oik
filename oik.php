@@ -51,7 +51,7 @@ function oik_version() {
 function oik_plugin_file_loaded() {
   require_once( "libs/oik_boot.php" );
 	oik_lib_fallback( __DIR__ . '/libs' );
-	add_action( "oik_query_libs", "oik_query_libs_query_libs" );
+	add_filter( "oik_query_libs", "oik_query_libs_query_libs" );
 	add_action( "oik_lib_loaded", "oik_oik_lib_loaded" );
 	oik_require_lib( "bwtrace" );
 	oik_require_lib( "bobbfunc" );
