@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -33,7 +33,7 @@
  * @param array $atts - shortcode parameters including the optional uo= parameter
  * @return string - list type
  */
-function bw_sl( $atts=null ) { 
+function bw_sl( $atts=null, $start=1 ) { 
   $uo = strtolower( bw_array_get( $atts, "uo", "u" ) ) ;  
   $class = bw_array_get( $atts, 'class', 'bw_list' );
   switch ( $uo ) {
@@ -43,7 +43,10 @@ function bw_sl( $atts=null ) {
       break;
     case "o":
     case "ol":
-      sol( $class);
+			//bw_trace2();
+			//bw_backtrace();
+			$extra = kv( "start", $start );
+      sol( $class, null, $extra);
       break;
     case "d":
     case "dl":
