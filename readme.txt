@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.4.2
+Tested up to: 4.5-beta3
 Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -173,9 +173,11 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.0.0-RC2 = 
+Tested with WordPress 4.5-beta3 and WordPress MultiSite.
+
 = 3.0.0-RC1 = 
 Tested with WordPress 4.4.2 and WordPress MultiSite. 
-
 
 = 3.0.0-beta.1220
 Tested with WordPress 4.4. Contains a workaround for TRAC #35172, a follow on to TRAC #34060
@@ -448,11 +450,17 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.0.0-RC2 = 
+* Added: Add some notes about autoload needing to perform runtime compatibility checking
+* Changed: oik_query_libs is a filter not an action
+* Fixed: bw_theme_object_property() should check for $post [github bobbingwide oik issues 19]
+* Tested: With WordPress 4.5-beta3
+
 = 3.0.0-RC1 =
-* Changed: Change to possibly help with [github bobbingwide oik-shortcodes issue 9]
+* Changed: Change to possibly help with [github bobbingwide oik-shortcodes issues 9]
 * Changed: Some trace calls
 * Changed: Tidied some comments
-* Fixed: Add support for internal ( fragment ) links using [bw_link]	[github bobbingwide oik issue 16]
+* Fixed: Add support for internal ( fragment ) links using [bw_link]	[github bobbingwide oik issues 16]
 * Fixed: Improved change for Issue 11	- compare 'new_version' with 'Version'
 * Tested: With WordPress 4.4.2 and WordPress MultiSite
 
