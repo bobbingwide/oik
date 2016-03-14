@@ -308,23 +308,36 @@ function stag( $tag, $class=NULL, $id=NULL, $extra=NULL ) {
 
 /**
  * Start an ordered list
+ *
+ * @param string $class CSS class name(s)
+ * @param string $id CSS id name
+ * @param string $extra - additional NVPs
  */
-function sol( $class=NULL, $id=NULL ) {
-   stag( "ol", $class, $id );
-}        
+function sol( $class=null, $id=null, $extra=null ) {
+	bw_trace2();
+	stag( "ol", $class, $id, $extra );
+}
 
 /** 
  * Start an unordered list
+ *
+ * @param string $class CSS class name(s)
+ * @param string $id CSS id name
+ * @param string $extra - additional NVPs
  */ 
 function sul( $class=NULL, $id=NULL, $extra=null ) {
-   stag( "ul", $class, $id, $extra );
+	stag( "ul", $class, $id, $extra );
 } 
 
 /**
  * Start a div
+ *
+ * @param string $class CSS class name(s)
+ * @param string $id CSS id name
+ * @param string $extra - additional NVPs
  */       
 function sdiv( $class=NULL, $id=NULL, $extra=NULL ) {
-   stag( "div", $class, $id, $extra );
+	stag( "div", $class, $id, $extra );
 }
 
 /** 
