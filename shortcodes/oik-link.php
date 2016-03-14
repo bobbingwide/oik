@@ -275,6 +275,11 @@ function bw_link_url( $url, $atts ) {
  * If the id or first unnamed parameter is numeric we treat this as a post ID
  * else we interpret the given parameter to find what could be a suitable URL.
  * If nothing is specified we simply link to ourselves.
+ *
+ * @TODO Add support for URL and text to be entered in any order.
+ * We can't simply change it to "text,1" since this makes the link text wrong for	this example
+ * `[bw_link text="Defence Sector" href="#front-page-3" class="button"]`
+ * Not quite sure why!
  * 
  * @param array $atts - array of shortcode parameters
  * @param string $content - 
