@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014,2015
+<?php // (C) Copyright Bobbing Wide 2014-2016
 
 /**
  * Return the next unique shortcode ID
@@ -140,11 +140,18 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
  * 
  * @TODO: If we want an ordered list then we should add the start number to the list.
  * So we need to know the page number and posts_per_page
+ *
+ * @param array $posts
+ * @param array $atts
+ * @param integer $start
  * 
  */
-function bw_navi_posts( $posts=null, $atts=null ) {
+function bw_navi_posts( $posts=null, $atts=null, $start=null ) {
   oik_require( "shortcodes/oik-list.php" );
-  $ol = bw_sl( $atts );
+	if ( !$start ) {
+		$start = bw_navi_start_from_atts( $atts );
+	}
+  $ol = bw_sl( $atts, $start );
   foreach ( $posts as $post ) {
     bw_format_list( $post, $atts );
   }
@@ -209,7 +216,7 @@ function bw_navi_ids( $posts, $atts=null ) {
   $end = min( $start + $posts_per_page, $count ) -1;
   bw_navi_s2eofn( $start, $end, $count );
   oik_require( "shortcodes/oik-list.php" );
-  $ol = bw_sl( $atts );
+  $ol = bw_sl( $atts, $start );
   for ( $i = $start; $i<= $end; $i++ ) {
     bw_list_id( $posts[$i] );
   }
@@ -218,10 +225,15 @@ function bw_navi_ids( $posts, $atts=null ) {
 } 
 
 /**
- *   
+ * Display "s to e of n" 
+ * 
+ * @param array $atts 
+ * @return ID start number (defaults to 1 )
+ *    
  */
 function oik_navi_s2eofn_from_query( $atts ) { 
   $bw_query = bw_array_get( $atts, "bw_query", null );
+	$start = 1;
   bw_trace2( $bw_query, "bw_query", false );
   if ( $bw_query ) {
     $page = bw_array_get( $atts, "paged", 1 );
@@ -234,7 +246,26 @@ function oik_navi_s2eofn_from_query( $atts ) {
       $end = min( $start + $posts_per_page, $count ) -1 ;
       bw_navi_s2eofn( $start, $end, $count );
     }
-  }  
+  } 
+	return( $start );
+}
+
+/**
+ * Return the start item for a paginated ordered list
+ * 
+ * 
+ */
+function bw_navi_start_from_atts( $atts ) {
+	$start = 1;
+  $page = bw_array_get( $atts, "paged", 1 );
+	if ( $page > 1 ) {
+    $posts_per_page = bw_array_get( $atts, "posts_per_page", null );
+		if ( $posts_per_page ) {
+      $start = ( $page-1 ) * $posts_per_page;
+			$start++;
+		}
+	} 
+	return( $start );
 }
 
 /**
@@ -259,8 +290,8 @@ function oik_navi_s2eofn_from_query( $atts ) {
  * @param string $tag - shortcode tag
  * @return string - generated HTML
  */
-function bw_navi( $atts=null, $content=null, $tag=null ) {
-  //bw_trace2();
+function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
+  bw_trace2();
   $posts_per_page = bw_array_get_dcb( $atts, "posts_per_page", null );
   if ( !$posts_per_page ) {
     $atts['posts_per_page'] = get_option( "posts_per_page" ); 
@@ -271,13 +302,18 @@ function bw_navi( $atts=null, $content=null, $tag=null ) {
   oik_require( "includes/bw_posts.inc" );
   $posts = bw_get_posts( $atts ); 
   if ( !$posts_per_page ) {
-    oik_navi_s2eofn_from_query( $atts );
-  }
-  $posts = bw_navi_posts( $posts, $atts );
+    $start = oik_navi_s2eofn_from_query( $atts );
+  } else {
+		$start = null;
+	}
+  $posts = bw_navi_posts( $posts, $atts, $start );
   if ( !$posts_per_page ) {
     oik_navi_lazy_paginate_links( $atts );
-  }  
-  return( bw_ret() );  
+		
+  }
+	$result = bw_ret();
+	$result = apply_filters( "oik_navi_result", $result, $atts, $content, $tag );  
+  return( $result );  
 }
 
    
