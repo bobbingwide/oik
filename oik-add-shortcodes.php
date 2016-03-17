@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2015
+<?php // (C) Copyright Bobbing Wide 2011-2016
 
 /**
  * OIK Shortcodes APIs
@@ -200,6 +200,7 @@ function bw_shortcode_event( $atts, $content=null, $tag=null) {
   if ( $shortcodefunc ) {
     //bw_trace( $bw_sc_ev, __FUNCTION__, __LINE__, __FILE__, "bw_sc_ev" );
     $atts = apply_filters( "oik_shortcode_atts", $atts, $content, $tag );
+		$content = apply_filters( "oik_shortcode_content", $content, $atts, $tag );
     $shortcodefunc = bw_load_shortcodefunc( $shortcodefunc, $tag ); 
     $result = call_user_func( $shortcodefunc, $atts, $content, $tag );
     $result = apply_filters( "oik_shortcode_result", $result, $atts, $content, $tag );   
