@@ -69,6 +69,7 @@ function bw_check_paged_shortcode( $bwscid ) {
  * @param array $atts
  */
 function oik_navi_lazy_paginate_links( $atts ) {
+	bw_trace2();
   $bwscid = bw_array_get( $atts, "bwscid", null );
   $bwscpage = bw_array_get( $atts, "paged", null );
   $bw_query = bw_array_get( $atts, "bw_query", null );
@@ -229,7 +230,6 @@ function bw_navi_ids( $posts, $atts=null ) {
  * 
  * @param array $atts 
  * @return ID start number (defaults to 1 )
- *    
  */
 function oik_navi_s2eofn_from_query( $atts ) { 
   $bw_query = bw_array_get( $atts, "bw_query", null );
@@ -253,7 +253,8 @@ function oik_navi_s2eofn_from_query( $atts ) {
 /**
  * Return the start item for a paginated ordered list
  * 
- * 
+ * @param array $atts
+ * @return integer the start index
  */
 function bw_navi_start_from_atts( $atts ) {
 	$start = 1;
@@ -291,7 +292,6 @@ function bw_navi_start_from_atts( $atts ) {
  * @return string - generated HTML
  */
 function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
-  bw_trace2();
   $posts_per_page = bw_array_get_dcb( $atts, "posts_per_page", null );
   if ( !$posts_per_page ) {
     $atts['posts_per_page'] = get_option( "posts_per_page" ); 
@@ -315,7 +315,6 @@ function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
 	$result = apply_filters( "oik_navi_result", $result, $atts, $content, $tag );  
   return( $result );  
 }
-
    
 /**
  * Help hook for [bw_navi] shortcode
