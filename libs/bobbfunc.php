@@ -238,7 +238,16 @@ function alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=N
  * Return a well formed link
  *
  * Parameters as for alink()
-*/
+ *
+ * @param string $class - the classes for the anchor tag
+ * @param string $url - the fully formed URL e.g. http://www.oik-plugins.com
+ * @param string $linktori - is the text or image
+ * @param string $alt - if NULL will use $linktori
+ * @param string $id - the unique ID for the anchor tag
+ * @param string $extra - anything else that needs to go in the <a> tag. e.g. 'onclick=then some javascript' 
+ * @return string the link
+ * 
+ */
 function retlink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL  ) {
   if ( is_null( $linktori ) )
     $linktori = $url;
