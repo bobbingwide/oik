@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.5-beta3
+Tested up to: 4.5-beta4
 Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -173,6 +173,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.0.0-RC3 = 
+Contains fixes for oik-plugins and WP-a2z. Tested with WordPress 4.5-beta4.
+
 = 3.0.0-RC2 = 
 Tested with WordPress 4.5-beta3 and WordPress MultiSite.
 
@@ -450,6 +453,14 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.0.0-RC3 = 
+* Added: Support ajaxified pagination of shortcodes with nested content [github bobbingwide oik issue 22]
+* Added: Support for pagination of multi-value fields [github bobbingwide oik issue 25]
+* Changed: Some trace levels
+* Changed: Support $extra parameter to allow for start=index for ordered lists [github bobbingwide oik issue 21]
+* Changed: Updated some docblocks
+* Fixed: Multi shortcode pagination not working consistently [github bobbingwide oik issue 24]
+
 = 3.0.0-RC2 = 
 * Added: Add some notes about autoload needing to perform runtime compatibility checking
 * Changed: oik_query_libs is a filter not an action
