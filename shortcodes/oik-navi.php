@@ -105,10 +105,14 @@ function oik_navi_lazy_paginate_links( $atts ) {
  */ 
 function bw_navi_paginate_links( $id, $page, $pages ) {
   //bw_trace2(  $_SERVER['REQUEST_URI'], "request_URI" );
+	$saved_request_uri = $_SERVER['REQUEST_URI'];
   $string = remove_query_arg( "bwscid$id" );
   $_SERVER['REQUEST_URI'] = $string; 
   //bw_trace2( $string, "removed request_URI", false );
-  $base = esc_url( add_query_arg( "bwscid$id", "%_%" ) );
+	$base = add_query_arg( "bwscid$id", "%_%" );
+	
+  //bw_trace2( $base, "base", false );
+  $base = esc_url_raw( $base );
   //bw_trace2( $base, "base", false );
   $format = "%#%";
   $args = array( "base" => $base
@@ -133,6 +137,7 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
   //bw_trace2( $args, "args" );
   //bw_trace2( $links, "links", false );
   e( $links );
+	$_SERVER['REQUEST_URI'] = $saved_request_uri;
 }
 
 /**
@@ -292,28 +297,39 @@ function bw_navi_start_from_atts( $atts ) {
  * @return string - generated HTML
  */
 function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
-  $posts_per_page = bw_array_get_dcb( $atts, "posts_per_page", null );
-  if ( !$posts_per_page ) {
-    $atts['posts_per_page'] = get_option( "posts_per_page" ); 
-    $atts = oik_navi_shortcode_atts( $atts );
-  }
-  $atts['numberposts'] = bw_array_get( $atts, "numberposts", -1 );
-  $atts['thumbnail'] = bw_array_get( $atts, "thumbnail", "none" );
-  oik_require( "includes/bw_posts.inc" );
-  $posts = bw_get_posts( $atts ); 
-  if ( !$posts_per_page ) {
-    $start = oik_navi_s2eofn_from_query( $atts );
-  } else {
-		$start = null;
+	bw_push();
+	$posts_per_page = bw_array_get_dcb( $atts, "posts_per_page", null );
+	if ( !$posts_per_page ) {
+		$atts['posts_per_page'] = get_option( "posts_per_page" ); 
+		$atts = oik_navi_shortcode_atts( $atts );
 	}
-  $posts = bw_navi_posts( $posts, $atts, $start );
-  if ( !$posts_per_page ) {
-    oik_navi_lazy_paginate_links( $atts );
-		
-  }
+	$atts['numberposts'] = bw_array_get( $atts, "numberposts", -1 );
+	$atts['thumbnail'] = bw_array_get( $atts, "thumbnail", "none" );
+	
+	$field = bw_array_get( $atts, "field", null );
+	
+	if ( $field ) {
+		bw_navi_field( $field, $atts, $posts_per_page );
+	} else {
+		oik_require( "includes/bw_posts.inc" );
+		$posts = bw_get_posts( $atts ); 
+		if ( !$posts_per_page ) {
+			$start = oik_navi_s2eofn_from_query( $atts );
+		} else {
+			$start = null;
+		}
+		$posts = bw_navi_posts( $posts, $atts, $start );
+		if ( !$posts_per_page ) {
+			oik_navi_lazy_paginate_links( $atts );
+		}	
+	}
+	
 	$result = bw_ret();
-	$result = apply_filters( "oik_navi_result", $result, $atts, $content, $tag );  
-  return( $result );  
+	bw_pop();
+	if ( !$field ) {
+		$result = apply_filters( "oik_navi_result", $result, $atts, $content, $tag );  
+	}
+	return( $result );  
 }
    
 /**
@@ -332,5 +348,75 @@ function bw_navi__syntax( $shortcode="bw_navi" ) {
   $syntax = bw_list__syntax();
   $syntax['posts_per_page'] = bw_skv( get_option( "posts_per_page" ), "<i>integer</i>|.", "Number of posts per page. Default from Reading Settings." );
   return( $syntax );
-}               
+}
 
+/**
+ * Paginate a multivalue field
+ * 
+ * Processing depends on the field type
+ * Type     | Processing
+ * -------- | ------------------------
+ * textarea | treat each line as a separate entry
+ * other    | handle multiple entries
+ * 
+ * 
+ * @param string $field the name of the post_meta_field to paginate
+ * @param array $atts shortcode parameters
+ */																				
+function bw_navi_field( $field, $atts, $posts_per_page ) {
+	
+	$content_array = bw_navi_fetch_field_content( $field, $atts );
+	$bwscid = bw_get_shortcode_id( true );
+	$page = bw_check_paged_shortcode( $bwscid );
+	$count = count( $content_array ); 
+	if ( $posts_per_page ) {  
+		$pages = ceil( $count / $posts_per_page );
+		$start = ( $page-1 ) * $posts_per_page;
+		$end = min( $start + $posts_per_page, $count ) -1  ;                              
+		bw_navi_s2eofn( $start, $end, $count );
+		$content_array = array_slice( $content_array, $start, $posts_per_page  );
+		bw_trace2( $content_array, "content_array" );
+	}
+	foreach ( $content_array as $content ) {
+		if ( false === strpos( $content, "[" ) ) {
+			e( $content );
+		} else {
+			e( bw_do_shortcode( $content ) ); 
+		}
+	}
+	
+	if ( $posts_per_page ) {
+		bw_navi_paginate_links( $bwscid, $page, $pages ); 
+	}
+	
+}
+
+/**
+ * 
+ * 
+ */
+function bw_navi_fetch_field_content( $field, $atts ) {
+	$id = bw_array_get( $atts, "id", bw_global_post_id() );
+	$values = get_post_meta( $id, $field, false );
+	bw_trace2( $values, "values" );
+	$field_type = bw_query_field_type( $field );
+	add_filter( "bw_navi_filter_textarea", "bw_navi_filter_textarea", 10, 3 );
+	add_filter( "bw_navi_filter_sctextarea", "bw_navi_filter_textarea", 10, 3 );
+	$content_array = apply_filters( "bw_navi_filter_${field_type}", $values, $field, $field_type );
+	return( $content_array );
+}
+
+/**
+ * Filter multiple textarea field values
+ */
+function bw_navi_filter_textarea( $values, $field, $field_type ) {
+	bw_trace2();
+	$result = array();
+	foreach ( $values as $value ) {
+		$lines = explode( "\n", $value );
+		foreach ( $lines as $line ) {
+			$result[] = $line;
+		}
+	}
+	return( $result );
+}
