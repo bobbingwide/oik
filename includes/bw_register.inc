@@ -135,7 +135,7 @@ function bw_ucfirst( $str ) {
  * - _edit_link - URL segement to use for edit link of this post type. THIS IS FOR INTERNAL USE ONLY!
  */
 function bw_register_post_type( $post_type, $post_type_args ) {
-  bw_trace2( null, null, true, BW_TRACE_DEBUG );
+  bw_trace2( null, null, true, BW_TRACE_VERBOSE );
   $post_type_args['public'] = bw_array_get( $post_type_args, 'public', true );
   $post_type_args['query_var'] = bw_array_get( $post_type_args, 'query_var', $post_type );
   $post_type_args['label'] = bw_array_get_dcb( $post_type_args, 'label', $post_type, "bw_ucfirst"  );
