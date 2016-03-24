@@ -371,7 +371,7 @@ function bw_textarea( $name, $len, $text, $value, $rows=10, $args=null ) {
 		$value = wp_strip_all_tags( $value );
 	}
 	
-	$spellcheck = bw_array_get( $args, "spellcheck", null );
+	$spellcheck = bw_array_get( $args, "#spellcheck", null );
 	if ( null !== $spellcheck ) {
 		$spellcheck = kv( "spellcheck", $spellcheck );
 	}
