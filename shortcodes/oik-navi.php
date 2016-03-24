@@ -366,7 +366,7 @@ function bw_navi__syntax( $shortcode="bw_navi" ) {
 function bw_navi_field( $field, $atts, $posts_per_page ) {
 	
 	$content_array = bw_navi_fetch_field_content( $field, $atts );
-	$bwscid = bw_get_shortcode_id( true );
+	$bwscid = bw_get_shortcode_id( false );
 	$page = bw_check_paged_shortcode( $bwscid );
 	$count = count( $content_array ); 
 	if ( $posts_per_page ) {  
