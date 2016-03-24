@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2015
+<?php // (C) Copyright Bobbing Wide 2012-2016
 /**
  * Logic to create metaboxes for each of the custom fields defined for a particular post type
  *
@@ -258,10 +258,16 @@ function bw_form_field_checkbox( $name, $type, $title, $value, $args ) {
 
 /**
  * Format a textarea metabox
+ *
+ * @param string $name field name
+ * @param string $type field type
+ * @param string $title field title
+ * @param string $value field value
+ * @param array $args additional parameters
  */
 function bw_form_field_textarea( $name, $type, $title, $value, $args ) {
   $len = bw_array_get( $args, "#length", 80 );
-  bw_textarea( $name, $len, $title, $value, 10 ); 
+  bw_textarea( $name, $len, $title, $value, 10, $args ); 
 }
 
 /**
