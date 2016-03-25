@@ -392,8 +392,11 @@ function bw_navi_field( $field, $atts, $posts_per_page ) {
 }
 
 /**
+ * Load the requested page for the field 
  * 
- * 
+ * @param string $field the field name e.g. _oik_rq_hooks
+ * @param array $atts parameters
+ * @return array the selected page
  */
 function bw_navi_fetch_field_content( $field, $atts ) {
 	$id = bw_array_get( $atts, "id", bw_global_post_id() );
@@ -408,9 +411,14 @@ function bw_navi_fetch_field_content( $field, $atts ) {
 
 /**
  * Filter multiple textarea field values
+ *
+ * @param array $values array of values to be exploded 
+ * @param string $field field name
+ * @param string $field_type field type. e.g. textarea, sctextarea
+ * @return array exploded results
  */
 function bw_navi_filter_textarea( $values, $field, $field_type ) {
-	bw_trace2();
+	//bw_trace2();
 	$result = array();
 	foreach ( $values as $value ) {
 		$lines = explode( "\n", $value );
