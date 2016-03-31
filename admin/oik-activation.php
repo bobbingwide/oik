@@ -1,13 +1,21 @@
-<?php // (C) Copyright Bobbing Wide 2012-2015
+<?php // (C) Copyright Bobbing Wide 2012-2016
 
 /**
+ * Dependency checking logic for WordPress plugins and themes
  * 
- * @TODO This logic has been converted to a shared library in libs/oik-activation.php
+ * This logic has been converted to a shared library in libs/oik-activation.php
+ * It is required for plugins which have dependencies but the dependency checking
+ * has not already been provided by a plugin which delivers the shared library. 
+ *
+ * @TODO Remove the redundant code
  */
 
 if ( function_exists( "oik_plugin_lazy_activation" ) ) {
- // It's already defined so we don't need this lot
+	// It's already defined so we don't need this lot
 } else { 
+	bw_trace2( __FILE__, "doing_it_wrong", false, BW_TRACE_ERROR );
+	_doing_it_wrong( __FILE__, "Use libs/oik-activation.php", "oik v3.0.0" );
+}
 
 /** 
  * Produce an install plugin link
@@ -34,7 +42,7 @@ function oik_plugin_install_plugin( $plugin ) {
  * We may not be activating the main plugin, so we need the relative path filename of the plugin to activate
  * @return string link to enable activation - which user must choose
  * We probably don't need plugin_status OR paged parameters
- 
+ *
  * `
    http://example.com/wp-admin/plugins.php?
      action=activate
@@ -56,7 +64,10 @@ function oik_plugin_activate_plugin( $plugin, $plugin_name) {
   return( $link );
 } 
  
-/**    
+/**
+ * Create an Upgrade plugin link
+ *
+     
     $path = "update.php?action=install-plugin&plugin=$plugin";
     $url = admin_url( $path );
     $url = wp_nonce_url( $url, "install-plugin_oik" ); 
@@ -80,6 +91,7 @@ function oik_plugin_update_plugin( $plugin ) {
 
 /** 
  * Find out if we think the plugin is installed but not activated or not even installed
+ * 
  * @param string $plugin - the plugin file name ( without plugin path info? )
  * @return string - null if it's not installed or plugin to be activated
  C:\apache\htdocs\wordpress\wp-content\plugins\oik\shortcodes\oik-bob-bing-wide.php(289:0) 2012-05-23T07:52:15+00:00 696 cf=the_content bw_get_plugins(4)  Array
@@ -122,8 +134,9 @@ function oik_plugin_check_installed_plugin( $plugin ) {
   return( $plugin_to_activate );
 }
 
-
 /**
+ * Test if the plugin is activated
+ *
  * This won't work for Multisite since it doesn't find the network activated plugins
  * Even if it did, the admin may not be able to do anything.
 */
