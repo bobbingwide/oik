@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -152,6 +152,7 @@ function bw_logo( $atts=null ) {
   if ( $image_url ) {
     $image = retimage( "bw_logo", $image_url, $company, $width, $height );
     if ( $link ) {
+			$link = bw_logo_link( $link, $atts );
       alink( "bw_logo", $link, $image, $company );
     }  
     else {
@@ -171,6 +172,28 @@ function bw_logo__syntax( $shortcode="bw_logo" ) {
                  , "height" => bw_skv( "", "<i>height</i>", "Height in pixels" )
                  );  
   return( $syntax );
+}
+
+/**
+ * Enhance the link parameter
+ *
+ * @param string $link the specified link
+ * @param array $atts the shortcode parameters
+ * @return an enhanced link for WPMS
+ */
+function bw_logo_link( $link, $atts ) {
+		switch ( $link ) {
+			case '.':
+			case '/':
+			 
+				if ( is_multisite() ) {
+					$link = site_url();
+				}
+				break;
+				
+			default:
+		}
+	return( $link );
 }
 
 
