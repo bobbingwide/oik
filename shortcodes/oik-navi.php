@@ -326,9 +326,12 @@ function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
 	
 	$result = bw_ret();
 	bw_pop();
-	if ( !$field ) {
-		$result = apply_filters( "oik_navi_result", $result, $atts, $content, $tag );  
-	}
+	if ( defined('DOING_AJAX') && DOING_AJAX ) {
+	} else {
+		if ( !$field ) {
+			$result = apply_filters( "oik_navi_result", $result, $atts, $content, $tag );  
+		}
+	}	
 	return( $result );  
 }
    
