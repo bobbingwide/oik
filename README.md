@@ -174,7 +174,7 @@ Shared libraries delivered in the oik base plugin include:
 
 ## Upgrade Notice 
 # 3.0.0 
-Contains fixes for oik-plugins and WP-a2z. Tested with WordPress 4.5
+Contains fixes and enhancements for oik-plugins and WP-a2z. Tested with WordPress 4.5
 
 # 3.0.0-RC3 
 Contains fixes for oik-plugins and WP-a2z. Tested with WordPress 4.5-beta4.

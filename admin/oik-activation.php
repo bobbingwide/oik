@@ -241,6 +241,3 @@ function oik_plugin_lazy_activation( $plugin=null, $dependencies=null, $callback
     call_user_func( $callback, $plugin, $dependencies, "missing" );
   }   
 }
-
-
-} // end else 
