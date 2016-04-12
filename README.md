@@ -3,8 +3,8 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.5-beta4
-* Stable tag: 2.5.1
+* Tested up to: 4.5
+* Stable tag: 3.0.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ The OIK Information Kit uses lazy smart shortcode technology to display your Wor
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
 
 At a glance changes in version 3.0.0, previously known as v2.6
-* Tested with WordPress 4.4	and WordPress MultiSite
+* Tested with WordPress 4.5	and WordPress MultiSite
 * oik base plugin now delivers and supports shared library functionality
 
 At a glance changes in version 2.5
@@ -173,6 +173,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.0.0 
+Contains fixes for oik-plugins and WP-a2z. Tested with WordPress 4.5
+
 # 3.0.0-RC3 
 Contains fixes for oik-plugins and WP-a2z. Tested with WordPress 4.5-beta4.
 
@@ -453,6 +456,13 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 3.0.0 
+* Added: Support for pagination using AJAX with the oik-ajax plugin
+* Changed: Docblock and trace levels
+* Changed: Improved [bw_logo] shortcode for WPMS [github bobbingwide oik issue 27]
+* Fixed: Workaround for atrocious performance of textarea fields in Chrome [github bobbingwide oik issue 26]
+* Tested: With WordPress 4.5
+
 # 3.0.0-RC3 
 * Added: Support ajaxified pagination of shortcodes with nested content [github bobbingwide oik issue 22]
 * Added: Support for pagination of multi-value fields [github bobbingwide oik issue 25]

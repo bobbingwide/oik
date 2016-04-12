@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 3.0.0-RC3
+Version: 3.0.0
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -46,7 +46,7 @@ function oik_version() {
  * This allows oik-fields and oik-types to define overrides to registered post types and taxonomies. 
  * In oik 2.4 I tried not calling oik_main_init() for AJAX requests but this was more troublesome than beneficial since
  * there are many vanilla WordPress functions that can fail if post types are not registered.
- *z   
+ *  
  */
 function oik_plugin_file_loaded() {
   require_once( "libs/oik_boot.php" );
@@ -284,8 +284,8 @@ function oik_query_libs_query_libs( $libraries ) {
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	
 	// @TODO Replace this temporary fiddle of the version of bobbfunc with something more acceptable
-	$last = end( $new_libraries );
-	$last->version = "3.0.0";
+	//$last = end( $new_libraries );
+	//$last->version = "3.0.0";
 	
 	//$versions = array( "bobbfunc" => "3.0.0" );
 	//$new_libraries = oik_lib_set_lib_versions( $libraries, $libs, $versions, "oik" );
