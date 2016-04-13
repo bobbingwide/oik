@@ -66,7 +66,7 @@ function bw_replace_filter( $tag, $function_to_replace, $priority=10, $new_funct
   if ( $r ) { 
     $saved =& $wp_filter[$tag][$priority][$function_to_replace];
     if ( $saved['function'] == $new_function ) {
-      bw_trace2( $saved, "already replaced" );
+      bw_trace2( $saved, "already replaced", true, BW_TRACE_VERBOSE );
     } else {
       $saved['replaced'] = $saved['function'];
       $saved['function'] = $new_function;

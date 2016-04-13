@@ -524,7 +524,7 @@ function bw_effort_update_field( $post_id, $field ) {
   global $bw_fields;
   //bw_trace2( $bw_fields, "bw_fields" ); 
   $mydata = bw_array_get( $_POST, $field, NULL ) ;
-  bw_trace( $mydata, __FUNCTION__, __LINE__, __FILE__, "mydata" );
+  //bw_trace( $mydata, __FUNCTION__, __LINE__, __FILE__, "mydata" );
   if ( $mydata != null ) {
     if ( is_array( $mydata ) ) {
       bw_update_post_meta( $post_id, $field, $mydata );
