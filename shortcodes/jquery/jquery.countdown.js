@@ -307,7 +307,7 @@ $.extend(Countdown.prototype, {
 		}
 	},
 	
-	/* Calculate interal settings for an instance.
+	/* Calculate internal settings for an instance.
 	   @param  target  (element) the containing division
 	   @param  inst    (object) the current settings for this instance */
 	_adjustSettings: function(target, inst) {
