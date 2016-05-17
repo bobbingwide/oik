@@ -41,6 +41,7 @@ function oik_options_init() {
   // Add support for plugin relocation during "pre_current_active_plugins" 
   add_action( "pre_current_active_plugins", "bw_relocate_pre_current_active_plugins", 10, 1 );
 	add_action( "pre_current_active_plugins", "bw_check_symlinks", 10 );
+	add_action( "pre_current_active_plugins", "bw_check_gitrepos", 10 );
 }
 
 /**
@@ -1180,7 +1181,7 @@ function bw_check_symlinks() {
 					 
 					remove_action( "after_plugin_row_$plugin_file", 'wp_plugin_update_row', 10, 2 );
 					add_action( "after_plugin_row_" . $plugin_file, "bw_symlinked_after_plugin_row", 10, 2 ); 
-					bw_trace2( $plugin_data, "plugin_data" );
+					bw_trace2( $plugin_data, "plugin_data", false, BW_TRACE_VERBOSE );
 				}
 			}
 		}
@@ -1238,4 +1239,112 @@ function bw_symlinked_after_plugin_row( $file, $plugin_data ) {
 	$r = null;
 	bw_symlinked_plugin( $plugin_data, $r );
 }
+
+/**
+ * Implement 'pre_current_active_plugins' to perform Git repo checking
+ *
+ * Disable updates for Git repositories. 
+ * This should also work for Git repositories in symlinked plugins.
+ * 
+ * There must be at least one plugin in the $wp_list_table if it's set; since we're that plugin. 
+ * 
+ * The plugin_data['plugin'] is only set if there is an update available.
+ *
+ * @TODO Trying to change the items in the wp_list_table doesn't appear to work. Remove this logic if that's the case.  
+ * 
+ */ 															
+function bw_check_gitrepos() {
+	global $wp_list_table;
+	if ( isset( $wp_list_table ) ) {
+		$myplugins = $wp_list_table->items;
+		$normalized = wp_normalize_path( WP_PLUGIN_DIR );
+		foreach ( $myplugins as $plugin => $plugin_data ) {
+			$new_version = bw_array_get( $plugin_data, "new_version", null );
+			$slug = bw_array_get( $plugin_data, "slug", null );
+			//if ( $new_version ) {
+				bw_trace2( $new_version, "new_version", false );
+				// For some plugins the $plugin key and $plugin_data['plugin'] are different.
+				// so we should be using $plugin here
+				$plugin_file = $plugin; 
+				$plugin_path = $normalized . '/' . $slug;
+				bw_trace2( $plugin_path, "plugin_path", false );
+				$real_path = realpath( $plugin_path );
+				$real_path = wp_normalize_path( $real_path );
+				bw_trace2( $real_path, "real_path" );
+				
+
+				$gitdir = "$real_path/.git";
+				$dotgit = file_exists( $gitdir );
+				if ( $dotgit && is_dir( $gitdir ) ) {
+					//gob();
+					$myplugins[ $plugin ]['update'] = 0;
+					$myplugins[ $plugin ]['real_path'] = $real_path;
+					unset( $myplugins[ $plugin ]['package'] );
+					//remove_action( "after_plugin_row_" . $plugin_data['plugin'], "
+					add_action( "in_plugin_update_message-" . $plugin_file, "bw_gitrepo_plugin", 10, 2 ); 
+					 
+					remove_action( "after_plugin_row_$plugin_file", 'wp_plugin_update_row', 10, 2 );
+					add_action( "after_plugin_row_" . $plugin_file, "bw_gitrepo_after_plugin_row", 10, 2 ); 
+					bw_trace2( $plugin_data, "plugin_data", false, BW_TRACE_VERBOSE );
+				}
+			//}
+		}
+		bw_trace2( $wp_list_table->items, "Items" ); 
+		bw_trace2( $myplugins, "myplugins" );
+		$wp_list_table->items = $myplugins;
+	}
+}
+
+
+/**
+ * Implement "in_plugin_update_message-$plugin_file" for a Git repo plugin
+ *  
+ * Display a message for a Git repo plugin 
+ *
+ * @param array $plugin_data information about the plugin and any new version that's available
+ * @param mixed $r 	YGIAGAM ???
+ */
+function bw_gitrepo_plugin( $plugin_data, $r ) {
+	bw_trace2( null, null, true, BW_TRACE_VERBOSE );
+	bw_backtrace( BW_TRACE_VERBOSE );
+	
+	$version = bw_array_get( $plugin_data, "Version", null );
+	$new_version = bw_array_get( $plugin_data, "new_version", null ); 
+	//if ( $new_version != $version ) {
+		$text = "This plugin is a Git repository.";
+	
+		$text .= "New version?: ";
+		$text .= $new_version;
+		$text .= "<br />";
+		$text .= "Current version: ";
+		$text .= $version;
+		//$text .= "<br />However, this is a symlinked plugin, located at <br /> ";
+		//$text .= $plugin_data['real_path'];
+		$text .= "&nbsp;";
+		$text .= "<br /><strong>Please don't attempt to apply updates using WordPress.</strong>";
+
+		$message = '<tr class="plugin-update-tr">';
+		$message .= '<td colspan="3" class="plugin-update colspanchange">';
+		$message .= '<div class="update-message">';
+		$message .= $text;
+		$message .= "</div>";
+		$message .= "</td>";
+		$message .= "</tr>";
+		
+		echo $message;
+ // }
+}
+
+/**
+ * Implement 'after_plugin_row_$plugin_file' for a Git repo
+ *  
+ * @param string $file
+ * @param array $plugin_data 
+ */
+function bw_gitrepo_after_plugin_row( $file, $plugin_data ) {
+	$r = null;
+	bw_gitrepo_plugin( $plugin_data, $r );
+}
+
+
 
