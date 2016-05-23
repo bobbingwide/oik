@@ -19,6 +19,10 @@ function bw_contact_form_id( $set=false ) {
  * 
  * Creates/processes an inline contact form for the user
  * 
+ * @param array $atts - shortcode parameters
+ * @param string $content - not yet expected 
+ * @param string $tag - shortcode name
+ * @return string Generated HTML for the contact form
  */
 function bw_contact_form( $atts=null, $content=null, $tag=null ) {
 	$email_to = bw_get_option_arr( "email", null, $atts );
@@ -35,7 +39,6 @@ function bw_contact_form( $atts=null, $content=null, $tag=null ) {
  * Create the submit button for the contact form 
  *
  * @param array $atts - containing "contact" or "me" or defaults
- * 
  */  
 function bw_contact_form_submit_button( $atts ) {
 	$text = bw_array_get( $atts, "contact", null );
@@ -55,6 +58,7 @@ function bw_contact_form_submit_button( $atts ) {
  * If you want to make the fields responsive then try some CSS such as:
  *   textarea { max-width: 100%; }
  * 
+ * @param array $atts - shortcode parameters 
  */
 function _bw_show_contact_form_oik( $atts ) {
 	$email_to = bw_get_option_arr( "email", null, $atts );
@@ -72,6 +76,8 @@ function _bw_show_contact_form_oik( $atts ) {
 	etag( "table" );
 	e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false, false ) );
 	e( ihidden( "oiku_email_to", $email_to ) );
+	oik_require_lib( "oik-honeypot" );
+	do_action( "oik_add_honeypot" );
 	bw_contact_form_submit_button( $atts );
 	etag( "form" );
 	ediv();
@@ -79,12 +85,17 @@ function _bw_show_contact_form_oik( $atts ) {
 
 /**
  * Show/process a contact form using oik
+ * 
+ * @param array $atts 
+ * @param string $user
  */
 function bw_display_contact_form( $atts, $user=null ) {
 	$contact_form_id = bw_contact_form_id( true );
 	$contact = bw_array_get( $_REQUEST, $contact_form_id, null );
 	if ( $contact ) {
 		oik_require( "bobbforms.inc" );
+		oik_require_lib( "oik-honeypot" );
+		do_action( "oik_check_honeypot", "Human check failed." );
 		$contact = bw_verify_nonce( "_oik_contact_form", "_oik_contact_nonce" );
 		if ( $contact ) {
 			$contact = _bw_process_contact_form_oik();
@@ -96,7 +107,8 @@ function bw_display_contact_form( $atts, $user=null ) {
 }
 
 /**
- * Return the sanitized message subject 
+ * Return the sanitized message subject
+ *  
  * @return string - sanitized value of the message subject ( oiku_subject )
  */ 
 function bw_get_subject() {
@@ -111,6 +123,7 @@ function bw_get_subject() {
  * Return the sanitized message text
  * 
  * Don't allow HTML, remove any unwanted slashes and remove % signs to prevent variable substitution from taking place unexpectedly.
+ * 
  * @return string - sanitized value of the message text field ( oiku_text ) 
  */
 function bw_get_message() {
@@ -123,6 +136,7 @@ function bw_get_message() {
 
 /**
  * Perform an Akismet check on the message, if it's activated
+ * 
  * @param array - name value pairs of fields
  * @return bool - whether or not to send the email message
  */
@@ -139,6 +153,7 @@ function bw_akismet_check( $fields ) {
 
 /**
  * Return true if the akismet call says the message is not spam
+ * 
  * @param string $query_string - query string to pass to akismet
  * @return bool - true is the message is not spam 
  */
@@ -156,7 +171,7 @@ function bw_call_akismet( $query_string ) {
 }
 
 /**
- * Return the query_string to pass to akismet given the fields in $fields and $_SERVER
+ * Return the query_string to pass to Akismet given the fields in $fields and $_SERVER
  * 
  * @link http://akismet.com/development/api/#comment-check
  * blog (required) -The front page or home URL of the instance making the request. 
@@ -173,6 +188,8 @@ function bw_call_akismet( $query_string ) {
  * comment_author_url - URL submitted with comment
  * comment_content - The content that was submitted. 
  * Note: $fields['comment_content'] is the sanitized version of the user's input
+ * 
+ * @param array $fields array of fields 
  */
 function bw_build_akismet_query_string( $fields ) {
 	bw_trace2();
