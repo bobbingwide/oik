@@ -280,6 +280,7 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "oik_plugins" => null
 						, "bobbfunc" => null
 						, "oik-autoload" => null
+						, "oik-honeypot" => "bobbforms"
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	
