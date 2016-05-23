@@ -13,8 +13,6 @@ define( "OIK_HONEYPOT_INCLUDED", "3.0.1" );
  * to prevent spam submissions of contact forms, spam subscriptions to newsletters etc.
  *
  */
- 
-
 
 /**
  * Function to invoked when oik-honeypot library is loaded
@@ -53,8 +51,11 @@ function oik_honeypot_add_honeypot() {
 /**
  * Ensure the honeypot field is empty 
  *
+ * If this function detects the honeypot field after some of the page has been displayed then
+ * the message will be the last thing that appears on the page.
+ * The UI doesn't need to be that fancy; we do believe this is a spammer/ spam bot after all.
  * 
- * @param string $message Message to display when Dying
+ * @param string $message Message to display when dying
  */
 function oik_honeypot_check_honeypot( $message=null ) {
 	$field_name = oik_honeypot_field_name();
@@ -64,7 +65,7 @@ function oik_honeypot_check_honeypot( $message=null ) {
 			add_filter( "oik_honeypot_message", "oik_honeypot_message", 9, 2 ); 
 			$message = apply_filters( "oik_honeypot_message", "Request denied.", $value );
 		}
-		wp_die( $message, 403 );
+		wp_die( $message );
 	}
 }
 
@@ -117,7 +118,5 @@ function oik_honeypot_message( $message, $value ) {
 	$message = bw_array_get( $messages, $char, $message );  
 	return( $message );
 }
-
-
 
 } /* end !defined */
