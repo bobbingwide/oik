@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015
+<?php // (C) Copyright Bobbing Wide 2015, 2016
 
 /**
  * Load an array of node references - for hierarchical post types
@@ -38,12 +38,16 @@ function bw_load_noderef2( $args ) {
 /**
  * Load flat posts
  *
+ * @param string $post_type
+ * @param array $args additional parameters to bw_get_posts
+ * @return array of the options
  */
 function bw_load_noderef2_flat( $post_type, $args ) { 
   if ( $post_type !== "attachment" ) {
     $args['post_parent'] = 0; 
   } else {
-    unset( $args['post_parent'] );
+		unset( $args['post_parent'] );
+		$post_type = array( $post_type, 1 );	
   }
   $args['post_type'] = $post_type;
   $posts = bw_get_posts( $args );
