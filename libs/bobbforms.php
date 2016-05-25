@@ -372,6 +372,7 @@ function bw_textarea( $name, $len, $text, $value, $rows=10, $args=null ) {
 		$value = bw_array_get( $_REQUEST, $name, null );
 		bw_trace2( $value, "bw_textarea value" );
 		$value = wp_strip_all_tags( $value );
+		$value = stripslashes( $value );
 	}
 	
 	$spellcheck = bw_array_get( $args, "#spellcheck", null );
