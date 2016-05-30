@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.5
+Tested up to: 4.5.2
 Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -173,6 +173,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.0.1 =
+Required for oik-media v0.0.0. Tested with WordPress 4.5.2
+
 = 3.0.0 = 
 Contains fixes and enhancements for oik-plugins and WP-a2z. Tested with WordPress 4.5
 
@@ -456,6 +459,18 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.0.1 = 
+* Added: Cater for Git repositories similar to symlinked plugins [github bobbingwide oik issues 11]
+* Added: Honeypot support for [bw_contact_form] [github bobbingwide oik issues 32]
+* Added: oik-honeypot shared library [github bobbingwide oik issues 32]
+* Changed: Add $extras parameter to bw_form() and form() [github bobbingwide oik issue 34]
+* Changed: Alter bw_load_noderef2_flat() to allow it to list attachments [github bobbingwide oik issue 33]
+* Changed: Co-req change for oik-nivo-slider issue 4 [github bobbingwide oik-nivo-slider issue 4]
+* Changed: Whitespace, docblock and some trace levels
+* Changed: [bw_wpadmin] use admin_url if 'domain' not set	 [github bobbingwide oik issue 29]
+* Fixed: Backslash problem with bw_textarea();  add stripslashes() [github bobbingwide oik issue 35]
+* Fixed: Correct typo of internal [github bobbingwide issues 31]
+
 = 3.0.0 =
 * Added: Support for pagination using AJAX with the oik-ajax plugin
 * Changed: Docblock and trace levels
