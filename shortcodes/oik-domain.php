@@ -37,10 +37,22 @@ function trim_scheme( $url ) {
 }
 
 /** 
- * Implement [bw_domain} shortcode
+ * Implement [bw_domain] shortcode
  *  
  */ 
 function bw_domain() {
-  return( bw_output( "domain" ));
+  $site = bw_get_option( "domain" );
+	if ( $site ) {
+		$domain = bw_output( "domain" );
+	} else {
+		$site_url = get_option( "siteurl" );
+		$site_url = trim_scheme( $site_url );
+		span( "domain siteurl" );
+		e( $site_url );
+		epan();
+		$domain = bw_ret();
+	}
+	return( $domain );
 } 
+
 
