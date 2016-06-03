@@ -28,12 +28,13 @@ function bw_wpadmin( $atts=null, $content=null, $tags=null ) {
  * @param string $url
  * @return string simple link text
  */
+if ( !function_exists( "trim_scheme" ) ) { 
 function trim_scheme( $url ) {
 	$parts = parse_url( $url );
 	$url = bw_array_get( $parts, "host", null );
 	$url .= bw_array_get( $parts, 'path' );
 	return( $url );
-	
+}	
 }
 
 /** 

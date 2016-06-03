@@ -46,21 +46,38 @@ function bw_build_url( $parts ) {
 }
 
 /**
+ * Simplify the URL for link text
+ *
+ * @param string $url
+ * @return string simple link text
+ */
+if ( !function_exists( "trim_scheme" ) ) { 
+function trim_scheme( $url ) {
+	$parts = parse_url( $url );
+	$url = bw_array_get( $parts, "host", null );
+	$url .= bw_array_get( $parts, 'path' );
+	return( $url );
+}	
+}
+
+/**
  * Return the domain for the site
  *
  * We obtain this either from the oik settings field "domain"
  * OR WordPress "siteurl" setting.
  *  
- * @TODO Should we used network_site_url() to obtain this?
- * @TODO When we get siteurl we need to remove the scheme part.
+ * @TODO Should we use network_site_url() to obtain siteurl?
+ *  
+ * When we get siteurl we need to remove the scheme part.
  * We probably need to do this with domain as well... belt and braces
  * 
- * @return string - the domain for the site
+ * @return string - the domain for the site	
  */
 function bw_get_domain() {
 	$domain = bw_get_option( "domain" );
 	if ( !$domain ) { 
 		$domain = get_option( "siteurl" );
+		$domain = trim_scheme( $domain );
 	}
 	return( $domain );
 }
