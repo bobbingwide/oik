@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 201x-2015
+<?php // (C) Copyright Bobbing Wide 2012-2016
 if ( !defined( "OIK_PLUGINS_INCLUDED" ) ) {
 	define( "OIK_PLUGINS_INCLUDED", "0.0.2" );
 
@@ -9,7 +9,7 @@ if ( !defined( "OIK_PLUGINS_INCLUDED" ) ) {
  * Version: v0.0.2
  * 
  * Implements oik/admin/oik-plugins.inc as a shared library: bobbingwide/oik_plugins
- * Note: hypens for plugins, underscores for libraries
+ * Note: hyphens for plugins, underscores for libraries
  */ 
  
  
@@ -537,8 +537,6 @@ function oik_get_plugins_server() {
   return( $url );
 }
 }
-
-
 
 } else {
 	//echo __FILE__;

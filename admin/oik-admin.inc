@@ -326,8 +326,12 @@ function oik_plugins_server_settings() {
  * Process the oik themes server settings page
  */
 function oik_themes_server_settings() { 
-  oik_require( "admin/oik-themes.inc" ); 
-  oik_lazy_themes_server_settings();
+	$oik_themes = oik_require_lib( "oik_themes" );
+	if ( $oik_themes && !is_wp_error( $oik_themes ) ) {
+		oik_lazy_themes_server_settings();
+	} else {
+		bw_trace2( $oik_themes, "oik_themes?", false, BW_TRACE_WARNING );
+	}
 }  
 
 /** 

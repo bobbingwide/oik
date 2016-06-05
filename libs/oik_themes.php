@@ -1,14 +1,17 @@
-<?php // (C) Copyright Bobbing Wide 2012-2016
-_doing_it_wrong( __FILE__, '<br />Please use oik_require_lib( "oik_themes" );<br />', "oik v3.0.0" );
-bw_backtrace();
-echo "<!--";
-var_dump( debug_backtrace() );
-echo "-->";
-oik_require_lib( "oik_themes" );
-
-
+<?php // (C) Copyright Bobbing Wide 2013-2016
 if ( !defined( "OIK_THEMES_INCLUDED" ) ) {
-define( "OIK_THEMES_INCLUDED", "0.0.1" );
+	define( "OIK_THEMES_INCLUDED", "0.0.2" );
+
+/**
+ * Library: oik_themes
+ * Provided: oik_themes
+ * Depends: oik-admin
+ * Version: v0.0.2
+ * 
+ * Implements oik/admin/oik-themes.inc as a shared library: bobbingwide/oik_themes
+ * Note: hyphens for plugins, underscores for libraries
+ */ 
+ 
 /**
  * oik themes settings page 
  *
@@ -411,7 +414,7 @@ function bw_get_theme_slugs() {
  * Get the theme version given the theme name
  * 
  */
-function _bw_get_theme_version( $theme_name, $theme_object ) {
+function _bw_get_theme_version( $theme_name, $theme_object=null ) {
   // $file = WP_THEME_DIR . '/'. $theme_name;
   $stylesheet = $theme_name;
   $theme_root = null;
@@ -478,5 +481,7 @@ function bw_get_theme_server( $theme="oik", $theme_object, $theme_data ) {
   bw_trace2( $server, "theme-server" );
   return( $server );
 }
- 
+
+} else {
+	//echo __FILE__;
 }

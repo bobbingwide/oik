@@ -278,6 +278,7 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "oik-activation" => "oik-depends"
 						, "oik-depends" => null 
 						, "oik_plugins" => null
+						, "oik_themes" => null
 						, "bobbfunc" => null
 						, "oik-autoload" => null
 						, "oik-honeypot" => "bobbforms"
