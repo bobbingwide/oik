@@ -458,20 +458,23 @@ function bw_get_plugin_slugs() {
 /**
  * Return the plugin version
  * 
- * Note: get_plugin_data() may not find a plugin that's been renamed
+ * Note: get_plugin_data() may not find a plugin that's been renamed ( plugin folder or file )
+ * and it doesn't check that the plugin is present, so we do here.
  * 
  * @param string $plugin_name expected form "plugin/plugin.php"
- * @return string plugin version
+ * @return string|null plugin version or null
  */
 function _bw_get_plugin_version( $plugin_name ) {
-  //bw_trace2();
   $file = WP_PLUGIN_DIR . '/'. $plugin_name;
-  $plugin_data = get_plugin_data( $file, false, false );
-  // We assume get_plugins() is loaded since we're doing admin stuff! 
-  //$plugin_folder = get_plugins( $plugin_name );
-  //bw_trace2( $plugin_folder, "plugin_folder" );
-  //$plugin_data = bw_array_get( $plugin_folder, $plugin_name, null ); 
-  $version = bw_array_get( $plugin_data, 'Version', null );
+	$version = null;
+	if ( file_exists( $file ) ) { 
+		$plugin_data = get_plugin_data( $file, false, false );
+		// We assume get_plugins() is loaded since we're doing admin stuff! 
+		//$plugin_folder = get_plugins( $plugin_name );
+		//bw_trace2( $plugin_folder, "plugin_folder" );
+		//$plugin_data = bw_array_get( $plugin_folder, $plugin_name, null ); 
+		$version = bw_array_get( $plugin_data, 'Version', null );
+	}
   return( $version );
 }
 
