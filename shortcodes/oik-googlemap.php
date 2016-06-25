@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2016 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -121,8 +121,9 @@ function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $mark
   static $map = 0;
   $latlng = $lat . ',' . $lng ;
   if ( !$map ) {
-    bw_echo( '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB">' );
-    bw_echo( '</script>' );
+    bw_echo( '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&amp;region=GB' );
+		bw_echo( bw_gmap_api_key() );
+    bw_echo( '"></script>' );
   }
   bw_echo( '<script type="text/javascript">' );
   bw_echo( 'function initialize' . $map . '() {' );
@@ -290,15 +291,10 @@ function bw_show_googlemap__syntax( $shortcode = "bw_show_googlemap" ) {
 
 /**
  * Update the input to the geocoded address 
- * @param array $input - the set of input fields that WordPress is managing
- * @param object $json - JSON object
- 
- * First get status
- * then results[0]
  * 
- 
-
-
+ * First get status, then results[0]
+ * 
+ * `
 stdClass Object
 (
     [results] => Array
@@ -422,6 +418,7 @@ stdClass Object
 
     [status] => OK
 )
+	`
 
 Extract from @link https://developers.google.com/maps/documentation/geocoding/#StatusCodes
 
@@ -469,7 +466,9 @@ street_number indicates the precise street number.
 floor indicates the floor of a building address.
 room indicates the room of a building address.
 
-
+ * @param array $input - the set of input fields that WordPress is managing
+ * @param object $json - JSON object
+ * @return array - the updated input array
 
 
 
@@ -502,13 +501,18 @@ function bw_set_geocoded_address( $input, $json ) {
 
 /**
  * Geocode the given address to return the lat and long 
- 
-  bw_textfield_arr( $option, "Extended-address [bw_address alt=1]", $options, 'extended-address', 50 );
-  bw_textfield_arr( $option, "Street-address", $options, 'street-address', 50 );
-  bw_textfield_arr( $option, "Locality", $options, 'locality', 50 );
-  bw_textfield_arr( $option, "Region", $options, 'region', 50 );
-  bw_textfield_arr( $option, "Post Code", $options, 'postal-code', 50 );
-  bw_textfield_arr( $option, "Country name", $options, 'country-name', 50 );
+ *
+ * @param array $input { Array of parameters
+ * 	@type string extended-address Extended address
+ * 	@type string street-address Street address
+ * 	@type string locality Locality
+ * 	@type string region Region
+ * 	@type string postal-code Post code or ZIP code
+ * 	@type string country-name Country name or abbreviation
+ * 	@type string lat - latitude in decimal format
+ * 	@type string long - longitude in decimal format
+ * }
+ * @return array the updated input array
  */
 
 function bw_geocode_googlemap( $input ) {
@@ -544,9 +548,22 @@ function bw_geocode_googlemap( $input ) {
   return( $input );
   
 
-} 
+}
 
-
-
-
-
+/**
+ * Return the Google Map API key
+ * 
+ * Since some time in 2016 the Google Maps API has needed an API key.
+ * The API key is managed using the Google Developer tools. 
+ * The value is set using oik options.
+ *
+ * @return string additional parm for the Google Maps URL
+ */
+function bw_gmap_api_key() {
+	$api_key = null;
+	$key = bw_get_option( "google_maps_api_key" ); 
+	if ( $key ) {
+		$api_key = "&amp;key=$key";
+	}
+	return( $api_key );
+}

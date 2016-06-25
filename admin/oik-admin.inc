@@ -452,6 +452,10 @@ function _oik_alt0_suffix() {
 
 /**
  * Display main shortcode options that aren't available to "More options"
+ *
+ * The google_map_api_key is created using developers.google.com
+ * Mine's a 39 digit code. 
+ 
  */
 function oik_main_shortcode_options() {
   $option = 'bw_options'; 
@@ -464,6 +468,7 @@ function oik_main_shortcode_options() {
 
   bw_textfield_arr( $option, "Google Map width", $options, 'width', 10 );
   bw_textfield_arr( $option, "Google Map height", $options, 'height', 10 );
+	bw_textfield_arr( $option, "Google Maps API key", $options, 'google_maps_api_key', 39 ); 
   
   bw_textfield_arr( $option, _bwtnt( "Domain", " [bw_domain] [bw_wpadmin]" ), $options, 'domain', 50 );
   
