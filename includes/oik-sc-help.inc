@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2015
+<?php // (C) Copyright Bobbing Wide 2012-2016
 
 /**
  * Get first parm name
@@ -24,21 +24,19 @@ function bw_form_sc_get_first_parm_name( $parameter ) {
  *
  * http://oik-plugins.co.uk/oik_sc_param/$shortcode-$key-parameter/
  *
- * @TODO where the URL should come from wherever we've defined the oik-shortcode server to be for the selected shortcode!
+ * where the URL is determined by oik_get_plugins_server()
  *
  * @param string $parameter
  * @param string $shortcode
- *
+ * @return string the required link
  */
 function bw_form_sc_parm_help( $parameter, $shortcode ) {
-  $parm = bw_form_sc_get_first_parm_name( $parameter );
-  //$url = siteurl();
-  //$url = "http://www.oik-plugins.com/";
+	$parm = bw_form_sc_get_first_parm_name( $parameter );
 	oik_require( "admin/oik-admin.inc" );
 	$url = oik_get_plugins_server();
-  $url .= "/oik_sc_param/$shortcode-$parm-parameter";
-  $ret = retlink( null, $url, $parameter, "$shortcode $parameter parameter" );
-  return( $ret );
+	$url .= "/oik_sc_param/$shortcode-$parm-parameter";
+	$ret = retlink( null, $url, $parameter, "$shortcode $parameter parameter" );
+	return( $ret );
 }
 
 /**
