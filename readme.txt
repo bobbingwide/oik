@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.5.2
+Tested up to: 4.5.3
 Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -173,6 +173,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.0.2 = 
+Upgrade if you've have problems with [bw_show_googlemap]. Tested with WordPress 4.5.3
+
 = 3.0.1 =
 Required for oik-media v0.0.0. Tested with WordPress 4.5.2
 
@@ -459,6 +462,13 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.0.2 = 
+* Added: Create oik_themes shared library [github bobbingwide oik issue 40]
+* Fixed: [bw_domain] should display default domain if not set [github bobbingwide oik issue 38]
+* Fixed: [bw_link /path] link incorrect when domain not set [github bobbingwide oik issue 39]
+* Fixed: [bw_show_googlemap] needs an API key [github bobbingwide oik issue 41]
+* Tested: With WordPress 4.5.3
+
 = 3.0.1 = 
 * Added: Cater for Git repositories similar to symlinked plugins [github bobbingwide oik issues 11]
 * Added: Honeypot support for [bw_contact_form] [github bobbingwide oik issues 32]
