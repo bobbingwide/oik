@@ -412,7 +412,10 @@ function bw_get_theme_slugs() {
 
 /** 
  * Get the theme version given the theme name
- * 
+ *
+ * @param string $theme_name
+ * @param object $theme_object 
+ * @return string version or 'Not installed'
  */
 function _bw_get_theme_version( $theme_name, $theme_object=null ) {
   // $file = WP_THEME_DIR . '/'. $theme_name;
