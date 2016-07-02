@@ -31,7 +31,8 @@ function bw_form_sc_get_first_parm_name( $parameter ) {
  * @return string the required link
  */
 function bw_form_sc_parm_help( $parameter, $shortcode ) {
-	$parm = bw_form_sc_get_first_parm_name( $parameter );
+	//$parm = bw_form_sc_get_first_parm_name( $parameter );
+	$parm = $parameter;
 	oik_require( "admin/oik-admin.inc" );
 	$url = oik_get_plugins_server();
 	$url .= "/oik_sc_param/$shortcode-$parm-parameter";
@@ -668,7 +669,7 @@ function bw_format_skv( $value ) {
     if ( is_array( $values ) ) { bw_trace2(); }
     if ( is_array( $notes ) ) {bw_trace2(); }
     
-    return( "<b>$default</b>|$values - $notes" );
+    return( "<b>$default</b>| $values - $notes" );
   } else {
     return( $value );
   }    
