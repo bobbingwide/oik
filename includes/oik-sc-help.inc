@@ -73,20 +73,23 @@ function bw_form_sc_syntax( $syntax, $shortcode ) {
  *
  * Some shortcodes contain hyphens rather than underscores. e.g. wp-members
  * We need to translate these to underscores before searching for the function. 
- * If the function does not exist we see if it's in the file that implements the shortcode
- * If it's not then we return the default function name
+ * And some contain periods. e.g. blip.tv. These need translating too.
+ * 
+ * If the function does not exist we see if it's in the file that implements the shortcode.
+ * If it's not then we return the default function name,
  * which is:
- * _sc__help: for shortcode help
- * _sc__example: for shortcode example
- * _sc__syntax: for shortcode syntax 
+ * 
+ * - _sc__help: for shortcode help
+ * - _sc__example: for shortcode example
+ * - _sc__syntax: for shortcode syntax 
  *   
  * @param string $shortcode - the name of the shortcode - NOT the shortcode function
  * @param string $suffix - the additional processing required: e.g. __help, __example, __syntax
  * @return string $funcname - the function that exists to handle this request
- * 
-*/
+ */
 function bw_load_shortcode_suffix( $shortcode, $suffix ) {
   $_shortcode = str_replace( "-", "_", $shortcode );
+	$_shortcode = str_replace( ".", "_", $_shortcode );
   //  bw_trace2( $_shortcode, "underscored shortcode" );
   $testfunc = $_shortcode . $suffix; 
   if ( function_exists( $testfunc ) ) {
