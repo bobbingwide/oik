@@ -99,15 +99,18 @@ function bw_list_id( $id ) {
   etag( "li");
 } 
 
-
 /**
  * Display a "simple" list
  * 
- * Display a simple list of posts taking into account the preferences in the $atts array
+ * Display a simple list of posts taking into account the preferences in the $atts array.
+ * 
  * List types supported are:
- *  ul - unordered list ( default )
- *  ol - ordereed list
- *  ,  - comma separated - ie. a really simple list
+ * 
+ * Type | Means
+ * ---- | -------------------
+ *  ul | unordered list ( default )
+ *  ol | ordered list
+ *  ,  | comma separated - ie. a really simple list
  * 
  * 
  * @param array $posts - array of posts
