@@ -44,9 +44,11 @@ function oik_version() {
  * All of the oik plugins and many of the common functions, include calls to bw_trace(), bw_trace2() or bw_backtrace() so we need to include bwtrace.inc
  * As of oik v2.3 the "init" action is invoked after most other plugins.
  * This allows oik-fields and oik-types to define overrides to registered post types and taxonomies. 
+ * 
  * In oik 2.4 I tried not calling oik_main_init() for AJAX requests but this was more troublesome than beneficial since
  * there are many vanilla WordPress functions that can fail if post types are not registered.
- *  
+ * 
+ * In oik 3.0.3 I increased the priority to 20, to allow oik-types to apply overrides to the Genesis theme framework's definitions.
  */
 function oik_plugin_file_loaded() {
   require_once( "libs/oik_boot.php" );
@@ -64,7 +66,7 @@ function oik_plugin_file_loaded() {
   } else {
     add_action('wp_enqueue_scripts', 'oik_enqueue_stylesheets', 11);
   }
-  add_action( 'init', 'oik_main_init', 11 );
+  add_action( 'init', 'oik_main_init', 20 );
     
   add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
   add_filter( "attachment_fields_to_save", "oik_attachment_fields_to_save", null, 2 );
