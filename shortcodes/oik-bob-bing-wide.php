@@ -144,6 +144,9 @@ function bw_loik( $atts=null) {
 
 /**
  * Implement [wp] shortcode for WordPress
+ * 
+ * @param string|array $suffix
+ * @return string
  */
 if ( !function_exists( "bw_wp" ) ) {
 function bw_wp( $suffix=false ) {
@@ -160,6 +163,11 @@ function bw_wp( $suffix=false ) {
       if ( $phpver == "p" ) {
         $bw .= ". PHP: " . phpversion();
       }
+			$memory = bw_array_get_from( $suffix, "m,2", null );
+			if ( $memory ) {
+				$memory_limit = ini_get( "memory_limit" );
+				$bw .= ". Memory limit: " . $memory_limit;
+			}
     } else {
       $bw .= '<span class="bw_dotorg">.org</span>';
     }
