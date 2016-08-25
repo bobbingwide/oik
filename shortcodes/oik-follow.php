@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2014
+<?php // (C) Copyright Bobbing Wide 2010-2016
 
 /**
  * Create a styled follow me button
@@ -26,6 +26,7 @@ function bw_follow( $atts=null ) {
 
 /**
  * Return the preferred scheme for the social network
+ * 
  * @param string $lc_social - lower case name of the social network
  * @return string scheme - either http or https - without "://"
  */
@@ -33,6 +34,7 @@ function _bw_social_scheme( $lc_social ) {
   $schemes = array( "facebook" => "https"
                   , "google" => "https" 
                   , "picasa" => "https" 
+									, "github" => "https"
                   );
   $scheme = bw_array_get( $schemes, $lc_social, "http" );
   return( $scheme );
@@ -40,11 +42,14 @@ function _bw_social_scheme( $lc_social ) {
 
 /**
  * Return the preferred hostname for the social network
+ * 
  * @param string $lc_social - lower case name of the social network
+ * @return string
  */
 function _bw_social_host( $lc_social ) {
   $hosts = array( "google" => "profiles.google.com"
-                , "picasa" => "picasaweb.google.com"  
+                , "picasa" => "picasaweb.google.com"
+								, "github" => "github.com" 
                 );
   $host = bw_array_get( $hosts, $lc_social, "www.${lc_social}.com" );
   return( $host );
@@ -154,6 +159,17 @@ function bw_pinterest( $atts=null ) {
 }
 
 /**
+ * Implement [bw_github] shortcode
+ * 
+ * We can't actually use bw_github() since it's already used in oik-bob-bing-wide for [github]
+ * 
+ */
+function bw_github_shortcode( $atts=null, $content=null, $tag=null ) {
+	$atts['network'] = 'github';
+	return( bw_follow( $atts ));
+}
+
+/**
  * Produce a 'follow me' button if there is a value for the selected social network
  * 
  * @param array $atts - parameters
@@ -171,19 +187,19 @@ function bw_follow_e( $atts=null ) {
 /**
  * Implement [bw_follow_me] shortcode
  *
- * Produce a Follow me button for each of these social networks:  Twitter, Facebook, LinkedIn, GooglePlus, YouTube, Flickr, Pinterest and Instagram
+ * Produce a Follow me button for each of these networks:  Twitter, Facebook, LinkedIn, GooglePlus, YouTube, Flickr, Pinterest, Instagram and GitHub
  * 
  * @param array $atts - array of parameters
- * @return string - a set of "Follow me" links for the social networks.
+ * @return string - a set of "Follow me" links for the networks.
  */
 function bw_follow_me( $atts=null ) {
-  $networks = array( 'Twitter', 'Facebook', 'LinkedIn', 'GooglePlus', 'YouTube', 'Flickr', 'Pinterest', 'Instagram' );
-  $atts['me'] = bw_get_me( $atts ); 
-  foreach ( $networks as $network ) {
-    $atts['network'] = $network;
-    bw_follow_e( $atts );
-  }
-  return( bw_ret());
+	$networks = array( 'Twitter', 'Facebook', 'LinkedIn', 'GooglePlus', 'YouTube', 'Flickr', 'Pinterest', 'Instagram', 'GitHub' );
+	$atts['me'] = bw_get_me( $atts ); 
+	foreach ( $networks as $network ) {
+		$atts['network'] = $network;
+		bw_follow_e( $atts );
+	}
+	return( bw_ret());
 }
 
 

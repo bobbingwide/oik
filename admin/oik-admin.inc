@@ -424,6 +424,10 @@ function oik_address_info( $option, $options, $alt0_suffix ) {
 
 /**
  * Display the social media "follow me" fields
+ * 
+ * @param string $option Option name
+ * @param array $options Array of options
+ * @param string $alt0_suffix 'alt=' parameter 
  */
 function oik_follow_me( $option, $options, $alt0_suffix ) {
   bw_textfield_arr( $option, _bwtnt( "Twitter URL", " [bw_twitter$alt0_suffix]" ), $options, 'twitter', 50 );
@@ -436,6 +440,9 @@ function oik_follow_me( $option, $options, $alt0_suffix ) {
   bw_textfield_arr( $option, _bwtnt( "Pinterest URL", " [bw_pinterest$alt0_suffix]" ), $options, 'pinterest', 50 );
   bw_textfield_arr( $option, _bwtnt( "Instagram URL", " [bw_instagram$alt0_suffix]" ), $options, 'instagram', 50 );
   bw_textfield_arr( $option, _bwtnt( "Skype Name", " [bw_skype$alt0_suffix]" ), $options, 'skype', 50 );
+	
+	// @TODO Decide what shortcode to display, if any " [bw_github$alt0_suffix]"
+	bw_textfield_arr( $option, _bwtnt( "GitHub username", null  ), $options, 'github', 50 );
 } 
 
 /**
