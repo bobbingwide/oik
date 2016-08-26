@@ -1,7 +1,37 @@
 {
     "event": "suiteStart",
     "suite": "",
+    "tests": 5
+}{
+    "event": "suiteStart",
+    "suite": "Tests_oik_bob_bing_wide",
     "tests": 2
+}{
+    "event": "testStart",
+    "suite": "Tests_oik_bob_bing_wide",
+    "test": "Tests_oik_bob_bing_wide::test_bw_wp_v0_p1_m2"
+}{
+    "event": "test",
+    "suite": "Tests_oik_bob_bing_wide",
+    "test": "Tests_oik_bob_bing_wide::test_bw_wp_v0_p1_m2",
+    "status": "pass",
+    "time": 1.7123510837555,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests_oik_bob_bing_wide",
+    "test": "Tests_oik_bob_bing_wide::test_bw_wp_v0_my"
+}{
+    "event": "test",
+    "suite": "Tests_oik_bob_bing_wide",
+    "test": "Tests_oik_bob_bing_wide::test_bw_wp_v0_my",
+    "status": "pass",
+    "time": 0.0088632106781006,
+    "trace": [],
+    "message": "",
+    "output": ""
 }{
     "event": "suiteStart",
     "suite": "Tests_oik_follow",
@@ -15,7 +45,7 @@
     "suite": "Tests_oik_follow",
     "test": "Tests_oik_follow::test_follow_me_with_github_set",
     "status": "pass",
-    "time": 1.7786750793457,
+    "time": 0.083685159683228,
     "trace": [],
     "message": "",
     "output": ""
@@ -28,7 +58,24 @@
     "suite": "Tests_oik_follow",
     "test": "Tests_oik_follow::test_follow_me_with_github_not_set",
     "status": "pass",
-    "time": 0.13349103927612,
+    "time": 0.1620500087738,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests_oik_sc_help",
+    "tests": 1
+}{
+    "event": "testStart",
+    "suite": "Tests_oik_sc_help",
+    "test": "Tests_oik_sc_help::test_bw_form_sc_parm_help_issue_43"
+}{
+    "event": "test",
+    "suite": "Tests_oik_sc_help",
+    "test": "Tests_oik_sc_help::test_bw_form_sc_parm_help_issue_43",
+    "status": "pass",
+    "time": 0.033853054046631,
     "trace": [],
     "message": "",
     "output": ""

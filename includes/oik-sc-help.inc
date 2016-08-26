@@ -22,16 +22,15 @@ function bw_form_sc_get_first_parm_name( $parameter ) {
  *
  * Links are of the form
  *
- * http://oik-plugins.co.uk/oik_sc_param/$shortcode-$key-parameter/
+ * `http://oik-plugins.co.uk/oik_sc_param/$shortcode-$parameter-parameter/`
  *
  * where the URL is determined by oik_get_plugins_server()
  *
- * @param string $parameter
- * @param string $shortcode
+ * @param string $parameter	- may be a comma separated list of parameter name aliases e.g. "src,mp3,m4a,ogg,wav,wma"
+ * @param string $shortcode	- e.g. "audio"
  * @return string the required link
  */
 function bw_form_sc_parm_help( $parameter, $shortcode ) {
-	//$parm = bw_form_sc_get_first_parm_name( $parameter );
 	$parm = $parameter;
 	oik_require( "admin/oik-admin.inc" );
 	$url = oik_get_plugins_server();
