@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2012-2016
 if ( !defined( 'OIK_BOOT_INCLUDED' ) ) {
-define( 'OIK_BOOT_INCLUDED', "3.0.1" );
+define( 'OIK_BOOT_INCLUDED', "3.0.3" );
 define( 'OIK_BOOT_FILE', __FILE__ );
 /**
  * Library: oik_boot
@@ -70,10 +70,10 @@ if (!function_exists( 'oik_require' )) {
         echo "<!-- File is not a real file:$path! -->" ;
       }
 			echo "<!-- ";
+			echo __FILE__ ; 
+			echo PHP_EOL;
       print_r( debug_backtrace() );
 			echo " -->";
-      //gobang();
-      
     }  
     require_once( $path ); 
   }  
@@ -186,9 +186,11 @@ if ( !function_exists( "oik_require_lib" ) ) {
 			}
 			$library_file = oik_require_lib_fallback( $library );
 		}
-		// We are dependent upon the 'bwtrace' library for these functions
-		bw_trace2( $library_file, "library_file: $library", true, BW_TRACE_VERBOSE );
-		bw_backtrace( BW_TRACE_VERBOSE );
+		// We are dependent upon the 'bwtrace' library for these functions. Assume both are defined if bw_trace2() is.
+		if ( function_exists( "bw_trace2" ) ) {
+			bw_trace2( $library_file, "library_file: $library", true, BW_TRACE_VERBOSE );
+			bw_backtrace( BW_TRACE_VERBOSE );
+		} 	
 		return( $library_file );
 	}
 }
