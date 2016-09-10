@@ -308,10 +308,13 @@ function bw_default_taxonomy_labels( $labels = array() ) {
 function bw_default_taxonomy_args( $taxonomy, $arg ) {
   //bw_trace2();
   //bw_backtrace();
+
+	$args = array();
   if ( !is_array( $arg ) ) {
     $labels = array( "name" => $arg );
   } else { 
-    $labels = bw_array_get( $arg, "labels", null );
+		$args = $arg;
+    $labels = bw_array_get( $args, "labels", null );
     if ( null == $labels ) { 
       $labels = array( "name" => bw_titleify( $taxonomy ) );
     }  
