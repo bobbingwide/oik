@@ -466,11 +466,15 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 == Changelog ==
 = 3.0.3 = 
-* Added: Display memory_limit using [wp] shortcode [github bobbingwide oik issue 46]
-* Changed: Add follow me support for GitHub [github bobbingwide oik issue 47]
+* Added: Display memory_limit using [wp] shortcode, [github bobbingwide oik issue 46]
+* Changed: Add follow me support for GitHub, [github bobbingwide oik issue 47]
+* Changed: Attempt to protect against fatal errors,[github bobbingwide oik issue 49]
 * Changed: Blessed task - docblocks
-* Fixed: Cater for shortcode syntax with parm name aliases [github bobbingwide oik issue 43]
-* Fixed: Improve messages from deprecated files loaded by PHPUnit [github bobbingwide oik issue 48]
+* Changed: Co-requisite change for oik-sc-help plugin,[github bobbingwide oik-sc-help issue 2
+* Changed: Increase priority for hook 'init' to 20 from 11,[github bobbingwide oik issue 45]
+* Changed: Support for WordPress 4.6,[github bobbingwide oik issue 51]
+* Fixed: Cater for shortcode syntax with parm name aliases,[github bobbingwide oik issue 43]
+* Fixed: Improve messages from deprecated files loaded by PHPUnit, [github bobbingwide oik issue 48]
 * Tested: With WordPress 4.6 and WordPress Multisite
 
 = 3.0.2 = 
