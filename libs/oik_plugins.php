@@ -468,6 +468,7 @@ function _bw_get_plugin_version( $plugin_name ) {
   $file = WP_PLUGIN_DIR . '/'. $plugin_name;
 	$version = null;
 	if ( file_exists( $file ) ) { 
+		require_once( ABSPATH . "wp-admin/includes/plugin.php" );
 		$plugin_data = get_plugin_data( $file, false, false );
 		// We assume get_plugins() is loaded since we're doing admin stuff! 
 		//$plugin_folder = get_plugins( $plugin_name );

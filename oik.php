@@ -73,7 +73,7 @@ function oik_plugin_file_loaded() {
 }
 
 /** 
- * Implement 'wp_enqueue_scripts' action enqueue the oik.css and $customCSS stylesheets as required
+ * Implement 'wp_enqueue_scripts' action to enqueue the oik.css and $customCSS stylesheets as required
  *
  * oik.css contains styles for oik shortcodes. It is embedded if not specifically excluded.
  * $customCSS is embedded only if selected on oik options
@@ -84,18 +84,46 @@ function oik_plugin_file_loaded() {
  * 
  */
 function oik_enqueue_stylesheets() {
-  $oikCSS = bw_get_option( 'oikCSS' );
-  // bw_trace2( $oikCSS, "oikCSS" );
-  if ( !$oikCSS ) {
-    wp_enqueue_style( 'oikCSS', WP_PLUGIN_URL . '/oik/oik.css' );
-  }
-  $customCSS =  bw_get_option( 'customCSS' );
-  if ( !empty( $customCSS) ) {
-    $customCSSurl = get_stylesheet_directory_uri() . '/' .  $customCSS;
-    // bw_trace( $customCSSurl, __FUNCTION__, __LINE__, __FILE__, "customCSSurl");
-    wp_register_style( 'customCSS', $customCSSurl );
-    wp_enqueue_style( 'customCSS' );
-  }
+	$oikCSS = bw_get_option( 'oikCSS' );
+	// bw_trace2( $oikCSS, "oikCSS" );
+	if ( !$oikCSS ) {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$version = oik_version();
+		} else {
+			$version = false;
+		}
+		wp_enqueue_style( 'oikCSS', WP_PLUGIN_URL . '/oik/oik.css', array(), $version );
+	}
+	$customCSS =  bw_get_option( 'customCSS' );
+	if ( !empty( $customCSS) ) {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$timestamp = oik_query_timestamp( get_stylesheet_directory(), $customCSS );
+		} else {
+			$timestamp = false;
+		}
+		if ( $timestamp !== null ) {
+			$customCSSurl = get_stylesheet_directory_uri() . '/' .  $customCSS;
+			// bw_trace( $customCSSurl, __FUNCTION__, __LINE__, __FILE__, "customCSSurl");
+			wp_register_style( 'customCSS', $customCSSurl, array(), $timestamp );
+			wp_enqueue_style( 'customCSS' );
+		}
+	}
+}
+
+/**
+ * Query the timestamp for a file 
+ * 
+ * @param string $path the first part of the path to the file ( not terminated with a '/' )
+ * @param string $file the rest of the path to the file ( not prefixed with a '/' )
+ * @return integer/null the timestamp of the file
+ */ 
+function oik_query_timestamp( $path, $file ) {
+	$full_file = $path . '/' . $file;
+	$timestamp = filemtime( $full_file );
+	if ( $timestamp === false ) {
+		$timestamp = null;
+	}
+	return( $timestamp );
 } 
 
 /** 
@@ -134,6 +162,7 @@ function oik_main_init() {
 function oik_admin_menu() {
 	oik_require_lib( "bobbforms" );
 	oik_require_lib( "oik-admin" );
+	oik_require_lib( "oik_update" );
 	require_once( 'admin/oik-admin.inc' );
   oik_options_add_page();
   add_action( 'admin_init', 'oik_admin_init' );
@@ -265,10 +294,10 @@ function oik_login_head() {
  * that we 'Provide' by responding to this filter.
  * 
  * The libraries should be defined with their dependencies.
+ * There is no need to define oik_boot nor bwtrace as these are pre-requisite libraries.
  *  
  * The libraries are NOT loaded at this time, just checked and registered
  * using oik_lib_check_libs() to build the OIK_lib objects for each library that actually exists.
- 
  * 
  * @param array $libraries array of OIK_libs
  * @return array updated array of OIK_libs
@@ -284,6 +313,8 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "bobbfunc" => null
 						, "oik-autoload" => null
 						, "oik-honeypot" => "bobbforms"
+						, "oik_remote" => null
+						, "oik_update" => "oik_remote"
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	
