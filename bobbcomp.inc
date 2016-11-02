@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2015
+<?php // (C) Copyright Bobbing Wide 2010-2016
 /**
  * Company information
  *
@@ -50,6 +50,7 @@ if ( bw_is_wordpress() ) {
    * @param string $set option name
    * @return mixed option value
    */
+	if ( !function_exists( "bw_get_option" ) ) {
   function bw_get_option( $field, $set="bw_options" ) {
     /* WordPress code */
     /* Need to put some code here to see if it's been loaded */
@@ -62,8 +63,10 @@ if ( bw_is_wordpress() ) {
       
     // Note: A value that appears to be blank ( == '') may actually be FALSE ( == FALSE )
     // bw_trace( '!' .$option.'!', __FUNCTION__,  __LINE__, __FILE__, "option" );  
+		bw_backtrace();
     return( $option ); 
-  } 
+  }
+	} 
 }
 else {
   /* 
@@ -402,6 +405,7 @@ function bw_default_empty_att( $bw_value=NULL, $bw_field=NULL, $bw_default=NULL,
  * 2014/02/27 - In cases where value found may be the same as the default and the dcb function could mess this up
  * then it's advisable to NOT use this function.  
  */
+if ( !function_exists( "bw_array_get_dcb" ) ) {
 function bw_array_get_dcb( $array = array(), $index, $default = NULL, $callback='__', $text_domain="oik" ) {
   $value = bw_array_get( $array, $index, $default );
   if ( $value === $default ) {
@@ -412,6 +416,7 @@ function bw_array_get_dcb( $array = array(), $index, $default = NULL, $callback=
     }
   }  
   return( $value );  
+}
 }
 
 /**
