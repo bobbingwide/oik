@@ -14,7 +14,7 @@
  * - _bwtnt
  * - oik_plugins_validate
  * - oik_enqueue_scripts
- *
+ 
  * Note: These functions will be further stripped down as the oik admin interface is improved to use tabs.
  */	
 
@@ -855,56 +855,70 @@ function oik_get_themes_server() {
   return( oik_get_plugins_server() );
 }
 
+
+/*
+ * These functions have been promoted to the class-oik-update library.
+ * They will be deprecated in the future, but in the mean time the public APIs
+ * have been rewritten to invoke the shared library functions.
+ * 
+ * API                               | Rewritten or moved? | Referrer
+ * --------------------------------- | ------------------- | -------
+ * oik_register_plugin_server        | Rewritten           | Multiple plugins
+ * oik_register_theme_server         | Rewritten           | Multiple themes
+ * oik_lazy_altapi_init              | Moved 
+ * oik_lazy_alttheme_init            | Moved
+ * oik_site_transient_update_plugins | Moved
+ * oik_site_transient_update_themes  | Moved
+ * oik_altapi_check                  | Moved
+ * oik_alttheme_check                | Moved
+ * oik_query_plugins_server          | Moved
+ * oik_query_themes_server           | Moved
+ * bw_get_slug                       | Rewritten | oik-plugins, oik-themes
+ * bw_last_path                      | Moved
+ * oik_pluginsapi                    | Moved
+ * oik_themes_api                    | Moved
+ * oik_themes_api_result             | Moved
+ */
+ 
+
 /**
  * Register this plugin as one that is served from a different server to WordPress.org
- *
- * @param string $file - fully qualified plugin file name
- * @param string $server - server name initial value - only set when the server value in the options is blank 
- * @param string $apikey - hard coded apikey initial value
- *
  * 
  * Notes: Plugins registered using the API set the default value for the server ... which may be null
  * i.e. they set the intention to be served from somewhere other than WordPress.org
  * When required we determine the actual server location AND other fields as needed during oik_query_plugins_server() 
  *
- * At least ONE plugin needs to call this API for the oik plugin server logic to be activated 
+ * At least ONE plugin needs to call this API for the oik plugin server logic to be activated.
+ * 
+ * @param string $file - fully qualified plugin file name
+ * @param string $server - server name initial value - only set when the server value in the options is blank 
+ * @param string $apikey - hard coded apikey initial value
+ *
  */
 function oik_register_plugin_server( $file, $server=null, $apikey=null ) {
-  global $bw_registered_plugins;
-  if ( !isset( $bw_registered_plugins ) ) {
-    oik_lazy_altapi_init();
-  }
-  $bw_registered_plugins[] = array( "file" => $file, "server" => $server, "apikey" => $apikey );
-  //bw_trace2( $bw_registered_plugins );
+	$oik_update_loaded = oik_require_lib( "class-oik-update" );	
+	bw_trace2( $oik_update_loaded, "oik_update_loaded" );
+	oik_update::oik_register_plugin_server( $file, $server, $apikey );
 }
 
 /**
  * Register this theme as one that is served from a different server to WordPress.org
+ * 
+ * Notes: Themese registered using the API set the default value for the server ... which may be null
+ * i.e. they set the intention to be served from somewhere other than WordPress.org
+ * When required we determine the actual server location AND other fields as needed during oik_query_themes_server() 
+ *
+ * At least ONE theme needs to call this API for the oik theme server logic to be activated.
+ * 
+ * @param string $file - fully qualified theme file name
+ * @param string $server - server name initial value - only set when the server value in the options is blank 
+ * @param string $apikey - hard coded apikey initial value
+ * 
  */
 function oik_register_theme_server( $file, $server=null, $apikey=null ) {
-  global $bw_registered_themes;
-  if ( !isset( $bw_registered_themes ) ) {
-    oik_lazy_alttheme_init();
-  }
-  $bw_registered_themes[] = array( "file" => $file, "server" => $server, "apikey" => $apikey );
-  bw_trace2( $bw_registered_themes );
-}
-
-/**
- * Return the last path for the given file
- * 
- * @param string $file - a fully specified file name ( e.g. __FILE__ )
- * @return string the last part of the file's path
- * e.g. 
- *
- * @link http://www.php.net/manual/en/function.basename.php#72254
- * When using basename() on a path to a directory ('/bar/foo/'), the last path component ('foo') is returned
- */
-function bw_last_path( $file ) {
-  bw_trace2();
-  $pathinfo = pathinfo( $file, PATHINFO_DIRNAME );
-  $last_path = basename( $pathinfo );
-  return( $last_path );
+	$oik_update_loaded = oik_require_lib( "class-oik-update" );	
+	bw_trace2( $oik_update_loaded, "oik_update_loaded" );
+	oik_update::oik_register_theme_server( $file, $server, $apikey );
 }
 
 /**
@@ -913,226 +927,26 @@ function bw_last_path( $file ) {
  * This function should only be called when we know it's a plugin name with a directory.
  * 
  * Sample results
- * "slug" for "slug/plugin_name.php" - when called for "update-check"
- * "slugonly" for "slugonly" - when called for "plugin_information"
- * "hello" for "hello.php" - does this ever happen?
- * null for null
+ * - "slug" for "slug/plugin_name.php" - when called for "update-check"
+ * - "slugonly" for "slugonly" - when called for "plugin_information"
+ * - "hello" for "hello.php" - does this ever happen?
+ * - null for null
  * 
  * @param string $plugin - a plugin name
  * @return string $slug - the slug used to identify the plugin 
  *
  */
 function bw_get_slug( $plugin ) {
-  if ( $plugin ) {
-    $pathinfo = pathinfo( $plugin );
-    $slug = $pathinfo['dirname'] ;
-    if ( $slug == '.' ) { 
-      $slug = $pathinfo['filename'];
-    }
-  } else {
-    $slug = null;
-  }  
-  return( $slug );    
-}
-
-/**
- * Return the plugins server if the requested plugin is one of ours
- *
- * Note: $bw_registered_plugins is an array of filenames
- * we create $bw_slugs as an array of "slug" => array( 'basename' => "slug/plugin_name.php", 'file'=> 'server'=>, 'apikey'=> )
- * $bw_plugins (stored in WordPress options) also contains 'server' and 'apikey'
- * 
- * @param string $slug plugin slug
- * 
- */
-function oik_query_plugins_server( $slug ) {
-  global $bw_registered_plugins, $bw_slugs;
-  if ( !isset( $bw_slugs ) ) {
-    $bw_slugs = array();
-    if ( isset( $bw_registered_plugins ) ) {
-      foreach ( $bw_registered_plugins as $key => $value ) {
-        $file = bw_array_get( $value, "file", null );
-        $plugin_basename = plugin_basename( $file );
-        $bw_slug = pathinfo( $plugin_basename, PATHINFO_DIRNAME );
-        $value['basename'] = $plugin_basename;
-        $bw_slugs[ $bw_slug ] = $value;
-      }
-    }
-    bw_trace2( $bw_slugs );
-  }
-  $plugin_settings = bw_get_option( $slug, "bw_plugins" ); 
-  bw_trace2( $plugin_settings );
-  /* return the saved settings, with any registered defaults, otherwise just get the registered settings */
-  if ( $plugin_settings ) {
-    $server = bw_array_get( $plugin_settings, "server", null );
-    $apikey = bw_array_get( $plugin_settings, "apikey", null ); 
-    if ( !$server || !$apikey ) { 
-       $value = bw_array_get( $bw_slugs, $slug, null );
-    }   
-    if ( !$server ) {   
-      $server = bw_array_get_dcb( $value, "server", null, "oik_get_plugins_server" );
-    }
-    if ( !$apikey ) {
-      $plugin_settings['apikey'] = bw_array_get( $value, "apikey", null );
-    } 
-  } else {
-    $plugin_settings = bw_array_get( $bw_slugs, $slug, null );
-    if ( $plugin_settings ) {
-        $server = bw_array_get_dcb( $plugin_settings, "server", null, "oik_get_plugins_server" );
-    }
-    // apikey doesn't default here 
-  }  
-  if ( $plugin_settings ) {
-    $plugin_settings['server'] = $server;
-    bw_trace2( $server, "server" );  
-  }
-  return( $plugin_settings ); 
-}
-
-/**
- * Return the themes server if the requested theme is one of ours
- *
- * Note: $bw_registered_themes is an array of filenames
- * we create $bw_theme_slugs as an array of "slug" => array( 'basename' => "theme name", 'file'=> 'server'=>, 'apikey'=> )
- * $bw_themes (stored in WordPress options) also contains 'server' and 'apikey'
- * 
- * @param string $slug theme name
- * @return array 
- */
-function oik_query_themes_server( $slug ) {
-  global $bw_registered_themes, $bw_theme_slugs;
-  if ( !isset( $bw_theme_slugs ) ) {
-    $bw_theme_slugs = array();
-    if ( count( $bw_registered_themes) ) {
-      foreach ( $bw_registered_themes as $key => $value ) {
-        $file = bw_array_get( $value, "file", null );
-        // The next 2 lines are equivalent to $bw_slug = bw_last_path( $file );
-        $pathinfo = pathinfo( $file, PATHINFO_DIRNAME );
-        $bw_slug = basename( $pathinfo );
-        $value['basename'] = $bw_slug;
-        $bw_theme_slugs[ $bw_slug ] = $value;
-      }
-    }
-    bw_trace2( $bw_theme_slugs );
-  }
-  $theme_settings = bw_get_option( $slug, "bw_themes" ); 
-  bw_trace2( $theme_settings );
-  /* return the saved settings, with any registered defaults, otherwise just get the registered settings */
-  if ( $theme_settings ) {
-    $server = bw_array_get( $theme_settings, "server", null );
-    $apikey = bw_array_get( $theme_settings, "apikey", null ); 
-    if ( !$server || !$apikey ) { 
-       $value = bw_array_get( $bw_theme_slugs, $slug, null );
-    }   
-    if ( !$server ) {   
-      $server = bw_array_get_dcb( $value, "server", null, "oik_get_themes_server" );
-      bw_trace2( $server, $slug, false );
-    }
-    if ( !$apikey ) {
-      $theme_settings['apikey'] = bw_array_get( $value, "apikey", null );
-    } 
-  } else {
-    $theme_settings = bw_array_get( $bw_theme_slugs, $slug, null );
-    if ( $theme_settings ) {
-      $server = bw_array_get_dcb( $theme_settings, "server", null, "oik_get_themes_server" );
-    }
-    // apikey doesn't default here 
-  }  
-
-  if ( $theme_settings ) {
-    $theme_settings['server'] = $server;
-    bw_trace2( $server, "server", false, BW_TRACE_INFO );  
-  }
-  return( $theme_settings ); 
-}
-
-/** 
- * Only register our plugin server when needed
- */
-function oik_lazy_altapi_init() {
-  add_action( "pre_set_site_transient_update_plugins", "oik_altapi_check" );
-  add_action( "site_transient_update_plugins", "oik_site_transient_update_plugins", 10, 1 );
-  add_action( "plugins_api", "oik_pluginsapi", 10, 3 );
-}
-
-/** 
- * Only register our theme server when needed
- */
-function oik_lazy_alttheme_init() {
-  add_action( "pre_set_site_transient_update_themes", "oik_alttheme_check" );
-  add_action( "site_transient_update_themes", "oik_site_transient_update_themes", 10, 1 );
-  add_filter( "themes_api", "oik_themes_api", 10, 3 );
-  //add_filter( "themes_api_result", "oik_themes_api_result", 10, 3  );
-}
-
-/**
- * If required, unset last_checked to force another "check for updates" for plugins
- * 
- * Note: Only use this when testing the oik plugin update logic
- */
-function oik_site_transient_update_plugins( $transient ) {
-  if ( defined( "OIK_FORCE_CHECK" ) ) {
-    if ( OIK_FORCE_CHECK ) {
-      static $last_checked = null; 
-      if ( !$last_checked ) {
-        $last_checked = $transient->last_checked;
-        unset( $transient->last_checked ); 
-        bw_trace2( $last_checked, "transient" );
-      }  
-    } else {     
-      //bw_backtrace();
-    }
-  }    
-  return( $transient );
-} 
- 
-/**
- * If required, unset last_checked to force another "check for updates" for themes
- * 
- * Note: Only use this when testing the oik theme update logic
- */
-function oik_site_transient_update_themes( $transient ) {
-  if ( defined( "OIK_FORCE_CHECK_THEMES" ) && OIK_FORCE_CHECK_THEMES ) {
-    static $last_checked = null; 
-    if ( !$last_checked ) {
-      $last_checked = $transient->last_checked;
-      unset( $transient->last_checked ); 
-      bw_trace2( $last_checked, "transient" );
-    }  
-  }     
-  //bw_backtrace();
-  return( $transient );
-}
-
-/**
- * Check for plugin updates
- *
- */  
-function oik_altapi_check( $transient ) {
-  //bw_backtrace();
-  oik_require( "includes/oik-remote.inc" );
-  return( oik_lazy_altapi_check( $transient ) );
-}
-
-function oik_alttheme_check( $transient ) {
-  //bw_backtrace();
-  oik_require( "includes/oik-remote.inc" );
-  return( oik_lazy_alttheme_check( $transient ) );
-}
-
-function oik_pluginsapi( $false, $action, $args ) {
-  oik_require( "includes/oik-remote.inc" );
-  return( oik_lazy_pluginsapi( $false, $action, $args ) );
-}
-
-function oik_themes_api( $false, $action, $args ) {
-  oik_require( "includes/oik-remote.inc" );
-  return( oik_lazy_themes_api( $false, $action, $args ) );
-}
-
-function oik_themes_api_result( $result, $action, $args ) {
-  oik_require( "includes/oik-remote.inc" );
-  return( oik_lazy_themes_api_result( $result, $action, $args ) );
+	if ( $plugin ) {
+		$pathinfo = pathinfo( $plugin );
+		$slug = $pathinfo['dirname'] ;
+		if ( $slug == '.' ) { 
+			$slug = $pathinfo['filename'];
+		}
+	} else {
+		$slug = null;
+	}  
+	return( $slug );    
 }
 
 /**

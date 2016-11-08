@@ -162,7 +162,8 @@ function oik_main_init() {
 function oik_admin_menu() {
 	oik_require_lib( "bobbforms" );
 	oik_require_lib( "oik-admin" );
-	oik_require_lib( "oik_update" );
+	oik_require_lib( "class-bobbcomp" );
+	oik_require_lib( "class-oik-update" );
 	require_once( 'admin/oik-admin.inc' );
   oik_options_add_page();
   add_action( 'admin_init', 'oik_admin_init' );
@@ -313,8 +314,9 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "bobbfunc" => null
 						, "oik-autoload" => null
 						, "oik-honeypot" => "bobbforms"
-						, "oik_remote" => null
-						, "oik_update" => "oik_remote"
+						, "class-oik-remote" => null
+						, "class-oik-update" => "class-oik-remote"
+						, "class-bobbcomp" => null
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	

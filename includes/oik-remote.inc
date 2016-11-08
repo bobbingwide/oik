@@ -1,4 +1,23 @@
-<?php // (C) Copyright Bobbing Wide 2012-2015
+<?php // (C) Copyright Bobbing Wide 2012-2016
+
+/**
+ * Pre-deprecation notice 
+ * 
+ * All of the functions from oik-remote.inc have been moved to the shared library /libs/oik_remote.lib
+ * Some time in the future inclusion of this file will display a deprecated notice
+ * in the mean time, we'll use oik_require_lib( "oik_remote" ) to load the correct file.
+ * 
+ * There should be no plugins and themes which attempt to include this file when oik is not active
+ * so this call is expected to work.
+ */
+
+if ( !defined( "OIK_REMOTE_INCLUDED" ) ) {
+	oik_require_lib( "oik_remote" );
+} /* end !defined */
+
+
+if ( !defined( "OIK_REMOTE_INCLUDED" ) ) {
+
 
 /**
  * Wrapper to wp_remote_head
@@ -708,6 +727,10 @@ function bw_json_decode( $json, $assoc=false ) {
 	}
 	return( $decoded );
 }
+
+
+
+} /* end !defined */
                
 
 
