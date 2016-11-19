@@ -111,7 +111,9 @@ function oik_enqueue_stylesheets() {
 }
 
 /**
- * Query the timestamp for a file 
+ * Query the timestamp for a file
+ * 
+ * We need to wrap filemtime() to avoid 'Warning: filemtime(): stat failed for' messages.  
  * 
  * @param string $path the first part of the path to the file ( not terminated with a '/' )
  * @param string $file the rest of the path to the file ( not prefixed with a '/' )
@@ -119,9 +121,12 @@ function oik_enqueue_stylesheets() {
  */ 
 function oik_query_timestamp( $path, $file ) {
 	$full_file = $path . '/' . $file;
-	$timestamp = filemtime( $full_file );
-	if ( $timestamp === false ) {
-		$timestamp = null;
+	$timestamp = null;	
+	if ( file_exists( $full_file ) ) {
+		$timestamp = filemtime( $full_file );
+		if ( $timestamp === false ) {
+			$timestamp = null;
+		}
 	}
 	return( $timestamp );
 } 

@@ -97,7 +97,7 @@ function oik_lazy_plugins_server_settings() {
  *
  * Note: The Delete function doesn't delete the plugin, just the profile information that overrides the values set by oik_register_plugin_server()
  */
-function _oik_plugins_settings_row( $plugin, $version, $server, $apikey, $expiration ) {
+function _oik_plugins_settings_row( $plugin, $version, $server, $apikey, $expiration, $programmatically_registered ) {
   $row = array();
   $row[] = $plugin;
   $row[] = $version . "&nbsp;"; 
@@ -106,7 +106,12 @@ function _oik_plugins_settings_row( $plugin, $version, $server, $apikey, $expira
   $row[] = $expiration . "&nbsp;";
   // $row[] = itext( "expand[$plugin]", $expand, true );
   $links = null;
-  $links .= retlink( null, admin_url("admin.php?page=oik_plugins&amp;delete_plugin=$plugin"), "Delete", "Delete plugin's profile entry" ); 
+	
+	if ( $programmatically_registered ) {
+		$links .= retlink( null, admin_url("admin.php?page=oik_plugins&amp;delete_plugin=$plugin"), "Reset", "Reset plugin's profile entry" ); 
+	} else {
+		$links .= retlink( null, admin_url("admin.php?page=oik_plugins&amp;delete_plugin=$plugin"), "Delete", "Delete plugin's profile entry" ); 
+	}
   $links .= "&nbsp;";
   $links .= retlink( null, admin_url("admin.php?page=oik_plugins&amp;edit_plugin=$plugin"), "Edit" ); 
   $links .= "&nbsp;"; 
@@ -115,6 +120,7 @@ function _oik_plugins_settings_row( $plugin, $version, $server, $apikey, $expira
   $row[] = $links;
   bw_tablerow( $row );
 }
+
 
 /**
  * Load registered plugins
@@ -137,6 +143,7 @@ function _oik_plugins_load_registered_plugins() {
       if ( !isset( $bw_plugins[$plugin] ) ) {
         $bw_plugins[$plugin] = $plugin_data;
       }  
+			$bw_plugins[$plugin]['programmatically_registered'] = true;
     }
   }
   //bw_trace2( $bw_plugins );
@@ -159,7 +166,8 @@ function _oik_plugins_settings_table() {
       $server = bw_array_get( $plugin_data, "server", "&nbsp;" );
       $apikey = bw_array_get( $plugin_data, "apikey", null );
       $expiration = bw_array_get( $plugin_data, "expiration", null );
-      _oik_plugins_settings_row( $plugin, $version, $server, $apikey, $expiration );
+			$programmatically_registered = bw_array_get( $plugin_data, "programmatically_registered", false );
+      _oik_plugins_settings_row( $plugin, $version, $server, $apikey, $expiration, $programmatically_registered );
     }
   }  
 }

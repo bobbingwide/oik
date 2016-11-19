@@ -874,7 +874,7 @@ function oik_get_themes_server() {
  * oik_site_transient_update_themes  | Moved
  * oik_altapi_check                  | Moved
  * oik_alttheme_check                | Moved
- * oik_query_plugins_server          | Moved
+ * oik_query_plugins_server          | Rewritten | 
  * oik_query_themes_server           | Moved
  * bw_get_slug                       | Rewritten | oik-plugins, oik-themes
  * bw_last_path                      | Moved
@@ -922,6 +922,23 @@ function oik_register_theme_server( $file, $server=null, $apikey=null ) {
 	$oik_update_loaded = oik_require_lib( "class-oik-update" );	
 	bw_trace2( $oik_update_loaded, "oik_update_loaded" );
 	oik_update::oik_register_theme_server( $file, $server, $apikey );
+}
+
+/**
+ * Return the plugins server if the requested plugin is one of ours
+ *
+ * Note: $bw_registered_plugins is an array of filenames
+ * we create $bw_slugs as an array of "slug" => array( 'basename' => "slug/plugin_name.php", 'file'=> 'server'=>, 'apikey'=> )
+ * $bw_plugins (stored in WordPress options) also contains 'server' and 'apikey'
+ * 
+ * @param string $slug plugin slug
+ * @return array 
+ */
+function oik_query_plugins_server( $plug ) {
+	$bobbcomp_loaded = oik_require_lib( "class-bobbcomp" );
+	$oik_update_loaded = oik_require_lib( "class-oik-update" );	
+	$plugin_settings = oik_update::oik_query_plugins_server( $plug );	 
+	return( $plugin_settings ); 
 }
 
 /**
