@@ -4,7 +4,7 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.6
+* Tested up to: 4.7-RC1
 * Stable tag: 3.0.3
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,6 +15,11 @@ Over 80 advanced, powerful shortcodes for displaying the content of your WordPre
 The *oik base* plugin provides a series of advanced WordPress shortcodes that help you display dynamic content from your website's pages, posts, attachments, links and custom post types.
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information.
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
+
+Changes in version 3.1.0
+* Tested with WordPress 4.7
+*
+*
 
 At a glance changes in version 3.0.0, previously known as v2.6
 * Tested with WordPress 4.5	and WordPress MultiSite
@@ -174,6 +179,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.1.0 
+Tested with WordPress 4.7 and WordPress Multisite.
+
 # 3.0.3 
 Tested with WordPress 4.6 and WordPress Multisite
 
@@ -466,63 +474,76 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 3.1.0 
+* Changed: Extract plugin and theme update logic into shared libraries,https://github.com/bobbingwide/oik/issues/55
+* Changed: Improve support for $arg parameter to bw_default_taxonomy_args,https://github.com/bobbingwide/oik/issues/52
+* Changed: Provide backward compatibility for oik_query_plugins_server()
+* Changed: Re-enable support for PHP 5.2 during startup, https://github.com/bobbingwide/oik-libs/issues/4
+* Changed: Redevelop bw_replace_filter() and related functions for WordPress 4.7,https://github.com/bobbingwide/oik/issues/58
+* Changed: Remove the Expiration column from the Plugins and Server  tables,https://github.com/bobbingwide/oik/issues/55
+* Fixed: Custom CSS file changes not taking effect immediately,https://github.com/bobbingwide/oik/issues/54
+* Fixed: Do not enqueue jQuery when DOING_AJAX,https://github.com/bobbingwide/oik/issues/57
+* Fixed: Avoid warnings from filemtime().
+* Fixed: Tidy .gitignore.
+* Tested: With WordPress 4.7 and WordPress Multisite
+
 # 3.0.3 
-* Added: Display memory_limit using [wp] shortcode, [github bobbingwide oik issue 46]
-* Changed: Add follow me support for GitHub, [github bobbingwide oik issue 47]
-* Changed: Attempt to protect against fatal errors,[github bobbingwide oik issue 49]
+* Added: Display memory_limit using [wp] shortcode, https://github.com/bobbingwide/oik/issues/46
+* Changed: Add follow me support for GitHub, https://github.com/bobbingwide/oik/issues/47
+* Changed: Attempt to protect against fatal errors,https://github.com/bobbingwide/oik/issues/49
 * Changed: Blessed task - docblocks
 * Changed: Co-requisite change for oik-sc-help plugin,[github bobbingwide oik-sc-help issue 2
-* Changed: Increase priority for hook 'init' to 20 from 11,[github bobbingwide oik issue 45]
-* Changed: Support for WordPress 4.6,[github bobbingwide oik issue 51]
-* Fixed: Cater for shortcode syntax with parm name aliases,[github bobbingwide oik issue 43]
-* Fixed: Improve messages from deprecated files loaded by PHPUnit, [github bobbingwide oik issue 48]
+* Changed: Increase priority for hook 'init' to 20 from 11,https://github.com/bobbingwide/oik/issues/45
+* Changed: Support for WordPress 4.6,https://github.com/bobbingwide/oik/issues/51
+* Fixed: Cater for shortcode syntax with parm name aliases,https://github.com/bobbingwide/oik/issues/43
+* Fixed: Improve messages from deprecated files loaded by PHPUnit, https://github.com/bobbingwide/oik/issues/48
 * Tested: With WordPress 4.6 and WordPress Multisite
 
 # 3.0.2 
-* Added: Create oik_themes shared library [github bobbingwide oik issue 40]
-* Fixed: [bw_domain] should display default domain if not set [github bobbingwide oik issue 38]
-* Fixed: [bw_link /path] link incorrect when domain not set [github bobbingwide oik issue 39]
-* Fixed: [bw_show_googlemap] needs an API key [github bobbingwide oik issue 41]
+* Added: Create oik_themes shared library https://github.com/bobbingwide/oik/issues/40
+* Fixed: [bw_domain] should display default domain if not set https://github.com/bobbingwide/oik/issues/38
+* Fixed: [bw_link /path] link incorrect when domain not set https://github.com/bobbingwide/oik/issues/39
+* Fixed: [bw_show_googlemap] needs an API key https://github.com/bobbingwide/oik/issues/41
 * Tested: With WordPress 4.5.3
 
 # 3.0.1 
-* Added: Cater for Git repositories similar to symlinked plugins [github bobbingwide oik issues 11]
-* Added: Honeypot support for [bw_contact_form] [github bobbingwide oik issues 32]
-* Added: oik-honeypot shared library [github bobbingwide oik issues 32]
-* Changed: Add $extras parameter to bw_form() and form() [github bobbingwide oik issue 34]
-* Changed: Alter bw_load_noderef2_flat() to allow it to list attachments [github bobbingwide oik issue 33]
-* Changed: Co-req change for oik-nivo-slider issue 4 [github bobbingwide oik-nivo-slider issue 4]
+* Added: Cater for Git repositories similar to symlinked plugins https://github.com/bobbingwide/oik/issues/11
+* Added: Honeypot support for [bw_contact_form] https://github.com/bobbingwide/oik/issues/32
+* Added: oik-honeypot shared library https://github.com/bobbingwide/oik/issues/32
+* Changed: Add $extras parameter to bw_form() and form() https://github.com/bobbingwide/oik/issues/34
+* Changed: Alter bw_load_noderef2_flat() to allow it to list attachments https://github.com/bobbingwide/oik/issues/33
+* Changed: Co-req change for oik-nivo-slider issue 4 https://github.com/bobbingwide/oik-nivo-slider/issues/4
 * Changed: Whitespace, docblock and some trace levels
-* Changed: [bw_wpadmin] use admin_url if 'domain' not set	 [github bobbingwide oik issue 29]
-* Fixed: Backslash problem with bw_textarea();  add stripslashes() [github bobbingwide oik issue 35]
-* Fixed: Correct typo of internal [github bobbingwide issues 31]
+* Changed: [bw_wpadmin] use admin_url if 'domain' not set	 https://github.com/bobbingwide/oik/issues/29
+* Fixed: Backslash problem with bw_textarea();  add stripslashes() https://github.com/bobbingwide/oik/issues/35
+* Fixed: Correct typo of internal https://github.com/bobbingwide/issues/31
 
 # 3.0.0 
 * Added: Support for pagination using AJAX with the oik-ajax plugin
 * Changed: Docblock and trace levels
-* Changed: Improved [bw_logo] shortcode for WPMS [github bobbingwide oik issue 27]
-* Fixed: Workaround for atrocious performance of textarea fields in Chrome [github bobbingwide oik issue 26]
+* Changed: Improved [bw_logo] shortcode for WPMS https://github.com/bobbingwide/oik/issues/27
+* Fixed: Workaround for atrocious performance of textarea fields in Chrome https://github.com/bobbingwide/oik/issues/26
 * Tested: With WordPress 4.5
 
 # 3.0.0-RC3 
-* Added: Support ajaxified pagination of shortcodes with nested content [github bobbingwide oik issue 22]
-* Added: Support for pagination of multi-value fields [github bobbingwide oik issue 25]
+* Added: Support ajaxified pagination of shortcodes with nested content https://github.com/bobbingwide/oik/issues/22
+* Added: Support for pagination of multi-value fields https://github.com/bobbingwide/oik/issues/25
 * Changed: Some trace levels
-* Changed: Support $extra parameter to allow for start=index for ordered lists [github bobbingwide oik issue 21]
+* Changed: Support $extra parameter to allow for start=index for ordered lists https://github.com/bobbingwide/oik/issues/21
 * Changed: Updated some docblocks
-* Fixed: Multi shortcode pagination not working consistently [github bobbingwide oik issue 24]
+* Fixed: Multi shortcode pagination not working consistently https://github.com/bobbingwide/oik/issues/24
 
 # 3.0.0-RC2 
 * Added: Add some notes about autoload needing to perform runtime compatibility checking
 * Changed: oik_query_libs is a filter not an action
-* Fixed: bw_theme_object_property() should check for $post [github bobbingwide oik issues 19]
+* Fixed: bw_theme_object_property() should check for $post https://github.com/bobbingwide/oik/issues/19
 * Tested: With WordPress 4.5-beta3
 
 # 3.0.0-RC1 
-* Changed: Change to possibly help with [github bobbingwide oik-shortcodes issues 9]
+* Changed: Change to possibly help with https://github.com/bobbingwide/oik-shortcodes/issues/9
 * Changed: Some trace calls
 * Changed: Tidied some comments
-* Fixed: Add support for internal ( fragment ) links using [bw_link]	[github bobbingwide oik issues 16]
+* Fixed: Add support for internal ( fragment ) links using [bw_link]	https://github.com/bobbingwide/oik/issues/16
 * Fixed: Improved change for Issue 11	- compare 'new_version' with 'Version'
 * Tested: With WordPress 4.4.2 and WordPress MultiSite
 

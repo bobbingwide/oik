@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
-Tested up to: 4.6
+Tested up to: 4.7-RC1
 Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,6 +14,11 @@ Over 80 advanced, powerful shortcodes for displaying the content of your WordPre
 The *oik base* plugin provides a series of advanced WordPress shortcodes that help you display dynamic content from your website's pages, posts, attachments, links and custom post types.
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information. 
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
+
+Changes in version 3.1.0
+* Tested with WordPress 4.7
+* 
+* 
 
 At a glance changes in version 3.0.0, previously known as v2.6
 * Tested with WordPress 4.5	and WordPress MultiSite
@@ -173,6 +178,9 @@ Shared libraries delivered in the oik base plugin include:
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.1.0 = 
+Tested with WordPress 4.7 and WordPress Multisite.
+
 = 3.0.3 =
 Tested with WordPress 4.6 and WordPress Multisite
 
@@ -465,6 +473,19 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.1.0 =
+* Changed: Extract plugin and theme update logic into shared libraries,[github bobbingwide oik issue 55]
+* Changed: Improve support for $arg parameter to bw_default_taxonomy_args,[github bobbingwide oik issue 52]
+* Changed: Provide backward compatibility for oik_query_plugins_server()
+* Changed: Re-enable support for PHP 5.2 during startup, [github bobbingwide oik-libs issue 4]
+* Changed: Redevelop bw_replace_filter() and related functions for WordPress 4.7,[github bobbingwide oik issue 58]
+* Changed: Remove the Expiration column from the Plugins and Server  tables,[github bobbingwide oik issue 55]
+* Fixed: Custom CSS file changes not taking effect immediately,[github bobbingwide oik issue 54]
+* Fixed: Do not enqueue jQuery when DOING_AJAX,[github bobbingwide oik issue 57]
+* Fixed: Avoid warnings from filemtime(). 
+* Fixed: Tidy .gitignore. 
+* Tested: With WordPress 4.7 and WordPress Multisite
+
 = 3.0.3 = 
 * Added: Display memory_limit using [wp] shortcode, [github bobbingwide oik issue 46]
 * Changed: Add follow me support for GitHub, [github bobbingwide oik issue 47]
