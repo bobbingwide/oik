@@ -15,7 +15,7 @@
     "suite": "ajax_bobbfunc",
     "test": "ajax_bobbfunc::test_bw_jquery_noop_when_doing_ajax",
     "status": "pass",
-    "time": 0.00086212158203125,
+    "time": 0.00098609924316406,
     "trace": [],
     "message": "",
     "output": ""
@@ -28,7 +28,7 @@
     "suite": "ajax_bobbfunc",
     "test": "ajax_bobbfunc::test_bw_jq_and_bw_jq_flush",
     "status": "pass",
-    "time": 0.00060796737670898,
+    "time": 0.00086283683776855,
     "trace": [],
     "message": "",
     "output": ""
