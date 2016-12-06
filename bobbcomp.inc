@@ -208,17 +208,16 @@ function bw_get_current_user_id() {
  * Use alt=1 or alt=2 to use "more options" or "more options 2" 
  *
  * Note: The author is null when there is no current post being processed.
- * <pre>
- * oik-user  alt=  user=  author  processing
- * --------  ----  -----  ------  --------------------------------------------
- * active    set   n/a    n/a     use the alt= value ( 0 is treated as '' )
- * active    null  set    n/a     use the value specified for the user options
- * active    null  null   null    use oik options
- * active    null  null   set     use the user options
- *                 
- * inactive  set   n/a    n/a     use the alt= value
- * inactive  null  n/a    n/a     use the oik options 
- * </pre>
+ * 
+ * oik-user | alt= | user= | author | processing
+ * -------- | ---- | ----- | ------ | --------------------------------------------
+ * active   | set  | n/a   | n/a    | use the alt= value ( 0 is treated as '' )
+ * active   | null | set   | n/a    | use the value specified for the user options
+ * active   | null | null  | null   | use oik options
+ * active   | null | null  | set    | use the user options
+ * inactive | set  | n/a   | n/a    | use the alt= value
+ * inactive | null | n/a   | n/a    | use the oik options 
+ * 
  */
 function bw_get_option_arr( $field, $set="bw_options", $atts=null ) {
   $alt = bw_array_get( $atts, "alt", null );
