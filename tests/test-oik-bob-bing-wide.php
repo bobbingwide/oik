@@ -5,7 +5,7 @@
  * 
  * Test the functions in shortcodes/oik-bob-bing-wide.php
  */
-class Tests_oik_bob_bing_wide extends WP_UnitTestCase {
+class Tests_oik_bob_bing_wide extends BW_UnitTestCase {
 
 	function setUp() {
 		parent::setUp();

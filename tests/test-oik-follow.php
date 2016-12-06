@@ -6,18 +6,19 @@
  *
  */
 
-class Tests_oik_follow extends WP_UnitTestCase {
+class Tests_oik_follow extends BW_UnitTestCase {
 
 	/** 
 	 * set up logic
 	 * 
 	 * - ensure any database updates are rolled back
-	 * - we need "oik_plugins" for bw_update_option
+	 * - we need "oik_plugins" for bw_update_option 
 	 * - we need oik-follow to load the functions we're testing
 	 */
 	function setUp() {
 		parent::setUp();
 		$oik_plugins = oik_require_lib( "oik_plugins" );
+		bw_trace2( $oik_plugins, "oik_plugins" );
 		oik_require( "shortcodes/oik-follow.php" );
 	}
 	
@@ -27,8 +28,11 @@ class Tests_oik_follow extends WP_UnitTestCase {
 	 * We assume that the option value is set in the database.
 	 */
 	function test_follow_me_with_github_set() {
-		$value = bw_get_option_arr( "github" );
+		$saved = bw_get_option_arr( "github" );
+		$value = bw_update_option( "github", "bobbingwide" );
 		$html = bw_follow( array( "network" => "github" ) );
+		$value = bw_update_option( "github", $saved );
+		
 		$this->assertStringStartsWith( '<a href="https://github.com/' . $value, $html );
 	}
 	

@@ -5,7 +5,7 @@
  * 
  * Tests for logic in includes/oik-sc-help.inc
  */
-class Tests_oik_sc_help extends WP_UnitTestCase {
+class Tests_oik_sc_help extends BW_UnitTestCase {
 
 	function setUp() { 
 		oik_require( "admin/oik-admin.inc" );	 
