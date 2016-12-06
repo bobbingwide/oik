@@ -1,7 +1,7 @@
 {
     "event": "suiteStart",
     "suite": "",
-    "tests": 5
+    "tests": 8
 }{
     "event": "suiteStart",
     "suite": "Tests_oik_bob_bing_wide",
@@ -15,7 +15,7 @@
     "suite": "Tests_oik_bob_bing_wide",
     "test": "Tests_oik_bob_bing_wide::test_bw_wp_v0_p1_m2",
     "status": "pass",
-    "time": 1.7123510837555,
+    "time": 0.18157505989075,
     "trace": [],
     "message": "",
     "output": ""
@@ -28,7 +28,50 @@
     "suite": "Tests_oik_bob_bing_wide",
     "test": "Tests_oik_bob_bing_wide::test_bw_wp_v0_my",
     "status": "pass",
-    "time": 0.0088632106781006,
+    "time": 0.0095710754394531,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "Tests_oik_filters",
+    "tests": 3
+}{
+    "event": "testStart",
+    "suite": "Tests_oik_filters",
+    "test": "Tests_oik_filters::test_bw_replace_filter"
+}{
+    "event": "test",
+    "suite": "Tests_oik_filters",
+    "test": "Tests_oik_filters::test_bw_replace_filter",
+    "status": "pass",
+    "time": 0.11451697349548,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests_oik_filters",
+    "test": "Tests_oik_filters::test_bw_disable_filter"
+}{
+    "event": "test",
+    "suite": "Tests_oik_filters",
+    "test": "Tests_oik_filters::test_bw_disable_filter",
+    "status": "pass",
+    "time": 0.011098146438599,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "Tests_oik_filters",
+    "test": "Tests_oik_filters::test_bw_restore_filter"
+}{
+    "event": "test",
+    "suite": "Tests_oik_filters",
+    "test": "Tests_oik_filters::test_bw_restore_filter",
+    "status": "pass",
+    "time": 0.062006950378418,
     "trace": [],
     "message": "",
     "output": ""
@@ -45,7 +88,7 @@
     "suite": "Tests_oik_follow",
     "test": "Tests_oik_follow::test_follow_me_with_github_set",
     "status": "pass",
-    "time": 0.083685159683228,
+    "time": 0.11956405639648,
     "trace": [],
     "message": "",
     "output": ""
@@ -58,7 +101,7 @@
     "suite": "Tests_oik_follow",
     "test": "Tests_oik_follow::test_follow_me_with_github_not_set",
     "status": "pass",
-    "time": 0.1620500087738,
+    "time": 0.075793981552124,
     "trace": [],
     "message": "",
     "output": ""
@@ -75,7 +118,7 @@
     "suite": "Tests_oik_sc_help",
     "test": "Tests_oik_sc_help::test_bw_form_sc_parm_help_issue_43",
     "status": "pass",
-    "time": 0.033853054046631,
+    "time": 0.021087169647217,
     "trace": [],
     "message": "",
     "output": ""

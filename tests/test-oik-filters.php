@@ -12,9 +12,13 @@ class Tests_oik_filters extends BW_UnitTestCase {
 		oik_require( "includes/oik-filters.inc" );
 	}
 	
-	static function it_worked( $parm1, $parm2, $parm3) {
+	static function it_worked( $parm1, $parm2, $parm3 ) {
 		$parm1 = "It worked!";
 		return( $parm1 );
+	}
+	
+	static function gob( $parm1, $parm2, $parm3 ) {
+		return( "go bang - but I'm not expected to be called" );
 	}
 
 	/**
@@ -42,6 +46,20 @@ class Tests_oik_filters extends BW_UnitTestCase {
 		$result2 = apply_filters( "test_replace", "How's it going?", "2", "3" );
 		$this->assertEquals( "How's it going?", $result2 );
 	}
+	
+	/**
+	 * Unit test to demonstrate bw_restore_filter
+	 */
+	function test_bw_restore_filter() {
+		add_filter( "test_replace", array( $this, "it_worked" ), 8, 3 );
+		bw_disable_filter( "test_replace", array( $this, "it_worked" ), 8 );
+		$result1 = apply_filters( "test_replace", "How's it going?", "2", "3" );
+		$this->assertEquals( "How's it going?", $result1 );
+		bw_restore_filter( "test_replace", array( $this, "it_worked" ), 8 );
+		$result2 = apply_filters( "test_replace", "How's it going?", "2", "3" );
+		$this->assertEquals( "It worked!", $result2 );
+	}
+		
 		
 		
 
