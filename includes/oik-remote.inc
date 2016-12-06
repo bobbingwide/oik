@@ -3,16 +3,16 @@
 /**
  * Pre-deprecation notice 
  * 
- * All of the functions from oik-remote.inc have been moved to the shared library /libs/oik_remote.lib
- * Some time in the future inclusion of this file will display a deprecated notice
- * in the mean time, we'll use oik_require_lib( "oik_remote" ) to load the correct file.
+ * All of the functions from oik-remote.inc have been moved to the shared library /libs/class-oik_remote.php
+ * Some time in the future, inclusion of this file will display a deprecated notice.
+ * In the mean time, we'll use oik_require_lib( "class-oik-remote" ) to load the correct file.
  * 
  * There should be no plugins and themes which attempt to include this file when oik is not active
  * so this call is expected to work.
  */
 
 if ( !defined( "OIK_REMOTE_INCLUDED" ) ) {
-	oik_require_lib( "oik_remote" );
+	oik_require_lib( "class-oik-remote" );
 } /* end !defined */
 
 
