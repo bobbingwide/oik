@@ -49,24 +49,27 @@ if ( class_exists( "WP_Hook" ) ) {
  * Replace a filter function with one of our own ( WordPress 4.7 )
  *
  * @param string $tag - the filter name e.g. 'the_content'
- * @param string $function_to_replace - the name of the filter function to remove (well, replace)
+ * @param callable $function_to_replace - the name of the filter function to remove (well, replace)
  * @param integer $priority - the priority of the function. This has to match
  * @param string $new_function - the replacement function
  *
  * @notes This code is based on remove_filter() from wp-includes/plugin.php
  * It does not deal with $merged_filters since it's not adding or deleting
+ * 
+ * It now works for filters implemented as object's methods.
  */
 function bw_replace_filter( $tag, $function_to_replace, $priority=10, $new_function="bw_disabled_filter" ) {
 	global $wp_filter;
 	//bw_trace2( $wp_filter, "wp_filter" );
-	$r = isset( $wp_filter[$tag][$priority][$function_to_replace] );
+	$function_key = _wp_filter_build_unique_id( $tag, $function_to_replace, false );
+	$r = isset( $wp_filter[$tag][$priority][$function_key] );
 	if ( $r ) { 
 		$wp_hook_object = $wp_filter[$tag];
 		//bw_trace2( $wp_hook_object, "arrgh" );
-		$wp_hook_object->callbacks[$priority][$function_to_replace]['replaced'] = $function_to_replace;
-		$wp_hook_object->callbacks[$priority][$function_to_replace]['function'] = $new_function;
+		$wp_hook_object->callbacks[$priority][$function_key]['replaced'] = $function_to_replace;
+		$wp_hook_object->callbacks[$priority][$function_key]['function'] = $new_function;
 		//bw_trace2( $wp_hook_object, "arrgh" );
-		bw_trace2(  $wp_filter[$tag][$priority][$function_to_replace], "unchanged?" );
+		bw_trace2(  $wp_filter[$tag][$priority][$function_key], "unchanged?" );
 	}	
 }
 
@@ -82,11 +85,12 @@ function bw_replace_filter( $tag, $function_to_replace, $priority=10, $new_funct
  */
 function bw_restore_filter( $tag, $function_to_restore, $priority= 10 ) {
 	global $wp_filter;
-	$r = isset( $wp_filter[$tag][$priority][$function_to_restore]['replaced'] );
+	$function_key = _wp_filter_build_unique_id( $tag, $function_to_restore, false );
+	$r = isset( $wp_filter[$tag][$priority][$function_key]['replaced'] );
 	if ( $r ) { 
 		$wp_hook_object = $wp_filter[$tag];
-		$wp_hook_object->callbacks[$priority][$function_to_replace]['function'] = 
-			$wp_hook_object->callbacks[$priority][$function_to_replace]['replaced']; 
+		$wp_hook_object->callbacks[$priority][$function_key]['function'] = 
+			$wp_hook_object->callbacks[$priority][$function_key]['replaced']; 
 		//bw_trace2( $wp_hook_object, "arrgh" );
 	}
 }
