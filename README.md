@@ -4,8 +4,8 @@
 * Donate link: http://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 * Requires at least: 3.9
-* Tested up to: 4.7-RC1
-* Stable tag: 3.0.3
+* Tested up to: 4.7
+* Stable tag: 3.1.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,80 +16,6 @@ The *oik base* plugin provides a series of advanced WordPress shortcodes that he
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information.
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
 
-Changes in version 3.1.0
-* Tested with WordPress 4.7
-*
-*
-
-At a glance changes in version 3.0.0, previously known as v2.6
-* Tested with WordPress 4.5	and WordPress MultiSite
-* oik base plugin now delivers and supports shared library functionality
-
-At a glance changes in version 2.5
-
-* Supports shortcode UI plugin
-* noderef field type supports hierarchical post types
-
-At a glance changes in version 2.4
-
-* [bw_follow_me] and related shortcodes can now use genericons ( theme=gener parameter )
-* Delivers genericons v3.2, in case not already provided by Jetpack
-* oik.css provides some basic styling of dashicons, genericons and oik's own texticons
-* [bw_logo] shortcode should not display a broken image when no image is defined
-* [bw_show_googlemap] improved for use with oik-user
-* [bw_show_googlemap] supports multiple Google Maps being displayed
-* [bw_table] column titles improved
-* [wp] shortcode can now display the current version of WordPress `[wp v]` and PHP `[wp v p]`
-* Better support for shortcode expansion in post titles
-* Improved support for styling output of [bw_pages]
-
-For developers
-
-* Class BW_List_Table, based on WP_List_table, with helper functions
-* Prototype code for working with WP-API ( WordPress REST API )
-* bw-nav-tab.php to support implementation of tabs on admin pages.
-* bw_query_field_label() which will get the title for the registered field
-* Better support for styling images; added bw_thumbnail class to div surrounding images created using bw_format_thumbnail()
-
-
-At a glance changes in version 2.3
-
-* Now supports pagination when the shortcode output could be very large
-* Supports pagination for multiple shortcodes being displayed on a page
-* Allows shortcodes to list posts of multiple post types. e.g. post_type="post,page"
-* New option to display post IDs on admin pages
-* Specify logo image by post ID, fully qualified file name, or file in the uploads directory.
-* Specify oik custom image link by post ID or full qualified file name.
-* Changes required by the oik-fields plugin.
-
-At a glance changes in version 2.2
-
-* Supports WordPress 3.9 and TinyMCE v4.0
-* Added link= parameter for [bw_tel] and related shortcodes
-* Improved shortcodes: [bw_link], [bw_tel] and related shortcodes, [bw_cycle]
-* Shortcodes not registered until required.
-* Custom CSS edit button more consistent with WordPress 3.9
-* Improved support for plugin and theme updates
-
-At a glance changes in version 2.1
-
-* Added: [bw_cycle] shortcode to display attachments or other content using jQuery cycle
-* Added: [bw_pinterest] - follow me on Pinterest
-* Added: [bw_instagram] - follow me on Instagram
-* Added: Support for localization (l10n) through internationalization (i18n) of literal text fields
-* Changed: [bw_login] shortcode can be used to protect content only visible to logged in users
-* Various CSS changes for improved coexistance with themes and theme frameworks
-* Many improvements to support oik-fields
-* Many API and documentation improvements
-
-At a glance changes in version 2.0
-
-* Eleven (11) new shortcodes
-* Improvements to many shortcodes - new parameter options
-* Delivery of some common jQuery plugins
-* Changes to support other oik plugins
-* New and updated APIs, actions and filters
-* Fully documented using oik's dynamic API documentation
 
 oik now provides over 80 shortcodes including:
 
@@ -102,6 +28,7 @@ oik now provides over 80 shortcodes including:
 * [bw_block] & [bw_eblock], [div] & [ediv], [clear] - to create block structures within your pages, posts and even widgets
 * [bw_button], [bw_contact_button] - to provide call-to-action button style links for Artisteer themes
 * helper shortcodes for web designers and developers: [bw_editcss], [bwtrace], [bw_wpadmin], [bw_wtf], [stag] & [etag]
+
 
 oik helps you to display information about you, your company, your social networking ids and your website using standard formats that search engines such as Google recognise.
 
@@ -142,28 +69,10 @@ Yes - see above
 
 [oik shortcodes](http://www.oik-plugins.com/shortcodes)
 
-The shortcode reference also includes the standard WordPress shortcodes and help for other shortcodes provided WordPress and other selected plugins (e.g. Easy-Digital-Downloads)
+The shortcode reference includes the standard WordPress shortcodes and help for shortcodes provided by other oik plugins.
 
-# Where are the APIs documented? 
-[oik APIs](http://www.oik-plugins.com/apis/oik-apis)
 
-The Application Programming Interface (API) reference documents over 960 APIs, implemented in 86 files with 55 action hooks and filters.
-
-# Where are the shared libraries documented? 
-
-[oik libs](http://www.oik-plugins.com/oik-plugins/oik-lib)
-
-Shared libraries delivered in the oik base plugin include:
-
-* bobbforms
-* bobbfunc
-* bwtrace - Mandatory
-* bwtrace_boot
-* oik_boot - Mandatory
-* oik-activation
-* oik-admin
-* oik-depends
-* oik-sc-help
+For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCommerce) see [WP-a2z.org](http://wp-a2z.org/sites)
 
 
 ## Screenshots 
@@ -486,6 +395,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Fixed: Avoid warnings from filemtime().
 * Fixed: Tidy .gitignore.
 * Tested: With WordPress 4.7 and WordPress Multisite
+* Changed: Updates to readme.txt
 
 # 3.0.3 
 * Added: Display memory_limit using [wp] shortcode, https://github.com/bobbingwide/oik/issues/46
@@ -547,7 +457,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Fixed: Improved change for Issue 11	- compare 'new_version' with 'Version'
 * Tested: With WordPress 4.4.2 and WordPress MultiSite
 
-# 3.0.0-beta.1220
+# 3.0.0-beta.1220 
 * Added: Add 'oik_add_shortcode' filter.  Fixes github 8
 * Added: Add bw_file_exists() and use in bw_include_once()
 * Added: Add oik-autoload shared library for autoloading PHP classes. Issue oik-lib 2
@@ -566,7 +476,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Fixed: Don't call $funcname if value is not set. Related to github oik-weightcountry-shipping issue 1
 * Tested: With WordPress 4.4.
 
-# 3.0.0-alpha.0917
+# 3.0.0-alpha.0917 
 * Added: Add bw_sc_shortcake_compatible() function
 * Changed: Add trace level to some bw_trace2 calls
 * Changed: Better integration with shortcake ( shortcode-ui ) plugin
@@ -679,7 +589,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Fixed: More support for symlinks.
 * Fixed: [bw_show_googlemap] control visibility problem ( GitHub Issue 1 )
 
-# 2.5-alpha.0130
+# 2.5-alpha.0130 
 * Added: Action "wp_ajax_do_shortcode" supported by "oik_ajax_do_shortcode" - invokes "oik_add_shortcodes"
 * Added: oik-shortcake.php 'module' - enable by setting the checkbox on oik options > Buttons
 * Changed: Commented out some calls to trace APIs
@@ -708,7 +618,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Fixed: Changed bw_get_the_content() and bw_get_the_excerpt() to invoke do_shortcode() directly rather than using apply_filters()
 * Changed: bw_get_attached_image() to access the given ID if $post_id set
 
-# 2.4-alpha.1128
+# 2.4-alpha.1128 
 * Changed: Added some debugging logic in bw_skv() to track problems noted in PHP 5.5(.18)
 * Changed: Improved some more docblock comments for better formatting in the Dynamic API Reference
 * Changed: `[wp]` shortcode can now display the current version of WordPress `[wp v]` and PHP `[wp v p]`
@@ -1490,7 +1400,7 @@ If you want to read more about the oik plugins then please visit the
 
 # Other plugins 
 
-Other plugins which use the oik API are also available on WordPress.org:
+Other plugins which depend upon the oik API are available on WordPress.org:
 
 * [bbboing](http://www.wordpress.org/extend/plugins/bbboing) - obfuscate text but leave it readable
 * [cookie-cat](http://www.wordpress.org/extend/plugins/cookie-cat) - [cookies] shortcode to list the cookies your website may use
@@ -1501,8 +1411,15 @@ Other plugins which use the oik API are also available on WordPress.org:
 * [oik-read-more](https://wordpress.org/plugins/oik-read-more) - progressively reveal content by clicking on "read more" buttons
 * [uk-tides](http://wordpress.org/extend/plugins/uk-tides/) - [bw_tides] shortcode for tide times and heights in the UK  (replaces oik-tides)
 
-This plugin is not dependent upon oik.
+Plugins which participate with oik shared libraries are:
 
+* [oik-bwtrace](https://wordpress.org/plugins/oik-bwtrace/) - Debug trace for WordPress, including action and filter tracing
+
+
+These plugins are not dependent upon oik:
+
+* [allow-reinstalls](https://wordpress.org/plugins/allow-reinstalls/) - Allow re-installation of plugins and themes by upload
+* [oik-weight-zone-shipping](http://wordpress.org/plugins/oik-weight-zone-shipping) - Weight Zone Shipping for WooCommerce 2.6+
 * [oik-weightcountry-shipping](http://wordpress.org/plugins/oik-weightcountry-shipping) - Weight/Country Shipping for WooCommerce
 
 
