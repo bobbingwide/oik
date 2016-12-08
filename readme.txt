@@ -4,7 +4,7 @@ Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
 Tested up to: 4.7
-Stable tag: 3.1.0
+Stable tag: 3.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.1.1 =
+Upgrade if using WordPress Multisite. Fixes a problem with Network Admin.
+
 = 3.1.0 = 
 Tested with WordPress 4.7 and WordPress Multisite.
 
@@ -382,6 +385,9 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.1.1 = 
+* Fixed: Fatal error: class 'bobbcomp' not found in WPMS Network Admin interface, [github bobbingwide oik issue 60]
+
 = 3.1.0 =
 * Changed: Extract plugin and theme update logic into shared libraries,[github bobbingwide oik issue 55]
 * Changed: Improve support for $arg parameter to bw_default_taxonomy_args,[github bobbingwide oik issue 52]
