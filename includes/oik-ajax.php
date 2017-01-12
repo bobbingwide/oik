@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2015
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 
 /**
@@ -56,8 +56,9 @@ function oik_ajax_load_shortcode_help() {
  *
  */
 function oik_shortcake_shortcode_ui_before_do_shortcode() {
-  oik_require( "includes/oik-sc-help.inc" );
-  bw_save_scripts();
+  //oik_require( "includes/oik-sc-help.inc" );
+	oik_require_lib( "class-dependencies-cache" );
+  dependencies_cache::save_scripts();
   echo( "<!-- before shortcode preview -->" );
   
 } 
@@ -68,6 +69,8 @@ function oik_shortcake_shortcode_ui_before_do_shortcode() {
  * 
  */
 function oik_shortcake_shortcode_ui_after_do_shortcode() {
+	dependencies_cache::query_dependencies_changes();
+	dependencies_cache::replay_dependencies();
   //bw_report_scripts();
   //bw_flush();
   wp_print_footer_scripts();

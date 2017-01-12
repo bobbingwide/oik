@@ -324,6 +324,7 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "class-oik-remote" => null
 						, "class-oik-update" => "class-oik-remote"
 						, "class-bobbcomp" => null
+						, "class-dependencies-cache" => null
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	

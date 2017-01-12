@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2016
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
  * Get first parm name
@@ -163,25 +163,31 @@ function bw_lazy_sc_syntax( $shortcode, $callback=null ) {
 }
 
 /**
- * Save original scripts
- *
+ * Save original dependencies
+ * 
+ * We need to do the same for styles: wp_styles
+ * We initialise $wp_scripts to ensure that $wp_scripts->registered is an array
  */
 function bw_save_scripts() {
-  global $wp_scripts, $bw_scripts;
-  $bw_scripts = $wp_scripts;
-  bw_trace2( $bw_scripts );
+	$dependencies_cache = oik_require_lib( "class-dependencies-cache" );
+	$dependencies_cache = dependencies_cache::instance();
+	$dependencies_cache->save_dependencies();
 }
-/*
+
+
+/**
  * Report queued scripts
  * 
- * @TODO - Implement logic to report changes in the wp_scripts indicating that the shortcode has added these.
- *
+ * @TODO - decide how we're going to display the dependencies
+ *  
+ * 
  */ 
-function bw_report_scripts() {
-  global $wp_scripts, $bw_scripts;
-  if ( $wp_scripts != $bw_scripts ) {
-    p( "Some scripts were changed!" );
-  }
+function bw_report_scripts( $verbose=true ) {
+	$dependencies_cache = dependencies_cache::instance();
+	$dependencies_cache->query_dependencies_changes();
+	$dependencies = $dependencies_cache->serialize_dependencies();
+	$serialized = serialize( $dependencies );
+	p( $serialized );
 }
 
 /** 
@@ -200,11 +206,11 @@ function _sc__snippet( $shortcode="bw_code", $atts=null ) {
   $formatted_example = apply_filters( 'the_content', $example ); 
   bw_pop();
   bw_trace2( $formatted_example, "formatted example" );
-  bw_report_scripts();
   $escaped_example = esc_html( $formatted_example );
-  stag( 'p', null, null, 'lang=HTML" escaped="true"' );
+  stag( 'p', null, null, 'lang="HTML" escaped="true"' );
   e( $escaped_example );
   etag( "p" );
+  bw_report_scripts();
 }
 
 /**
