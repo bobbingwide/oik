@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2016
+<?php // (C) Copyright Bobbing Wide 2016, 2017
 
 /** 
  * Unit tests for the [bw_follow_me] shortcode
@@ -31,7 +31,7 @@ class Tests_oik_follow extends BW_UnitTestCase {
 		$saved = bw_get_option_arr( "github" );
 		$value = bw_update_option( "github", "bobbingwide" );
 		$html = bw_follow( array( "network" => "github" ) );
-		$value = bw_update_option( "github", $saved );
+		$value2 = bw_update_option( "github", $saved );
 		
 		$this->assertStringStartsWith( '<a href="https://github.com/' . $value, $html );
 	}
