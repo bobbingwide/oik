@@ -274,8 +274,8 @@ function oik_admin_bar_menu( &$wp_admin_bar ) {
   if ( $replace ) {
     $node = $wp_admin_bar->get_node( 'my-account' );
     $current_user = wp_get_current_user();
-  	$howdy = sprintf( __('Howdy, %1$s'), $current_user->display_name );
-    //bw_trace2( $node, "node" );
+  	$howdy = sprintf( __('Howdy, %s'), $current_user->display_name );
+    //bw_trace2( $node, "node: $howdy" );
     $replace = $replace . " " . $current_user->display_name; 
     if ( $node && $node->title ) {
       $node->title = str_replace( $howdy, $replace, $node->title );
