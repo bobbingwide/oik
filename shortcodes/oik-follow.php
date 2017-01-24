@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2016
+<?php // (C) Copyright Bobbing Wide 2010-2017
 
 /**
  * Create a styled follow me button
@@ -35,6 +35,7 @@ function _bw_social_scheme( $lc_social ) {
                   , "google" => "https" 
                   , "picasa" => "https" 
 									, "github" => "https"
+									, "wordpress" => "https"
                   );
   $scheme = bw_array_get( $schemes, $lc_social, "http" );
   return( $scheme );
@@ -49,7 +50,8 @@ function _bw_social_scheme( $lc_social ) {
 function _bw_social_host( $lc_social ) {
   $hosts = array( "google" => "profiles.google.com"
                 , "picasa" => "picasaweb.google.com"
-								, "github" => "github.com" 
+								, "github" => "github.com"
+								, "wordpress" => "profiles.wordpress.org" 
                 );
   $host = bw_array_get( $hosts, $lc_social, "www.${lc_social}.com" );
   return( $host );
@@ -193,7 +195,7 @@ function bw_follow_e( $atts=null ) {
  * @return string - a set of "Follow me" links for the networks.
  */
 function bw_follow_me( $atts=null ) {
-	$networks = array( 'Twitter', 'Facebook', 'LinkedIn', 'GooglePlus', 'YouTube', 'Flickr', 'Pinterest', 'Instagram', 'GitHub' );
+	$networks = array( 'Twitter', 'Facebook', 'LinkedIn', 'GooglePlus', 'YouTube', 'Flickr', 'Pinterest', 'Instagram', 'GitHub', 'WordPress' );
 	$atts['me'] = bw_get_me( $atts ); 
 	foreach ( $networks as $network ) {
 		$atts['network'] = $network;

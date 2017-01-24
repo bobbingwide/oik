@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2016
+<?php // (C) Copyright Bobbing Wide 2011-2017
 
 /**
  * oik admin functions not in the oik-admin library
@@ -443,6 +443,7 @@ function oik_follow_me( $option, $options, $alt0_suffix ) {
 	
 	// @TODO Decide what shortcode to display, if any " [bw_github$alt0_suffix]"
 	bw_textfield_arr( $option, _bwtnt( "GitHub username", null  ), $options, 'github', 50 );
+	bw_textfield_arr( $option, _bwtnt( "WordPress.org username", null ), $options, 'wordpress', 50 );
 } 
 
 /**
