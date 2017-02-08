@@ -199,6 +199,7 @@ function bw_shortcode_event( $atts, $content=null, $tag=null) {
   //bw_trace( $cf, __FUNCTION__, __LINE__, __FILE__, "current_filter" );
   if ( $shortcodefunc ) {
     //bw_trace( $bw_sc_ev, __FUNCTION__, __LINE__, __FILE__, "bw_sc_ev" );
+		$atts = (array) $atts;
     $atts = apply_filters( "oik_shortcode_atts", $atts, $content, $tag );
 		$content = apply_filters( "oik_shortcode_content", $content, $atts, $tag );
     $shortcodefunc = bw_load_shortcodefunc( $shortcodefunc, $tag ); 
