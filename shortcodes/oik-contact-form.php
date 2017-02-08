@@ -52,11 +52,14 @@ function bw_contact_form_submit_button( $atts ) {
 /**
  * Show the "oik" contact form
  * 
- * This is a simple contact form which contains: Name, Email, Subject, Message and a submit button
- * Note: The * indicates Required field
+ * This is a simple contact form which contains: Name, Email, Subject, Message and a submit button.
+ * 
+ * - Note: The * indicates Required field.
+ * - If you want to make the fields responsive then try some CSS such as:
  *
- * If you want to make the fields responsive then try some CSS such as:
- *   textarea { max-width: 100%; }
+ * `
+ * textarea { max-width: 100%; }
+ * `
  * 
  * @param array $atts - shortcode parameters 
  */
