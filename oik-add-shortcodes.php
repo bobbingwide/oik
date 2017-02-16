@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2016
+<?php // (C) Copyright Bobbing Wide 2011-2017
 
 /**
  * OIK Shortcodes APIs
@@ -63,13 +63,14 @@ function bw_file_exists( $file ) {
 }
 
 /**
- * load the file that implements the shortcode if necessary
+ * Loads the file that implements the shortcode if necessary
  *
- * the file is expected to be the fully qualified file name
- * for oik shortcodes these can be specified using oik_path( 'shortcodes/file.php' )
+ * The file is expected to be the fully qualified file name.
+ * For oik shortcodes these can be specified using oik_path( 'shortcodes/file.php' )
  * on the call to bw_add_shortcode().
+ *
+ * @param string $shortcode - the shortcode to expand
  * @return bool - false if the file does not exist
- 
  */  
 function bw_load_shortcodefile( $shortcode ) {
   global $bw_sc_file;
@@ -82,21 +83,19 @@ function bw_load_shortcodefile( $shortcode ) {
 }  
 
 /** 
- * Invoke the shortcode
+ * Invokes the shortcode
  *
  * @param string $shortcodefunc function name to invoke
  * @param string $shortcode name of the shortcode
  * @return string the result of the shortcode
  */ 
 function bw_load_shortcodefunc( $shortcodefunc, $shortcode ) {
-
   if ( is_array( $shortcodefunc ) ) {
     if ( is_callable( $shortcodefunc ) ) {
       $scfunc = $shortcodefunc;
     } else {
       // Don't know what to do here
     }    
-    
   } else {
     if ( function_exists( $shortcodefunc ) ) {
       $scfunc = $shortcodefunc;
@@ -133,7 +132,7 @@ function bw_global_post( $saved_post=null ) {
 }
  
 /** 
- * Expand a shortcode if the function is defined for the event
+ * Expands a shortcode if the function is defined for the event
  *
  * For oik v2.3 we now support the 'all' event which takes precedence over the event for the specific 'current filter'
  * except when the current filter is "the_title". 
@@ -145,6 +144,7 @@ function bw_global_post( $saved_post=null ) {
  * Note: We use the HTML symbol for [ (&#91;) to prevent the shortcode being expanded multiple times
  
  * Extract from codex... 
+ * `
  
  ; NOTE on confusing regex/callback name reference: 
  The zeroeth entry of the attributes array ('''$atts[0]''') will contain the string that matched the shortcode regex, 
@@ -161,6 +161,7 @@ This is confusing and perhaps reflects an underlying bug,
 but an overloaded callback routine can correctly determine what shortcode was used to call it, 
 by checking BOTH the third argument to the callback and the zeroeth attribute. 
 (It is NOT an error to have two shortcodes reference the same callback routine, which allows for common code.) 
+ * `
  * 
  * @param array $atts - the shortcode parameters
  * @param string $content - content for a shortcode with start and end codes
@@ -199,7 +200,7 @@ function bw_shortcode_event( $atts, $content=null, $tag=null) {
   //bw_trace( $cf, __FUNCTION__, __LINE__, __FILE__, "current_filter" );
   if ( $shortcodefunc ) {
     //bw_trace( $bw_sc_ev, __FUNCTION__, __LINE__, __FILE__, "bw_sc_ev" );
-		$atts = (array) $atts;
+		$atts = bw_cast_array( $atts );
     $atts = apply_filters( "oik_shortcode_atts", $atts, $content, $tag );
 		$content = apply_filters( "oik_shortcode_content", $content, $atts, $tag );
     $shortcodefunc = bw_load_shortcodefunc( $shortcodefunc, $tag ); 
@@ -226,6 +227,30 @@ function bw_shortcode_event( $atts, $content=null, $tag=null) {
   }
   bw_global_post( $saved_post );
   return $result;  
+}
+
+/**
+ * Casts to an array
+ * 
+ * An empty string is converted to array() 
+ * not array( 0 => '' ), which is what happens if you simply cast it.
+ * 
+ * @param mixed $atts Not an object
+ * @return array - which may be empty
+ */
+function bw_cast_array( $atts=array() ) {
+	if ( is_null( $atts ) ) {
+		$atts = array();
+	} else {
+		if ( is_scalar( $atts ) ) {
+			if ( '' == $atts ) {
+				$atts = array();
+			} else {
+				$atts = (array) $atts;
+			}
+		}
+	}	
+	return( $atts );
 }
 
 /**
