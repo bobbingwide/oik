@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2016
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
  * Register functions for custom post types, taxonomies and fields
@@ -326,9 +326,9 @@ function bw_default_taxonomy_args( $taxonomy, $arg ) {
 /**
  * Register a custom taxonomy 
  * 
- * This function registers a custom $taxonomy for an $object_type with $args as specified
- * If the $args parameter is a simple string then it's used to auto generate the "label" and "labels" values for the custom taxonomy
- * You can set $args yourself or let the system create sensible default values
+ * This function registers a custom $taxonomy for an $object_type with $args as specified.
+ * If the $args parameter is a simple string then it's used to auto generate the "label" and "labels" values for the custom taxonomy.
+ * You can set $args yourself or let the system create sensible default values.
  *
  * @param string $taxonomy - custom taxonomy name
  * @param string $object_type - the post type for which this taxonomy applies
@@ -338,7 +338,9 @@ function bw_register_taxonomy( $taxonomy, $object_type=NULL, $args=NULL ) {
   //bw_trace2( $args );  
   if ( !bw_query_taxonomy( $taxonomy ) ) {
     register_taxonomy( $taxonomy, $object_type, $args );
-  }  
+  } else {
+		register_taxonomy_for_object_type( $taxonomy, $object_type ); 
+	}
   $field_title = bw_array_get( $args['labels'], 'name', $taxonomy );
   bw_register_field( $taxonomy, "taxonomy", $field_title, $args );
 }
@@ -348,7 +350,6 @@ function bw_register_taxonomy( $taxonomy, $object_type=NULL, $args=NULL ) {
  *
  * @param string $taxonomy - the taxonomy name
  * @return bool - true if registered, false if not. 
- *   
  */
 function bw_query_taxonomy( $taxonomy=null ) {
   global $wp_taxonomies;
