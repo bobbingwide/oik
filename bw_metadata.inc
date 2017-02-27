@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2016
+<?php // (C) Copyright Bobbing Wide 2012-2017
 /**
  * Logic to create metaboxes for each of the custom fields defined for a particular post type
  *
@@ -16,7 +16,7 @@
 function bw_metadata_loaded() {
   add_action( 'add_meta_boxes', 'bw_effort_meta_boxes', 10, 2 );
   /* Do something with the data entered */
-  add_action( 'save_post', 'bw_effort_save_postdata', 10, 2 );
+  add_action( 'save_post', 'bw_effort_save_postdata', 10, 3 );
 }
 
 /**
@@ -456,19 +456,22 @@ if ( !function_exists( "bw_authorized" ) ) {
 }
 
 /**
- * Save the custom fields for this post when called for the 'save_post' action
+ * Saves the custom fields for this post when called for the 'save_post' action
+ *
+ * From the $post we can determine the $post_type of the object being saved
+ * and therefore determine the custom fields from the $bw_mapping global.
+ * 
+ * For each field defined for the post type we obtain the value from the $_POST and
+ * update the post meta data. 
+ * 
+ * Implementers of 'save_post_$post_type' should expect to be called multiple times
+ * first by wp_insert_post() then again by this routine.
  * 
  * @param integer $post_id The ID of this post
  * @param object $post the post object
- *
- * In order to receive the $post object we need to indicate to add_action that for 'save_post' 
- * we allow two parameters to be passed.
- * From the $post we can determine the $post_type of the object being saved
- * and therefore determine the custom fields from the $bw_mapping global
- * for each field defined for the post type we obtain the value from the $_POST and
- * update the post meta data. 
+ * @param bool $update
  */
-function bw_effort_save_postdata( $post_id, $post ) {
+function bw_effort_save_postdata( $post_id, $post, $update ) {
   if ( bw_authorized() ) {
     $post_type = $post->post_type; 
     
@@ -479,7 +482,7 @@ function bw_effort_save_postdata( $post_id, $post ) {
      * @param integer $post_id The ID of this post
      * @param object $post the post object
      */
-    do_action( "save_post_${post_type}", $post_id, $post );
+    do_action( "save_post_${post_type}", $post_id, $post, $update );
   
     global $bw_mapping; 
     //bw_trace( $bw_mapping, __FUNCTION__, __LINE__, __FILE__, "bw_mapping" );
