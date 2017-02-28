@@ -4,7 +4,7 @@ Donate link: http://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
 Requires at least: 3.9
 Tested up to: 4.7.2
-Stable tag: 3.1.2
+Stable tag: 3.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,8 +87,11 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.1.3 = 
+Tested with WordPress 4.7.2 and WordPress Multisite. Tested with PHP 7.1.
+
 = 3.1.2 = 
-Tested with WordPress 4.7.2 and WordPress Multisite.
+Tested with WordPress 4.7.1 and WordPress Multisite.
 
 = 3.1.1 =
 Upgrade if using WordPress Multisite. Fixes a problem with Network Admin.
@@ -388,12 +391,17 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.1.3 =
+* Fixed: Warning: Invalid argument supplied for foreach() in bw_get_all_plugin_names() [github bobbingwide oik issue 67]
+* Changed: Enhance bw_register_taxonomy to register_taxonomy_for_object_type [github bobbingwide oik issue 65]
+* Fixed: bw_effort_save_postdata should expect 3 parameters [github bobbingwide oik issue 66]
+* Fixed: Cast to $atts array using bw_cast_array() [github bobbingwide oik issue 64]
+
 = 3.1.2 = 
 * Added: Add option field for profiles.wordpress.org and include in [bw_follow_me] [github bobbingwide oik issue 61]
 * Added: Add shared library for working with enqueued styles and scripts [github bobbingwide oik issue 62]
 * Fixed: Howdy override. Change in line with WordPress TRAC 37794 [github bobbingwide oik issue 63]
-* Fixed: Warning: Invalid argument supplied for foreach() in bw_get_all_plugin_names() [github bobbingwide oik issue 67]
-* Tested: With WordPress 4.7.2 and WordPress Multisite
+* Tested: With WordPress 4.7.1 and WordPress Multisite
 
 = 3.1.1 = 
 * Fixed: Fatal error: class 'bobbcomp' not found in WPMS Network Admin interface, [github bobbingwide oik issue 60]
