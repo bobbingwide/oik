@@ -187,7 +187,7 @@ function bw_report_scripts( $verbose=true ) {
 	$dependencies_cache->query_dependencies_changes();
 	$dependencies = $dependencies_cache->serialize_dependencies();
 	$serialized = serialize( $dependencies );
-	p( $serialized );
+	//p( $serialized );
 }
 
 /** 
