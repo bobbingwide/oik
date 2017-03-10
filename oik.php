@@ -138,7 +138,6 @@ function oik_query_timestamp( $path, $file ) {
  */
 function oik_main_init() {
   add_action( 'admin_menu', 'oik_admin_menu' );
-  add_action( "activate_plugin", "oik_load_plugins" );
   add_action( 'network_admin_menu', "oik_network_admin_menu" );
   add_action( "network_admin_notices", "oik_network_admin_menu" );
   add_action( "admin_bar_menu", "oik_admin_bar_menu", 20 );
@@ -174,6 +173,8 @@ function oik_admin_menu() {
   add_action( 'admin_init', 'oik_admin_init' );
   do_action( 'oik_admin_menu' );
   add_action('admin_enqueue_scripts', 'oik_enqueue_stylesheets', 11 );
+	
+  add_action( "activate_plugin", "oik_load_plugins" );
 }
 
 /** 
