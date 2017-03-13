@@ -3,7 +3,7 @@ if ( defined( 'OIK_TRACE_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_TRACE_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -22,10 +22,12 @@ define( 'OIK_TRACE_SHORTCODES_INCLUDED', true );
 */
 
 /**
- * Note that the function is based on the shortcode not the implementing function
+ * Returns syntax for [bwtrace] shortcode 
+ * 
+ * Note that the function name is based on the shortcode not the implementing function.
  * This enables both the shortcode and the help and examples to be implemented as lazy functions
  * **?** Actually it's an oversight! Herb 2012/03/20
-*/
+	*/
 function bwtrace__syntax( $shortcode='bwtrace' ) {
   $syntax = array( "text" => bw_skv( " ", "text", "text for the trace button" )
                  , "option" => bw_skv( "", "view|reset", "trace control links to display" )
@@ -33,6 +35,9 @@ function bwtrace__syntax( $shortcode='bwtrace' ) {
   return( $syntax );
 }
 
+/**
+ * Displays examples for [bwtrace] shortcode
+ */
 function bwtrace__example( $shortcode='bwtrace' ) {    
   bw_invoke_shortcode( $shortcode, null, "To display the trace options and trace reset buttons." );    
   bw_invoke_shortcode( $shortcode, "option=view", "To display a link to the active trace file." );
@@ -41,16 +46,17 @@ function bwtrace__example( $shortcode='bwtrace' ) {
 
 
 /**
+ * Implements [bwtrace] shortcode
+ * 
  * Shortcode for toggling or setting trace options 
  * Provide a button for controlling trace
  *
  * @param array $atts - shortcode options
  *  option=view, reset, other
  *  text=text for the trace options button
- * @return string - the expanded shortcode 
+ * @return string - the expanded shortcode. If trace is not enabled it returns null. 
  * 
- * This shortcode has no effect if trace is not enabled. i.e. it doesn't return anything
-*/
+ */
 function bw_trace_button( $atts = NULL ) {
   global $bw_trace_on;
   if ( $bw_trace_on ) {   
@@ -81,7 +87,7 @@ function bw_trace_button( $atts = NULL ) {
 }
 
 /**
- * Create the Trace reset button for use somewhere in any page
+ * Creates the Trace reset button for use somewhere in any page
  */
 function bw_trace_reset_form() {
   oik_require( "bobbforms.inc" );
