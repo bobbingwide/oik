@@ -469,6 +469,10 @@ function bw_oik_add_shortcodes_loaded() {
   add_filter('get_the_excerpt', 'do_shortcode' );
   add_filter('the_excerpt', 'do_shortcode' );
   // do_shortcode for 'the_content' should already be registered with priority 11
+	
+	// Is there any point in checking if it's an embed request? 
+	add_filter( 'the_excerpt_embed', "oik_do_shortcode", 0 );
+	add_filter( 'the_excerpt_embed', "do_shortcode" );
 }
 
 bw_oik_add_shortcodes_loaded();
