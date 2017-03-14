@@ -44,7 +44,9 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		do_action( "oik_add_shortcodes" );
 		_sc__snippet( "bw_twitter", "theme=gener alt=0" );
 		$html = bw_ret();
-		$expected_output = "something with serialized stuff";
-		$this->assertStringEndsWith( '/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";a:1:{i:0;s:10:"genericons";}}</p>', $html );
+		$expected_output = '<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;http://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;genericon genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;';
+		$expected_output .= "\n</p>";
+		$this->assertEquals( $expected_output, $html );
+		//'/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";a:1:{i:0;s:10:"genericons";}}</p>', $html );
 	}
 }
