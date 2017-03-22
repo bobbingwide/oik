@@ -33,7 +33,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	 * 
 	 * Note: We can't use bw_follow or bw_github since they're not actually shortcodes
 	 * 
-	 -'<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;http://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;generi
+	 -'<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;https://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;generi
 con genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 -</p><p>a:4:{s:7:"scripts";a:0:{}s:14:"queued_scripts";a:0:{}s:6:"styles";a:1:{s:10:"genericons";O:14:"_WP_Dependency":6:{s:6:"handle";s:10:"genericons";s:3:"src";s:72:
 "http://qw/wordpress/wp-content/plugins/oik/css/genericons/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";
@@ -44,7 +44,7 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		do_action( "oik_add_shortcodes" );
 		_sc__snippet( "bw_twitter", "theme=gener alt=0" );
 		$html = bw_ret();
-		$expected_output = '<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;http://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;genericon genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;';
+		$expected_output = '<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;https://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;genericon genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;';
 		$expected_output .= "\n</p>";
 		$this->assertEquals( $expected_output, $html );
 		//'/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";a:1:{i:0;s:10:"genericons";}}</p>', $html );
