@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: oik
-Plugin URI: http://www.oik-plugins.com/oik-plugins/oik
+Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 3.1.3
+Version: 3.1.4
 Author: bobbingwide
-Author URI: http://www.oik-plugins.com/author/bobbingwide
+Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
 Domain Path: /languages/
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
     Copyright 2010-2017 Bobbing Wide (email : herb@bobbingwide.com )
 

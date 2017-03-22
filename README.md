@@ -1,11 +1,11 @@
 # oik 
 ![banner](https://raw.githubusercontent.com/bobbingwide/oik/master/assets/oik-banner-772x250.jpg)
 * Contributors: bobbingwide, vsgloik
-* Donate link: http://www.oik-plugins.com/oik/oik-donate/
-* Tags: shortcode, shortcodes, oik, pages, posts, jQuery, contact form, PayPal, buttons, Artisteer, text widget, key information, trace, blocks, bookmarks, images, attachments, smart, lazy, pagelist, sitemap, tree, accordion, tabs, cycle, google map, countdown, shortcake
+* Donate link: https://www.oik-plugins.com/oik/oik-donate/
+* Tags: shortcodes, shortcode, advanced, oik
 * Requires at least: 3.9
-* Tested up to: 4.7.2
-* Stable tag: 3.1.3
+* Tested up to: 4.7.3
+* Stable tag: 3.1.4
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,25 +49,28 @@ Features:
 * oik uses microformats so that Google and other search engines can understand your content.
 
 ## Installation 
+See Frequently Asked Questions
+
+
+## Frequently Asked Questions 
+# Installation 
 1. Upload the contents of the oik plugin to the `/wp-content/plugins/oik' directory
 1. Activate the oik base plugin through the 'Plugins' menu in WordPress
 1. Go to **oik options** > **options** to fill in your **o**ften **i**ncluded **k**ey information
 1. Use the shortcodes when writing your content
 
-
-## Frequently Asked Questions 
 # Where is the FAQ? 
-[oik FAQ](http://www.oik-plugins.com/oik/oik-faq)
+[oik FAQ](https://www.oik-plugins.com/oik/oik-faq)
 
 # Is there a support forum? 
-Yes - please use the [oik plugin forum](http://wordpress.org/support/plugin/oik)
+Yes - please use the [oik plugin forum](https://wordpress.org/support/plugin/oik)
 
 # Can I get support? 
 Yes - see above
 
 # Where are the shortcodes documented? 
 
-[oik shortcodes](http://www.oik-plugins.com/shortcodes)
+[oik shortcodes](https://www.oik-plugins.com/shortcodes)
 
 The shortcode reference includes the standard WordPress shortcodes and help for shortcodes provided by other oik plugins.
 
@@ -88,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.1.4 
+* Now supports https: protocol. Tested with WordPress 4.7.3, WordPress Multisite, PHP 7.1
+
 # 3.1.3 
 Tested with WordPress 4.7.2 and WordPress Multisite. Tested with PHP 7.1.
 
@@ -392,6 +398,14 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 ## Changelog 
+# 3.1.4 
+* Changed: Support https protocol https://github.com/bobbingwide/oik/issues/70
+* Changed: Expand shortcodes in embedded excerpt https://github.com/bobbingwide/oik/issues/71
+* Fixed: Move action hook for 'activate_plugin' to admin https://github.com/bobbingwide/oik/issues/69
+* Changed: Docblock improvements
+* Tested: With WordPress 4.7.3 and WordPress Multisite
+* Tested: With PHP 7.1
+
 # 3.1.3 
 * Fixed: Warning: Invalid argument supplied for foreach() in bw_get_all_plugin_names() https://github.com/bobbingwide/oik/issues/67
 * Changed: Enhance bw_register_taxonomy to register_taxonomy_for_object_type https://github.com/bobbingwide/oik/issues/65
@@ -1419,21 +1433,21 @@ For details see below or visit [oik plugin](http://www.oik-plugins.com/oik)
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the
-[oik plugin](http://www.oik-plugins.com/oik)
+[oik plugin](https://www.oik-plugins.com/oik)
 **"the oik plugin - for often included key-information"**
 
 # Other plugins 
 
 Other plugins which depend upon the oik API are available on WordPress.org:
 
-* [bbboing](http://www.wordpress.org/extend/plugins/bbboing) - obfuscate text but leave it readable
-* [cookie-cat](http://www.wordpress.org/extend/plugins/cookie-cat) - [cookies] shortcode to list the cookies your website may use
-* [oik-batchmove](http://www.wordpress.org/extend/plugins/oik-batchmove) - batch change post categories or published date
-* [oik-css](http://www.wordpress.org/extend/plugins/oik-css) - [bw_css] for CSS styling per page
-* [oik-nivo-slider](http://wordpress.org/extend/plugins/oik-nivo-slider/) - [nivo] shortcode for the jQuery "Nivo slider" for posts, pages, attachments and custom post types
-* [oik-privacy-policy](http://www.wordpress.org/extend/plugins/oik-privacy-policy) - generate a privacy policy page, compliant with UK cookie law (EU cookie directive)
+* [bbboing](https://www.wordpress.org/extend/plugins/bbboing) - obfuscate text but leave it readable
+* [cookie-cat](https://www.wordpress.org/extend/plugins/cookie-cat) - [cookies] shortcode to list the cookies your website may use
+* [oik-batchmove](https://www.wordpress.org/extend/plugins/oik-batchmove) - batch change post categories or published date
+* [oik-css](https://www.wordpress.org/extend/plugins/oik-css) - [bw_css] for CSS styling per page
+* [oik-nivo-slider](https://wordpress.org/extend/plugins/oik-nivo-slider/) - [nivo] shortcode for the jQuery "Nivo slider" for posts, pages, attachments and custom post types
+* [oik-privacy-policy](https://www.wordpress.org/extend/plugins/oik-privacy-policy) - generate a privacy policy page, compliant with UK cookie law (EU cookie directive)
 * [oik-read-more](https://wordpress.org/plugins/oik-read-more) - progressively reveal content by clicking on "read more" buttons
-* [uk-tides](http://wordpress.org/extend/plugins/uk-tides/) - [bw_tides] shortcode for tide times and heights in the UK  (replaces oik-tides)
+* [uk-tides](https://wordpress.org/extend/plugins/uk-tides/) - [bw_tides] shortcode for tide times and heights in the UK  (replaces oik-tides)
 
 Plugins which participate with oik shared libraries are:
 
@@ -1443,23 +1457,23 @@ Plugins which participate with oik shared libraries are:
 These plugins are not dependent upon oik:
 
 * [allow-reinstalls](https://wordpress.org/plugins/allow-reinstalls/) - Allow re-installation of plugins and themes by upload
-* [oik-weight-zone-shipping](http://wordpress.org/plugins/oik-weight-zone-shipping) - Weight Zone Shipping for WooCommerce 2.6+
-* [oik-weightcountry-shipping](http://wordpress.org/plugins/oik-weightcountry-shipping) - Weight/Country Shipping for WooCommerce
+* [oik-weight-zone-shipping](https://wordpress.org/plugins/oik-weight-zone-shipping) - Weight Zone Shipping for WooCommerce 2.6+
+* [oik-weightcountry-shipping](https://wordpress.org/plugins/oik-weightcountry-shipping) - Weight/Country Shipping for WooCommerce
 
 
 More FREE and Premium plugins are available from [oik-plugins.com](http://www.oik-plugins.com/wordpress-plugins-from-oik-plugins/) including:
 
-* [diy-oik](http://www.oik-plugins.com/oik-plugins/diy-oik) - Do-It-Yourself shortcodes
-* [oik-External link warning jQuery](http://www.oik-plugins.com/oik-plugins/external-link-warning-jquery/) - Warns visitor about leaving your site
-* [oik-fields](http://www.oik-plugins.com/oik-plugins/oik-fields-custom-post-type-field-apis) - custom post type field APIs
-* [oik-ms](http://www.oik-plugins.com/oik-plugins/oik-ms-oik-multisite-shortcodes/) - oik MultiSite shortcodes
-* [oik-mshot](http://www.oik-plugins.com/oik-plugins/oik-mshot) - Shortcode to display the "mshot" of an URL; oik-fields extension
-* [oik-rating](http://www.oik-plugins.com/oik-plugins/oik-rating) - 5 star rating custom field; oik-fields extension
-* [oik-testimonials](http://www.oik-plugins.com/oik-plugins/oik-testimonials) - Manage and display testimonials.
-* [oik-todo](http://www.oik-plugins.com/oik-plugins/oik-todo-todo-list) - TO DO list
-* [oik-types](http://www.oik-plugins.com/oik-plugins/oik-types) - custom content type, field and taxonomy manager
-* [oik-user](http://www.oik-plugins.com/oik-plugins/oik-user) - display oik information for each site user
-* [us-tides](http://www.oik-plugins.com/oik-plugins/us-tides) - US saltwater tide times and heights
+* [diy-oik](https://www.oik-plugins.com/oik-plugins/diy-oik) - Do-It-Yourself shortcodes
+* [oik-External link warning jQuery](https://www.oik-plugins.com/oik-plugins/external-link-warning-jquery/) - Warns visitor about leaving your site
+* [oik-fields](https://www.oik-plugins.com/oik-plugins/oik-fields-custom-post-type-field-apis) - custom post type field APIs
+* [oik-ms](https://www.oik-plugins.com/oik-plugins/oik-ms-oik-multisite-shortcodes/) - oik MultiSite shortcodes
+* [oik-mshot](https://www.oik-plugins.com/oik-plugins/oik-mshot) - Shortcode to display the "mshot" of an URL; oik-fields extension
+* [oik-rating](https://www.oik-plugins.com/oik-plugins/oik-rating) - 5 star rating custom field; oik-fields extension
+* [oik-testimonials](https://www.oik-plugins.com/oik-plugins/oik-testimonials) - Manage and display testimonials.
+* [oik-todo](https://www.oik-plugins.com/oik-plugins/oik-todo-todo-list) - TO DO list
+* [oik-types](https://www.oik-plugins.com/oik-plugins/oik-types) - custom content type, field and taxonomy manager
+* [oik-user](https://www.oik-plugins.com/oik-plugins/oik-user) - display oik information for each site user
+* [us-tides](https://www.oik-plugins.com/oik-plugins/us-tides) - US saltwater tide times and heights
 
 
 # Removal of child plugins (version 2.0) 
@@ -1474,15 +1488,15 @@ In version 2.0 the child plugins were removed from the oik base package.
 
 Plugins that were relocated and served from the oik-plugins servers were:
 
-* [oik-bbpress](http://www.oik-plugins.com/oik-plugins/oik-bbpress-strip-tags-from-bbpress-forum-title-tooltips/) - to strip tags from bbPress forum title tooltips
-* [oik-bob-bing-wide](http://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-more-lazy-smart-shortcodes/) - to provide more lazy smart shortcodes: [bw_plug], bob/fob bing/bong wide/hide wow, oik and loik, wp, wpms, bp, artisteer, drupal
-* [oik-bp-signup-email](http://www.oik-plugins.com/oik-plugins/oik-buddypress-signup-email/) - to intercept BuddyPress registration emails
-* [oik-bwtrace](http://www.oik-plugins.com/oik-plugins/oik-bwtrace-debug-trace-for-wordpress/) - provides an advanced WordPress trace debug function, which logs trace information to a file, rather than including it within the web page output
-* [oik-email-signature](http://www.oik-plugins.com/oik-plugins/oik-email-signature/) - to help generate an email signature file for all your email messages
-* [oik-fields](http://www.oik-plugins.com/oik-plugins/oik-fields-custom-post-type-field-apis/) - custom post type field APIs
-* [oik-header](http://www.oik-plugins.com/oik-plugins/oik-header-custom-header-image/) - for custom page header image selection for pages, posts and custom post types
-* [oik-sc-help](http://www.oik-plugins.com/oik-plugins/oik-sc-help-shortcode-help-shortcodes/) - shortcode help shortcodes: provides [bw_code] and [bw_codes] shortcodes
-* [oik-sidebar](http://www.oik-plugins.com/oik-plugins/oik-sidebar-widget-wrangler-for-artisteer-themes/) - gives you the ability to use Widget Wrangler with Artisteer v3 themes
+* [oik-bbpress](https://www.oik-plugins.com/oik-plugins/oik-bbpress-strip-tags-from-bbpress-forum-title-tooltips/) - to strip tags from bbPress forum title tooltips
+* [oik-bob-bing-wide](https://www.oik-plugins.com/oik-plugins/oik-bob-bing-wide-more-lazy-smart-shortcodes/) - to provide more lazy smart shortcodes: [bw_plug], bob/fob bing/bong wide/hide wow, oik and loik, wp, wpms, bp, artisteer, drupal
+* [oik-bp-signup-email](https://www.oik-plugins.com/oik-plugins/oik-buddypress-signup-email/) - to intercept BuddyPress registration emails
+* [oik-bwtrace](https://www.oik-plugins.com/oik-plugins/oik-bwtrace-debug-trace-for-wordpress/) - provides an advanced WordPress trace debug function, which logs trace information to a file, rather than including it within the web page output
+* [oik-email-signature](https://www.oik-plugins.com/oik-plugins/oik-email-signature/) - to help generate an email signature file for all your email messages
+* [oik-fields](https://www.oik-plugins.com/oik-plugins/oik-fields-custom-post-type-field-apis/) - custom post type field APIs
+* [oik-header](https://www.oik-plugins.com/oik-plugins/oik-header-custom-header-image/) - for custom page header image selection for pages, posts and custom post types
+* [oik-sc-help](https://www.oik-plugins.com/oik-plugins/oik-sc-help-shortcode-help-shortcodes/) - shortcode help shortcodes: provides [bw_code] and [bw_codes] shortcodes
+* [oik-sidebar](https://www.oik-plugins.com/oik-plugins/oik-sidebar-widget-wrangler-for-artisteer-themes/) - gives you the ability to use Widget Wrangler with Artisteer v3 themes
 
 * Note: For some of these plugins the oik base plugin still provides a certain amount of code.
 
@@ -1495,9 +1509,13 @@ oik plugins are suitable for:
 * WordPress web site developers
 * WordPress plugin developers
 
-* oik plugins are tested with: WordPress Multi Site.
+oik plugins are tested with:
 
-ALL of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier.
-These are known as the [OIK Application Programming Interface (OIK API)](http://www.oik-plugins.com/apis/oik-apis)
+* WordPress
+* WordPress Multisite
+* PHP 7 and 7.1
+
+All of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier.
+These are known as the [OIK Application Programming Interface (OIK API)](https://www.oik-plugins.com/apis/oik-apis)
 
 
