@@ -36,6 +36,7 @@ function _bw_social_scheme( $lc_social ) {
                   , "picasa" => "https" 
 									, "github" => "https"
 									, "wordpress" => "https"
+									, "twitter" => "https"
                   );
   $scheme = bw_array_get( $schemes, $lc_social, "http" );
   return( $scheme );

@@ -92,7 +92,9 @@ function oik_enqueue_stylesheets() {
 		} else {
 			$version = false;
 		}
-		wp_enqueue_style( 'oikCSS', WP_PLUGIN_URL . '/oik/oik.css', array(), $version );
+		$url = plugins_url( "/oik/oik.css" );
+		bw_trace2( $url, "oikCSS URL", false );
+		wp_enqueue_style( 'oikCSS', $url, array(), $version );
 	}
 	$customCSS =  bw_get_option( 'customCSS' );
 	if ( !empty( $customCSS) ) {

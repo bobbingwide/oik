@@ -63,7 +63,7 @@ if ( bw_is_wordpress() ) {
       
     // Note: A value that appears to be blank ( == '') may actually be FALSE ( == FALSE )
     // bw_trace( '!' .$option.'!', __FUNCTION__,  __LINE__, __FILE__, "option" );  
-		bw_backtrace();
+		//bw_backtrace();
     return( $option ); 
   }
 	} 

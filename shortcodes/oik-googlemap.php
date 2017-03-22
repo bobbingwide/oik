@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2016 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -120,8 +120,10 @@ function bw_gmap_infowindow( $title, $postcode ) {
 function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $markers=null, $zoom=12 ) {
   static $map = 0;
   $latlng = $lat . ',' . $lng ;
+	
   if ( !$map ) {
-    bw_echo( '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&amp;region=GB' );
+		$src = set_url_scheme( "http://maps.googleapis.com/maps/api/js?&amp;region=GB" );
+    bw_echo( '<script type="text/javascript" src="' . $src . '">' );
 		bw_echo( bw_gmap_api_key() );
     bw_echo( '"></script>' );
   }
