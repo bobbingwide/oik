@@ -197,15 +197,12 @@ function bw_get_current_user_id() {
 /**
  * Retrieve the requested option value depending on the $atts array
  *
- * @param string $field - the name of the field to obtain
- * @param string $set - the name of the set from which to obtain the field 
- * @param array $atts - the set of parameters which may include user= or alt= values
- * @return string - the value of the required option or null
  * 
- * We're trying to eliminate alt=1 or alt=2 in favour of user fields but only if oik-user is active.
- * The alt= keyword overrides the user= keyword, for backward compatibility
- * Use user=0 or alt=0 to force the use of "oik options"
- * Use alt=1 or alt=2 to use "more options" or "more options 2" 
+ * - If the $field is available in $atts then this value is used, if it has a value. 
+ * - We're trying to eliminate alt=1 or alt=2 in favour of user fields but only if oik-user is active.
+ * - The alt= keyword overrides the user= keyword, for backward compatibility
+ * - Use user=0 or alt=0 to force the use of "oik options"
+ * - Use alt=1 or alt=2 to use "more options" or "more options 2"
  *
  * Note: The author is null when there is no current post being processed.
  * 
@@ -218,30 +215,37 @@ function bw_get_current_user_id() {
  * inactive | set  | n/a   | n/a    | use the alt= value
  * inactive | null | n/a   | n/a    | use the oik options 
  * 
+ * @param string $field - the name of the field to obtain
+ * @param string $set - the name of the set from which to obtain the field 
+ * @param array $atts - the set of parameters which may include user= or alt= values
+ * @return string - the value of the required option or null
  */
 function bw_get_option_arr( $field, $set="bw_options", $atts=null ) {
-  $alt = bw_array_get( $atts, "alt", null );
-  if ( is_callable( "oiku_loaded" ) ) {
-    if ( $alt === null ) {
-      $user = bw_array_get_dcb( $atts, "user", false, "bw_default_user" );
-      if ( $user ) {
-        $option = bw_get_user_option( $user, $field, $set );
-      }
-    } else { 
-      $user = null;
-    }  
-  } else {
-    $user = null; 
-  }
-  if ( !$user ) { 
-    if ( !$set ) {
-      $set="bw_options";
-    }
-    if ( $alt == "0" )  
-      $alt = "";
-    $option = bw_get_option( $field, "$set$alt" );
-  }
-  return( $option );  
+	$option = bw_array_get( $atts, $field, null ); 
+	if ( !$option ) {
+		$alt = bw_array_get( $atts, "alt", null );
+		if ( is_callable( "oiku_loaded" ) ) {
+			if ( $alt === null ) {
+				$user = bw_array_get_dcb( $atts, "user", false, "bw_default_user" );
+				if ( $user ) {
+					$option = bw_get_user_option( $user, $field, $set );
+				}
+			} else { 
+				$user = null;
+			}  
+		} else {
+			$user = null; 
+		}
+		if ( !$user ) { 
+			if ( !$set ) {
+				$set="bw_options";
+			}
+			if ( $alt == "0" )  
+				$alt = "";
+			$option = bw_get_option( $field, "$set$alt" );
+		}
+	}
+	return( $option );  
 }
 
 /**
