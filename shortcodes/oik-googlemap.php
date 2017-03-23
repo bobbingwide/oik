@@ -118,6 +118,7 @@ function bw_gmap_infowindow( $title, $postcode ) {
  * @param string $markers - display multiple markers - for each alt number chosen. 
  */
 function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $markers=null, $zoom=12 ) {
+	bw_trace2();
   static $map = 0;
   $latlng = $lat . ',' . $lng ;
 	
@@ -195,43 +196,25 @@ function bw_forp( $value, $append='px' ) {
  * @param string $tag - the shortcode 
  */
 function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
-  //$company = bw_array_get_dcb( $atts, "company", "company", "bw_get_option", "bw_options" );
-  $company = bw_get_option_arr( "company", "bw_options", $atts );
+	$company = bw_get_option_arr( "company", "bw_options", $atts );
   $width = bw_array_get( $atts, "width", null );
   $height = bw_array_get( $atts, "height", null );
-  //$lat = bw_array_get( $atts, "lat", null );
   $lat = bw_get_option_arr( "lat", "bw_options", $atts );
-  //$long = bw_array_get( $atts, "long", null );
   $long = bw_get_option_arr( "long", "bw_options", $atts );
-  //$postcode = bw_array_get( $atts, "postcode", null );
-  $postcode = bw_get_option_arr( "postcode", "bw_options", $atts );
-  //e( "Postcode:$postcode:" );
+	$postcode = bw_array_get( $atts, "postcode", null );
   $markers = bw_array_get( $atts, "markers", null );
   $zoom = bw_array_get( $atts, "zoom", 12 ); 
-      
-  // $company = bw_get_option( "company" );
   $alt = bw_array_get( $atts, "alt", null );
   $alt = str_replace( "0", "", $alt );
-  //$gmap_intro = bw_get_option( "gmap_intro", "bw_options$alt" );
   $gmap_intro = bw_get_option_arr( "gmap_intro", "bw_options", $atts );
-  
-  //$gmap_intro = bw_get_option_arr( "gmap_intro", "bw_options", $atts );
   if ( $gmap_intro ) {
     p( bw_do_shortcode( $gmap_intro ) );
-    // bw_backtrace();
   }
-  /*
-  if ( $company_override === NULL )
-    bw_echo( '<p>This Google map shows you where <strong>' . $company . '</strong> is located.</p>');
-  else 
-    bw_echo( '<p>This Google map should show you where <strong>' . $company_override . '</strong> is located.</p>');
-  */  
   $set = "bw_options$alt"; 
- 
   $width = bw_default_empty_att( $width, "width", "100%", $set);
   
   // The default height allows for the info window being opened above the marker which is centred in the map.
-  // any less than this and the top of the info window gets cropped
+  // Any less than this and the top of the info window gets cropped.
   $height = bw_default_empty_att( $height, "height", "400px", $set );
 
   
@@ -241,8 +224,6 @@ function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
   $long = bw_default_empty_att( $long, "long", -0.965113, $set );
   
   if ( !$postcode ) {
-    //$postcode = bw_default_empty_att( $postcode, "postal-code", NULL, $set );
-    
     $postcode = bw_get_option_arr( "postal-code", "bw_options", $atts );
   }
   $postcode = str_replace( " ", "&nbsp;", $postcode );
