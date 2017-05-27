@@ -124,7 +124,7 @@ function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $mark
 	
   if ( !$map ) {
 		$src = set_url_scheme( "http://maps.googleapis.com/maps/api/js?&amp;region=GB" );
-    bw_echo( '<script type="text/javascript" src="' . $src . '">' );
+    bw_echo( '<script type="text/javascript" src="' . $src );
 		bw_echo( bw_gmap_api_key() );
     bw_echo( '"></script>' );
   }
