@@ -26,8 +26,9 @@
  * 0,1,2,lat:lng,lat2:lng2
  *
  * Where
- * - 0,1 and 2 - represent oik alternate locations
  * - lat:lng - is the latitude and longitude separated by colons
+ * - 0,1,2 - represent oik alternate locations
+ * - other values - also treated as oik alternate locations
  *
  * @TODO - support infowindow 
  *
@@ -35,31 +36,33 @@
  */
 function bw_gmap_markers( $markers ) {
   $marker_arr = bw_as_array( $markers );
+	bw_trace2( $marker_arr, "marker_arr" );
   if ( count( $marker_arr ) ) {
     foreach ( $marker_arr as $marker ) {
-      if ( $marker == absint( $marker ) ) {
+			bw_trace2( $marker, "marker", false );
+      if ( strpos( $marker, ":" ) ) {
+				list( $lat, $long ) = explode( ":", $marker, 2 );
+        $latlng = bw_gmap_latlng( $lat, $long );
+        bw_echo( 'latlng = new google.maps.LatLng('. $latlng .');' );
+        bw_gmap_marker( $latlng );
+			} else {	
         $alt = $marker;
         $set = "bw_options$alt"; 
         $lat = bw_default_empty_att( null, "lat", 50.887856, $set );
         $long = bw_default_empty_att( null, "long", -0.965113, $set );
-        $latlng = "$lat,$long";
+        $latlng = bw_gmap_latlng( $lat, $long );
         $title = $latlng;
         bw_echo( 'latlng = new google.maps.LatLng('. $latlng .');' );
         bw_gmap_marker( $title );
-      } elseif ( strpos( $marker, ":" ) ) {
-        $latlng = str_replace( ":", ",", $marker );
-        bw_echo( 'latlng = new google.maps.LatLng('. $latlng .');' );
-        bw_gmap_marker( $latlng );
-      } else {
-        //bw_gmap_infowindow( $marker, "" );
-      }
+			}
     }
   }
 }
 
-/*
+/**
  * Set the Google map marker
  *
+ * @param string $title
  */
 function bw_gmap_marker( $title ) {
   bw_echo( 'var marker = new google.maps.Marker({ position: latlng, title:"' . $title . '"});' );
@@ -120,7 +123,7 @@ function bw_gmap_infowindow( $title, $postcode ) {
 function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $markers=null, $zoom=12 ) {
 	bw_trace2();
   static $map = 0;
-  $latlng = $lat . ',' . $lng ;
+	$latlng = bw_gmap_latlng( $lat, $lng ); 
 	
   if ( !$map ) {
 		$src = set_url_scheme( "http://maps.googleapis.com/maps/api/js?&amp;region=GB" );
@@ -549,4 +552,25 @@ function bw_gmap_api_key() {
 		$api_key = "&amp;key=$key";
 	}
 	return( $api_key );
+}
+
+/**
+ * Return latlng combination
+ *
+ * 
+ * @TODO Check the latitude coordinate is between -90 and 90.
+ * and the longitude coordinate is between -180 and 180.
+ * 
+ * @param string $lat latitude - expected to be numeric, negative for South of the equator 
+ * @param string $lng longitude - expected to be number, negative for West of Greenwich 
+ * @return string slightly sanitized "lat,lng"
+ */
+function bw_gmap_latlng( $lat, $lng ) {
+	$latlng = "0.0,0.0";
+	if ( is_numeric( $lat) && is_numeric( $lng ) ) {
+		$latlng = $lat . ',' . $lng ;
+	}
+	
+	bw_trace2( $latlng, "latlng", true );
+	return $latlng;
 }
