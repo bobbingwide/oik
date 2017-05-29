@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2009-2016
+<?php // (C) Copyright Bobbing Wide 2009-2017
 if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
-define( "BOBBFUNC_INCLUDED", "3.1.0" );
+define( "BOBBFUNC_INCLUDED", "3.1.5" );
 
 /**
  * HTML output library functions
@@ -916,16 +916,12 @@ function bw_sc_snippet( $shortcode="oik" ) {
 /**
  * Dynamic jQuery setting the selector, function and option parameters
  *
- * When should we use?
- * 
- * - jQuery(window).load(function() - when you need to wait for images to load?
- * - jQuery(function()
- * - jQuery(document).ready(function()
+ * Note: jQuery(document).ready( fn ) has been deprecated in jQuery 3.0
  *
  * @param string $selector - the jQuery selector
  * @param string $method - the jQuery method to invoke
  * @param string $parms - parameters overriding the method's defaults
- * @param bool $windowload
+ * @param bool $windowload - use true when you need to wait for images to load
  */  
 if ( !function_exists( "bw_jquery" ) ) {
 function bw_jquery( $selector, $method, $parms=null, $windowload=false ) {
@@ -934,9 +930,9 @@ function bw_jquery( $selector, $method, $parms=null, $windowload=false ) {
 	} 
 	bw_jq( "<script type=\"text/javascript\">" );
 	if ( $windowload ) {
-		$jqfn = "jQuery(window).load(function()";
+		$jqfn = 'jQuery(window).on( "load", (function()';
 	} else {
-		$jqfn = "jQuery(document).ready(function()"; 
+		$jqfn = "jQuery( function()"; 
 	}    
 	$function = "$jqfn { jQuery( \"$selector\" ).$method( $parms ); });";
 	bw_jq( $function );
