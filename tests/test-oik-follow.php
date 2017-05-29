@@ -2,7 +2,7 @@
 
 /** 
  * Unit tests for the [bw_follow_me] shortcode
- * Specifically to test the display of the new GitHub option
+ * and
  *
  */
 
@@ -25,6 +25,8 @@ class Tests_oik_follow extends BW_UnitTestCase {
 	/**
 	 * Test the Follow me for GitHub
 	 *
+	 * Specifically to test the display of the new GitHub option #47
+	 *
 	 * We assume that the option value is set in the database.
 	 */
 	function test_follow_me_with_github_set() {
@@ -44,7 +46,6 @@ class Tests_oik_follow extends BW_UnitTestCase {
 	 * - bw_follow_e() allows a mixed case value for network, bw_follow() does not.
 	 * - Should this work regardless of the state of the oik-user plugin?
 	 */
-	
 	function test_follow_me_with_github_not_set() {
 		$value = bw_update_option( "github", null );
 		$html = bw_follow_e( array( "network" => "GitHub" ) );
@@ -52,6 +53,15 @@ class Tests_oik_follow extends BW_UnitTestCase {
 		bw_trace2( $html, "html null?", false );
 	}
 	
-	
+	/**
+	 * Tests issue #61 - Option field for WordPress.org
+	 */
+	function test_follow_me_with_wordpress_set() {
+		$saved = bw_get_option_arr( "wordpress" );
+		$value = bw_update_option( "wordpress", "bobbingwide" );
+		$html = bw_follow( array( "network" => "wordpress" ) );
+		$value2 = bw_update_option( "wordpress", $saved );
+		$this->assertStringStartsWith( '<a href="https://profiles.wordpress.org/' . $value, $html );
+	}
 
 }
