@@ -190,7 +190,7 @@ function bw_follow_e( $atts=null ) {
 /**
  * Implement [bw_follow_me] shortcode
  *
- * Produce a Follow me button for each of these networks:  Twitter, Facebook, LinkedIn, GooglePlus, YouTube, Flickr, Pinterest, Instagram and GitHub
+ * Produce a Follow me button for each of these networks:  Twitter, Facebook, LinkedIn, GooglePlus, YouTube, Flickr, Pinterest, Instagram, GitHub and WordPress
  * 
  * @param array $atts - array of parameters
  * @return string - a set of "Follow me" links for the networks.
