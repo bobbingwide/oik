@@ -57,6 +57,7 @@ function oik_plugin_file_loaded() {
 	add_action( "oik_lib_loaded", "oik_oik_lib_loaded" );
 	oik_require_lib( "bwtrace" );
 	oik_require_lib( "bobbfunc" );
+	oik_require_lib( "class-BW-" );
   require_once( "oik-add-shortcodes.php" );
   require_once( "bobbcomp.inc" );
    
@@ -169,6 +170,7 @@ function oik_admin_menu() {
 	oik_require_lib( "bobbforms" );
 	oik_require_lib( "oik-admin" );
 	oik_require_lib( "class-bobbcomp" );
+	oik_require_lib( "class-BW-" );
 	oik_require_lib( "class-oik-update" );
 	require_once( 'admin/oik-admin.inc' );
   oik_options_add_page();
@@ -192,6 +194,7 @@ function oik_network_admin_menu() {
 		oik_require_lib( "bobbforms" );
 		oik_require_lib( "oik-admin" );
 		oik_require_lib( "class-bobbcomp" );
+		oik_require_lib( "class-BW-" );
 		oik_require_lib( "class-oik-update" );
     require_once( 'admin/oik-admin.inc' );
     oik_options_add_page();
@@ -328,6 +331,7 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "class-oik-update" => "class-oik-remote"
 						, "class-bobbcomp" => null
 						, "class-dependencies-cache" => null
+						, "class-BW-" => null
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	
