@@ -31,7 +31,10 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	/**
 	 * Test shortcode snippet logic for a shortcode that enqueues scripts and/or styles
 	 * 
-	 * Note: We can't use bw_follow or bw_github since they're not actually shortcodes
+	 * Notes: 
+	 * - We can't use bw_follow or bw_github since they're not actually shortcodes
+	 * - The test is dependent upon oik-css being active - it alters automatic paragraph creation
+	 * - the oik-option valuue for Twitter is expected to be herb_miller
 	 * 
 	 -'<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;https://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;generi
 con genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -39,6 +42,7 @@ con genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 "http://qw/wordpress/wp-content/plugins/oik/css/genericons/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";
 a:1:{i:0;s:10:"genericons";}}</p>'
 +'something with serialized stuff'
+   * 
 	 */
 	function test_sc__snippet() {
 		do_action( "oik_add_shortcodes" );
