@@ -2,12 +2,6 @@
 
 class Tests_oik_admin extends BW_UnitTestCase {
 
-	/** 
-	 * From | To       | Count  | Notes
-	 * ---- | --       | ------ | --------
-	 * p()  | BW_::p() | 129    | Or use p_()
-	 * 
-	 */
 	
 	/** 
 	 * set up logic
@@ -26,6 +20,54 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	function replace_admin_url( $expected ) {
 		$expected = str_replace( "http://qw/src/wp-admin/", admin_url(), $expected );
 		return $expected;
+	}
+	
+	function replace_oik_url( $html ) {
+		$html = str_replace( oik_url(), "http://qw/src/wp-content/plugins/oik/", $html );
+		return $html;
+	}
+	
+	/**
+	 * Break into lines at tag interfaces
+	 * and convert into array?
+	 */
+	function tag_break( $html ) {
+		$new_lined = str_replace( "><", ">\n<", $html);
+		$html_array = explode( "\n", $new_lined );
+		return $html_array;
+	}
+	
+	/**
+	 * Help to generate the expected array from actual test output
+	 * 
+	 * echoing this output ensures we get 
+	 */
+	function generate_expected( $html_array ) {
+		echo PHP_EOL;
+		echo '$expected = array();';
+		foreach ( $html_array as $line ) {
+			echo PHP_EOL;
+			$line = str_replace( "'", "\'", $line );
+			echo '$expected[] = \'' . $line . "';";
+		}
+		echo PHP_EOL;
+		$this->assertFalse( true );
+	}
+	
+	/**
+	 * 
+	 */
+	function replace_nonce_with_nonsense( $expected_array ) {
+		$found = false;
+		foreach ( $expected_array as $index => $line ) {
+			$pos = strpos( $line, '<input type="hidden" id="_wpnonce" name="_wpnonce" value="' );
+			if ( false !== $pos ) {
+				$expected_array[ $index ] = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />';
+				$found = true;
+			}
+		}
+		$this->assertTrue( $found );
+		return $expected_array;
 	}
 	
 	function test_oik_callback() {
@@ -91,12 +133,114 @@ class Tests_oik_admin extends BW_UnitTestCase {
 		$expected .= '<p>Some oik plugins and themes are supported from servers other than WordPress.org</p>';
 		$expected .= '<p>Premium plugin and theme versions require API keys.</p>';
 		$expected .= '<p>Use the Plugins page to manage oik plugins servers and API keys</p>';
-		$expected .= '<a class="button-secondary" href="https://qw/wordpress/wp-admin/admin.php?page=oik_plugins" title="Manage plugin servers and API keys">Plugins</a>';
+		$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_plugins" title="Manage plugin servers and API keys">Plugins</a>';
 		$expected .= '<p>Use the Themes page to manage oik themes servers and API keys</p>';
-		$expected .= '<a class="button-secondary" href="https://qw/wordpress/wp-admin/admin.php?page=oik_themes" title="Manage theme servers and API keys">Themes</a>';
+		$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_themes" title="Manage theme servers and API keys">Themes</a>';
     $expected = $this->replace_admin_url( $expected );
     $this->assertEquals( $expected, $html );
 	}
+	
+	/**
+	 * Test the oik Buttons section
+	 * 
+	 * Since we invoke bw_flush() we need to capture the output buffer
+	 * to apply changes before comparing with expected.
+	 */
+	function test_oik_tinymce_buttons() {
+	
+		ob_start();   
+		oik_tinymce_buttons();
+		
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html = $this->replace_oik_url( $html );
+		$html_array = $this->tag_break( $html );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		
+		//$this->generate_expected( $html_array );
+		
+$expected = array();
+$expected[] = '<form method="post" action="options.php">';
+$expected[] = '<table class="form-table">';
+$expected[] = '<input type=\'hidden\' name=\'option_page\' value=\'oik_buttons_options\' />';
+$expected[] = '<input type="hidden" name="action" value="update" />';
+$expected[] = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />';
+$expected[] = '<input type="hidden" name="_wp_http_referer" value="/" />';
+$expected[] = '<tr>';
+$expected[] = '<td>';
+$expected[] = '<label for="bw_buttons[oik-button-shortcodes]">';
+$expected[] = '<img class="" src="http://qw/src/wp-content/plugins/oik/admin/bw-bn-icon.gif" title="Button shortcodes" alt="Button shortcodes"  /> Button shortcodes</label>';
+$expected[] = '</td>';
+$expected[] = '<td>';
+$expected[] = '<input type="hidden" name="bw_buttons[oik-button-shortcodes]" value="0" />';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-button-shortcodes]" id="bw_buttons[oik-button-shortcodes]" checked="checked"/>';
+$expected[] = '</td>';
+$expected[] = '</tr>';
+$expected[] = '<tr>';
+$expected[] = '<td>';
+$expected[] = '<label for="bw_buttons[oik-paypal-shortcodes]">';
+$expected[] = '<img class="" src="http://qw/src/wp-content/plugins/oik/admin/bw-pp-icon.gif" title="PayPal shortcodes" alt="PayPal shortcodes"  /> PayPal shortcodes</label>';
+$expected[] = '</td>';
+$expected[] = '<td>';
+$expected[] = '<input type="hidden" name="bw_buttons[oik-paypal-shortcodes]" value="0" />';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-paypal-shortcodes]" id="bw_buttons[oik-paypal-shortcodes]" checked="checked"/>';
+$expected[] = '</td>';
+$expected[] = '</tr>';
+$expected[] = '<tr>';
+$expected[] = '<td>';
+$expected[] = '<label for="bw_buttons[oik-shortc-shortcodes]">';
+$expected[] = '<img class="" src="http://qw/src/wp-content/plugins/oik/admin/bw-sc-icon.gif" title="ALL shortcodes" alt="ALL shortcodes"  /> ALL shortcodes</label>';
+$expected[] = '</td>';
+$expected[] = '<td>';
+$expected[] = '<input type="hidden" name="bw_buttons[oik-shortc-shortcodes]" value="0" />';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-shortc-shortcodes]" id="bw_buttons[oik-shortc-shortcodes]"/>';
+$expected[] = '</td>';
+$expected[] = '</tr>';
+$expected[] = '<tr>';
+$expected[] = '<td>';
+$expected[] = '<label for="bw_buttons[oik-quicktags]">[] quicktag for HTML editor</label>';
+$expected[] = '</td>';
+$expected[] = '<td>';
+$expected[] = '<input type="hidden" name="bw_buttons[oik-quicktags]" value="0" />';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-quicktags]" id="bw_buttons[oik-quicktags]" checked="checked"/>';
+$expected[] = '</td>';
+$expected[] = '</tr>';
+$expected[] = '<tr>';
+$expected[] = '<td>';
+$expected[] = '<label for="bw_buttons[oik-shortcake]">Integrate with shortcake</label>';
+$expected[] = '</td>';
+$expected[] = '<td>';
+$expected[] = '<input type="hidden" name="bw_buttons[oik-shortcake]" value="0" />';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-shortcake]" id="bw_buttons[oik-shortcake]"/>';
+$expected[] = '</td>';
+$expected[] = '</tr>';
+$expected[] = '</table>';
+$expected[] = '<input type="submit" name="ok" value="Save changes" class="button-primary" />';
+$expected[] = '</form>';
+		
+		$this->assertEquals( $expected, $html_array );
+	}
+
+
+	/**
+	 * Test links to the oik documentation
+	 *
+	 * The oik documentation is on oik-plugins.com
+	 * The forum is on wordpress.org
+	 */
+	function test_oik_documentation() {
+		$html = bw_ret( oik_documentation() );
+		$expected = null;
+		$expected .= '<p>For more information:</p><ul><li>';
+		$expected .= '<a href="http://www.oik-plugins.com/tutorial/getting-started-with-oik-plugins/" title="Getting started">Getting started</a>';
+		$expected .= '</li><li>';
+		$expected .= '<a href="http://www.oik-plugins.com/oik/oik-faq" title="Frequently Asked Questions">Frequently Asked Questions</a>';
+		$expected .= '</li><li>';
+		$expected .= '<a href="http://wordpress.org/tags/oik?forum_id=10" title="Forum">Forum</a>';
+		$expected .= '</li></ul>';
+		$expected .= '<p><a class="button button-secondary" href="http://www.oik-plugins.com" title="Read the documentation for the oik plugin">oik documentation</a></p>';
+    $this->assertEquals( $expected, $html );
+	} 
 	
 	
 
