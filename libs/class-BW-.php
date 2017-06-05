@@ -37,7 +37,21 @@ class BW_ {
 		etag( "p" );
 	}
 	
-}
+	/**
+	 * Output a link
+	 *
+	 * @param string $class optional CSS class(es)
+	 * @param string $url URL
+	 * @param string $linktori translated link text or image 
+	 * @param string $alt translated alternate text	or null
+	 * @param string $id optional CSS id
+	 * @param string $extra additional HTML
+	 */
+	static function alink( $class=null, $url, $linktori=null, $alt=null, $id=null, $extra=null ) {
+		$link = retlink( $class, $url, $linktori, $alt, $id, $extra );
+		e( $link );
+	}
+} /* end class */
 
 } /* end if !defined */
 

@@ -1294,9 +1294,13 @@ function bw_context( $field, $value=null ) {
 } 
 
 /**
- * Wrapper to translate - well it was! Herb 2013/10/31 
- *
- * Similar to __() but with overriding logic to disable translation
+ * Wrapper to translate 
+ * 
+ * - Similar to __() but with overriding logic to disable translation
+ * - translation can be disabled by using bw_translation_off()
+ * - translation can be re-enabled by using bw_translation_on()
+ * - the textdomain can be set using bw_context( "textdomain", 'plugin-slug' );
+ * - the textdomain can be reset to the default ( 'oik' ) using bw_context( "textdomain", false );
  * 
  * @param string $text - text to be translated
  * @return string $text - the translated text
