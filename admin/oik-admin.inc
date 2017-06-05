@@ -222,6 +222,7 @@ function oik_documentation() {
   sul();
   stag( "li" );
   _alink( null, "http://www.oik-plugins.com/tutorial/getting-started-with-oik-plugins/", "Getting started", "Getting started" );
+	etag( "li" );
   stag( "li" );
   _alink( null,  "http://www.oik-plugins.com/oik/oik-faq", "Frequently Asked Questions", "Frequently Asked Questions" );
   etag( "li" );
