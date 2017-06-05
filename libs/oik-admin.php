@@ -91,7 +91,7 @@ function ecolumn() {
 /**
  * Create an oik menu header
  *
- * Note: Removed the link to oik  
+ * Note: Completely removed the link to oik  
  *
  * @param string $title - title for the box
  * @param string $class - class for the box 
@@ -99,12 +99,7 @@ function ecolumn() {
 function oik_menu_header( $title="Overview", $class="w70pc" ) {
 	oik_enqueue_scripts();
 	sdiv( "wrap" ); 
-	if ( function_exists( "bw_loik" ) ) {
-		$loik = bw_loik();
-	} else {
-		$loik = null;
-	}
-	h2( "$loik " . bw_translate( $title ) ); 
+	h2( bw_translate( $title ) ); 
 	scolumn( $class );
 }
 
