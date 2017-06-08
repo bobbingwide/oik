@@ -180,6 +180,9 @@ function kv( $keyword, $value=null ) {
 
 /**
  * Format a sanitized title= parameter 
+ * 
+ * Note: More often than not, for a11y, the title= parameter is not recommended.
+ *
  * @param $string - the title
  * @return $string
  */  

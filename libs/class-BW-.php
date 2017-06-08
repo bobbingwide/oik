@@ -94,6 +94,26 @@ class BW_ {
 		ediv( "postbox" );
 	}
 
+	/**
+	 * Appends some non-translatable text to translated text
+	 *
+	 * This is similar to using sprintf( __( "translatable_text %1$s", $non_translatable_text ) );
+	 * BUT it doesn't require the translator to have to worry about the position of the variable
+	 * AS this isn't in the text they translate.
+	 *
+	 * Note: The non-translatable text is expected to begin with a space character.
+	 * It is also possible to append two translated strings.
+	 * 
+	 * @param string $translated_text - text that's been translated
+	 * @param string $non_translatable_text - text that's not translated
+	 * @return string concatenated strings
+	 */
+	static function bwtnt( $translated_text, $non_translatable_text ) {
+		$tnt = $translated_text;
+		$tnt .= $non_translatable_text;
+		return( $tnt );
+	}
+
 } /* end class */
 
 } /* end if !defined */
