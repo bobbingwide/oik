@@ -8,7 +8,7 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	 * p        | p             | 129   |       | array( 'string' );
 	 * _alink   | alink         |  46   |       | array( null, null,'string', 'string' );
 	 * alink    | alink         |  52	  |       | array( null, null, 'string', 'string', null, null );
-	 * _bwtnt   | _bwtnt        | 39    |       | array( 'string', null );
+	 * _bwtnt   | bwtnt         | 39    | 50    | array( 'string', null );
 	 * oik_menu_header | oik_menu_header | 12 | 78 | array( 'string', null );
 	 * oik_box | oik_box | 32  | 194 |  array( null, null, 'string' );
 	 
@@ -76,12 +76,12 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$actual = bw_ret( BW_::oik_menu_header() );
 		$this->assertEquals( $expected, $actual );
 
-		$expected = bw_ret( oik_menu_header( "test" ) );
-		$actual = bw_ret( BW_::oik_menu_header( "test" ) );
+		$expected = bw_ret( oik_menu_header( "Text" ) );
+		$actual = bw_ret( BW_::oik_menu_header( __( "Text", "oik" ) ) );
 		$this->assertEquals( $expected, $actual );
 
-		$expected = bw_ret( oik_menu_header( "test", "class" ) );
-		$actual = bw_ret( BW_::oik_menu_header( "test", "class" ) );
+		$expected = bw_ret( oik_menu_header( "Text" , "class" ) );
+		$actual = bw_ret( BW_::oik_menu_header( __( "Text", "oik" ), "class" ) );
 		$this->assertEquals( $expected, $actual );
 	}
 
@@ -89,6 +89,12 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		oik_require( "admin/oik-admin.inc" );
 		$expected = bw_ret( oik_box() );
 		$actual = bw_ret( BW_::oik_box() );
+		$this->assertEquals( $expected, $actual );
+	}
+
+	function test_BW_bwtnt() {
+		$expected = bw_ret( _bwtnt( "Text", " etc" ) );
+		$actual = bw_ret( BW_::bwtnt( __( "Text", "oik" ), " etc" ) );
 		$this->assertEquals( $expected, $actual );
 	}
 
