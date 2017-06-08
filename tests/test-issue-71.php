@@ -13,6 +13,9 @@ class Tests_issue_71 extends BW_UnitTestCase {
 	//}
 	
 	
+	/**
+	 * For this test to work oik-bob-bing-wide must be activated
+	 */
 	function test_shortcodes_expanded_in_the_excerpt_embed() {
 		$content = "[wp]";
 		$expanded = apply_filters( "the_excerpt_embed", $content );
