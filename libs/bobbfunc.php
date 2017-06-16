@@ -933,7 +933,7 @@ function bw_jquery( $selector, $method, $parms=null, $windowload=false ) {
 	} 
 	bw_jq( "<script type=\"text/javascript\">" );
 	if ( $windowload ) {
-		$jqfn = 'jQuery(window).on( "load", (function()';
+		$jqfn = 'jQuery(window).on( "load", function()';
 	} else {
 		$jqfn = "jQuery( function()"; 
 	}    

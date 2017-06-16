@@ -44,7 +44,7 @@ class Tests_oik_jquery extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $html );
 		
 		$expected_jq = null; 
-		$expected_jq = '<script type="text/javascript">jQuery(window).on( "load", (function() { jQuery( "selector" ).method( {} ); });</script>';
+		$expected_jq = '<script type="text/javascript">jQuery(window).on( "load", function() { jQuery( "selector" ).method( {} ); });</script>';
 		$jq = $this->get_jq();
 		$this->assertEquals( $expected_jq, $jq );
 		$this->reset_jq(); 
