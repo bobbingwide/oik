@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 3.9
-Tested up to: 4.7.3
+Tested up to: 4.8
 Stable tag: 3.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -90,6 +90,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.2.0-alpha-20170616 = 
+Upgrade if you're having problems with [bw_show_googlemap]
+
 = 3.1.4 = 
 Now supports https: protocol. Tested with WordPress 4.7.3, WordPress Multisite, PHP 7.1
 
@@ -397,6 +400,43 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
  
 
 == Changelog ==
+= 3.2.0-alpha-20170616 =
+* Changed: Internationalization ( i18n ) improvements,[github bobbingwide oik issues 9]
+* Changed: oik should support embedding, [github bobbingwide oik issues 71]
+* Fixed: Correction to parm setting for maps.googleapis.com, [github bobbingwide oik issues 70]
+* Fixed: Improve lat long handling - catering for reasonable values,[github bobbingwide oik issues 44]
+* Fixed: List item tag missing after Getting Started,[github bobbingwide oik issues 78]
+* Fixed: [bw_show_googlemap] parameters not being applied, [github bobbingwide oik issues 72]
+* Fixed: jQuery.fn.load() is deprecated,[github bobbingwide oik issues 74]
+* Tested: Add test cases [github bobbingwide oik issues 61]
+
+
+last checked commit: 
+
+* ef15bda (HEAD, master) Fixes #74 - correct generated JavaScript
+* de6478c Issue #9 - add tests for BW_::oik_menu_header and BW::bwtnt
+* 18d879d Issue #71 - add a test usage comment
+* a7cdff1 Issue #79 - add a11y related comment
+* 42ff485 Issue #9 - add BW_::oik_menu_header and BW_::oik_box
+* 6184574 Issue #9 - add test_oik_admin_options; _on and _off
+* 9fbb731 Issue #9 - add test_oik_support()
+* f4fc6f4 Fixes #78 - add test_oik_documentation() Issue #9 - add test_oik_tinymce_buttons()
+* 48c16f8 Issue #78 - add missing end list item tag
+* 404b9bc Issue #9 - add test_oik_url()
+* 821c407 Issue #9 - add test for BW::alink. Move oik-admin tests to separate file
+* 0c74135 Issue #9 - add some tests for admin pages
+* 05ad244 Issue #9 - add class BW_, function p, and PHPUnit test
+* bf6bc04 Latest language files before working on Issue 9
+* f2892ee Comment only
+* 7ee92ad Fixes #61 - add test for bw_follow with wordpress.org profile ID
+* ec10001 (origin/master) Fixes #72 - some tests for bw_get_option_arr()
+* 5a13fdc Fixes #74 - jQuery.fn.load() is deprecated
+* fe57a1d Fixes #44 - improve lat long handling - catering for reasonable values
+* cc357b9 Issue #70 - correction to parm setting for maps.googleapis.com
+* 24e2b9a Issue #72 - tidy [bw_show_googlemap] logic
+* eac2c82 Issue #72 - change bw_get_option_arr() to pull the value of $field from $atts
+
+
 = 3.1.4 = 
 * Changed: Support https protocol [github bobbingwide oik issue 70]
 * Changed: Expand shortcodes in embedded excerpt [github bobbingwide oik issue 71]

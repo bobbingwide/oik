@@ -730,13 +730,13 @@ static function bw_json_decode( $json, $assoc=false ) {
 	 * Error														  |	Workaround
 	 * ---------------------------------- | -----------
 	 * cURL error 60: SSL certificate problem: unable to get local issuer certificate	 |	 Set sslverify false for local requests
-	 * cURL error 28: Operation timed out after 10000 milliseconds with 0 bytes received | 
+	 * cURL error 28: Operation timed out after 10000 milliseconds with 0 bytes received | Set timeout to 15 seconds
 	 * 
 	 * @param array $args
 	 * @param string $url
 	 * @return array adjusted args
 	 *
-	 *  
+	 * @TODO Decide if this should have been implemented as a filter for 'http_request_args' 
 	
 
 		$args["sslverify"] = false; 
@@ -750,16 +750,22 @@ static function bw_json_decode( $json, $assoc=false ) {
 		if ( self::are_you_local( $url ) ) {
 			$args['sslverify'] = false;
 		}
+		$args['timeout'] = 15000;
 		return $args;
 	}
 	
+	/**
+	 * Determines if this is a local request
+	 * 
+	 * @param string $url
+	 * @return bool - true if the host parf of the $url is considered to be local
+	 */
 	static function are_you_local( $url ) {
 		$local_host = $_SERVER['SERVER_NAME'];
 		$remote_host = parse_url( $url, PHP_URL_HOST );
 		$local = $local_host == $remote_host;
-		bw_trace2( $local_host, "local_host" );
-		bw_trace2( $remote_host, "remote_host" );
-		
+		//bw_trace2( $local_host, "local_host" );
+		//bw_trace2( $remote_host, "remote_host" );
 		return $local;
 	}
 
