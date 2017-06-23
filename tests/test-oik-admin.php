@@ -15,10 +15,12 @@ class Tests_oik_admin extends BW_UnitTestCase {
 		oik_require_lib( "oik_plugins" );
 	}
 	
-	
-	
+	/**
+	 * Replace admin_url with the expected hardcoded value
+	 *
+	 */ 
 	function replace_admin_url( $expected ) {
-		$expected = str_replace( "http://qw/src/wp-admin/", admin_url(), $expected );
+		$expected = str_replace( admin_url(), "https://qw/src/wp-admin/", $expected );
 		return $expected;
 	}
 	
@@ -55,7 +57,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * 
+	 * Note: This function could fail if there is no nonce in the output
 	 */
 	function replace_nonce_with_nonsense( $expected_array ) {
 		$found = false;
@@ -66,7 +68,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 				$found = true;
 			}
 		}
-		$this->assertTrue( $found );
+		$this->assertTrue( $found, "No nonce found in expected array" );
 		return $expected_array;
 	}
 	
@@ -79,19 +81,19 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	function test_oik_shortcode_options() {
 		//oik_require( "admin/oik-admin.inc" );
 		$html = bw_ret( oik_shortcode_options() );
+		$html = $this->replace_admin_url( $html );
 		$expected = null;
 		$expected = '<p>oik provides sets of lazy smart shortcodes that you can use just about anywhere in your WordPress site.</p>';
 		$expected .= '<p>You enter your common information, such as contact details, slogans, location information, PayPal payment information and your social networking and bookmarking information using oik Options</p>';
 		$expected .= '<p>If required, you enter alternative information using More options</p>';
-		$expected .= '<a class="button-primary" href="http://qw/src/wp-admin/admin.php?page=oik_options" title="Enter your common information">Options</a>';
+		$expected .= '<a class="button-primary" href="https://qw/src/wp-admin/admin.php?page=oik_options" title="Enter your common information">Options</a>';
 		$expected .= '&nbsp;';
-		$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_options-1" title="Enter additional information">More options</a>';
+		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_options-1" title="Enter additional information">More options</a>';
 		$expected .= '<p>Discover the shortcodes that you can use in your content and widgets using Shortcode help</p>';
-		$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_sc_help" title="Discover shortcodes you can use">Shortcode help</a>';
+		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_sc_help" title="Discover shortcodes you can use">Shortcode help</a>';
 		$expected .= '<p>Choose the helper buttons that help you to insert shortcodes when editing your content</p>';
-		$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_buttons" title="Select TinyMCE and HTML edit helper buttons">Buttons</a>';
+		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_buttons" title="Select TinyMCE and HTML edit helper buttons">Buttons</a>';
 		
-		$expected = $this->replace_admin_url( $expected );
 		$this->assertEquals( $expected, $html );
 	}
 	
@@ -105,6 +107,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	function test_oik_custom_css_box() {
 		//oik_require( "admin/oik-admin.inc" );
 		$html = bw_ret( oik_custom_css_box() );
+		$html = $this->replace_admin_url( $html );
 		
 		$custom_CSS = bw_get_option( "customCSS"	);
 		$expected = null;
@@ -114,13 +117,12 @@ class Tests_oik_admin extends BW_UnitTestCase {
 		$expected .= '<p>You should save your custom CSS file before updating your theme.</p>';
 		if ( !$custom_CSS ) {
 			$expected .=  '<p>You have not defined a custom CSS file.</p>';
-			$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_options" title="Enter the name of your custom CSS file on the Options page">Name your custom CSS file</a>';
+			$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_options" title="Enter the name of your custom CSS file on the Options page">Name your custom CSS file</a>';
 		} else {
 			$expected .= '<p>Click on this button to edit your custom CSS file.</p>';
-			$expected .= '<a class="bw_custom_css" href="http://qw/src/wp-admin/theme-editor.php?file=custom.css&theme=genesis-image" title="Edit custom CSS">{}</a>';
+			$expected .= '<a class="bw_custom_css" href="https://qw/src/wp-admin/theme-editor.php?file=custom.css&theme=genesis-image" title="Edit custom CSS">{}</a>';
       $theme = bw_get_theme();
 			$expected = str_replace( "theme=genesis-image", "theme=" . $theme, $expected );
-			$expected = $this->replace_admin_url( $expected );
 		}
 		$this->assertEquals( $expected, $html );
 	}
@@ -129,14 +131,14 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 */
 	function test_oik_plugins_servers() {
 		$html = bw_ret( oik_plugins_servers() );
+    $html = $this->replace_admin_url( $html );
 		$expected = null;
 		$expected .= '<p>Some oik plugins and themes are supported from servers other than WordPress.org</p>';
 		$expected .= '<p>Premium plugin and theme versions require API keys.</p>';
 		$expected .= '<p>Use the Plugins page to manage oik plugins servers and API keys</p>';
-		$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_plugins" title="Manage plugin servers and API keys">Plugins</a>';
+		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_plugins" title="Manage plugin servers and API keys">Plugins</a>';
 		$expected .= '<p>Use the Themes page to manage oik themes servers and API keys</p>';
-		$expected .= '<a class="button-secondary" href="http://qw/src/wp-admin/admin.php?page=oik_themes" title="Manage theme servers and API keys">Themes</a>';
-    $expected = $this->replace_admin_url( $expected );
+		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_themes" title="Manage theme servers and API keys">Themes</a>';
     $this->assertEquals( $expected, $html );
 	}
 	
@@ -354,7 +356,141 @@ $expected[] = '</form>';
 	$this->assertEquals( $expected, $html_array );
 		
 		
- }
+	}
+	
+	/**
+	 * Tests oik_menu_header
+	 * 
+	 * @TODO Test oik_enqueue_scripts() separately
+	 */
+	function test_oik_menu_header() {
+	 	oik_menu_header( "Menu header title", "menu header class" );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected( $html_array );
+    $expected = array();
+		$expected[] = '<div class="wrap">';
+		$expected[] = '<h2>Menu header title</h2>';
+		$expected[] = '<div class="metabox-holder">';
+		$expected[] = '<div class="postbox-container menu header class">';
+		$expected[] = '<div class="meta-box-sortables ui-sortable">';
+		$this->assertEquals( $expected, $html_array );
+	}
+	
+	
+	/**
+	 * Tests oik_menu_footer
+	 */
+	function test_oik_menu_footer() {
+	 	oik_menu_footer();
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected( $html_array );
+    $expected = array();
+		$expected[] = '<!--start ecolumn-->';
+		$expected[] = '</div>';
+		$expected[] = '</div>';
+		$expected[] = '</div>';
+		$expected[] = '<!--end ecolumn-->';
+		$expected[] = '<div class="clear">';
+		$expected[] = '</div>';
+		$expected[] = '</div>';
+		$this->assertEquals( $expected, $html_array );
+	
+	}
+	
+	/**
+	 * Tests oik_plugins_do_page
+	 *
+	 * tests oik_plugins_server_settings 
+	 * eventually tests oik_lazy_plugins_server_settings() - the original display
+	 *
+	 * To reduce the output we need to fiddle the bw_plugins option to reduce the number of 
+	 * registered plugins 
+	 * Also null about $bw_registered_plugins OR set a known value
+	 * Let's just try an empty array.
+	 *
+	 */
+	function test_oik_plugins_do_page() {
+		global $bw_registered_plugins;
+		$bw_plugins = array( "us-tides" => array( "server" => "https://example.com"
+																						, "apikey" => "sampleapikey"
+																						, "expiration" => "no longer relevant"
+																						)
+											);
+		update_option( "bw_plugins", $bw_plugins );
+		$bw_registered_plugins = null;
+		ob_start(); 
+		oik_plugins_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
+		//$html_array = $this->replace_nonce_with_nonsense( $html_array );
+    //$this->generate_expected( $html_array );
+$expected = array();
+$expected[] = '<div class="wrap">';
+$expected[] = '<h2>plugin server settings</h2>';
+$expected[] = '<div class="metabox-holder">';
+$expected[] = '<div class="postbox-container w100pc">';
+$expected[] = '<div class="meta-box-sortables ui-sortable">';
+$expected[] = '<div class="postbox " id="oik_plugins_settings">';
+$expected[] = '<div class="handlediv"  title="Click to toggle">';
+$expected[] = '<br />';
+$expected[] = '</div>';
+$expected[] = '<h3 class="hndle">Settings</h3>';
+$expected[] = '<div class="inside">';
+$expected[] = '<p>The default oik plugins server is currently set to: <a href="http://qw/oikcom" title="default oik plugins server">http://qw/oikcom</a>';
+$expected[] = '</p>';
+$expected[] = '<form method="post">';
+$expected[] = '<table class="widefat ">';
+$expected[] = '<thead>';
+$expected[] = '<tr>';
+$expected[] = '<td>plugin</td>';
+$expected[] = '<td>version</td>';
+$expected[] = '<td>server</td>';
+$expected[] = '<td>apikey</td>';
+$expected[] = '<td>actions</td>';
+$expected[] = '</tr>';
+$expected[] = '</thead>';
+$expected[] = '<tr>';
+$expected[] = '<td>us-tides</td>';
+$expected[] = '<td>0.3.0&nbsp;</td>';
+$expected[] = '<td>https://example.com&nbsp;</td>';
+$expected[] = '<td>sampleapikey&nbsp;</td>';
+$expected[] = '<td>';
+$expected[] = '<a href="https://qw/src/wp-admin/admin.php?page=oik_plugins&amp;delete_plugin=us-tides" title="Delete plugin&#039;s profile entry">Delete</a>&nbsp;<a href="https://qw/src/wp-admin/admin.php?page=oik_plugins&amp;edit_plugin=us-tides" title="Edit">Edit</a>&nbsp;<a href="https://qw/src/wp-admin/admin.php?page=oik_plugins&amp;check_plugin=us-tides&amp;check_version=0.3.0" title="Check">Check</a>&nbsp;</td>';
+$expected[] = '</tr>';
+$expected[] = '</table>';
+$expected[] = '<p>';
+$expected[] = '<input type="submit" name="_oik_plugins_add_plugin" value="Add plugin" class="button-primary" />';
+$expected[] = '</p>';
+$expected[] = '</form>';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '<!--start ecolumn-->';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '<!--end ecolumn-->';
+$expected[] = '<div class="clear">';
+$expected[] = '</div>';
+$expected[] = '</div>';
+		
+		$this->assertEquals( $expected, $html_array );
+	
+	
+	
+	}
+ 
+ 
+ // tests
+ // oik_themes_do_page
 	
 
 }
