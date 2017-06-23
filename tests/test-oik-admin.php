@@ -13,6 +13,8 @@ class Tests_oik_admin extends BW_UnitTestCase {
 		//bobbcomp::bw_get_option( "fred" );
 		oik_require( "admin/oik-admin.inc" );
 		oik_require_lib( "oik_plugins" );
+		oik_require_lib( "oik_themes" );
+		oik_require_lib( "class-oik-update" );
 	}
 	
 	/**
@@ -25,7 +27,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	}
 	
 	function replace_oik_url( $html ) {
-		$html = str_replace( oik_url(), "http://qw/src/wp-content/plugins/oik/", $html );
+		$html = str_replace( oik_url(), "https://qw/src/wp-content/plugins/oik/", $html );
 		return $html;
 	}
 	
@@ -171,7 +173,7 @@ $expected[] = '<input type="hidden" name="_wp_http_referer" value="/" />';
 $expected[] = '<tr>';
 $expected[] = '<td>';
 $expected[] = '<label for="bw_buttons[oik-button-shortcodes]">';
-$expected[] = '<img class="" src="http://qw/src/wp-content/plugins/oik/admin/bw-bn-icon.gif" title="Button shortcodes" alt="Button shortcodes"  /> Button shortcodes</label>';
+$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-bn-icon.gif" title="Button shortcodes" alt="Button shortcodes"  /> Button shortcodes</label>';
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-button-shortcodes]" value="0" />';
@@ -181,7 +183,7 @@ $expected[] = '</tr>';
 $expected[] = '<tr>';
 $expected[] = '<td>';
 $expected[] = '<label for="bw_buttons[oik-paypal-shortcodes]">';
-$expected[] = '<img class="" src="http://qw/src/wp-content/plugins/oik/admin/bw-pp-icon.gif" title="PayPal shortcodes" alt="PayPal shortcodes"  /> PayPal shortcodes</label>';
+$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-pp-icon.gif" title="PayPal shortcodes" alt="PayPal shortcodes"  /> PayPal shortcodes</label>';
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-paypal-shortcodes]" value="0" />';
@@ -191,7 +193,7 @@ $expected[] = '</tr>';
 $expected[] = '<tr>';
 $expected[] = '<td>';
 $expected[] = '<label for="bw_buttons[oik-shortc-shortcodes]">';
-$expected[] = '<img class="" src="http://qw/src/wp-content/plugins/oik/admin/bw-sc-icon.gif" title="ALL shortcodes" alt="ALL shortcodes"  /> ALL shortcodes</label>';
+$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-sc-icon.gif" title="ALL shortcodes" alt="ALL shortcodes"  /> ALL shortcodes</label>';
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-shortc-shortcodes]" value="0" />';
@@ -405,11 +407,10 @@ $expected[] = '</form>';
 	 * tests oik_plugins_server_settings 
 	 * eventually tests oik_lazy_plugins_server_settings() - the original display
 	 *
-	 * To reduce the output we need to fiddle the bw_plugins option to reduce the number of 
-	 * registered plugins 
-	 * Also null about $bw_registered_plugins OR set a known value
+	 * To reduce the output we need to fiddle the bw_plugins option to reduce the number of registered plugins. 
+	 * Also null $bw_registered_plugins OR set a known value.
 	 * Let's just try an empty array.
-	 *
+	 * @TODO Cater for the plugin version
 	 */
 	function test_oik_plugins_do_page() {
 		global $bw_registered_plugins;
@@ -484,13 +485,90 @@ $expected[] = '</div>';
 		
 		$this->assertEquals( $expected, $html_array );
 	
-	
-	
 	}
- 
- 
- // tests
- // oik_themes_do_page
+	
+	/**
+	 * Tests oik_themes_do_page
+	 * 
+	 * 
+	 * tests oik_themes_server_settings 
+	 * eventually tests oik_lazy_themes_server_settings() - the original display
+	 *
+	 * @TODO Cater for the plugin version
+	 */
+ function test_oik_themes_do_page() {
+		global $bw_registered_themes;
+		$bw_themes = get_option( "bw_themes" );
+		$bw_themes = array( "genesis-oik" => array( "server" => "https://example.com"
+																						, "apikey" => "sampleapikey"
+																						, "expiration" => "no longer relevant"
+																						)
+											);
+		update_option( "bw_themes", $bw_themes );
+		$bw_registered_themes = null;
+		ob_start(); 
+		oik_themes_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_update::oik_get_themes_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
+		//$html_array = $this->replace_nonce_with_nonsense( $html_array );
+    //$this->generate_expected( $html_array );
+$expected = array();
+$expected[] = '<div class="wrap">';
+$expected[] = '<h2>theme server settings</h2>';
+$expected[] = '<div class="metabox-holder">';
+$expected[] = '<div class="postbox-container w100pc">';
+$expected[] = '<div class="meta-box-sortables ui-sortable">';
+$expected[] = '<div class="postbox " id="oik_themes_settings">';
+$expected[] = '<div class="handlediv"  title="Click to toggle">';
+$expected[] = '<br />';
+$expected[] = '</div>';
+$expected[] = '<h3 class="hndle">Settings</h3>';
+$expected[] = '<div class="inside">';
+$expected[] = '<p>The default oik themes server is currently set to: <a href="http://qw/oikcom" title="default oik themes server">http://qw/oikcom</a>';
+$expected[] = '</p>';
+$expected[] = '<form method="post">';
+$expected[] = '<table class="widefat ">';
+$expected[] = '<thead>';
+$expected[] = '<tr>';
+$expected[] = '<td>theme</td>';
+$expected[] = '<td>version</td>';
+$expected[] = '<td>server</td>';
+$expected[] = '<td>apikey</td>';
+$expected[] = '<td>actions</td>';
+$expected[] = '</tr>';
+$expected[] = '</thead>';
+$expected[] = '<tr>';
+$expected[] = '<td>genesis-oik</td>';
+$expected[] = '<td>1.0.8&nbsp;</td>';
+$expected[] = '<td>https://example.com&nbsp;</td>';
+$expected[] = '<td>sampleapikey&nbsp;</td>';
+$expected[] = '<td>';
+$expected[] = '<a href="https://qw/src/wp-admin/admin.php?page=oik_themes&amp;delete_theme=genesis-oik" title="Delete theme&#039;s profile entry">Delete</a>&nbsp;<a href="https://qw/src/wp-admin/admin.php?page=oik_themes&amp;edit_theme=genesis-oik" title="Edit">Edit</a>&nbsp;<a href="https://qw/src/wp-admin/admin.php?page=oik_themes&amp;check_theme=genesis-oik&amp;check_version=1.0.8" title="Check">Check</a>&nbsp;</td>';
+$expected[] = '</tr>';
+$expected[] = '</table>';
+$expected[] = '<p>';
+$expected[] = '<input type="submit" name="_oik_themes_add_theme" value="Add theme" class="button-primary" />';
+$expected[] = '</p>';
+$expected[] = '</form>';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '<!--start ecolumn-->';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '<!--end ecolumn-->';
+$expected[] = '<div class="clear">';
+$expected[] = '</div>';
+$expected[] = '</div>';
+		$this->assertEquals( $expected, $html_array );
+	}
 	
 
 }
