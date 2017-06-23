@@ -11,7 +11,7 @@ class Tests_oik_countdown extends BW_UnitTestCase {
 	 * set up logic
 	 * 
 	 * - ensure any database updates are rolled back
-	 * - we need oik-googlemap to load the functions we're testing
+	 * - we need oik-countdown to load the functions we're testing
 	 */
 	function setUp() {
 		parent::setUp();

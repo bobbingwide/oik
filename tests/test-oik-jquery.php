@@ -11,7 +11,6 @@ class Tests_oik_jquery extends BW_UnitTestCase {
 	 * set up logic
 	 * 
 	 * - ensure any database updates are rolled back
-	 * - we need oik-googlemap to load the functions we're testing
 	 */
 	function setUp() {
 		parent::setUp();

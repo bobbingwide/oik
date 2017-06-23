@@ -1,15 +1,32 @@
 <phpunit
-	bootstrap="../oik-batch/oik-wp.php"
+	bootstrap="../../plugins/oik-batch/oik-wp.php"
 	backupGlobals="false"
 	colors="false"
 	convertErrorsToExceptions="true"
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
 	>
-	<!-- for PHPUnit 4.8.0 or 5.5.2 -->
+	<!-- for PHPUnit 5.7, 6.1, 6.2 -->
 	<testsuites>
-		<testsuite>
-			<directory prefix="test-" suffix=".php">tests/</directory>
+		<testsuite name="oik">
+			<file>tests/test-bobbcomp.php</file>
+			<file>tests/test-bobbfunc.php</file>
+			<file>tests/test-class-dependencies-cache.php</file>
+			<file>tests/test-oik-add-shortcodes.php</file>
+			<file>tests/test-oik-bob-bing-wide.php</file>
+			<file>tests/test-oik-countdown.php</file>
+			<file>tests/test-oik-filters.php</file>
+			<file>tests/test-oik-follow.php</file>
+			<file>tests/test-oik-googlemap.php</file>
+			<file>tests/test-oik-jquery.php</file>
+			<file>tests/test-oik-sc-help.php</file>
+			<file>tests/test-issue-71.php</file>
+			<file>tests/test-issue-9.php</file>
+			<file>tests/test-oik-admin.php</file>
+		</testsuite>
+		<testsuite name="random">
+			<!-- We can't actually run tests in a random order due to use of static variables -->
+			<directory prefix="test-random" suffix=".php">tests/</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
