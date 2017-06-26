@@ -215,6 +215,75 @@ class BW_ {
 		self::bw_emailfield( $name_index, $len, $text, $value, $class, $extras );
 	}
 
+	/**
+	 * Form a "textarea" field 
+	 *
+	 * @param string $name - the field name
+	 * @param numeric $len - the length of the field ( e.g. 40 )
+	 * @param string $text - the label of the field (e.g. "Content" )
+	 * @param string $value - the value to display. If NULL then the current value is extracted from $_REQUEST[$name] 
+	 * @param numeric $rows - the number of rows for the textarea field
+	*/
+	static function bw_textarea( $name, $len, $text, $value, $rows=10, $args=null ) {
+		$lab = self::label( $name, $text );
+		if ( $value === null ) {
+			$value = bw_array_get( $_REQUEST, $name, null );
+			bw_trace2( $value, "bw_textarea value" );
+			$value = wp_strip_all_tags( $value );
+			$value = stripslashes( $value );
+		}
+	
+		$spellcheck = bw_array_get( $args, "#spellcheck", null );
+		if ( null !== $spellcheck ) {
+			$spellcheck = kv( "spellcheck", $spellcheck );
+		}
+		$itext = iarea( $name, $len, $value, $rows, $spellcheck ); 
+		bw_tablerow( array( $lab, $itext) );
+		return;
+}
+
+	/**
+	 * Create a textarea for an array options field
+	 *
+	 * @param string $name field name
+	 * @param string $text field label
+	 * @param array $array 
+	 * @param integer $index
+	 * @param integer $len
+	 * @param integer $rows 
+	 */
+	static function bw_textarea_arr( $name, $text, $array, $index, $len, $rows=5 ) {
+		$name_index = $name.'['.$index.']';
+		$value = bw_array_get( $array, $index, NULL );
+		self::bw_textarea( $name_index, $len, $text, $value, $rows );
+	}
+
+	/** 
+	 * Create an optional textarea  
+	 * 
+	 * If the _cb field is present we use this value. otherwise we default to "on"   
+	 *
+	* Similar to this but the checkbox appears in the label for the textarea
+	 *   bw_checkbox_arr( $option, "Include?", $options, 'intro_cb' );
+	 *   bw_textarea_arr( $option, "Introduction", $text, 'intro', 60, 5 );
+	 *
+	 * @param string $name field name
+	 * @param string $text field label
+	 * @param array $array 
+	 * @param integer $index
+	 * @param integer $len
+	 * @param integer $rows 
+	 */
+	static function bw_textarea_cb_arr( $name, $text, $array, $index, $len, $rows=5 ) {
+		$name_index = $name.'['.$index.'_cb]';
+		$cb_value = bw_array_get( $array, $index.'_cb', "on" );
+		$cb_text = $text; 
+		$cb_text .= "&nbsp;";
+		$cb_text .= icheckbox( $name_index, $cb_value );
+		self::bw_textarea_arr( $name, $cb_text, $array, $index, $len, $rows );
+	}
+
+
 } /* end class */
 
 } /* end if !defined */

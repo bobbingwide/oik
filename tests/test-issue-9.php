@@ -131,5 +131,26 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $actual );
 	
 	}
+	
+	function test_BW_bw_textarea() {
+		$expected = '<tr><td><label for="test">Text area</label></td><td><textarea rows="10" cols="9" name="test">Textarea value</textarea></td></tr>';
+		$actual = bw_ret( BW_::bw_textarea( "test", 9, __( "Text area", "oik" ), "Textarea value", 10 ) );
+		$this->assertEquals( $expected, $actual );
+	}
+	
+	function test_BW_bw_textarea_arr() {
+		$expected = '<tr><td><label for="options[test]">Text area</label></td><td><textarea rows="5" cols="10" name="options[test]">Textarea value</textarea></td></tr>';
+		$array = [ 'test' => "Textarea value" ];
+		$actual = bw_ret( BW_::bw_textarea_arr( "options", __( "Text area", "oik" ), $array, "test", 10 ) );
+		$this->assertEquals( $expected, $actual );
+	}
+	
+	function test_BW_bw_textarea_cb_arr() {
+		$expected = '<tr><td><label for="options[test]">Text area&nbsp;<input type="hidden" name="options[test_cb]" value="0" /><input type="checkbox" name="options[test_cb]" id="options[test_cb]" checked="checked"/></label></td><td><textarea rows="5" cols="10" name="options[test]">Textarea value</textarea></td></tr>';
+    $array = [ 'test_cb' => "on", "test" => "Textarea value" ];
+		$actual = bw_ret( BW_::bw_textarea_cb_arr( "options", __( "Text area", "oik" ) , $array, "test", 10 ) );
+		$this->assertEquals( $expected, $actual );
+	}
+		
 
 }
