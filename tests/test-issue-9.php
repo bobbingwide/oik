@@ -116,5 +116,20 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$actual = bw_ret( BW_::bw_textfield_arr( "options", __( "Text field", "oik" ), $array, "test", 9 ) );
 		$this->assertEquals( $expected, $actual );
 	}
+	
+																				
+	function test_BW_bw_emailfield() {
+		$expected = '<tr><td><label for="test">Email field</label></td><td><input type="email" name="test" value="herb@bobbingwide.com" size="9" /></td></tr>';
+		$actual = bw_ret( BW_::bw_emailfield( "test", 9, __( "Email field", "oik" ), "herb@bobbingwide.com" ) ); 
+		$this->assertEquals( $expected, $actual );
+	}
+	
+	function test_BW_bw_emailfield_arr() {
+		$expected = '<tr><td><label for="options[test]">Email field</label></td><td><input type="email" name="options[test]" value="herb@bobbingwide.com" size="9" /></td></tr>';
+		$array = [ 'test' => "herb@bobbingwide.com" ];
+		$actual = bw_ret( BW_::bw_emailfield_arr( "options", __( "Email field", "oik" ), $array, "test", 9 ) );
+		$this->assertEquals( $expected, $actual );
+	
+	}
 
 }

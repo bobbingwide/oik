@@ -175,6 +175,45 @@ class BW_ {
 		$value = bw_array_get( $array, $index, NULL );
 		self::bw_textfield( $name_index, $len, $text, $value, $class, $extras );
 	}
+	
+	
+
+	/**
+	 * Form an "email" field
+	 *
+	 * @param string $name - the name of the field
+	 * @param integer $len - the length of the field
+	 * @param string $text - the label for the field
+	 * @param string $value - the value of the field
+	 * @param string $class - CSS class name
+	 * @param string $extras - the extras passed to itext() is expected to be a string
+	 */
+	static function bw_emailfield( $name, $len, $text, $value, $class=null, $extras=null ) {
+		$lab = self::label( $name, $text );
+		if ( $value === null ) {
+			$value = bw_array_get( $_REQUEST, $name, null );
+		}
+		$itext = iemail( $name, $len, $value, $class, $extras ); 
+		bw_tablerow( array( $lab, $itext ) );
+		return;
+}
+
+	/**
+	 * Create an emailfield for an array options field 
+	 *
+	 * @param string $name field name
+	 * @param string $text field label
+	 * @param array $array 
+	 * @param integer $index
+	 * @param integer $len
+	 * @param string $class
+	 * @param string $extras
+	 */
+	static function bw_emailfield_arr( $name, $text, $array, $index, $len, $class=null, $extras=null ) {
+		$name_index = $name.'['.$index.']';
+		$value = bw_array_get( $array, $index, NULL );
+		self::bw_emailfield( $name_index, $len, $text, $value, $class, $extras );
+	}
 
 } /* end class */
 
