@@ -144,11 +144,31 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$actual = bw_ret( BW_::bw_textarea_arr( "options", __( "Text area", "oik" ), $array, "test", 10 ) );
 		$this->assertEquals( $expected, $actual );
 	}
-	
+ 
 	function test_BW_bw_textarea_cb_arr() {
 		$expected = '<tr><td><label for="options[test]">Text area&nbsp;<input type="hidden" name="options[test_cb]" value="0" /><input type="checkbox" name="options[test_cb]" id="options[test_cb]" checked="checked"/></label></td><td><textarea rows="5" cols="10" name="options[test]">Textarea value</textarea></td></tr>';
     $array = [ 'test_cb' => "on", "test" => "Textarea value" ];
 		$actual = bw_ret( BW_::bw_textarea_cb_arr( "options", __( "Text area", "oik" ) , $array, "test", 10 ) );
+		$this->assertEquals( $expected, $actual );
+	}
+
+	function test_BW_bw_radio() {
+		$expected = '<tr><td><label for="test">Radio button</label></td><td><label for="test">Yes</label><input type="radio" name="test" value="Y" /><label for="test">No</label><input type="radio" name="test" id="1" value="N" /></td></tr>';
+		$actual = bw_ret( BW_::bw_radio( "test", __( "Radio button", "oik" ), array( "Y", "N" ), array( __( "Yes" ), __( "No" ) ) ) );
+		$this->assertEquals( $expected, $actual ); 
+	}
+
+	function test_BW_bw_select() {
+		$expected = '<tr><td><label for="test">Select list</label></td><td><select name="test"><option value="yes"  selected=\'selected\'>Yes</option><option value="no" >No</option><option value="maybe" >Maybe</option></select></td></tr>';
+		$options = array( "yes" => __( "Yes" )
+									  , "no" => __( "No" )
+										, "maybe" => __( "Maybe" )
+										);
+		$args = array( '#multiple' => false
+								 , '#options' => $options
+								 , '#optional' => false
+								 );
+		$actual = bw_ret( BW_::bw_select( "test", __( "Select list", "oik" ), "yes", $args ) );
 		$this->assertEquals( $expected, $actual );
 	}
 		

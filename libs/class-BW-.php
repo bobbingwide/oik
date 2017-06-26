@@ -283,6 +283,44 @@ class BW_ {
 		self::bw_textarea_arr( $name, $cb_text, $array, $index, $len, $rows );
 	}
 
+	/**
+	 * Display a group of radio buttons
+	 * 
+	 * @param string $name - the name of the group
+	 * @param string $text - the title for the radio button group
+	 * @param array $values - array of $id => $value - one for each button in the group
+	 * @param array $labels - array of of $id => $label - one for each button in the group
+	 * @param string $class - CSS class names e.g. "star"
+	 * @param array $extras - sparse array of $id -> $extra where $id matches the key of the $value array 
+	 * and $extra are any additional key=value parameters. This is where the "selected" radio button is defined
+	*/ 
+	static function bw_radio( $name, $text, $values, $labels, $class=null, $extras=null ) {
+		$iradios = null;
+		foreach ( $values as $id => $value ) {
+			$label = bw_array_get( $labels, $id, $value );
+			$extra = bw_array_get( $extras, $id, null );
+			$iradios .= BW_::label( $name, $label );
+			$iradios .= iradio( $name, $id, $value, $class, $extra );
+		}   
+		$lab = BW_::label( $name, $text );
+		bw_tablerow( array( $lab, $iradios ) );
+}
+
+	/** 
+	 * Create a select field for a form-table
+	 * 
+	 * @param string $name - field name
+	 * @param string $text - label for the field
+	 * @param int $value - the selected item
+	 * @param array $args - array of parameters where the options are keyed by #options
+	 */
+	static function bw_select( $name, $text, $value, $args ) {
+		$lab = BW_::label( $name, $text );
+		$iselect = iselect( $name, $value, $args ); 
+		bw_tablerow( array( $lab, $iselect ) );
+		return;
+	}
+
 
 } /* end class */
 
