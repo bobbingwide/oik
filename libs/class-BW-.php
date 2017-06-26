@@ -114,6 +114,68 @@ class BW_ {
 		return( $tnt );
 	}
 
+	/**
+	 * Create a field label
+	 *
+	 * Expects the text to have already been translated. 
+	 * 
+	 * @param string $name - field name
+	 * @param string $text - label to display
+	 * @return string - the HTML label tag
+	 */
+	static function label( $name, $text ) {
+		$lab = "<label for=\"";
+		$lab.= $name;
+		$lab.= "\">";
+		$lab.= $text;
+		$lab.= "</label>";
+		return $lab;
+	}
+
+	/**
+	 *
+	  
+	/**
+	 * Form a text field
+	 *
+	 * @param string $name - the name of the field
+	 * @param integer $len - the length of the field
+	 * @param string $text - the label for the field
+	 * @param string $value - the value of the field
+	 * @param string $class - CSS class name
+	 * @param string $extras - the extras passed to itext() is expected to be a string
+	 * @param array $args - even more options
+	 * @TODO accept array so that #hint can be applied 2014/11/28  
+	 * 
+	 */
+	static function bw_textfield( $name, $len, $text, $value, $class=null, $extras=null, $args=null ) {
+		$lab = self::label( $name, $text );
+		if ( $value === null ) {
+			$value = bw_array_get( $_REQUEST, $name, null );
+		}
+		$itext = itext( $name, $len, $value, $class, $extras, $args ); 
+		bw_tablerow( array( $lab, $itext ) );
+		return;
+	}
+
+
+	/**
+	 * Create a textfield for an array options field 
+	 *
+	 * @param string $name field name
+	 * @param string $text field label
+	 * @param array $array 
+	 * @param integer $index
+	 * @param integer $len
+	 * @param string $class
+	 * @param string $extras
+	 */
+	static function bw_textfield_arr( $name, $text, $array, $index, $len, $class=null, $extras=null ) {
+		$name_index = $name.'['.$index.']';
+		$value = bw_array_get( $array, $index, NULL );
+		self::bw_textfield( $name_index, $len, $text, $value, $class, $extras );
+	}
+
 } /* end class */
 
 } /* end if !defined */
