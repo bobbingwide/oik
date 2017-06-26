@@ -335,6 +335,18 @@ class BW_ {
 		$value = bw_array_get( $array, $index, NULL );
 		BW_::bw_select( $name_index, $text, $value, $args );
 	}
+	
+	/** 
+	 * Return the default, values and notes for a shortcode parameter
+	 *
+	 *  bw_skv is an abbreviation of bw_sc_key_values  
+	 */
+	static function bw_skv( $default, $values, $notes ) {
+		return( array( "default" => $default
+								 , "values" => $values
+								 , "notes" => $notes
+								 ) );
+	}
 
 } /* end class */
 

@@ -1,87 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="53" assertions="80" errors="0" failures="0" skipped="0" time="8.338224">
-    <testsuite name="oik" tests="53" assertions="80" errors="0" failures="0" skipped="0" time="8.338224">
-      <testsuite name="Tests_oik_bobbcomp" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbcomp.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="2.092526">
-        <testcase name="test_bw_get_option_arr_field_present_in_atts" class="Tests_oik_bobbcomp" classname="Tests_oik_bobbcomp" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbcomp.php" line="21" assertions="1" time="2.032955"/>
-        <testcase name="test_bw_get_option_arr_field_not_present_in_atts" class="Tests_oik_bobbcomp" classname="Tests_oik_bobbcomp" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbcomp.php" line="30" assertions="1" time="0.059571"/>
+  <testsuite name="" tests="54" assertions="81" errors="0" failures="0" skipped="0" time="8.460691">
+    <testsuite name="oik" tests="54" assertions="81" errors="0" failures="0" skipped="0" time="8.460691">
+      <testsuite name="Tests_oik_bobbcomp" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbcomp.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="2.108191">
+        <testcase name="test_bw_get_option_arr_field_present_in_atts" class="Tests_oik_bobbcomp" classname="Tests_oik_bobbcomp" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbcomp.php" line="21" assertions="1" time="2.045020"/>
+        <testcase name="test_bw_get_option_arr_field_not_present_in_atts" class="Tests_oik_bobbcomp" classname="Tests_oik_bobbcomp" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbcomp.php" line="30" assertions="1" time="0.063171"/>
       </testsuite>
-      <testsuite name="Tests_oik_bobbfunc" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbfunc.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.013657">
-        <testcase name="test_oik_url" class="Tests_oik_bobbfunc" classname="Tests_oik_bobbfunc" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbfunc.php" line="19" assertions="3" time="0.013657"/>
+      <testsuite name="Tests_oik_bobbfunc" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbfunc.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.012851">
+        <testcase name="test_oik_url" class="Tests_oik_bobbfunc" classname="Tests_oik_bobbfunc" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-bobbfunc.php" line="19" assertions="3" time="0.012851"/>
       </testsuite>
-      <testsuite name="Tests_class_dependencies_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-class-dependencies-cache.php" tests="1" assertions="6" errors="0" failures="0" skipped="0" time="0.355102">
-        <testcase name="test_oik_widget_cache_issue_1" class="Tests_class_dependencies_help" classname="Tests_class_dependencies_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-class-dependencies-cache.php" line="23" assertions="6" time="0.355102"/>
+      <testsuite name="Tests_class_dependencies_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-class-dependencies-cache.php" tests="1" assertions="6" errors="0" failures="0" skipped="0" time="0.335364">
+        <testcase name="test_oik_widget_cache_issue_1" class="Tests_class_dependencies_help" classname="Tests_class_dependencies_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-class-dependencies-cache.php" line="23" assertions="6" time="0.335364"/>
       </testsuite>
-      <testsuite name="Tests_oik_add_shortcodes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-add-shortcodes.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.004308">
-        <testcase name="test_bw_cast_array" class="Tests_oik_add_shortcodes" classname="Tests_oik_add_shortcodes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-add-shortcodes.php" line="22" assertions="3" time="0.004308"/>
+      <testsuite name="Tests_oik_add_shortcodes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-add-shortcodes.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.004285">
+        <testcase name="test_bw_cast_array" class="Tests_oik_add_shortcodes" classname="Tests_oik_add_shortcodes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-add-shortcodes.php" line="22" assertions="3" time="0.004285"/>
       </testsuite>
-      <testsuite name="Tests_oik_bob_bing_wide" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-bob-bing-wide.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.034527">
-        <testcase name="test_bw_wp_v0_p1_m2" class="Tests_oik_bob_bing_wide" classname="Tests_oik_bob_bing_wide" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-bob-bing-wide.php" line="18" assertions="1" time="0.021236"/>
-        <testcase name="test_bw_wp_v0_my" class="Tests_oik_bob_bing_wide" classname="Tests_oik_bob_bing_wide" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-bob-bing-wide.php" line="37" assertions="1" time="0.013291"/>
+      <testsuite name="Tests_oik_bob_bing_wide" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-bob-bing-wide.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.034093">
+        <testcase name="test_bw_wp_v0_p1_m2" class="Tests_oik_bob_bing_wide" classname="Tests_oik_bob_bing_wide" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-bob-bing-wide.php" line="18" assertions="1" time="0.020871"/>
+        <testcase name="test_bw_wp_v0_my" class="Tests_oik_bob_bing_wide" classname="Tests_oik_bob_bing_wide" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-bob-bing-wide.php" line="37" assertions="1" time="0.013222"/>
       </testsuite>
-      <testsuite name="Tests_oik_countdown" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-countdown.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.076529">
-        <testcase name="test_bw_countdown" class="Tests_oik_countdown" classname="Tests_oik_countdown" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-countdown.php" line="37" assertions="2" time="0.076529"/>
+      <testsuite name="Tests_oik_countdown" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-countdown.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.088015">
+        <testcase name="test_bw_countdown" class="Tests_oik_countdown" classname="Tests_oik_countdown" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-countdown.php" line="37" assertions="2" time="0.088015"/>
       </testsuite>
-      <testsuite name="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" tests="3" assertions="5" errors="0" failures="0" skipped="0" time="2.759193">
-        <testcase name="test_bw_replace_filter" class="Tests_oik_filters" classname="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" line="30" assertions="1" time="1.832500"/>
-        <testcase name="test_bw_disable_filter" class="Tests_oik_filters" classname="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" line="41" assertions="2" time="0.016465"/>
-        <testcase name="test_bw_restore_filter" class="Tests_oik_filters" classname="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" line="53" assertions="2" time="0.910228"/>
+      <testsuite name="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" tests="3" assertions="5" errors="0" failures="0" skipped="0" time="2.857900">
+        <testcase name="test_bw_replace_filter" class="Tests_oik_filters" classname="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" line="30" assertions="1" time="1.910960"/>
+        <testcase name="test_bw_disable_filter" class="Tests_oik_filters" classname="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" line="41" assertions="2" time="0.016408"/>
+        <testcase name="test_bw_restore_filter" class="Tests_oik_filters" classname="Tests_oik_filters" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-filters.php" line="53" assertions="2" time="0.930532"/>
       </testsuite>
-      <testsuite name="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.437138">
-        <testcase name="test_follow_me_with_github_set" class="Tests_oik_follow" classname="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" line="32" assertions="1" time="0.167745"/>
-        <testcase name="test_follow_me_with_github_not_set" class="Tests_oik_follow" classname="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" line="49" assertions="1" time="0.126334"/>
-        <testcase name="test_follow_me_with_wordpress_set" class="Tests_oik_follow" classname="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" line="59" assertions="1" time="0.143059"/>
+      <testsuite name="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.401692">
+        <testcase name="test_follow_me_with_github_set" class="Tests_oik_follow" classname="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" line="32" assertions="1" time="0.170933"/>
+        <testcase name="test_follow_me_with_github_not_set" class="Tests_oik_follow" classname="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" line="49" assertions="1" time="0.115929"/>
+        <testcase name="test_follow_me_with_wordpress_set" class="Tests_oik_follow" classname="Tests_oik_follow" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-follow.php" line="59" assertions="1" time="0.114830"/>
       </testsuite>
-      <testsuite name="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.303831">
-        <testcase name="test_bw_show_googlemap" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="29" assertions="1" time="0.071450"/>
-        <testcase name="test_bw_show_googlemap_null_lat_and_long" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="54" assertions="1" time="0.070939"/>
-        <testcase name="test_bw_default_empty_att" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="70" assertions="1" time="0.069959"/>
-        <testcase name="test_absint_comparison" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="88" assertions="3" time="0.015354"/>
-        <testcase name="test_bw_gmap_markers" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="112" assertions="1" time="0.076129"/>
+      <testsuite name="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.356806">
+        <testcase name="test_bw_show_googlemap" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="29" assertions="1" time="0.081493"/>
+        <testcase name="test_bw_show_googlemap_null_lat_and_long" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="54" assertions="1" time="0.073069"/>
+        <testcase name="test_bw_default_empty_att" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="70" assertions="1" time="0.060967"/>
+        <testcase name="test_absint_comparison" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="88" assertions="3" time="0.024097"/>
+        <testcase name="test_bw_gmap_markers" class="Tests_oik_googlemap" classname="Tests_oik_googlemap" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-googlemap.php" line="112" assertions="1" time="0.117180"/>
       </testsuite>
-      <testsuite name="Tests_oik_jquery" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-jquery.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.077814">
-        <testcase name="test_bwsc_jquery_windowload_true" class="Tests_oik_jquery" classname="Tests_oik_jquery" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-jquery.php" line="36" assertions="2" time="0.077814"/>
+      <testsuite name="Tests_oik_jquery" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-jquery.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.090624">
+        <testcase name="test_bwsc_jquery_windowload_true" class="Tests_oik_jquery" classname="Tests_oik_jquery" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-jquery.php" line="36" assertions="2" time="0.090624"/>
       </testsuite>
-      <testsuite name="Tests_oik_sc_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-sc-help.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.439091">
-        <testcase name="test_bw_form_sc_parm_help_issue_43" class="Tests_oik_sc_help" classname="Tests_oik_sc_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-sc-help.php" line="22" assertions="1" time="0.024420"/>
-        <testcase name="test_sc__snippet" class="Tests_oik_sc_help" classname="Tests_oik_sc_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-sc-help.php" line="47" assertions="1" time="0.414671"/>
+      <testsuite name="Tests_oik_sc_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-sc-help.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.406677">
+        <testcase name="test_bw_form_sc_parm_help_issue_43" class="Tests_oik_sc_help" classname="Tests_oik_sc_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-sc-help.php" line="22" assertions="1" time="0.025698"/>
+        <testcase name="test_sc__snippet" class="Tests_oik_sc_help" classname="Tests_oik_sc_help" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-sc-help.php" line="47" assertions="1" time="0.380979"/>
       </testsuite>
-      <testsuite name="Tests_issue_71" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-71.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.032693">
-        <testcase name="test_shortcodes_expanded_in_the_excerpt_embed" class="Tests_issue_71" classname="Tests_issue_71" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-71.php" line="19" assertions="1" time="0.032693"/>
+      <testsuite name="Tests_issue_71" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-71.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.029452">
+        <testcase name="test_shortcodes_expanded_in_the_excerpt_embed" class="Tests_issue_71" classname="Tests_issue_71" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-71.php" line="19" assertions="1" time="0.029452"/>
       </testsuite>
-      <testsuite name="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" tests="16" assertions="18" errors="0" failures="0" skipped="0" time="0.248006">
-        <testcase name="test_BW_p" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="62" assertions="1" time="0.017477"/>
-        <testcase name="test_BW_alink" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="68" assertions="1" time="0.027067"/>
-        <testcase name="test_BW_oik_menu_header" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="74" assertions="3" time="0.015635"/>
-        <testcase name="test_BW_oik_box" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="88" assertions="1" time="0.014789"/>
-        <testcase name="test_BW_bwtnt" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="95" assertions="1" time="0.014406"/>
-        <testcase name="test_BW_label" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="101" assertions="1" time="0.013412"/>
-        <testcase name="test_BW_bw_textfield" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="107" assertions="1" time="0.014887"/>
-        <testcase name="test_BW_bw_textfield_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="113" assertions="1" time="0.014276"/>
-        <testcase name="test_BW_bw_emailfield" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="121" assertions="1" time="0.014078"/>
-        <testcase name="test_BW_bw_emailfield_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="127" assertions="1" time="0.014580"/>
-        <testcase name="test_BW_bw_textarea" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="135" assertions="1" time="0.014905"/>
-        <testcase name="test_BW_bw_textarea_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="141" assertions="1" time="0.015126"/>
-        <testcase name="test_BW_bw_textarea_cb_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="148" assertions="1" time="0.013831"/>
-        <testcase name="test_BW_bw_radio" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="155" assertions="1" time="0.014649"/>
-        <testcase name="test_BW_bw_select" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="161" assertions="1" time="0.014549"/>
-        <testcase name="test_BW_bw_select_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="175" assertions="1" time="0.014339"/>
+      <testsuite name="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" tests="17" assertions="19" errors="0" failures="0" skipped="0" time="0.275225">
+        <testcase name="test_BW_p" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="62" assertions="1" time="0.018712"/>
+        <testcase name="test_BW_alink" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="68" assertions="1" time="0.026827"/>
+        <testcase name="test_BW_oik_menu_header" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="74" assertions="3" time="0.016934"/>
+        <testcase name="test_BW_oik_box" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="88" assertions="1" time="0.015717"/>
+        <testcase name="test_BW_bwtnt" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="95" assertions="1" time="0.014268"/>
+        <testcase name="test_BW_label" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="101" assertions="1" time="0.014085"/>
+        <testcase name="test_BW_bw_textfield" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="107" assertions="1" time="0.013859"/>
+        <testcase name="test_BW_bw_textfield_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="113" assertions="1" time="0.024875"/>
+        <testcase name="test_BW_bw_emailfield" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="121" assertions="1" time="0.014398"/>
+        <testcase name="test_BW_bw_emailfield_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="127" assertions="1" time="0.013836"/>
+        <testcase name="test_BW_bw_textarea" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="135" assertions="1" time="0.014506"/>
+        <testcase name="test_BW_bw_textarea_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="141" assertions="1" time="0.014723"/>
+        <testcase name="test_BW_bw_textarea_cb_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="148" assertions="1" time="0.013195"/>
+        <testcase name="test_BW_bw_radio" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="155" assertions="1" time="0.014249"/>
+        <testcase name="test_BW_bw_select" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="161" assertions="1" time="0.016065"/>
+        <testcase name="test_BW_bw_select_arr" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="175" assertions="1" time="0.014855"/>
+        <testcase name="test_BW_bw_skv" class="Tests_issue_9" classname="Tests_issue_9" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-issue-9.php" line="190" assertions="1" time="0.014122"/>
       </testsuite>
-      <testsuite name="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" tests="14" assertions="24" errors="0" failures="0" skipped="0" time="1.463809">
-        <testcase name="test_oik_callback" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="77" assertions="1" time="0.035006"/>
-        <testcase name="test_oik_shortcode_options" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="83" assertions="1" time="0.092509"/>
-        <testcase name="test_oik_custom_css_box" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="109" assertions="1" time="0.087868"/>
-        <testcase name="test_oik_plugins_servers" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="134" assertions="1" time="0.076714"/>
-        <testcase name="test_oik_tinymce_buttons" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="153" assertions="2" time="0.140553"/>
-        <testcase name="test_oik_documentation" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="235" assertions="1" time="0.022497"/>
-        <testcase name="test_oik_support" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="256" assertions="1" time="0.071896"/>
-        <testcase name="test_oik_admin_options_on" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="289" assertions="2" time="0.070520"/>
-        <testcase name="test_oik_admin_options_off" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="326" assertions="2" time="0.129841"/>
-        <testcase name="test_oik_menu_header" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="368" assertions="1" time="0.016987"/>
-        <testcase name="test_oik_menu_footer" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="386" assertions="1" time="0.017369"/>
-        <testcase name="test_oik_plugins_do_page" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="415" assertions="3" time="0.234492"/>
-        <testcase name="test_oik_themes_do_page" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="499" assertions="3" time="0.169833"/>
-        <testcase name="test_oik_options_do_page" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="581" assertions="4" time="0.297724"/>
+      <testsuite name="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" tests="14" assertions="24" errors="0" failures="0" skipped="0" time="1.459517">
+        <testcase name="test_oik_callback" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="77" assertions="1" time="0.034371"/>
+        <testcase name="test_oik_shortcode_options" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="83" assertions="1" time="0.079506"/>
+        <testcase name="test_oik_custom_css_box" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="109" assertions="1" time="0.097324"/>
+        <testcase name="test_oik_plugins_servers" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="134" assertions="1" time="0.074252"/>
+        <testcase name="test_oik_tinymce_buttons" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="153" assertions="2" time="0.179314"/>
+        <testcase name="test_oik_documentation" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="235" assertions="1" time="0.020111"/>
+        <testcase name="test_oik_support" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="256" assertions="1" time="0.073826"/>
+        <testcase name="test_oik_admin_options_on" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="289" assertions="2" time="0.083509"/>
+        <testcase name="test_oik_admin_options_off" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="326" assertions="2" time="0.137145"/>
+        <testcase name="test_oik_menu_header" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="368" assertions="1" time="0.025956"/>
+        <testcase name="test_oik_menu_footer" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="386" assertions="1" time="0.021033"/>
+        <testcase name="test_oik_plugins_do_page" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="415" assertions="3" time="0.161009"/>
+        <testcase name="test_oik_themes_do_page" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="499" assertions="3" time="0.153493"/>
+        <testcase name="test_oik_options_do_page" class="Tests_oik_admin" classname="Tests_oik_admin" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-oik-admin.php" line="581" assertions="4" time="0.318668"/>
       </testsuite>
     </testsuite>
   </testsuite>

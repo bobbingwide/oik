@@ -187,6 +187,13 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $actual );
 	} 
 	
+	function test_BW_bw_skv() {
+		$actual = BW_::bw_skv( "default value", "value1|value2", __( "Notes about arg", "oik" ) );
+		$expected = array( "default" => "default value", "values" => "value1|value2", "notes" => "Notes about arg" );
+		$this->assertEquals( $expected, $actual );
+	}
+	
+	
 	
 		
 
