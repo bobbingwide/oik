@@ -193,6 +193,12 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 	
+	function test_BW_lit() {
+		$expected = '<li class="myclass" id="myid">List item text</li>';
+		$actual = bw_ret( BW_::lit( __( "List item text", "oik" ), "myclass", "myid" ) );
+		$this->assertEquals( $expected, $actual );
+	}
+	
 	
 	
 		

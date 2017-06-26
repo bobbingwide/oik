@@ -14,12 +14,12 @@ define( "CLASS_BW__INCLUDED", "3.2.0" );
  * To use the new functions prefix the original function call with BW_::
  * and change any translatable string parameter to a translated string
  * 
- * e.g. 
+ * e.g.
+ * ` 
  * p( "This page left intentionally blank" );
  * becomes
  * BW_::p( __( "This page left intentionally blank", "oik" ) );
- * 
-
+ * `
  */
 
 class BW_ {
@@ -347,6 +347,20 @@ class BW_ {
 								 , "notes" => $notes
 								 ) );
 	}
+	
+	/**
+	 * Create a list item with a specific CSS class and/or ID
+	 *
+	 * @param string $text - translated text
+	 * @param string $class - CSS classes for the list item
+	 * @param string $id - CSS ID for the list item
+	 */
+	static function lit( $text, $class=null, $id=null ) {
+		stag( "li", $class, $id );
+		e( $text ) ;
+		etag( "li" );
+	}
+
 
 } /* end class */
 
