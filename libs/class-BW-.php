@@ -321,6 +321,20 @@ class BW_ {
 		return;
 	}
 
+	/**
+	 * Create a select for an array options field
+	 *
+	 * @param string $name field name
+	 * @param string $text field label
+	 * @param array $array 
+	 * @param integer $index
+	 * @param array $args
+	 */ 
+	static function bw_select_arr( $name, $text, $array, $index, $args ) {
+		$name_index = $name.'['.$index.']';
+		$value = bw_array_get( $array, $index, NULL );
+		BW_::bw_select( $name_index, $text, $value, $args );
+	}
 
 } /* end class */
 

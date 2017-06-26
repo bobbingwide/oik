@@ -171,6 +171,23 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$actual = bw_ret( BW_::bw_select( "test", __( "Select list", "oik" ), "yes", $args ) );
 		$this->assertEquals( $expected, $actual );
 	}
+	
+	function test_BW_bw_select_arr() {
+		$expected = '<tr><td><label for="options[test]">Select list</label></td><td><select name="options[test]"><option value="yes"  selected=\'selected\'>Yes</option><option value="no" >No</option><option value="maybe" >Maybe</option></select></td></tr>';
+		$array = [ "test" => "yes" ];
+		$options = array( "yes" => __( "Yes" )
+									  , "no" => __( "No" )
+										, "maybe" => __( "Maybe" )
+										);
+		$args = array( '#multiple' => false
+								 , '#options' => $options
+								 , '#optional' => false
+								 );
+		$actual = bw_ret( BW_::bw_select_arr( "options", __( "Select list", "oik" ), $array, "test", $args ) );
+		$this->assertEquals( $expected, $actual );
+	} 
+	
+	
 		
 
 }
