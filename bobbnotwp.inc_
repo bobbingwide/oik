@@ -1,4 +1,4 @@
-<?php // (C) Copyright 2011-2015 Bobbing Wide
+<?php // (C) Copyright 2011-2017 Bobbing Wide
 /**
  * Functions for a system which is NOT WordPress
  *
@@ -122,4 +122,24 @@ function site_url( $path=NULL, $scheme='http:' ) {
 
 if ( bw_is_drupal() ) {    
   require_once( "shortcodes.php" );  // This is a copy of the WordPress include specifically for the Drupal version of oik.
+}
+
+if ( !function_exists( "_doing_it_wrong" ) ) {
+	function _doing_it_wrong( $function, $message, $version ){
+		trigger_error( sprintf( '%1$s was called <strong>incorrectly</strong>. %2$s %3$s', $function, $message, $version ) );
+	}
+}
+
+if ( !function_exists( "_deprecated_function" ) ) {
+	function _deprecated_function( $function, $version, $replacement=null ) {
+		print_r( debug_backtrace() );
+		trigger_error( sprintf( '%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead.', $function, $version, $replacement ) );
+		die();
+	}
+}
+
+if ( !function_exists( "__" ) ) {
+	function __( $text, $textdomain=null ) {
+		return $text;
+	}
 }
