@@ -5,11 +5,13 @@
  * 
  * 
  * Functions moved to the oik-admin library:
+ * Original function   | Replacement for l10n
+ * ------------------- | ---------------------
  * - bw_load_plugin
- * - oik_box
+ * - oik_box           | BW_::oik_box
  * - scolumn
  * - ecolumn
- * - oik_menu_header
+ * - oik_menu_header  | BW_::oik_menu_header
  * - oik_menu_footer
  * - _bwtnt
  * - oik_plugins_validate
@@ -93,28 +95,28 @@ function oik_options_add_page() {
  *
  */
 function oik_callback() {
- p( "This box intentionally left blank" );
+	BW_::p( __( "This box intentionally left blank", "oik" ) );
 }
 
 /** 
  *  Introduce oik options
  */
 function oik_shortcode_options( ) {
-  p( "oik provides sets of lazy smart shortcodes that you can use just about anywhere in your WordPress site." );
+  BW_::p( __( "oik provides sets of lazy smart shortcodes that you can use just about anywhere in your WordPress site.", "oik" ) );
  
-  p( "You enter your common information, such as contact details, slogans, location information, PayPal payment information and your social networking and bookmarking information using oik Options" );
-  p( "If required, you enter alternative information using More options" );
+  BW_::p( __( "You enter your common information, such as contact details, slogans, location information, PayPal payment information and your social networking and bookmarking information using oik Options", "oik" ) );
+  BW_::p( __( "If required, you enter alternative information using More options", "oik" ) );
   
-  _alink( "button-primary", admin_url("admin.php?page=oik_options"), "Options", "Enter your common information" );
+  BW_::alink( "button-primary", admin_url("admin.php?page=oik_options"), __( "Options", "oik" ), __( "Enter your common information", "oik" ) );
   e( "&nbsp;" );
-  _alink( "button-secondary", admin_url("admin.php?page=oik_options-1"), "More options", "Enter additional information" );
+  BW_::alink( "button-secondary", admin_url("admin.php?page=oik_options-1"), __( "More options", "oik" ), __( "Enter additional information", "oik" ) );
   
-  p( "Discover the shortcodes that you can use in your content and widgets using Shortcode help" );
+  BW_::p( __( "Discover the shortcodes that you can use in your content and widgets using Shortcode help", "oik" ) );
   
-  _alink( "button-secondary", admin_url( "admin.php?page=oik_sc_help"), "Shortcode help", "Discover shortcodes you can use" );
+  BW_:alink( "button-secondary", admin_url( "admin.php?page=oik_sc_help"), __( "Shortcode help", "oik" ), __( "Discover shortcodes you can use", "oik" ) );
   
-  p( "Choose the helper buttons that help you to insert shortcodes when editing your content" );
-  _alink( "button-secondary", admin_url( "admin.php?page=oik_buttons"), "Buttons", "Select TinyMCE and HTML edit helper buttons" );
+  BW_::p( __( "Choose the helper buttons that help you to insert shortcodes when editing your content", "oik" ) );
+  BW_::alink( "button-secondary", admin_url( "admin.php?page=oik_buttons"), __( "Buttons", "oik" ), __( "Select TinyMCE and HTML edit helper buttons", "oik" ) );
   
 }
 
@@ -265,16 +267,16 @@ function oik_admin_options() {
  * Calls "oik_menu_box" action to allow other plugins to add their own "oik_box"es. e.g. oik-user
  */
 function oik_menu() {
-  oik_menu_header( "overview", "w70pc" );
-  oik_box( NULL, NULL, "Shortcode options", "oik_shortcode_options" );
-  oik_box( NULL, NULL, "Custom CSS", "oik_custom_css_box" );
+  BW_::oik_menu_header( __( "overview", "oik" ), "w70pc" );
+  BW_::oik_box( null, null, __( "Shortcode options", "oik" ), "oik_shortcode_options" );
+  BW_::oik_box( null, null, __( "Custom CSS", "oik" ), "oik_custom_css_box" );
   do_action( "oik_menu_box" );
-  oik_box( NULL, NULL, "Servers and keys", "oik_plugins_servers" );
+  BW_::oik_box( null, null, __( "Servers and keys", "oik" ), "oik_plugins_servers" );
   ecolumn();
   scolumn( "w30pc" );
-  oik_box( NULL, NULL, "oik documentation", "oik_documentation" );
-  oik_box( NULL, NULL, "support oik", "oik_support" );
-  oik_box( null, null, "Admin options", "oik_admin_options" );
+  BW_::oik_box( null, null, __( "oik documentation", "oik" ), "oik_documentation" );
+  BW_::oik_box( null, null, __( "support oik", "oik" ), "oik_support" );
+  BW_::oik_box( null, null, __( "Admin options", "oik" ), "oik_admin_options" );
   oik_menu_footer();
   bw_flush();
 }
@@ -285,7 +287,7 @@ function oik_menu() {
   */
 function oik_buttons_do_page() {
   oik_menu_header( "button selection" );
-  oik_box( NULL, NULL, "TinyMCE buttons", "oik_tinymce_buttons" );
+  oik_box( null, null, "TinyMCE buttons", "oik_tinymce_buttons" );
   oik_menu_footer();
   bw_flush();
 }  
@@ -521,7 +523,7 @@ function oik_main_shortcode_options() {
   $artisteer_assoc = bw_assoc( $artisteer_versions );
   bw_select_arr( $option, "Artisteer version", $options, 'art-version', array( "#options" => $artisteer_assoc ) );
 
-  $options['yearfrom'] = bw_array_get_dcb( $options, "yearfrom", NULL, "bw_get_yearfrom" );
+  $options['yearfrom'] = bw_array_get_dcb( $options, "yearfrom", null, "bw_get_yearfrom" );
   bw_textfield_arr( $option, _bwtnt( "Copyright from year", " [bw_copyright]" ), $options, 'yearfrom', 4 );
   
 
@@ -630,7 +632,7 @@ function oik_extra_usage_notes() {
  * @return array - returns a sanitized array.
  */
 function oik_options_validate( $input ) {
-  $customCSS = bw_array_get( $input, 'customCSS', NULL );
+  $customCSS = bw_array_get( $input, 'customCSS', null );
   if ( $customCSS ) {
     $sanfile = sanitize_file_name( $customCSS );
     // Should we check the sanitized file name with the original ?
@@ -733,7 +735,7 @@ function bw_create_file( $base, $path, $default ) {
  */ 
 function bw_edit_custom_css_link( $customCSS, $theme ) {
   
-  if ( $customCSS != NULL ) {
+  if ( $customCSS != null ) {
     global $wp_version; 
     $link = network_admin_url( "theme-editor.php" );
     $link .= '?file=';
@@ -770,7 +772,7 @@ function oik_help_do_page() {
   
   $shortcode = bw_array_get( $_REQUEST, "code", null );
   if ( $shortcode ) {
-    oik_box( null, NULL, "$shortcode - more information", "oik_code_example" );
+    oik_box( null, null, "$shortcode - more information", "oik_code_example" );
     oik_box( null, null, "$shortcode - snippet", "oik_code_snippet" ); 
   }
   oik_require( "shortcodes/oik-codes.php" );
