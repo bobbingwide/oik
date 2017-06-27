@@ -361,6 +361,19 @@ class BW_ {
 		etag( "li" );
 	}
 
+	/** 
+	 * Produce a break tag with optional text to follow
+	 * 
+	 * @param string $text - translated text
+	 */
+	static function br( $text=null ) {
+		bw_echo( '<br />' );
+		if ( $text ) {
+			e( $text ); 
+		}
+	}   
+
+
 
 } /* end class */
 

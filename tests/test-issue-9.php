@@ -199,6 +199,13 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 	
+	function test_BW_br() {
+		$expected = '<br />optional text';
+		$actual = bw_ret( BW_::br( __( "optional text", "oik" ) ) );
+		$this->assertEquals( $expected, $actual );
+	}
+		
+	
 	
 	
 		
