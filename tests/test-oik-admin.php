@@ -1492,6 +1492,97 @@ $expected[] = '</div>';
 		$this->assertEquals( $expected, $html_array );
 	}
 	
+	
+	/**
+	 * We want to ensure that only a few shortcodes are registered
+	 * so we cam fiddle what happens during oik_add_shortcodes
+	 * - removing all shortcodes except bw
+	 *
+	 * We need to set $_REQUEST['code'] to that shortcode
+	 *
+	 */
+	function test_oik_help_do_page() {
+		add_action( "oik_add_shortcodes", [$this, "remove_most_shortcodes"], 9999 );
+		ob_start(); 
+		oik_help_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		$this->assertNotNull( $html_array );
+		// @TODO Implement nonce checking ?
+		//$html_array = $this->replace_nonce_with_nonsense( $html_array );
+    //$this->generate_expected( $html_array );
+		
+		
+$expected = array();
+$expected[] = '<div class="wrap">';
+$expected[] = '<h2>shortcode help</h2>';
+$expected[] = '<div class="metabox-holder">';
+$expected[] = '<div class="postbox-container w95pc">';
+$expected[] = '<div class="meta-box-sortables ui-sortable">';
+$expected[] = '<div class="postbox " id="oik_code_about">';
+$expected[] = '<div class="handlediv"  title="Click to toggle">';
+$expected[] = '<br />';
+$expected[] = '</div>';
+$expected[] = '<h3 class="hndle">About shortcodes</h3>';
+$expected[] = '<div class="inside">';
+$expected[] = '<p>This page lists all the currently active shortcodes. To find out more information about a shortcode click on the shortcode name in the Help column.</p>';
+$expected[] = '<p>Depending on how the shortcode is implemented you will either be shown some more information with one or more examples, or an \'oik generated example.\' </p>';
+$expected[] = '<p>You will also be shown the HTML snippet for the example. There should be no need to do anything with this output.</p>';
+$expected[] = '<p>For further information on a shortcode or its parameters click on the links in the Syntax column.</p>';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '<div class="postbox " id="oik_code_table">';
+$expected[] = '<div class="handlediv"  title="Click to toggle">';
+$expected[] = '<br />';
+$expected[] = '</div>';
+$expected[] = '<h3 class="hndle">Shortcode summary</h3>';
+$expected[] = '<div class="inside">';
+$expected[] = '<table class="widefat">';
+$expected[] = '<thead>';
+$expected[] = '<tr>';
+$expected[] = '<th>Help</th>';
+$expected[] = '<th>Syntax</th>';
+$expected[] = '<th>Expands in titles?</th>';
+$expected[] = '</tr>';
+$expected[] = '</thead>';
+$expected[] = '<tbody>';
+$expected[] = '<tr>';
+$expected[] = '<td>bw - Expand to the logo for Bobbing Wide</td>';
+$expected[] = '<td>';
+$expected[] = '<code>[<a href="http://qw/oikcom/oik-shortcodes/bw/bw_bw" title="bw help">bw</a>';
+$expected[] = '<br />';
+$expected[] = '<span class="key">';
+$expected[] = '<a href="http://qw/oikcom/oik_sc_param/bw-cp-parameter" title="bw cp parameter">cp</a>';
+$expected[] = '</span>=<span class="value">"<b>';
+$expected[] = '</b>| h - Class name prefix"</span>]</code>';
+$expected[] = '</td>';
+$expected[] = '<td>Yes</td>';
+$expected[] = '</tr>';
+$expected[] = '</tbody>';
+$expected[] = '</table>';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '<!--start ecolumn-->';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '</div>';
+$expected[] = '<!--end ecolumn-->';
+$expected[] = '<div class="clear">';
+$expected[] = '</div>';
+$expected[] = '</div>';
+	$this->assertEquals( $expected, $html_array );
+	}
+	
+	function remove_most_shortcodes() {
+		remove_all_shortcodes();
+		bw_add_shortcode( 'bw', 'bw_bw', oik_path( "shortcodes/oik-bw.php" ) );
+	}
+	
+	
 
 }
 	
