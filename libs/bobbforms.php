@@ -577,7 +577,7 @@ function icheckbox( $name, $value=NULL, $disabled=false ) {
  * @param array $args future use
  */
 function bw_checkbox( $name, $text, $value=1, $args=NULL ) {
-	$lab = label( $name, $text );
+	$lab = BW_::label( $name, $text );
 	$icheckbox = icheckbox( $name, $value );
 	bw_tablerow( array( $lab, $icheckbox ));
 	return;

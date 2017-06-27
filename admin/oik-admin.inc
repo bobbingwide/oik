@@ -197,15 +197,14 @@ function oik_tinymce_buttons() {
   $options = bw_reset_options( $option, $options, "oik_default_tinymce_buttons", "_oik_reset_buttons" );
   $options = bw_recreate_options( 'bw_buttons' );
   
-  $imagefile_bw = retimage( NULL, oik_url( 'admin/bw-bn-icon.gif' ), "Button shortcodes" );
-  $imagefile_pp = retimage( NULL, oik_url( 'admin/bw-pp-icon.gif' ), "PayPal shortcodes" );
-  $imagefile_sc = retimage( NULL, oik_url( 'admin/bw-sc-icon.gif' ), "ALL shortcodes" );
-  bw_checkbox_arr( "bw_buttons", $imagefile_bw . bw_translate(" Button shortcodes" ), $options, 'oik-button-shortcodes' ); 
-  bw_checkbox_arr( "bw_buttons", $imagefile_pp . bw_translate(" PayPal shortcodes" ), $options, 'oik-paypal-shortcodes' ); 
-  bw_checkbox_arr( "bw_buttons", $imagefile_sc . bw_translate(" ALL shortcodes"), $options, 'oik-shortc-shortcodes' ); 
-  bw_checkbox_arr( "bw_buttons", bw_translate( "[] quicktag for HTML editor"), $options, "oik-quicktags" );
-  bw_checkbox_arr( "bw_buttons", bw_translate( "Integrate with shortcake" ), $options, "oik-shortcake" );
-  //bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 
+  $imagefile_bw = retimage( NULL, oik_url( 'admin/bw-bn-icon.gif' ), __( "Button shortcodes", "oik" ) );
+  $imagefile_pp = retimage( NULL, oik_url( 'admin/bw-pp-icon.gif' ), __( "PayPal shortcodes", "oik" ) );
+  $imagefile_sc = retimage( NULL, oik_url( 'admin/bw-sc-icon.gif' ), __( "ALL shortcodes", "oik" ) );
+  bw_checkbox_arr( "bw_buttons", $imagefile_bw . __(" Button shortcodes", "oik" ), $options, 'oik-button-shortcodes' ); 
+  bw_checkbox_arr( "bw_buttons", $imagefile_pp . __(" PayPal shortcodes", "oik" ), $options, 'oik-paypal-shortcodes' ); 
+  bw_checkbox_arr( "bw_buttons", $imagefile_sc . __(" ALL shortcodes", "oik" ), $options, 'oik-shortc-shortcodes' ); 
+  bw_checkbox_arr( "bw_buttons", __( "[] quicktag for HTML editor", "oik" ), $options, "oik-quicktags" );
+  bw_checkbox_arr( "bw_buttons", __( "Integrate with shortcake", "oik" ), $options, "oik-shortcake" );
   etag( "table" );
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
   etag( "form" );
