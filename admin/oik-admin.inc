@@ -125,19 +125,19 @@ function oik_shortcode_options( ) {
  */
 function oik_custom_css_box() {
   $theme = bw_get_theme();
-  p( "To style the output from shortcodes you can create and edit a custom CSS file for your theme." );
-  p( "Use the [bw_editcss] shortcode to create the <b>edit CSS</b> link anywhere on your website." ); 
-  p( "Note: If you change themes then you will start with a new custom CSS file." );
-  p( "You should save your custom CSS file before updating your theme." );
+  BW_::p( __( "To style the output from shortcodes you can create and edit a custom CSS file for your theme.", "oik" ) );
+  BW_::p( __( "Use the [bw_editcss] shortcode to create the <b>edit CSS</b> link anywhere on your website.", "oik" ) ); 
+  BW_::p( __( "Note: If you change themes then you will start with a new custom CSS file.", "oik" ) );
+  BW_::p( __( "You should save your custom CSS file before updating your theme.", "oik" ) );
   
   $options = get_option('bw_options');     
   $customCSS = bw_array_get( $options, 'customCSS', NULL );
   if ( $customCSS ) {
-    p( "Click on this button to edit your custom CSS file.");
+    BW_::p( __( "Click on this button to edit your custom CSS file.", "oik" ) );
     oik_custom_css( $theme );
   } else {
-    p( "You have not defined a custom CSS file." );
-    alink( "button-secondary", admin_url("admin.php?page=oik_options"), "Name your custom CSS file", "Enter the name of your custom CSS file on the Options page" );
+    BW_::p( __( "You have not defined a custom CSS file.", "oik" ) );
+    BW_::alink( "button-secondary", admin_url("admin.php?page=oik_options"), __( "Name your custom CSS file", "oik" ), __( "Enter the name of your custom CSS file on the Options page", "oik" ) );
   }
 }
 
@@ -160,12 +160,12 @@ function oik_custom_css( $theme=null ) {
  */ 
 function oik_plugins_servers() {
   $options = get_option( 'bw_plugins' );
-  p( "Some oik plugins and themes are supported from servers other than WordPress.org" );
-  p( "Premium plugin and theme versions require API keys." );
-  p( "Use the Plugins page to manage oik plugins servers and API keys" );
-  _alink( "button-secondary", admin_url("admin.php?page=oik_plugins"), "Plugins", "Manage plugin servers and API keys" );
-  p( "Use the Themes page to manage oik themes servers and API keys" );
-  _alink( "button-secondary", admin_url("admin.php?page=oik_themes"), "Themes", "Manage theme servers and API keys" );
+  BW_::p( __( "Some oik plugins and themes are supported from servers other than WordPress.org", "oik" ) );
+  BW_::p( __( "Premium plugin and theme versions require API keys.", "oik" ) );
+  BW_::p( __( "Use the Plugins page to manage oik plugins servers and API keys", "oik" ) );
+  BW_::alink( "button-secondary", admin_url("admin.php?page=oik_plugins"), __( "Plugins", "oik" ), __( "Manage plugin servers and API keys", "oik" ) );
+  BW_::p( __( "Use the Themes page to manage oik themes servers and API keys", "oik" ) );
+  BW_::alink( "button-secondary", admin_url("admin.php?page=oik_themes"), __( "Themes", "oik" ), __( "Manage theme servers and API keys", "oik" ) );
 }
 
 
