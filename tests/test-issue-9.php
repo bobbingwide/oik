@@ -60,18 +60,22 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	}
 
 	function test_BW_p() {
+		
+		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( p( "This page left intentionally blank" ) );
 		$actual = bw_ret( BW_::p( __( "This page left intentionally blank" , "oik" ) ) );
 		$this->assertEquals( $expected, $actual );
 	}
 
 	function test_BW_alink() {
+		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( _alink( null, "http://example.com", "Text", "Alt" ) );
 		$actual = bw_ret( BW_::alink( null, "http://example.com", __( "Text", "oik" ), __( "Alt", "oik" ) ) );
 		$this->assertEquals( $expected, $actual );
 	}
 
 	function test_BW_oik_menu_header() {
+		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( oik_menu_header() );
 		$actual = bw_ret( BW_::oik_menu_header() );
 		$this->assertEquals( $expected, $actual );
@@ -86,6 +90,7 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	}
 
 	function test_BW_oik_box() {
+		$this->setExpectedDeprecated( "bw_translate" );
 		oik_require( "admin/oik-admin.inc" );
 		$expected = bw_ret( oik_box() );
 		$actual = bw_ret( BW_::oik_box() );
@@ -93,6 +98,7 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	}
 
 	function test_BW_bwtnt() {
+		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( _bwtnt( "Text", " etc" ) );
 		$actual = bw_ret( BW_::bwtnt( __( "Text", "oik" ), " etc" ) );
 		$this->assertEquals( $expected, $actual );
