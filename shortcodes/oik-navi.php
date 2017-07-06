@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2016
+<?php // (C) Copyright Bobbing Wide 2014-2017
 
 /**
  * Return the next unique shortcode ID
@@ -196,7 +196,7 @@ function bw_navi_s2eofn( $start, $end, $count, $prefix=null ) {
       br( $prefix );
     }
     span( "bw_s2eofn" );  
-    e( sprintf( bw_translate( '%1s to %2s of %3s') , $start, $end, $count ) );
+    e( sprintf( __( '%1s to %2s of %3s', 'oik') , $start, $end, $count ) );
     epan();
   }   
 }
