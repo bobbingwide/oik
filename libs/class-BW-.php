@@ -6,7 +6,7 @@ define( "CLASS_BW__INCLUDED", "3.2.0" );
  * More HTML output library functions
  * 
  * Library: class-BW-
- * Depends: 
+ * Depends: bobbfunc, oik-admin,
  * Provides: BW_ class
  *
  * These functions are clones of functions in libs\bobbfunc.php
@@ -133,9 +133,6 @@ class BW_ {
 	}
 
 	/**
-	 *
-	  
-	/**
 	 * Form a text field
 	 *
 	 * @param string $name - the name of the field
@@ -158,7 +155,6 @@ class BW_ {
 		return;
 	}
 
-
 	/**
 	 * Create a textfield for an array options field 
 	 *
@@ -175,8 +171,6 @@ class BW_ {
 		$value = bw_array_get( $array, $index, NULL );
 		self::bw_textfield( $name_index, $len, $text, $value, $class, $extras );
 	}
-	
-	
 
 	/**
 	 * Form an "email" field
@@ -196,7 +190,7 @@ class BW_ {
 		$itext = iemail( $name, $len, $value, $class, $extras ); 
 		bw_tablerow( array( $lab, $itext ) );
 		return;
-}
+	}
 
 	/**
 	 * Create an emailfield for an array options field 
@@ -240,7 +234,7 @@ class BW_ {
 		$itext = iarea( $name, $len, $value, $rows, $spellcheck ); 
 		bw_tablerow( array( $lab, $itext) );
 		return;
-}
+	}
 
 	/**
 	 * Create a textarea for an array options field
