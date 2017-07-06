@@ -219,21 +219,20 @@ function oik_tinymce_buttons() {
  * The forum is on wordpress.org
  */
 function oik_documentation() {
-  p("For more information:" );
+  BW_::p( __( "For more information:", "oik" ) );
   sul();
   stag( "li" );
-  _alink( null, "http://www.oik-plugins.com/tutorial/getting-started-with-oik-plugins/", "Getting started", "Getting started" );
+  BW_:alink( null, "http://www.oik-plugins.com/tutorial/getting-started-with-oik-plugins/", __( "Getting started", "oik" ), __( "Getting started", "oik" ) );
 	etag( "li" );
   stag( "li" );
-  _alink( null,  "http://www.oik-plugins.com/oik/oik-faq", "Frequently Asked Questions", "Frequently Asked Questions" );
+  BW_::alink( null,  "http://www.oik-plugins.com/oik/oik-faq", __( "Frequently Asked Questions", "oik" ), __( "Frequently Asked Questions", "oik" ) );
   etag( "li" );
   stag( "li" );
-  _alink( null, "http://wordpress.org/tags/oik?forum_id=10", "Forum", "Forum" );
+  BW_::alink( null, "http://wordpress.org/tags/oik?forum_id=10", __( "Forum", "oik" ), __( "Forum", "oik" ) );
   etag( "li" );
   eul();
   sp();
-  // art_button( "http://www.oik-plugins.com", "oik documentation", "Read the documentation for the oik plugin" );
-  _alink( "button button-secondary", "http://www.oik-plugins.com", "oik documentation", "Read the documentation for the oik plugin" );
+  BW_::alink( "button button-secondary", "http://www.oik-plugins.com", __( "oik documentation", "oik" ), __( "Read the documentation for the oik plugin", "oik" ) );
   ep();
 } 
 
@@ -342,17 +341,21 @@ function oik_themes_server_settings() {
 function oik_options_do_page() {
   oik_require( "includes/oik-filters.inc" );
   bw_disable_filter( "the_content", "wpmem_securify", 1 );
-  oik_menu_header( "shortcode options", "w60pc" );
-  oik_box( null, null, "Often included key information", "oik_main_shortcode_options" );
+  BW_::oik_menu_header( __( "shortcode options", "oik" ), "w60pc" );
+  BW_::oik_box( null, null, __( "Often included key information", "oik" ), "oik_main_shortcode_options" );
   ecolumn();
   scolumn( "w40pc" );
-  oik_box( null, null, "Usage notes", "oik_usage_notes" );
+  BW_::oik_box( null, null, __( "Usage notes", "oik" ), "oik_usage_notes" );
   oik_menu_footer();
   bw_flush();
 } 
 
 /**
  * Display telephone numbers
+ * 
+ * @param string $option Option name
+ * @param array $options Array of option values
+ * @param string $alt0_suffix - suffix text for shortcode examples
  */
 function oik_contact_numbers( $option, $options, $alt0_suffix ) {
   bw_translation_on();
@@ -476,21 +479,21 @@ function oik_main_shortcode_options() {
   oik_contact_info( $option, $options, $alt0_suffix );
   oik_address_info( $option, $options, $alt0_suffix );
 
-  bw_textfield_arr( $option, "Google Map width", $options, 'width', 10 );
-  bw_textfield_arr( $option, "Google Map height", $options, 'height', 10 );
-	bw_textfield_arr( $option, "Google Maps API key", $options, 'google_maps_api_key', 39 ); 
+  BW_::bw_textfield_arr( $option, __( "Google Map width", "oik" ), $options, 'width', 10 );
+  BW_::bw_textfield_arr( $option, __( "Google Map height", "oik" ), $options, 'height', 10 );
+	BW_::bw_textfield_arr( $option, __( "Google Maps API key", "oik" ), $options, 'google_maps_api_key', 39 ); 
   
-  bw_textfield_arr( $option, _bwtnt( "Domain", " [bw_domain] [bw_wpadmin]" ), $options, 'domain', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Domain", "oik" ), " [bw_domain] [bw_wpadmin]" ) , $options, 'domain', 50 );
   
-  bw_checkbox_arr( $option, "Do NOT use the oik.css styling. <br />Check this is you don't want to use the oik provide CSS styling", $options, "oikCSS" ); 
-  bw_textfield_arr( $option, _bwtnt( "Custom CSS in theme directory:<br />", get_stylesheet_directory_uri() ), $options, 'customCSS', 50 );
+  bw_checkbox_arr( $option, __( "Do NOT use the oik.css styling. <br />Check this if you don't want to use the oik provided CSS styling", "oik" ), $options, "oikCSS" ); 
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Custom CSS in theme directory:<br />", "oik") , get_stylesheet_directory_uri() ), $options, 'customCSS', 50 );
 	
-  bw_textfield_arr( $option, __( "Custom jQuery UI CSS URL", 'oik' ), $options, 'customjQCSS', 90 );
+  BW_::bw_textfield_arr( $option, __( "Custom jQuery UI CSS URL", 'oik' ), $options, 'customjQCSS', 90 );
   
   oik_follow_me( $option, $options, $alt0_suffix );
   
-  bw_textfield_arr( $option, _bwtnt( "PayPal email", " [bw_paypal]" ), $options, 'paypal-email', 50 );
-  bw_textfield_arr( $option, "PayPal country", $options, 'paypal-country', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "PayPal email", "oik" ), " [bw_paypal]" ), $options, 'paypal-email', 50 );
+  BW_::bw_textfield_arr( $option, __( "PayPal country", "oik" ), $options, 'paypal-country', 50 );
   
   /** Extracted from 
       @link https://www.paypalobjects.com/WEBSCR-640-20120609-1/en_US/GB/pdf/PP_OrderManagement_IntegrationGuide.pdf
@@ -501,33 +504,32 @@ function oik_main_shortcode_options() {
    * GBP Pound Sterling 5,500 GBP
    * JPY Japanese Yen 1,000,000 JPY
    * USD U.S. Dollar 10,000 USD
-   * whereas the list below was extracted from a WordPress plugin [bw_plug name="
+   * whereas the list below was extracted from a WordPress plugin
    
   
   */
   $paypal_currency_list = array("GBP", "USD", "EUR", "AUD", "BRL", "CAD", "CHF", "CZK", "DKK", "HKD", "HUF", "ILS", "JPY", "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", "SEK", "SGD", "THB", "TRY", "TWD");
-  
   $paypal_currency_assoc = bw_assoc( $paypal_currency_list );                
-  bw_select_arr( $option, "PayPal currency", $options, 'paypal-currency',array( "#options" => $paypal_currency_assoc ) );
+  BW_::bw_select_arr( $option, __( "PayPal currency", "oik" ), $options, 'paypal-currency',array( "#options" => $paypal_currency_assoc ) );
   
 
   $upload_dir = wp_upload_dir();
   $baseurl = $upload_dir['baseurl'];
     
-  bw_textfield_arr( $option, _bwtnt( "Logo image ID/URL/in uploads", "<br />$baseurl [bw_logo]" ), $options, 'logo-image', 50 );
-  bw_checkbox_arr(  $option, "Use as login logo?", $options, "login-logo" ); 
-  bw_textfield_arr( $option, _bwtnt( "QR code image in uploads", " [bw_qrcode]" ), $options, 'qrcode-image', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Logo image ID/URL/in uploads", "oik"), "<br />$baseurl [bw_logo]" ), $options, 'logo-image', 50 );
+  bw_checkbox_arr(  $option, __( "Use as login logo?", "oik" ), $options, "login-logo" ); 
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "QR code image in uploads", "oik" ), " [bw_qrcode]" ), $options, 'qrcode-image', 50 );
   
   $artisteer_versions = array( "na", "41", "40", "31", "30" ,"25" );
   $artisteer_assoc = bw_assoc( $artisteer_versions );
-  bw_select_arr( $option, "Artisteer version", $options, 'art-version', array( "#options" => $artisteer_assoc ) );
+  BW_::bw_select_arr( $option, __( "Artisteer version", "oik" ), $options, 'art-version', array( "#options" => $artisteer_assoc ) );
 
   $options['yearfrom'] = bw_array_get_dcb( $options, "yearfrom", null, "bw_get_yearfrom" );
-  bw_textfield_arr( $option, _bwtnt( "Copyright from year", " [bw_copyright]" ), $options, 'yearfrom', 4 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Copyright from year", "oik" ), " [bw_copyright]" ), $options, 'yearfrom', 4 );
   
 
   $options['howdy'] = bw_array_get( $options, "howdy", null );
-  bw_textfield_arr( $option, _bwtnt( "'Howdy,'", " replacement string" ), $options, 'howdy', 10 );
+  BW_::bw_textfield_arr( $option, __( "'Howdy,' replacement string", "oik" ), $options, 'howdy', 10 );
 
   //tablerow( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" />" ); 
   //bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 

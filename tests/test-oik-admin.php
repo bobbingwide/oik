@@ -42,7 +42,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * Help to generate the expected array from actual test output
+	 * Helps to generate the expected array from actual test output
 	 * 
 	 * echoing this output ensures we get 
 	 */
@@ -55,6 +55,18 @@ class Tests_oik_admin extends BW_UnitTestCase {
 			echo '$expected[] = \'' . $line . "';";
 		}
 		echo PHP_EOL;
+		$this->assertFalse( true );
+	}
+	
+	/**
+	 * Helps to generate the expected file from actual test output
+	 */
+	function generate_expected_file( $html_array ) {
+		echo PHP_EOL;
+		foreach ( $html_array as $line ) {
+			echo $line;
+			echo $PHP_EOL;
+		}
 		$this->assertFalse( true );
 	}
 	
@@ -1580,6 +1592,116 @@ $expected[] = '</div>';
 	function remove_most_shortcodes() {
 		remove_all_shortcodes();
 		bw_add_shortcode( 'bw', 'bw_bw', oik_path( "shortcodes/oik-bw.php" ) );
+	}
+	
+	/**
+	 * Asserts that the HTML array equals the file
+	 */
+	function assertArrayEqualsFile( $string, $file=null ) {
+		$html_array = $this->prepareExpectedArray( $string );
+		$expected_file = $this->prepareFile( $file );
+		$expected = file( $expected_file, FILE_IGNORE_NEW_LINES );
+		$this->assertEquals( $expected, $html_array );	
+	}
+	
+	/**
+	 * Converts to an array if required
+	 */
+	function prepareExpectedArray( $string ) {
+		if ( is_scalar( $string ) ) {
+			$html_array = $this->tag_break( $string );
+		} else { 
+			$html_array = $string;
+		}
+		return $html_array;
+	}
+	
+	/**
+	 * Returns the expected file name
+	 * 
+	 * Expected output files are stored in a directory tree
+	 * 
+	 * `tests/data/la_CY/test_name.html
+	 * ` 
+	 * where 
+	 * - la_CY is the locale; default is `en_US`
+	 * - test_name is the name of the test method
+	 * 
+	 * 
+	 * @param string|null $file - 
+	 * 
+	 */
+	function prepareFile( $file=null ) {
+		if ( !$file ) {
+			$file = $this->find_test_name();
+		}
+		$path_info = pathinfo( $file );
+		if ( '.' == $path_info['dirname'] ) {
+			$dirname = 'tests/data/';
+			$dirname .= $this->query_la_CY();
+			$path_info['dirname'] = $dirname;
+		}
+		if ( !isset( $path_info['extension'] ) ) {
+			$path_info['extension'] = "html";
+		}
+		$expected_file = $path_info['dirname'];
+		$expected_file .= "/";
+		$expected_file .= $path_info['filename'];
+		$expected_file .= ".";
+		$expected_file .= $path_info['extension'];
+		$this->assertFileExists( $expected_file );
+		return $expected_file;
+	}
+	
+	/**
+	 * Finds the test name from the call stack
+	 * 
+	 * Assumes the test name starts with 'test_'
+	 * 
+	 * @param string $prefix
+	 */
+	function find_test_name( $prefix='test_') {
+		$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
+		$test_name = null;
+		foreach ( $trace as $frame ) {
+			if ( 0 === strpos( $frame['function'], $prefix ) ) {
+				$test_name = $frame['function'];
+				break;
+			} 
+		}
+		$this->assertNotNull( $test_name );
+		return $test_name;
+	}
+		
+	
+	/**
+	 * When we're working in a different language e.g. bb_BB then
+	 * we append the la_CY to the file name
+	 */
+	function assertArrayEqualsLanguageFile( $string, $file ) {
+		
+		
+	}
+	
+	/**
+	 * Queries the currently set locale
+	 */
+	function query_la_CY() {
+		$locale = get_locale();
+		$this->assertNotNull( $locale );
+		return $locale;
+	} 
+	
+	function test_assertArrayEqualsFile() {
+		$expected = '<p>Test assert array equals file</p>';
+		$this->assertArrayEqualsFile( $expected, "tests/data/en_US/test_assertArrayEqualsFile.html" );
+	}
+	
+	function test_assertArrayEqualsFileUnspecified() {
+		$expected = array();
+		$expected[] = '<p>Test assert array equals file</p>';
+		$expected[] = '<p>Unspecified</p>';
+		$this->assertArrayEqualsFile( $expected );
 	}
 	
 	

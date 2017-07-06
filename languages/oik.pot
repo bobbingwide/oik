@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.1.4\n"
+"Project-Id-Version: oik 3.2.0-alpha-20170630\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-05-30 13:44:33+00:00\n"
+"POT-Creation-Date: 2017-07-03 09:56:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,433 +137,591 @@ msgid ""
 "Please install and activate the required minimum version of this plugin:"
 msgstr ""
 
-#: admin/oik-admin.inc:73
+#: admin/oik-admin.inc:75
 msgid "[oik] Options"
 msgstr ""
 
-#: admin/oik-admin.inc:73 admin/oik-admin.inc:78
+#: admin/oik-admin.inc:75 admin/oik-admin.inc:80
 msgid "oik options"
 msgstr ""
 
-#: admin/oik-admin.inc:76
+#: admin/oik-admin.inc:78
 msgid "oik overview"
 msgstr ""
 
-#: admin/oik-admin.inc:76
+#: admin/oik-admin.inc:78
 msgid "Overview"
 msgstr ""
 
-#: admin/oik-admin.inc:78 admin/oik-admin.inc:108
+#: admin/oik-admin.inc:80 admin/oik-admin.inc:110
 msgid "Options"
 msgstr ""
 
-#: admin/oik-admin.inc:80
+#: admin/oik-admin.inc:82
 msgid "oik options-1"
 msgstr ""
 
-#: admin/oik-admin.inc:80
+#: admin/oik-admin.inc:82
 msgid "More Options"
 msgstr ""
 
-#: admin/oik-admin.inc:82
+#: admin/oik-admin.inc:84
 msgid "oik plugins"
 msgstr ""
 
-#: admin/oik-admin.inc:82 admin/oik-admin.inc:164
+#: admin/oik-admin.inc:84 admin/oik-admin.inc:166
 msgid "Plugins"
 msgstr ""
 
-#: admin/oik-admin.inc:83
+#: admin/oik-admin.inc:85
 msgid "oik themes"
 msgstr ""
 
-#: admin/oik-admin.inc:83 admin/oik-admin.inc:166
+#: admin/oik-admin.inc:85 admin/oik-admin.inc:168
 msgid "Themes"
 msgstr ""
 
-#: admin/oik-admin.inc:84
+#: admin/oik-admin.inc:86
 msgid "oik buttons"
 msgstr ""
 
-#: admin/oik-admin.inc:84 admin/oik-admin.inc:117
+#: admin/oik-admin.inc:86 admin/oik-admin.inc:119
 msgid "Buttons"
 msgstr ""
 
-#: admin/oik-admin.inc:85
+#: admin/oik-admin.inc:87
 msgid "oik shortcode help"
 msgstr ""
 
-#: admin/oik-admin.inc:85 admin/oik-admin.inc:114 admin/oik-admin.inc:558
+#: admin/oik-admin.inc:87 admin/oik-admin.inc:116 admin/oik-admin.inc:562
 msgid "Shortcode help"
 msgstr ""
 
-#: admin/oik-admin.inc:96
+#: admin/oik-admin.inc:98
 msgid "This box intentionally left blank"
 msgstr ""
 
-#: admin/oik-admin.inc:103
+#: admin/oik-admin.inc:105
 msgid ""
 "oik provides sets of lazy smart shortcodes that you can use just about "
 "anywhere in your WordPress site."
 msgstr ""
 
-#: admin/oik-admin.inc:105
+#: admin/oik-admin.inc:107
 msgid ""
 "You enter your common information, such as contact details, slogans, "
 "location information, PayPal payment information and your social networking "
 "and bookmarking information using oik Options"
 msgstr ""
 
-#: admin/oik-admin.inc:106
+#: admin/oik-admin.inc:108
 msgid "If required, you enter alternative information using More options"
 msgstr ""
 
-#: admin/oik-admin.inc:108
+#: admin/oik-admin.inc:110
 msgid "Enter your common information"
 msgstr ""
 
-#: admin/oik-admin.inc:110
+#: admin/oik-admin.inc:112
 msgid "More options"
 msgstr ""
 
-#: admin/oik-admin.inc:110
+#: admin/oik-admin.inc:112
 msgid "Enter additional information"
 msgstr ""
 
-#: admin/oik-admin.inc:112
+#: admin/oik-admin.inc:114
 msgid ""
 "Discover the shortcodes that you can use in your content and widgets using "
 "Shortcode help"
 msgstr ""
 
-#: admin/oik-admin.inc:114 admin/oik-admin.inc:558
+#: admin/oik-admin.inc:116 admin/oik-admin.inc:562
 msgid "Discover shortcodes you can use"
 msgstr ""
 
-#: admin/oik-admin.inc:116
+#: admin/oik-admin.inc:118
 msgid ""
 "Choose the helper buttons that help you to insert shortcodes when editing "
 "your content"
 msgstr ""
 
-#: admin/oik-admin.inc:117
+#: admin/oik-admin.inc:119
 msgid "Select TinyMCE and HTML edit helper buttons"
 msgstr ""
 
-#: admin/oik-admin.inc:126
+#: admin/oik-admin.inc:128
 msgid ""
 "To style the output from shortcodes you can create and edit a custom CSS "
 "file for your theme."
 msgstr ""
 
-#: admin/oik-admin.inc:127
+#: admin/oik-admin.inc:129
 msgid ""
 "Use the [bw_editcss] shortcode to create the <b>edit CSS</b> link anywhere "
 "on your website."
 msgstr ""
 
-#: admin/oik-admin.inc:128
+#: admin/oik-admin.inc:130
 msgid ""
 "Note: If you change themes then you will start with a new custom CSS file."
 msgstr ""
 
-#: admin/oik-admin.inc:129
+#: admin/oik-admin.inc:131
 msgid "You should save your custom CSS file before updating your theme."
 msgstr ""
 
-#: admin/oik-admin.inc:134
+#: admin/oik-admin.inc:136
 msgid "Click on this button to edit your custom CSS file."
 msgstr ""
 
-#: admin/oik-admin.inc:137
+#: admin/oik-admin.inc:139
 msgid "You have not defined a custom CSS file."
 msgstr ""
 
-#: admin/oik-admin.inc:138
+#: admin/oik-admin.inc:140
 msgid "Name your custom CSS file"
 msgstr ""
 
-#: admin/oik-admin.inc:138
+#: admin/oik-admin.inc:140
 msgid "Enter the name of your custom CSS file on the Options page"
 msgstr ""
 
-#: admin/oik-admin.inc:161
+#: admin/oik-admin.inc:163
 msgid ""
 "Some oik plugins and themes are supported from servers other than WordPress."
 "org"
 msgstr ""
 
-#: admin/oik-admin.inc:162
+#: admin/oik-admin.inc:164
 msgid "Premium plugin and theme versions require API keys."
 msgstr ""
 
-#: admin/oik-admin.inc:163
+#: admin/oik-admin.inc:165
 msgid "Use the Plugins page to manage oik plugins servers and API keys"
 msgstr ""
 
-#: admin/oik-admin.inc:164
+#: admin/oik-admin.inc:166
 msgid "Manage plugin servers and API keys"
 msgstr ""
 
-#: admin/oik-admin.inc:165
+#: admin/oik-admin.inc:167
 msgid "Use the Themes page to manage oik themes servers and API keys"
 msgstr ""
 
-#: admin/oik-admin.inc:166
+#: admin/oik-admin.inc:168
 msgid "Manage theme servers and API keys"
 msgstr ""
 
+#: admin/oik-admin.inc:200
+msgid "Button shortcodes"
+msgstr ""
+
 #: admin/oik-admin.inc:201
-msgid " Button shortcodes"
+msgid "PayPal shortcodes"
 msgstr ""
 
 #: admin/oik-admin.inc:202
-msgid " PayPal shortcodes"
+msgid "ALL shortcodes"
 msgstr ""
 
 #: admin/oik-admin.inc:203
-msgid " ALL shortcodes"
+msgid " Button shortcodes"
 msgstr ""
 
 #: admin/oik-admin.inc:204
-msgid "[] quicktag for HTML editor"
+msgid " PayPal shortcodes"
 msgstr ""
 
 #: admin/oik-admin.inc:205
+msgid " ALL shortcodes"
+msgstr ""
+
+#: admin/oik-admin.inc:206
+msgid "[] quicktag for HTML editor"
+msgstr ""
+
+#: admin/oik-admin.inc:207
 msgid "Integrate with shortcake"
 msgstr ""
 
-#: admin/oik-admin.inc:208 admin/oik-admin.inc:257 admin/oik-admin.inc:534
-#: admin/oik-admin.inc:605
+#: admin/oik-admin.inc:209 admin/oik-admin.inc:258 admin/oik-admin.inc:538
+#: admin/oik-admin.inc:609
 msgid "Save changes"
 msgstr ""
 
-#: admin/oik-admin.inc:221
+#: admin/oik-admin.inc:222
 msgid "For more information:"
 msgstr ""
 
-#: admin/oik-admin.inc:224
+#: admin/oik-admin.inc:225
 msgid "Getting started"
 msgstr ""
 
-#: admin/oik-admin.inc:226
+#: admin/oik-admin.inc:228
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: admin/oik-admin.inc:229
+#: admin/oik-admin.inc:231
 msgid "Forum"
 msgstr ""
 
-#: admin/oik-admin.inc:234 admin/oik-admin.inc:274
+#: admin/oik-admin.inc:235 admin/oik-admin.inc:275
 msgid "oik documentation"
 msgstr ""
 
-#: admin/oik-admin.inc:234
+#: admin/oik-admin.inc:235
 msgid "Read the documentation for the oik plugin"
 msgstr ""
 
-#: admin/oik-admin.inc:244
+#: admin/oik-admin.inc:245
 msgid "Support the development of %1$s by making a donation to %2$s"
 msgstr ""
 
-#: admin/oik-admin.inc:267
+#: admin/oik-admin.inc:268
 msgid "overview"
 msgstr ""
 
-#: admin/oik-admin.inc:268
+#: admin/oik-admin.inc:269
 msgid "Shortcode options"
 msgstr ""
 
-#: admin/oik-admin.inc:269
+#: admin/oik-admin.inc:270
 msgid "Custom CSS"
 msgstr ""
 
-#: admin/oik-admin.inc:271
+#: admin/oik-admin.inc:272
 msgid "Servers and keys"
 msgstr ""
 
-#: admin/oik-admin.inc:275
+#: admin/oik-admin.inc:276
 msgid "support oik"
 msgstr ""
 
-#: admin/oik-admin.inc:276
+#: admin/oik-admin.inc:277
 msgid "Admin options"
 msgstr ""
 
-#: admin/oik-admin.inc:286
+#: admin/oik-admin.inc:287
 msgid "button selection"
 msgstr ""
 
-#: admin/oik-admin.inc:287
+#: admin/oik-admin.inc:288
 msgid "TinyMCE buttons"
 msgstr ""
 
-#: admin/oik-admin.inc:343
+#: admin/oik-admin.inc:344
 msgid "shortcode options"
 msgstr ""
 
-#: admin/oik-admin.inc:344
+#: admin/oik-admin.inc:345
 msgid "Often included key information"
 msgstr ""
 
-#: admin/oik-admin.inc:347
+#: admin/oik-admin.inc:348
 msgid "Usage notes"
 msgstr ""
 
-#: admin/oik-admin.inc:357
+#: admin/oik-admin.inc:362
 msgid "Telephone"
 msgstr ""
 
-#: admin/oik-admin.inc:358 shortcodes/oik-phone.php:138
+#: admin/oik-admin.inc:363 shortcodes/oik-phone.php:138
 #: shortcodes/oik-phone.php:170
 msgid "Mobile"
 msgstr ""
 
-#: admin/oik-admin.inc:359 shortcodes/oik-phone.php:129
+#: admin/oik-admin.inc:364 shortcodes/oik-phone.php:129
 msgid "Fax"
 msgstr ""
 
-#: admin/oik-admin.inc:360 shortcodes/oik-phone.php:147
+#: admin/oik-admin.inc:365 shortcodes/oik-phone.php:147
 msgid "Emergency"
 msgstr ""
 
-#: admin/oik-admin.inc:398
-msgid "Contact button text"
+#: admin/oik-admin.inc:387
+msgid "Company"
+msgstr ""
+
+#: admin/oik-admin.inc:388
+msgid "Business"
+msgstr ""
+
+#: admin/oik-admin.inc:389
+msgid "Formal"
+msgstr ""
+
+#: admin/oik-admin.inc:390
+msgid "Abbreviation"
+msgstr ""
+
+#: admin/oik-admin.inc:391
+msgid "Main slogan"
+msgstr ""
+
+#: admin/oik-admin.inc:392
+msgid "Alt. slogan"
 msgstr ""
 
 #: admin/oik-admin.inc:399
+msgid "Contact"
+msgstr ""
+
+#: admin/oik-admin.inc:400 shortcodes/oik-email.php:73
+msgid "Email"
+msgstr ""
+
+#: admin/oik-admin.inc:401
+msgid "Admin"
+msgstr ""
+
+#: admin/oik-admin.inc:402
+msgid "Contact button page permalink"
+msgstr ""
+
+#: admin/oik-admin.inc:403
+msgid "Contact button text"
+msgstr ""
+
+#: admin/oik-admin.inc:404
 msgid "Contact button tooltip"
 msgstr ""
 
-#: admin/oik-admin.inc:414 admin/oik-admin.inc:593
+#: admin/oik-admin.inc:418
+msgid "Extended-address"
+msgstr ""
+
+#: admin/oik-admin.inc:419 admin/oik-admin.inc:597
 msgid "Street-address"
 msgstr ""
 
-#: admin/oik-admin.inc:415 admin/oik-admin.inc:594
+#: admin/oik-admin.inc:420 admin/oik-admin.inc:598
 msgid "Locality"
 msgstr ""
 
-#: admin/oik-admin.inc:416 admin/oik-admin.inc:595
+#: admin/oik-admin.inc:421 admin/oik-admin.inc:599
 msgid "Region"
 msgstr ""
 
-#: admin/oik-admin.inc:417 admin/oik-admin.inc:596
+#: admin/oik-admin.inc:422 admin/oik-admin.inc:600
 msgid "Post Code"
 msgstr ""
 
-#: admin/oik-admin.inc:418 admin/oik-admin.inc:597
+#: admin/oik-admin.inc:423 admin/oik-admin.inc:601
 msgid "Country name"
 msgstr ""
 
-#: admin/oik-admin.inc:477
+#: admin/oik-admin.inc:425
+msgid "Google Maps introductory text for"
+msgstr ""
+
+#: admin/oik-admin.inc:426
+msgid "Latitude"
+msgstr ""
+
+#: admin/oik-admin.inc:427
+msgid "Longitude"
+msgstr ""
+
+#: admin/oik-admin.inc:438
+msgid "Twitter URL"
+msgstr ""
+
+#: admin/oik-admin.inc:439
+msgid "Facebook URL"
+msgstr ""
+
+#: admin/oik-admin.inc:440
+msgid "LinkedIn URL"
+msgstr ""
+
+#: admin/oik-admin.inc:441
+msgid "Google Plus URL"
+msgstr ""
+
+#: admin/oik-admin.inc:442
+msgid "YouTube URL"
+msgstr ""
+
+#: admin/oik-admin.inc:443
+msgid "Flickr URL"
+msgstr ""
+
+#: admin/oik-admin.inc:444
+msgid "Picasa URL"
+msgstr ""
+
+#: admin/oik-admin.inc:445
+msgid "Pinterest URL"
+msgstr ""
+
+#: admin/oik-admin.inc:446
+msgid "Instagram URL"
+msgstr ""
+
+#: admin/oik-admin.inc:447
+msgid "Skype Name"
+msgstr ""
+
+#: admin/oik-admin.inc:450
+msgid "GitHub username"
+msgstr ""
+
+#: admin/oik-admin.inc:451
+msgid "WordPress.org username"
+msgstr ""
+
+#: admin/oik-admin.inc:482
 msgid "Google Map width"
 msgstr ""
 
-#: admin/oik-admin.inc:478
+#: admin/oik-admin.inc:483
 msgid "Google Map height"
 msgstr ""
 
-#: admin/oik-admin.inc:479
+#: admin/oik-admin.inc:484
 msgid "Google Maps API key"
 msgstr ""
 
+#: admin/oik-admin.inc:486
+msgid "Domain"
+msgstr ""
+
+#: admin/oik-admin.inc:488
+msgid ""
+"Do NOT use the oik.css styling. <br />Check this if you don't want to use "
+"the oik provided CSS styling"
+msgstr ""
+
+#: admin/oik-admin.inc:489
+msgid "Custom CSS in theme directory:<br />"
+msgstr ""
+
 #: admin/oik-admin.inc:491
+msgid "Custom jQuery UI CSS URL"
+msgstr ""
+
+#: admin/oik-admin.inc:495
+msgid "PayPal email"
+msgstr ""
+
+#: admin/oik-admin.inc:496
 msgid "PayPal country"
 msgstr ""
 
-#: admin/oik-admin.inc:509 shortcodes/oik-paypal.php:239
+#: admin/oik-admin.inc:513 shortcodes/oik-paypal.php:239
 msgid "PayPal currency"
 msgstr ""
 
+#: admin/oik-admin.inc:519
+msgid "Logo image ID/URL/in uploads"
+msgstr ""
+
+#: admin/oik-admin.inc:520
+msgid "Use as login logo?"
+msgstr ""
+
 #: admin/oik-admin.inc:521
+msgid "QR code image in uploads"
+msgstr ""
+
+#: admin/oik-admin.inc:525
 msgid "Artisteer version"
 msgstr ""
 
-#: admin/oik-admin.inc:548 admin/oik-admin.inc:615
+#: admin/oik-admin.inc:528
+msgid "Copyright from year"
+msgstr ""
+
+#: admin/oik-admin.inc:532
+msgid "'Howdy,' replacement string"
+msgstr ""
+
+#: admin/oik-admin.inc:552 admin/oik-admin.inc:619
 msgid "Use the shortcodes in your pages, widgets and titles. e.g."
 msgstr ""
 
-#: admin/oik-admin.inc:557
+#: admin/oik-admin.inc:561
 msgid ""
 "For more information about the shortcodes you can use select <b>Shortcode "
 "help</b>"
 msgstr ""
 
-#: admin/oik-admin.inc:568
+#: admin/oik-admin.inc:572
 msgid "extra shortcode options"
 msgstr ""
 
-#: admin/oik-admin.inc:569
+#: admin/oik-admin.inc:573
 msgid "alternative values using alt=1"
 msgstr ""
 
-#: admin/oik-admin.inc:572
+#: admin/oik-admin.inc:576
 msgid "usage notes"
 msgstr ""
 
-#: admin/oik-admin.inc:587
+#: admin/oik-admin.inc:591
 msgid "Contact [bw_contact alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:588
+#: admin/oik-admin.inc:592
 msgid "Email [bw_email alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:589
+#: admin/oik-admin.inc:593
 msgid "Telephone [bw_telephone alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:590
+#: admin/oik-admin.inc:594
 msgid "Mobile [bw_mobile alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:592
+#: admin/oik-admin.inc:596
 msgid "Extended-address [bw_address alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:599
+#: admin/oik-admin.inc:603
 msgid "Google Maps introductory text for [bw_show_googlemap alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:600
+#: admin/oik-admin.inc:604
 msgid "Latitude [bw_geo alt=1] [bw_directions alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:601
+#: admin/oik-admin.inc:605
 msgid "Longitude [bw_show_googlemap alt=1]"
 msgstr ""
 
-#: admin/oik-admin.inc:767
+#: admin/oik-admin.inc:771
 msgid "shortcode help"
 msgstr ""
 
-#: admin/oik-admin.inc:768
+#: admin/oik-admin.inc:772
 msgid "About shortcodes"
 msgstr ""
 
-#: admin/oik-admin.inc:776
+#: admin/oik-admin.inc:780
 msgid "Shortcode summary"
 msgstr ""
 
-#: admin/oik-admin.inc:785
+#: admin/oik-admin.inc:789
 msgid ""
 "This page lists all the currently active shortcodes. To find out more "
 "information about a shortcode click on the shortcode name in the Help column."
 msgstr ""
 
-#: admin/oik-admin.inc:786
+#: admin/oik-admin.inc:790
 msgid ""
 "Depending on how the shortcode is implemented you will either be shown some "
 "more information with one or more examples, or an 'oik generated example.' "
 msgstr ""
 
-#: admin/oik-admin.inc:787
+#: admin/oik-admin.inc:791
 msgid ""
 "You will also be shown the HTML snippet for the example. There should be no "
 "need to do anything with this output."
 msgstr ""
 
-#: admin/oik-admin.inc:788
+#: admin/oik-admin.inc:792
 msgid ""
 "For further information on a shortcode or its parameters click on the links "
 "in the Syntax column."
@@ -907,6 +1065,10 @@ msgstr ""
 msgid "image size"
 msgstr ""
 
+#: includes/oik-sc-help.inc:505
+msgid "e.g:"
+msgstr ""
+
 #: includes/oik-sc-help.inc:516 shortcodes/oik-trace.php:32
 msgid "text"
 msgstr ""
@@ -1090,6 +1252,10 @@ msgstr ""
 
 #: includes/oik-sc-help.inc:648
 msgid "Sort the shortcode codes by name."
+msgstr ""
+
+#: includes/oik-sc-help.inc:709 shortcodes/oik-geo.php:66
+msgid "e.g."
 msgstr ""
 
 #: includes/oik-sc-help.inc:718
@@ -1350,7 +1516,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: libs/oik-admin.php:56
+#: libs/class-BW-.php:87 libs/oik-admin.php:56
 msgid "Click to toggle"
 msgstr ""
 
@@ -1366,11 +1532,11 @@ msgstr ""
 msgid "missing post processing function: %1$s"
 msgstr ""
 
-#: oik.php:225
+#: oik.php:228
 msgid "oik custom image link URL"
 msgstr ""
 
-#: oik.php:280
+#: oik.php:283
 msgid "Howdy, %s"
 msgstr ""
 
@@ -1506,6 +1672,10 @@ msgstr ""
 
 #: shortcodes/oik-bw.php:23
 msgid "Class name prefix"
+msgstr ""
+
+#: shortcodes/oik-bw.php:38
+msgid "e.g. "
 msgstr ""
 
 #: shortcodes/oik-cite.php:18
@@ -1672,10 +1842,6 @@ msgstr ""
 
 #: shortcodes/oik-cycle.php:129
 msgid "Display Prev and Next links"
-msgstr ""
-
-#: shortcodes/oik-email.php:73
-msgid "Email"
 msgstr ""
 
 #: shortcodes/oik-email.php:75
@@ -2099,6 +2265,14 @@ msgstr ""
 msgid "Skype name"
 msgstr ""
 
+#: shortcodes/oik-power.php:18
+msgid "Proudly powered by WordPress"
+msgstr ""
+
+#: shortcodes/oik-power.php:18
+msgid "Semantic Personal Publishing Platform"
+msgstr ""
+
 #: shortcodes/oik-slideshows.php:77
 msgid "thumbnail|medium|large|full"
 msgstr ""
@@ -2175,7 +2349,7 @@ msgid "advance|openurl"
 msgstr ""
 
 #: shortcodes/oik-slideshows.php:89
-msgid "Behaviour when image clicked"
+msgid "Behavior when image clicked"
 msgstr ""
 
 #: shortcodes/oik-slideshows.php:90 shortcodes/oik-thumbs.php:87
