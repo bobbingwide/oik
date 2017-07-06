@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 3.2.0-alpha-20170616
+Version: 3.2.0-alpha-20170706
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -56,8 +56,8 @@ function oik_plugin_file_loaded() {
 	add_filter( "oik_query_libs", "oik_query_libs_query_libs" );
 	add_action( "oik_lib_loaded", "oik_oik_lib_loaded" );
 	oik_require_lib( "bwtrace" );
-	oik_require_lib( "bobbfunc" );
-	oik_require_lib( "class-BW-" );
+	oik_require_lib_wrapper( "bobbfunc" );
+	oik_require_lib_wrapper( "class-BW-" );
   require_once( "oik-add-shortcodes.php" );
   require_once( "bobbcomp.inc" );
    
@@ -146,7 +146,7 @@ function oik_main_init() {
   add_action( "admin_bar_menu", "oik_admin_bar_menu", 20 );
   add_action( 'login_head', 'oik_login_head');
 	add_action( 'admin_notices', "oik_admin_notices", 9 );
-	$bobbfunc = oik_require_lib( "bobbfunc" );
+	$bobbfunc = oik_require_lib_wrapper( "bobbfunc" );
 	if ( $bobbfunc && !is_wp_error( $bobbfunc ) ) {
     bw_load_plugin_textdomain();
 		/**
@@ -167,11 +167,11 @@ function oik_main_init() {
  * Note: This action comes before 'admin_init' and after '_admin_menu'
  */ 
 function oik_admin_menu() {
-	oik_require_lib( "bobbforms" );
-	oik_require_lib( "oik-admin" );
-	oik_require_lib( "class-bobbcomp" );
-	oik_require_lib( "class-BW-" );
-	oik_require_lib( "class-oik-update" );
+	oik_require_lib_wrapper( "bobbforms" );
+	oik_require_lib_wrapper( "oik-admin" );
+	oik_require_lib_wrapper( "class-bobbcomp" );
+	oik_require_lib_wrapper( "class-BW-" );
+	oik_require_lib_wrapper( "class-oik-update" );
 	require_once( 'admin/oik-admin.inc' );
   oik_options_add_page();
   add_action( 'admin_init', 'oik_admin_init' );
@@ -191,11 +191,11 @@ function oik_network_admin_menu() {
   static $actioned = null;
   if ( !$actioned ) { 
     $actioned = current_filter();
-		oik_require_lib( "bobbforms" );
-		oik_require_lib( "oik-admin" );
-		oik_require_lib( "class-bobbcomp" );
-		oik_require_lib( "class-BW-" );
-		oik_require_lib( "class-oik-update" );
+		oik_require_lib_wrapper( "bobbforms" );
+		oik_require_lib_wrapper( "oik-admin" );
+		oik_require_lib_wrapper( "class-bobbcomp" );
+		oik_require_lib_wrapper( "class-BW-" );
+		oik_require_lib_wrapper( "class-oik-update" );
     require_once( 'admin/oik-admin.inc' );
     oik_options_add_page();
     add_action('admin_init', 'oik_admin_init' );
@@ -395,10 +395,30 @@ function oik_lib_set_lib_versions( $libraries, $libs, $versions, $plugin ) {
  * 
  */
 function oik_admin_notices() {
-	oik_require_lib( "oik-depends" );
-  $loaded = oik_require_lib( "oik-activation" );
+	oik_require_lib_wrapper( "oik-depends" );
+  $loaded = oik_require_lib_wrapper( "oik-activation" );
 	bw_trace2( $loaded, "oik-activation loaded?", false, BW_TRACE_DEBUG );
 	
+}
+
+/**
+ * Wraps oik_require_lib
+ *
+ * oik_require_lib() has a number of possible outcomes
+ * It can be invoked before "oik_query_libs" has been run.
+ * It may need to use fallback logic to load library files, even when oik-lib is activated.
+ * oik-lib itself also needs to implement fallback logic.
+ *
+ */
+function oik_require_lib_wrapper( $lib ) {
+	$loaded = oik_require_lib( $lib );
+	bw_trace2( $loaded, "$lib loaded?", false );
+	if ( is_object( $loaded ) ) {
+		if ( is_wp_error( $loaded ) ) {
+			bw_trace2( $loaded, "Library failed to load." );
+		}
+	}
+	return $loaded;
 }
 	
 /**
