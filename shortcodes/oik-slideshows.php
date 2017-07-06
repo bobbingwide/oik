@@ -86,7 +86,7 @@ function portfolio_slideshow__syntax( $shortcode="portfolio_slideshow" ) {
                  , 'showcaps' => bw_skv( $ps_options['showcaps'], "true|false", "Show the image caption" )
                  , 'showtitles' => bw_skv( $ps_options['showtitles'], "true|false", "Show the image title" )
                  , 'showdesc' => bw_skv( $ps_options['showdesc'], "true|false", "Show the image description" )
-                 , 'click' =>	bw_skv( $ps_options['click'], "advance|openurl", "Behaviour when image clicked" )
+                 , 'click' =>	bw_skv( $ps_options['click'], "advance|openurl", "Behavior when image clicked" )
                  , 'thumbs' => bw_skv( '', "true", "Alternative to pagerpos=bottom" )
                  , 'fluid'	=>	bw_skv( $ps_options['allowfluid'], "true|false", "Support fluid layouts" )
                  , 'slideheight' => bw_skv( '', "<i>number</i>", "Force slide container height, in pixels" )
