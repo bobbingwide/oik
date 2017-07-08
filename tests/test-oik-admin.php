@@ -59,18 +59,6 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * Helps to generate the expected file from actual test output
-	 */
-	function generate_expected_file( $html_array ) {
-		echo PHP_EOL;
-		foreach ( $html_array as $line ) {
-			echo $line;
-			echo $PHP_EOL;
-		}
-		$this->assertFalse( true );
-	}
-	
-	/**
 	 * Note: This function could fail if there is no nonce in the output
 	 */
 	function replace_nonce_with_nonsense( $expected_array ) {
@@ -378,6 +366,8 @@ $expected[] = '</form>';
 	 * @TODO Test oik_enqueue_scripts() separately
 	 */
 	function test_oik_menu_header() {
+	
+		$this->setExpectedDeprecated( "bw_translate" );
 	 	oik_menu_header( "Menu header title", "menu header class" );
 		$html = bw_ret();
 		$html_array = $this->tag_break( $html );
@@ -396,6 +386,7 @@ $expected[] = '</form>';
 	 * Tests oik_menu_footer
 	 */
 	function test_oik_menu_footer() {
+	
 	 	oik_menu_footer();
 		$html = bw_ret();
 		$html_array = $this->tag_break( $html );
@@ -868,7 +859,7 @@ $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '<tr>';
 $expected[] = '<td>';
-$expected[] = '<label for="bw_options[oikCSS]">Do NOT use the oik.css styling. <br />Check this is you don\'t want to use the oik provide CSS styling</label>';
+$expected[] = '<label for="bw_options[oikCSS]">Do NOT use the oik.css styling. <br />Check this if you don\'t want to use the oik provided CSS styling</label>';
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_options[oikCSS]" value="0" />';
@@ -1703,6 +1694,93 @@ $expected[] = '</div>';
 		$expected[] = '<p>Unspecified</p>';
 		$this->assertArrayEqualsFile( $expected );
 	}
+	
+	
+	/**
+	 * We want to ensure that only a few shortcodes are registered
+	 * so we cam fiddle what happens during oik_add_shortcodes
+	 * - removing all shortcodes except bw
+	 *
+	 * We need to set $_REQUEST['code'] to that shortcode
+	 *
+	 */
+	function test_oik_help_do_page_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		add_action( "oik_add_shortcodes", [$this, "remove_most_shortcodes"], 9999 );
+		ob_start(); 
+		oik_help_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		
+		// file will be tests/data/bb_BB/test_oik_help_do_page_bb_BB.html
+		//Failed asserting that file "tests/data/bb_BB/test_oik_help_do_page_bb_BB.html" exists.
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Helps to generate the expected file from actual test output
+	 */
+	function generate_expected_file( $html_array ) {
+		echo PHP_EOL;
+		foreach ( $html_array as $line ) {
+			echo $line;
+			echo PHP_EOL;
+		}
+		$this->prepareFile();
+		//$this->assertFalse( true );
+	}
+	
+	/**
+	 * Switch to the required target language
+	 * 
+	 * switch_to_locale leaves much to be desired when the default language is en_US
+	 * and/or when the translations are loaded from the plugin's language folders rather than WP_LANG_DIR
+	 * We have to load the language files ourselves.
+	 * 
+	 * We also need to remember to pass the slug/domain to translate() :-)
+	 */
+	function switch_to_locale( $locale ) {
+		$tdl = is_textdomain_loaded( "oik" );
+		$this->assertTrue( $tdl );
+		$switched = switch_to_locale( 'bb_BB' );
+		$this->assertTrue( $switched );
+		$locale = $this->query_la_CY();
+		$this->assertEquals( "bb_BB", $locale );
+		$this->reload_domains();
+		$tdl = is_textdomain_loaded( "oik" );
+		$this->assertTrue( $tdl );
+		//$this->test_domains_loaded();
+		$bw = translate( "bobbingwide", "oik" );
+		$this->assertEquals( "bboibgniwde", $bw );
+	}
+	
+	
+	function reload_domains() {
+		$domains = array( "oik", "oik-libs" );
+		foreach ( $domains as $domain ) {
+			$loaded = bw_load_plugin_textdomain( $domain );
+			$this->assertTrue( $loaded );
+		}
+	}
+	
+	/**
+	 * For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511
+	 */
+	function test_domains_loaded() {
+		//var_dump( debug_backtrace() );
+	
+		global $l10n;
+		//print_r( $l10n );
+		//print_r( $domains );
+	}
+	
 	
 	
 
