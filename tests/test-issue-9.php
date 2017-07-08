@@ -88,12 +88,19 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$actual = bw_ret( BW_::oik_menu_header( __( "Text", "oik" ), "class" ) );
 		$this->assertEquals( $expected, $actual );
 	}
-
+	
+	/**
+	 * 
+	 * Passing no parameters to oik_box() causes a strange translation of a null title to "0" - see TRAC #41257
+	 * So we might as well pass a non-null value and see it being translated; the old way and the new way.
+	 * 
+	 * Note: Here we're using the en_US spelling. The translations should be the same.
+	 */
 	function test_BW_oik_box() {
 		$this->setExpectedDeprecated( "bw_translate" );
 		oik_require( "admin/oik-admin.inc" );
-		$expected = bw_ret( oik_box() );
-		$actual = bw_ret( BW_::oik_box() );
+		$expected = bw_ret( oik_box( "class", "ID", "Behavior when image clicked" ) );
+		$actual = bw_ret( BW_::oik_box( "class", "ID", __( "Behavior when image clicked", "oik" ) ) );
 		$this->assertEquals( $expected, $actual );
 	}
 
