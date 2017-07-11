@@ -359,16 +359,16 @@ function oik_options_do_page() {
  */
 function oik_contact_numbers( $option, $options, $alt0_suffix ) {
   bw_translation_on();
-  $telephone = _bwtnt( "Telephone", " [bw_telephone$alt0_suffix] / [bw_tel$alt0_suffix]" );
-  $mobile = _bwtnt( "Mobile", " [bw_mobile$alt0_suffix] / [bw_mob$alt0_suffix]" );
-  $fax = _bwtnt( "Fax", " [bw_fax$alt0_suffix]" );
-  $emergency = _bwtnt( "Emergency", " [bw_emergency$alt0_suffix]" );
+  $telephone = BW_::bwtnt( __( "Telephone", "oik" ), " [bw_telephone$alt0_suffix] / [bw_tel$alt0_suffix]" );
+  $mobile = BW_::bwtnt( __( "Mobile", "oik" ), " [bw_mobile$alt0_suffix] / [bw_mob$alt0_suffix]" );
+  $fax = BW_::bwtnt( __( "Fax", "oik" ), " [bw_fax$alt0_suffix]" );
+  $emergency = BW_::bwtnt( __( "Emergency", "oik" ), " [bw_emergency$alt0_suffix]" );
   bw_translation_off();
   
-  bw_textfield_arr( $option, $telephone, $options, 'telephone', 50 );
-  bw_textfield_arr( $option, $mobile , $options, 'mobile', 50 );
-  bw_textfield_arr( $option, $fax , $options, 'fax', 50 );
-  bw_textfield_arr( $option, $emergency, $options, 'emergency', 50 ); 
+  BW_::bw_textfield_arr( $option, $telephone, $options, 'telephone', 50 );
+  BW_::bw_textfield_arr( $option, $mobile , $options, 'mobile', 50 );
+  BW_::bw_textfield_arr( $option, $fax , $options, 'fax', 50 );
+  BW_::bw_textfield_arr( $option, $emergency, $options, 'emergency', 50 ); 
   bw_translation_on();   
 } 
 
@@ -384,24 +384,24 @@ function oik_contact_numbers( $option, $options, $alt0_suffix ) {
  * A company would normally display it on letter headings or compliment slips. 
  */
 function oik_company_info( $option, $options ) {  
-  bw_textfield_arr( $option, _bwtnt( "Company", " [bw_company]" ), $options, 'company', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Business", " [bw_business]" ), $options, 'business', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Formal", " [bw_formal]" ), $options, 'formal', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Abbreviation", " [bw_abbr]" ), $options, 'abbr', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Main slogan", " [bw_slogan]" ), $options, 'main-slogan', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Alt. slogan", " [bw_alt_slogan]" ), $options, 'alt-slogan', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Company", "oik" ), " [bw_company]" ), $options, 'company', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Business", "oik" ), " [bw_business]" ), $options, 'business', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Formal", "oik" ), " [bw_formal]" ), $options, 'formal', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Abbreviation", "oik" ), " [bw_abbr]" ), $options, 'abbr', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Main slogan", "oik" ), " [bw_slogan]" ), $options, 'main-slogan', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Alt. slogan", "oik" ), " [bw_alt_slogan]" ), $options, 'alt-slogan', 50 );    
 }
 
 /**
  * Display Contact information 
  */
 function oik_contact_info( $option, $options, $alt0_suffix ) {  
-  bw_textfield_arr( $option, _bwtnt( "Contact", " [bw_contact$alt0_suffix]" ), $options, 'contact', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Email", " [bw_mailto$alt0_suffix]/[bw_email$alt0_suffix]" ), $options, 'email', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Admin", " [bw_admin]" ), $options, 'admin', 50 );    
-  bw_textfield_arr( $option, _bwtnt( "Contact button page permalink", " [bw_contact_button]" ), $options, 'contact-link', 50 );    
-  bw_textfield_arr( $option, "Contact button text", $options, 'contact-text', 50 );    
-  bw_textfield_arr( $option, "Contact button tooltip", $options, 'contact-title', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Contact", "oik" ), " [bw_contact$alt0_suffix]" ), $options, 'contact', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Email", "oik" ), " [bw_mailto$alt0_suffix]/[bw_email$alt0_suffix]" ), $options, 'email', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Admin", "oik" ), " [bw_admin]" ), $options, 'admin', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Contact button page permalink", "oik" ), " [bw_contact_button]" ), $options, 'contact-link', 50 );    
+  BW_::bw_textfield_arr( $option, __( "Contact button text", "oik" ), $options, 'contact-text', 50 );    
+  BW_::bw_textfield_arr( $option, __( "Contact button tooltip", "oik" ), $options, 'contact-title', 50 );    
 }  
   
 /**
@@ -415,16 +415,16 @@ function oik_contact_info( $option, $options, $alt0_suffix ) {
  *  country-name     e.g.  UK 
  */
 function oik_address_info( $option, $options, $alt0_suffix ) {    
-  bw_textfield_arr( $option, _bwtnt( "Extended-address", " [bw_address$alt0_suffix]" ), $options, 'extended-address', 50 );
-  bw_textfield_arr( $option, "Street-address", $options, 'street-address', 50 );
-  bw_textfield_arr( $option, "Locality", $options, 'locality', 50 );
-  bw_textfield_arr( $option, "Region", $options, 'region', 50 );
-  bw_textfield_arr( $option, "Post Code", $options, 'postal-code', 50 );
-  bw_textfield_arr( $option, "Country name", $options, 'country-name', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Extended-address", "oik" ), " [bw_address$alt0_suffix]" ), $options, 'extended-address', 50 );
+  BW_::bw_textfield_arr( $option, __( "Street-address", "oik" ), $options, 'street-address', 50 );
+  BW_::bw_textfield_arr( $option, __( "Locality", "oik" ), $options, 'locality', 50 );
+  BW_::bw_textfield_arr( $option, __( "Region", "oik" ), $options, 'region', 50 );
+  BW_::bw_textfield_arr( $option, __( "Post Code", "oik" ), $options, 'postal-code', 50 );
+  BW_::bw_textfield_arr( $option, __( "Country name", "oik" ), $options, 'country-name', 50 );
   
-  bw_textarea_arr( $option, _bwtnt( "Google Maps introductory text for", " [bw_show_googlemap$alt0_suffix]" ), $options, 'gmap_intro', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Latitude", " [bw_geo$alt0_suffix] [bw_directions$alt0_suffix]" ), $options, 'lat', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Longitude", " [bw_show_googlemap$alt0_suffix]" ), $options, 'long', 50 );
+  BW_::bw_textarea_arr( $option, BW_::bwtnt( __( "Google Maps introductory text for", "oik" ), " [bw_show_googlemap$alt0_suffix]" ), $options, 'gmap_intro', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Latitude", "oik" ), " [bw_geo$alt0_suffix] [bw_directions$alt0_suffix]" ), $options, 'lat', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Longitude", "oik" ), " [bw_show_googlemap$alt0_suffix]" ), $options, 'long', 50 );
 }
 
 /**
@@ -435,20 +435,20 @@ function oik_address_info( $option, $options, $alt0_suffix ) {
  * @param string $alt0_suffix 'alt=' parameter 
  */
 function oik_follow_me( $option, $options, $alt0_suffix ) {
-  bw_textfield_arr( $option, _bwtnt( "Twitter URL", " [bw_twitter$alt0_suffix]" ), $options, 'twitter', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Facebook URL", " [bw_facebook$alt0_suffix]" ), $options, 'facebook', 50 );
-  bw_textfield_arr( $option, _bwtnt( "LinkedIn URL", " [bw_linkedin$alt0_suffix]" ), $options, 'linkedin', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Google Plus URL", " [bw_googleplus$alt0_suffix]" ), $options, 'googleplus', 50 );
-  bw_textfield_arr( $option, _bwtnt( "YouTube URL", " [bw_youtube$alt0_suffix]" ), $options, 'youtube', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Flickr URL", " [bw_flickr$alt0_suffix]" ), $options, 'flickr', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Picasa URL", " [bw_picasa$alt0_suffix]" ), $options, 'picasa', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Pinterest URL", " [bw_pinterest$alt0_suffix]" ), $options, 'pinterest', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Instagram URL", " [bw_instagram$alt0_suffix]" ), $options, 'instagram', 50 );
-  bw_textfield_arr( $option, _bwtnt( "Skype Name", " [bw_skype$alt0_suffix]" ), $options, 'skype', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Twitter URL", "oik" ), " [bw_twitter$alt0_suffix]" ), $options, 'twitter', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Facebook URL", "oik" ), " [bw_facebook$alt0_suffix]" ), $options, 'facebook', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "LinkedIn URL", "oik" ), " [bw_linkedin$alt0_suffix]" ), $options, 'linkedin', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Google Plus URL", "oik" ), " [bw_googleplus$alt0_suffix]" ), $options, 'googleplus', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "YouTube URL", "oik" ), " [bw_youtube$alt0_suffix]" ), $options, 'youtube', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Flickr URL", "oik" ), " [bw_flickr$alt0_suffix]" ), $options, 'flickr', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Picasa URL", "oik" ), " [bw_picasa$alt0_suffix]" ), $options, 'picasa', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Pinterest URL", "oik" ), " [bw_pinterest$alt0_suffix]" ), $options, 'pinterest', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Instagram URL", "oik" ), " [bw_instagram$alt0_suffix]" ), $options, 'instagram', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Skype Name", "oik" ), " [bw_skype$alt0_suffix]" ), $options, 'skype', 50 );
 	
 	// @TODO Decide what shortcode to display, if any " [bw_github$alt0_suffix]"
-	bw_textfield_arr( $option, _bwtnt( "GitHub username", null  ), $options, 'github', 50 );
-	bw_textfield_arr( $option, _bwtnt( "WordPress.org username", null ), $options, 'wordpress', 50 );
+	BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "GitHub username", "oik" ), null  ), $options, 'github', 50 );
+	BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "WordPress.org username", "oik" ), null ), $options, 'wordpress', 50 );
 } 
 
 /**
@@ -531,9 +531,6 @@ function oik_main_shortcode_options() {
   $options['howdy'] = bw_array_get( $options, "howdy", null );
   BW_::bw_textfield_arr( $option, __( "'Howdy,' replacement string", "oik" ), $options, 'howdy', 10 );
 
-  //tablerow( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" />" ); 
-  //bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 
-
   etag( "table" ); 		
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
 	
@@ -549,17 +546,17 @@ function oik_main_shortcode_options() {
 function oik_usage_notes() {
   $alt0_suffix = str_replace( " ", "", _oik_alt0_suffix() );
   oik_require( "includes/oik-sc-help.inc" );
-  p( "Use the shortcodes in your pages, widgets and titles. e.g." );
-  bw_invoke_shortcode( "bw_contact", $alt0_suffix, "Display your contact name" );
-  bw_invoke_shortcode( "bw_telephone", $alt0_suffix, "Display your telephone number." );     
-  bw_invoke_shortcode( "bw_address", $alt0_suffix, "Display your address." );
-  bw_invoke_shortcode( "bw_email", $alt0_suffix, "Display your email address." );
-  bw_invoke_shortcode( "bw_show_googlemap", $alt0_suffix, "Display a Googlemap for your primary address." );
-  bw_invoke_shortcode( "bw_directions", $alt0_suffix, "Display a button for obtaining directions to your address." );
-  bw_invoke_shortcode( "bw_follow_me", $alt0_suffix, "Show all your <b>Follow me</b> buttons" );
-  bw_invoke_shortcode( "bw_follow_me", "$alt0_suffix theme=gener", "Show your <b>Follow me</b> buttons using genericons" );
-  p( "For more information about the shortcodes you can use select <b>Shortcode help</b>" );
-  alink( "button-secondary", admin_url( "admin.php?page=oik_sc_help"), "Shortcode help", "Discover shortcodes you can use" );
+  BW_::p( __( "Use the shortcodes in your pages, widgets and titles. e.g.", "oik" ) );
+  bw_invoke_shortcode( "bw_contact", $alt0_suffix, __( "Display your contact name.", "oik" ) );
+  bw_invoke_shortcode( "bw_telephone", $alt0_suffix, __( "Display your telephone number.", "oik" ) );     
+  bw_invoke_shortcode( "bw_address", $alt0_suffix, __( "Display your address.", "oik" ) );
+  bw_invoke_shortcode( "bw_email", $alt0_suffix, __( "Display your email address.", "oik" ) );
+  bw_invoke_shortcode( "bw_show_googlemap", $alt0_suffix, __( "Display a Googlemap for your primary address.", "oik" ) );
+  bw_invoke_shortcode( "bw_directions", $alt0_suffix, __( "Display a button for obtaining directions to your address.", "oik" ) );
+  bw_invoke_shortcode( "bw_follow_me", $alt0_suffix, __( "Show all your <b>Follow me</b> buttons.", "oik" ) );
+  bw_invoke_shortcode( "bw_follow_me", "$alt0_suffix theme=gener", __( "Show your <b>Follow me</b> buttons using genericons.", "oik" ) );
+  BW_::p( __( "For more information about the shortcodes you can use select <b>Shortcode help</b>", "oik" ) );
+  BW_::alink( "button-secondary", admin_url( "admin.php?page=oik_sc_help"), __( "Shortcode help", "oik" ), __( "Discover shortcodes you can use", "oik" ) );
   bw_flush();
 }
 
