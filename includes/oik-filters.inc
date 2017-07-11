@@ -69,7 +69,7 @@ function bw_replace_filter( $tag, $function_to_replace, $priority=10, $new_funct
 		$wp_hook_object->callbacks[$priority][$function_key]['replaced'] = $function_to_replace;
 		$wp_hook_object->callbacks[$priority][$function_key]['function'] = $new_function;
 		//bw_trace2( $wp_hook_object, "arrgh" );
-		bw_trace2(  $wp_filter[$tag][$priority][$function_key], "unchanged?" );
+		bw_trace2(  $wp_filter[$tag][$priority][$function_key], "unchanged?", false, BW_TRACE_VERBOSE );
 	}	
 }
 
