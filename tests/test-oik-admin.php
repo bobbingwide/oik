@@ -1105,7 +1105,7 @@ $expected[] = '</div>';
 $expected[] = '<h3 class="hndle">Usage notes</h3>';
 $expected[] = '<div class="inside">';
 $expected[] = '<p>Use the shortcodes in your pages, widgets and titles. e.g.</p>';
-$expected[] = '<p>Display your contact name</p>';
+$expected[] = '<p>Display your contact name.</p>';
 $expected[] = '<p>';
 $expected[] = '<code>[bw_contact alt=0]</code>';
 $expected[] = '</p>';
@@ -1168,7 +1168,7 @@ $expected[] = '</p>';
 $expected[] = '<p>';
 $expected[] = '<a class="button " href="http://maps.google.co.uk/maps?f=d&#038;hl=en&#038;daddr=," title="Get directions to Bobbing Wide">Google directions</a>';
 $expected[] = '</p>';
-$expected[] = '<p>Show all your <b>Follow me</b> buttons</p>';
+$expected[] = '<p>Show all your <b>Follow me</b> buttons.</p>';
 $expected[] = '<p>';
 $expected[] = '<code>[bw_follow_me alt=0]</code>';
 $expected[] = '</p>';
@@ -1201,7 +1201,7 @@ $expected[] = '<a href="https://github.com/splurge" title="Follow me on GitHub">
 $expected[] = '<img class="bw_follow " src="http://qw/wordpress/wp-content/plugins/oik/images/github_48.png" title="Follow me on GitHub" alt="Follow me on GitHub"  />';
 $expected[] = '</a>';
 $expected[] = '</p>';
-$expected[] = '<p>Show your <b>Follow me</b> buttons using genericons</p>';
+$expected[] = '<p>Show your <b>Follow me</b> buttons using genericons.</p>';
 $expected[] = '<p>';
 $expected[] = '<code>[bw_follow_me alt=0 theme=gener]</code>';
 $expected[] = '</p>';
@@ -1696,6 +1696,70 @@ $expected[] = '</div>';
 	}
 	
 	
+	
+	/**
+	 * Helps to generate the expected file from actual test output
+	 */
+	function generate_expected_file( $html_array ) {
+		echo PHP_EOL;
+		foreach ( $html_array as $line ) {
+			echo $line;
+			echo PHP_EOL;
+		}
+		$this->prepareFile();
+		//$this->assertFalse( true );
+	}
+	
+	/**
+	 * Switch to the required target language
+	 * 
+	 * switch_to_locale leaves much to be desired when the default language is en_US
+	 * and/or when the translations are loaded from the plugin's language folders rather than WP_LANG_DIR
+	 * We have to load the language files ourselves.
+	 * 
+	 * We also need to remember to pass the slug/domain to translate() :-)
+	 */
+	function switch_to_locale( $locale ) {
+		$tdl = is_textdomain_loaded( "oik" );
+		$this->assertTrue( $tdl );
+		$switched = switch_to_locale( 'bb_BB' );
+		if ( $switched ) {
+			$this->assertTrue( $switched );
+			$locale = $this->query_la_CY();
+			$this->assertEquals( "bb_BB", $locale );
+			$this->reload_domains();
+			$tdl = is_textdomain_loaded( "oik" );
+			$this->assertTrue( $tdl );
+			//$this->test_domains_loaded();
+			$bw = translate( "bobbingwide", "oik" );
+			$this->assertEquals( "bboibgniwde", $bw );
+		}	
+	}
+	
+	
+	function reload_domains() {
+		$domains = array( "oik", "oik-libs" );
+		foreach ( $domains as $domain ) {
+			$loaded = bw_load_plugin_textdomain( $domain );
+			$this->assertTrue( $loaded );
+		}
+	}
+	
+	/**
+	 * For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511
+	 */
+	function test_domains_loaded() {
+		//var_dump( debug_backtrace() );
+	
+		global $l10n;
+		$is_array = is_array( $l10n );
+		$this->assertTrue( $is_array );
+		$count = count( $l10n );
+		$this->assertTrue( $count );
+		//print_r( $l10n );
+		//print_r( $domains );
+	}
+	
 	/**
 	 * We want to ensure that only a few shortcodes are registered
 	 * so we cam fiddle what happens during oik_add_shortcodes
@@ -1724,61 +1788,41 @@ $expected[] = '</div>';
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	
-	/**
-	 * Helps to generate the expected file from actual test output
-	 */
-	function generate_expected_file( $html_array ) {
-		echo PHP_EOL;
-		foreach ( $html_array as $line ) {
-			echo $line;
-			echo PHP_EOL;
-		}
-		$this->prepareFile();
-		//$this->assertFalse( true );
-	}
 	
 	/**
-	 * Switch to the required target language
+	 * Tests oik_themes_do_page for bb_BB
 	 * 
-	 * switch_to_locale leaves much to be desired when the default language is en_US
-	 * and/or when the translations are loaded from the plugin's language folders rather than WP_LANG_DIR
-	 * We have to load the language files ourselves.
 	 * 
-	 * We also need to remember to pass the slug/domain to translate() :-)
+	 * tests oik_themes_server_settings 
+	 * eventually tests oik_lazy_themes_server_settings() - the original display
+	 *
+	 * @TODO Cater for the plugin version
 	 */
-	function switch_to_locale( $locale ) {
-		$tdl = is_textdomain_loaded( "oik" );
-		$this->assertTrue( $tdl );
-		$switched = switch_to_locale( 'bb_BB' );
-		$this->assertTrue( $switched );
-		$locale = $this->query_la_CY();
-		$this->assertEquals( "bb_BB", $locale );
-		$this->reload_domains();
-		$tdl = is_textdomain_loaded( "oik" );
-		$this->assertTrue( $tdl );
-		//$this->test_domains_loaded();
-		$bw = translate( "bobbingwide", "oik" );
-		$this->assertEquals( "bboibgniwde", $bw );
-	}
-	
-	
-	function reload_domains() {
-		$domains = array( "oik", "oik-libs" );
-		foreach ( $domains as $domain ) {
-			$loaded = bw_load_plugin_textdomain( $domain );
-			$this->assertTrue( $loaded );
-		}
-	}
-	
-	/**
-	 * For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511
-	 */
-	function test_domains_loaded() {
-		//var_dump( debug_backtrace() );
-	
-		global $l10n;
-		//print_r( $l10n );
-		//print_r( $domains );
+ function test_oik_themes_do_page_bb_BB() {
+ 
+		$this->switch_to_locale( "bb_BB" );
+		global $bw_registered_themes;
+		$bw_themes = get_option( "bw_themes" );
+		$bw_themes = array( "genesis-oik" => array( "server" => "https://example.com"
+																						, "apikey" => "sampleapikey"
+																						, "expiration" => "no longer relevant"
+																						)
+											);
+		update_option( "bw_themes", $bw_themes );
+		$bw_registered_themes = null;
+		ob_start(); 
+		oik_themes_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_update::oik_get_themes_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 	}
 	
 	
