@@ -876,17 +876,14 @@ function etag__syntax( $shortcode="etag" ) {
  * 
  * @param string $shortcode - name of shortcode
  * @param string $atts - attribute parameters to the shortcode
- * @param string $text - brief description of the shortcode 
+ * @param string $text - translated brief description of the shortcode
  *
  * @uses apply_filters() rather than do_shortcode() since the shortcodes that get invoked
  * may not support the current_filter() - which on an admin page could be oik-options_page_oik_options-1
  * Nearly ALL shortcodes support 'the_content' so we will apply that filter
- * 
- 
- * Now I need to convert all unnecessary calls to bw_add_shortcode_event (or current_filter) to use this function instead **?**
-*/
+ */
 function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
-  p( $text );
+  BW_::p( $text );
   $example = "[$shortcode";
   if ($atts ) 
     $example .= " $atts";
