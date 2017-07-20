@@ -211,7 +211,7 @@ function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
   $alt = str_replace( "0", "", $alt );
   $gmap_intro = bw_get_option_arr( "gmap_intro", "bw_options", $atts );
   if ( $gmap_intro ) {
-    p( bw_do_shortcode( $gmap_intro ) );
+    BW_::p( bw_do_shortcode( $gmap_intro ) );
   }
   $set = "bw_options$alt"; 
   $width = bw_default_empty_att( $width, "width", "100%", $set);

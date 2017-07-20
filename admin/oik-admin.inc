@@ -358,19 +358,26 @@ function oik_options_do_page() {
  * @param string $alt0_suffix - suffix text for shortcode examples
  */
 function oik_contact_numbers( $option, $options, $alt0_suffix ) {
-  bw_translation_on();
+  //bw_translation_on();
   $telephone = BW_::bwtnt( __( "Telephone", "oik" ), " [bw_telephone$alt0_suffix] / [bw_tel$alt0_suffix]" );
   $mobile = BW_::bwtnt( __( "Mobile", "oik" ), " [bw_mobile$alt0_suffix] / [bw_mob$alt0_suffix]" );
-  $fax = BW_::bwtnt( __( "Fax", "oik" ), " [bw_fax$alt0_suffix]" );
-  $emergency = BW_::bwtnt( __( "Emergency", "oik" ), " [bw_emergency$alt0_suffix]" );
-  bw_translation_off();
+  //bw_translation_off();
   
   BW_::bw_textfield_arr( $option, $telephone, $options, 'telephone', 50 );
   BW_::bw_textfield_arr( $option, $mobile , $options, 'mobile', 50 );
+  bw_translation_on();   
+}
+
+/**
+ * Display more telephone numbers
+ */
+function oik_more_contact_numbers( $option, $options, $alt0_suffix ) {
+  $fax = BW_::bwtnt( __( "Fax", "oik" ), " [bw_fax$alt0_suffix]" );
+  $emergency = BW_::bwtnt( __( "Emergency", "oik" ), " [bw_emergency$alt0_suffix]" );
   BW_::bw_textfield_arr( $option, $fax , $options, 'fax', 50 );
   BW_::bw_textfield_arr( $option, $emergency, $options, 'emergency', 50 ); 
-  bw_translation_on();   
-} 
+}
+  
 
 /**
  * Display Company Information
@@ -396,7 +403,6 @@ function oik_company_info( $option, $options ) {
  * Display Contact information 
  */
 function oik_contact_info( $option, $options, $alt0_suffix ) {  
-  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Contact", "oik" ), " [bw_contact$alt0_suffix]" ), $options, 'contact', 50 );    
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Email", "oik" ), " [bw_mailto$alt0_suffix]/[bw_email$alt0_suffix]" ), $options, 'email', 50 );    
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Admin", "oik" ), " [bw_admin]" ), $options, 'admin', 50 );    
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Contact button page permalink", "oik" ), " [bw_contact_button]" ), $options, 'contact-link', 50 );    
@@ -474,8 +480,11 @@ function oik_main_shortcode_options() {
   $option = 'bw_options'; 
   $options = bw_form_start( $option, 'oik_options_options' );
   $alt0_suffix = _oik_alt0_suffix();
-  oik_contact_numbers( $option, $options, $alt0_suffix );
+  oik_contact_numbers( $option, $options, $alt0_suffix );	
+	oik_more_contact_numbers( $option, $options, $alt0_suffix );
   oik_company_info( $option, $options );
+	
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Contact", "oik" ), " [bw_contact$alt0_suffix]" ), $options, 'contact', 50 );    
   oik_contact_info( $option, $options, $alt0_suffix );
   oik_address_info( $option, $options, $alt0_suffix );
 
@@ -566,11 +575,11 @@ function oik_usage_notes() {
  * This page is for additional fields to enable multiple sets of bw_options, with $alt = 1;
 */
 function oik_options_do_page_1() {
-  oik_menu_header( "extra shortcode options", "w60pc" );
-  oik_box( null, null, "alternative values using alt=1", "oik_extra_shortcode_options" );
+  BW_::oik_menu_header( __( "extra shortcode options", "oik" ), "w60pc" );
+  BW_::oik_box( null, null, __( "alternative values using alt=1", "oik" ), "oik_extra_shortcode_options" );
   ecolumn();
   scolumn( "w40pc" );
-  oik_box( null, null, "usage notes", "oik_extra_usage_notes" );
+  BW_::oik_box( null, null, __( "usage notes", "oik" ), "oik_extra_usage_notes" );
   oik_menu_footer();
   bw_flush();
 }
@@ -582,26 +591,35 @@ function oik_extra_shortcode_options() {
   $alt = "1";
   $option = "bw_options$alt";
   $options = bw_form_start( $option, "oik_options_options$alt" );
+  $alt1_suffix = " alt=1";
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Contact", "oik" ), " [bw_contact$alt1_suffix]" ), $options, 'contact', 50 );    
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Email", "oik" ), " [bw_mailto$alt1_suffix]/[bw_email$alt1_suffix]" ), $options, 'email', 50 );    
   
   /* We can't use the function blocks until they support the shortcode parameter suffix " alt=1" */ 
+  oik_contact_numbers( $option, $options, $alt1_suffix );
+  //oik_contact_info( $option, $options, $alt1_suffix );
+  oik_address_info( $option, $options, $alt1_suffix );
 
-  bw_textfield_arr( $option, "Contact [bw_contact alt=1]", $options, 'contact', 50 );
-  bw_textfield_arr( $option, "Email [bw_email alt=1]", $options, 'email', 50 );
-  bw_textfield_arr( $option, "Telephone [bw_telephone alt=1]", $options, 'telephone', 50 );
-  bw_textfield_arr( $option, "Mobile [bw_mobile alt=1]", $options, 'mobile', 50 );
+	
+	/*
+  BW_::bw_textfield_arr( $option, "Email [bw_email alt=1]", $options, 'email', 50 );
+	
+  BW_::bw_textfield_arr( $option, "Telephone [bw_telephone alt=1]", $options, 'telephone', 50 );
+  BW_::bw_textfield_arr( $option, "Mobile [bw_mobile alt=1]", $options, 'mobile', 50 );
+	
+
   
-  bw_textfield_arr( $option, "Extended-address [bw_address alt=1]", $options, 'extended-address', 50 );
-  bw_textfield_arr( $option, "Street-address", $options, 'street-address', 50 );
-  bw_textfield_arr( $option, "Locality", $options, 'locality', 50 );
-  bw_textfield_arr( $option, "Region", $options, 'region', 50 );
-  bw_textfield_arr( $option, "Post Code", $options, 'postal-code', 50 );
-  bw_textfield_arr( $option, "Country name", $options, 'country-name', 50 );
+  BW_::bw_textfield_arr( $option, "Extended-address [bw_address alt=1]", $options, 'extended-address', 50 );
+  BW_::bw_textfield_arr( $option, "Street-address", $options, 'street-address', 50 );
+  BW_::bw_textfield_arr( $option, "Locality", $options, 'locality', 50 );
+  BW_::bw_textfield_arr( $option, "Region", $options, 'region', 50 );
+  BW_::bw_textfield_arr( $option, "Post Code", $options, 'postal-code', 50 );
+  BW_::bw_textfield_arr( $option, "Country name", $options, 'country-name', 50 );
   
-  bw_textarea_arr( $option, "Google Maps introductory text for [bw_show_googlemap alt=1]", $options, 'gmap_intro', 50 );
-  bw_textfield_arr( $option, "Latitude [bw_geo alt=1] [bw_directions alt=1]", $options, 'lat', 50 );
-  bw_textfield_arr( $option, "Longitude [bw_show_googlemap alt=1]", $options, 'long', 50 );
- 
-  //bw_tablerow( array( "", "<input type=\"submit\" name=\"ok\" value=\"Save changes\" class=\"button-primary\"/>") ); 
+  BW_::bw_textarea_arr( $option, "Google Maps introductory text for [bw_show_googlemap alt=1]", $options, 'gmap_intro', 50 );
+  BW_::bw_textfield_arr( $option, "Latitude [bw_geo alt=1] [bw_directions alt=1]", $options, 'lat', 50 );
+  BW_::bw_textfield_arr( $option, "Longitude [bw_show_googlemap alt=1]", $options, 'long', 50 );
+ 	*/
   etag( "table" ); 
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
   etag( "form" );
@@ -613,13 +631,13 @@ function oik_extra_shortcode_options() {
  */
 function oik_extra_usage_notes() {
   oik_require( "includes/oik-sc-help.inc" );
-  p( "Use the shortcodes in your pages, widgets and titles. e.g." );
-  bw_invoke_shortcode( "bw_contact", "alt=1", "Display your alternative contact name." );
-  bw_invoke_shortcode( "bw_email", "alt=1 prefix=e-mail", "Display your alternative email address, with a prefix of 'e-mail'." );
-  bw_invoke_shortcode( "bw_telephone", "alt=1", "Display your alternative telephone number." );
-  bw_invoke_shortcode( "bw_address", "alt=1", "Display your alternative address." );
-  bw_invoke_shortcode( "bw_show_googlemap", "alt=1", "Display a Googlemap for your alternative address." );
-  bw_invoke_shortcode( "bw_directions", "alt=1", "Display directions to the alternative address." );
+  BW_::p( __( "Use the shortcodes in your pages, widgets and titles. e.g.", "oik" ) );
+  bw_invoke_shortcode( "bw_contact", "alt=1",__( "Display your alternative contact name.", "oik" ) );
+  bw_invoke_shortcode( "bw_email", "alt=1 prefix=e-mail", __( "Display your alternative email address, with a prefix of 'e-mail'.", "oik" ) );
+  bw_invoke_shortcode( "bw_telephone", "alt=1", __( "Display your alternative telephone number.", "oik" ) );
+  bw_invoke_shortcode( "bw_address", "alt=1", __( "Display your alternative address.", "oik" ) );
+  bw_invoke_shortcode( "bw_show_googlemap", "alt=1", __("Display a Googlemap for your alternative address.", "oik" ) );
+  bw_invoke_shortcode( "bw_directions", "alt=1", __( "Display directions to the alternative address.", "oik" ) );
   bw_flush();
 }
 
@@ -765,16 +783,16 @@ function oik_load_plugins() {
 */ 
 function oik_help_do_page() {
   do_action( "oik_add_shortcodes" );
-  oik_menu_header( "shortcode help", "w95pc" );
-  oik_box( null, null, "About shortcodes", "oik_code_about" );
+  BW_::oik_menu_header( __( "shortcode help", "oik" ), "w95pc" );
+  BW_::oik_box( null, null, __( "About shortcodes", "oik" ), "oik_code_about" );
   
   $shortcode = bw_array_get( $_REQUEST, "code", null );
   if ( $shortcode ) {
-    oik_box( null, null, "$shortcode - more information", "oik_code_example" );
-    oik_box( null, null, "$shortcode - snippet", "oik_code_snippet" ); 
+    BW_::oik_box( null, null, sprintf( __( '%1$s - more information', 'oik' ), $shortcode ), "oik_code_example" );
+    BW_::oik_box( null, null, sprintf( __( '%1$s - snippet', 'oik' ), $shortcode ), "oik_code_snippet" ); 
   }
   oik_require( "shortcodes/oik-codes.php" );
-  oik_box( null, null, "Shortcode summary", "oik_code_table" );
+  BW_::oik_box( null, null, __( "Shortcode summary", "oik" ), "oik_code_table" );
   oik_menu_footer();
   bw_flush();
 }  
@@ -783,10 +801,10 @@ function oik_help_do_page() {
  * Display the introduction to oik shortcode help
  */
 function oik_code_about() {
-  p( "This page lists all the currently active shortcodes. To find out more information about a shortcode click on the shortcode name in the Help column." );
-  p( "Depending on how the shortcode is implemented you will either be shown some more information with one or more examples, or an 'oik generated example.' "); 
-  p( "You will also be shown the HTML snippet for the example. There should be no need to do anything with this output." );
-  p( "For further information on a shortcode or its parameters click on the links in the Syntax column." );
+  BW_::p( __( "This page lists all the currently active shortcodes. To find out more information about a shortcode click on the shortcode name in the Help column.", "oik" ) );
+  BW_::p( __( "Depending on how the shortcode is implemented you will either be shown some more information with one or more examples, or an 'oik generated example.'", "oik" ) ); 
+  BW_::p( __( "You will also be shown the HTML snippet for the example. There should be no need to do anything with this output.", "oik" ) );
+  BW_::p( __( "For further information on a shortcode or its parameters click on the links in the Syntax column.", "oik" ) );
 }
 
 /** 

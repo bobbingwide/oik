@@ -169,10 +169,9 @@ function bw_help_table( $table=true ) {
     stag( "table", "widefat" );   
     stag( "thead" ); 
     stag( "tr" );
-    th( "Help" );
-    th( "Syntax" );
-    th( "Expands in titles?" );
-    //th( "more oik help" );
+    bw_th( __( "Help", "oik" ) );
+    bw_th( __( "Syntax", "oik" ) );
+    bw_th( __( "Expands in titles?", "oik" ) );
     etag( "tr" );
     etag( "thead" );
  

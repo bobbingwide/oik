@@ -10,10 +10,12 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	 * set up logic
 	 * 
 	 * - ensure any database updates are rolled back
+	 * - The oik plugin must be activated!
 	 */
 	function setUp() {
 		parent::setUp();
 	}
+	
 	
 	/**
    * Specifically to test issue #72	-	bw_get_option_arr() should return the parameter value from $atts if set

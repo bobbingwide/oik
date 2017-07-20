@@ -34,7 +34,10 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	/**
 	 * This test should return "0" until WordPress TRAC #41257 is fixed
 	 * or while the oik language file contains a translation for "0"
-	 *
+	 * 
+	 * @requires function checkiftranslationexists
+	 * 
+	 * @TODO 
 	 */
 	function test_bw_translate_null() {
 		$this->setExpectedDeprecated( "bw_translate" );
@@ -47,6 +50,7 @@ class Tests_bw_translate extends BW_UnitTestCase {
 		}
 		$this->assertEquals( $expected, $actual );
 	}
+	
 	
 	function test_bw_translate_bobbingwide() {
 		$this->setExpectedDeprecated( "bw_translate" );
