@@ -61,16 +61,17 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	/**
 	 * Note: This function could fail if there is no nonce in the output
 	 */
-	function replace_nonce_with_nonsense( $expected_array ) {
+	function replace_nonce_with_nonsense( $expected_array, $id="_wpnonce", $name="_wpnonce" ) {
 		$found = false;
+		$needle = '<input type="hidden" id="'. $id . '" name="' . $name . '" value="';
 		foreach ( $expected_array as $index => $line ) {
-			$pos = strpos( $line, '<input type="hidden" id="_wpnonce" name="_wpnonce" value="' );
+			$pos = strpos( $line, $needle );
 			if ( false !== $pos ) {
-				$expected_array[ $index ] = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />';
+				$expected_array[ $index ] = $needle. 'nonsense" />';
 				$found = true;
 			}
 		}
-		$this->assertTrue( $found, "No nonce found in expected array" );
+		$this->assertTrue( $found, "No nonce id=$id name=$name found in expected array" );
 		return $expected_array;
 	}
 	
@@ -366,13 +367,14 @@ $expected[] = '</form>';
 	 * @TODO Test oik_enqueue_scripts() separately
 	 */
 	function test_oik_menu_header() {
-	
 		$this->setExpectedDeprecated( "bw_translate" );
 	 	oik_menu_header( "Menu header title", "menu header class" );
 		$html = bw_ret();
 		$html_array = $this->tag_break( $html );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
 		//$this->generate_expected( $html_array );
     $expected = array();
+		$expected[] = '<input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />';
 		$expected[] = '<div class="wrap">';
 		$expected[] = '<h2>Menu header title</h2>';
 		$expected[] = '<div class="metabox-holder">';
@@ -435,18 +437,22 @@ $expected[] = '</form>';
 		
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
-		//$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+    $expected = array();
     //$this->generate_expected( $html_array );
 $expected = array();
+$expected[] = '<input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />';
 $expected[] = '<div class="wrap">';
 $expected[] = '<h2>plugin server settings</h2>';
 $expected[] = '<div class="metabox-holder">';
 $expected[] = '<div class="postbox-container w100pc">';
 $expected[] = '<div class="meta-box-sortables ui-sortable">';
 $expected[] = '<div class="postbox " id="oik_plugins_settings">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '<br />';
-$expected[] = '</div>';
+$expected[] = '<button type="button" class="handlediv" aria-expanded="true">';
+$expected[] = '<span class="screen-reader-text">Toggle panel: Settings</span>';
+$expected[] = '<span class="toggle-indicator" aria-hidden="true">';
+$expected[] = '</span>';
+$expected[] = '</button>';
 $expected[] = '<h3 class="hndle">Settings</h3>';
 $expected[] = '<div class="inside">';
 $expected[] = '<p>The default oik plugins server is currently set to: <a href="http://qw/oikcom" title="default oik plugins server">http://qw/oikcom</a>';
@@ -520,18 +526,23 @@ $expected[] = '</div>';
 		
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
-		//$html_array = $this->replace_nonce_with_nonsense( $html_array );
     //$this->generate_expected( $html_array );
+		
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+    $expected = array();
 $expected = array();
+$expected[] = '<input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />';
 $expected[] = '<div class="wrap">';
 $expected[] = '<h2>theme server settings</h2>';
 $expected[] = '<div class="metabox-holder">';
 $expected[] = '<div class="postbox-container w100pc">';
 $expected[] = '<div class="meta-box-sortables ui-sortable">';
 $expected[] = '<div class="postbox " id="oik_themes_settings">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '<br />';
-$expected[] = '</div>';
+$expected[] = '<button type="button" class="handlediv" aria-expanded="true">';
+$expected[] = '<span class="screen-reader-text">Toggle panel: Settings</span>';
+$expected[] = '<span class="toggle-indicator" aria-hidden="true">';
+$expected[] = '</span>';
+$expected[] = '</button>';
 $expected[] = '<h3 class="hndle">Settings</h3>';
 $expected[] = '<div class="inside">';
 $expected[] = '<p>The default oik themes server is currently set to: <a href="http://qw/oikcom" title="default oik themes server">http://qw/oikcom</a>';
@@ -605,17 +616,22 @@ $expected[] = '</div>';
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
-    //$this->generate_expected( $html_array );
+		
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+    $expected = array();
 $expected = array();
+$expected[] = '<input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />';
 $expected[] = '<div class="wrap">';
 $expected[] = '<h2>shortcode options</h2>';
 $expected[] = '<div class="metabox-holder">';
 $expected[] = '<div class="postbox-container w60pc">';
 $expected[] = '<div class="meta-box-sortables ui-sortable">';
 $expected[] = '<div class="postbox " id="oik_main_shortcode_options">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '<br />';
-$expected[] = '</div>';
+$expected[] = '<button type="button" class="handlediv" aria-expanded="true">';
+$expected[] = '<span class="screen-reader-text">Toggle panel: Often included key information</span>';
+$expected[] = '<span class="toggle-indicator" aria-hidden="true">';
+$expected[] = '</span>';
+$expected[] = '</button>';
 $expected[] = '<h3 class="hndle">Often included key information</h3>';
 $expected[] = '<div class="inside">';
 $expected[] = '<form method="post" action="options.php">';
@@ -1088,20 +1104,21 @@ $expected[] = '<input type="submit" name="ok" value="Save changes" class="button
 $expected[] = '</form>';
 $expected[] = '</div>';
 $expected[] = '</div>';
-$expected[] = '<p>';
 $expected[] = '<!--start ecolumn-->';
 $expected[] = '</div>';
 $expected[] = '</div>';
 $expected[] = '</div>';
-$expected[] = '<p>';
 $expected[] = '<!--end ecolumn-->';
-$expected[] = '</p>';
 $expected[] = '<div class="metabox-holder">';
 $expected[] = '<div class="postbox-container w40pc">';
 $expected[] = '<div class="meta-box-sortables ui-sortable">';
 $expected[] = '<div class="postbox " id="oik_usage_notes">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '</div>';
+
+$expected[] = '<button type="button" class="handlediv" aria-expanded="true">';
+$expected[] = '<span class="screen-reader-text">Toggle panel: Usage notes</span>';
+$expected[] = '<span class="toggle-indicator" aria-hidden="true">';
+$expected[] = '</span>';
+$expected[] = '</button>';
 $expected[] = '<h3 class="hndle">Usage notes</h3>';
 $expected[] = '<div class="inside">';
 $expected[] = '<p>Use the shortcodes in your pages, widgets and titles. e.g.</p>';
@@ -1279,226 +1296,17 @@ $expected[] = '</div>';
 		// @TODO Implement nonce checking ?
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
 		$html_array = $this->replace_antispambot( $html_array );
-    //$this->generate_expected( $html_array );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+		//$this->generate_expected( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 		
-$expected = array();
-$expected[] = '<div class="wrap">';
-$expected[] = '<h2>extra shortcode options</h2>';
-$expected[] = '<div class="metabox-holder">';
-$expected[] = '<div class="postbox-container w60pc">';
-$expected[] = '<div class="meta-box-sortables ui-sortable">';
-$expected[] = '<div class="postbox " id="oik_extra_shortcode_options">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '<br />';
-$expected[] = '</div>';
-$expected[] = '<h3 class="hndle">alternative values using alt=1</h3>';
-$expected[] = '<div class="inside">';
-$expected[] = '<form method="post" action="options.php">';
-$expected[] = '<table class="form-table">';
-$expected[] = '<input type=\'hidden\' name=\'option_page\' value=\'oik_options_options1\' />';
-$expected[] = '<input type="hidden" name="action" value="update" />';
-$expected[] = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />';
-$expected[] = '<input type="hidden" name="_wp_http_referer" value="/" />';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[contact]">Contact [bw_contact alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[contact]" id="bw_options1[contact]" value="herbt internet" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[email]">Email [bw_email alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[email]" id="bw_options1[email]" value="herb_miller@btinternet.com" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[telephone]">Telephone [bw_telephone alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[telephone]" id="bw_options1[telephone]" value="45465" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[mobile]">Mobile [bw_mobile alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[mobile]" id="bw_options1[mobile]" value="" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[extended-address]">Extended-address [bw_address alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[extended-address]" id="bw_options1[extended-address]" value="La Lumiere" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[street-address]">Street-address</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[street-address]" id="bw_options1[street-address]" value="Les Grandes Vignes" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[locality]">Locality</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[locality]" id="bw_options1[locality]" value="Merindol les Oliviers" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[region]">Region</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[region]" id="bw_options1[region]" value="Drome" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[postal-code]">Post Code</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[postal-code]" id="bw_options1[postal-code]" value="26170" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[country-name]">Country name</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[country-name]" id="bw_options1[country-name]" value="France" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[gmap_intro]">Google Maps introductory text for [bw_show_googlemap alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<textarea rows="5" cols="50" name="bw_options1[gmap_intro]">This Google map shows you where [bw_company] is located</textarea>';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[lat]">Latitude [bw_geo alt=1] [bw_directions alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[lat]" id="bw_options1[lat]" value="44.267467" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_options1[long]">Longitude [bw_show_googlemap alt=1]</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="text" size="50"name="bw_options1[long]" id="bw_options1[long]" value="5.161042" class="" />';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '</table>';
-$expected[] = '<input type="submit" name="ok" value="Save changes" class="button-primary" />';
-$expected[] = '</form>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<p>';
-$expected[] = '<!--start ecolumn-->';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<p>';
-$expected[] = '<!--end ecolumn-->';
-$expected[] = '</p>';
-$expected[] = '<div class="metabox-holder">';
-$expected[] = '<div class="postbox-container w40pc">';
-$expected[] = '<div class="meta-box-sortables ui-sortable">';
-$expected[] = '<div class="postbox " id="oik_extra_usage_notes">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '</div>';
-$expected[] = '<h3 class="hndle">usage notes</h3>';
-$expected[] = '<div class="inside">';
-$expected[] = '<p>Use the shortcodes in your pages, widgets and titles. e.g.</p>';
-$expected[] = '<p>Display your alternative contact name.</p>';
-$expected[] = '<p>';
-$expected[] = '<code>[bw_contact alt=1]</code>';
-$expected[] = '</p>';
-$expected[] = '<p>';
-$expected[] = '<span class="vcard">';
-$expected[] = '<span class="fn">herbt internet</span>';
-$expected[] = '</span>';
-$expected[] = '</p>';
-$expected[] = '<p>Display your alternative email address, with a prefix of &#8216;e-mail&#8217;.</p>';
-$expected[] = '<p>';
-$expected[] = '<code>[bw_email alt=1 prefix=e-mail]</code>';
-$expected[] = '</p>';
-$expected[] = '<p>';
-$expected[] = '<span class="email">e-mail: <a href="mailto:email@example.com" title="Send email to: herb_miller@btinternet.com">herb_miller@btinternet.com</a>';
-$expected[] = '</span>';
-$expected[] = '</p>';
-$expected[] = '<p>Display your alternative telephone number.</p>';
-$expected[] = '<p>';
-$expected[] = '<code>[bw_telephone alt=1]</code>';
-$expected[] = '</p>';
-$expected[] = '<div class="tel ">';
-$expected[] = '<span class="type">Tel</span>';
-$expected[] = '<span class="sep">: </span>';
-$expected[] = '<span class="value">45465</span>';
-$expected[] = '</div>';
-$expected[] = '<p>Display your alternative address.</p>';
-$expected[] = '<p>';
-$expected[] = '<code>[bw_address alt=1]</code>';
-$expected[] = '</p>';
-$expected[] = '<div class="adr bw_address">';
-$expected[] = '<div class="type">Work</div>';
-$expected[] = '<div class="extended-address">La Lumiere</div>';
-$expected[] = '<div class="street-address">Les Grandes Vignes</div>';
-$expected[] = '<div class="locality">Merindol les Oliviers</div>';
-$expected[] = '<div class="region">Drome</div>';
-$expected[] = '<div class="postal-code">26170</div>';
-$expected[] = '<p>';
-$expected[] = '<span class="country-name">France</span>';
-$expected[] = '</div>';
-$expected[] = '<p>Display a Googlemap for your alternative address.</p>';
-$expected[] = '<p>';
-$expected[] = '<code>[bw_show_googlemap alt=1]</code>';
-$expected[] = '</p>';
-$expected[] = '<p>This Google map shows you where <span class="company">Bobbing Wide</span> is located</p>';
-$expected[] = '<p>';
-$expected[] = '<script type="text/javascript">function initialize3() {var latlng = new google.maps.LatLng(44.267467,5.161042);var myOptions = { zoom: 12, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP };var map = new google.maps.Map(document.getElementById("bw_map_canvas3"), myOptions); var marker = new google.maps.Marker({ position: latlng, title:"26170"});marker.setMap( map );var contentString = \' 26170\';var infowindow = new google.maps.InfoWindow({ content: contentString });infowindow.open( map, marker );initialize2();}window.onload=initialize3;</script>';
-$expected[] = '</p>';
-$expected[] = '<div class="bw_map_canvas" id="bw_map_canvas3" style="min-height: 200px; width:100%; height:400px;">';
-$expected[] = '</div>';
-$expected[] = '<p>Display directions to the alternative address.</p>';
-$expected[] = '<p>';
-$expected[] = '<code>[bw_directions alt=1]</code>';
-$expected[] = '</p>';
-$expected[] = '<p>';
-$expected[] = '<a class="button " href="http://maps.google.co.uk/maps?f=d&#038;hl=en&#038;daddr=44.267467,5.161042" title="Get directions to  - La Lumiere - 26170">Google directions</a>';
-$expected[] = '</p>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<!--start ecolumn-->';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<!--end ecolumn-->';
-$expected[] = '<div class="clear">';
-$expected[] = '</div>';
-$expected[] = '</div>';
-		$this->assertEquals( $expected, $html_array );
 	}
 	
 	
 	/**
 	 * We want to ensure that only a few shortcodes are registered
-	 * so we cam fiddle what happens during oik_add_shortcodes
+	 * so we can fiddle what happens during oik_add_shortcodes
 	 * - removing all shortcodes except bw
 	 *
 	 * We need to set $_REQUEST['code'] to that shortcode
@@ -1517,67 +1325,10 @@ $expected[] = '</div>';
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking ?
 		//$html_array = $this->replace_nonce_with_nonsense( $html_array );
-    //$this->generate_expected( $html_array );
 		
-		
-$expected = array();
-$expected[] = '<div class="wrap">';
-$expected[] = '<h2>shortcode help</h2>';
-$expected[] = '<div class="metabox-holder">';
-$expected[] = '<div class="postbox-container w95pc">';
-$expected[] = '<div class="meta-box-sortables ui-sortable">';
-$expected[] = '<div class="postbox " id="oik_code_about">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '<br />';
-$expected[] = '</div>';
-$expected[] = '<h3 class="hndle">About shortcodes</h3>';
-$expected[] = '<div class="inside">';
-$expected[] = '<p>This page lists all the currently active shortcodes. To find out more information about a shortcode click on the shortcode name in the Help column.</p>';
-$expected[] = '<p>Depending on how the shortcode is implemented you will either be shown some more information with one or more examples, or an \'oik generated example.\' </p>';
-$expected[] = '<p>You will also be shown the HTML snippet for the example. There should be no need to do anything with this output.</p>';
-$expected[] = '<p>For further information on a shortcode or its parameters click on the links in the Syntax column.</p>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<div class="postbox " id="oik_code_table">';
-$expected[] = '<div class="handlediv"  title="Click to toggle">';
-$expected[] = '<br />';
-$expected[] = '</div>';
-$expected[] = '<h3 class="hndle">Shortcode summary</h3>';
-$expected[] = '<div class="inside">';
-$expected[] = '<table class="widefat">';
-$expected[] = '<thead>';
-$expected[] = '<tr>';
-$expected[] = '<th>Help</th>';
-$expected[] = '<th>Syntax</th>';
-$expected[] = '<th>Expands in titles?</th>';
-$expected[] = '</tr>';
-$expected[] = '</thead>';
-$expected[] = '<tbody>';
-$expected[] = '<tr>';
-$expected[] = '<td>bw - Expand to the logo for Bobbing Wide</td>';
-$expected[] = '<td>';
-$expected[] = '<code>[<a href="http://qw/oikcom/oik-shortcodes/bw/bw_bw" title="bw help">bw</a>';
-$expected[] = '<br />';
-$expected[] = '<span class="key">';
-$expected[] = '<a href="http://qw/oikcom/oik_sc_param/bw-cp-parameter" title="bw cp parameter">cp</a>';
-$expected[] = '</span>=<span class="value">"<b>';
-$expected[] = '</b>| h - Class name prefix"</span>]</code>';
-$expected[] = '</td>';
-$expected[] = '<td>Yes</td>';
-$expected[] = '</tr>';
-$expected[] = '</tbody>';
-$expected[] = '</table>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<!--start ecolumn-->';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<!--end ecolumn-->';
-$expected[] = '<div class="clear">';
-$expected[] = '</div>';
-$expected[] = '</div>';
-	$this->assertEquals( $expected, $html_array );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+    //$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 	}
 	
 	function remove_most_shortcodes() {
@@ -1725,6 +1476,7 @@ $expected[] = '</div>';
 		$switched = switch_to_locale( 'bb_BB' );
 		if ( $switched ) {
 			$this->assertTrue( $switched );
+		}
 			$locale = $this->query_la_CY();
 			$this->assertEquals( "bb_BB", $locale );
 			$this->reload_domains();
@@ -1733,7 +1485,7 @@ $expected[] = '</div>';
 			//$this->test_domains_loaded();
 			$bw = translate( "bobbingwide", "oik" );
 			$this->assertEquals( "bboibgniwde", $bw );
-		}	
+			
 	}
 	
 	
@@ -1741,7 +1493,7 @@ $expected[] = '</div>';
 		$domains = array( "oik", "oik-libs" );
 		foreach ( $domains as $domain ) {
 			$loaded = bw_load_plugin_textdomain( $domain );
-			$this->assertTrue( $loaded );
+			$this->assertTrue( $loaded, "$domain not loaded" );
 		}
 	}
 	
@@ -1755,7 +1507,8 @@ $expected[] = '</div>';
 		$is_array = is_array( $l10n );
 		$this->assertTrue( $is_array );
 		$count = count( $l10n );
-		$this->assertTrue( $count );
+		$more_than_one = $count > 1;
+		$this->assertTrue( $more_than_one );
 		//print_r( $l10n );
 		//print_r( $domains );
 	}
@@ -1784,6 +1537,8 @@ $expected[] = '</div>';
 		
 		// file will be tests/data/bb_BB/test_oik_help_do_page_bb_BB.html
 		//Failed asserting that file "tests/data/bb_BB/test_oik_help_do_page_bb_BB.html" exists.
+		
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
@@ -1822,6 +1577,35 @@ $expected[] = '</div>';
 		$this->assertNotNull( $html_array );
 		
 		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Tests oik_options_do_page_1 for bb_BB locale
+	 *
+	 * Tests: 
+	 * oik_extra_shortcode_options
+	 * oik_extra_usage_notes
+	 */
+	function test_oik_options_do_page_1_bb_BB() {
+		do_action( "oik_add_shortcodes" );
+	
+		$this->switch_to_locale( "bb_BB" );
+		ob_start(); 
+		oik_options_do_page_1();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		// @TODO Implement nonce checking ?
+		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		$this->generate_expected_file( $html_array );
+		$html_array = $this->replace_antispambot( $html_array );
+    //$this->generate_expected( $html_array );
+		
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	

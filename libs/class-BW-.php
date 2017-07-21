@@ -58,14 +58,17 @@ class BW_ {
 
 	/**
 	 * Outputs a menu header
-	 * 
+	 *
 	 * Note: Completely removed the link to oik  
+	 *
+	 * @TODO Remove the nonce if #41387 is implemented and we don't still don't want the status of the post boxes to persist.
 	 *
 	 * @param string $title - title for the box
 	 * @param string $class - class for the box 
 	 */
 	static function oik_menu_header( $title="Overview", $class="w70pc" ) {
 		oik_enqueue_scripts();
+		e( wp_nonce_field( "closedpostboxes", "closedpostboxesnonce", false, false ) );
 		sdiv( "wrap" ); 
 		h2( $title ); 
 		scolumn( $class );
@@ -84,14 +87,26 @@ class BW_ {
 			$id = $callback;
 		}  
 		sdiv( "postbox $class", $id );
-		sdiv( "handlediv", null, kv( 'title', __( "Click to toggle" ) ) );
-		br();
-		ediv();
+		self::oik_handlediv( $title );
 		h3( $title, "hndle" );
 		sdiv( "inside" );
 		call_user_func( $callback );
 		ediv( "inside" );
 		ediv( "postbox" );
+	}
+
+	/**
+	 * Displays the toggle button for the postbox
+	 * 
+	 * @param string $title - translated title
+	 */
+	static function oik_handlediv( $title ) {
+		$title = sprintf( __( 'Toggle panel: %s' ), $title );
+		e( '<button type="button" class="handlediv" aria-expanded="true">' );
+		e( '<span class="screen-reader-text">' . $title . '</span>' );
+		e( '<span class="toggle-indicator" aria-hidden="true">' );
+		e( '</span>' );
+		e( '</button>' );
 	}
 
 	/**
