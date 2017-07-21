@@ -32,23 +32,21 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * This test should return "0" until WordPress TRAC #41257 is fixed
-	 * or while the oik language file contains a translation for "0"
+	 * Confirms the behavior of translate against a null string
 	 * 
-	 * @requires function checkiftranslationexists
-	 * 
-	 * @TODO 
+	 * - This test copied from my patch to /svn/wordpress-develop/phpunit/tests/pomo/translations.php
+	 * - This test should return "0=zero" until WordPress TRAC #41257 is fixed.
+	 * - Once implemented the assertions will need changing.
+	 * - OR the test can be removed if it's implemented in core.
 	 */
-	function test_bw_translate_null() {
-		$this->setExpectedDeprecated( "bw_translate" );
-		$actual = bw_translate( null );
-		
-		$locale = is_admin() ? get_user_locale() : get_locale();
-		$expected = "0";
-		if ( $locale == "en_US" ) {
-			$expected = "";
-		}
-		$this->assertEquals( $expected, $actual );
+	function test_41257_translate_null_returns_translation_of_0() {
+		$entry_digit_0 = new Translation_Entry( array('singular' => '0', 'translations' => array('0=zero') ) );
+		$domain = new Translations();
+		$domain->add_entry( $entry_digit_0 );
+		$this->assertEquals( '0=zero', $domain->translate( "0" ) );
+		$this->assertEquals( '0=zero', $domain->translate( null ) );
+		$this->assertEquals( '0=zero', $domain->translate( "" ) );
+		$this->assertEquals( '0=zero', $domain->translate( 0 ) );
 	}
 	
 	
