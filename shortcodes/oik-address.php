@@ -1,12 +1,15 @@
-<?php // (C) Copyright Bobbing Wide 2011-2013
+<?php // (C) Copyright Bobbing Wide 2011-2017
 
 /**
  * Implement [bw_address] shortcode to display an address using Microformats
  * 
- * 
+ * @param array $atts shortcode parameters
+ * @param string $content not expected
+ * @param string $tag shortcode tag
+ * @return string generated HTML
  */
 function bw_address( $atts=null, $content=null, $tag=null ) {
-  $type = bw_array_get( $atts, "type", "Work" );
+  $type = bw_array_get( $atts, "type", __( "Work", "oik" ) );
   sdiv("adr bw_address" );
     sdiv("type");
     e( $type );
