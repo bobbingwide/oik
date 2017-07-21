@@ -500,6 +500,8 @@ function h6( $text, $class=NULL, $id=NULL ) {
  * Within functions where the $text parameter is translatable use:
  *   e( bw_translate( $text ) )
  * 
+ * Note: This function will be deprecated.
+ * 
  */  
 function bwt( $text=NULL ) {
   global $bbboing;  
@@ -512,11 +514,14 @@ function bwt( $text=NULL ) {
 }
 
 /**
- * @func e for bw_echo( if not NULL
+ * Outputs some translated / non-translatable text
+ * 
+ * @param string $text any translated text or non translatable HTML
  */
 function e( $text = NULL ) {
-  if ( !is_null( $text ))
-    bw_echo( $text );
+	if ( !is_null( $text )) {
+		bw_echo( $text );
+	}
 }
 
 /** 
