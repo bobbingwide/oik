@@ -462,7 +462,8 @@ function bw_oik_add_shortcodes_loaded() {
   //add_filter('get_pages', 'do_shortcode' );
   add_filter( "oik_do_shortcode", "oik_do_shortcode", 0 );
   add_action( "oik_add_shortcodes", "bw_oik_add_shortcodes" );
-  add_filter('widget_text', 'do_shortcode');
+	add_filter('widget_custom_html_content', 'do_shortcode' );
+  add_filter('widget_text', 'do_shortcode' );
   add_filter('the_title', 'do_shortcode' ); 
   //add_filter('wpbody-content', 'do_shortcode' );
   add_filter('wp_footer', 'do_shortcode' );
