@@ -895,7 +895,9 @@ function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
   ep();
   //p( $example );
 	$saved = bw_global_post();
+  bw_push();
   $expanded = apply_filters( 'the_content', $example );
+	bw_pop();
 	bw_global_post( $saved );
   e( $expanded );
   bw_trace2( $expanded, "expanded", true, BW_TRACE_DEBUG );
