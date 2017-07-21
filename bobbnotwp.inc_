@@ -143,3 +143,9 @@ if ( !function_exists( "__" ) ) {
 		return $text;
 	}
 }
+
+if ( !function_exists( "is_textdomain_loaded" ) ) {
+	function is_textdomain_loaded( $domain ) {
+		return false;
+	}
+}
