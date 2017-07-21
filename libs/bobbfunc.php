@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2009-2017
 if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
-define( "BOBBFUNC_INCLUDED", "3.1.5" );
+define( "BOBBFUNC_INCLUDED", "3.2.0" );
 
 /**
  * HTML output library functions
@@ -1174,11 +1174,13 @@ function bw_pick_one( $preferred, $alternate ) {
  * If the path is not given then it will be the root of the plugin directory.
  *
  * @param string $domain the plugin name
+ * @return bool 
  */
 function bw_load_plugin_textdomain( $domain="oik" ) {
   $languages_dir =  "$domain/languages";
-  //bw_trace2( $languages_dir, "languages dir" );
-  load_plugin_textdomain( $domain, false, $languages_dir );
+  bw_trace2( $languages_dir, "languages dir" );
+  $loaded = load_plugin_textdomain( $domain, false, $languages_dir );
+	return $loaded;
 }  
 
 /**
@@ -1309,6 +1311,15 @@ function bw_context( $field, $value=null ) {
  * @return string $text - the translated text
  */
 function bw_translate( $text ) {
+	if ( function_exists( "_deprecated_function" ) ) {
+		if ( defined( 'BW_TRANSLATE_DEPRECATED' ) && BW_TRANSLATE_DEPRECATED ) {
+			_deprecated_function( __FUNCTION__, "oik v3.2.0", "a suitable replacement method from class BW_" );
+		}
+	} else {
+		//  Perhaps it's not WordPress;
+		bw_trace2();
+		bw_backtrace(); 
+	}
   $translation = bw_context( "bw_translation" );
   if ( $translation == "off" ) {
     // Text has already been translated? 
@@ -1322,8 +1333,9 @@ function bw_translate( $text ) {
     //if ( is_callable( "get_translations_for_domain" ) ) } 
       $translations = get_translations_for_domain( $textdomain );
       $text = $translations->translate( $text );
+			bw_trace2( $text, "Translation for: $textdomain", true, BW_TRACE_VERBOSE );  
     //}  
-  }  
+  }
   return( $text );
 } 
 
