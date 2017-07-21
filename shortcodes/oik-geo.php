@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
  * Implement [bw_geo] shortcode
@@ -12,13 +12,13 @@
 function bw_geo( $atts=null, $content=null, $tag=null ) {
   sp("geo");
   span( "geo");
-    e( "Lat." ); 
+    e( __( "Lat.", "oik" ) ); 
     span( "latitude" );
     e( bw_get_option_arr( "lat", "bw_options", $atts ) );
     epan();
     // I think we should have a space between the lat. and long. values
     e( "&nbsp;");
-    e( "Long." );
+    e( __( "Long.", "oik" ) );
     span( "longitude" );
     e( bw_get_option_arr( "long", "bw_options", $atts ) );
     epan();
@@ -40,8 +40,8 @@ function bw_directions( $atts=null ) {
   $extended = bw_get_option_arr( "extended-address", "bw_options", $atts );
   $postcode = bw_get_option_arr( "postal-code", "bw_options", $atts );
   $link = "http://maps.google.co.uk/maps?f=d&hl=en&daddr=" . $lat . "," . $long;  
-  $text = "Google directions";
-  $title = "Get directions to " . $company;
+  $text = __( "Google directions", "oik" );
+  $title = sprintf( __( 'Get directions to %s', "oik" ), $company );
   if ( $extended && ($company <> $extended) )
     $title .= " - " . $extended;
   if ( $postcode )
@@ -56,15 +56,15 @@ function bw_directions( $atts=null ) {
  * Help hook for bw_directions
  */    
 function bw_directions__help() {
-  return( "Display a 'Google directions' button.");
+  return( __( "Display a 'Google directions' button.", "oik" ) );
 }
 
 /**
  * Example hook for bw_directions
  */
 function bw_directions__example() {
-  br( "e.g." );
-  e( "The Google directions button will enable the user to get directions to you." );
+  BW_::br( __( "e.g.", "oik" ) );
+  BW_::e( __( "The Google directions button will enable the user to get directions to you.", "oik" ) );
   e( bw_directions() );
 }
 

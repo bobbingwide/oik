@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-07-20 10:15:56+00:00\n"
+"POT-Creation-Date: 2017-07-21 13:24:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -982,12 +982,12 @@ msgid "Sort order."
 msgstr ""
 
 #: includes/oik-sc-help.inc:441 includes/oik-sc-help.inc:560
-#: includes/oik-sc-help.inc:945
+#: includes/oik-sc-help.inc:947
 msgid "IDs to include"
 msgstr ""
 
 #: includes/oik-sc-help.inc:442 includes/oik-sc-help.inc:561
-#: includes/oik-sc-help.inc:946
+#: includes/oik-sc-help.inc:948
 msgid "IDs to exclude"
 msgstr ""
 
@@ -1048,7 +1048,7 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: includes/oik-sc-help.inc:553 includes/oik-sc-help.inc:944
+#: includes/oik-sc-help.inc:553 includes/oik-sc-help.inc:946
 msgid "Order by field"
 msgstr ""
 
@@ -1233,59 +1233,59 @@ msgstr ""
 msgid "paired HTML tag for the stag shortcode"
 msgstr ""
 
-#: includes/oik-sc-help.inc:909
+#: includes/oik-sc-help.inc:911
 msgid "Advertisement selection - Artisteer theme options"
 msgstr ""
 
-#: includes/oik-sc-help.inc:910
+#: includes/oik-sc-help.inc:912
 msgid "Alignment"
 msgstr ""
 
-#: includes/oik-sc-help.inc:911
+#: includes/oik-sc-help.inc:913
 msgid "0 if inline, 1 for block"
 msgstr ""
 
-#: includes/oik-sc-help.inc:924
+#: includes/oik-sc-help.inc:926
 msgid "Page to link to"
 msgstr ""
 
-#: includes/oik-sc-help.inc:932
+#: includes/oik-sc-help.inc:934
 msgid "Index of the theme_collages post meta to display"
 msgstr ""
 
-#: includes/oik-sc-help.inc:940
+#: includes/oik-sc-help.inc:942
 msgid "IDs for the playlist"
 msgstr ""
 
-#: includes/oik-sc-help.inc:941
+#: includes/oik-sc-help.inc:943
 msgid "Post from which the playlist is chosen"
 msgstr ""
 
-#: includes/oik-sc-help.inc:942
+#: includes/oik-sc-help.inc:944
 msgid "Content type"
 msgstr ""
 
-#: includes/oik-sc-help.inc:943
+#: includes/oik-sc-help.inc:945
 msgid "Ordering"
 msgstr ""
 
-#: includes/oik-sc-help.inc:947
+#: includes/oik-sc-help.inc:949
 msgid "Playlist style"
 msgstr ""
 
-#: includes/oik-sc-help.inc:948
+#: includes/oik-sc-help.inc:950
 msgid "Display track list?"
 msgstr ""
 
-#: includes/oik-sc-help.inc:949
+#: includes/oik-sc-help.inc:951
 msgid "Display track numbers?"
 msgstr ""
 
-#: includes/oik-sc-help.inc:950
+#: includes/oik-sc-help.inc:952
 msgid "Display images?"
 msgstr ""
 
-#: includes/oik-sc-help.inc:951
+#: includes/oik-sc-help.inc:953
 msgid "Display artists?"
 msgstr ""
 
@@ -1293,8 +1293,8 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: libs/class-BW-.php:87 libs/oik-admin.php:56
-msgid "Click to toggle"
+#: libs/class-BW-.php:104 libs/oik-admin.php:69
+msgid "Toggle panel: %s"
 msgstr ""
 
 #: libs/oik-honeypot.php:45
@@ -1640,6 +1640,31 @@ msgstr ""
 
 #: shortcodes/oik-galleries.php:31
 msgid "Name for a gallery template"
+msgstr ""
+
+#: shortcodes/oik-geo.php:15
+msgid "Lat."
+msgstr ""
+
+#: shortcodes/oik-geo.php:21
+msgid "Long."
+msgstr ""
+
+#: shortcodes/oik-geo.php:43
+msgid "Google directions"
+msgstr ""
+
+#: shortcodes/oik-geo.php:44
+msgid "Get directions to %s"
+msgstr ""
+
+#: shortcodes/oik-geo.php:59
+msgid "Display a 'Google directions' button."
+msgstr ""
+
+#: shortcodes/oik-geo.php:67
+msgid ""
+"The Google directions button will enable the user to get directions to you."
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:254

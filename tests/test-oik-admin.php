@@ -1291,13 +1291,11 @@ $expected[] = '</div>';
 		$this->assertNotNull( $html );
 		$html = $this->replace_admin_url( $html );
 		$html_array = $this->tag_break( $html );
-		
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking ?
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
 		$html_array = $this->replace_antispambot( $html_array );
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
-		//$this->generate_expected( $html_array );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 		
@@ -1576,6 +1574,8 @@ $expected[] = '</div>';
 		
 		$this->assertNotNull( $html_array );
 		
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+		
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
@@ -1602,9 +1602,9 @@ $expected[] = '</div>';
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking ?
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
-		$this->generate_expected_file( $html_array );
 		$html_array = $this->replace_antispambot( $html_array );
-    //$this->generate_expected( $html_array );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+		//$this->generate_expected_file( $html_array );
 		
 		$this->assertArrayEqualsFile( $html_array );
 	}
