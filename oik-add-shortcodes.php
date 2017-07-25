@@ -451,26 +451,30 @@ function oik_do_shortcode( $content ) {
  *
  */
 function bw_oik_add_shortcodes_loaded() {
-  //add_filter( "do_shortcode", "oik_do_shortcode", 0 );
-  add_filter('widget_text', 'oik_do_shortcode', 0);
-  add_filter('the_title', 'oik_do_shortcode', 0 ); 
-  //add_filter('wpbody-content', 'do_shortcode' );
-  add_filter('wp_footer', 'oik_do_shortcode', 0 );
-  add_filter('get_the_excerpt', 'oik_do_shortcode', 0 );
-  add_filter('the_excerpt', 'oik_do_shortcode', 0 );
-  add_filter('the_content', 'oik_do_shortcode', 2 );
-  //add_filter('get_pages', 'do_shortcode' );
-  add_filter( "oik_do_shortcode", "oik_do_shortcode", 0 );
-  add_action( "oik_add_shortcodes", "bw_oik_add_shortcodes" );
-	add_filter('widget_custom_html_content', 'do_shortcode' );
-  add_filter('widget_text', 'do_shortcode' );
-  add_filter('the_title', 'do_shortcode' ); 
-  //add_filter('wpbody-content', 'do_shortcode' );
-  add_filter('wp_footer', 'do_shortcode' );
-  add_filter('get_the_excerpt', 'do_shortcode' );
-  add_filter('the_excerpt', 'do_shortcode' );
-  // do_shortcode for 'the_content' should already be registered with priority 11
-	
+	//add_filter( "do_shortcode", "oik_do_shortcode", 0 );
+	add_filter('widget_text', 'oik_do_shortcode', 0);
+	add_filter('the_title', 'oik_do_shortcode', 0 ); 
+	//add_filter('wpbody-content', 'do_shortcode' );
+	add_filter('wp_footer', 'oik_do_shortcode', 0 );
+	add_filter('get_the_excerpt', 'oik_do_shortcode', 0 );
+	add_filter('the_excerpt', 'oik_do_shortcode', 0 );
+	add_filter('the_content', 'oik_do_shortcode', 2 );
+	//add_filter('get_pages', 'do_shortcode' );
+	add_filter( "oik_do_shortcode", "oik_do_shortcode", 0 );
+	add_action( "oik_add_shortcodes", "bw_oik_add_shortcodes" );
+ 
+	remove_filter( "widget_text", "balanceTags", 10 );
+	if ( 1 == get_option( "use_balanceTags" ) ) {
+		add_filter( 'widget_text', 'balanceTags', 8 ); 
+	}
+	add_filter( 'widget_text', 'do_shortcode' );
+	add_filter('the_title', 'do_shortcode' ); 
+	//add_filter('wpbody-content', 'do_shortcode' );
+	add_filter('wp_footer', 'do_shortcode' );
+	add_filter('get_the_excerpt', 'do_shortcode' );
+	add_filter('the_excerpt', 'do_shortcode' );
+	// do_shortcode for 'the_content' should already be registered with priority 11
+
 	// Is there any point in checking if it's an embed request? 
 	add_filter( 'the_excerpt_embed', "oik_do_shortcode", 0 );
 	add_filter( 'the_excerpt_embed', "do_shortcode" );
