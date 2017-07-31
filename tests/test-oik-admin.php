@@ -1279,9 +1279,7 @@ $expected[] = '</div>';
 	/**
 	 * Tests oik_options_do_page_1
 	 *
-	 * Tests: 
-	 * oik_extra_shortcode_options
-	 * oik_extra_usage_notes
+	 * - Tests: oik_extra_shortcode_options, oik_extra_usage_notes
 	 */
 	function test_oik_options_do_page_1() {
 		ob_start(); 
@@ -1467,6 +1465,8 @@ $expected[] = '</div>';
 	 * We have to load the language files ourselves.
 	 * 
 	 * We also need to remember to pass the slug/domain to translate() :-)
+	 *
+	 * Note: For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511
 	 */
 	function switch_to_locale( $locale ) {
 		$tdl = is_textdomain_loaded( "oik" );
@@ -1496,24 +1496,28 @@ $expected[] = '</div>';
 	}
 	
 	/**
-	 * For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511
+	 * 	Tests that language files have been loaded
+	 * 
+	 * - Locale must be en_GB for this test to work since
+	 * - With locale en_US we don't expect there to be any .mo files with -en_US suffix
+	 * - so these would fail to load
 	 */
 	function test_domains_loaded() {
 		//var_dump( debug_backtrace() );
 	
 		global $l10n;
 		$is_array = is_array( $l10n );
-		$this->assertTrue( $is_array );
+		$this->assertTrue( $is_array, "l10n is not an array" );
 		$count = count( $l10n );
 		$more_than_one = $count > 1;
-		$this->assertTrue( $more_than_one );
+		$this->assertTrue( $more_than_one, "there is not more than one domain loaded" );
 		//print_r( $l10n );
 		//print_r( $domains );
 	}
 	
 	/**
 	 * We want to ensure that only a few shortcodes are registered
-	 * so we cam fiddle what happens during oik_add_shortcodes
+	 * so we can fiddle what happens during oik_add_shortcodes
 	 * - removing all shortcodes except bw
 	 *
 	 * We need to set $_REQUEST['code'] to that shortcode
