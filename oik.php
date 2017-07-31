@@ -170,6 +170,7 @@ function oik_admin_menu() {
 	oik_require_lib_wrapper( "bobbforms" );
 	oik_require_lib_wrapper( "oik-admin" );
 	oik_require_lib_wrapper( "class-bobbcomp" );
+	oik_require_lib_wrapper( "oik-l10n" );
 	oik_require_lib_wrapper( "class-BW-" );
 	oik_require_lib_wrapper( "class-oik-update" );
 	require_once( 'admin/oik-admin.inc' );
@@ -194,6 +195,7 @@ function oik_network_admin_menu() {
 		oik_require_lib_wrapper( "bobbforms" );
 		oik_require_lib_wrapper( "oik-admin" );
 		oik_require_lib_wrapper( "class-bobbcomp" );
+		oik_require_lib_wrapper( "oik-l10n" );
 		oik_require_lib_wrapper( "class-BW-" );
 		oik_require_lib_wrapper( "class-oik-update" );
     require_once( 'admin/oik-admin.inc' );

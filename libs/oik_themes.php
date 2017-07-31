@@ -29,7 +29,7 @@ if ( !defined( "OIK_THEMES_INCLUDED" ) ) {
  * 
 */
 function oik_lazy_themes_server_settings() {
-  BW_::oik_menu_header( __( "theme server settings", "oik-libs" ), "w100pc" );
+  BW_::oik_menu_header( __( "theme server settings", null ), "w100pc" );
   $validated = false;
   
   $check_theme = bw_array_get( $_REQUEST, "check_theme", null );
@@ -50,7 +50,7 @@ function oik_lazy_themes_server_settings() {
   }  
   
   if ( $check_theme ) {
-    BW_::oik_box( NULL, NULL, __( "Check", "oik-libs" ), "oik_themes_check" );
+    BW_::oik_box( NULL, NULL, __( "Check", null ), "oik_themes_check" );
   } 
   
   if ( $delete_theme ) { 
@@ -77,13 +77,13 @@ function oik_lazy_themes_server_settings() {
   }
   
   if ( $oik_themes_add_theme || ( $oik_themes_add_settings && !$validated )  ) {
-    BW_::oik_box( NULL, NULL, __( "Add new", "oik-libs" ), "oik_themes_add_settings" );
+    BW_::oik_box( NULL, NULL, __( "Add new", null ), "oik_themes_add_settings" );
   }
   
   if ( $edit_theme || $oik_themes_edit_settings || $validated ) {
-    BW_::oik_box( null, null, __( "Edit theme", "oik-libs" ), "oik_themes_edit_settings" );
+    BW_::oik_box( null, null, __( "Edit theme", null ), "oik_themes_edit_settings" );
   }
-  BW_::oik_box( NULL, NULL, __( "Settings", "oik-libs" ), "oik_themes_settings" );
+  BW_::oik_box( NULL, NULL, __( "Settings", null ), "oik_themes_settings" );
   oik_menu_footer();
   bw_flush();
 }
@@ -108,14 +108,14 @@ function _oik_themes_settings_row( $theme, $version, $server, $apikey, $programm
 	$row[] = $apikey . "&nbsp;"; //itext( "apikey[$theme]", 26, $apikey );
 	$links = null;
 	if ( $programmatically_registered ) {
-		$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;delete_theme=$theme"), __( "Reset", "oik-libs"), __("Reset theme's profile entry", "oik-libs" ) ); 
+		$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;delete_theme=$theme"), __( "Reset", null), __("Reset theme's profile entry", null ) ); 
 	} else {
-		$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;delete_theme=$theme"), __( "Delete", "oik-libs"), __( "Delete theme's profile entry", "oik-libs" ) ); 
+		$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;delete_theme=$theme"), __( "Delete", null), __( "Delete theme's profile entry", null ) ); 
 	}
 	$links .= "&nbsp;";
-	$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;edit_theme=$theme"), __( "Edit", "oik-libs" ) ); 
+	$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;edit_theme=$theme"), __( "Edit", null ) ); 
 	$links .= "&nbsp;"; 
-	$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;check_theme=$theme&amp;check_version=$version"), __( "Check", "oik-libs" ) );
+	$links .= retlink( null, admin_url("admin.php?page=oik_themes&amp;check_theme=$theme&amp;check_version=$version"), __( "Check", null ) );
 	$links .= "&nbsp;";
 	$row[] = $links;
 	bw_tablerow( $row );
@@ -229,20 +229,20 @@ function _oik_themes_settings_validate( $add_theme=true ) {
 
 function oik_themes_settings() {
   $default_theme_server = oik_update::oik_get_themes_server();
-  $link = retlink( null, $default_theme_server, $default_theme_server , __( "default oik themes server", "oik-libs" ) );
-  BW_::p( sprintf( __( 'The default oik themes server is currently set to: %1$s', "oik-libs" ),  $link ) );
+  $link = retlink( null, $default_theme_server, $default_theme_server , __( "default oik themes server", null ) );
+  BW_::p( sprintf( __( 'The default oik themes server is currently set to: %1$s', null ),  $link ) );
   bw_form();
   stag( "table", "widefat " );
   stag( "thead");
-  bw_tablerow( array( __( "theme", "oik-libs" )
-										, __( "version", "oik-libs" )
-										, __( "server", "oik-libs" ) 
-										, __( "apikey", "oik-libs" )
-										, __( "actions", "oik-libs" ) ) );
+  bw_tablerow( array( __( "theme", null )
+										, __( "version", null )
+										, __( "server", null ) 
+										, __( "apikey", null )
+										, __( "actions", null ) ) );
   etag( "thead");
   _oik_themes_settings_table();
   etag( "table" );
-  BW_::p( isubmit( "_oik_themes_add_theme", __( "Add theme", "oik-libs" ), null, "button-primary" ) );
+  BW_::p( isubmit( "_oik_themes_add_theme", __( "Add theme", null ), null, "button-primary" ) );
   etag( "form" );
 } 
 

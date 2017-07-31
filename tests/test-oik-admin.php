@@ -1460,13 +1460,13 @@ $expected[] = '</div>';
 	/**
 	 * Switch to the required target language
 	 * 
-	 * switch_to_locale leaves much to be desired when the default language is en_US
-	 * and/or when the translations are loaded from the plugin's language folders rather than WP_LANG_DIR
-	 * We have to load the language files ourselves.
+	 * - WordPress core's switch_to_locale() function leaves much to be desired when the default language is en_US
+	 * - and/or when the translations are loaded from the plugin's language folders rather than WP_LANG_DIR
+	 * - We have to (re)load the language files ourselves.
 	 * 
-	 * We also need to remember to pass the slug/domain to translate() :-)
+	 * @TODO We also need to remember to pass the slug/domain to translate() :-)
 	 *
-	 * Note: For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511
+	 * Note: For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511 and https://core.trac.wordpress.org/ticket/39210 
 	 */
 	function switch_to_locale( $locale ) {
 		$tdl = is_textdomain_loaded( "oik" );
@@ -1486,13 +1486,21 @@ $expected[] = '</div>';
 			
 	}
 	
-	
+	/**
+	 * Reloads the text domains
+	 * 
+	 * - Loading oik-libs from oik-libs invalidates tests where the plugin is delivered from WordPress.org so oik-libs won't exist.
+	 * - but we do need to reload oik's text domain 
+	 * - and cause the null domain to be rebuilt.
+	 */
 	function reload_domains() {
-		$domains = array( "oik", "oik-libs" );
+		$domains = array( "oik" );
 		foreach ( $domains as $domain ) {
 			$loaded = bw_load_plugin_textdomain( $domain );
 			$this->assertTrue( $loaded, "$domain not loaded" );
 		}
+		oik_require_lib( "oik-l10n" );
+		oik_l10n_enable_jti();
 	}
 	
 	/**

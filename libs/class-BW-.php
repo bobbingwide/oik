@@ -6,7 +6,7 @@ define( "CLASS_BW__INCLUDED", "3.2.0" );
  * More HTML output library functions
  * 
  * Library: class-BW-
- * Depends: bobbfunc, oik-admin,
+ * Depends: bobbfunc, oik-admin, oik-l10n
  * Provides: BW_ class
  *
  * These functions are clones of functions in libs\bobbfunc.php
@@ -101,7 +101,8 @@ class BW_ {
 	 * @param string $title - translated title
 	 */
 	static function oik_handlediv( $title ) {
-		$title = sprintf( __( 'Toggle panel: %s', 'oik-libs' ), $title );
+		$title = sprintf( __( 'Toggle panel: %s', null ), $title );
+		gob();
 		e( '<button type="button" class="handlediv" aria-expanded="true">' );
 		e( '<span class="screen-reader-text">' . $title . '</span>' );
 		e( '<span class="toggle-indicator" aria-hidden="true">' );
