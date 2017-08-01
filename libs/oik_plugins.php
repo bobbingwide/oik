@@ -287,11 +287,11 @@ function oik_plugins_add_settings( ) {
   global $bw_plugin;
   bw_form();
   stag( "table", "widefat" );
-  bw_textfield( "plugin", 20, "plugin", $bw_plugin['plugin'] );
-  bw_textfield( "server", 100, "server", stripslashes( $bw_plugin['server'] ) );
-  bw_textfield( "apikey", 26, "apikey", $bw_plugin["apikey"] );
+  BW_::bw_textfield( "plugin", 20, __( "plugin", null ), $bw_plugin['plugin'] );
+  BW_::bw_textfield( "server", 100, __( "server", null ), stripslashes( $bw_plugin['server'] ) );
+  BW_::bw_textfield( "apikey", 26, __( "apikey", null ), $bw_plugin["apikey"] );
   etag( "table" );
-  p( isubmit( "_oik_plugins_add_settings", "Add new plugin", null, "button-primary" ) );
+  BW_::p( isubmit( "_oik_plugins_add_settings", __( "Add new plugin", null ), null, "button-primary" ) );
   etag( "form" );
 }
 

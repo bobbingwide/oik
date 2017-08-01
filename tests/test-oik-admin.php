@@ -438,13 +438,27 @@ $expected[] = '</form>';
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
-    $expected = array();
-    //$this->generate_expected( $html_array );
-		
-	  // $this->generate_expected_file( $html_array );
+		// $this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	
 	}
+	
+	/**
+	 * Test oik_plugins_add_settings
+	 */
+	function test_oik_plugins_add_settings() {
+		$html = bw_ret( oik_plugins_add_settings() );
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	
 	
 	/**
 	 * Tests oik_themes_do_page
@@ -1532,6 +1546,24 @@ $expected[] = '</div>';
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
     $expected = array();
 	  //$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	
+	/**
+	 * Test oik_plugins_add_settings for bb_BB
+	 */
+	function test_oik_plugins_add_settings_bb_BB() {
+	
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( oik_plugins_add_settings() );
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	
