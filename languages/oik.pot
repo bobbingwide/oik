@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-01 11:11:15+00:00\n"
+"POT-Creation-Date: 2017-08-01 12:14:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -788,6 +788,7 @@ msgid "settings must not be blank"
 msgstr ""
 
 #: admin/oik-plugins.inc:253 libs/oik_plugins.php:271 libs/oik_plugins.php:290
+#: libs/oik_plugins.php:305
 msgid "plugin"
 msgstr ""
 
@@ -1344,6 +1345,10 @@ msgstr ""
 
 #: libs/oik_plugins.php:294
 msgid "Add new plugin"
+msgstr ""
+
+#: libs/oik_plugins.php:309
+msgid "Change plugin"
 msgstr ""
 
 #: libs/oik_themes.php:111
