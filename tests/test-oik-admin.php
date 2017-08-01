@@ -440,59 +440,9 @@ $expected[] = '</form>';
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
     $expected = array();
     //$this->generate_expected( $html_array );
-$expected = array();
-$expected[] = '<input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />';
-$expected[] = '<div class="wrap">';
-$expected[] = '<h2>plugin server settings</h2>';
-$expected[] = '<div class="metabox-holder">';
-$expected[] = '<div class="postbox-container w100pc">';
-$expected[] = '<div class="meta-box-sortables ui-sortable">';
-$expected[] = '<div class="postbox " id="oik_plugins_settings">';
-$expected[] = '<button type="button" class="handlediv" aria-expanded="true">';
-$expected[] = '<span class="screen-reader-text">Toggle panel: Settings</span>';
-$expected[] = '<span class="toggle-indicator" aria-hidden="true">';
-$expected[] = '</span>';
-$expected[] = '</button>';
-$expected[] = '<h3 class="hndle">Settings</h3>';
-$expected[] = '<div class="inside">';
-$expected[] = '<p>The default oik plugins server is currently set to: <a href="http://qw/oikcom" title="default oik plugins server">http://qw/oikcom</a>';
-$expected[] = '</p>';
-$expected[] = '<form method="post">';
-$expected[] = '<table class="widefat ">';
-$expected[] = '<thead>';
-$expected[] = '<tr>';
-$expected[] = '<td>plugin</td>';
-$expected[] = '<td>version</td>';
-$expected[] = '<td>server</td>';
-$expected[] = '<td>apikey</td>';
-$expected[] = '<td>actions</td>';
-$expected[] = '</tr>';
-$expected[] = '</thead>';
-$expected[] = '<tr>';
-$expected[] = '<td>us-tides</td>';
-$expected[] = '<td>0.3.0&nbsp;</td>';
-$expected[] = '<td>https://example.com&nbsp;</td>';
-$expected[] = '<td>sampleapikey&nbsp;</td>';
-$expected[] = '<td>';
-$expected[] = '<a href="https://qw/src/wp-admin/admin.php?page=oik_plugins&amp;delete_plugin=us-tides" title="Delete plugin&#039;s profile entry">Delete</a>&nbsp;<a href="https://qw/src/wp-admin/admin.php?page=oik_plugins&amp;edit_plugin=us-tides" title="Edit">Edit</a>&nbsp;<a href="https://qw/src/wp-admin/admin.php?page=oik_plugins&amp;check_plugin=us-tides&amp;check_version=0.3.0" title="Check">Check</a>&nbsp;</td>';
-$expected[] = '</tr>';
-$expected[] = '</table>';
-$expected[] = '<p>';
-$expected[] = '<input type="submit" name="_oik_plugins_add_plugin" value="Add plugin" class="button-primary" />';
-$expected[] = '</p>';
-$expected[] = '</form>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<!--start ecolumn-->';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '</div>';
-$expected[] = '<!--end ecolumn-->';
-$expected[] = '<div class="clear">';
-$expected[] = '</div>';
-$expected[] = '</div>';
 		
-		$this->assertEquals( $expected, $html_array );
+	  // $this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 	
 	}
 	
@@ -1553,6 +1503,37 @@ $expected[] = '</div>';
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	
+	/**
+	 * Tests oik_plugins_do_page for bb_BB
+	 * 
+	 */
+ function test_oik_plugins_do_page_bb_BB() {
+ 
+		$this->switch_to_locale( "bb_BB" );
+		global $bw_registered_plugins;
+		$bw_plugins = array( "us-tides" => array( "server" => "https://example.com"
+																						, "apikey" => "sampleapikey"
+																						, "expiration" => "no longer relevant"
+																						)
+											);
+		update_option( "bw_plugins", $bw_plugins );
+		$bw_registered_plugins = null;
+		ob_start(); 
+		oik_plugins_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+    $expected = array();
+	  //$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
 	
 	/**
 	 * Tests oik_themes_do_page for bb_BB
