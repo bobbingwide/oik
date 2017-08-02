@@ -311,16 +311,18 @@ function oik_plugins_edit_settings( ) {
 }
 
 /**
- * Check a plugin for updates
+ * Checks a plugin for updates
  *
- * The 
- (
-    [slug] => oik
-    [new_version] => 1.17.1030.1702
-    [url] => http://oik-plugins.co.uk/oik_plugin/oik
-    [package] => http://oik-plugins.co.uk/plugins/download?plugin=oik-often-included-key-information-kit&version=1.17.1030.1702&id=419&action=update
-)
-
+ * The expected response from oik_check_for_update() is an array.
+ * If it contains 'new_version' then there's an update.
+ *  
+ * `
+    [slug] => oik-fum
+    [new_version] => 1.2.1
+    [url] => https://oik-plugins.com/oik_plugin/oik-fum
+		[plugin] => "oik-fum/oik-fum.php"
+    [package] => "https://qw/oikcom/plugins/download?plugin=oik-fum-flexible-update-manager&version=1.2.1&id=29228&action=update"
+	 `
  */
 function oik_plugins_check() {
   $check_plugin = bw_array_get( $_REQUEST, "check_plugin", null );
@@ -332,22 +334,22 @@ function oik_plugins_check() {
     $response = oik_remote::oik_check_for_update( $check_plugin, $check_version, true );
     bw_trace2( $response );
     if ( is_wp_error( $response ) ) {
-      p( "Error checking the plugin: $check_plugin" );
-      $error_message =  $response->get_error_message();
-      p( $error_message );
+      BW_::p( sprintf( __( 'Error checking the plugin: %1$s', null ), $check_plugin ) );
+      $error_message = $response->get_error_message();
+      BW_::p( $error_message );
     } else {
       $new_version = bw_array_get( $response, "new_version", null );
       if ( $new_version ) { 
-        p( "A new version of the plugin is available" );
-        p( "Plugin: $check_plugin" );
-        p( "Current version: $check_version " );
-        p( "New version: $new_version " );
+        BW_::p( __( "A new version of the plugin is available", null ) );
+        BW_::p( sprintf( __( 'Plugin: %1$s', null ), $check_plugin ) );
+        BW_::p( sprintf( __( 'Current version: %1$s', null ), $check_version ) );
+        BW_::p( sprintf( __( 'New version: %1$s', null ), $new_version ) );
         oik_plugin_record_new_version( $check_plugin, $check_version, $response ); 
         oik_plugin_new_version( $response );
       } else {
-        p( "Plugin is up to date." );
-        p( "Plugin: $check_plugin" );
-        p( "Current version: $check_version " );
+        BW_::p( __( "Plugin is up to date.", null ) );
+        BW_::p( sprintf( __( 'Plugin: %1$s', null ), $check_plugin ) );
+        BW_::p( sprintf( __( 'Current version: %1$s', null ), $check_version ) );
       }  
     }
   }
@@ -435,7 +437,7 @@ function oik_plugin_record_new_version( $plugin, $check_version, $response ) {
 function oik_plugin_new_version( $response ) {
   $slug = bw_array_get( $response, "slug", null );
   $plugin_name = bw_get_plugin_name( $slug );
-  p( oik_update_plugin( $plugin_name ) );
+  BW_::p( oik_update_plugin( $plugin_name ) );
 
 }
 

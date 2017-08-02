@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-01 12:14:42+00:00\n"
+"POT-Creation-Date: 2017-08-02 16:28:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -128,17 +128,17 @@ msgid "Update"
 msgstr "Update"
 
 #: admin/oik-activation.php:199 libs/oik-activation.php:191
-#: libs/oik-depends.php:140
+#: libs/oik-depends.php:144
 msgid "%1$s may not be fully functional."
 msgstr "%1$s may not be fully functional."
 
 #: admin/oik-activation.php:201 libs/oik-activation.php:193
-#: libs/oik-depends.php:142
+#: libs/oik-depends.php:146
 msgid ""
 "Please install and activate the required minimum version of this plugin:"
 msgstr "Please install and activate the required minimum version of this plugin:"
 
-#: admin/oik-admin.inc:76
+#: admin/oik-admin.inc:76 libs/class-oik-plugin-update.php:139
 msgid "[oik] Options"
 msgstr "[oik] Options"
 
@@ -166,11 +166,12 @@ msgstr "oik options-1"
 msgid "More Options"
 msgstr "More Options"
 
-#: admin/oik-admin.inc:85
+#: admin/oik-admin.inc:85 libs/class-oik-plugin-update.php:155
 msgid "oik plugins"
 msgstr "oik plugins"
 
 #: admin/oik-admin.inc:85 admin/oik-admin.inc:167
+#: libs/class-oik-plugin-update.php:155 libs/class-oik-plugin-update.php:347
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -179,6 +180,7 @@ msgid "oik themes"
 msgstr "oik themes"
 
 #: admin/oik-admin.inc:86 admin/oik-admin.inc:169
+#: libs/class-oik-plugin-update.php:351
 msgid "Themes"
 msgstr "Themes"
 
@@ -288,29 +290,29 @@ msgstr "Name your custom CSS file"
 msgid "Enter the name of your custom CSS file on the Options page"
 msgstr "Enter the name of your custom CSS file on the Options page"
 
-#: admin/oik-admin.inc:164
+#: admin/oik-admin.inc:164 libs/class-oik-plugin-update.php:342
 msgid ""
 "Some oik plugins and themes are supported from servers other than WordPress."
 "org"
 msgstr "Some oik plugins and themes are supported from servers other than WordPress.org"
 
-#: admin/oik-admin.inc:165
+#: admin/oik-admin.inc:165 libs/class-oik-plugin-update.php:343
 msgid "Premium plugin and theme versions require API keys."
 msgstr "Premium plugin and theme versions require API keys."
 
-#: admin/oik-admin.inc:166
+#: admin/oik-admin.inc:166 libs/class-oik-plugin-update.php:346
 msgid "Use the Plugins page to manage oik plugins servers and API keys"
 msgstr "Use the Plugins page to manage oik plugins servers and API keys"
 
-#: admin/oik-admin.inc:167
+#: admin/oik-admin.inc:167 libs/class-oik-plugin-update.php:347
 msgid "Manage plugin servers and API keys"
 msgstr "Manage plugin servers and API keys"
 
-#: admin/oik-admin.inc:168
+#: admin/oik-admin.inc:168 libs/class-oik-plugin-update.php:350
 msgid "Use the Themes page to manage oik themes servers and API keys"
 msgstr "Use the Themes page to manage oik themes servers and API keys"
 
-#: admin/oik-admin.inc:169
+#: admin/oik-admin.inc:169 libs/class-oik-plugin-update.php:351
 msgid "Manage theme servers and API keys"
 msgstr "Manage theme servers and API keys"
 
@@ -810,11 +812,11 @@ msgstr "apikey"
 msgid "apikey?"
 msgstr "apikey?"
 
-#: admin/oik-plugins.inc:299 libs/oik_plugins.php:341
+#: admin/oik-plugins.inc:299 libs/oik_plugins.php:343
 msgid "A new version of the plugin is available"
 msgstr "A new version of the plugin is available"
 
-#: admin/oik-plugins.inc:306 libs/oik_plugins.php:348
+#: admin/oik-plugins.inc:306 libs/oik_plugins.php:350
 msgid "Plugin is up to date."
 msgstr "Plugin is up to date."
 
@@ -1299,6 +1301,35 @@ msgstr "None"
 msgid "Toggle panel: %s"
 msgstr "Toggle panel: %s"
 
+#: libs/class-oik-plugin-update.php:139 libs/class-oik-plugin-update.php:140
+msgid "oik updates"
+msgstr "oik updates"
+
+#: libs/class-oik-plugin-update.php:140
+msgid "Updates"
+msgstr "Updates"
+
+#: libs/oik-depends.php:96
+msgid "Plugin %1$s may not be fully functional."
+msgstr "Plugin %1$s may not be fully functional."
+
+#: libs/oik-depends.php:99
+msgid ""
+"Please install and activate the required minimum version of this plugin: %1$s"
+msgstr "Please install and activate the required minimum version of this plugin: %1$s"
+
+#: libs/oik-depends.php:278
+msgid "Install %1$s"
+msgstr "Install %1$s"
+
+#: libs/oik-depends.php:306
+msgid "Activate %1$s"
+msgstr "Activate %1$s"
+
+#: libs/oik-depends.php:324
+msgid "Upgrade %1$s"
+msgstr "Upgrade %1$s"
+
 #: libs/oik-honeypot.php:45
 msgid "Humans leave this blank"
 msgstr "Humans leave this blank"
@@ -1351,6 +1382,22 @@ msgstr "Add new plugin"
 #: libs/oik_plugins.php:309
 msgid "Change plugin"
 msgstr "Change plugin"
+
+#: libs/oik_plugins.php:337
+msgid "Error checking the plugin: %1$s"
+msgstr "Error checking the plugin: %1$s"
+
+#: libs/oik_plugins.php:344 libs/oik_plugins.php:351
+msgid "Plugin: %1$s"
+msgstr "Plugin: %1$s"
+
+#: libs/oik_plugins.php:345 libs/oik_plugins.php:352
+msgid "Current version: %1$s"
+msgstr "Current version: %1$s"
+
+#: libs/oik_plugins.php:346
+msgid "New version: %1$s"
+msgstr "New version: %1$s"
 
 #: libs/oik_themes.php:111
 msgid "Reset theme's profile entry"

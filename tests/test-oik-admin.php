@@ -7,6 +7,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 * set up logic
 	 * 
 	 * - ensure any database updates are rolled back
+	 * - require the libraries that would be loaded as standard for wp-admin processing
 	 */
 	function setUp() {
 		parent::setUp();
@@ -15,64 +16,6 @@ class Tests_oik_admin extends BW_UnitTestCase {
 		oik_require_lib( "oik_plugins" );
 		oik_require_lib( "oik_themes" );
 		oik_require_lib( "class-oik-update" );
-	}
-	
-	/**
-	 * Replace admin_url with the expected hardcoded value
-	 *
-	 */ 
-	function replace_admin_url( $expected ) {
-		$expected = str_replace( admin_url(), "https://qw/src/wp-admin/", $expected );
-		return $expected;
-	}
-	
-	function replace_oik_url( $html ) {
-		$html = str_replace( oik_url(), "https://qw/src/wp-content/plugins/oik/", $html );
-		return $html;
-	}
-	
-	/**
-	 * Break into lines at tag interfaces
-	 * and convert into array?
-	 */
-	function tag_break( $html ) {
-		$new_lined = str_replace( "><", ">\n<", $html);
-		$html_array = explode( "\n", $new_lined );
-		return $html_array;
-	}
-	
-	/**
-	 * Helps to generate the expected array from actual test output
-	 * 
-	 * echoing this output ensures we get 
-	 */
-	function generate_expected( $html_array ) {
-		echo PHP_EOL;
-		echo '$expected = array();';
-		foreach ( $html_array as $line ) {
-			echo PHP_EOL;
-			$line = str_replace( "'", "\'", $line );
-			echo '$expected[] = \'' . $line . "';";
-		}
-		echo PHP_EOL;
-		$this->assertFalse( true );
-	}
-	
-	/**
-	 * Note: This function could fail if there is no nonce in the output
-	 */
-	function replace_nonce_with_nonsense( $expected_array, $id="_wpnonce", $name="_wpnonce" ) {
-		$found = false;
-		$needle = '<input type="hidden" id="'. $id . '" name="' . $name . '" value="';
-		foreach ( $expected_array as $index => $line ) {
-			$pos = strpos( $line, $needle );
-			if ( false !== $pos ) {
-				$expected_array[ $index ] = $needle. 'nonsense" />';
-				$found = true;
-			}
-		}
-		$this->assertTrue( $found, "No nonce id=$id name=$name found in expected array" );
-		return $expected_array;
 	}
 	
 	function test_oik_callback() {
@@ -1309,103 +1252,6 @@ $expected[] = '</div>';
 		bw_add_shortcode( 'bw', 'bw_bw', oik_path( "shortcodes/oik-bw.php" ) );
 	}
 	
-	/**
-	 * Asserts that the HTML array equals the file
-	 */
-	function assertArrayEqualsFile( $string, $file=null ) {
-		$html_array = $this->prepareExpectedArray( $string );
-		$expected_file = $this->prepareFile( $file );
-		$expected = file( $expected_file, FILE_IGNORE_NEW_LINES );
-		$this->assertEquals( $expected, $html_array );	
-	}
-	
-	/**
-	 * Converts to an array if required
-	 */
-	function prepareExpectedArray( $string ) {
-		if ( is_scalar( $string ) ) {
-			$html_array = $this->tag_break( $string );
-		} else { 
-			$html_array = $string;
-		}
-		return $html_array;
-	}
-	
-	/**
-	 * Returns the expected file name
-	 * 
-	 * Expected output files are stored in a directory tree
-	 * 
-	 * `tests/data/la_CY/test_name.html
-	 * ` 
-	 * where 
-	 * - la_CY is the locale; default is `en_US`
-	 * - test_name is the name of the test method
-	 * 
-	 * 
-	 * @param string|null $file - 
-	 * 
-	 */
-	function prepareFile( $file=null ) {
-		if ( !$file ) {
-			$file = $this->find_test_name();
-		}
-		$path_info = pathinfo( $file );
-		if ( '.' == $path_info['dirname'] ) {
-			$dirname = 'tests/data/';
-			$dirname .= $this->query_la_CY();
-			$path_info['dirname'] = $dirname;
-		}
-		if ( !isset( $path_info['extension'] ) ) {
-			$path_info['extension'] = "html";
-		}
-		$expected_file = $path_info['dirname'];
-		$expected_file .= "/";
-		$expected_file .= $path_info['filename'];
-		$expected_file .= ".";
-		$expected_file .= $path_info['extension'];
-		$this->assertFileExists( $expected_file );
-		return $expected_file;
-	}
-	
-	/**
-	 * Finds the test name from the call stack
-	 * 
-	 * Assumes the test name starts with 'test_'
-	 * 
-	 * @param string $prefix
-	 */
-	function find_test_name( $prefix='test_') {
-		$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
-		$test_name = null;
-		foreach ( $trace as $frame ) {
-			if ( 0 === strpos( $frame['function'], $prefix ) ) {
-				$test_name = $frame['function'];
-				break;
-			} 
-		}
-		$this->assertNotNull( $test_name );
-		return $test_name;
-	}
-		
-	
-	/**
-	 * When we're working in a different language e.g. bb_BB then
-	 * we append the la_CY to the file name
-	 */
-	function assertArrayEqualsLanguageFile( $string, $file ) {
-		
-		
-	}
-	
-	/**
-	 * Queries the currently set locale
-	 */
-	function query_la_CY() {
-		$locale = get_locale();
-		$this->assertNotNull( $locale );
-		return $locale;
-	} 
 	
 	function test_assertArrayEqualsFile() {
 		$expected = '<p>Test assert array equals file</p>';
@@ -1417,21 +1263,6 @@ $expected[] = '</div>';
 		$expected[] = '<p>Test assert array equals file</p>';
 		$expected[] = '<p>Unspecified</p>';
 		$this->assertArrayEqualsFile( $expected );
-	}
-	
-	
-	
-	/**
-	 * Helps to generate the expected file from actual test output
-	 */
-	function generate_expected_file( $html_array ) {
-		echo PHP_EOL;
-		foreach ( $html_array as $line ) {
-			echo $line;
-			echo PHP_EOL;
-		}
-		$this->prepareFile();
-		//$this->assertFalse( true );
 	}
 	
 	/**
