@@ -102,7 +102,6 @@ class BW_ {
 	 */
 	static function oik_handlediv( $title ) {
 		$title = sprintf( __( 'Toggle panel: %s', null ), $title );
-		gob();
 		e( '<button type="button" class="handlediv" aria-expanded="true">' );
 		e( '<span class="screen-reader-text">' . $title . '</span>' );
 		e( '<span class="toggle-indicator" aria-hidden="true">' );
