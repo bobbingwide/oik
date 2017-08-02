@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-02 16:28:20+00:00\n"
+"POT-Creation-Date: 2017-08-02 18:09:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -786,7 +786,7 @@ msgid "Settings"
 msgstr "Settings"
 
 #: admin/oik-plugins.inc:203 admin/oik-themes.inc:188 libs/oik_plugins.php:230
-#: libs/oik_themes.php:202
+#: libs/oik_themes.php:205
 msgid "settings must not be blank"
 msgstr "settings must not be blank"
 
@@ -797,18 +797,18 @@ msgstr "plugin"
 
 #: admin/oik-plugins.inc:254 admin/oik-plugins.inc:266
 #: admin/oik-themes.inc:237 admin/oik-themes.inc:249 libs/oik_plugins.php:273
-#: libs/oik_plugins.php:291 libs/oik_plugins.php:306 libs/oik_themes.php:239
-#: libs/oik_themes.php:254 libs/oik_themes.php:266
+#: libs/oik_plugins.php:291 libs/oik_plugins.php:306 libs/oik_themes.php:248
+#: libs/oik_themes.php:266 libs/oik_themes.php:281
 msgid "server"
 msgstr "server"
 
 #: admin/oik-plugins.inc:255 admin/oik-themes.inc:238 libs/oik_plugins.php:274
-#: libs/oik_plugins.php:292 libs/oik_themes.php:240 libs/oik_themes.php:255
+#: libs/oik_plugins.php:292 libs/oik_themes.php:249 libs/oik_themes.php:267
 msgid "apikey"
 msgstr "apikey"
 
 #: admin/oik-plugins.inc:267 admin/oik-themes.inc:250 libs/oik_plugins.php:307
-#: libs/oik_themes.php:267
+#: libs/oik_themes.php:282
 msgid "apikey?"
 msgstr "apikey?"
 
@@ -828,15 +828,16 @@ msgstr "theme server settings"
 msgid "Edit theme"
 msgstr "Edit theme"
 
-#: admin/oik-themes.inc:236 libs/oik_themes.php:237 libs/oik_themes.php:253
+#: admin/oik-themes.inc:236 libs/oik_themes.php:246 libs/oik_themes.php:265
+#: libs/oik_themes.php:280
 msgid "theme"
 msgstr "theme"
 
-#: admin/oik-themes.inc:276 libs/oik_themes.php:293
+#: admin/oik-themes.inc:276 libs/oik_themes.php:308
 msgid "A new version of the theme is available"
 msgstr "A new version of the theme is available"
 
-#: admin/oik-themes.inc:283 libs/oik_themes.php:300
+#: admin/oik-themes.inc:283 libs/oik_themes.php:315
 msgid "Theme is up to date."
 msgstr "Theme is up to date."
 
@@ -1362,12 +1363,12 @@ msgstr "default oik plugins server"
 msgid "The default oik plugins server is currently set to: %1$s"
 msgstr "The default oik plugins server is currently set to: %1$s"
 
-#: libs/oik_plugins.php:272 libs/oik_themes.php:238
+#: libs/oik_plugins.php:272 libs/oik_themes.php:247
 #: shortcodes/oik-jquery.php:466
 msgid "version"
 msgstr "version"
 
-#: libs/oik_plugins.php:275 libs/oik_themes.php:241
+#: libs/oik_plugins.php:275 libs/oik_themes.php:250
 msgid "actions"
 msgstr "actions"
 
@@ -1407,17 +1408,25 @@ msgstr "Reset theme's profile entry"
 msgid "Delete theme's profile entry"
 msgstr "Delete theme's profile entry"
 
-#: libs/oik_themes.php:232
+#: libs/oik_themes.php:241
 msgid "default oik themes server"
 msgstr "default oik themes server"
 
-#: libs/oik_themes.php:233
+#: libs/oik_themes.php:242
 msgid "The default oik themes server is currently set to: %1$s"
 msgstr "The default oik themes server is currently set to: %1$s"
 
-#: libs/oik_themes.php:245
+#: libs/oik_themes.php:254
 msgid "Add theme"
 msgstr "Add theme"
+
+#: libs/oik_themes.php:269
+msgid "Add new theme"
+msgstr "Add new theme"
+
+#: libs/oik_themes.php:284
+msgid "Change theme"
+msgstr "Change theme"
 
 #: oik-add-shortcodes.php:16
 msgid "<b>Unable to locate routine to expand shortcode.</b>"

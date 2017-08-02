@@ -1402,8 +1402,8 @@ $expected[] = '</div>';
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( oik_plugins_add_settings() );
 		$this->assertNotNull( $html );
-		$html = $this->replace_admin_url( $html );
-		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		//$html = $this->replace_admin_url( $html );
+		//$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
@@ -1419,8 +1419,8 @@ $expected[] = '</div>';
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( oik_plugins_edit_settings() );
 		$this->assertNotNull( $html );
-		$html = $this->replace_admin_url( $html );
-		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		//$html = $this->replace_admin_url( $html );
+		//$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
@@ -1462,6 +1462,41 @@ $expected[] = '</div>';
 		
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
 		
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	
+	/**
+	 * Test oik_themes_add_settings for bb_BB
+	 */
+	function test_oik_themes_add_settings_bb_BB() {
+	
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( oik_themes_add_settings() );
+		$this->assertNotNull( $html );
+		//$html = $this->replace_admin_url( $html );
+		//$html = str_replace( oik_get_themes_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Test oik_themes_edit_settings for bb_BB
+	 */
+	function test_oik_themes_edit_settings_bb_BB() {
+	
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( oik_themes_edit_settings() );
+		$this->assertNotNull( $html );
+		//$html = $this->replace_admin_url( $html );
+		//$html = str_replace( oik_get_themes_server(), "http://qw/oikcom", $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}

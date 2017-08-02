@@ -164,6 +164,9 @@ function _oik_themes_settings_table() {
 
 /**
  * Add the settings for the theme
+ * 
+ * @param string $theme theme slug
+ 
  */
 function _oik_themes_add_settings( $theme ) {
   $field = bw_array_get( $theme, "theme", null );
@@ -205,7 +208,10 @@ function oik_themes_validate_theme( $theme ) {
 }
     
 /**
- 
+ * Validates the settings for the theme
+ *
+ * @param bool $add_theme true for add, false for update
+ * @return bool true when valid
  */
 function _oik_themes_settings_validate( $add_theme=true ) {
   global $bw_theme;
@@ -227,10 +233,13 @@ function _oik_themes_settings_validate( $add_theme=true ) {
   return( $ok );
 }
 
+/**
+ * Displays the registered theme's settings 
+ */
 function oik_themes_settings() {
   $default_theme_server = oik_update::oik_get_themes_server();
   $link = retlink( null, $default_theme_server, $default_theme_server , __( "default oik themes server", null ) );
-  BW_::p( sprintf( __( 'The default oik themes server is currently set to: %1$s', null ),  $link ) );
+  BW_::p( sprintf( __( 'The default oik themes server is currently set to: %1$s', null ), $link ) );
   bw_form();
   stag( "table", "widefat " );
   stag( "thead");
@@ -244,29 +253,35 @@ function oik_themes_settings() {
   etag( "table" );
   BW_::p( isubmit( "_oik_themes_add_theme", __( "Add theme", null ), null, "button-primary" ) );
   etag( "form" );
-} 
+}
 
+/**
+ * Displays the add theme box 
+ */ 
 function oik_themes_add_settings( ) {
   global $bw_theme;
   bw_form();
   stag( "table", "widefat" );
-  bw_textfield( "theme", 20, "theme", $bw_theme['theme'] );
-  bw_textfield( "server", 100, "server", stripslashes( $bw_theme['server'] ) );
-  bw_textfield( "apikey", 26, "apikey", $bw_theme["apikey"] );
+  BW_::bw_textfield( "theme", 20, __( "theme", null ), $bw_theme['theme'] );
+  BW_::bw_textfield( "server", 100, __( "server", null ), stripslashes( $bw_theme['server'] ) );
+  BW_::bw_textfield( "apikey", 26, __( "apikey", null ) , $bw_theme["apikey"] );
   etag( "table" );
-  p( isubmit( "_oik_themes_add_settings", "Add new theme", null, "button-primary" ) );
+  BW_::p( isubmit( "_oik_themes_add_settings", __( "Add new theme", null ), null, "button-primary" ) );
   etag( "form" );
 }
 
+/**
+ * Displays the edit theme box
+ */
 function oik_themes_edit_settings( ) {
   global $bw_theme;
   bw_form();
   stag( "table", "wide-fat" );
-  bw_tablerow( array( "theme", $bw_theme['theme'] . ihidden( 'theme', $bw_theme['theme']) ) );
-  bw_textfield( "server", 100, "server", stripslashes( $bw_theme['server'] ) );
-  bw_textfield( "apikey", 26, "apikey?", $bw_theme["apikey"] );
+  bw_tablerow( array( __( "theme", null ), $bw_theme['theme'] . ihidden( 'theme', $bw_theme['theme']) ) );
+  BW_::bw_textfield( "server", 100, __( "server", null ), stripslashes( $bw_theme['server'] ) );
+  BW_::bw_textfield( "apikey", 26, __( "apikey?", null ), $bw_theme["apikey"] );
   etag( "table" );
-  p( isubmit( "_oik_themes_edit_settings", "Change theme", null, "button-primary" ));
+  BW_::p( isubmit( "_oik_themes_edit_settings", __( "Change theme", null ), null, "button-primary" ));
   etag( "form" );
 }
 
