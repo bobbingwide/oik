@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-02 18:09:24+00:00\n"
+"POT-Creation-Date: 2017-08-04 11:28:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1670,7 +1670,7 @@ msgid "Activate %1$s"
 msgstr "Atcvitae %1$s"
 
 
-#: libs/oik-depends.php:324
+#: libs/oik-depends.php:324 libs/oik_themes.php:395
 msgid "Upgrade %1$s"
 msgstr "Ugparde %1$s"
 
@@ -1751,12 +1751,13 @@ msgid "Plugin: %1$s"
 msgstr "Pulign: %1$s"
 
 
-#: libs/oik_plugins.php:345 libs/oik_plugins.php:352
+#: libs/oik_plugins.php:345 libs/oik_plugins.php:352 libs/oik_themes.php:310
+#: libs/oik_themes.php:317
 msgid "Current version: %1$s"
 msgstr "Cruernt vreison: %1$s"
 
 
-#: libs/oik_plugins.php:346
+#: libs/oik_plugins.php:346 libs/oik_themes.php:311
 msgid "New version: %1$s"
 msgstr "NEw vreison: %1$s"
 
@@ -1794,6 +1795,16 @@ msgstr "Add nEw tehme"
 #: libs/oik_themes.php:284
 msgid "Change theme"
 msgstr "Cahgne tehme"
+
+
+#: libs/oik_themes.php:302
+msgid "Error checking the theme: %1$s"
+msgstr "Error cehkcnig thE tehme: %1$s"
+
+
+#: libs/oik_themes.php:309 libs/oik_themes.php:316
+msgid "Theme: %1$s"
+msgstr "Tehme: %1$s"
 
 
 #: oik-add-shortcodes.php:16

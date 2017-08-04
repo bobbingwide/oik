@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-02 18:09:24+00:00\n"
+"POT-Creation-Date: 2017-08-04 11:28:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1327,7 +1327,7 @@ msgstr "Install %1$s"
 msgid "Activate %1$s"
 msgstr "Activate %1$s"
 
-#: libs/oik-depends.php:324
+#: libs/oik-depends.php:324 libs/oik_themes.php:395
 msgid "Upgrade %1$s"
 msgstr "Upgrade %1$s"
 
@@ -1392,11 +1392,12 @@ msgstr "Error checking the plugin: %1$s"
 msgid "Plugin: %1$s"
 msgstr "Plugin: %1$s"
 
-#: libs/oik_plugins.php:345 libs/oik_plugins.php:352
+#: libs/oik_plugins.php:345 libs/oik_plugins.php:352 libs/oik_themes.php:310
+#: libs/oik_themes.php:317
 msgid "Current version: %1$s"
 msgstr "Current version: %1$s"
 
-#: libs/oik_plugins.php:346
+#: libs/oik_plugins.php:346 libs/oik_themes.php:311
 msgid "New version: %1$s"
 msgstr "New version: %1$s"
 
@@ -1427,6 +1428,14 @@ msgstr "Add new theme"
 #: libs/oik_themes.php:284
 msgid "Change theme"
 msgstr "Change theme"
+
+#: libs/oik_themes.php:302
+msgid "Error checking the theme: %1$s"
+msgstr "Error checking the theme: %1$s"
+
+#: libs/oik_themes.php:309 libs/oik_themes.php:316
+msgid "Theme: %1$s"
+msgstr "Theme: %1$s"
 
 #: oik-add-shortcodes.php:16
 msgid "<b>Unable to locate routine to expand shortcode.</b>"

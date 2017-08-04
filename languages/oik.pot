@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-02 18:09:24+00:00\n"
+"POT-Creation-Date: 2017-08-04 11:28:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1326,7 +1326,7 @@ msgstr ""
 msgid "Activate %1$s"
 msgstr ""
 
-#: libs/oik-depends.php:324
+#: libs/oik-depends.php:324 libs/oik_themes.php:395
 msgid "Upgrade %1$s"
 msgstr ""
 
@@ -1391,11 +1391,12 @@ msgstr ""
 msgid "Plugin: %1$s"
 msgstr ""
 
-#: libs/oik_plugins.php:345 libs/oik_plugins.php:352
+#: libs/oik_plugins.php:345 libs/oik_plugins.php:352 libs/oik_themes.php:310
+#: libs/oik_themes.php:317
 msgid "Current version: %1$s"
 msgstr ""
 
-#: libs/oik_plugins.php:346
+#: libs/oik_plugins.php:346 libs/oik_themes.php:311
 msgid "New version: %1$s"
 msgstr ""
 
@@ -1425,6 +1426,14 @@ msgstr ""
 
 #: libs/oik_themes.php:284
 msgid "Change theme"
+msgstr ""
+
+#: libs/oik_themes.php:302
+msgid "Error checking the theme: %1$s"
+msgstr ""
+
+#: libs/oik_themes.php:309 libs/oik_themes.php:316
+msgid "Theme: %1$s"
 msgstr ""
 
 #: oik-add-shortcodes.php:16
