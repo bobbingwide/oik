@@ -1530,6 +1530,29 @@ $expected[] = '</div>';
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	
+	/** 
+	 * Tests oik_buttons_do_page for bb_BB
+	 */
+	 function test_oik_button_do_page_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		ob_start();
+		oik_buttons_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+	 
+		$html = $this->replace_admin_url( $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		// @TODO Implement nonce checking ?
+		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+		//$this->generate_expected_file( $html_array );
+		
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
 	
 	
 

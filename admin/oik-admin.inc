@@ -285,8 +285,8 @@ function oik_menu() {
   *
   */
 function oik_buttons_do_page() {
-  oik_menu_header( "button selection" );
-  oik_box( null, null, "TinyMCE buttons", "oik_tinymce_buttons" );
+  BW_::oik_menu_header( __( "button selection", "oik" ) );
+  BW_::oik_box( null, null, __( "TinyMCE buttons", "oik" ), "oik_tinymce_buttons" );
   oik_menu_footer();
   bw_flush();
 }  
