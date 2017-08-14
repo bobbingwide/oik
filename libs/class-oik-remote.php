@@ -732,20 +732,15 @@ static function bw_json_decode( $json, $assoc=false ) {
 	 * cURL error 60: SSL certificate problem: unable to get local issuer certificate	 |	 Set sslverify false for local requests
 	 * cURL error 28: Operation timed out after 10000 milliseconds with 0 bytes received | Set timeout to 15 seconds
 	 * 
+	 * This static method is also implemented as a filter hook for 'http_request_args'
+	 * as we need to cater for requests being performed for a plugin / theme download. 
+	 * 
+	 * @TODO Ensure we don't reduce the timeout time.
+	 * 
 	 * @param array $args
 	 * @param string $url
 	 * @return array adjusted args
-	 *
-	 * @TODO Decide if this should have been implemented as a filter for 'http_request_args' 
-	
-
-		$args["sslverify"] = false; 
-		//$args["sslverify"] = true;
-		//$args["sslcertificates"] = "C:/apache24/conf/cacert.pem";
-		//$args['local'] = true;
-	 * 
 	 */
-
 	static function bw_adjust_args( $args, $url ) {
 		if ( self::are_you_local( $url ) ) {
 			$args['sslverify'] = false;
