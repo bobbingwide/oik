@@ -47,8 +47,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 * Test the oik custom CSS box
 	 * 
 	 * Note: This only tests one of the routes. 
-	 * @TODO We need to set or unset 'customCSS' to test the other one. And perhaps another value for custom.css ?
-	 * 
+	 * Both routes are tested in the bb_BB version.
 	 */
 	function test_oik_custom_css_box() {
 		//oik_require( "admin/oik-admin.inc" );
@@ -1562,6 +1561,50 @@ $expected[] = '</div>';
 		ob_end_clean();
 		$html_array = $this->tag_break( $html );
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Test the oik custom CSS box for bb_BB
+	 */
+	function test_oik_custom_css_box_not_defined_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		bw_update_option( "customCSS", "" );
+		$html = bw_ret( oik_custom_css_box() ); 		
+		$custom_CSS = bw_get_option( "customCSS"	);
+		$this->assertEquals( "", $custom_CSS );
+		$html = $this->replace_admin_url( $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	
+	/**
+	 * Test the oik custom CSS box for bb_BB
+	 * 
+	 * Note: This only tests one of the routes. 
+	 * @TODO We need to set or unset 'customCSS' to test the other one. And perhaps another value for custom.css ?
+	 * 
+	 */
+	function test_oik_custom_css_box_edit_link_bb_BB() {
+		//oik_require( "admin/oik-admin.inc" );
+		
+		$this->switch_to_locale( "bb_BB" );
+		
+		bw_update_option( "customCSS", "custom.css" );
+		$html = bw_ret( oik_custom_css_box() );
+		$html = $this->replace_admin_url( $html );
+		
+    $theme = bw_get_theme();
+		$html = str_replace( "theme=" . $theme, "theme=genesis-image", $html );
+		
+		$custom_CSS = bw_get_option( "customCSS"	);
+		$this->assertEquals( "custom.css", $custom_CSS );
+		
+		$html_array = $this->tag_break( $html );
+		
+		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
 

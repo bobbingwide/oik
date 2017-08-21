@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-21 15:44:02+00:00\n"
+"POT-Creation-Date: 2017-08-21 16:42:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -721,45 +721,49 @@ msgstr ""
 msgid "Display directions to the alternative address."
 msgstr ""
 
-#: admin/oik-admin.inc:787
+#: admin/oik-admin.inc:766
+msgid "Edit custom CSS"
+msgstr ""
+
+#: admin/oik-admin.inc:785
 msgid "shortcode help"
 msgstr ""
 
-#: admin/oik-admin.inc:788
+#: admin/oik-admin.inc:786
 msgid "About shortcodes"
 msgstr ""
 
-#: admin/oik-admin.inc:792
+#: admin/oik-admin.inc:790
 msgid "%1$s - more information"
 msgstr ""
 
-#: admin/oik-admin.inc:793
+#: admin/oik-admin.inc:791
 msgid "%1$s - snippet"
 msgstr ""
 
-#: admin/oik-admin.inc:796
+#: admin/oik-admin.inc:794
 msgid "Shortcode summary"
 msgstr ""
 
-#: admin/oik-admin.inc:805
+#: admin/oik-admin.inc:803
 msgid ""
 "This page lists all the currently active shortcodes. To find out more "
 "information about a shortcode click on the shortcode name in the Help column."
 msgstr ""
 
-#: admin/oik-admin.inc:806
+#: admin/oik-admin.inc:804
 msgid ""
 "Depending on how the shortcode is implemented you will either be shown some "
 "more information with one or more examples, or an 'oik generated example.'"
 msgstr ""
 
-#: admin/oik-admin.inc:807
+#: admin/oik-admin.inc:805
 msgid ""
 "You will also be shown the HTML snippet for the example. There should be no "
 "need to do anything with this output."
 msgstr ""
 
-#: admin/oik-admin.inc:808
+#: admin/oik-admin.inc:806
 msgid ""
 "For further information on a shortcode or its parameters click on the links "
 "in the Syntax column."

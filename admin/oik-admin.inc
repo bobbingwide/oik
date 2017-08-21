@@ -756,16 +756,14 @@ function bw_edit_custom_css_link( $customCSS, $theme ) {
     global $wp_version; 
     $link = network_admin_url( "theme-editor.php" );
     $link .= '?file=';
-    //$link .= 'oik/custom.css';
     if ( version_compare( $wp_version, '3.4', "ge" ) ) {
       $link .= $customCSS;
     } else {  
       $link .= path_join( get_stylesheet_directory(), $customCSS );
     }  
     $link .= "&theme=$theme";
-    //$img = retimage( null, oik_url( 'images/editcss_48.png') , "Edit custom CSS" );
     $img = "{}";
-    alink( "bw_custom_css", $link, $img, "Edit custom CSS" ); 
+    BW_::alink( "bw_custom_css", $link, $img, __( "Edit custom CSS", "oik" ) ); 
   }
 }  
 
