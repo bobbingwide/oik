@@ -79,15 +79,16 @@ oik_require( "bobbcomp.inc" );
  */  
 
 /**
- * Create a simple link to a website
+ * Creates a simple link to a bobbingwide website
+ * 
+ * The original purpose of this was to produce some fancy text for Bobbing Wide
+ * but it can be used for other sites if you specify site='your domain'
  * 
  * @param array $atts - shortcode attributes
  *  site = prefix of the site. e.g. www.cwiccer or twenty-tens
- *  s = suffix = des for webdesign and dev for webdevelopment
+ *  s = suffix selector = bw for null, des for webdesign, dev for webdevelopment
  *  t = tld = defaults to .com
- *
- * The primary purpose of this is to produce the fancy text for Bobbing Wide
- * but it can be used for other sites if you specify site='your domain'
+ * @return string link to the site
  */
 if ( !function_exists( "bw_lbw" ) ) {
 function bw_lbw( $atts=NULL ) {
@@ -101,10 +102,10 @@ function bw_lbw( $atts=NULL ) {
   $site = bw_array_get( $atts, 'site', "www.bobbingwide" );
   if ( $site == 'www.bobbingwide' ) {
      $text = $site;
-     $title = 'Visit the Bobbing Wide website: ';
+     $title = __( 'Visit the Bobbing Wide website: ', "oik" );
   } else {
     $text = $site; 
-    $title = 'Visit the website: ';
+    $title = __( 'Visit the website: ', "oik" );
   }     
   $site_s = bw_array_get( $sites, $s, NULL );
   $site .= $site_s;
@@ -114,7 +115,7 @@ function bw_lbw( $atts=NULL ) {
     $text .= '<b>' . $site_s. '</b>';
   $text .= $tld;  
    
-  $link = retlink( 'url', "http://" . $site, $text, $title . $site ) ;
+  $link = retlink( 'url', "https://" . $site, $text, $title . $site ) ;
   return( $link );
 }
 }

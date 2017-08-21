@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-04 11:28:09+00:00\n"
+"POT-Creation-Date: 2017-08-21 11:48:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -166,12 +166,12 @@ msgstr "oik options-1"
 msgid "More Options"
 msgstr "More Options"
 
-#: admin/oik-admin.inc:85 libs/class-oik-plugin-update.php:155
+#: admin/oik-admin.inc:85 libs/class-oik-plugin-update.php:177
 msgid "oik plugins"
 msgstr "oik plugins"
 
 #: admin/oik-admin.inc:85 admin/oik-admin.inc:167
-#: libs/class-oik-plugin-update.php:155 libs/class-oik-plugin-update.php:347
+#: libs/class-oik-plugin-update.php:177 libs/class-oik-plugin-update.php:366
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -180,7 +180,7 @@ msgid "oik themes"
 msgstr "oik themes"
 
 #: admin/oik-admin.inc:86 admin/oik-admin.inc:169
-#: libs/class-oik-plugin-update.php:351
+#: libs/class-oik-plugin-update.php:370
 msgid "Themes"
 msgstr "Themes"
 
@@ -290,29 +290,29 @@ msgstr "Name your custom CSS file"
 msgid "Enter the name of your custom CSS file on the Options page"
 msgstr "Enter the name of your custom CSS file on the Options page"
 
-#: admin/oik-admin.inc:164 libs/class-oik-plugin-update.php:342
+#: admin/oik-admin.inc:164 libs/class-oik-plugin-update.php:361
 msgid ""
 "Some oik plugins and themes are supported from servers other than WordPress."
 "org"
 msgstr "Some oik plugins and themes are supported from servers other than WordPress.org"
 
-#: admin/oik-admin.inc:165 libs/class-oik-plugin-update.php:343
+#: admin/oik-admin.inc:165 libs/class-oik-plugin-update.php:362
 msgid "Premium plugin and theme versions require API keys."
 msgstr "Premium plugin and theme versions require API keys."
 
-#: admin/oik-admin.inc:166 libs/class-oik-plugin-update.php:346
+#: admin/oik-admin.inc:166 libs/class-oik-plugin-update.php:365
 msgid "Use the Plugins page to manage oik plugins servers and API keys"
 msgstr "Use the Plugins page to manage oik plugins servers and API keys"
 
-#: admin/oik-admin.inc:167 libs/class-oik-plugin-update.php:347
+#: admin/oik-admin.inc:167 libs/class-oik-plugin-update.php:366
 msgid "Manage plugin servers and API keys"
 msgstr "Manage plugin servers and API keys"
 
-#: admin/oik-admin.inc:168 libs/class-oik-plugin-update.php:350
+#: admin/oik-admin.inc:168 libs/class-oik-plugin-update.php:369
 msgid "Use the Themes page to manage oik themes servers and API keys"
 msgstr "Use the Themes page to manage oik themes servers and API keys"
 
-#: admin/oik-admin.inc:169 libs/class-oik-plugin-update.php:351
+#: admin/oik-admin.inc:169 libs/class-oik-plugin-update.php:370
 msgid "Manage theme servers and API keys"
 msgstr "Manage theme servers and API keys"
 
@@ -1505,6 +1505,14 @@ msgstr "CSS classes for block"
 #: shortcodes/oik-blocks.php:129
 msgid "CSS class prefix"
 msgstr "CSS class prefix"
+
+#: shortcodes/oik-bob-bing-wide.php:105
+msgid "Visit the Bobbing Wide website: "
+msgstr "Visit the Bobbing Wide website: "
+
+#: shortcodes/oik-bob-bing-wide.php:108
+msgid "Visit the website: "
+msgstr "Visit the website: "
 
 #: shortcodes/oik-bookmarks.php:57
 msgid "Number of bookmarks to return. -1=unlimited"

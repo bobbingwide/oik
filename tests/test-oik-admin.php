@@ -199,31 +199,10 @@ $expected[] = '</form>';
 	 */
 	function test_oik_support() {
 		$html = bw_ret( oik_support() ) ;
-		
 		$html_array = $this->tag_break( $html );
-		//$this->generate_expected( $html_array );
-		//$expected
-		
-		$expected = array();
-$expected[] = '<p>Support the development of <span class="bw_oik">';
-$expected[] = '<abbr  title="OIK Information Kit">oik</abbr>';
-$expected[] = '</span> by making a donation to <a class="url" href="http://www.bobbingwide.com" title="Visit the Bobbing Wide website: www.bobbingwide.com">www.bobbingwide.com</a>';
-$expected[] = '</p>';
-$expected[] = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post">';
-$expected[] = '<input type="hidden" name="business" value="herb@bobbingwide.com" />';
-$expected[] = '<input type="hidden" name="lc" value="United Kingdom" />';
-$expected[] = '<input type="hidden" name="currency_code" value="GBP" />';
-$expected[] = '<input type="hidden" name="item_name" value="oik-plugin" />';
-$expected[] = '<input type="hidden" name="item_number" value="oik" />';
-$expected[] = '<input type="hidden" name="cmd" value="_donations" />';
-$expected[] = '<input type="hidden" name="no_note" value="0" />';
-$expected[] = '<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest" />';
-$expected[] = '<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">';
-$expected[] = '</form>';
-		$this->assertEquals( $expected, $html_array );
-		
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 	}
-	
 	
 	/**
 	 * Test the oik admin options
@@ -1552,9 +1531,19 @@ $expected[] = '</div>';
 		
 		$this->assertArrayEqualsFile( $html_array );
 	}
-	
-	
-	
+
+	/**
+	 * Tests oik_support for bb_BB
+	 *
+	 * Note: Expects paypal_country to be set to "United Kingdom" and currency set to GBP
+	 * @TODO Replace with actual value
+	 */
+	function test_oik_support_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( oik_support() ) ;
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
 
 }
-	
