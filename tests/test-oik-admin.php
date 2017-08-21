@@ -1545,5 +1545,24 @@ $expected[] = '</div>';
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
+	
+	
+	/**
+	 * Test the oik admin options for bb_BB
+	 *
+	 * We have to force the flush to get all the html that's generated.
+	 */
+	function test_oik_admin_options_on_bb_BB() { 
+		$this->switch_to_locale( "bb_BB" );
+		bw_update_option( "show_ids", "on", "bw_admin_options" );
+		ob_start(); 
+		oik_admin_options();
+		bw_flush();  
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html_array = $this->tag_break( $html );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
 
 }

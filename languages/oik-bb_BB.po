@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170706\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-21 11:48:04+00:00\n"
+"POT-Creation-Date: 2017-08-21 15:44:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -476,6 +476,11 @@ msgstr "Raed thE dcomuneatiton fOr thE OIk pulign"
 #: admin/oik-admin.inc:246
 msgid "Support the development of %1$s by making a donation to %2$s"
 msgstr "Spuoprt thE dvelepoemnt Of %1$s by mkanig A dnotaoin tO %2$s"
+
+
+#: admin/oik-admin.inc:257
+msgid "Show IDs on admin pages"
+msgstr "Sohw IDs On amdin pgaes"
 
 
 #: admin/oik-admin.inc:269

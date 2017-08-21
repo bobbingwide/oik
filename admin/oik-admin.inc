@@ -254,7 +254,7 @@ function oik_support() {
 function oik_admin_options() { 
   $option = 'bw_admin_options'; 
   $options = bw_form_start( $option, 'oik_admin_options' );
-  bw_checkbox_arr( "bw_admin_options", "Show IDs on admin pages", $options, 'show_ids' );
+  bw_checkbox_arr( "bw_admin_options", __( "Show IDs on admin pages", "oik" ), $options, 'show_ids' );
   etag( "table" );
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-secondary" ) ); 
   etag( "form" );

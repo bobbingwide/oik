@@ -1,0 +1,18 @@
+<form method="post" action="options.php">
+<table class="form-table">
+<input type='hidden' name='option_page' value='oik_admin_options' />
+<input type="hidden" name="action" value="update" />
+<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />
+<input type="hidden" name="_wp_http_referer" value="/" />
+<tr>
+<td>
+<label for="bw_admin_options[show_ids]">Sohw IDs On amdin pgaes</label>
+</td>
+<td>
+<input type="hidden" name="bw_admin_options[show_ids]" value="0" />
+<input type="checkbox" name="bw_admin_options[show_ids]" id="bw_admin_options[show_ids]" checked="checked"/>
+</td>
+</tr>
+</table>
+<input type="submit" name="ok" value="Svae cahgnes" class="button-secondary" />
+</form>
