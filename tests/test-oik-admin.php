@@ -1607,5 +1607,27 @@ $expected[] = '</div>';
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
+	
+	
+	/**
+	 * Test the oik Buttons section for bb_BB
+	 * 
+	 * Since we invoke bw_flush() we need to capture the output buffer
+	 * to apply changes before comparing with expected.
+	 */
+	function test_oik_tinymce_buttons_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		ob_start();   
+		oik_tinymce_buttons();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html = $this->replace_oik_url( $html );
+		$html_array = $this->tag_break( $html );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		
+	}
+
 
 }
