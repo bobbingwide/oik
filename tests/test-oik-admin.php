@@ -1600,9 +1600,8 @@ $expected[] = '</div>';
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
-	
-	
-	/**
+
+/**
 	 * Test the oik Buttons section for bb_BB
 	 * 
 	 * Since we invoke bw_flush() we need to capture the output buffer
@@ -1621,7 +1620,6 @@ $expected[] = '</div>';
 		$this->assertArrayEqualsFile( $html_array );
 		
 	}
-	
 
 	/**
 	 * Test links to the oik documentation for bb_BB
@@ -1630,11 +1628,29 @@ $expected[] = '</div>';
 	 * The forum is on wordpress.org
 	 */
 	function test_oik_documentation_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( oik_documentation() );
 		$html_array = $this->tag_break( $html );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
-	} 
+	}
+	
+	/**
+	 * Tests bw_symlinked_plugin for en_GB
+	 
+	 */ 
+	function test_bw_symlinked_plugin() {
+		ob_start();
+		$plugin_data = array( "Version" => "1.2.3", "new_version" => "1.2.4", "real_path" => "real/path/wp-content/plugins/symlinked_plugin" );
+		$r = null;
+		bw_symlinked_plugin( $plugin_data, $r );
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
 
 
 }
