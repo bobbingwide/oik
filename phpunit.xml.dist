@@ -23,6 +23,7 @@
 			<file>tests/test-oik-sc-help.php</file>
 			<file>tests/test-issue-71.php</file>
 			<file>tests/test-issue-9.php</file>
+			<file>tests/test-issue-63.php</file>
 			<file>tests/test-oik-admin.php</file>
 		</testsuite>
 		<testsuite name="random">
