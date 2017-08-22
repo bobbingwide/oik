@@ -252,44 +252,47 @@ function oik_attachment_fields_to_save( $post, $attachment) {
 }
 
 /**
- * Implement "admin_bar_menu" action for oik
+ * Implements "admin_bar_menu" action for oik
  *
  * We implement this first for the whole site...
  * @TODO but allow each user to override it in oik-user? 
  *
- * This action hook runs after other action hooks to alter the "Howdy," prefix for 'my-account'
- * Most howdy replace plugins look for the string "Howdy," so the code won't work if the string has already been translated
- * We look for the translated version, which includes the user's display name.
- * So this logic should work localized versions.
+ * - This action hook runs after other action hooks to alter the "Howdy," prefix for 'my-account'.
+ * - Most howdy replace plugins look for the string "Howdy," so the code won't work if the string has already been translated.
+ * - We look for the translated version, which includes the user's display name.
+ * - So this logic should work for localized versions.
+ * - However, WordPress keeps changing the code. 
+ * - Which has caused it to stop working in both 4.7 and 4.8.
+ * - See WordPress TRACs 37794 and 40342.
  *  
- * The structure we're changing is the node for 'my-account'
- * e.g.
+ * The structure we're changing is the node for 'my-account'. e.g.
+ * `
     [id] => my-account
     [parent] => top-secondary
-    [title] => Howdy, vsgloik<img alt='' onerror='this.src="http://qw/wordpress/wp-content/themes/rngs0721/images/no-avatar.jpg"' src='http://1.gravatar.com/avatar/1c32865f0cfb495334dacb5680181f2d?s=26&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D26&amp;r=G' class='avatar avatar-26 photo' height='26' width='26' />
+    [title] => Howdy, <span class="display-name">vsgloik</span><img alt='' onerror='this.src="http://qw/wordpress/wp-content/themes/rngs0721/images/no-avatar.jpg"' src='http://1.gravatar.com/avatar/1c32865f0cfb495334dacb5680181f2d?s=26&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D26&amp;r=G' class='avatar avatar-26 photo' height='26' width='26' />
     [href] => http://qw/wordpress/wp-admin/profile.php
     [meta] => Array
         (
             [class] => with-avatar
             [title] => My Account
         )
- *
- * @param WP_Admin_Bar $wp_admin_bar - the WP_Admin_Bar object
+ * `
  * 
+ * @param WP_Admin_Bar $wp_admin_bar - the WP_Admin_Bar object
  */
 function oik_admin_bar_menu( &$wp_admin_bar ) {
-  $replace = bw_get_option( "howdy" );
-  if ( $replace ) {
-    $node = $wp_admin_bar->get_node( 'my-account' );
-    $current_user = wp_get_current_user();
-  	$howdy = sprintf( __('Howdy, %s'), $current_user->display_name );
-    //bw_trace2( $node, "node: $howdy" );
-    $replace = $replace . " " . $current_user->display_name; 
-    if ( $node && $node->title ) {
-      $node->title = str_replace( $howdy, $replace, $node->title );
-      $wp_admin_bar->add_node( $node );
-    }  
-  }
+	$replace = bw_get_option( "howdy" );
+	if ( $replace ) {
+		$node = $wp_admin_bar->get_node( 'my-account' );
+		$current_user = wp_get_current_user();
+		$howdy = sprintf( __('Howdy, %s'), '<span class="display-name">' . $current_user->display_name . '</span>' );
+		//bw_trace2( $node, "node: $howdy" );
+		$replace = $replace . " " . '<span class="display-name">' . $current_user->display_name . '</span>';
+		if ( $node && $node->title ) {
+			$node->title = str_replace( $howdy, $replace, $node->title );
+			$wp_admin_bar->add_node( $node );
+		}
+	}
 }
 
 /**
