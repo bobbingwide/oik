@@ -1637,13 +1637,28 @@ $expected[] = '</div>';
 	
 	/**
 	 * Tests bw_symlinked_plugin for en_GB
-	 
 	 */ 
 	function test_bw_symlinked_plugin() {
 		ob_start();
 		$plugin_data = array( "Version" => "1.2.3", "new_version" => "1.2.4", "real_path" => "real/path/wp-content/plugins/symlinked_plugin" );
 		$r = null;
 		bw_symlinked_plugin( $plugin_data, $r );
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	
+	/**
+	 * Tests bw_gitrepo_plugin for en_GB
+	 */ 
+	function test_bw_gitrepo_plugin() {
+		ob_start();
+		$plugin_data = array( "Version" => "1.2.3", "new_version" => "1.2.4", "real_path" => "real/path/wp-content/plugins/symlinked_plugin" );
+		$r = null;
+		bw_gitrepo_plugin( $plugin_data, $r );
 		$html = ob_get_contents();
 		ob_end_clean();
 		$html_array = $this->tag_break( $html );
