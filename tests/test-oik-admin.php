@@ -177,16 +177,9 @@ $expected[] = '</form>';
 	 */
 	function test_oik_documentation() {
 		$html = bw_ret( oik_documentation() );
-		$expected = null;
-		$expected .= '<p>For more information:</p><ul><li>';
-		$expected .= '<a href="http://www.oik-plugins.com/tutorial/getting-started-with-oik-plugins/" title="Getting started">Getting started</a>';
-		$expected .= '</li><li>';
-		$expected .= '<a href="http://www.oik-plugins.com/oik/oik-faq" title="Frequently Asked Questions">Frequently Asked Questions</a>';
-		$expected .= '</li><li>';
-		$expected .= '<a href="http://wordpress.org/tags/oik?forum_id=10" title="Forum">Forum</a>';
-		$expected .= '</li></ul>';
-		$expected .= '<p><a class="button button-secondary" href="http://www.oik-plugins.com" title="Read the documentation for the oik plugin">oik documentation</a></p>';
-    $this->assertEquals( $expected, $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 	} 
 	
 	
@@ -1628,6 +1621,20 @@ $expected[] = '</div>';
 		$this->assertArrayEqualsFile( $html_array );
 		
 	}
+	
+
+	/**
+	 * Test links to the oik documentation for bb_BB
+	 *
+	 * The oik documentation is on oik-plugins.com
+	 * The forum is on wordpress.org
+	 */
+	function test_oik_documentation_bb_BB() {
+		$html = bw_ret( oik_documentation() );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	} 
 
 
 }
