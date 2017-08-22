@@ -410,6 +410,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Changed: oik-plugins server now uses https [github bobbingwide oik issues 70]
 * Fixed: bw_invoke_shortcode should use bw_push and bw_pop [github bobbingwide oik issue 82]
 * Fixed: oik_box() improvements [github bobbingwide oik issues 81]
+* Fixed: Howdy override logic updated for WordPress 4.8 changes [github bobbingwide oik issues 63]
 * Tested: With WordPress 4.8.1
 
 = 3.2.0-alpha-20170616 =
