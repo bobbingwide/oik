@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.2.0-alpha-20170706\n"
+"Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-21 16:42:44+00:00\n"
+"POT-Creation-Date: 2017-08-23 12:51:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -770,6 +770,35 @@ msgid ""
 "in the Syntax column."
 msgstr "For further information on a shortcode or its parameters click on the links in the Syntax column."
 
+#: admin/oik-admin.inc:1079
+msgid ""
+"WordPress has previously determined that there is a new version available: %s"
+msgstr "WordPress has previously determined that there is a new version available: %s"
+
+#: admin/oik-admin.inc:1081 admin/oik-admin.inc:1184
+msgid "Current version: %s"
+msgstr "Current version: %s"
+
+#: admin/oik-admin.inc:1083
+msgid "However, this is a symlinked plugin, located at <br /> %s"
+msgstr "However, this is a symlinked plugin, located at <br /> %s"
+
+#: admin/oik-admin.inc:1086
+msgid "So please don't attempt to apply updates."
+msgstr "So please don't attempt to apply updates."
+
+#: admin/oik-admin.inc:1181
+msgid "This plugin is a Git repository."
+msgstr "This plugin is a Git repository."
+
+#: admin/oik-admin.inc:1182
+msgid "New version?: %s"
+msgstr "New version?: %s"
+
+#: admin/oik-admin.inc:1187
+msgid "Please don't attempt to apply updates using WordPress."
+msgstr "Please don't attempt to apply updates using WordPress."
+
 #: admin/oik-plugins.inc:30 libs/oik_plugins.php:36
 msgid "plugin server settings"
 msgstr "plugin server settings"
@@ -1461,7 +1490,7 @@ msgstr "ID"
 msgid "oik custom image link URL"
 msgstr "oik custom image link URL"
 
-#: oik.php:285
+#: oik.php:288
 msgid "Howdy, %s"
 msgstr "Howdy, %s"
 

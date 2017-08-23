@@ -1247,21 +1247,23 @@ $expected[] = '</div>';
 	 *
 	 * Note: For switch_to_locale() see https://core.trac.wordpress.org/ticket/26511 and https://core.trac.wordpress.org/ticket/39210 
 	 */
-	function switch_to_locale( $locale ) {
+	function switch_to_locale( $locale='bb_BB' ) {
 		$tdl = is_textdomain_loaded( "oik" );
 		$this->assertTrue( $tdl );
-		$switched = switch_to_locale( 'bb_BB' );
+		$switched = switch_to_locale( $locale );
 		if ( $switched ) {
 			$this->assertTrue( $switched );
 		}
-			$locale = $this->query_la_CY();
-			$this->assertEquals( "bb_BB", $locale );
-			$this->reload_domains();
-			$tdl = is_textdomain_loaded( "oik" );
-			$this->assertTrue( $tdl );
-			//$this->test_domains_loaded();
+		$new_locale = $this->query_la_CY();
+		$this->assertEquals( $locale, $new_locale );
+		$this->reload_domains();
+		$tdl = is_textdomain_loaded( "oik" );
+		$this->assertTrue( $tdl );
+		//$this->test_domains_loaded();
+		if ( $locale === 'bb_BB' ) {
 			$bw = translate( "bobbingwide", "oik" );
 			$this->assertEquals( "bboibgniwde", $bw );
+		}	
 			
 	}
 	
@@ -1639,6 +1641,23 @@ $expected[] = '</div>';
 	 * Tests bw_symlinked_plugin for en_GB
 	 */ 
 	function test_bw_symlinked_plugin() {
+		$this->switch_to_locale( "en_GB" );
+		ob_start();
+		$plugin_data = array( "Version" => "1.2.3", "new_version" => "1.2.4", "real_path" => "real/path/wp-content/plugins/symlinked_plugin" );
+		$r = null;
+		bw_symlinked_plugin( $plugin_data, $r );
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Tests bw_symlinked_plugin for bb_BB
+	 */ 
+	function test_bw_symlinked_plugin_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
 		ob_start();
 		$plugin_data = array( "Version" => "1.2.3", "new_version" => "1.2.4", "real_path" => "real/path/wp-content/plugins/symlinked_plugin" );
 		$r = null;
@@ -1655,6 +1674,7 @@ $expected[] = '</div>';
 	 * Tests bw_gitrepo_plugin for en_GB
 	 */ 
 	function test_bw_gitrepo_plugin() {
+		$this->switch_to_locale( 'en_GB' );
 		ob_start();
 		$plugin_data = array( "Version" => "1.2.3", "new_version" => "1.2.4", "real_path" => "real/path/wp-content/plugins/symlinked_plugin" );
 		$r = null;
@@ -1665,6 +1685,23 @@ $expected[] = '</div>';
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
+	
+	/**
+	 * Tests bw_gitrepo_plugin for bb_BB
+	 */ 
+	function test_bw_gitrepo_plugin_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		ob_start();
+		$plugin_data = array( "Version" => "1.2.3", "new_version" => "1.2.4", "real_path" => "real/path/wp-content/plugins/symlinked_plugin" );
+		$r = null;
+		bw_gitrepo_plugin( $plugin_data, $r );
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
 	
 
 

@@ -1076,15 +1076,15 @@ function bw_symlinked_plugin( $plugin_data, $r ) {
 	$new_version = bw_array_get( $plugin_data, "new_version", null ); 
 	if ( $new_version != $version ) {
 	
-		$text = "WordPress has previously determined that there is a new version available: ";
-		$text .= $new_version;
+		$text = sprintf( __( 'WordPress has previously determined that there is a new version available: %s', "oik" ), $new_version );
 		$text .= "<br />";
-		$text .= "Current version: ";
-		$text .= $version;
-		$text .= "<br />However, this is a symlinked plugin, located at <br /> ";
-		$text .= $plugin_data['real_path'];
+		$text .= sprintf( __( 'Current version: %s', "oik" ), $version );
+		$text .= "<br />";
+		$text .= sprintf( __( 'However, this is a symlinked plugin, located at <br /> %s', "oik" ), $plugin_data['real_path'] );
 		$text .= "&nbsp;";
-		$text .= "<br /><strong>So please don't attempt to apply updates.</strong>";
+		$text .= "<br /><strong>";
+		$text .= __( "So please don't attempt to apply updates.", "oik" );
+		$text .= "</strong>";
 
 		$message = '<tr class="plugin-update-tr">';
 		$message .= '<td colspan="3" class="plugin-update colspanchange">';
@@ -1176,32 +1176,24 @@ function bw_check_gitrepos() {
 function bw_gitrepo_plugin( $plugin_data, $r ) {
 	bw_trace2( null, null, true, BW_TRACE_VERBOSE );
 	bw_backtrace( BW_TRACE_VERBOSE );
-	
 	$version = bw_array_get( $plugin_data, "Version", null );
 	$new_version = bw_array_get( $plugin_data, "new_version", null ); 
-	//if ( $new_version != $version ) {
-		$text = "This plugin is a Git repository.";
-	
-		$text .= "New version?: ";
-		$text .= $new_version;
-		$text .= "<br />";
-		$text .= "Current version: ";
-		$text .= $version;
-		//$text .= "<br />However, this is a symlinked plugin, located at <br /> ";
-		//$text .= $plugin_data['real_path'];
-		$text .= "&nbsp;";
-		$text .= "<br /><strong>Please don't attempt to apply updates using WordPress.</strong>";
-
-		$message = '<tr class="plugin-update-tr">';
-		$message .= '<td colspan="3" class="plugin-update colspanchange">';
-		$message .= '<div class="update-message">';
-		$message .= $text;
-		$message .= "</div>";
-		$message .= "</td>";
-		$message .= "</tr>";
-		
-		echo $message;
- // }
+	$text = __( "This plugin is a Git repository.", "oik" );
+	$text .= "&nbsp;";
+	$text .= sprintf( __( 'New version?: %s', "oik" ), $new_version );
+	$text .= "&nbsp;";
+	$text .= sprintf( __( 'Current version: %s', "oik" ), $version );
+	$text .= "<br /><strong>";
+	$text .= __( "Please don't attempt to apply updates using WordPress.", "oik" );
+	$text .= "</strong>";
+	$message = '<tr class="plugin-update-tr">';
+	$message .= '<td colspan="3" class="plugin-update colspanchange">';
+	$message .= '<div class="update-message">';
+	$message .= $text;
+	$message .= "</div>";
+	$message .= "</td>";
+	$message .= "</tr>";
+	echo $message;
 }
 
 /**
