@@ -33,5 +33,22 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 		$value = bw_get_option_arr( "dleif", null, array( "field" => "value", "alt" => "0" ) );
 		$this->assertNull( $value );
 	}
+	
+	function test_bw_oik() {
+		$this->switch_to_locale( 'bb_BB' );
+		$html = bw_oik();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	function test_bw_oik_long() {
+		$this->switch_to_locale( 'bb_BB' );
+		$html = bw_oik_long();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
 
 }
