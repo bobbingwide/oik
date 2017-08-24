@@ -26,21 +26,23 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	
 	function test_oik_shortcode_options() {
 		//oik_require( "admin/oik-admin.inc" );
+		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( oik_shortcode_options() );
 		$html = $this->replace_admin_url( $html );
-		$expected = null;
-		$expected = '<p>oik provides sets of lazy smart shortcodes that you can use just about anywhere in your WordPress site.</p>';
-		$expected .= '<p>You enter your common information, such as contact details, slogans, location information, PayPal payment information and your social networking and bookmarking information using oik Options</p>';
-		$expected .= '<p>If required, you enter alternative information using More options</p>';
-		$expected .= '<a class="button-primary" href="https://qw/src/wp-admin/admin.php?page=oik_options" title="Enter your common information">Options</a>';
-		$expected .= '&nbsp;';
-		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_options-1" title="Enter additional information">More options</a>';
-		$expected .= '<p>Discover the shortcodes that you can use in your content and widgets using Shortcode help</p>';
-		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_sc_help" title="Discover shortcodes you can use">Shortcode help</a>';
-		$expected .= '<p>Choose the helper buttons that help you to insert shortcodes when editing your content</p>';
-		$expected .= '<a class="button-secondary" href="https://qw/src/wp-admin/admin.php?page=oik_buttons" title="Select TinyMCE and HTML edit helper buttons">Buttons</a>';
 		
-		$this->assertEquals( $expected, $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	function test_oik_shortcode_options_bb_BB() {
+		//oik_require( "admin/oik-admin.inc" );
+		$this->switch_to_locale( 'bb_BB' );
+		$html = bw_ret( oik_shortcode_options() );
+		$html = $this->replace_admin_url( $html );
+		
+		$html_array = $this->tag_break( $html );
+		$this->assertArrayEqualsFile( $html_array );
 	}
 	
 	/**
@@ -50,6 +52,8 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 * Both routes are tested in the bb_BB version.
 	 */
 	function test_oik_custom_css_box() {
+	
+		$this->switch_to_locale( 'en_GB' );
 		//oik_require( "admin/oik-admin.inc" );
 		$html = bw_ret( oik_custom_css_box() );
 		$html = $this->replace_admin_url( $html );
