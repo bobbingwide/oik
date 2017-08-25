@@ -31,6 +31,15 @@ class Tests_oik_add_shortcodes extends BW_UnitTestCase {
 		$atts = bw_cast_array( $atts );
 		$this->assertEquals( $atts, array( '0' ) );
 	}
+	
+	function test__bw_missing_shortcodefunc() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = _bw_missing_shortcodefunc( null, null, "missing-shortcode" );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
 
 }
 	
