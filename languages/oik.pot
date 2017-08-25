@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-23 12:51:41+00:00\n"
+"POT-Creation-Date: 2017-08-24 16:17:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -774,7 +774,7 @@ msgid ""
 "WordPress has previously determined that there is a new version available: %s"
 msgstr ""
 
-#: admin/oik-admin.inc:1081 admin/oik-admin.inc:1184
+#: admin/oik-admin.inc:1081 admin/oik-admin.inc:1185
 msgid "Current version: %s"
 msgstr ""
 
@@ -790,7 +790,7 @@ msgstr ""
 msgid "This plugin is a Git repository."
 msgstr ""
 
-#: admin/oik-admin.inc:1182
+#: admin/oik-admin.inc:1183
 msgid "New version?: %s"
 msgstr ""
 
@@ -885,28 +885,31 @@ msgstr ""
 msgid "OIK Information Kit"
 msgstr ""
 
-#: bobbcomp.inc:496
+#. translators: "Separator between two adjacent years e.g. 2017,2018 "
+#: bobbcomp.inc:506
 msgid ","
 msgstr ""
 
-#: bobbcomp.inc:500
+#. translators: "Separator for a year range e.g. 2011-2017 "
+#: bobbcomp.inc:514
 msgid "-"
 msgstr ""
 
-#: bobbcomp.inc:605
+#: bobbcomp.inc:625
 msgid "&copy; Copyright"
 msgstr ""
 
-#: bobbcomp.inc:606 shortcodes/oik-qrcode.php:10
-msgid "company"
+#: bobbcomp.inc:634
+msgid "All rights reserved."
 msgstr ""
 
-#: bobbcomp.inc:607
-msgid ". All rights reserved."
-msgstr ""
-
-#: bobbcomp.inc:610
+#: bobbcomp.inc:637
 msgid "yearfrom"
+msgstr ""
+
+#. translators: "Copyright-prefix company-name year-range. "
+#: bobbcomp.inc:641
+msgid "%1$s %2$s %3$s. "
 msgstr ""
 
 #: bw_metadata.inc:41
@@ -2042,6 +2045,10 @@ msgstr ""
 
 #: shortcodes/oik-power.php:18
 msgid "Semantic Personal Publishing Platform"
+msgstr ""
+
+#: shortcodes/oik-qrcode.php:10
+msgid "company"
 msgstr ""
 
 #: shortcodes/oik-slideshows.php:77

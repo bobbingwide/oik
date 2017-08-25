@@ -50,5 +50,26 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 		$this->switch_to_locale( 'en_GB' );
 	}
 	
+	/**
+	 * @TODO Cater for 2018
+	 */
+	function test_bw_copyright() {
+		$html = bw_copyright();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	/**
+	 * @TODO Cater for 2018
+	 */
+	function test_bw_copyright_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$html = bw_copyright();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
 
 }

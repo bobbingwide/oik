@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-23 12:51:41+00:00\n"
+"POT-Creation-Date: 2017-08-24 16:17:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -980,7 +980,7 @@ msgstr ""
 "WroPderss hAs perivuolsy dtereimend taht tehre Is A nEw vreison aavlibale: %s"
 
 
-#: admin/oik-admin.inc:1081 admin/oik-admin.inc:1184
+#: admin/oik-admin.inc:1081 admin/oik-admin.inc:1185
 msgid "Current version: %s"
 msgstr "Cruernt vreison: %s"
 
@@ -1000,7 +1000,7 @@ msgid "This plugin is a Git repository."
 msgstr "Tihs pulign Is A GIt rpesotiroy."
 
 
-#: admin/oik-admin.inc:1182
+#: admin/oik-admin.inc:1183
 msgid "New version?: %s"
 msgstr "NEw vreison?: %s"
 
@@ -1116,34 +1116,37 @@ msgid "OIK Information Kit"
 msgstr "OIK Ifnroamiton KIt"
 
 
-#: bobbcomp.inc:496
+#. translators: "Separator between two adjacent years e.g. 2017,2018 "
+#: bobbcomp.inc:506
 msgid ","
 msgstr ","
 
 
-#: bobbcomp.inc:500
+#. translators: "Separator for a year range e.g. 2011-2017 "
+#: bobbcomp.inc:514
 msgid "-"
 msgstr "-"
 
 
-#: bobbcomp.inc:605
+#: bobbcomp.inc:625
 msgid "&copy; Copyright"
 msgstr "&copy; Cporygiht"
 
 
-#: bobbcomp.inc:606 shortcodes/oik-qrcode.php:10
-msgid "company"
-msgstr "cmoapny"
+#: bobbcomp.inc:634
+msgid "All rights reserved."
+msgstr "All rgiths rsereevd."
 
 
-#: bobbcomp.inc:607
-msgid ". All rights reserved."
-msgstr ". All rgiths rsereevd."
-
-
-#: bobbcomp.inc:610
+#: bobbcomp.inc:637
 msgid "yearfrom"
 msgstr "yaefrorm"
+
+
+#. translators: "Copyright-prefix company-name year-range. "
+#: bobbcomp.inc:641
+msgid "%1$s %2$s %3$s. "
+msgstr "%1$s %2$s %3$s. "
 
 
 #: bw_metadata.inc:41
@@ -2569,6 +2572,11 @@ msgstr "Porduly pworeed by WroPderss"
 #: shortcodes/oik-power.php:18
 msgid "Semantic Personal Publishing Platform"
 msgstr "Smenaitc Preosanl Pbuilhsnig Palftrom"
+
+
+#: shortcodes/oik-qrcode.php:10
+msgid "company"
+msgstr "cmoapny"
 
 
 #: shortcodes/oik-slideshows.php:77

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2016
+<?php // (C) Copyright Bobbing Wide 2010-2017
 /**
  * Company information
  *
@@ -472,41 +472,56 @@ if (!function_exists( 'bw_wp_title' )) {
 
 
 /**
- *  Format a range of years
+ * Formats a range of years
  *
- *  $yearfrom $yearto result
- *  x         x       x
- *  x         y       x,y
- *  x         z       x-z
+ * $yearfrom | $yearto | result
+ * --------  | ------- | ------
+ * x         | x       | x
+ * x         | y       | x,y
+ * x         | z       | x-z
  *
- *  where: z >= (y + 1) = (x + 1)
- *  if $atts['sep'] is set we use that
+ * where: z >= (y + 1) = (x + 1)
+ * 
+ * - if $atts['sep'] is set we use that
+ * - else we use the translation of the chosen separator
+ * 
+ * @param string $yearfrom the starting year
+ * @param string $yearto the ending year
+ * @param array $atts which may contain a value for 'sep'
+ * 
  */
 function bw_year_range( $yearfrom, $yearto, $atts=NULL ) {
   if ( !$yearfrom ) {
     $yearfrom = $yearto;
   }  
   $diff = $yearto - $yearfrom;
-      
   switch ( $diff ) {
     case 0:
       $years = $yearfrom;
       break;
     case 1:
-      $sep = bw_array_get_dcb( $atts, "sep", "," );
+      $sep = bw_array_get( $atts, "sep", null);
+			if ( null === $sep ) {
+				/* translators: "Separator between two adjacent years e.g. 2017,2018 " */
+				$sep = __( ',', "oik" );
+			}
       $years = "$yearfrom$sep$yearto";
       break;
     default: /* more than one OR negative - which is a bit of a boo boo */
-      $sep = bw_array_get_dcb( $atts, "sep", "-" );
+      $sep = bw_array_get( $atts, "sep", null );
+			if ( null === $sep ) {
+				/* translators: "Separator for a year range e.g. 2011-2017 " */
+				$sep = __( '-', "oik" );
+			}
       $years = "$yearfrom$sep$yearto";
   }
-  return( $years );    
+  return $years ;    
 } 
 
 /**
- * Determine the date of the blog from the date of the earliest registered user
-  
-  (
+ * Determines the date of the blog from the date of the earliest registered user
+ * 
+  `
     [0] => stdClass Object
         (
             [ID] => 1
@@ -521,13 +536,13 @@ function bw_year_range( $yearfrom, $yearto, $atts=NULL ) {
             [display_name] => admin
         )
 
-)
+	`
+ *
+ * @return string year from 
  */
 function bw_get_yearfrom() {
   $users = bw_get_users();
-  //bw_trace2( $users );
   $yearfrom = bw_format_date( $users[0]->user_registered, 'Y' );
-
   return $yearfrom;
 }
 
@@ -592,31 +607,43 @@ function bw_user_list() {
 }
 
 /** 
- * Display the copyright statement for the company
- * showing start and end years
- * e.g. (C) Copyright [bw_company] [bw_from]&sep[year]&suffix
- * where [bw_from] is the first year of the site
- * &sep is the separator ( defaults to ',' for one year apart and '-' for a range ) 
- * [year] represents the current year
- * &suffix defaults to ". All rights reserved." 
+ * Displays the copyright statement for the company
+ * 
+ * - showing start and end years
+ * - e.g. (C) Copyright [bw_company] [bw_from]&sep[year]&suffix
+ * - where [bw_from] is the first year of the site
+ * - &sep is the separator ( defaults to ',' for one year apart and '-' for a range ) 
+ * - [year] represents the current year
+ * - &suffix defaults to ". All rights reserved." 
  *
+ * @param array $atts
+ * @return string Copyright statement
  */ 
 function bw_copyright( $atts = NULL ) {
-  $copyright = bw_array_get_dcb( $atts, "prefix", "&copy; Copyright" );
-  $company = bw_array_get_dcb( $atts, "company", "company", "bw_get_option", "bw_options" );
-  $suffix = bw_array_get_dcb( $atts, "suffix", ". All rights reserved." );
-  $yearto = bw_format_date( null, 'Y');
-  // bw_trace( $yearto, __FUNCTION__, __LINE__, __FILE__, "yearto!" );
-  $yearfrom = bw_array_get_dcb( $atts, "from", 'yearfrom', "bw_get_option", "bw_options" );
-  
-  $years = bw_year_range( $yearfrom, $yearto, $atts );
-  span( "bw_copyright" );
-  e( "$copyright " );
-  e( bw_do_shortcode( "$company ") );
-  e( "$years" );
-  e( "$suffix" );
-  epan();
-  return( bw_ret());
+	$copyright = bw_array_get( $atts, "prefix", null );
+	if ( null == $copyright ) {
+		$copyright = __( "&copy; Copyright", "oik" );
+	}
+	$company = bw_array_get( $atts, "company", null );
+	if ( null == $company ) { 
+		$company = bw_get_option( "company", "bw_options" );
+	}
+	$expanded_company = bw_do_shortcode( $company );
+	$suffix = bw_array_get( $atts, "suffix", null );
+	if ( null == $suffix ) {
+		$suffix = __( "All rights reserved.", "oik" );
+	}
+	$yearto = bw_format_date( null, 'Y');
+	$yearfrom = bw_array_get_dcb( $atts, "from", 'yearfrom', "bw_get_option", "bw_options" );
+	$years = bw_year_range( $yearfrom, $yearto, $atts );
+	span( "bw_copyright" );
+	/* translators: "Copyright-prefix company-name year-range. " */
+	e( sprintf( __( '%1$s %2$s %3$s. ', "oik" ), $copyright, $expanded_company, $years ) );
+	span( "suffix" );
+	e( $suffix );
+	epan();
+	epan();
+	return( bw_ret());
 }
 
 function bw_stag( $atts = NULL ) {
