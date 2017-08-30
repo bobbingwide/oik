@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2014-2016 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2014-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -31,7 +31,7 @@
  *  
  */
 function oik_ids_column( $cols ) {
-	$cols['ID'] = __( 'ID' ) ;
+	$cols['ID'] = __( 'ID', "oik" ) ;
 	return $cols;
 }
 
