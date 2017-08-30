@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-24 16:17:07+00:00\n"
+"POT-Creation-Date: 2017-08-30 11:24:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -115,24 +115,24 @@ msgstr "Last page"
 msgid "Select All"
 msgstr "Select All"
 
-#: admin/oik-activation.php:33 libs/oik-activation.php:24
+#: admin/oik-activation.php:33
 msgid "Install"
 msgstr "Install"
 
-#: admin/oik-activation.php:62 libs/oik-activation.php:53
+#: admin/oik-activation.php:62 libs/oik-activation.php:52
 msgid "Activate"
 msgstr "Activate"
 
-#: admin/oik-activation.php:82 libs/oik-activation.php:73
+#: admin/oik-activation.php:82 libs/oik-activation.php:72
 msgid "Update"
 msgstr "Update"
 
-#: admin/oik-activation.php:199 libs/oik-activation.php:191
+#: admin/oik-activation.php:199 libs/oik-activation.php:190
 #: libs/oik-depends.php:144
 msgid "%1$s may not be fully functional."
 msgstr "%1$s may not be fully functional."
 
-#: admin/oik-activation.php:201 libs/oik-activation.php:193
+#: admin/oik-activation.php:201 libs/oik-activation.php:192
 #: libs/oik-depends.php:146
 msgid ""
 "Please install and activate the required minimum version of this plugin:"
@@ -1350,6 +1350,10 @@ msgstr "oik updates"
 msgid "Updates"
 msgstr "Updates"
 
+#: libs/oik-activation.php:23 libs/oik-depends.php:278
+msgid "Install %1$s"
+msgstr "Install %1$s"
+
 #: libs/oik-depends.php:96
 msgid "Plugin %1$s may not be fully functional."
 msgstr "Plugin %1$s may not be fully functional."
@@ -1358,10 +1362,6 @@ msgstr "Plugin %1$s may not be fully functional."
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr "Please install and activate the required minimum version of this plugin: %1$s"
-
-#: libs/oik-depends.php:278
-msgid "Install %1$s"
-msgstr "Install %1$s"
 
 #: libs/oik-depends.php:306
 msgid "Activate %1$s"
