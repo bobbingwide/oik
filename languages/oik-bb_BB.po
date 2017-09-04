@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-08-30 14:15:35+00:00\n"
+"POT-Creation-Date: 2017-09-04 11:53:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -144,19 +144,18 @@ msgid "Activate"
 msgstr "Atcvitae"
 
 
-#: admin/oik-activation.php:82 libs/oik-activation.php:75
+#: admin/oik-activation.php:82
 msgid "Update"
 msgstr "Udptae"
 
 
-#: admin/oik-activation.php:199 libs/oik-activation.php:193
-#: libs/oik-depends.php:144
+#: admin/oik-activation.php:199 libs/oik-activation.php:191
+#: libs/oik-depends.php:143
 msgid "%1$s may not be fully functional."
 msgstr "%1$s mAy nOt bE fluly fnutcoianl."
 
 
-#: admin/oik-activation.php:201 libs/oik-activation.php:195
-#: libs/oik-depends.php:146
+#: admin/oik-activation.php:201
 msgid ""
 "Please install and activate the required minimum version of this plugin:"
 msgstr ""
@@ -1698,31 +1697,38 @@ msgid "Updates"
 msgstr "Udptaes"
 
 
-#: libs/oik-activation.php:23 libs/oik-depends.php:278
+#: libs/oik-activation.php:23 libs/oik-depends.php:277
 msgid "Install %1$s"
 msgstr "Isnatll %1$s"
 
 
-#: libs/oik-activation.php:55 libs/oik-depends.php:306
+#: libs/oik-activation.php:55 libs/oik-depends.php:305
 msgid "Activate %1$s"
 msgstr "Atcvitae %1$s"
 
 
-#: libs/oik-depends.php:96
-msgid "Plugin %1$s may not be fully functional."
-msgstr "Pulign %1$s mAy nOt bE fluly fnutcoianl."
+#: libs/oik-activation.php:73 libs/oik-depends.php:323 libs/oik_themes.php:395
+msgid "Upgrade %1$s"
+msgstr "Ugparde %1$s"
 
 
-#: libs/oik-depends.php:99
+#: libs/oik-activation.php:189 libs/oik-depends.php:93
+#: libs/oik-depends.php:140
+msgid " version "
+msgstr " vreison "
+
+
+#: libs/oik-activation.php:193 libs/oik-depends.php:99
+#: libs/oik-depends.php:145
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr ""
 "Pelsae isnatll And atcvitae thE rqeiuerd mnimium vreison Of tihs pulign: %1$s"
 
 
-#: libs/oik-depends.php:324 libs/oik_themes.php:395
-msgid "Upgrade %1$s"
-msgstr "Ugparde %1$s"
+#: libs/oik-depends.php:96
+msgid "Plugin %1$s may not be fully functional."
+msgstr "Pulign %1$s mAy nOt bE fluly fnutcoianl."
 
 
 #: libs/oik-honeypot.php:45

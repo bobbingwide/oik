@@ -40,7 +40,7 @@ function oik_plugin_install_plugin( $plugin ) {
      &_wpnonce=a53a158be5
  * `
  *
- * @param string $plugin_file - e.g. oik/oik-header.php
+ * @param string $plugin - relative plugin file e.g. oik/oik-header.php
  * We may not be activating the main plugin, so we need the relative path filename of the plugin to activate
  * @param string $plugin_name - e.g. oik-header
  * @return string link to enable activation - which user must choose
@@ -60,21 +60,19 @@ function oik_plugin_activate_plugin( $plugin, $plugin_name) {
 /**
  * Create an Update plugin link
  *
- * Decided to use "Update" rather than " Upgrade". 
- *
  * @param string $plugin the plugin slug
  * @return string the update link
  */
 function oik_plugin_update_plugin( $plugin ) {
-  $path = "update.php?action=upgrade-plugin&plugin=$plugin";
-  $url = admin_url( $path );
-  $url = wp_nonce_url( $url, "upgrade-plugin_$plugin" ); 
-  $link = '<a href="';
-  $link .= $url;
-  $link .= '">'; 
-  $link .= __( 'Update' );
-  $link .= " $plugin</a>";
-  return( $link );
+	$path = "update.php?action=upgrade-plugin&plugin=$plugin";
+	$url = admin_url( $path );
+	$url = wp_nonce_url( $url, "upgrade-plugin_$plugin" ); 
+	$link = '<a href="';
+	$link .= $url;
+	$link .= '">'; 
+	$link .= sprintf( __( 'Upgrade %1$s', null ), $plugin );
+	$link .= "</a>";
+	return $link;
 }
 
 /** 
@@ -188,12 +186,12 @@ function oik_plugin_oik_install_link( $plugin, $problem="missing" ) {
 if ( !function_exists( "oik_plugin_plugin_inactive" ) ) {
 function oik_plugin_plugin_inactive( $plugin=null, $dependencies=null, $problem=null ) {
   $plugin_name = basename( $plugin, ".php" );
-  $dependencies = str_replace( ":", " version ", $dependencies );
+  $dependencies = str_replace( ":", __(" version ", null) , $dependencies );
   $text = "<p><b>";
-  $text .= sprintf( __( '%1$s may not be fully functional.','oik'), $plugin_name );
+  $text .= sprintf( __( '%1$s may not be fully functional.', null), $plugin_name );
   $text .= "</b> ";
-  $text .= __( 'Please install and activate the required minimum version of this plugin:', 'oik' );
-  $text .= "$dependencies</p>";
+  $text .= sprintf( __( 'Please install and activate the required minimum version of this plugin: %1$s', null ), $dependencies );
+	$text .= "</p>";
   
   if ( current_filter() == "admin_notices" ) {
     $message = '<div class=" updated fade">';
