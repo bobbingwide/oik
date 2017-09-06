@@ -146,6 +146,8 @@ function oik_main_init() {
   add_action( "admin_bar_menu", "oik_admin_bar_menu", 20 );
   add_action( 'login_head', 'oik_login_head');
 	add_action( 'admin_notices', "oik_admin_notices", 9 );
+	
+	add_filter( "_sc__help", "oik_oik_sc__help", 10, 2 );
 	$bobbfunc = oik_require_lib_wrapper( "bobbfunc" );
 	if ( $bobbfunc && !is_wp_error( $bobbfunc ) ) {
     bw_load_plugin_textdomain();
@@ -424,6 +426,19 @@ function oik_require_lib_wrapper( $lib ) {
 		}
 	}
 	return $loaded;
+}
+
+/**
+ * Implements "_sc__help" for oik
+ * 
+ * @param array $help array of translated help keyed by shortcode 
+ * @param string $shortcode
+ * @return array updated help array
+ */
+function oik_oik_sc__help( $help, $shortcode ) {
+	oik_require( "includes/oik-sc-help.inc" );
+	$help = oik_lazy_sc__help( $help, $shortcode );
+	return $help;
 }
 	
 /**

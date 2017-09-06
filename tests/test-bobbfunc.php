@@ -2,6 +2,9 @@
 
 /** 
  * Unit tests for the libs\bobbfunc.php file
+ * 
+ * More tests are implemented in oik-libs
+ * @TODO Move these tests to oik-libs?
  */
 
 class Tests_oik_bobbfunc extends BW_UnitTestCase {

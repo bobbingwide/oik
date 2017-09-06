@@ -891,7 +891,9 @@ function oik_url( $file=null, $plugin='oik' ) {
  */
 function bw_sc_help( $shortcode="oik" ) {
   oik_require( "includes/oik-sc-help.inc" );
+	//oik_require_lib( "class-oik-sc-help" );
   bw_lazy_sc_help( $shortcode );
+	//oik_sc_help::bw_lazy_sc_help( $shortcode );
 }
 
 /**
