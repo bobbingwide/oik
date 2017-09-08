@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-08 14:53:01+00:00\n"
+"POT-Creation-Date: 2017-09-08 15:39:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1797,412 +1797,412 @@ msgid "Humans leave this blank"
 msgstr "Hmunas laeve tihs balnk"
 
 
-#: libs/oik-sc-help.php:298 libs/oik-sc-help.php:623
+#: libs/oik-sc-help.php:297 libs/oik-sc-help.php:622
 #: shortcodes/oik-blockquote.php:31 shortcodes/oik-cite.php:19
 #: shortcodes/oik-cycle.php:127 shortcodes/oik-follow.php:323
 msgid "CSS class names"
 msgstr "CSS calss nmaes"
 
 
-#: libs/oik-sc-help.php:299
+#: libs/oik-sc-help.php:298
 msgid "unique identifier"
 msgstr "uinuqe iedtnfieir"
 
 
-#: libs/oik-sc-help.php:322 shortcodes/oik-posts.php:59
+#: libs/oik-sc-help.php:321 shortcodes/oik-posts.php:59
 msgid "number to return"
 msgstr "nmuebr tO rterun"
 
 
-#: libs/oik-sc-help.php:323
+#: libs/oik-sc-help.php:322
 msgid "offset from which to start"
 msgstr "offest form wihch tO satrt"
 
 
-#: libs/oik-sc-help.php:324
+#: libs/oik-sc-help.php:323
 msgid "numeric ID of the post category"
 msgstr "nmureic ID Of thE psot ctageroy"
 
 
-#: libs/oik-sc-help.php:325
+#: libs/oik-sc-help.php:324
 msgid "category slugs (comma separated)"
 msgstr "ctageroy sulgs (cmoma sperataed)"
 
 
-#: libs/oik-sc-help.php:326
+#: libs/oik-sc-help.php:325
 msgid "custom category slug"
 msgstr "csuotm ctageroy sulg"
 
 
-#: libs/oik-sc-help.php:327 shortcodes/oik-attachments.php:346
+#: libs/oik-sc-help.php:326 shortcodes/oik-attachments.php:346
 #: shortcodes/oik-thumbs.php:85
 msgid "Sort sequence"
 msgstr "Srot sqeeucne"
 
 
-#: libs/oik-sc-help.php:328 shortcodes/oik-attachments.php:347
+#: libs/oik-sc-help.php:327 shortcodes/oik-attachments.php:347
 msgid "Sort order."
 msgstr "Srot odrer."
 
 
-#: libs/oik-sc-help.php:329 libs/oik-sc-help.php:448 libs/oik-sc-help.php:805
+#: libs/oik-sc-help.php:328 libs/oik-sc-help.php:447 libs/oik-sc-help.php:804
 msgid "IDs to include"
 msgstr "IDs tO icnulde"
 
 
-#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:449 libs/oik-sc-help.php:806
+#: libs/oik-sc-help.php:329 libs/oik-sc-help.php:448 libs/oik-sc-help.php:805
 msgid "IDs to exclude"
 msgstr "IDs tO ecxulde"
 
 
-#: libs/oik-sc-help.php:331
+#: libs/oik-sc-help.php:330
 msgid "post metadata key"
 msgstr "psot mtedataa kEy"
 
 
-#: libs/oik-sc-help.php:332
+#: libs/oik-sc-help.php:331
 msgid "post metadata value"
 msgstr "psot mtedataa vlaue"
 
 
-#: libs/oik-sc-help.php:333
+#: libs/oik-sc-help.php:332
 msgid "Content type to display"
 msgstr "Cnoetnt tpye tO dsilpay"
 
 
-#: libs/oik-sc-help.php:334
+#: libs/oik-sc-help.php:333
 msgid "Attached media MIME type"
 msgstr "Attcaehd mdeia MMIE tpye"
 
 
-#: libs/oik-sc-help.php:335
+#: libs/oik-sc-help.php:334
 msgid "Parent ID to use if not current post"
 msgstr "Pranet ID tO UsE If nOt cruernt psot"
 
 
-#: libs/oik-sc-help.php:336 shortcodes/oik-count.php:43
+#: libs/oik-sc-help.php:335 shortcodes/oik-count.php:43
 msgid "Post status"
 msgstr "Psot satuts"
 
 
-#: libs/oik-sc-help.php:337
+#: libs/oik-sc-help.php:336
 msgid "IDs of posts to display"
 msgstr "IDs Of psots tO dsilpay"
 
 
-#: libs/oik-sc-help.php:348 shortcodes/oik-attachments.php:356
+#: libs/oik-sc-help.php:347 shortcodes/oik-attachments.php:356
 #: shortcodes/oik-list.php:182
 msgid "image size"
 msgstr "iamge szie"
 
 
-#: libs/oik-sc-help.php:393
+#: libs/oik-sc-help.php:392
 msgid "e.g:"
 msgstr "E.g:"
 
 
-#: libs/oik-sc-help.php:404
+#: libs/oik-sc-help.php:403
 msgid "value for CSS id= keyword"
 msgstr "vlaue fOr CSS id= kyeowrd"
 
 
-#: libs/oik-sc-help.php:405
+#: libs/oik-sc-help.php:404
 msgid "custom class "
 msgstr "csuotm calss "
 
 
-#: libs/oik-sc-help.php:406
+#: libs/oik-sc-help.php:405
 msgid "CSS alignment class"
 msgstr "CSS ailngemnt calss"
 
 
-#: libs/oik-sc-help.php:407
+#: libs/oik-sc-help.php:406
 msgid "width in pixels (Note: 10 is added to this number)"
 msgstr "wdith In pxiles (Ntoe: 10 Is added tO tihs nmuebr)"
 
 
-#: libs/oik-sc-help.php:440
+#: libs/oik-sc-help.php:439
 msgid "Order"
 msgstr "Odrer"
 
 
-#: libs/oik-sc-help.php:441 libs/oik-sc-help.php:804
+#: libs/oik-sc-help.php:440 libs/oik-sc-help.php:803
 msgid "Order by field"
 msgstr "Odrer by feild"
 
 
-#: libs/oik-sc-help.php:442
+#: libs/oik-sc-help.php:441
 msgid "Post ID. Default: Current post ID"
 msgstr "Psot ID. Dfeualt: Cruernt psot ID"
 
 
-#: libs/oik-sc-help.php:443
+#: libs/oik-sc-help.php:442
 msgid "Item tag"
 msgstr "Ietm tAg"
 
 
-#: libs/oik-sc-help.php:444
+#: libs/oik-sc-help.php:443
 msgid "Icon tag"
 msgstr "Iocn tAg"
 
 
-#: libs/oik-sc-help.php:445
+#: libs/oik-sc-help.php:444
 msgid "Caption tag"
 msgstr "Cpaiton tAg"
 
 
-#: libs/oik-sc-help.php:446
+#: libs/oik-sc-help.php:445
 msgid "Columns"
 msgstr "Clomuns"
 
 
-#: libs/oik-sc-help.php:447
+#: libs/oik-sc-help.php:446
 msgid "Thumbnail image size"
 msgstr "Tuhbmanil iamge szie"
 
 
-#: libs/oik-sc-help.php:459
+#: libs/oik-sc-help.php:458
 msgid "Embed example"
 msgstr "Ebmed eaxpmle"
 
 
-#: libs/oik-sc-help.php:463 libs/oik-sc-help.php:494
+#: libs/oik-sc-help.php:462 libs/oik-sc-help.php:493
 msgid "Required width"
 msgstr "Rqeiuerd wdith"
 
 
-#: libs/oik-sc-help.php:464 libs/oik-sc-help.php:493
+#: libs/oik-sc-help.php:463 libs/oik-sc-help.php:492
 msgid "Required height"
 msgstr "Rqeiuerd hiehgt"
 
 
-#: libs/oik-sc-help.php:474 libs/oik-sc-help.php:488
+#: libs/oik-sc-help.php:473 libs/oik-sc-help.php:487
 msgid "If omitted uses first attachment"
 msgstr "If oimtted uess frist attcamhnet"
 
 
-#: libs/oik-sc-help.php:475 libs/oik-sc-help.php:490
+#: libs/oik-sc-help.php:474 libs/oik-sc-help.php:489
 msgid "Allow looping of media"
 msgstr "Allow looipng Of mdeia"
 
 
-#: libs/oik-sc-help.php:476 libs/oik-sc-help.php:491
+#: libs/oik-sc-help.php:475 libs/oik-sc-help.php:490
 msgid "Causes media to autoplay"
 msgstr "Cuaess mdeia tO atupoaly"
 
 
-#: libs/oik-sc-help.php:477 libs/oik-sc-help.php:492
+#: libs/oik-sc-help.php:476 libs/oik-sc-help.php:491
 msgid "How the audio should be loaded"
 msgstr "HOw thE aduio sohlud bE laoedd"
 
 
-#: libs/oik-sc-help.php:489
+#: libs/oik-sc-help.php:488
 msgid "Placeholder image"
 msgstr "Palecohdler iamge"
 
 
-#: libs/oik-sc-help.php:513
+#: libs/oik-sc-help.php:512
 msgid "The shortcode you want explained"
 msgstr "ThE sohtrocde yOU wnat epxalnied"
 
 
-#: libs/oik-sc-help.php:514
+#: libs/oik-sc-help.php:513
 msgid "Display help for the shortcode"
 msgstr "Dsilpay hlep fOr thE sohtrocde"
 
 
-#: libs/oik-sc-help.php:515
+#: libs/oik-sc-help.php:514
 msgid "Display the syntax"
 msgstr "Dsilpay thE snyatx"
 
 
-#: libs/oik-sc-help.php:516
+#: libs/oik-sc-help.php:515
 msgid "Display an example, if possible"
 msgstr "Dsilpay An eaxpmle, If psoislbe"
 
 
-#: libs/oik-sc-help.php:517
+#: libs/oik-sc-help.php:516
 msgid "Display the live results using default values"
 msgstr "Dsilpay thE lvie rseluts uisng dfeualt vlaeus"
 
 
-#: libs/oik-sc-help.php:518
+#: libs/oik-sc-help.php:517
 msgid "Display the generated HTML"
 msgstr "Dsilpay thE gneretaed HMTL"
 
 
-#: libs/oik-sc-help.php:536
+#: libs/oik-sc-help.php:535
 msgid "Sort the shortcode codes by name."
 msgstr "Srot thE sohtrocde cdoes by nmae."
 
 
-#: libs/oik-sc-help.php:592 libs/oik-sc-help.php:631 libs/oik-sc-help.php:646
-#: libs/oik-sc-help.php:655 libs/oik-sc-help.php:670 libs/oik-sc-help.php:680
+#: libs/oik-sc-help.php:591 libs/oik-sc-help.php:630 libs/oik-sc-help.php:645
+#: libs/oik-sc-help.php:654 libs/oik-sc-help.php:669 libs/oik-sc-help.php:679
 msgid "Prefix string"
 msgstr "Perifx srtnig"
 
 
-#: libs/oik-sc-help.php:593 libs/oik-sc-help.php:619
+#: libs/oik-sc-help.php:592 libs/oik-sc-help.php:618
 msgid "Separator string"
 msgstr "Sperataor srtnig"
 
 
-#: libs/oik-sc-help.php:594 libs/oik-sc-help.php:620 libs/oik-sc-help.php:707
-#: libs/oik-sc-help.php:712 libs/oik-sc-help.php:717
+#: libs/oik-sc-help.php:593 libs/oik-sc-help.php:619 libs/oik-sc-help.php:706
+#: libs/oik-sc-help.php:711 libs/oik-sc-help.php:716
 #: shortcodes/oik-follow.php:324
 msgid "Use alternative value"
 msgstr "UsE atlreanitve vlaue"
 
 
-#: libs/oik-sc-help.php:595 shortcodes/oik-link.php:341
+#: libs/oik-sc-help.php:594 shortcodes/oik-link.php:341
 msgid "Tool tip text"
 msgstr "Tool tIp txet"
 
 
-#: libs/oik-sc-help.php:602 libs/oik-sc-help.php:611 libs/oik-sc-help.php:622
-#: libs/oik-sc-help.php:640 libs/oik-sc-help.php:664
+#: libs/oik-sc-help.php:601 libs/oik-sc-help.php:610 libs/oik-sc-help.php:621
+#: libs/oik-sc-help.php:639 libs/oik-sc-help.php:663
 msgid "enclosing HTML tag"
 msgstr "ecnolisng HMTL tAg"
 
 
-#: libs/oik-sc-help.php:603 libs/oik-sc-help.php:612 libs/oik-sc-help.php:632
-#: libs/oik-sc-help.php:647 libs/oik-sc-help.php:656 libs/oik-sc-help.php:671
-#: libs/oik-sc-help.php:681
+#: libs/oik-sc-help.php:602 libs/oik-sc-help.php:611 libs/oik-sc-help.php:631
+#: libs/oik-sc-help.php:646 libs/oik-sc-help.php:655 libs/oik-sc-help.php:670
+#: libs/oik-sc-help.php:680
 msgid "oik options field to use"
 msgstr "OIk otpoins feild tO UsE"
 
 
-#: libs/oik-sc-help.php:621
+#: libs/oik-sc-help.php:620
 msgid "Number override"
 msgstr "Nmuebr oevrrdie"
 
 
-#: libs/oik-sc-help.php:624
+#: libs/oik-sc-help.php:623
 msgid "tel: or sms: link"
 msgstr "tEl: Or sms: lnik"
 
 
-#: libs/oik-sc-help.php:674 libs/oik-sc-help.php:684
+#: libs/oik-sc-help.php:673 libs/oik-sc-help.php:683
 msgid "additional CSS class names"
 msgstr "addtioianl CSS calss nmaes"
 
 
-#: libs/oik-sc-help.php:689
+#: libs/oik-sc-help.php:688
 msgid "Copyright text prefix"
 msgstr "Cporygiht txet perifx"
 
 
-#: libs/oik-sc-help.php:690 libs/oik-sc-help.php:700
+#: libs/oik-sc-help.php:689 libs/oik-sc-help.php:699
 msgid "from oik options - company"
 msgstr "form OIk otpoins - cmoapny"
 
 
-#: libs/oik-sc-help.php:691
+#: libs/oik-sc-help.php:690
 msgid "copyright suffix text"
 msgstr "cporygiht sfuifx txet"
 
 
-#: libs/oik-sc-help.php:692
+#: libs/oik-sc-help.php:691
 msgid "from oik options - yearfrom"
 msgstr "form OIk otpoins - yaefrorm"
 
 
-#: libs/oik-sc-help.php:693
+#: libs/oik-sc-help.php:692
 msgid "default: ',' if one year difference '-' otherwise"
 msgstr "dfeualt: ',' If OnE yaer dfiefercne '-' ohtreiwse"
 
 
-#: libs/oik-sc-help.php:699
+#: libs/oik-sc-help.php:698
 msgid "Link URL for QR code image"
 msgstr "Lnik URL fOr QR cdoe iamge"
 
 
-#: libs/oik-sc-help.php:701
+#: libs/oik-sc-help.php:700
 msgid "width of QR code image, if required"
 msgstr "wdith Of QR cdoe iamge, If rqeiuerd"
 
 
-#: libs/oik-sc-help.php:702
+#: libs/oik-sc-help.php:701
 msgid "height of QR code image, if required"
 msgstr "hiehgt Of QR cdoe iamge, If rqeiuerd"
 
 
-#: libs/oik-sc-help.php:722
+#: libs/oik-sc-help.php:721
 msgid "HTML start tag"
 msgstr "HMTL satrt tAg"
 
 
-#: libs/oik-sc-help.php:728
+#: libs/oik-sc-help.php:727
 msgid "paired HTML tag for the stag shortcode"
 msgstr "piaerd HMTL tAg fOr thE satg sohtrocde"
 
 
-#: libs/oik-sc-help.php:769
+#: libs/oik-sc-help.php:768
 msgid "Advertisement selection - Artisteer theme options"
 msgstr "Avdreitesemnt sleceiton - Atrsieter tehme otpoins"
 
 
-#: libs/oik-sc-help.php:770
+#: libs/oik-sc-help.php:769
 msgid "Alignment"
 msgstr "Ailngemnt"
 
 
-#: libs/oik-sc-help.php:771
+#: libs/oik-sc-help.php:770
 msgid "0 if inline, 1 for block"
 msgstr "0 If ilnnie, 1 fOr bolck"
 
 
-#: libs/oik-sc-help.php:784
+#: libs/oik-sc-help.php:783
 msgid "Page to link to"
 msgstr "Pgae tO lnik tO"
 
 
-#: libs/oik-sc-help.php:792
+#: libs/oik-sc-help.php:791
 msgid "Index of the theme_collages post meta to display"
 msgstr "Idnex Of thE tehme_cloalegs psot mtea tO dsilpay"
 
 
-#: libs/oik-sc-help.php:800
+#: libs/oik-sc-help.php:799
 msgid "IDs for the playlist"
 msgstr "IDs fOr thE pallysit"
 
 
-#: libs/oik-sc-help.php:801
+#: libs/oik-sc-help.php:800
 msgid "Post from which the playlist is chosen"
 msgstr "Psot form wihch thE pallysit Is cohesn"
 
 
-#: libs/oik-sc-help.php:802
+#: libs/oik-sc-help.php:801
 msgid "Content type"
 msgstr "Cnoetnt tpye"
 
 
-#: libs/oik-sc-help.php:803
+#: libs/oik-sc-help.php:802
 msgid "Ordering"
 msgstr "Odrrenig"
 
 
-#: libs/oik-sc-help.php:807
+#: libs/oik-sc-help.php:806
 msgid "Playlist style"
 msgstr "Pallysit sytle"
 
 
-#: libs/oik-sc-help.php:808
+#: libs/oik-sc-help.php:807
 msgid "Display track list?"
 msgstr "Dsilpay tarck lsit?"
 
 
-#: libs/oik-sc-help.php:809
+#: libs/oik-sc-help.php:808
 msgid "Display track numbers?"
 msgstr "Dsilpay tarck nmuebrs?"
 
 
-#: libs/oik-sc-help.php:810
+#: libs/oik-sc-help.php:809
 msgid "Display images?"
 msgstr "Dsilpay iamegs?"
 
 
-#: libs/oik-sc-help.php:811
+#: libs/oik-sc-help.php:810
 msgid "Display artists?"
 msgstr "Dsilpay atrsits?"
 
@@ -2443,6 +2443,16 @@ msgstr "Vsiit thE Bboibng Wdie wbeiste: "
 #: shortcodes/oik-bob-bing-wide.php:108
 msgid "Visit the website: "
 msgstr "Vsiit thE wbeiste: "
+
+
+#: shortcodes/oik-bob-bing-wide.php:212
+msgid "Spells out the %1$s backronym"
+msgstr "Seplls OUt thE %1$s bcarknoym"
+
+
+#: shortcodes/oik-bob-bing-wide.php:214
+msgid "Expand to the logo for oik"
+msgstr "Epxnad tO thE lgoo fOr OIk"
 
 
 #: shortcodes/oik-bob-bing-wide.php:222 shortcodes/oik-geo.php:66

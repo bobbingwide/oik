@@ -209,9 +209,9 @@ function wp3( $atts=NULL) {
  */	 
 function oik__help( $shortcode=NULL ) {
 	if ( $shortcode == "OIK" ) {
-		return( "Spells out the ". bw_oik(). " backronym" );
+		return sprintf( __( 'Spells out the %1$s backronym', "oik" ), bw_oik() );
 	} else {
-		return( "Expand to the logo for oik" );
+		return __( "Expand to the logo for oik", "oik" );
 	}  
 }
 

@@ -140,7 +140,6 @@ function _bw_lazy_sc_help( $shortcode ) {
   return( $help );
 }
 
-
 /**
  * Display a shortcode example
  * 
@@ -159,10 +158,10 @@ function bw_lazy_sc_example( $shortcode, $atts=null ) {
  * @return array - shortcode syntax as an associative array 
  */
 function _bw_lazy_sc_syntax( $shortcode ) {
-  $funcname = bw_load_shortcode_suffix( $shortcode, "__syntax" );
-  $syntax = $funcname( $shortcode );
-	bw_trace2( $syntax, "Syntax for $funcname" ); 
-  return( $syntax );
+	$funcname = bw_load_shortcode_suffix( $shortcode, "__syntax" );
+	$syntax = $funcname( $shortcode );
+	//bw_trace2( $syntax, "Syntax for $funcname" ); 
+	return $syntax ;
 } 
 
 /**
