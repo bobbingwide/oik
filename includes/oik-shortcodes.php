@@ -21,7 +21,7 @@ function bw_oik_lazy_add_shortcodes() {
 
   //bw_add_shortcode_event( 'oik', 'bw_oik' );
   //bw_add_shortcode_event( "oik", "bw_oik", 'the_title', 'bw_admin_strip_tags' );
-  bw_add_shortcode( "oik", "bw_oik" );
+  bw_add_shortcode( "oik", "bw_oik", oik_path( "shortcodes/oik-bob-bing-wide.php" ) );
 
   bw_add_shortcode( 'bw_address', 'bw_address', oik_path( "shortcodes/oik-address.php" ), false );
 

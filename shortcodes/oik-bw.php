@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2015
+<?php // (C) Copyright Bobbing Wide 2010-2017
 /**
  * Implement [bw] shortcode
  *
@@ -14,13 +14,14 @@ function bw_bw( $atts=null, $content=null, $tag=null ) {
 
 function bw__help( $shortcode="bw" ) {
 	if ( $shortcode == "bw" ) {
-		return( "Expand to the logo for Bobbing Wide" );
+		return( __( "Expand to the logo for Bobbing Wide", "oik" ) );
+		
 	}
 }
 
 
 function bw__syntax( $shortcode="bw" ) {
-	$syntax = array( "cp" => bw_skv( null, "h", "Class name prefix" ) );
+	$syntax = array( "cp" => bw_skv( null, "h", __( "Class name prefix", "oik") ) );
 	return( $syntax );
 }
 

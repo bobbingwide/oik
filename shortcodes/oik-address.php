@@ -35,3 +35,22 @@ function bw_address( $atts=null, $content=null, $tag=null ) {
   ediv();
   return( bw_ret() );
 }
+
+/**
+ * Syntax for [bw_address]
+ * 
+ * @param string $shortcode
+ * @return array defining the syntax 
+ */
+function bw_address__syntax( $shortcode="bw_address" ) {
+  $syntax = array( "type" => BW_::bw_skv( __( "Work", "oik" ), "<i>" . __( "type", "oik" ) . "</i>", __( "Address type.", "oik" ) )
+                 , "alt" => BW_::bw_skv( "", "1", __( "suffix for alternative address", "oik" ) )
+                 );
+  return( $syntax );
+}
+
+function bw_address__example( $shortcode="bw_address" ) {
+  $text = "Display the address defined in oik options" ;
+  $example = '';
+  bw_invoke_shortcode( $shortcode, $example, $text );
+}

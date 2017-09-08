@@ -203,6 +203,30 @@ function wp3( $atts=NULL) {
 }  
 */
 
+
+/**
+ * Help for [oik] or [OIK]
+ */	 
+function oik__help( $shortcode=NULL ) {
+	if ( $shortcode == "OIK" ) {
+		return( "Spells out the ". bw_oik(). " backronym" );
+	} else {
+		return( "Expand to the logo for oik" );
+	}  
+}
+
+/**
+ * Example for [oik] or [OIK]
+ */
+function oik__example( $shortcode=NULL ) {
+	BW_::br( __( "e.g.", "oik" ) );
+	if ( $shortcode == "OIK" ) {
+		e( bw_oik_long() ); 
+	}else {
+		e( bw_oik() );
+	}  
+} 
+
 } /* End if !defined() */
 
 //bw_trace2( "oik-bob-bing-wide-loaded" );
