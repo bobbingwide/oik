@@ -23,21 +23,9 @@ oik_require_lib( "oik-sc-help" );
  */
 function oik_lazy_sc__help( $help, $shortcode ) {
 	switch ( $shortcode ) {
-		case "OIK": 
-			$l10n_help = __( 'Spells out the oik backronym', 'oik' );
-			break;
-			
-		case "WOW": $l10n_help = __( 'Spells out Wonder of WordPress', 'oik' ); break;
-		case "WoW": $l10n_help = __( 'Spells out Wonder of WordPress', 'oik' ); break;
-		//"abt_slider_hero": $l10n_help = __( '', 'oik' ); break;
 		case "ad": $l10n_help = __( 'Show an advertisement block (Artisteer theme)', 'oik' ); break;
-		//"artisteer": $l10n_help = __( 'Styled form of Artisteer', 'oik' ); break;
 		case "audio": $l10n_help = __( 'Embed audio files', 'oik' ); break;
-		case "bing": $l10n_help = __( 'Styled form of bing', 'oik' ); break;
 		case "blog_title": $l10n_help = __( 'blog title (Artisteer theme)', 'oik' ); break;
-		case "bob": $l10n_help = __( 'Styled form of bob', 'oik' ); break;
-		case "bong": $l10n_help = __( 'Styled form of bong', 'oik' ); break;
-		case "bp": $l10n_help = __( 'Styled form of BuddyPress', 'oik' ); break;
 		case "bw": $l10n_help = __( 'Expand to the logo for Bobbing Wide', 'oik' ); break;
 		case "bw_abbr": $l10n_help = __( 'Format an abbreviation', 'oik' ); break;
 		case "bw_acronym": $l10n_help = __( 'Format an acronym', 'oik' ); break;
@@ -84,14 +72,11 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 		case "bw_mob": $l10n_help = __( 'Mobile phone number (inline)', 'oik' ); break;
 		case "bw_mobile": $l10n_help = __( 'Mobile phone number (block)', 'oik' ); break;
 		case "bw_module": $l10n_help = __( 'Information about a Drupal module', 'oik' ); break;
-		case "bw_page": $l10n_help = __( 'Add page button', 'oik' ); break;
 		case "bw_pages": $l10n_help = __( 'Display page thumbnails and excerpts as links', 'oik' ); break;
 		case "bw_pdf": $l10n_help = __( 'Display attached PDF files', 'oik' ); break;
 		case "bw_picasa": $l10n_help = __( 'Follow me on Picasa', 'oik' ); break;
 		case "bw_pinterest": $l10n_help = __( 'Follow me on Pinterest', 'oik' ); break; 
-		case "bw_plug": $l10n_help = __( 'Show plugin information', 'oik' ); break;
 		case "bw_portfolio": $l10n_help = __( 'Display matched portfolio files', 'oik' ); break;
-		case "bw_post": $l10n_help = __( 'Add Post button', 'oik' ); break;
 		case "bw_posts": $l10n_help = __( 'Display posts', 'oik' ); break;
 		case "bw_power": $l10n_help = __( 'Powered by WordPress', 'oik' ); break; 
 		case "bw_qrcode": $l10n_help = __( 'Display an uploaded QR code image', 'oik' ); break;
@@ -116,22 +101,12 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 		case "collage": $l10n_help = __( 'Display a collage (Artisteer theme)', 'oik' ); break;
 		case "css": $l10n_help = __( 'Show a valid CSS icon (Artisteer theme)', 'oik' ); break;
 		case "div": $l10n_help = __( 'start a <div> tag', 'oik' ); break;
-		case "drupal": $l10n_help = __( 'Styled form of Drupal', 'oik' ); break;
 		case "ediv": $l10n_help = __( 'end a <div> with <\/div>', 'oik' ); break;
 		case "embed": $l10n_help = __( 'Embed media', 'oik' ); break;
 		case "etag": $l10n_help = __( 'End a tag started with [stag]', 'oik' ); break;
-		case "fob": $l10n_help = __( 'Styled form of fob', 'oik' ); break;
 		case "gallery": $l10n_help = __( 'Display the attached images in a gallery', 'oik' ); break;
 		case "gpslides": $l10n_help = __( 'Display a Slideshow Gallery Pro slideshow', 'oik' ); break;
-		case "hide": $l10n_help = __( 'Styled form of hide', 'oik' ); break;
-		case "lartisteer": $l10n_help = __( 'Link to Artisteer ', 'oik' ); break;
-		case "lbp": $l10n_help = __( 'Link to BuddyPress', 'oik' ); break;
-		case "lbw": $l10n_help = __( 'Link to Bobbing Wide sites', 'oik' ); break;
-		case "ldrupal": $l10n_help = __( 'Link to drupal.org', 'oik' ); break;
 		case "login_link": $l10n_help = __( 'Login link (Artisteer themes)', 'oik' ); break;
-		case "loik": $l10n_help = __( 'Link to [oik]-plugins', 'oik' ); break;
-		case "lwp": $l10n_help = __( 'Link to WordPress.org', 'oik' ); break;
-		case "lwpms": $l10n_help = __( 'Link to WordPress Multi Site', 'oik' ); break;
 		case "ngslideshow": $l10n_help = __( 'NextGen gallery slideshow', 'oik' ); break;
 		//case "oik": $ __( 'Expand to the logo for oik', 'oik' ); break;case "oik" ),
 		case "paypal": $l10n_help = __( 'Paypal shortcodes', 'oik' ); break;
@@ -147,14 +122,7 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 		case "template_url": $l10n_help = __( 'Produce a template_url (Artisteer themes)', 'oik' ); break;
 		case "top": $l10n_help = __( 'Top of page button (Artisteer themes)', 'oik' ); break;
 		case "video": $l10n_help = __( 'Embed video files', 'oik' ); break;
-		case "wide": $l10n_help = __( 'Styled form of wide', 'oik' ); break;
-		case "wow": $l10n_help = __( 'Styled form of WoW', 'oik' ); break;
-		case "wp": $l10n_help = __( 'Display a styled form of WordPress. ', 'oik' ); break;
-		//"wp-1": $l10n_help = __( 'Sample hyphenated shortcode', 'oik' ); break;
-		//"wp-2": $l10n_help = __( 'Sample hyphenated shortcode', 'oik' ); break;
-		//"wp-3": $l10n_help = __( 'Sample hyphenated shortcode', 'oik' ); break;
 		case "wp_caption": $l10n_help = __( 'Caption (WordPress shortcode - alias)', 'oik' ); break;
-		case "wpms": $l10n_help = __( 'Styled form of WordPress Multi Site', 'oik' ); break;
 		case "xhtml": $l10n_help = __( 'Valid XHTML button (Artisteer theme)', 'oik' ); break;
 		case "year": $l10n_help = __( 'Current year (Artisteer theme)', 'oik' ); break;
  
