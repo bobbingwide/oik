@@ -15,7 +15,14 @@ oik_require_lib( "oik-sc-help" );
  */
  
 /**
- * Implement "_sc__help" to provide 'default' help
+ * Implements "_sc__help" to provide 'default' help
+ * 
+ * - oik provides default help for a range of shortcodes.
+ * - It only returns the translated help for the selected shortcode 
+ * - Each plugin that implements '_sc__help' should only return the translation of the shortcode help for the selected shortcode.
+ * - For backwards compatibility oik provides default help for some shortcodes not provided by oik; default WordPress shortcodes, Artisteer themes
+ * - See the oik-sc-help plugin for shortcodes for other popular/recommended plugins
+ * - See the oik-bob-bing-wide plugin for some additional oik shortcodes
  *
  * @param array $help array of translated help keyed by shortcode
  * @param string $shortcode 
