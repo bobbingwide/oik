@@ -326,7 +326,7 @@ function oik_login_head() {
 function oik_query_libs_query_libs( $libraries ) {
 	$libs = array( "bobbforms" => "bobbfunc"
 						, "oik-admin" => "bobbforms"
-						, "oik-sc-help" => null
+						, "oik-sc-help" => "class-BW-"
 						, "oik-activation" => "oik-depends"
 						, "oik-depends" => null 
 						, "oik_plugins" => null
