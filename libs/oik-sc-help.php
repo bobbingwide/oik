@@ -296,8 +296,8 @@ function _sc__example( $shortcode="bw_code", $atts=null ) {
  * @return array with "class" and "id" keys
  */
 function _sc_classes() {
- return( array( "class"=> bw_skv( "", "<i>class names</i>", "CSS class names" )
-              , "id" => bw_skv( "", "<i>id</i>", "unique identifier" )
+ return( array( "class"=> BW_::bw_skv( "", "<i>" . __( "class names", null ) . "</i>", __( "CSS class names", null ) )
+              , "id" => BW_::bw_skv( "", "<i>" . __( "id", null ) . "</i>", __( "unique identifier", null ) )
               ));
               
 }
