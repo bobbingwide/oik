@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-11 16:15:31+00:00\n"
+"POT-Creation-Date: 2017-09-12 08:26:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1557,6 +1557,14 @@ msgstr "IDs of posts to display"
 #: libs/oik-sc-help.php:338
 msgid "Number of posts per page. Use '.' for current value %1$s"
 msgstr "Number of posts per page. Use '.' for current value %1$s"
+
+#: libs/oik-sc-help.php:348
+msgid "nnn"
+msgstr "nnn"
+
+#: libs/oik-sc-help.php:348
+msgid "wxh"
+msgstr "wxh"
 
 #: libs/oik-sc-help.php:348 shortcodes/oik-attachments.php:356
 #: shortcodes/oik-list.php:182
