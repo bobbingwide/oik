@@ -4,6 +4,7 @@
  * @package oik-sc-help
  * 
  * Tests for logic in includes/oik-sc-help.inc
+ * Tests for logic in libs/oik-sc-help.php are in oik-libs
  */
 class Tests_oik_sc_help extends BW_UnitTestCase {
 
@@ -53,4 +54,54 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		$this->assertEquals( $expected_output, $html );
 		//'/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";a:1:{i:0;s:10:"genericons";}}</p>', $html );
 	}
+	
+	function test_div__help() {
+		$this->switch_to_locale( "en_GB" );
+		$html = div__help();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_ediv__help() {
+		$this->switch_to_locale( "en_GB" );
+		$html = ediv__help();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	/**
+	 * Reduce a print_r'ed string
+	 *
+	 * print_r's an array then removes unwanted white space
+	 */
+	function arraytohtml( $array ) {
+		$string = print_r( $array, true );
+		$again = explode( "\n", $string );
+		$again = array_map( "trim", $again );
+		$string = implode( "\n", $again );
+		return $string;
+	}
+	
+	function test_div__syntax() {
+		$this->switch_to_locale( "en_GB" );
+		$array = div__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_sdiv__syntax() {
+		$this->switch_to_locale( "en_GB" );
+		$array = sdiv__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_ediv__syntax() {
+		$this->switch_to_locale( "en_GB" );
+		$array = ediv__syntax();
+		$this->assertNull( $array );
+	}
+	
 }
