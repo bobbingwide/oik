@@ -9,6 +9,8 @@
 class Tests_oik_sc_help extends BW_UnitTestCase {
 
 	function setUp() { 
+	
+		parent::setUp();
 		oik_require( "admin/oik-admin.inc" );	 
 		oik_require( "includes/oik-sc-help.inc" ); 														
 		$this->_url = oik_get_plugins_server();
@@ -102,6 +104,26 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		$this->switch_to_locale( "en_GB" );
 		$array = ediv__syntax();
 		$this->assertNull( $array );
+	}
+	
+	function test_stag__syntax() {
+	
+		$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = stag__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_etag__syntax() {
+	
+		$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = etag__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
 	}
 	
 }

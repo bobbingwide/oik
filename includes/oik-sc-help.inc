@@ -144,6 +144,59 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 
 }
 
+/**  
+ * These functions return the help and syntax for the shortcodes that are activated
+ */
+function div__help() {
+  return( "start a &lt;div&gt; tag" );
+}
+
+function div__syntax( ) {
+  $syntax = _sc_classes();
+  return( $syntax );
+}
+
+function sdiv__syntax() {
+  $syntax = _sc_classes();
+  return( $syntax );
+}
+
+// We don't provide an example for the [div] shortcode as we want to deliver it using the shortcode server
+// where it can be created in the __oik_sc_example field
+/*
+function div__example() {
+
+  return( $example );
+}
+*/
+ 
+/**
+ */
+function ediv__help() { 
+  return( esc_html( "end a <div> with </div>") );
+}
+
+function ediv__syntax() {
+  return( null );
+}
+
+/**
+ * Syntax for [stag] shortcode  
+ */
+function stag__syntax( $shortcode="stag" ) {
+  $syntax = array( "name" => bw_skv( "", "<i>tag</i>", "HTML start tag" ) );
+  $syntax += _sc_classes();
+  return( $syntax );
+}
+
+/**
+ * Syntax for [etag] shortcode
+ */
+function etag__syntax( $shortcode="etag" ) {
+  $syntax = array( "name" => bw_skv( "", "<i>tag</i>", "paired HTML tag for the stag shortcode" ) );
+  return( $syntax );
+}
+
 
 
 
