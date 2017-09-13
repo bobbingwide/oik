@@ -107,8 +107,8 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 		case "clear": $l10n_help = __( 'Clear divs ', 'oik' ); break;
 		case "collage": $l10n_help = __( 'Display a collage (Artisteer theme)', 'oik' ); break;
 		case "css": $l10n_help = __( 'Show a valid CSS icon (Artisteer theme)', 'oik' ); break;
-		case "div": $l10n_help = __( 'start a <div> tag', 'oik' ); break;
-		case "ediv": $l10n_help = __( 'end a <div> with <\/div>', 'oik' ); break;
+		//case "div": $l10n_help = __( 'start a <div> tag', 'oik' ); break;
+		//case "ediv": $l10n_help = __( 'end a <div> with <\/div>', 'oik' ); break;
 		case "embed": $l10n_help = __( 'Embed media', 'oik' ); break;
 		case "etag": $l10n_help = __( 'End a tag started with [stag]', 'oik' ); break;
 		case "gallery": $l10n_help = __( 'Display the attached images in a gallery', 'oik' ); break;
@@ -148,7 +148,7 @@ function oik_lazy_sc__help( $help, $shortcode ) {
  * These functions return the help and syntax for the shortcodes that are activated
  */
 function div__help() {
-  return( "start a &lt;div&gt; tag" );
+  return( sprintf( __( 'start a %1$s tag', "oik" ), "&lt;div&gt;" ) );
 }
 
 function div__syntax( ) {
@@ -173,7 +173,7 @@ function div__example() {
 /**
  */
 function ediv__help() { 
-  return( esc_html( "end a <div> with </div>") );
+  return( esc_html( sprintf( __( 'end a %1$s with %2$s', "oik" ), "<div>", "</div>" ) ) );
 }
 
 function ediv__syntax() {
@@ -184,7 +184,7 @@ function ediv__syntax() {
  * Syntax for [stag] shortcode  
  */
 function stag__syntax( $shortcode="stag" ) {
-  $syntax = array( "name" => bw_skv( "", "<i>tag</i>", "HTML start tag" ) );
+  $syntax = array( "name" => BW_::bw_skv( "", "<i>" . __( "tag", "oik" ) . "</i>", __( "HTML start tag", "oik" ) ) );
   $syntax += _sc_classes();
   return( $syntax );
 }
@@ -193,7 +193,7 @@ function stag__syntax( $shortcode="stag" ) {
  * Syntax for [etag] shortcode
  */
 function etag__syntax( $shortcode="etag" ) {
-  $syntax = array( "name" => bw_skv( "", "<i>tag</i>", "paired HTML tag for the stag shortcode" ) );
+  $syntax = array( "name" => BW_::bw_skv( "", "<i>" . __( "tag", "oik" ) . "</i>", __( "paired HTML tag for the stag shortcode", "oik" ) ) );
   return( $syntax );
 }
 

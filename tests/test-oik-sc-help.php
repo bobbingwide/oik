@@ -64,11 +64,27 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		$this->assertArrayEqualsFile( $html );
 	}
 	
+	function test_div__help_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = div__help();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
 	function test_ediv__help() {
 		$this->switch_to_locale( "en_GB" );
 		$html = ediv__help();
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_ediv__help_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = ediv__help();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
 	}
 	
 	/**
@@ -92,6 +108,15 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		$this->assertArrayEqualsFile( $html );
 	}
 	
+	function test_div__syntax_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$array = div__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
 	function test_sdiv__syntax() {
 		$this->switch_to_locale( "en_GB" );
 		$array = sdiv__syntax();
@@ -100,15 +125,30 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		$this->assertArrayEqualsFile( $html );
 	}
 	
+	function test_sdiv__syntax_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$array = sdiv__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	
 	function test_ediv__syntax() {
 		$this->switch_to_locale( "en_GB" );
 		$array = ediv__syntax();
 		$this->assertNull( $array );
 	}
 	
-	function test_stag__syntax() {
+	function test_ediv__syntax_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$array = ediv__syntax();
+		$this->assertNull( $array );
+		$this->switch_to_locale( "en_GB" );
+	}
 	
-		$this->setExpectedDeprecated( "bw_translate" );
+	function test_stag__syntax() {
 		$this->switch_to_locale( "en_GB" );
 		$array = stag__syntax();
 		$html = $this->arraytohtml( $array, true );
@@ -116,14 +156,31 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		$this->assertArrayEqualsFile( $html );
 	}
 	
-	function test_etag__syntax() {
+	function test_stag__syntax_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$array = stag__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
 	
-		$this->setExpectedDeprecated( "bw_translate" );
+	function test_etag__syntax() {
 		$this->switch_to_locale( "en_GB" );
 		$array = etag__syntax();
 		$html = $this->arraytohtml( $array, true );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
+	
+	function test_etag__syntax_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$array = etag__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+
 	
 }
