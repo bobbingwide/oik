@@ -351,7 +351,7 @@ function _sc_thumbnail() {
 
 
 function caption__help() {
-  return( "Display the caption for an image. Standard WordPress shortcode" );
+  return( __( "Display the caption for an image. Standard WordPress shortcode", null ) );
 }
 
 function caption__example() {    

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-13 12:09:38+00:00\n"
+"POT-Creation-Date: 2017-09-14 08:25:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1267,7 +1267,7 @@ msgstr "Force trace off"
 msgid "Force trace on"
 msgstr "Force trace on"
 
-#: includes/oik-sc-help.inc:106
+#: includes/oik-sc-help.inc:106 libs/oik-sc-help.php:354
 msgid "Display the caption for an image. Standard WordPress shortcode"
 msgstr "Display the caption for an image. Standard WordPress shortcode"
 
@@ -1379,7 +1379,7 @@ msgstr "start a %1$s tag"
 msgid "end a %1$s with %2$s"
 msgstr "end a %1$s with %2$s"
 
-#: includes/oik-sc-help.inc:187
+#: includes/oik-sc-help.inc:187 includes/oik-sc-help.inc:196
 msgid "tag"
 msgstr "tag"
 
