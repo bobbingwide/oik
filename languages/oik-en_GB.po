@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-14 08:25:45+00:00\n"
+"POT-Creation-Date: 2017-09-14 09:22:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1586,6 +1586,10 @@ msgstr "image size"
 #: libs/oik-sc-help.php:358
 msgid "e.g:"
 msgstr "e.g:"
+
+#: libs/oik-sc-help.php:360
+msgid "This is a caption"
+msgstr "This is a caption"
 
 #: libs/oik-sc-help.php:369
 msgid "value for CSS id= keyword"
