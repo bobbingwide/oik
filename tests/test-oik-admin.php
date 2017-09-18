@@ -19,9 +19,19 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	}
 	
 	function test_oik_callback() {
+		$this->switch_to_locale( 'en_GB' );
 		$html = bw_ret( oik_callback() );
 		$expected = "<p>This box intentionally left blank</p>";
 		$this->assertEquals( $expected, $html );
+	}
+	
+	function test_oik_callback_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$html = bw_ret( oik_callback() );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
 	}
 	
 	function test_oik_shortcode_options() {
@@ -1705,6 +1715,9 @@ $expected[] = '</div>';
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
+	
+		
+	
 	
 	
 
