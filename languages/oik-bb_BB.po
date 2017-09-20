@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-14 20:13:57+00:00\n"
+"POT-Creation-Date: 2017-09-20 11:37:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1618,7 +1618,7 @@ msgid "Show a valid CSS icon (Artisteer theme)"
 msgstr "Sohw A vlaid CSS iocn (Atrsieter tehme)"
 
 
-#: includes/oik-sc-help.inc:112
+#: includes/oik-sc-help.inc:112 libs/oik-sc-help.php:420
 msgid "Embed media"
 msgstr "Ebmed mdeia"
 
@@ -1830,7 +1830,7 @@ msgstr "calss nmaes"
 
 #: libs/oik-sc-help.php:299 libs/oik-sc-help.php:594
 #: shortcodes/oik-blockquote.php:31 shortcodes/oik-cite.php:19
-#: shortcodes/oik-cycle.php:127 shortcodes/oik-follow.php:323
+#: shortcodes/oik-cycle.php:127 shortcodes/oik-follow.php:343
 msgid "CSS class names"
 msgstr "CSS calss nmaes"
 
@@ -2162,7 +2162,7 @@ msgstr "Sperataor srtnig"
 
 #: libs/oik-sc-help.php:565 libs/oik-sc-help.php:591 libs/oik-sc-help.php:678
 #: libs/oik-sc-help.php:683 libs/oik-sc-help.php:688
-#: shortcodes/oik-follow.php:324
+#: shortcodes/oik-follow.php:344
 msgid "Use alternative value"
 msgstr "UsE atlreanitve vlaue"
 
@@ -2804,12 +2804,12 @@ msgstr "Sned eamil tO: "
 
 
 #: shortcodes/oik-follow.php:255 shortcodes/oik-follow.php:300
-#: shortcodes/oik-follow.php:313
+#: shortcodes/oik-follow.php:333
 msgid "Follow %1$s on %2$s"
 msgstr "Floolw %1$s On %2$s"
 
 
-#: shortcodes/oik-follow.php:322
+#: shortcodes/oik-follow.php:342
 msgid "Icon font selection"
 msgstr "Iocn fnot sleceiton"
 
