@@ -273,10 +273,27 @@ a span.dashicons-linkedin span { vertical-align: text-bottom; font-family: 'Myri
 /* Sizing for the original images used by bw_follow_me. 
  * x24 matches the original default image size, but the margins would have been set by the theme.
  */
-a.x1 img.bw_follow { max-width: 25px; margin: 0 4px 0 0;}
-a.x2 img.bw_follow { max-width: 41px; margin: 0 4px 0 0;}
-a.x24 img.bw_follow { max-width: 48px; margin: 0 4px 0 0; } 
+a.x1 img.bw_follow { max-width: 25px; }
+a.x2 img.bw_follow { max-width: 41px; }
+a.x24 img.bw_follow { max-width: 48px; } 
 a.x3 img.bw_follow { max-width: 48px; margin: 2px;}
+
+a.x1, 
+a.x2, 
+a.x24 { margin: 0 4px 0 0; }
+
+a.bw_follow_new { 
+  border: solid grey 0px;
+	border-radius: 14%; 
+	display: inline-block;  
+	overflow: hidden;
+	-webkit-box-shadow: 0px 0px 1px #4d4d4d;
+  -moz-box-shadow: 0px 0px 1px #4d4d4d;
+  box-shadow: 0px 0px 1px #4d4d4d;
+	line-height: 0.8;
+	margin: 0 1px 0 0; 
+ }
+ 
 
 
 

@@ -302,14 +302,34 @@ function bw_follow_link_gener( $social, $lc_social, $social_network, $me, $class
 } 
 
 /**
- * Display a default Follow me link using oik icons
+ * Displays a default Follow me link using oik icons
  *
- * This is the original solution that used .png files of 48x48 pixels
+ * - Now supports two sets: new and old
+ * - The original solution ( from 2011 to Sep 2017) used .png files of 48x48 pixels called $lc_social_48.png
+ * - These original files are now copied to $lc_social_old.png
+ * - To use the original files pass the class name of "old" in the class= parameter.
+ * - To use the new files don't use class name of old.
  * 
- *
+ * $class         | suffix used | class used
+ * -------------- | ----------- | ----------
+ * contains "old" | old         | as passed
+ * null           | 48					| " bw_follow_new"
+ * other          | 48 			  	| other with " bw_follow_new" appended
+ * 
+ * @param string $social The social network URL
+ * @param string $lc_social - lower case social network
+ * @param string $social_network - untranslated social network 
+ * @param string $me - whoever me has resolved to be
+ * @param string $class - CSS classes for styling
  */ 
 function bw_follow_link_( $social, $lc_social, $social_network, $me, $class ) {
-  $imagefile = oik_url( 'images/'. $lc_social . '_48.png' );
+	$suffix = "48";
+	if ( false !== strpos( $class, "old" ) ) {
+		$suffix = "old";
+	}	else {
+		$class .= " bw_follow_new";
+	} 
+  $imagefile = oik_url( 'images/'. $lc_social . '_' . $suffix . '.png' );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
   $image = retimage( "bw_follow ", $imagefile, $follow_me_tooltip );
   alink( $class , $social, $image, $follow_me_tooltip );
