@@ -47,7 +47,7 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 		case "bw_business": $l10n_help = __( 'Display your Business name', 'oik' ); break;
 		case "bw_button": $l10n_help = __( 'Show a link as a button', 'oik' ); break;
 		case "bw_cite": $l10n_help = __( 'Cite a blockquote', 'oik' ); break;
-		case "bw_code": $l10n_help = __( 'Display the help and syntax for a shortcode', 'oik' ); break;
+		//case "bw_code": $l10n_help = __( 'Display the help and syntax for a shortcode', 'oik' ); break;
 		case "bw_codes": $l10n_help = __( 'Summarise active shortcodes', 'oik' ); break;
 		case "bw_company": $l10n_help = __( 'Company name', 'oik' ); break;
 		case "bw_contact": $l10n_help = __( 'Primary contact name', 'oik' ); break;
