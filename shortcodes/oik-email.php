@@ -127,4 +127,30 @@ function _sc_email() {
                  , "title" => BW_::bw_skv( __( "Send email to: ",  "oik" ), "<i>" . __( "title string", "oik" ) . "</i>", __( "Tool tip text", "oik" ) )
                  );
   return( $syntax );
-}                   
+}
+
+/**
+ * Syntax help for [bw_email]
+ */
+function bw_email__syntax( $shortcode="bw_email" ) {
+  $syntax = _sc_email();
+  $syntax_email = array( "tag" => BW_::bw_skv( "span", "<i>" . __( "tag", "oik" ) . "</i>", __( "enclosing HTML tag", "oik" ) )
+                 , "index" => BW_::bw_skv( "email", "<i>" . __( "field", "oik" ) . "</i>", __( "oik options field to use", "oik" ) )
+                 );
+  $syntax += $syntax_email;                 
+  return( $syntax );
+}
+
+
+/**
+ * Syntax help for [bw_mailto]
+ */
+function bw_mailto__syntax( $shortcode="bw_mailto" ) {
+  $syntax = _sc_email();
+  $syntax_mailto = array( "tag" => BW_::bw_skv( "p", "<i>" . __( "tag", "oik" ) . "</i>", __( "enclosing HTML tag", "oik" ) )
+                 , "index" => BW_::bw_skv( "email", "<i>" . __( "field", "oik" ) . "</i>", __( "oik options field to use", "oik" ) )
+                 );
+  $syntax += $syntax_mailto;                
+  return( $syntax );
+}
+

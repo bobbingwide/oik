@@ -37,6 +37,44 @@ class Tests_shortcodes_oik_email extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	function test_bw_email__syntax() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = bw_email__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_email__syntax_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$array = bw_email__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+
+	function test_bw_mailto__syntax() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = bw_mailto__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_mailto__syntax_bb_BB() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "bb_BB" );
+		$array = bw_mailto__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	
 	
 }
 	
