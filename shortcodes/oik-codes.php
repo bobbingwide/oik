@@ -1,7 +1,7 @@
 <?php
 /*
 
-    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -151,7 +151,7 @@ function bw_sc_link( $shortcode, $callback=null ) {
   $link .= "/oik-shortcodes/$shortcode/$function"; 
   $link = apply_filters( "bw_sc_link", $link, $shortcode, $function );
   if ( $link ) {
-    alink( NULL, $link, "$shortcode", "$shortcode help" );   
+    BW_::alink( NULL, $link, "$shortcode", sprintf( __( '%1$s help', "oik" ), $shortcode ) );   
   } else {
     e( $shortcode );
   } 
@@ -643,4 +643,42 @@ function bw_sc_shortcake_compatible( $sclist ) {
 	unset( $sclist['codes']);
 	//gob();
 	return( $sclist );
+}
+
+
+/**
+ * Help for [bw_code] shortcode
+ */
+function bw_code__help() {
+  return( __( "Display the help and syntax for a shortcode", null ) );
+}
+
+/**
+ * Syntax for [bw_code] shortcode
+ */
+function bw_code__syntax() {
+  $syntax = array( "shortcode" => BW_::bw_skv( "bw_code", "<i>" . __( "shortcode", null) . "</i>", __( "The shortcode you want explained", null ) )  
+                 , "help" => BW_::bw_skv( "Y", "N", __( "Display help for the shortcode", null ) )
+                 , "syntax" => BW_::bw_skv( "Y", "N", __( "Display the syntax", null ) )
+                 , "example" => BW_::bw_skv( "Y", "N", __("Display an example, if possible", null ) )
+                 , "live" => BW_::bw_skv( "N", "Y", __( "Display the live results using default values", null ) )
+                 , "snippet" => BW_::bw_skv( "N", "Y", __( "Display the generated HTML", null ) )
+                 );
+  return( $syntax );
+}
+
+/**
+ * Example of [bw_code] for the [oik] shortcode
+ */
+function bw_code__example() {
+	//oik_require( "shortcodes/oik-codes.php" );
+  br();
+  e( __( "e.g.", "oik" ) . " [bw_code shortcode=\"oik\"]" );
+  br();
+  e( __( "Display information about the [oik] shortcode", "oik" ) );
+  br();
+  oik__help();
+  br();
+  bw_lazy_sc_syntax( "oik" );
+  oik__example();
 }
