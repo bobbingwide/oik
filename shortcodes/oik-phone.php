@@ -274,6 +274,19 @@ function bw_emergency__syntax( $shortcode="bw_emergency" ) {
   return( $syntax_emergency );
 }
 
+/**
+ * Syntax for [bw_skype] shorrtcode
+ */
+function bw_skype__syntax( $shortcode="bw_skype" ) {
+  $syntax = _sc_telephone();
+  $syntax_skype = array( "prefix" => BW_::bw_skv( __( "Skype name", "oik" ), "<i>" . __( "string", "oik" ) . "</i>", __( "Prefix string", "oik" ) ) );
+  $syntax_after = array( "index" => BW_::bw_skv( "skype", "<i>" . __( "field", "oik" ) . "</i>", __( "oik options field to use", "oik" ) ) );
+  $syntax_skype += $syntax;
+  $syntax_skype += $syntax_after; 
+  $syntax_skype['class'] = BW_::bw_skv( "bw_skype", "<i>" . __( "class names", "oik" ) . "</i>", __( "additional CSS class names", "oik" ) ); 
+  return( $syntax_skype );
+}
+
 
 
 

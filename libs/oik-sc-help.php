@@ -527,16 +527,6 @@ function bw_format_skv( $value ) {
   }    
 }
 
-function bw_skype__syntax( $shortcode="bw_skype" ) {
-  $syntax = _sc_telephone();
-  $syntax_skype = array( "prefix" => bw_skv( "Skype name", "<i>string</i>", "Prefix string" ) );
-  $syntax_after = array( "index" => bw_skv( "skype", "<i>field</i>", "oik options field to use" ) );
-  $syntax_skype += $syntax;
-  $syntax_skype += $syntax_after; 
-  $syntax_skype['class'] = bw_skv( "bw_skype", "<i>class names</i>", "additional CSS class names" ); 
-  return( $syntax_skype );
-}
-
 function bw_copyright__syntax( $shortcode="bw_copyright" ) {
   $syntax = array( "prefix" => bw_skv( "&copy; Copyright", "<i>string</i>", "Copyright text prefix" )
                  , "company" => bw_skv( bw_get_option( "company" ), "<i>company name</i>", "from oik options - company" )
