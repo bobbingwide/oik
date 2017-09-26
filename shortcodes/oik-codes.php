@@ -692,3 +692,10 @@ function bw_codes__syntax() {
   return( $syntax );
 }
 
+/**
+ * Help for [bw_codes] shortcode
+ */
+function bw_codes__help() {
+  return( __( "Display the currently available shortcodes", "oik" ) );
+}
+

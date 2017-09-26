@@ -527,10 +527,6 @@ function bw_format_skv( $value ) {
   }    
 }
 
-function bw_codes__help() {
-  return( "Display the currently available shortcodes" );
-}
-
 function bw_codes__example() {
   e( "The currently available shortcodes are displayed in a table with a brief description, the known syntax and a link to further help. " );
   alink( null, "http://www.oik-plugins.com/oik-shortcodes/bw_codes/bw_codes", "[bw_codes] - list shortcodes" );
