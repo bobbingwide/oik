@@ -97,7 +97,6 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 	}
 	
 	function test_bw_codes__syntax_bb_BB() {
-		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "bb_BB" );
 		$array = bw_codes__syntax();
 		$html = $this->arraytohtml( $array, true );
@@ -117,6 +116,25 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_codes__help( null );
     //$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	/**
+	 * 
+	 */
+	function test_bw_codes__example() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$html = bw_ret( bw_codes__example() );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_codes__example_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( bw_codes__example() );
+		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
