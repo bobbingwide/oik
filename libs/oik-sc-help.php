@@ -527,18 +527,6 @@ function bw_format_skv( $value ) {
   }    
 }
 
-/**
- * Common parameters for bw_email, bw_mailto, etc. 
- */ 
-function _sc_email() {
-  $syntax = array( "prefix" => bw_skv( "Email", "<i>string</i>", "Prefix string" )
-                 , "sep" => bw_skv( ": ", "<i>string</i>", "Separator string" )
-                 , "alt" => bw_skv( null, "1", "Use alternative value" )
-                 , "title" => bw_skv( "Send email to: ", "<i>title string</i>", "Tool tip text" )
-                 );
-  return( $syntax );
-}                   
-
 function bw_email__syntax( $shortcode="bw_email" ) {
   $syntax = _sc_email();
   $syntax_email = array( "tag" => bw_skv( "span", "<i>tag</i>", "enclosing HTML tag" )

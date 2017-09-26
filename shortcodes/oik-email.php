@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2013
+<?php // (C) Copyright Bobbing Wide 2011-2017
 /**
  * Generate a mailto: link with optional subject= parameter
  * 
@@ -116,3 +116,15 @@ function bw_mailto( $atts=null, $content=null, $tag=null ) {
   $atts['tag'] = bw_array_get( $atts, "tag", "p" );
   return( _bw_email( $atts ) );
 }  
+
+/**
+ * Common parameters for bw_email, bw_mailto, etc. 
+ */ 
+function _sc_email() {
+  $syntax = array( "prefix" => BW_::bw_skv( __( "Email", "oik" ), "<i>" . __( "string", "oik" ) . "</i>", __( "Prefix string", "oik" ) )
+                 , "sep" => BW_::bw_skv( ": ", "<i>". __( "string", "oik" ) . "</i>", __( "Separator string", "oik" ) )
+                 , "alt" => BW_::bw_skv( null, "1", __( "Use alternative value", "oik" ) )
+                 , "title" => BW_::bw_skv( __( "Send email to: ",  "oik" ), "<i>" . __( "title string", "oik" ) . "</i>", __( "Tool tip text", "oik" ) )
+                 );
+  return( $syntax );
+}                   
