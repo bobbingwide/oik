@@ -527,30 +527,6 @@ function bw_format_skv( $value ) {
   }    
 }
 
-function bw_telephone__syntax( $shortcode="bw_telephone" ) {
-  $syntax = _sc_telephone();
-  $syntax_telephone = array( "prefix" => bw_skv( "Tel", "<i>string</i>", "Prefix string" ) );
-  $syntax_after = array( "index" => bw_skv( "telephone", "<i>field</i>", "oik options field to use" ) );
-  $syntax_telephone += $syntax;
-  $syntax_telephone += $syntax_after; 
-  return( $syntax_telephone );
-} 
-
-function bw_tel__syntax( $shortcode="bw_tel" ) {
-  $syntax = bw_telephone__syntax();
-  $syntax['tag'] = bw_skv( "span", "<i>tag</i>", "enclosing HTML tag" );
-  return( $syntax );
-}
-
-function bw_fax__syntax( $shortcode="bw_fax" ) {
-  $syntax = _sc_telephone();
-  $syntax_fax = array( "prefix" => bw_skv( "Fax", "<i>string</i>", "Prefix string" ) );
-  $syntax_after = array( "index" => bw_skv( "fax", "<i>field</i>", "oik options field to use" ) );
-  $syntax_fax += $syntax;
-  $syntax_fax += $syntax_after; 
-  return( $syntax_fax );
-}
-
 function bw_mobile__syntax( $shortcode="bw_mobile" ) {
   $syntax = _sc_telephone();
   $syntax_mobile = array( "prefix" => bw_skv( "Mobile", "<i>string</i>", "Prefix string" ) );
