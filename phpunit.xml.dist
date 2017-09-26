@@ -27,6 +27,7 @@
 			<file>tests/test-oik-admin.php</file>
 			<file>tests/test-shortcodes-oik-codes.php</file>
 			<file>tests/test-shortcodes-oik-email.php</file>
+			<file>tests/test-shortcodes-oik-phone.php</file>
 		</testsuite>
 		<testsuite name="random">
 			<!-- We can't actually run tests in a random order due to use of static variables -->

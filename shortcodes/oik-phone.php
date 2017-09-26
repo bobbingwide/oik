@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2014
+<?php // (C) Copyright Bobbing Wide 2011-2017
 
 /**
  * Return a tel: or sms: link
@@ -189,6 +189,21 @@ function bw_skype( $atts=null, $content=null, $tag=null ) {
     $atts['number'] = bw_get_option_arr( $atts['index'], null, $atts );
   }
   return( _bw_telephone( $atts ) );
-}  
+}
+
+
+/**
+ * Common syntax for telephone related shortcodes
+ */
+function _sc_telephone() {
+  $syntax = array( "sep" => BW_::bw_skv( ": ", "<i>" . __( "string", "oik" ) . "</i>", __( "Separator string", "oik" ) )
+                 , "alt" => BW_::bw_skv( null, "1", __( "Use alternative value", "oik" ) )
+                 , "number" => BW_::bw_skv( null, "<i>" . __( "number", "oik" ) . "</i>", __( "Number override", "oik" ) )  
+                 , "tag" => BW_::bw_skv( "div", "<i>" . __ ( "tag", "oik" ) . "</i>", __( "enclosing HTML tag", "oik" ) )
+                 , "class" => BW_::bw_skv( "", "<i>" . __( "class names", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
+                 , "link" => BW_::bw_skv( null, "n|y|t|s|<i>" . __( "other", "oik" ) . "</i>:", __( "tel: or sms: link", "oik" ) )
+                 );
+  return( $syntax );
+}
 
 

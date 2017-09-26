@@ -527,17 +527,6 @@ function bw_format_skv( $value ) {
   }    
 }
 
-function _sc_telephone() {
-  $syntax = array( "sep" => bw_skv( ": ", "<i>string</i>", "Separator string" )
-                 , "alt" => bw_skv( null, "1", "Use alternative value" )
-                 , "number" => bw_skv( null, "<i>number</i>", "Number override" )  
-                 , "tag" => bw_skv( "div", "<i>tag</i>", "enclosing HTML tag" )
-                 , "class" => bw_skv( "", "<i>class names</i>", "CSS class names" )
-                 , "link" => bw_skv( null, "n|y|t|s|<i>other</i>:", "tel: or sms: link" )
-                 );
-  return( $syntax );
-}
-
 function bw_telephone__syntax( $shortcode="bw_telephone" ) {
   $syntax = _sc_telephone();
   $syntax_telephone = array( "prefix" => bw_skv( "Tel", "<i>string</i>", "Prefix string" ) );
