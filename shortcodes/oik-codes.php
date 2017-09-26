@@ -682,3 +682,13 @@ function bw_code__example() {
   bw_lazy_sc_syntax( "oik" );
   oik__example();
 }
+
+/**
+ * Syntax for [bw_codes]
+ */
+function bw_codes__syntax() {
+  $syntax = array( "ordered" => BW_::bw_skv( "N", "Y", __( "Sort the shortcode codes by name.", "oik" ) ) 
+                 ); 
+  return( $syntax );
+}
+

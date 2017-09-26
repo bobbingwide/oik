@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" tests="6" assertions="69" errors="0" failures="0" skipped="0" time="3.822726">
-    <testcase name="test_bw_code__help" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="39" assertions="8" time="2.418163"/>
-    <testcase name="test_bw_code__help_bb_BB" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="46" assertions="15" time="0.403626"/>
-    <testcase name="test_bw_code__syntax" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="54" assertions="8" time="0.080785"/>
-    <testcase name="test_bw_code__syntax_bb_BB" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="62" assertions="15" time="0.428496"/>
-    <testcase name="test_bw_code__example" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="75" assertions="8" time="0.095047"/>
-    <testcase name="test_bw_code__example_bb_BB" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="82" assertions="15" time="0.396609"/>
+  <testsuite name="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" tests="8" assertions="92" errors="0" failures="0" skipped="0" time="4.239933">
+    <testcase name="test_bw_code__help" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="39" assertions="8" time="2.284381"/>
+    <testcase name="test_bw_code__help_bb_BB" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="46" assertions="15" time="0.415711"/>
+    <testcase name="test_bw_code__syntax" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="54" assertions="8" time="0.094708"/>
+    <testcase name="test_bw_code__syntax_bb_BB" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="62" assertions="15" time="0.428851"/>
+    <testcase name="test_bw_code__example" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="75" assertions="8" time="0.099765"/>
+    <testcase name="test_bw_code__example_bb_BB" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="82" assertions="15" time="0.417199"/>
+    <testcase name="test_bw_codes__syntax" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="90" assertions="8" time="0.089307"/>
+    <testcase name="test_bw_codes__syntax_bb_BB" class="Tests_shortcodes_oik_codes" classname="Tests_shortcodes_oik_codes" file="C:\apache\htdocs\wordpress\wp-content\plugins\oik\tests\test-shortcodes-oik-codes.php" line="99" assertions="15" time="0.410011"/>
   </testsuite>
 </testsuites>

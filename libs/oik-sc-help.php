@@ -488,13 +488,6 @@ function video__syntax( $shortcode='video' ) {
   return( $syntax ); 
 }
 
-
-function bw_codes__syntax() {
-  $syntax = array( "ordered" => bw_skv( "N", "Y", "Sort the shortcode codes by name." ) 
-                 ); 
-  return( $syntax );
-}
-
 /** 
  * Return the default, values and notes for a shortcode parameter
  *
