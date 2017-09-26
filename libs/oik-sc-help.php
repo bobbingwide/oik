@@ -526,15 +526,6 @@ function bw_format_skv( $value ) {
     return( $value );
   }    
 }
-function bw_emergency__syntax( $shortcode="bw_emergency" ) {
-  $syntax = _sc_telephone();
-  $syntax_emergency = array( "prefix" => bw_skv( "Emergency", "<i>string</i>", "Prefix string" ) );
-  $syntax_after = array( "index" => bw_skv( "emergency", "<i>field</i>", "oik options field to use" ) );
-  $syntax_emergency += $syntax;
-  $syntax_emergency += $syntax_after; 
-  $syntax_emergency['class'] = bw_skv( "bw_emergency", "<i>class names</i>", "additional CSS class names" ); 
-  return( $syntax_emergency );
-}
 
 function bw_skype__syntax( $shortcode="bw_skype" ) {
   $syntax = _sc_telephone();

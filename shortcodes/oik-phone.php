@@ -261,6 +261,19 @@ function bw_mob__syntax( $shortcode="bw_mob" ) {
   return( $syntax );
 }
 
+/**
+ * Syntax for [bw_emergency] shortcode
+ */
+function bw_emergency__syntax( $shortcode="bw_emergency" ) {
+  $syntax = _sc_telephone();
+  $syntax_emergency = array( "prefix" => BW_::bw_skv( __( "Emergency", "oik" ), "<i>" . __( "string", "oik" ) . "</i>", __( "Prefix string", "oik" ) ) );
+  $syntax_after = array( "index" => BW_::bw_skv( "emergency", "<i>" . __( "field", "oik" ) . "</i>", __( "oik options field to use", "oik" ) ) );
+  $syntax_emergency += $syntax;
+  $syntax_emergency += $syntax_after; 
+  $syntax_emergency['class'] = BW_::bw_skv( "bw_emergency", "<i>" . __( "class names", "oik" ) . "</i>", __( "additional CSS class names", "oik" ) ); 
+  return( $syntax_emergency );
+}
+
 
 
 
