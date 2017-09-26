@@ -240,5 +240,27 @@ function bw_fax__syntax( $shortcode="bw_fax" ) {
   return( $syntax_fax );
 }
 
+/**
+ * Syntax for [bw_mobile] shortcode
+ */
+function bw_mobile__syntax( $shortcode="bw_mobile" ) {
+  $syntax = _sc_telephone();
+  $syntax_mobile = array( "prefix" => BW_::bw_skv( __( "Mobile", "oik" ), "<i>" . __( "string", "oik" ) . "</i>", __( "Prefix string", "oik" ) ) );
+  $syntax_after = array( "index" => BW_::bw_skv( "mobile", "<i>" . __( "field", "oik" ) . "</i>", __( "oik options field to use", "oik" ) ) );
+  $syntax_mobile += $syntax;
+  $syntax_mobile += $syntax_after; 
+  return( $syntax_mobile );
+}
+
+/**
+ * Syntax for [bw_mob] shortcode
+ */
+function bw_mob__syntax( $shortcode="bw_mob" ) {
+  $syntax = bw_mobile__syntax();
+  $syntax['tag'] = BW_::bw_skv( "span", "<i>" . __( "tag", "oik" ) . "</i>", __( "enclosing HTML tag", "oik" ) );
+  return( $syntax );
+}
+
+
 
 

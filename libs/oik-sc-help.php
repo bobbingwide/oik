@@ -526,22 +526,6 @@ function bw_format_skv( $value ) {
     return( $value );
   }    
 }
-
-function bw_mobile__syntax( $shortcode="bw_mobile" ) {
-  $syntax = _sc_telephone();
-  $syntax_mobile = array( "prefix" => bw_skv( "Mobile", "<i>string</i>", "Prefix string" ) );
-  $syntax_after = array( "index" => bw_skv( "mobile", "<i>field</i>", "oik options field to use" ) );
-  $syntax_mobile += $syntax;
-  $syntax_mobile += $syntax_after; 
-  return( $syntax_mobile );
-}
-
-function bw_mob__syntax( $shortcode="bw_mob" ) {
-  $syntax = bw_mobile__syntax();
-  $syntax['tag'] = bw_skv( "span", "<i>tag</i>", "enclosing HTML tag" );
-  return( $syntax );
-}
-
 function bw_emergency__syntax( $shortcode="bw_emergency" ) {
   $syntax = _sc_telephone();
   $syntax_emergency = array( "prefix" => bw_skv( "Emergency", "<i>string</i>", "Prefix string" ) );
