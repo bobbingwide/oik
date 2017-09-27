@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-27 08:19:22+00:00\n"
+"POT-Creation-Date: 2017-09-27 09:41:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1395,7 +1395,7 @@ msgstr ""
 #: shortcodes/oik-email.php:125 shortcodes/oik-phone.php:199
 #: shortcodes/oik-phone.php:214 shortcodes/oik-phone.php:236
 #: shortcodes/oik-phone.php:248 shortcodes/oik-phone.php:269
-#: shortcodes/oik-phone.php:282
+#: shortcodes/oik-phone.php:282 shortcodes/oik-qrcode.php:38
 msgid "string"
 msgstr ""
 
@@ -1407,7 +1407,7 @@ msgstr ""
 msgid "company name"
 msgstr ""
 
-#: includes/oik-sc-help.inc:205 libs/oik-sc-help.php:532
+#: includes/oik-sc-help.inc:205 shortcodes/oik-qrcode.php:38
 msgid "from oik options - company"
 msgstr ""
 
@@ -1553,11 +1553,11 @@ msgstr ""
 msgid "id1,id2"
 msgstr ""
 
-#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:626
+#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:617
 msgid "IDs to include"
 msgstr ""
 
-#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:627
+#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:618
 msgid "IDs to exclude"
 msgstr ""
 
@@ -1662,7 +1662,7 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:625
+#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:616
 msgid "Order by field"
 msgstr ""
 
@@ -1709,7 +1709,7 @@ msgid "Required height"
 msgstr ""
 
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
-#: libs/oik-sc-help.php:481
+#: libs/oik-sc-help.php:481 shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr ""
 
@@ -1737,77 +1737,65 @@ msgstr ""
 msgid "Placeholder image"
 msgstr ""
 
-#: libs/oik-sc-help.php:531
-msgid "Link URL for QR code image"
-msgstr ""
-
-#: libs/oik-sc-help.php:533
-msgid "width of QR code image, if required"
-msgstr ""
-
-#: libs/oik-sc-help.php:534
-msgid "height of QR code image, if required"
-msgstr ""
-
-#: libs/oik-sc-help.php:539 libs/oik-sc-help.php:544 libs/oik-sc-help.php:549
+#: libs/oik-sc-help.php:530 libs/oik-sc-help.php:535 libs/oik-sc-help.php:540
 #: shortcodes/oik-email.php:126 shortcodes/oik-follow.php:344
 #: shortcodes/oik-phone.php:200
 msgid "Use alternative value"
 msgstr ""
 
-#: libs/oik-sc-help.php:590
+#: libs/oik-sc-help.php:581
 msgid "Advertisement selection - Artisteer theme options"
 msgstr ""
 
-#: libs/oik-sc-help.php:591
+#: libs/oik-sc-help.php:582
 msgid "Alignment"
 msgstr ""
 
-#: libs/oik-sc-help.php:592
+#: libs/oik-sc-help.php:583
 msgid "0 if inline, 1 for block"
 msgstr ""
 
-#: libs/oik-sc-help.php:605
+#: libs/oik-sc-help.php:596
 msgid "Page to link to"
 msgstr ""
 
-#: libs/oik-sc-help.php:613
+#: libs/oik-sc-help.php:604
 msgid "Index of the theme_collages post meta to display"
 msgstr ""
 
-#: libs/oik-sc-help.php:621
+#: libs/oik-sc-help.php:612
 msgid "IDs for the playlist"
 msgstr ""
 
-#: libs/oik-sc-help.php:622
+#: libs/oik-sc-help.php:613
 msgid "Post from which the playlist is chosen"
 msgstr ""
 
-#: libs/oik-sc-help.php:623
+#: libs/oik-sc-help.php:614
 msgid "Content type"
 msgstr ""
 
-#: libs/oik-sc-help.php:624
+#: libs/oik-sc-help.php:615
 msgid "Ordering"
 msgstr ""
 
-#: libs/oik-sc-help.php:628
+#: libs/oik-sc-help.php:619
 msgid "Playlist style"
 msgstr ""
 
-#: libs/oik-sc-help.php:629
+#: libs/oik-sc-help.php:620
 msgid "Display track list?"
 msgstr ""
 
-#: libs/oik-sc-help.php:630
+#: libs/oik-sc-help.php:621
 msgid "Display track numbers?"
 msgstr ""
 
-#: libs/oik-sc-help.php:631
+#: libs/oik-sc-help.php:622
 msgid "Display images?"
 msgstr ""
 
-#: libs/oik-sc-help.php:632
+#: libs/oik-sc-help.php:623
 msgid "Display artists?"
 msgstr ""
 
@@ -2620,6 +2608,26 @@ msgstr ""
 
 #: shortcodes/oik-qrcode.php:10
 msgid "company"
+msgstr ""
+
+#: shortcodes/oik-qrcode.php:37
+msgid "Link URL for QR code image"
+msgstr ""
+
+#: shortcodes/oik-qrcode.php:39
+msgid "width"
+msgstr ""
+
+#: shortcodes/oik-qrcode.php:39
+msgid "width of QR code image, if required"
+msgstr ""
+
+#: shortcodes/oik-qrcode.php:40
+msgid "height"
+msgstr ""
+
+#: shortcodes/oik-qrcode.php:40
+msgid "height of QR code image, if required"
 msgstr ""
 
 #: shortcodes/oik-slideshows.php:77

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2013
+<?php // (C) Copyright Bobbing Wide 2011-2017
 
 /**
  * Implement [bw_qrcode] shortcode to display the QR code file with a link if required
@@ -28,4 +28,16 @@ function bw_qrcode( $atts ) {
   }  
   return( bw_ret());
     
+}
+
+/**
+ * Syntax for [bw_qrcode] shortcode
+ */
+function bw_qrcode__syntax( $shortcode="bw_qrcode" ) {
+  $syntax = array( "link" => BW_::bw_skv( null, "<i>" . __( "URL", "oik" ) . "</i>", __( "Link URL for QR code image", "oik" ) )
+                 , "text" => BW_::bw_skv( bw_get_option( "company" ), "<i>" . __( "string", "oik" ) . "</i>", __( "from oik options - company", "oik" ) )
+                 , "width" => BW_::bw_skv( null, "<i>" . __( "width", "oik" ) . "</i>", __( "width of QR code image, if required", "oik" ) )
+                 , "height" => BW_::bw_skv( null, "<i>" . __( "height", "oik" ) . "</i>", __( "height of QR code image, if required", "oik" ) )
+                 );
+  return( $syntax );
 }
