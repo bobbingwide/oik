@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2013
+<?php // (C) Copyright Bobbing Wide 2010-2017
 
 /**
  * Implement [bw_contact] shortcode to display the primary contact name
@@ -59,3 +59,12 @@ function bw_alt_slogan() {
 function bw_admin_sc() {
   return( bw_output( "admin" ));
 }
+
+/**
+ * Syntax for [bw_contact] shortcode
+ */
+function bw_contact__syntax( $shortcode="bw_contact" ) {
+  $syntax = array( "alt" => BW_::bw_skv( null, "1", __( "Use alternative value", "oik" ) ) );
+  return( $syntax );
+}
+  
