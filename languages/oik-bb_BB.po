@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-27 09:41:38+00:00\n"
+"POT-Creation-Date: 2017-09-27 10:02:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1952,12 +1952,12 @@ msgid "id1,id2"
 msgstr "Id1,Id2"
 
 
-#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:617
+#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:612
 msgid "IDs to include"
 msgstr "IDs tO icnulde"
 
 
-#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:618
+#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:613
 msgid "IDs to exclude"
 msgstr "IDs tO ecxulde"
 
@@ -2088,7 +2088,7 @@ msgid "Order"
 msgstr "Odrer"
 
 
-#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:616
+#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:611
 msgid "Order by field"
 msgstr "Odrer by feild"
 
@@ -2183,79 +2183,79 @@ msgid "Placeholder image"
 msgstr "Palecohdler iamge"
 
 
-#: libs/oik-sc-help.php:530 libs/oik-sc-help.php:535 libs/oik-sc-help.php:540
-#: shortcodes/oik-email.php:126 shortcodes/oik-follow.php:344
-#: shortcodes/oik-phone.php:200
+#: libs/oik-sc-help.php:530 libs/oik-sc-help.php:535
+#: shortcodes/oik-company.php:67 shortcodes/oik-email.php:126
+#: shortcodes/oik-follow.php:344 shortcodes/oik-phone.php:200
 msgid "Use alternative value"
 msgstr "UsE atlreanitve vlaue"
 
 
-#: libs/oik-sc-help.php:581
+#: libs/oik-sc-help.php:576
 msgid "Advertisement selection - Artisteer theme options"
 msgstr "Avdreitesemnt sleceiton - Atrsieter tehme otpoins"
 
 
-#: libs/oik-sc-help.php:582
+#: libs/oik-sc-help.php:577
 msgid "Alignment"
 msgstr "Ailngemnt"
 
 
-#: libs/oik-sc-help.php:583
+#: libs/oik-sc-help.php:578
 msgid "0 if inline, 1 for block"
 msgstr "0 If ilnnie, 1 fOr bolck"
 
 
-#: libs/oik-sc-help.php:596
+#: libs/oik-sc-help.php:591
 msgid "Page to link to"
 msgstr "Pgae tO lnik tO"
 
 
-#: libs/oik-sc-help.php:604
+#: libs/oik-sc-help.php:599
 msgid "Index of the theme_collages post meta to display"
 msgstr "Idnex Of thE tehme_cloalegs psot mtea tO dsilpay"
 
 
-#: libs/oik-sc-help.php:612
+#: libs/oik-sc-help.php:607
 msgid "IDs for the playlist"
 msgstr "IDs fOr thE pallysit"
 
 
-#: libs/oik-sc-help.php:613
+#: libs/oik-sc-help.php:608
 msgid "Post from which the playlist is chosen"
 msgstr "Psot form wihch thE pallysit Is cohesn"
 
 
-#: libs/oik-sc-help.php:614
+#: libs/oik-sc-help.php:609
 msgid "Content type"
 msgstr "Cnoetnt tpye"
 
 
-#: libs/oik-sc-help.php:615
+#: libs/oik-sc-help.php:610
 msgid "Ordering"
 msgstr "Odrrenig"
 
 
-#: libs/oik-sc-help.php:619
+#: libs/oik-sc-help.php:614
 msgid "Playlist style"
 msgstr "Pallysit sytle"
 
 
-#: libs/oik-sc-help.php:620
+#: libs/oik-sc-help.php:615
 msgid "Display track list?"
 msgstr "Dsilpay tarck lsit?"
 
 
-#: libs/oik-sc-help.php:621
+#: libs/oik-sc-help.php:616
 msgid "Display track numbers?"
 msgstr "Dsilpay tarck nmuebrs?"
 
 
-#: libs/oik-sc-help.php:622
+#: libs/oik-sc-help.php:617
 msgid "Display images?"
 msgstr "Dsilpay iamegs?"
 
 
-#: libs/oik-sc-help.php:623
+#: libs/oik-sc-help.php:618
 msgid "Display artists?"
 msgstr "Dsilpay atrsits?"
 

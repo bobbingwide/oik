@@ -68,4 +68,11 @@ function bw_directions__example() {
   e( bw_directions() );
 }
 
+/**
+ * Syntax for [bw_directions] shortcode
+ */
+function bw_directions__syntax( $shortcode="bw_directions" ) {
+  $syntax = array( "alt" => BW_::bw_skv( null, "1", __( "Use alternative value", "oik" ) ) );
+  return( $syntax );
+}
 
