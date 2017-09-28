@@ -222,6 +222,19 @@ function ad__syntax( $shortcode='ad' ) {
 }
 
 
+/**
+ * Syntax for [post_link] shortcode - Artisteer themes
+ * 
+ * If the name= parameter starts with "/Blog%20Posts/" then the post name is considered to be a post, otherwise it's a page
+ * A bit of a crappy shortcode if you ask me Herb 2014/05/10
+ *
+ */
+function post_link__syntax( $shortcode='post_link' ) {
+  $syntax = array( "name" => BW_::bw_skv( "/", "<i>" . __( "page name" , "oik" ) . "</i>", __( "Page to link to", "oik" ) ) );
+  return( $syntax  );
+}
+
+
 
 
 

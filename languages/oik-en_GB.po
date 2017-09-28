@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-27 10:02:11+00:00\n"
+"POT-Creation-Date: 2017-09-28 12:27:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1432,6 +1432,26 @@ msgstr "from oik options - yearfrom"
 msgid "default: ',' if one year difference '-' otherwise"
 msgstr "default: ',' if one year difference '-' otherwise"
 
+#: includes/oik-sc-help.inc:217
+msgid "Advertisement selection - Artisteer theme options"
+msgstr "Advertisement selection - Artisteer theme options"
+
+#: includes/oik-sc-help.inc:218
+msgid "Alignment"
+msgstr "Alignment"
+
+#: includes/oik-sc-help.inc:219
+msgid "0 if inline, 1 for block"
+msgstr "0 if inline, 1 for block"
+
+#: includes/oik-sc-help.inc:233
+msgid "page name"
+msgstr "page name"
+
+#: includes/oik-sc-help.inc:233
+msgid "Page to link to"
+msgstr "Page to link to"
+
 #: libs/bobbforms.php:510
 msgid "None"
 msgstr "None"
@@ -1554,11 +1574,11 @@ msgstr "Sort order."
 msgid "id1,id2"
 msgstr "id1,id2"
 
-#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:612
+#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:580
 msgid "IDs to include"
 msgstr "IDs to include"
 
-#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:613
+#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:581
 msgid "IDs to exclude"
 msgstr "IDs to exclude"
 
@@ -1663,7 +1683,7 @@ msgstr "width in pixels (Note: 10 is added to this number)"
 msgid "Order"
 msgstr "Order"
 
-#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:611
+#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:579
 msgid "Order by field"
 msgstr "Order by field"
 
@@ -1738,65 +1758,43 @@ msgstr "How the audio should be loaded"
 msgid "Placeholder image"
 msgstr "Placeholder image"
 
-#: libs/oik-sc-help.php:530 libs/oik-sc-help.php:535
-#: shortcodes/oik-company.php:67 shortcodes/oik-email.php:126
-#: shortcodes/oik-follow.php:344 shortcodes/oik-phone.php:200
-msgid "Use alternative value"
-msgstr "Use alternative value"
-
-#: libs/oik-sc-help.php:576
-msgid "Advertisement selection - Artisteer theme options"
-msgstr "Advertisement selection - Artisteer theme options"
-
-#: libs/oik-sc-help.php:577
-msgid "Alignment"
-msgstr "Alignment"
-
-#: libs/oik-sc-help.php:578
-msgid "0 if inline, 1 for block"
-msgstr "0 if inline, 1 for block"
-
-#: libs/oik-sc-help.php:591
-msgid "Page to link to"
-msgstr "Page to link to"
-
-#: libs/oik-sc-help.php:599
+#: libs/oik-sc-help.php:567
 msgid "Index of the theme_collages post meta to display"
 msgstr "Index of the theme_collages post meta to display"
 
-#: libs/oik-sc-help.php:607
+#: libs/oik-sc-help.php:575
 msgid "IDs for the playlist"
 msgstr "IDs for the playlist"
 
-#: libs/oik-sc-help.php:608
+#: libs/oik-sc-help.php:576
 msgid "Post from which the playlist is chosen"
 msgstr "Post from which the playlist is chosen"
 
-#: libs/oik-sc-help.php:609
+#: libs/oik-sc-help.php:577
 msgid "Content type"
 msgstr "Content type"
 
-#: libs/oik-sc-help.php:610
+#: libs/oik-sc-help.php:578
 msgid "Ordering"
 msgstr "Ordering"
 
-#: libs/oik-sc-help.php:614
+#: libs/oik-sc-help.php:582
 msgid "Playlist style"
 msgstr "Playlist style"
 
-#: libs/oik-sc-help.php:615
+#: libs/oik-sc-help.php:583
 msgid "Display track list?"
 msgstr "Display track list?"
 
-#: libs/oik-sc-help.php:616
+#: libs/oik-sc-help.php:584
 msgid "Display track numbers?"
 msgstr "Display track numbers?"
 
-#: libs/oik-sc-help.php:617
+#: libs/oik-sc-help.php:585
 msgid "Display images?"
 msgstr "Display images?"
 
-#: libs/oik-sc-help.php:618
+#: libs/oik-sc-help.php:586
 msgid "Display artists?"
 msgstr "Display artists?"
 
@@ -2146,6 +2144,12 @@ msgstr "The currently available shortcodes are displayed in a table with a brief
 #: shortcodes/oik-codes.php:714
 msgid "[bw_codes] - list shortcodes"
 msgstr "[bw_codes] - list shortcodes"
+
+#: shortcodes/oik-company.php:67 shortcodes/oik-email.php:126
+#: shortcodes/oik-follow.php:344 shortcodes/oik-geo.php:75
+#: shortcodes/oik-geo.php:84 shortcodes/oik-phone.php:200
+msgid "Use alternative value"
+msgstr "Use alternative value"
 
 #: shortcodes/oik-contact-form.php:47
 msgid "Contact %s"

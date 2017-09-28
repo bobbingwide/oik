@@ -561,18 +561,6 @@ function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
 }
 
 /**
- * Syntax for [post_link] shortcode 
- * 
- * If the name= parameter starts with "/Blog%20Posts/" then the post name is considered to be a post, otherwise it's a page
- * A bit of a crappy shortcode if you ask me Herb 2014/05/10
- *
- */
-function post_link__syntax( $shortcode='post_link' ) {
-  $syntax = array( "name" => bw_skv( "/", "<i>page_name</i>", "Page to link to" ) );
-  return( $syntax  );
-}
-
-/**
  * Syntax for [collage] shortcode
  */
 function collage__syntax( $shortcode="collage" ) {
