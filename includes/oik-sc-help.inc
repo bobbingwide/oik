@@ -208,7 +208,18 @@ function bw_copyright__syntax( $shortcode="bw_copyright" ) {
                  , "sep" => BW_::bw_skv( "-", ",|<i>" . __( "string", "oik" ) . "</i>", __( "default: ',' if one year difference '-' otherwise", "oik" ) )
                  );
   return( $syntax );
-} 
+}
+
+/**
+ * Syntax for [ad] shortcode - Artisteer themes
+ */  
+function ad__syntax( $shortcode='ad' ) {
+  $syntax = array( "code" => BW_::bw_skv( 1, "2|3|4|5", __( "Advertisement selection - Artisteer theme options", "oik" ) )
+                 , "align" => BW_::bw_skv( "left", "center|right", __( "Alignment", "oik" ) )
+                 , "inline" => BW_::bw_skv( 0, "1", __( "0 if inline, 1 for block", "oik" ) )
+                 );
+  return( $syntax );
+}
 
 
 
