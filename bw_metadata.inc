@@ -84,13 +84,19 @@ function bw_form_field_( $name, $type, $title, $value, $args ) {
 
 /**
  * bw_form_field_email - formatting for an email entry field
+ * 
+ * @param string $name Field name
+ * @param string $type Field type
+ * @param string $title Field label - l10n'ed
+ * @param string $value Field value
+ * @param array $args a load of options
  */
 function bw_form_field_email( $name, $type, $title, $value, $args ) {
   $length = bw_array_get( $args, '#length', 40 );
   $value = bw_default_value( $value, $args );
   $class = bw_array_get( $args, "#class", null );
   $extras = bw_array_get( $args, "#extras", null );
-  bw_emailfield( $name, $length, $title, $value, $class, $extras );
+  BW_::bw_emailfield( $name, $length, $title, $value, $class, $extras );
 }
 
 /**

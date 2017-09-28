@@ -26,5 +26,15 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 		$this->switch_to_locale( 'en_GB' );
 	}
 	
+	function test_bw_form_field_email() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( 'en_GB' );
+		$html = bw_ret( bw_form_field_email( "email_name", "email", "translated text", "translated value", array() ) );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
 }
 	
