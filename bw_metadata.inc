@@ -273,7 +273,7 @@ function bw_form_field_checkbox( $name, $type, $title, $value, $args ) {
  */
 function bw_form_field_textarea( $name, $type, $title, $value, $args ) {
   $len = bw_array_get( $args, "#length", 80 );
-  bw_textarea( $name, $len, $title, $value, 10, $args ); 
+  BW_::bw_textarea( $name, $len, $title, $value, 10, $args ); 
 }
 
 /**
