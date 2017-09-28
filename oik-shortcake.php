@@ -53,7 +53,7 @@ function oik_registered_to_shortcake( $shortcode ) {
  * The oik base plugin provides a service which allows each shortcode
  * to specify help, shortcode syntax etc.
  * Each shortcode implements a function with __syntax as the function name suffix
- * The $syntax array is constructed using the bw_skv() helper API.
+ * The $syntax array is constructed using the bw_skv helper API.
  * 
  * shortcake provides a similar service, although this is not currently lazy.
  *
@@ -211,7 +211,7 @@ function oik_shortcake_genericon( $icon ) {
  *
  * The source structure for $data is fairly free form.
  *
- * Created using the bw_skv() helper function
+ * Created using the bw_skv helper function
  * - $data['default'] - the default value - may be null, a literal, the result of a function call or a current piece of data
  * - $data['values'] - | separated values which may be enclosed in italics
  * - $data['notes'] - free form text not used in this function
@@ -246,7 +246,7 @@ function oik_shortcake_genericon( $icon ) {
  * - 'date' => array(    'template' => 'shortcode-ui-field-date',
  *
  * The mapping performed below was built up using trial and error. 
- * In the longer term the bw_skv() arrays may become the new target. 
+ * In the longer term the bw_skv arrays may become the new target. 
  *   
  * @param array $attr - the field we're building for the parameter
  * @param string $shortcode - looks like it's not needed here yet!
@@ -337,7 +337,7 @@ function oik_map_skv_to_attr( $attr, $shortcode, $help, $parameter, $data ) {
                                        );
  * @param string $shortcode - the shortcode tag
  * @param string $help - one line description of the shortcode
- * @param string $syntax - array of parameters - built using bw_skv() helper function
+ * @param string $syntax - array of parameters - built using bw_skv helper function
  */
 function oik_register_shortcode_to_shortcake( $shortcode, $help, $syntax ) {
   $attrs = array();
