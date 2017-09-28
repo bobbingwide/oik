@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-28 12:27:58+00:00\n"
+"POT-Creation-Date: 2017-09-28 13:22:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1443,12 +1443,20 @@ msgstr ""
 msgid "0 if inline, 1 for block"
 msgstr ""
 
-#: includes/oik-sc-help.inc:233
+#: includes/oik-sc-help.inc:232
 msgid "page name"
 msgstr ""
 
-#: includes/oik-sc-help.inc:233
+#: includes/oik-sc-help.inc:232
 msgid "Page to link to"
+msgstr ""
+
+#: includes/oik-sc-help.inc:240
+msgid "collage ID"
+msgstr ""
+
+#: includes/oik-sc-help.inc:240
+msgid "Index of the theme_collages post meta to display"
 msgstr ""
 
 #: libs/bobbforms.php:510
@@ -1573,11 +1581,11 @@ msgstr ""
 msgid "id1,id2"
 msgstr ""
 
-#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:580
+#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:571
 msgid "IDs to include"
 msgstr ""
 
-#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:581
+#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:572
 msgid "IDs to exclude"
 msgstr ""
 
@@ -1682,7 +1690,7 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:579
+#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:570
 msgid "Order by field"
 msgstr ""
 
@@ -1757,43 +1765,39 @@ msgstr ""
 msgid "Placeholder image"
 msgstr ""
 
-#: libs/oik-sc-help.php:567
-msgid "Index of the theme_collages post meta to display"
-msgstr ""
-
-#: libs/oik-sc-help.php:575
+#: libs/oik-sc-help.php:566
 msgid "IDs for the playlist"
 msgstr ""
 
-#: libs/oik-sc-help.php:576
+#: libs/oik-sc-help.php:567
 msgid "Post from which the playlist is chosen"
 msgstr ""
 
-#: libs/oik-sc-help.php:577
+#: libs/oik-sc-help.php:568
 msgid "Content type"
 msgstr ""
 
-#: libs/oik-sc-help.php:578
+#: libs/oik-sc-help.php:569
 msgid "Ordering"
 msgstr ""
 
-#: libs/oik-sc-help.php:582
+#: libs/oik-sc-help.php:573
 msgid "Playlist style"
 msgstr ""
 
-#: libs/oik-sc-help.php:583
+#: libs/oik-sc-help.php:574
 msgid "Display track list?"
 msgstr ""
 
-#: libs/oik-sc-help.php:584
+#: libs/oik-sc-help.php:575
 msgid "Display track numbers?"
 msgstr ""
 
-#: libs/oik-sc-help.php:585
+#: libs/oik-sc-help.php:576
 msgid "Display images?"
 msgstr ""
 
-#: libs/oik-sc-help.php:586
+#: libs/oik-sc-help.php:577
 msgid "Display artists?"
 msgstr ""
 

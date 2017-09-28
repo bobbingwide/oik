@@ -238,6 +238,25 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
+	
+	function test_collage__syntax() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = collage__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+  function test_collage__syntax_bb_BB() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "bb_BB" );
+		$array = collage__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
 
 
 	

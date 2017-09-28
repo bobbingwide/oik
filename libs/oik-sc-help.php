@@ -559,15 +559,6 @@ function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
   bw_trace2( $expanded, "expanded", true, BW_TRACE_DEBUG );
   //bw_backtrace();
 }
-
-/**
- * Syntax for [collage] shortcode
- */
-function collage__syntax( $shortcode="collage" ) {
-  $syntax = array( "id" => bw_skv( null, "<i>collage ID</i>", "Index of the theme_collages post meta to display" ) );
-  return( $syntax  );
-}
-
 /**
  * Syntax for [playlist] shortcode
  */

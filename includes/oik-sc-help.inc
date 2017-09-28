@@ -221,7 +221,6 @@ function ad__syntax( $shortcode='ad' ) {
   return( $syntax );
 }
 
-
 /**
  * Syntax for [post_link] shortcode - Artisteer themes
  * 
@@ -233,6 +232,15 @@ function post_link__syntax( $shortcode='post_link' ) {
   $syntax = array( "name" => BW_::bw_skv( "/", "<i>" . __( "page name" , "oik" ) . "</i>", __( "Page to link to", "oik" ) ) );
   return( $syntax  );
 }
+
+/**
+ * Syntax for [collage] shortcode - Artisteer themes
+ */
+function collage__syntax( $shortcode="collage" ) {
+  $syntax = array( "id" => BW_:: bw_skv( null, "<i>" . __( "collage ID" ,"oik" ) . "</i>", __( "Index of the theme_collages post meta to display", "oik" ) ) );
+  return( $syntax  );
+}
+
 
 
 
