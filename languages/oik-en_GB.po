@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-28 13:22:55+00:00\n"
+"POT-Creation-Date: 2017-09-28 13:57:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1526,7 +1526,7 @@ msgstr "class names"
 msgid "CSS class names"
 msgstr "CSS class names"
 
-#: libs/oik-sc-help.php:301
+#: libs/oik-sc-help.php:301 libs/oik-sc-help.php:570
 msgid "id"
 msgstr "id"
 
@@ -1578,15 +1578,16 @@ msgid "Sort order."
 msgstr "Sort order."
 
 #: libs/oik-sc-help.php:330 libs/oik-sc-help.php:331 libs/oik-sc-help.php:338
-#: libs/oik-sc-help.php:414 libs/oik-sc-help.php:415
+#: libs/oik-sc-help.php:414 libs/oik-sc-help.php:415 libs/oik-sc-help.php:569
+#: libs/oik-sc-help.php:574 libs/oik-sc-help.php:575
 msgid "id1,id2"
 msgstr "id1,id2"
 
-#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:571
+#: libs/oik-sc-help.php:330 libs/oik-sc-help.php:414 libs/oik-sc-help.php:574
 msgid "IDs to include"
 msgstr "IDs to include"
 
-#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:572
+#: libs/oik-sc-help.php:331 libs/oik-sc-help.php:415 libs/oik-sc-help.php:575
 msgid "IDs to exclude"
 msgstr "IDs to exclude"
 
@@ -1691,7 +1692,7 @@ msgstr "width in pixels (Note: 10 is added to this number)"
 msgid "Order"
 msgstr "Order"
 
-#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:570
+#: libs/oik-sc-help.php:407 libs/oik-sc-help.php:573
 msgid "Order by field"
 msgstr "Order by field"
 
@@ -1766,39 +1767,43 @@ msgstr "How the audio should be loaded"
 msgid "Placeholder image"
 msgstr "Placeholder image"
 
-#: libs/oik-sc-help.php:566
+#: libs/oik-sc-help.php:569
 msgid "IDs for the playlist"
 msgstr "IDs for the playlist"
 
-#: libs/oik-sc-help.php:567
+#: libs/oik-sc-help.php:570
+msgid "current post"
+msgstr "current post"
+
+#: libs/oik-sc-help.php:570
 msgid "Post from which the playlist is chosen"
 msgstr "Post from which the playlist is chosen"
 
-#: libs/oik-sc-help.php:568
+#: libs/oik-sc-help.php:571
 msgid "Content type"
 msgstr "Content type"
 
-#: libs/oik-sc-help.php:569
+#: libs/oik-sc-help.php:572
 msgid "Ordering"
 msgstr "Ordering"
 
-#: libs/oik-sc-help.php:573
+#: libs/oik-sc-help.php:576
 msgid "Playlist style"
 msgstr "Playlist style"
 
-#: libs/oik-sc-help.php:574
+#: libs/oik-sc-help.php:577
 msgid "Display track list?"
 msgstr "Display track list?"
 
-#: libs/oik-sc-help.php:575
+#: libs/oik-sc-help.php:578
 msgid "Display track numbers?"
 msgstr "Display track numbers?"
 
-#: libs/oik-sc-help.php:576
+#: libs/oik-sc-help.php:579
 msgid "Display images?"
 msgstr "Display images?"
 
-#: libs/oik-sc-help.php:577
+#: libs/oik-sc-help.php:580
 msgid "Display artists?"
 msgstr "Display artists?"
 
