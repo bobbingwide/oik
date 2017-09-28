@@ -79,7 +79,7 @@ function bw_form_field_( $name, $type, $title, $value, $args ) {
   $value = bw_default_value( $value, $args );
   $class = bw_array_get( $args, "#class", null );
   $extras = bw_array_get( $args, "#extras", null );
-  bw_textfield( $name, $length, $title, $value, $class, $extras, $args );
+  BW_::bw_textfield( $name, $length, $title, $value, $class, $extras, $args );
 } 
 
 /**
