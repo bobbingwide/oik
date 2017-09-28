@@ -76,3 +76,13 @@ function bw_directions__syntax( $shortcode="bw_directions" ) {
   return( $syntax );
 }
 
+
+/**
+ * Syntax for [bw_geo] shortcode
+ */
+function bw_geo__syntax( $shortcode="bw_geo" ) {
+  $syntax = array( "alt" => BW_::bw_skv( null, "1", __( "Use alternative value", "oik" ) ) );
+  return( $syntax );
+}
+                  
+
