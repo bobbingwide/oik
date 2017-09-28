@@ -3,7 +3,7 @@ if ( defined( 'OIK_BUTTON_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_BUTTON_SHORTCODES_INCLUDED', true );
 
 /*
-    Copyright 2011,2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011,2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -74,14 +74,14 @@ function bw_button__example( $shortcode='bw_button' ) {
 */  
 function bw_contact_button( $atts=NULL ) {
   bw_trace( $atts, __FUNCTION__, __LINE__, __FILE__, "atts" );
-  $contact = bw_default_empty_att( NULL, "contact", "me" );
+  $contact = bw_default_empty_att( NULL, "contact", __( "me", "oik" ) );
   
 
   $link = bw_default_empty_arr( $atts, 'link', "contact-link", "/contact/" ); 
   
   bw_trace( $link, __FUNCTION__, __LINE__, __FILE__, "link" );
-  $text = bw_default_empty_arr( $atts, 'text', "contact-text", "Contact" );
-  $title = bw_default_empty_arr( $atts, 'title', "contact-title", "Contact " . $contact);
+  $text = bw_default_empty_arr( $atts, 'text', "contact-text", __( "Contact", "oik" ) );
+  $title = bw_default_empty_arr( $atts, 'title', "contact-title", sprintf( __( 'Contact %1$s', "oik" ) , $contact ) );
    
   $class = bw_array_get( $atts, 'class', NULL ) . "bw_contact" ;
   art_button( $link, $text, $title, $class ); 

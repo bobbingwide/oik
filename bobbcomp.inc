@@ -734,7 +734,7 @@ if ( bw_is_wordpress() ) {
     * but in Drupal it needs more wrapping.
     */
   function art_button( $linkurl, $text, $title=NULL, $class=NULL  ) {
-    alink( "button " . $class , $linkurl, $text, $title ) ;
+    BW_::alink( "button " . $class , $linkurl, $text, $title ) ;
   }
 }
 else {
@@ -742,7 +742,7 @@ else {
     span("art-button-wrapper" );
     sepan("art-button-l l");
     sepan("art-button-r r");
-    alink( "button art-button " . $class , $linkurl, $text, $title ) ;
+    BW_::alink( "button art-button " . $class , $linkurl, $text, $title ) ;
     epan();
   }
 }

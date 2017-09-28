@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-28 13:57:26+00:00\n"
+"POT-Creation-Date: 2017-09-28 15:44:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -577,6 +577,7 @@ msgid "WordPress.org username"
 msgstr "WordPress.org username"
 
 #: admin/oik-admin.inc:488 admin/oik-admin.inc:596
+#: shortcodes/oik-button.php:83
 msgid "Contact"
 msgstr "Contact"
 
@@ -880,7 +881,7 @@ msgstr "A new version of the theme is available"
 msgid "Theme is up to date."
 msgstr "Theme is up to date."
 
-#: bobbcomp.inc:263
+#: bobbcomp.inc:263 shortcodes/oik-button.php:77
 msgid "me"
 msgstr "me"
 
@@ -2043,6 +2044,10 @@ msgstr "title for the tooltip"
 #: shortcodes/oik-button.php:48 shortcodes/oik-button.php:98
 msgid "CSS classes for the button"
 msgstr "CSS classes for the button"
+
+#: shortcodes/oik-button.php:84
+msgid "Contact %1$s"
+msgstr "Contact %1$s"
 
 #: shortcodes/oik-button.php:94
 msgid "who to contact"
