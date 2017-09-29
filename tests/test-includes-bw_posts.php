@@ -1,0 +1,46 @@
+<?php // (C) Copyright Bobbing Wide 2017
+
+/** 
+ * Unit tests for the includes/bw_posts.inc file
+ */
+
+class Tests_includes_bw_posts extends BW_UnitTestCase {
+
+	/** 
+	 * set up logic
+	 * 
+	 * - ensure any database updates are rolled back
+	 * - The oik plugin must be activated!
+	 */
+	function setUp() {
+		parent::setUp();
+		oik_require( "includes/bw_posts.inc" );
+	}
+	
+	/**
+	 * Tests bw_more_text
+	 */ 
+	function test_bw_more_text() {
+		$this->switch_to_locale( 'en_GB' );
+		$atts = array();
+		$html = bw_more_text( null, $atts );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	function test_bw_more_text_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$atts = array();
+		$html = bw_more_text( null, $atts );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	
+	
+}
+	

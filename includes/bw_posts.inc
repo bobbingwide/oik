@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011-2016 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -151,13 +151,16 @@ function bw_get_the_excerpt( $excerpt ) {
 function bw_more_text( $more_text=null, $atts=null ) {   
   static $bw_more_text = null;
   if ( ( $atts !== null ) && !$bw_more_text ) { 
-    $bw_more = bw_array_get_dcb( $atts, "read_more", "read more" );
+		$bw_more = bw_array_get( $atts, "read_more", null );
+		if ( !$bw_more ) {
+			$bw_more = __( "read more", "oik" );
+		}
   } else {
     $bw_more = $bw_more_text;
   }
   $bw_more_text = $more_text; 
   bw_trace2( $bw_more, "bw_more", true, BW_TRACE_DEBUG );
-  return( $bw_more );
+  return $bw_more ;
 }
 
 /**

@@ -30,6 +30,7 @@
 			<file>tests/test-includes-bw_formatter.php</file>
 			<file>tests/test-includes-bw_images.php</file>
 			<file>tests/test-includes-bw_messages.php</file>
+			<file>tests/test-includes-bw_posts.php</file>
 			<file>tests/test-shortcodes-oik-button.php</file>
 			<file>tests/test-shortcodes-oik-codes.php</file>
 			<file>tests/test-shortcodes-oik-company.php</file>
