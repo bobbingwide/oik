@@ -237,7 +237,7 @@ function post_link__syntax( $shortcode='post_link' ) {
  * Syntax for [collage] shortcode - Artisteer themes
  */
 function collage__syntax( $shortcode="collage" ) {
-  $syntax = array( "id" => BW_:: bw_skv( null, "<i>" . __( "collage ID" ,"oik" ) . "</i>", __( "Index of the theme_collages post meta to display", "oik" ) ) );
+  $syntax = array( "id" => BW_::bw_skv( null, "<i>" . __( "collage ID" ,"oik" ) . "</i>", __( "Index of the theme_collages post meta to display", "oik" ) ) );
   return( $syntax  );
 }
 
