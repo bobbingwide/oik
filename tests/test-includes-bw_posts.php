@@ -77,6 +77,20 @@ class Tests_includes_bw_posts extends BW_UnitTestCase {
 		$this->switch_to_locale( 'en_GB' );
 	}
 	
-
+	/**
+	 * Test bw_format_list with a title
+	 */
+	function test_bw_format_list() {
+		$this->switch_to_locale( 'en_GB' );
+		$atts = array();
+		$post = $this->dummy_post();
+		$html = bw_ret( bw_format_list( $post, $atts ) );
+		$html = $this->replace_home_url( $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
 }
 	

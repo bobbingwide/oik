@@ -315,7 +315,7 @@ function bw_format_list( $post, $atts ) {
     $title = __( "Post: " ) . $post->ID;
   } 
   stag( 'li' );
-  alink( NULL, get_permalink( $post->ID ), $title );
+  BW_::alink( NULL, get_permalink( $post->ID ), $title );
   etag( 'li' );
 }
 
