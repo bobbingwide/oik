@@ -151,7 +151,7 @@ function bw_pre_theme_field() {
  * 
  * @param string $key - field name e.g. _txn_amount
  * @param mixed $value - post metadata value
- * @param array $field - the field structure if defined using bw_register_field()
+ * @param array $field - the field structure if defined using `bw_register_field()`
  * 
  */
 function bw_theme_field( $key, $value, $field=null ) {
@@ -202,7 +202,7 @@ function bw_theme_field__title( $key, $value, $field ) {
   $post = bw_array_get( $field, "post", null );
   if ( $post ) { 
     $link = get_permalink( $post->ID );
-    alink( "title", $link, $value );
+    BW_::alink( "title", $link, $value );
   } else {
     sepan( $key, $value );
   }  

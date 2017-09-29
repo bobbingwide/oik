@@ -50,6 +50,51 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 	}
 	
 	
+	/**
+	 * Tests bw_effort_box
+	 * 
+	 * - We need to capture the output
+	 * - $post->ID must exist 
+	 * - it doesn't need to have post_meta
+	 * - global $bw_fields needs to be set
+	 * - field type of taxonomy need not be included in the list of fields
+	 * - We don't need to worry about i18n
+	 */
+	function test_bw_effort_box() {
+		$this->switch_to_locale( 'en_GB' );
+		$this->reset_global_bw_fields();
+		$post = $this->dummy_post();
+		$args = $this->get_args(); 
+		ob_start();   
+		bw_effort_box( $post, $args );  
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+		
+	function reset_global_bw_fields() {
+		//global $bw_fields;
+		//unset( $bw_fields );
+		bw_register_field( "field", "text", "field title", array() );
+	}
+		
+	function dummy_post() {
+		$post = new stdClass;
+		$post->ID = 42;
+		return $post;
+	}
+	
+	function get_args() {
+		$args = array( "args" => array( "field" ) );
+		return $args;
+	}
+		
+
+		
+	
+	
 	
 }
 	

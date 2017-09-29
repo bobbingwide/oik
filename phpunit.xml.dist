@@ -26,6 +26,7 @@
 			<file>tests/test-issue-9.php</file>
 			<file>tests/test-issue-63.php</file>
 			<file>tests/test-oik-admin.php</file>
+			<file>tests/test-includes-bw_fields.php</file>
 			<file>tests/test-shortcodes-oik-button.php</file>
 			<file>tests/test-shortcodes-oik-codes.php</file>
 			<file>tests/test-shortcodes-oik-company.php</file>
