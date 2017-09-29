@@ -222,7 +222,7 @@ function bw_format_post( $post, $atts ) {
     span( "title" );
     strong( $atts['title'] );
     epan();
-    br();
+    BW_::br();
   }
   e( bw_excerpt( $post ) );
   bw_format_read_more( $post, $atts );  

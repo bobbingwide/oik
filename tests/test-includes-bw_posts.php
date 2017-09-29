@@ -40,6 +40,32 @@ class Tests_includes_bw_posts extends BW_UnitTestCase {
 		$this->switch_to_locale( 'en_GB' );
 	}
 	
+	/**
+	 * Here we test a very basic post just to see the br tag. 
+	 * We don't need to test bb_BB
+	 */
+	function test_bw_format_post() {
+		$this->switch_to_locale( 'en_GB' );
+		$atts = array();
+		$atts['block'] = false;
+		
+		$post = $this->dummy_post();
+		$html = bw_ret( bw_format_post( $post, $atts ) );
+		$html = $this->replace_home_url( $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	function dummy_post() {
+		$args = array( 'post_type' => 'page', 'post_title' => 'post title', 'post_excerpt' => 'Excerpt. No post ID' );
+		$id = self::factory()->post->create( $args );
+		$post = get_post( $id );
+		return $post;
+	}
+	
+	
 	
 	
 }
