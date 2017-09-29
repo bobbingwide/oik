@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011,2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,

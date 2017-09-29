@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013, 2014
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /**
  * Issue a message for a particular field
@@ -58,7 +58,7 @@ function bw_display_message( $bw_message ) {
   $classes .= " ";
   $classes .= $bw_message['type']; 
   sdiv( $classes, $bw_message['code'] );
-  p( $bw_message['text'] );
+  BW_::p( $bw_message['text'] );
   ediv();
   return( true );
 }
