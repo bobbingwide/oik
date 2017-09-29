@@ -236,22 +236,21 @@ function bw_get_random_image( $post_id, $size, $atts ) {
  * Create a thumbnail link
  *
  * Create a thumbnail with a link to the post_id specified, either via $post_id or the $atts['link']
- * otherwise just create the image 
+ * otherwise just create the image.
+  
+ * As of v1.13 this supports custom image links
  *
  * @param string $thumbnail full HTML for the thumbnail image
  * @param id     $post_id   default post id if not specified in $atts
  * @param array  $atts      shortcode attributes array
  *
- * As of v1.13 this supports custom image links
  */
 function bw_link_thumbnail( $thumbnail, $post_id=NULL, $atts=NULL )  {
-  //bw_trace2();
   $link_id = bw_array_get( $atts, "link", $post_id );
   if ( $link_id ) {
     $text = bw_array_get( $atts, "title", NULL );
     $class = bw_array_get( $atts, "imgclass", null );  /* changed from class to imgclass **?** 2012/03/22 */
-    //alink( $class, get_permalink( $link_id ), $thumbnail, $text, "link-".$link_id );  
-    alink( $class, bw_get_image_link( $link_id ), $thumbnail, $text, "link-".$link_id );  
+    BW_::alink( $class, bw_get_image_link( $link_id ), $thumbnail, $text, "link-".$link_id );  
   } else {
     e( $thumbnail );
   }

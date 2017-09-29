@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2015
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /**
  * Format the post as specified by the user  
