@@ -366,7 +366,7 @@ function bw_field_function_date( $post, &$atts, $f ) {
 function bw_field_function_edit( $post, &$atts, $f ) {
  $link = get_edit_post_link( $post->ID );
  if ( $link ) {
-   alink( "bw_edit", $link, "[Edit]" ); 
+   BW_::alink( "bw_edit", $link, __( "[Edit]", "oik" ) ); 
  }
 }
 

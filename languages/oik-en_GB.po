@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-28 15:44:34+00:00\n"
+"POT-Creation-Date: 2017-09-29 09:51:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -928,6 +928,10 @@ msgstr ": "
 #: shortcodes/oik-parent.php:43
 msgid "Post: "
 msgstr "Post: "
+
+#: includes/bw_formatter.inc:369
+msgid "[Edit]"
+msgstr "[Edit]"
 
 #: includes/bw_posts.inc:154
 msgid "read more"
