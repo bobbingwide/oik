@@ -267,10 +267,8 @@ function bw_format_read_more( $post, $atts ) {
 function bw_format_more( $post, $atts ) {
   $read_more = bw_array_get( $atts, "read_more", true );
   if ( trim( $read_more ) !== '') {
-    //sp();
     $read_more = bw_more_text( null, $atts );
-    alink( "bw_more", get_permalink( $post->ID ), $read_more, $read_more ); 
-    //ep(); 
+    BW_::alink( "bw_more", get_permalink( $post->ID ), $read_more, $read_more ); 
   }  
 }
 

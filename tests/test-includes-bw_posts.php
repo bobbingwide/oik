@@ -65,8 +65,18 @@ class Tests_includes_bw_posts extends BW_UnitTestCase {
 		return $post;
 	}
 	
+	function test_bw_format_more() {
+		$this->switch_to_locale( 'en_GB' );
+		$atts = array( "read_more" => "more" );
+		$post = $this->dummy_post();
+		$html = bw_ret( bw_format_more( $post, $atts ) );
+		$html = $this->replace_home_url( $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
 	
-	
-	
+
 }
 	
