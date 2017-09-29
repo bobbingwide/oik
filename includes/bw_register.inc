@@ -49,7 +49,7 @@ function bw_titleify( $name ) {
  * Return the Upper case first letter version of the string
  *
  * Required since ucfirst() only accepts one parameter but sometimes we pass more parameters
- * e.g. when invoked as a callback in bw_array_get_dcb()
+ * e.g. when invoked as a callback in `bw_array_get_dcb()`
  * 
  *
  * @param string $str - the string to pass to ucfirst()

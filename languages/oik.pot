@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-29 09:51:12+00:00\n"
+"POT-Creation-Date: 2017-09-29 15:46:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -923,7 +923,7 @@ msgstr ""
 msgid ": "
 msgstr ""
 
-#: includes/bw_formatter.inc:130 includes/bw_posts.inc:314
+#: includes/bw_formatter.inc:130 includes/bw_posts.inc:315
 #: shortcodes/oik-parent.php:43
 msgid "Post: "
 msgstr ""
@@ -932,7 +932,7 @@ msgstr ""
 msgid "[Edit]"
 msgstr ""
 
-#: includes/bw_posts.inc:154
+#: includes/bw_posts.inc:156
 msgid "read more"
 msgstr ""
 
@@ -991,6 +991,10 @@ msgstr ""
 
 #: includes/oik-contact-form-email.inc:36
 msgid "Contact form submission"
+msgstr ""
+
+#: includes/oik-contact-form-email.inc:128
+msgid "Failed to send email to: %1$s subject: %2$s"
 msgstr ""
 
 #: includes/oik-sc-help.inc:33

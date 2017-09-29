@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-29 09:51:12+00:00\n"
+"POT-Creation-Date: 2017-09-29 15:46:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1162,7 +1162,7 @@ msgid ": "
 msgstr ": "
 
 
-#: includes/bw_formatter.inc:130 includes/bw_posts.inc:314
+#: includes/bw_formatter.inc:130 includes/bw_posts.inc:315
 #: shortcodes/oik-parent.php:43
 msgid "Post: "
 msgstr "Psot: "
@@ -1173,7 +1173,7 @@ msgid "[Edit]"
 msgstr "[Edit]"
 
 
-#: includes/bw_posts.inc:154
+#: includes/bw_posts.inc:156
 msgid "read more"
 msgstr "raed mroe"
 
@@ -1254,6 +1254,11 @@ msgstr ""
 #: includes/oik-contact-form-email.inc:36
 msgid "Contact form submission"
 msgstr "Cnoatct from sbuimssoin"
+
+
+#: includes/oik-contact-form-email.inc:128
+msgid "Failed to send email to: %1$s subject: %2$s"
+msgstr "Fiaeld tO sned eamil tO: %1$s sbuejct: %2$s"
 
 
 #: includes/oik-sc-help.inc:33

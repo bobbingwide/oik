@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-29 09:51:12+00:00\n"
+"POT-Creation-Date: 2017-09-29 15:46:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -924,7 +924,7 @@ msgstr "Fields"
 msgid ": "
 msgstr ": "
 
-#: includes/bw_formatter.inc:130 includes/bw_posts.inc:314
+#: includes/bw_formatter.inc:130 includes/bw_posts.inc:315
 #: shortcodes/oik-parent.php:43
 msgid "Post: "
 msgstr "Post: "
@@ -933,7 +933,7 @@ msgstr "Post: "
 msgid "[Edit]"
 msgstr "[Edit]"
 
-#: includes/bw_posts.inc:154
+#: includes/bw_posts.inc:156
 msgid "read more"
 msgstr "read more"
 
@@ -993,6 +993,10 @@ msgstr "oik BuddyPress signup email - Send sign up verification emails via site 
 #: includes/oik-contact-form-email.inc:36
 msgid "Contact form submission"
 msgstr "Contact form submission"
+
+#: includes/oik-contact-form-email.inc:128
+msgid "Failed to send email to: %1$s subject: %2$s"
+msgstr "Failed to send email to: %1$s subject: %2$s"
 
 #: includes/oik-sc-help.inc:33
 msgid "Show an advertisement block (Artisteer theme)"
