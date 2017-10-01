@@ -227,7 +227,7 @@ function oik_plugins_validate_plugin( $plugin ) {
     $valid = strlen( $plugin ) > 0;
   } 
   if ( !$valid ) { 
-    p( "settings must not be blank" );   
+    BW_::p( __( "settings must not be blank", null ) );   
   }  
   return $valid;
 }
