@@ -278,7 +278,7 @@ function bw_format_matched_link( $post, $matched_post, $atts ) {
   sdiv( $class );
   $image = retimage( "bw_portfolio", $matched_post->guid, $post->post_title );
   $ptspan = "<span>".$post->post_title."</span>";
-  alink( "bw_portfolio", $post->guid, $image.$ptspan );
+  BW_::alink( "bw_portfolio", $post->guid, $image.$ptspan );
   ediv( $class );
 }
 

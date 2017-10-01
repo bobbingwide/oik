@@ -50,6 +50,22 @@ class Tests_shortcodes_oik_attachments extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 	}
 	
+	/**
+	 * - fiddle $post->guid?
+	 */
+	function test_bw_format_matched_link() {
+		$this->switch_to_locale( "en_GB" );
+		$post = $this->dummy_attachment();
+		$atts = array();
+		$html = bw_ret( bw_format_matched_link( $post, $post, $atts ) );
+		$html = $this->replace_home_url( $html );
+		$html = $this->replace_post_id( $html, $post, 'id="link-' );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+
+	
 	
 	
 	
