@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -102,7 +102,7 @@ function bw_link_attachment( $post, $atts ) {
   if ( $file ) {
     $upload_dir = wp_upload_dir();
     $file = $upload_dir['baseurl'] . '/' . $file;
-    alink( "bw_attachment", $file , $atts['title'], null, "link-".$post->ID );  
+    BW_::alink( "bw_attachment", $file , $atts['title'], null, "link-".$post->ID );  
   } else {
     bw_trace2();
   }    
@@ -155,8 +155,8 @@ function bw_format_attachment( $post, $atts ) {
   ep(); 
    
   if ( bw_validate_torf( bw_array_get( $atts, 'captions', 'n' )) ) { 
-    p( $post->post_excerpt, "caption" ); // Caption
-    p( $post->post_content, "description" ); // Description
+    BW_::p( $post->post_excerpt, "caption" ); // Caption
+    BW_::p( $post->post_content, "description" ); // Description
   }
   
   if ( $in_block )

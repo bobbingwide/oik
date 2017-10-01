@@ -79,11 +79,6 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 		return $expected;
 	}
 	
-	function replace_post_id( $expected, $post ) {
-		$expected = str_replace( "post=" . $post->ID, "post=42", $expected );
-		return $expected;
-	}
-	
 	
 }
 	

@@ -7,11 +7,10 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	 * set up logic
 	 * 
 	 * - ensure any database updates are rolled back
+	 * - if you don't call parent::setUp then $this->setExpectedDeprecated() won't work; as the deprecation checking is not enabled
 	 */
 	function setUp() {
 		parent::setUp();
-		//bobbcomp::bw_get_option( "fred" );
-		//oik_require_lib( "class-BW-" );
 		oik_require_lib( "bobbfunc" );
 		
 	}
@@ -61,8 +60,5 @@ class Tests_bw_translate extends BW_UnitTestCase {
 		$translations = get_translations_for_domain( "verbose" );
 		$this->assertInstanceOf( "NOOP_Translations", $translations );
 	}
-		
-		
-
-
+	
 }
