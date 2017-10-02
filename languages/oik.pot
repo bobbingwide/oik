@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-29 15:46:10+00:00\n"
+"POT-Creation-Date: 2017-10-02 08:34:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -806,7 +806,7 @@ msgid "plugin server settings"
 msgstr ""
 
 #: admin/oik-plugins.inc:51 admin/oik-themes.inc:50 libs/oik_plugins.php:122
-#: libs/oik_themes.php:53 libs/oik_themes.php:118
+#: libs/oik_themes.php:118
 msgid "Check"
 msgstr ""
 
@@ -1576,12 +1576,12 @@ msgstr ""
 msgid "custom category slug"
 msgstr ""
 
-#: libs/oik-sc-help.php:328 shortcodes/oik-attachments.php:346
+#: libs/oik-sc-help.php:328 shortcodes/oik-attachments.php:349
 #: shortcodes/oik-thumbs.php:85
 msgid "Sort sequence"
 msgstr ""
 
-#: libs/oik-sc-help.php:329 shortcodes/oik-attachments.php:347
+#: libs/oik-sc-help.php:329 shortcodes/oik-attachments.php:350
 msgid "Sort order."
 msgstr ""
 
@@ -1659,7 +1659,7 @@ msgstr ""
 msgid "wxh"
 msgstr ""
 
-#: libs/oik-sc-help.php:349 shortcodes/oik-attachments.php:356
+#: libs/oik-sc-help.php:349 shortcodes/oik-attachments.php:359
 #: shortcodes/oik-list.php:182
 msgid "image size"
 msgstr ""
@@ -1815,7 +1815,7 @@ msgstr ""
 msgid "Display artists?"
 msgstr ""
 
-#: libs/oik_plugins.php:57
+#: libs/oik_plugins.php:57 libs/oik_themes.php:53
 msgctxt "examine"
 msgid "Check"
 msgstr ""
@@ -1954,24 +1954,28 @@ msgstr ""
 msgid "suffix for alternative address"
 msgstr ""
 
-#: shortcodes/oik-attachments.php:320
+#: shortcodes/oik-attachments.php:323
 msgid "Display attachment's Caption and Description"
 msgstr ""
 
-#: shortcodes/oik-attachments.php:326 shortcodes/oik-attachments.php:335
-#: shortcodes/oik-attachments.php:344 shortcodes/oik-attachments.php:354
+#: shortcodes/oik-attachments.php:329
+msgid "post type"
+msgstr ""
+
+#: shortcodes/oik-attachments.php:329 shortcodes/oik-attachments.php:338
+#: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
 msgid "Post type to display"
 msgstr ""
 
-#: shortcodes/oik-attachments.php:336
+#: shortcodes/oik-attachments.php:339
 msgid "Cannot be overridden"
 msgstr ""
 
-#: shortcodes/oik-attachments.php:345
+#: shortcodes/oik-attachments.php:348
 msgid "Attachment types to pair"
 msgstr ""
 
-#: shortcodes/oik-attachments.php:355
+#: shortcodes/oik-attachments.php:358
 msgid "Image type"
 msgstr ""
 

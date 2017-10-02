@@ -326,7 +326,7 @@ function _sc_captions() {
 
 function bw_attachments__syntax( $shortcode="bw_attachments" ) {
   $syntax = _sc_posts(); 
-  $syntax['post_type'] = bw_skv( "attachment", "<i>post type</i>", "Post type to display" );
+  $syntax['post_type'] = BW_::bw_skv( "attachment", "<i>" . __( "post type", "oik" ) . "</i>", __( "Post type to display", "oik" ) );
   $syntax += _sc_thumbnail();
   $syntax += _sc_captions();
   $syntax += _sc_classes();

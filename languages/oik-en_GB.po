@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-09-29 15:46:10+00:00\n"
+"POT-Creation-Date: 2017-10-02 08:34:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -807,7 +807,7 @@ msgid "plugin server settings"
 msgstr "plugin server settings"
 
 #: admin/oik-plugins.inc:51 admin/oik-themes.inc:50 libs/oik_plugins.php:122
-#: libs/oik_themes.php:53 libs/oik_themes.php:118
+#: libs/oik_themes.php:118
 msgid "Check"
 msgstr "Check"
 
@@ -1577,12 +1577,12 @@ msgstr "category slugs (comma separated)"
 msgid "custom category slug"
 msgstr "custom category slug"
 
-#: libs/oik-sc-help.php:328 shortcodes/oik-attachments.php:346
+#: libs/oik-sc-help.php:328 shortcodes/oik-attachments.php:349
 #: shortcodes/oik-thumbs.php:85
 msgid "Sort sequence"
 msgstr "Sort sequence"
 
-#: libs/oik-sc-help.php:329 shortcodes/oik-attachments.php:347
+#: libs/oik-sc-help.php:329 shortcodes/oik-attachments.php:350
 msgid "Sort order."
 msgstr "Sort order."
 
@@ -1660,7 +1660,7 @@ msgstr "nnn"
 msgid "wxh"
 msgstr "wxh"
 
-#: libs/oik-sc-help.php:349 shortcodes/oik-attachments.php:356
+#: libs/oik-sc-help.php:349 shortcodes/oik-attachments.php:359
 #: shortcodes/oik-list.php:182
 msgid "image size"
 msgstr "image size"
@@ -1816,7 +1816,7 @@ msgstr "Display images?"
 msgid "Display artists?"
 msgstr "Display artists?"
 
-#: libs/oik_plugins.php:57
+#: libs/oik_plugins.php:57 libs/oik_themes.php:53
 msgctxt "examine"
 msgid "Check"
 msgstr "Check"
@@ -1955,24 +1955,28 @@ msgstr "Address type."
 msgid "suffix for alternative address"
 msgstr "suffix for alternative address"
 
-#: shortcodes/oik-attachments.php:320
+#: shortcodes/oik-attachments.php:323
 msgid "Display attachment's Caption and Description"
 msgstr "Display attachment's Caption and Description"
 
-#: shortcodes/oik-attachments.php:326 shortcodes/oik-attachments.php:335
-#: shortcodes/oik-attachments.php:344 shortcodes/oik-attachments.php:354
+#: shortcodes/oik-attachments.php:329
+msgid "post type"
+msgstr "post type"
+
+#: shortcodes/oik-attachments.php:329 shortcodes/oik-attachments.php:338
+#: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
 msgid "Post type to display"
 msgstr "Post type to display"
 
-#: shortcodes/oik-attachments.php:336
+#: shortcodes/oik-attachments.php:339
 msgid "Cannot be overridden"
 msgstr "Cannot be overridden"
 
-#: shortcodes/oik-attachments.php:345
+#: shortcodes/oik-attachments.php:348
 msgid "Attachment types to pair"
 msgstr "Attachment types to pair"
 
-#: shortcodes/oik-attachments.php:355
+#: shortcodes/oik-attachments.php:358
 msgid "Image type"
 msgstr "Image type"
 
