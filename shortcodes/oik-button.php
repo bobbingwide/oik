@@ -33,7 +33,7 @@ oik_require( "includes/oik-sc-help.inc" );
  */
 function bw_button_shortcodes( $atts=NULL ) {
   $link = bw_array_get( $atts, 'link', NULL );
-  $text = bw_array_get( $atts, 'text', "dummy" );
+  $text = bw_array_get( $atts, 'text', __( "dummy", "oik" ) );
   $title = bw_array_get( $atts, 'title', $text ); 
   $class = bw_array_get( $atts, 'class', NULL );
   //bw_trace( $atts, __FUNCTION__, __LINE__, __FILE__, "atts" );
@@ -41,11 +41,14 @@ function bw_button_shortcodes( $atts=NULL ) {
   return( bw_ret());  
 }
 
+/**
+ * Syntax for [bw_button] shortcode
+ */
 function bw_button__syntax( $shortcode='bw_button' ) {
-  $syntax = array( "link" => bw_skv( "", "URL", "URL for the link" ) 
-                 , "text" => bw_skv( "dummy", "", "text for the button" )
-                 , "title" => bw_skv( "as text", "", "title for the tooltip" )
-                 , "class" => bw_skv( "", "", "CSS classes for the button" )
+  $syntax = array( "link" => BW_::bw_skv( "", __( "URL", "oik" ), __( "URL for the link", "oik" ) ) 
+                 , "text" => BW_::bw_skv( __( "dummy", "oik" ), "", __( "text for the button", "oik" ) )
+                 , "title" => BW_::bw_skv( __( "as text", "oik" ), "", __( "title for the tooltip", "oik" ) )
+                 , "class" => BW_::bw_skv( "", "", __( "CSS classes for the button", "oik" ) )
                  );
   return( $syntax ); 
 }

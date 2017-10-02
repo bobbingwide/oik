@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 11:46:53+00:00\n"
+"POT-Creation-Date: 2017-10-02 12:07:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -722,7 +722,7 @@ msgstr "WroPderss.Org uesnrmae"
 
 
 #: admin/oik-admin.inc:488 admin/oik-admin.inc:596
-#: shortcodes/oik-button.php:83 shortcodes/oik-button.php:98
+#: shortcodes/oik-button.php:86 shortcodes/oik-button.php:101
 msgid "Contact"
 msgstr "Cnoatct"
 
@@ -1109,7 +1109,7 @@ msgid "Theme is up to date."
 msgstr "Tehme Is Up tO dtae."
 
 
-#: bobbcomp.inc:263 shortcodes/oik-button.php:77 shortcodes/oik-button.php:97
+#: bobbcomp.inc:263 shortcodes/oik-button.php:80 shortcodes/oik-button.php:100
 msgid "me"
 msgstr "mE"
 
@@ -2196,8 +2196,8 @@ msgstr "Rqeiuerd hiehgt"
 
 
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
-#: libs/oik-sc-help.php:481 shortcodes/oik-button.php:101
-#: shortcodes/oik-qrcode.php:37
+#: libs/oik-sc-help.php:481 shortcodes/oik-button.php:48
+#: shortcodes/oik-button.php:104 shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr "URL"
 
@@ -2593,47 +2593,57 @@ msgid "To display the links in the Blogroll"
 msgstr "TO dsilpay thE lniks In thE Bolrglol"
 
 
-#: shortcodes/oik-button.php:45 shortcodes/oik-button.php:101
+#: shortcodes/oik-button.php:36 shortcodes/oik-button.php:49
+msgid "dummy"
+msgstr "dmumy"
+
+
+#: shortcodes/oik-button.php:48 shortcodes/oik-button.php:104
 msgid "URL for the link"
 msgstr "URL fOr thE lnik"
 
 
-#: shortcodes/oik-button.php:46 shortcodes/oik-button.php:102
+#: shortcodes/oik-button.php:49 shortcodes/oik-button.php:105
 msgid "text for the button"
 msgstr "txet fOr thE btuotn"
 
 
-#: shortcodes/oik-button.php:47 shortcodes/oik-button.php:103
+#: shortcodes/oik-button.php:50
+msgid "as text"
+msgstr "As txet"
+
+
+#: shortcodes/oik-button.php:50 shortcodes/oik-button.php:106
 msgid "title for the tooltip"
 msgstr "ttile fOr thE tootlip"
 
 
-#: shortcodes/oik-button.php:48 shortcodes/oik-button.php:104
+#: shortcodes/oik-button.php:51 shortcodes/oik-button.php:107
 msgid "CSS classes for the button"
 msgstr "CSS calsses fOr thE btuotn"
 
 
-#: shortcodes/oik-button.php:84 shortcodes/oik-button.php:99
+#: shortcodes/oik-button.php:87 shortcodes/oik-button.php:102
 msgid "Contact %1$s"
 msgstr "Cnoatct %1$s"
 
 
-#: shortcodes/oik-button.php:100
+#: shortcodes/oik-button.php:103
 msgid "contact name"
 msgstr "cnoatct nmae"
 
 
-#: shortcodes/oik-button.php:100
+#: shortcodes/oik-button.php:103
 msgid "who to contact"
 msgstr "whO tO cnoatct"
 
 
-#: shortcodes/oik-button.php:102
+#: shortcodes/oik-button.php:105
 msgid "contact-text"
 msgstr "cnoatct-txet"
 
 
-#: shortcodes/oik-button.php:103
+#: shortcodes/oik-button.php:106
 msgid "contact-title"
 msgstr "cnoatct-ttile"
 
