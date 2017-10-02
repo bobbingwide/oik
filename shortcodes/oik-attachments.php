@@ -314,10 +314,13 @@ function bw_portfolio( $atts = NULL ) {
   $atts['order'] = bw_array_get( $atts, "order", "ASC" );
   $posts = bw_get_posts( $atts );
   return( bw_paired_attachments( $posts, $atts ));
-} 
+}
 
+/**
+ * Syntax helper for captions= parameter 
+ */
 function _sc_captions() {
-  $syntax = array( "captions" => bw_skv( "n", "y", "Display attachment's Caption and Description" ) );
+  $syntax = array( "captions" => BW_::bw_skv( "n", "y", __( "Display attachment's Caption and Description", "oik" ) ) );
   return ( $syntax );
 }
 

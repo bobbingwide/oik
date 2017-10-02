@@ -9,7 +9,8 @@ class Tests_shortcodes_oik_attachments extends BW_UnitTestCase {
 
 	function setUp() { 
 		parent::setUp();
-		oik_require( "shortcodes/oik-attachments.php" ); 														
+		oik_require( "shortcodes/oik-attachments.php" ); 	
+		oik_require_lib( "oik-sc-help" );													
 	}
 	
 	function test_bw_link_attachment() {
@@ -63,6 +64,27 @@ class Tests_shortcodes_oik_attachments extends BW_UnitTestCase {
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
+	
+	function test_sc_captions() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = _sc_captions();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_sc_captions_bb_BB() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "bb_BB" );
+		$array = _sc_captions();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+		
+		
 	
 
 	
