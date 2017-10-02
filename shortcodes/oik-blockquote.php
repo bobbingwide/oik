@@ -27,8 +27,8 @@ function bw_blockquote( $atts=null, $content=null, $tag=null ) {
  *
  */
 function bw_blockquote__syntax( $shortcode="bw_blockquote" ) {
-  $syntax = array( "text,0" => bw_skv( "", "<i>text</i>", "Text for the blockquote" )
-                 ,  "class"=> bw_skv( "", "<i>class names</i>", "CSS class names" )
+  $syntax = array( "text,0" => BW_::bw_skv( "", "<i>" . __( "text", "oik" ) . "</i>", __( "Text for the blockquote", "oik" ) )
+                 ,  "class"=> BW_::bw_skv( "", "<i>" . __( "class names", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
                  );
   return( $syntax );
 }
