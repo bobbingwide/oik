@@ -89,13 +89,19 @@ function bw_contact_button( $atts=NULL ) {
   return( bw_ret());  
 }
 
-
+/**
+ * Syntax for [bw_contact_button]
+ */
 function bw_contact_button__syntax( $shortcode='bw_contact_button' ) {
-  $syntax = array( "contact" => bw_skv( "me", "contact name", "who to contact" ) 
-                 , "link" => bw_skv( "/contact/", "URL", "URL for the link" ) 
-                 , "text" => bw_skv( "Contact", "contact-text", "text for the button" )
-                 , "title" => bw_skv( "Contact <i>contact name</i>", "contact-title", "title for the tooltip" )
-                 , "class" => bw_skv( "bw_contact", "", "CSS classes for the button" )
+	$atts = array();
+  $contact = bw_default_empty_att( NULL, "contact", __( "me", "oik" ) );
+  $text = bw_default_empty_arr( $atts, 'text', "contact-text", __( "Contact", "oik" ) );
+  $title = bw_default_empty_arr( $atts, 'title', "contact-title", sprintf( __( 'Contact %1$s', "oik" ) , $contact ) );
+  $syntax = array( "contact" => BW_::bw_skv( $contact , __( "contact name", "oik" ), __( "who to contact", "oik" ) ) 
+                 , "link" => BW_::bw_skv( "/contact/", __( "URL", "oik" ), __( "URL for the link", "oik" ) ) 
+                 , "text" => BW_::bw_skv( $text , __( "contact-text", "oik" ), __( "text for the button", "oik" ) )
+                 , "title" => BW_::bw_skv( $title, __( "contact-title", "oik" ), __( "title for the tooltip", "oik" ) )
+                 , "class" => BW_::bw_skv( "bw_contact", "", __( "CSS classes for the button", "oik" ) )
                  );
   return( $syntax ); 
 }

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 11:15:16+00:00\n"
+"POT-Creation-Date: 2017-10-02 11:46:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -576,7 +576,7 @@ msgid "WordPress.org username"
 msgstr ""
 
 #: admin/oik-admin.inc:488 admin/oik-admin.inc:596
-#: shortcodes/oik-button.php:83
+#: shortcodes/oik-button.php:83 shortcodes/oik-button.php:98
 msgid "Contact"
 msgstr ""
 
@@ -880,7 +880,7 @@ msgstr ""
 msgid "Theme is up to date."
 msgstr ""
 
-#: bobbcomp.inc:263 shortcodes/oik-button.php:77
+#: bobbcomp.inc:263 shortcodes/oik-button.php:77 shortcodes/oik-button.php:97
 msgid "me"
 msgstr ""
 
@@ -1748,7 +1748,8 @@ msgid "Required height"
 msgstr ""
 
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
-#: libs/oik-sc-help.php:481 shortcodes/oik-qrcode.php:37
+#: libs/oik-sc-help.php:481 shortcodes/oik-button.php:101
+#: shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr ""
 
@@ -2066,28 +2067,40 @@ msgstr ""
 msgid "To display the links in the Blogroll"
 msgstr ""
 
-#: shortcodes/oik-button.php:45 shortcodes/oik-button.php:95
+#: shortcodes/oik-button.php:45 shortcodes/oik-button.php:101
 msgid "URL for the link"
 msgstr ""
 
-#: shortcodes/oik-button.php:46 shortcodes/oik-button.php:96
+#: shortcodes/oik-button.php:46 shortcodes/oik-button.php:102
 msgid "text for the button"
 msgstr ""
 
-#: shortcodes/oik-button.php:47 shortcodes/oik-button.php:97
+#: shortcodes/oik-button.php:47 shortcodes/oik-button.php:103
 msgid "title for the tooltip"
 msgstr ""
 
-#: shortcodes/oik-button.php:48 shortcodes/oik-button.php:98
+#: shortcodes/oik-button.php:48 shortcodes/oik-button.php:104
 msgid "CSS classes for the button"
 msgstr ""
 
-#: shortcodes/oik-button.php:84
+#: shortcodes/oik-button.php:84 shortcodes/oik-button.php:99
 msgid "Contact %1$s"
 msgstr ""
 
-#: shortcodes/oik-button.php:94
+#: shortcodes/oik-button.php:100
+msgid "contact name"
+msgstr ""
+
+#: shortcodes/oik-button.php:100
 msgid "who to contact"
+msgstr ""
+
+#: shortcodes/oik-button.php:102
+msgid "contact-text"
+msgstr ""
+
+#: shortcodes/oik-button.php:103
+msgid "contact-title"
 msgstr ""
 
 #: shortcodes/oik-bw.php:34

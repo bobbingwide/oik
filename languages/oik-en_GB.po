@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 11:15:16+00:00\n"
+"POT-Creation-Date: 2017-10-02 11:46:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -577,7 +577,7 @@ msgid "WordPress.org username"
 msgstr "WordPress.org username"
 
 #: admin/oik-admin.inc:488 admin/oik-admin.inc:596
-#: shortcodes/oik-button.php:83
+#: shortcodes/oik-button.php:83 shortcodes/oik-button.php:98
 msgid "Contact"
 msgstr "Contact"
 
@@ -881,7 +881,7 @@ msgstr "A new version of the theme is available"
 msgid "Theme is up to date."
 msgstr "Theme is up to date."
 
-#: bobbcomp.inc:263 shortcodes/oik-button.php:77
+#: bobbcomp.inc:263 shortcodes/oik-button.php:77 shortcodes/oik-button.php:97
 msgid "me"
 msgstr "me"
 
@@ -1749,7 +1749,8 @@ msgid "Required height"
 msgstr "Required height"
 
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
-#: libs/oik-sc-help.php:481 shortcodes/oik-qrcode.php:37
+#: libs/oik-sc-help.php:481 shortcodes/oik-button.php:101
+#: shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr "URL"
 
@@ -2067,29 +2068,41 @@ msgstr "Category name"
 msgid "To display the links in the Blogroll"
 msgstr "To display the links in the Blogroll"
 
-#: shortcodes/oik-button.php:45 shortcodes/oik-button.php:95
+#: shortcodes/oik-button.php:45 shortcodes/oik-button.php:101
 msgid "URL for the link"
 msgstr "URL for the link"
 
-#: shortcodes/oik-button.php:46 shortcodes/oik-button.php:96
+#: shortcodes/oik-button.php:46 shortcodes/oik-button.php:102
 msgid "text for the button"
 msgstr "text for the button"
 
-#: shortcodes/oik-button.php:47 shortcodes/oik-button.php:97
+#: shortcodes/oik-button.php:47 shortcodes/oik-button.php:103
 msgid "title for the tooltip"
 msgstr "title for the tooltip"
 
-#: shortcodes/oik-button.php:48 shortcodes/oik-button.php:98
+#: shortcodes/oik-button.php:48 shortcodes/oik-button.php:104
 msgid "CSS classes for the button"
 msgstr "CSS classes for the button"
 
-#: shortcodes/oik-button.php:84
+#: shortcodes/oik-button.php:84 shortcodes/oik-button.php:99
 msgid "Contact %1$s"
 msgstr "Contact %1$s"
 
-#: shortcodes/oik-button.php:94
+#: shortcodes/oik-button.php:100
+msgid "contact name"
+msgstr "contact name"
+
+#: shortcodes/oik-button.php:100
 msgid "who to contact"
 msgstr "who to contact"
+
+#: shortcodes/oik-button.php:102
+msgid "contact-text"
+msgstr "contact-text"
+
+#: shortcodes/oik-button.php:103
+msgid "contact-title"
+msgstr "contact-title"
 
 #: shortcodes/oik-bw.php:34
 msgid "Class name prefix"
