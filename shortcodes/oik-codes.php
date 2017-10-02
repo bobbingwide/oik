@@ -670,13 +670,13 @@ function bw_code__syntax() {
  */
 function bw_code__example() {
 	//oik_require( "shortcodes/oik-codes.php" );
-  br();
+  BW_::br();
   e( __( "e.g.", "oik" ) . " [bw_code shortcode=\"oik\"]" );
-  br();
+  BW_::br();
   e( __( "Display information about the [oik] shortcode", "oik" ) );
-  br();
+  BW_::br();
   oik__help();
-  br();
+  BW_::br();
   bw_lazy_sc_syntax( "oik" );
   oik__example();
 }
