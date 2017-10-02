@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 17:09:49+00:00\n"
+"POT-Creation-Date: 2017-10-02 17:27:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2302,13 +2302,17 @@ msgstr "Text for submit button"
 msgid "Email address for submission"
 msgstr "Email address for submission"
 
-#: shortcodes/oik-contact-form.php:322
+#: shortcodes/oik-contact-form.php:311
+msgid "Display a contact form for user: %1$s"
+msgstr "Display a contact form for user: %1$s"
+
+#: shortcodes/oik-contact-form.php:321
 msgid ""
 "Note: If the form is submitted from Shortcode help then two emails would be "
 "sent."
 msgstr "Note: If the form is submitted from Shortcode help then two emails would be sent."
 
-#: shortcodes/oik-contact-form.php:323
+#: shortcodes/oik-contact-form.php:322
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "So the normal snippet code is not invoked in this case."
 

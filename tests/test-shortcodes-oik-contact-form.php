@@ -126,7 +126,6 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	}
 	
 	function test_bw_contact_form__syntax_bb_BB() {
-		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "bb_BB" );
 		$array = bw_contact_form__syntax();
 		$html = $this->arraytohtml( $array, true );
@@ -134,8 +133,45 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
-
 	
-
+	/**
+	 * We don't really need a valid user to test this
+	 */
+	function test_bw_contact_form__example() {
+		$this->switch_to_locale( "en_GB" );
+		$html = bw_ret( bw_contact_form__example() );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
 	
+	function test_bw_contact_form__example_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( bw_contact_form__example() );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	/**
+	 * Here we're trynig to get the message, not the contact form
+	 */
+	function test_bw_contact_form__snippet() {
+		$_REQUEST['oiku_contact'] = "set";
+		$this->switch_to_locale( "en_GB" );
+		$html = bw_ret( bw_contact_form__snippet() );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		unset( $_REQUEST['oiku_contact'] );
+	}
+	
+	function test_bw_contact_form__snippet_bb_BB() {
+		$_REQUEST['oiku_contact'] = "set";
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( bw_contact_form__snippet() );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		unset( $_REQUEST['oiku_contact'] );
+		$this->switch_to_locale( "en_GB" );
+	}
+
 }

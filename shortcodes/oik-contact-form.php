@@ -306,10 +306,9 @@ function bw_contact_form__syntax( $shortcode="bw_contact_form" ) {
  *
  */
 function bw_contact_form__example( $shortcode="bw_contact_form" ) {
-	//oik_require( "shortcodes/oik-user.php", "oik-user" );
 	$id = bw_default_user( true ); 
 	$example = "user=$id"; 
-	$text = __( "Display a contact form for user: $id " );
+	$text = sprintf( __( 'Display a contact form for user: %1$s', "oik" ), $id );
 	bw_invoke_shortcode( $shortcode, $example, $text );
 }
 
@@ -319,8 +318,8 @@ function bw_contact_form__example( $shortcode="bw_contact_form" ) {
 function bw_contact_form__snippet( $shortcode="bw_contact_form" ) {
 	$contact = bw_array_get( $_REQUEST, "oiku_contact", null );
 	if ( $contact ) {
-		p( "Note: If the form is submitted from Shortcode help then two emails would be sent." );
-		p( "So the normal snippet code is not invoked in this case." );
+		BW_::p( __( "Note: If the form is submitted from Shortcode help then two emails would be sent.", "oik" ) );
+		BW_::p( __( "So the normal snippet code is not invoked in this case.", "oik" ) );
 	} else {  
 		//oik_require( "shortcodes/oik-user.php", "oik-user" );
 		$id = bw_default_user( true ); 
