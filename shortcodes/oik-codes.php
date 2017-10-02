@@ -685,9 +685,8 @@ function bw_code__example() {
  * Syntax for [bw_codes]
  */
 function bw_codes__syntax() {
-  $syntax = array( "ordered" => BW_::bw_skv( "N", "Y", __( "Sort the shortcode codes by name.", "oik" ) ) 
-                 ); 
-  return( $syntax );
+  $syntax = array( "ordered" => BW_::bw_skv( "N", "Y", __( "Sort the shortcode codes by name.", "oik" ) ) ); 
+  return $syntax;
 }
 
 /**
@@ -699,17 +698,11 @@ function bw_codes__help() {
 
 /**
  * Example for [bw_codes]
- * 
- * These notes used to be included in the output, but are no longer relevant.
- * - // br( "Note: The default display lists the order in which the shortcodes are <i>evaluated</i>" );
- * - // e( "If you have a problem with hyphenated shortcodes not being chosen then it could be due to the order in which the shortcodes were registered using add_shortcode();" );
- * - // because the shortest shortcode has been added before the longer ones. 
- * - // See wp-1, wp-2, wp and wp-3 ");
  */
 function bw_codes__example() {
   e( __( "The currently available shortcodes are displayed in a table with a brief description, the known syntax and a link to further help.", "oik" ) );
-	br();
-  alink( null, "http://www.oik-plugins.com/oik-shortcodes/bw_codes/bw_codes", __( "[bw_codes] - list shortcodes", "oik" ) );
+	BW_::br();
+  BW_::alink( null, "http://www.oik-plugins.com/oik-shortcodes/bw_codes/bw_codes", __( "[bw_codes] - list shortcodes", "oik" ) );
   
 }
 
