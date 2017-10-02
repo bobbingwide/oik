@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 09:27:38+00:00\n"
+"POT-Creation-Date: 2017-10-02 09:51:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1745,9 +1745,9 @@ msgstr "End A %1$s wtih %2$s"
 
 #: includes/oik-sc-help.inc:187 includes/oik-sc-help.inc:196
 #: libs/oik-sc-help.php:409 libs/oik-sc-help.php:410 libs/oik-sc-help.php:411
-#: shortcodes/oik-email.php:137 shortcodes/oik-email.php:150
-#: shortcodes/oik-phone.php:202 shortcodes/oik-phone.php:226
-#: shortcodes/oik-phone.php:260
+#: shortcodes/oik-blocks.php:128 shortcodes/oik-email.php:137
+#: shortcodes/oik-email.php:150 shortcodes/oik-phone.php:202
+#: shortcodes/oik-phone.php:226 shortcodes/oik-phone.php:260
 msgid "tag"
 msgstr "tAg"
 
@@ -1916,8 +1916,9 @@ msgid "oik generated example."
 msgstr "OIk gneretaed eaxpmle."
 
 
-#: libs/oik-sc-help.php:300 shortcodes/oik-phone.php:203
-#: shortcodes/oik-phone.php:273 shortcodes/oik-phone.php:286
+#: libs/oik-sc-help.php:300 shortcodes/oik-blockquote.php:31
+#: shortcodes/oik-phone.php:203 shortcodes/oik-phone.php:273
+#: shortcodes/oik-phone.php:286
 msgid "class names"
 msgstr "calss nmaes"
 
@@ -2100,7 +2101,7 @@ msgid "This is a caption"
 msgstr "Tihs Is A cpaiton"
 
 
-#: libs/oik-sc-help.php:370
+#: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 msgid "text"
 msgstr "txet"
 
@@ -2495,27 +2496,37 @@ msgid "Text for the blockquote"
 msgstr "Txet fOr thE bolkcuqtoe"
 
 
-#: shortcodes/oik-blocks.php:125
+#: shortcodes/oik-blocks.php:127
+msgid "title"
+msgstr "ttile"
+
+
+#: shortcodes/oik-blocks.php:127
 msgid "block title"
 msgstr "bolck ttile"
 
 
-#: shortcodes/oik-blocks.php:126
+#: shortcodes/oik-blocks.php:128
 msgid "HTML tag for heading"
 msgstr "HMTL tAg fOr haeidng"
 
 
-#: shortcodes/oik-blocks.php:127
+#: shortcodes/oik-blocks.php:129
 msgid "Use Artisteer styled frame"
 msgstr "UsE Atrsieter syteld farme"
 
 
-#: shortcodes/oik-blocks.php:128
+#: shortcodes/oik-blocks.php:130
+msgid "CSS classes"
+msgstr "CSS calsses"
+
+
+#: shortcodes/oik-blocks.php:130
 msgid "CSS classes for block"
 msgstr "CSS calsses fOr bolck"
 
 
-#: shortcodes/oik-blocks.php:129
+#: shortcodes/oik-blocks.php:131
 msgid "CSS class prefix"
 msgstr "CSS calss perifx"
 

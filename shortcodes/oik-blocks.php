@@ -120,13 +120,15 @@ function bw_eblock( $atts=NULL ) {
   return( $func( $atts ) );
 }
 
-
+/**
+ * Syntax for [bw_block] shortcode
+ */
 function bw_block__syntax( $shortcode="bw_block" ) {
-  $syntax = array( "title" => bw_skv( "", "<i>title</i>", "block title" )
-                 , "level" => bw_skv( "h3", "<i>tag</i>", "HTML tag for heading" )
-                 , "framed" => bw_skv( "true", "false|Y|N", "Use Artisteer styled frame" )
-                 , "class" => bw_skv( "", "<i>CSS classes</i>", "CSS classes for block" )
-                 , "prefix" => bw_skv( "art-", "", "CSS class prefix" )
+  $syntax = array( "title" => BW_::bw_skv( "", "<i>" . __( "title", "oik" ) . "</i>", __( "block title", "oik" ) )
+                 , "level" => BW_::bw_skv( "h3", "<i>" . __( "tag", "oik") . "</i>", __( "HTML tag for heading", "oik" ) )
+                 , "framed" => BW_::bw_skv( "true", "false|Y|N", __( "Use Artisteer styled frame", "oik" ) )
+                 , "class" => BW_::bw_skv( "", "<i>" . __( "CSS classes", "oik" ) . "</i>", __( "CSS classes for block", "oik" ) )
+                 , "prefix" => BW_::bw_skv( "art-", "", __( "CSS class prefix", "oik" ) )
                  );
   return( $syntax );
 }

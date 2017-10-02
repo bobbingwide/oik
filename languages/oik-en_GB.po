@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 09:27:38+00:00\n"
+"POT-Creation-Date: 2017-10-02 09:51:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1386,9 +1386,9 @@ msgstr "end a %1$s with %2$s"
 
 #: includes/oik-sc-help.inc:187 includes/oik-sc-help.inc:196
 #: libs/oik-sc-help.php:409 libs/oik-sc-help.php:410 libs/oik-sc-help.php:411
-#: shortcodes/oik-email.php:137 shortcodes/oik-email.php:150
-#: shortcodes/oik-phone.php:202 shortcodes/oik-phone.php:226
-#: shortcodes/oik-phone.php:260
+#: shortcodes/oik-blocks.php:128 shortcodes/oik-email.php:137
+#: shortcodes/oik-email.php:150 shortcodes/oik-phone.php:202
+#: shortcodes/oik-phone.php:226 shortcodes/oik-phone.php:260
 msgid "tag"
 msgstr "tag"
 
@@ -1524,8 +1524,9 @@ msgstr "?"
 msgid "oik generated example."
 msgstr "oik generated example."
 
-#: libs/oik-sc-help.php:300 shortcodes/oik-phone.php:203
-#: shortcodes/oik-phone.php:273 shortcodes/oik-phone.php:286
+#: libs/oik-sc-help.php:300 shortcodes/oik-blockquote.php:31
+#: shortcodes/oik-phone.php:203 shortcodes/oik-phone.php:273
+#: shortcodes/oik-phone.php:286
 msgid "class names"
 msgstr "class names"
 
@@ -1673,7 +1674,7 @@ msgstr "e.g:"
 msgid "This is a caption"
 msgstr "This is a caption"
 
-#: libs/oik-sc-help.php:370
+#: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 msgid "text"
 msgstr "text"
 
@@ -1989,23 +1990,31 @@ msgstr "Image type"
 msgid "Text for the blockquote"
 msgstr "Text for the blockquote"
 
-#: shortcodes/oik-blocks.php:125
+#: shortcodes/oik-blocks.php:127
+msgid "title"
+msgstr "title"
+
+#: shortcodes/oik-blocks.php:127
 msgid "block title"
 msgstr "block title"
 
-#: shortcodes/oik-blocks.php:126
+#: shortcodes/oik-blocks.php:128
 msgid "HTML tag for heading"
 msgstr "HTML tag for heading"
 
-#: shortcodes/oik-blocks.php:127
+#: shortcodes/oik-blocks.php:129
 msgid "Use Artisteer styled frame"
 msgstr "Use Artisteer styled frame"
 
-#: shortcodes/oik-blocks.php:128
+#: shortcodes/oik-blocks.php:130
+msgid "CSS classes"
+msgstr "CSS classes"
+
+#: shortcodes/oik-blocks.php:130
 msgid "CSS classes for block"
 msgstr "CSS classes for block"
 
-#: shortcodes/oik-blocks.php:129
+#: shortcodes/oik-blocks.php:131
 msgid "CSS class prefix"
 msgstr "CSS class prefix"
 

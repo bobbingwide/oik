@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011, 2015
+<?php // (C) Copyright Bobbing Wide 2011-2017
 
 /** 
  * Implement [bw_blockquote] shortcode
