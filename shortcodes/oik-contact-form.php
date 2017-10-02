@@ -290,15 +290,12 @@ function bw_contact_form__help( $shortcode="bw_contact_form" ) {
 }
 
 /**
- * Syntax hook for bw_contact_form
+ * Syntax hook for [bw_contact_form] shortcode
  */
 function bw_contact_form__syntax( $shortcode="bw_contact_form" ) {
-	//oik_require( "shortcodes/oik-user.php", "oik-user" );
-	$syntax = array( "user" =>  bw_skv( bw_default_user(), "<i>id</i>|<i>email</i>|<i>slug</i>|<i>login</i>", "Value to identify the user" )  
-								 //, "form" => bw_skv( "oik", "<i>plugin name</i>", "Name of the contact form plugin" )
-								 //, "text" => bw_skv( "Contact me", 
-								 , "contact" => bw_skv( null, "<i>text</i>", "Text for submit button" )
-								 , "email" => bw_skv( null, "<i>email</i>", "Email address for submission" ) 
+	$syntax = array( "user" =>  BW_::bw_skv( bw_default_user(), "<i>" . __( "id", "oik" ) . "</i>|<i>" . __( "email", "oik" ) . "</i>|<i>" . __( "slug", "oik" ) . "</i>|<i>" . __( "login", "oik" ) . "</i>", __( "Value to identify the user", "oik" ) )  
+								 , "contact" => BW_::bw_skv( null, "<i>" . __( "text", "oik" ) . "</i>", __( "Text for submit button", "oik" ) )
+								 , "email" => BW_::bw_skv( null, "<i>" . __( "email", "oik" ) . "</i>", __( "Email address for submission", "oik" ) ) 
 								 );
 	$syntax += _sc_classes();
 	return( $syntax );

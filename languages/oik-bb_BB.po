@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 16:17:57+00:00\n"
+"POT-Creation-Date: 2017-10-02 17:09:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1931,6 +1931,7 @@ msgstr "CSS calss nmaes"
 
 
 #: libs/oik-sc-help.php:301 libs/oik-sc-help.php:570
+#: shortcodes/oik-contact-form.php:296
 msgid "id"
 msgstr "Id"
 
@@ -2102,7 +2103,7 @@ msgstr "Tihs Is A cpaiton"
 
 
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
-#: shortcodes/oik-cite.php:19
+#: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
 msgid "text"
 msgstr "txet"
 
@@ -2855,22 +2856,37 @@ msgid "Display a contact form for the specific user"
 msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
 
-#: shortcodes/oik-contact-form.php:297
+#: shortcodes/oik-contact-form.php:296 shortcodes/oik-contact-form.php:298
+msgid "email"
+msgstr "eamil"
+
+
+#: shortcodes/oik-contact-form.php:296
+msgid "slug"
+msgstr "sulg"
+
+
+#: shortcodes/oik-contact-form.php:296
+msgid "login"
+msgstr "lgoin"
+
+
+#: shortcodes/oik-contact-form.php:296
 msgid "Value to identify the user"
 msgstr "Vlaue tO iedtnfiy thE uesr"
 
 
-#: shortcodes/oik-contact-form.php:300
+#: shortcodes/oik-contact-form.php:297
 msgid "Text for submit button"
 msgstr "Txet fOr sbuimt btuotn"
 
 
-#: shortcodes/oik-contact-form.php:301
+#: shortcodes/oik-contact-form.php:298
 msgid "Email address for submission"
 msgstr "Eamil adderss fOr sbuimssoin"
 
 
-#: shortcodes/oik-contact-form.php:325
+#: shortcodes/oik-contact-form.php:322
 msgid ""
 "Note: If the form is submitted from Shortcode help then two emails would be "
 "sent."
@@ -2879,7 +2895,7 @@ msgstr ""
 "snet."
 
 
-#: shortcodes/oik-contact-form.php:326
+#: shortcodes/oik-contact-form.php:323
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "SO thE nroaml sinppet cdoe Is nOt ivnkoed In tihs csae."
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 16:17:57+00:00\n"
+"POT-Creation-Date: 2017-10-02 17:09:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1537,6 +1537,7 @@ msgid "CSS class names"
 msgstr "CSS class names"
 
 #: libs/oik-sc-help.php:301 libs/oik-sc-help.php:570
+#: shortcodes/oik-contact-form.php:296
 msgid "id"
 msgstr "id"
 
@@ -1675,7 +1676,7 @@ msgid "This is a caption"
 msgstr "This is a caption"
 
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
-#: shortcodes/oik-cite.php:19
+#: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
 msgid "text"
 msgstr "text"
 
@@ -2277,25 +2278,37 @@ msgstr "Invalid. Please correct and retry."
 msgid "Display a contact form for the specific user"
 msgstr "Display a contact form for the specific user"
 
-#: shortcodes/oik-contact-form.php:297
+#: shortcodes/oik-contact-form.php:296 shortcodes/oik-contact-form.php:298
+msgid "email"
+msgstr "email"
+
+#: shortcodes/oik-contact-form.php:296
+msgid "slug"
+msgstr "slug"
+
+#: shortcodes/oik-contact-form.php:296
+msgid "login"
+msgstr "login"
+
+#: shortcodes/oik-contact-form.php:296
 msgid "Value to identify the user"
 msgstr "Value to identify the user"
 
-#: shortcodes/oik-contact-form.php:300
+#: shortcodes/oik-contact-form.php:297
 msgid "Text for submit button"
 msgstr "Text for submit button"
 
-#: shortcodes/oik-contact-form.php:301
+#: shortcodes/oik-contact-form.php:298
 msgid "Email address for submission"
 msgstr "Email address for submission"
 
-#: shortcodes/oik-contact-form.php:325
+#: shortcodes/oik-contact-form.php:322
 msgid ""
 "Note: If the form is submitted from Shortcode help then two emails would be "
 "sent."
 msgstr "Note: If the form is submitted from Shortcode help then two emails would be sent."
 
-#: shortcodes/oik-contact-form.php:326
+#: shortcodes/oik-contact-form.php:323
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "So the normal snippet code is not invoked in this case."
 

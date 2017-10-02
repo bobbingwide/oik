@@ -10,7 +10,9 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	function setUp() { 
 	
 		parent::setUp();
-		oik_require( "shortcodes/oik-contact-form.php" ); 														
+		oik_require( "shortcodes/oik-contact-form.php" );
+		
+		oik_require( "includes/oik-sc-help.inc" );
 		
 		//if ( !did_action( "oik_add_shortcodes" ) ) {
 		//do_action( "oik_add_shortcodes" );
@@ -113,6 +115,27 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
+	
+	function test_bw_contact_form__syntax() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = bw_contact_form__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_contact_form__syntax_bb_BB() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "bb_BB" );
+		$array = bw_contact_form__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+
+	
 
 	
 }
