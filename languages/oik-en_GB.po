@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 12:07:27+00:00\n"
+"POT-Creation-Date: 2017-10-02 13:20:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1525,13 +1525,13 @@ msgid "oik generated example."
 msgstr "oik generated example."
 
 #: libs/oik-sc-help.php:300 shortcodes/oik-blockquote.php:31
-#: shortcodes/oik-phone.php:203 shortcodes/oik-phone.php:273
-#: shortcodes/oik-phone.php:286
+#: shortcodes/oik-cite.php:20 shortcodes/oik-phone.php:203
+#: shortcodes/oik-phone.php:273 shortcodes/oik-phone.php:286
 msgid "class names"
 msgstr "class names"
 
 #: libs/oik-sc-help.php:300 shortcodes/oik-blockquote.php:31
-#: shortcodes/oik-cite.php:19 shortcodes/oik-cycle.php:127
+#: shortcodes/oik-cite.php:20 shortcodes/oik-cycle.php:127
 #: shortcodes/oik-follow.php:343 shortcodes/oik-phone.php:203
 msgid "CSS class names"
 msgstr "CSS class names"
@@ -1675,6 +1675,7 @@ msgid "This is a caption"
 msgstr "This is a caption"
 
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
+#: shortcodes/oik-cite.php:19
 msgid "text"
 msgstr "text"
 
@@ -2120,7 +2121,7 @@ msgstr "Class name prefix"
 msgid "e.g. "
 msgstr "e.g. "
 
-#: shortcodes/oik-cite.php:18
+#: shortcodes/oik-cite.php:19
 msgid "Text for the citation"
 msgstr "Text for the citation"
 

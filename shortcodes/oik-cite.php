@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2015
+<?php // (C) Copyright Bobbing Wide 2011-2017
 
 
 /**
@@ -12,11 +12,12 @@ function bw_cite( $atts = NULL ) {
   return( bw_ret());
 }
 
-
-
+/**
+ * Syntax for [bw_cite] shortcode
+ */
 function bw_cite__syntax( $shortcode="bw_cite" ) {
-  $syntax = array( "text" => bw_skv( "", "<i>text</i>", "Text for the citation" )
-                 ,  "class"=> bw_skv( "", "<i>class names</i>", "CSS class names" )
+  $syntax = array( "text" => BW_::bw_skv( "", "<i>" . __( "text", "oik" ) . "</i>", __( "Text for the citation", "oik" ) )
+                 ,  "class"=> BW_::bw_skv( "", "<i>" . __( "class names", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
                  );
   return( $syntax );
 }
