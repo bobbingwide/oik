@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 14:57:15+00:00\n"
+"POT-Creation-Date: 2017-10-02 16:17:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2848,6 +2848,11 @@ msgstr "WE wuold lkie tO tahnk yOU fOr yuor sbuimssoin."
 #: shortcodes/oik-contact-form.php:275
 msgid "Invalid. Please correct and retry."
 msgstr "Ivnlaid. Pelsae croerct And rtery."
+
+
+#: shortcodes/oik-contact-form.php:289
+msgid "Display a contact form for the specific user"
+msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
 
 #: shortcodes/oik-contact-form.php:297

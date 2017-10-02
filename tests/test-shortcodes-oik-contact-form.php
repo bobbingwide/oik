@@ -73,4 +73,46 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		return $html;
 	}
 	
+	function test_bw_thankyou_message() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		bw_thankyou_message( null, true, true );
+		bw_thankyou_message( null, true, false );
+		bw_thankyou_message( null, false, true );
+		bw_thankyou_message( null, false, false );
+		$html = bw_ret(); 
+    //$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	function test_bw_thankyou_message_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		bw_thankyou_message( null, true, true );
+		bw_thankyou_message( null, true, false );
+		bw_thankyou_message( null, false, true );
+		bw_thankyou_message( null, false, false );
+		$html = bw_ret(); 
+    //$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	function test_bw_contact_form__help() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$html = bw_contact_form__help();
+    //$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_contact_form__help_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_contact_form__help();
+    //$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+
+	
 }

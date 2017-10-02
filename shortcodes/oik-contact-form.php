@@ -223,12 +223,12 @@ function bw_build_akismet_query_string( $fields ) {
 function bw_thankyou_message( $fields, $send, $sent ) {
 	if ( $send ) {
 		if ( $sent ) {
-			p( "Thank you for your submission." );
+			BW_::p( __( "Thank you for your submission.", "oik" ) );
 		} else {
-			p( "Thank you for your submission. Something went wrong. Please try again." );
+			BW_::p( __( "Thank you for your submission. Something went wrong. Please try again.", "oik" ) );
 		}
 	} else { 
-		p( "We would like to thank you for your submission." ); // spammer
+		BW_::p( __( "We would like to thank you for your submission.", "oik" ) ); // spammer
 	}
 }
 
@@ -286,7 +286,7 @@ function _bw_process_contact_form_oik() {
  * Implement help hook for bw_contact_form
  */
 function bw_contact_form__help( $shortcode="bw_contact_form" ) {
-	return( "Display a contact form for the specific user" );
+	return( __( "Display a contact form for the specific user", "oik" ) );
 }
 
 /**
