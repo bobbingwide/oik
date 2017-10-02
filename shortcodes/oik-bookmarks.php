@@ -63,7 +63,9 @@ function bw_bookmarks__syntax( $shortcode="bw_bookmarks" ) {
   return( $syntax );
 }
 
-
+/**
+ * Example for [bw_bookmarks] shortcode
+ */
 function bw_bookmarks__example( $shortcode="bw_bookmarks" ) {
-  bw_invoke_shortcode( $shortcode, 'category_name=blogroll', "To display the links in the Blogroll" );
+  bw_invoke_shortcode( $shortcode, 'category_name=blogroll', __( "To display the links in the Blogroll", "oik" ) );
 }  

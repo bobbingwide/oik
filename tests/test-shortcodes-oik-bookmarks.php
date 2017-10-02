@@ -11,7 +11,7 @@ class Tests_shortcodes_oik_bookmarks extends BW_UnitTestCase {
 		parent::setUp();
 		
 		oik_require_lib( "oik-sc-help" );
-		oik_require( "shortcodes/oik-bookmarks.php" ); 														
+		oik_require( "shortcodes/oik-bookmarks.php" );
 	}
 	
 	function test_bw_bookmarks__syntax() {
@@ -31,6 +31,28 @@ class Tests_shortcodes_oik_bookmarks extends BW_UnitTestCase {
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
+	}
+	
+	/**
+	 * Tests bw_bookmarks__example
+	 *
+	 * Using the __return_null filter removes all the output from bw_bookmarks() so we just get the preliminary stuff
+	 */
+	function test_bw_bookmarks__example() {
+		add_filter( "wp_list_bookmarks", "__return_null" );  														
+		$this->switch_to_locale( "en_GB" );
+		$html= bw_ret( bw_bookmarks__example() );
+		$this->assertArrayEqualsFile( $html );
+		remove_filter( "wp_list_bookmarks", "__return_null" );
+	}
+	
+	function test_bw_bookmarks__example_bb_BB() {
+		add_filter( "wp_list_bookmarks", "__return_null" );  														
+		$this->switch_to_locale( "bb_BB" );
+		$html= bw_ret( bw_bookmarks__example() );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+		remove_filter( "wp_list_bookmarks", "__return_null" );
 	}
 	
 	
