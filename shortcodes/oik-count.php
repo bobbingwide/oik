@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2014,2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2014-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -34,13 +34,19 @@ function bw_count( $atts=null, $content=null, $tag=null ) {
   return( bw_ret() );
 }
 
+/**
+ * Help for [bw_count] shortcode
+ */
 function bw_count__help( $shortcode="bw_count" ) {
-  return( "Count posts for the selected post type" );
+  return( __( "Count posts for the selected post type", "oik" ) );
 }
 
+/**
+ * Syntax for [bw_count] shortcode
+ */
 function bw_count__syntax( $shortcode="bw_count" ) {
-  $syntax = array( "post_type,0" => bw_skv( "post", "<i>post_types</i>", "Post type to count" )
-                 , "status,1" => bw_skv( "publish", "pending|draft|auto-draft|future|private|trash|inherit", "Post status" )
+  $syntax = array( "post_type,0" => BW_::bw_skv( "post", "<i>" . __( "post type", "oik" ) . "</i>", __( "Post type to count", "oik" ) )
+                 , "status,1" => BW_::bw_skv( "publish", "pending|draft|auto-draft|future|private|trash|inherit", __( "Post status", "oik" ) )
                  );
   return( $syntax );
 } 

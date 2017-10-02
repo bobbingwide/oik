@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 17:27:13+00:00\n"
+"POT-Creation-Date: 2017-10-02 18:58:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2061,7 +2061,7 @@ msgid "Parent ID to use if not current post"
 msgstr "Pranet ID tO UsE If nOt cruernt psot"
 
 
-#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:43
+#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:46
 msgid "Post status"
 msgstr "Psot satuts"
 
@@ -2905,7 +2905,12 @@ msgid "So the normal snippet code is not invoked in this case."
 msgstr "SO thE nroaml sinppet cdoe Is nOt ivnkoed In tihs csae."
 
 
-#: shortcodes/oik-count.php:42
+#: shortcodes/oik-count.php:41
+msgid "Count posts for the selected post type"
+msgstr "Cuont psots fOr thE sleceetd psot tpye"
+
+
+#: shortcodes/oik-count.php:45
 msgid "Post type to count"
 msgstr "Psot tpye tO cuont"
 

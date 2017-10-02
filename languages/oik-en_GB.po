@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 17:27:13+00:00\n"
+"POT-Creation-Date: 2017-10-02 18:58:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1642,7 +1642,7 @@ msgstr "ID"
 msgid "Parent ID to use if not current post"
 msgstr "Parent ID to use if not current post"
 
-#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:43
+#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:46
 msgid "Post status"
 msgstr "Post status"
 
@@ -2316,7 +2316,11 @@ msgstr "Note: If the form is submitted from Shortcode help then two emails would
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "So the normal snippet code is not invoked in this case."
 
-#: shortcodes/oik-count.php:42
+#: shortcodes/oik-count.php:41
+msgid "Count posts for the selected post type"
+msgstr "Count posts for the selected post type"
+
+#: shortcodes/oik-count.php:45
 msgid "Post type to count"
 msgstr "Post type to count"
 
