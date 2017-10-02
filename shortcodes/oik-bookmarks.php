@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -54,10 +54,10 @@ function bw_bookmarks( $atts = NULL ) {
  *
  */
 function bw_bookmarks__syntax( $shortcode="bw_bookmarks" ) {
-  $syntax = array( "numberposts" => bw_skv( -1, "number", "Number of bookmarks to return. -1=unlimited" )
-                 , "orderby" => bw_skv( "name", "", "Sort by field" )
-                 , "order" => bw_skv( "ASC", "DESC", "Sort order" )
-                 , "category_name" => bw_skv( "", "<i>category name</i>", "Category name" )
+  $syntax = array( "numberposts" => BW_::bw_skv( -1, __( "number", "oik" ), __( "Number of bookmarks to return. -1=unlimited", "oik" ) )
+                 , "orderby" => BW_::bw_skv( "name", "", __( "Sort by field", "oik" ) )
+                 , "order" => BW_::bw_skv( "ASC", "DESC", __( "Sort order", "oik" ) )
+                 , "category_name" => BW_::bw_skv( "", "<i>" . __( "category name", "oik" ) . "</i>", __( "Category name", "oik" ) )
                  );
   // $syntax = array_merge( _sc_posts(), $syntax );
   return( $syntax );

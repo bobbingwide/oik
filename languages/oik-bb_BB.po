@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 09:51:05+00:00\n"
+"POT-Creation-Date: 2017-10-02 10:34:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2557,6 +2557,11 @@ msgid "e.g."
 msgstr "E.g."
 
 
+#: shortcodes/oik-bookmarks.php:57 shortcodes/oik-phone.php:201
+msgid "number"
+msgstr "nmuebr"
+
+
 #: shortcodes/oik-bookmarks.php:57
 msgid "Number of bookmarks to return. -1=unlimited"
 msgstr "Nmuebr Of boomkraks tO rterun. -1=unlimited"
@@ -2570,6 +2575,11 @@ msgstr "Srot by feild"
 #: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:86
 msgid "Sort order"
 msgstr "Srot odrer"
+
+
+#: shortcodes/oik-bookmarks.php:60
+msgid "category name"
+msgstr "ctageroy nmae"
 
 
 #: shortcodes/oik-bookmarks.php:60
@@ -3287,11 +3297,6 @@ msgstr "Sihppnig csot2"
 #: shortcodes/oik-phone.php:88 shortcodes/oik-phone.php:214
 msgid "Tel"
 msgstr "TEl"
-
-
-#: shortcodes/oik-phone.php:201
-msgid "number"
-msgstr "nmuebr"
 
 
 #: shortcodes/oik-phone.php:201

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 09:51:05+00:00\n"
+"POT-Creation-Date: 2017-10-02 10:34:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2039,6 +2039,10 @@ msgstr "Expand to the logo for oik"
 msgid "e.g."
 msgstr "e.g."
 
+#: shortcodes/oik-bookmarks.php:57 shortcodes/oik-phone.php:201
+msgid "number"
+msgstr "number"
+
 #: shortcodes/oik-bookmarks.php:57
 msgid "Number of bookmarks to return. -1=unlimited"
 msgstr "Number of bookmarks to return. -1=unlimited"
@@ -2050,6 +2054,10 @@ msgstr "Sort by field"
 #: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:86
 msgid "Sort order"
 msgstr "Sort order"
+
+#: shortcodes/oik-bookmarks.php:60
+msgid "category name"
+msgstr "category name"
 
 #: shortcodes/oik-bookmarks.php:60
 msgid "Category name"
@@ -2622,10 +2630,6 @@ msgstr "Shipping cost2"
 #: shortcodes/oik-phone.php:88 shortcodes/oik-phone.php:214
 msgid "Tel"
 msgstr "Tel"
-
-#: shortcodes/oik-phone.php:201
-msgid "number"
-msgstr "number"
 
 #: shortcodes/oik-phone.php:201
 msgid "Number override"

@@ -35,6 +35,7 @@
 			<file>tests/test-shortcodes-oik-attachments.php</file>
 			<file>tests/test-shortcodes-oik-blockquote.php</file>
 			<file>tests/test-shortcodes-oik-blocks.php</file>
+			<file>tests/test-shortcodes-oik-bookmarks.php</file>
 			<file>tests/test-shortcodes-oik-button.php</file>
 			<file>tests/test-shortcodes-oik-codes.php</file>
 			<file>tests/test-shortcodes-oik-company.php</file>
