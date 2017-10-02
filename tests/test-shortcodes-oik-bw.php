@@ -32,7 +32,7 @@ class Tests_shortcodes_oik_bw extends BW_UnitTestCase {
 	}
 
 	function test_bw__example() {
-		$this->setExpectedDeprecated( "bw_translate" );
+		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( bw__example() );
 		//$this->generate_expected_file( $html );
@@ -40,7 +40,7 @@ class Tests_shortcodes_oik_bw extends BW_UnitTestCase {
 	}
 	
 	function test_bw__example_bb_BB() {
-		$this->setExpectedDeprecated( "bw_translate" );
+		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( bw__example() );
 		//$this->generate_expected_file( $html );

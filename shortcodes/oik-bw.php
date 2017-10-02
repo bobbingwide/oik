@@ -45,7 +45,7 @@ function bw__syntax( $shortcode="bw" ) {
 function bw__example( $shortcode="bw" ) {
 	if ( $shortcode == "bw" ) {
 		oik_require( "bobbfunc.inc" );
-		br( __( "e.g. ", "oik" ) );
+		BW_::br( __( "e.g. ", "oik" ) );
 		e( bw() );
 	}
 }
