@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 13:50:17+00:00\n"
+"POT-Creation-Date: 2017-10-02 14:10:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2036,7 +2036,7 @@ msgstr "Spells out the %1$s backronym"
 msgid "Expand to the logo for oik"
 msgstr "Expand to the logo for oik"
 
-#: shortcodes/oik-bob-bing-wide.php:222 shortcodes/oik-codes.php:677
+#: shortcodes/oik-bob-bing-wide.php:222 shortcodes/oik-codes.php:674
 #: shortcodes/oik-geo.php:66
 msgid "e.g."
 msgstr "e.g."
@@ -2145,7 +2145,7 @@ msgstr "%1$s help"
 msgid "Help"
 msgstr "Help"
 
-#: shortcodes/oik-codes.php:173 shortcodes/oik-codes.php:297
+#: shortcodes/oik-codes.php:173 shortcodes/oik-codes.php:296
 msgid "Syntax"
 msgstr "Syntax"
 
@@ -2153,73 +2153,77 @@ msgstr "Syntax"
 msgid "Expands in titles?"
 msgstr "Expands in titles?"
 
-#: shortcodes/oik-codes.php:291
+#: shortcodes/oik-codes.php:290
 msgid "Help for shortcode: [%1$s]"
 msgstr "Help for shortcode: [%1$s]"
 
-#: shortcodes/oik-codes.php:302
+#: shortcodes/oik-codes.php:301
 msgid "Example"
 msgstr "Example"
 
-#: shortcodes/oik-codes.php:308
+#: shortcodes/oik-codes.php:307
 msgid "Live example"
 msgstr "Live example"
 
-#: shortcodes/oik-codes.php:315
+#: shortcodes/oik-codes.php:314
 msgid "Snippet"
 msgstr "Snippet"
 
-#: shortcodes/oik-codes.php:654
+#: shortcodes/oik-codes.php:369
+msgid "Link to help for shortcode: %1$s"
+msgstr "Link to help for shortcode: %1$s"
+
+#: shortcodes/oik-codes.php:651
 msgid "Display the help and syntax for a shortcode"
 msgstr "Display the help and syntax for a shortcode"
 
-#: shortcodes/oik-codes.php:661
+#: shortcodes/oik-codes.php:658
 msgid "shortcode"
 msgstr "shortcode"
 
-#: shortcodes/oik-codes.php:661
+#: shortcodes/oik-codes.php:658
 msgid "The shortcode you want explained"
 msgstr "The shortcode you want explained"
 
-#: shortcodes/oik-codes.php:662
+#: shortcodes/oik-codes.php:659
 msgid "Display help for the shortcode"
 msgstr "Display help for the shortcode"
 
-#: shortcodes/oik-codes.php:663
+#: shortcodes/oik-codes.php:660
 msgid "Display the syntax"
 msgstr "Display the syntax"
 
-#: shortcodes/oik-codes.php:664
+#: shortcodes/oik-codes.php:661
 msgid "Display an example, if possible"
 msgstr "Display an example, if possible"
 
-#: shortcodes/oik-codes.php:665
+#: shortcodes/oik-codes.php:662
 msgid "Display the live results using default values"
 msgstr "Display the live results using default values"
 
-#: shortcodes/oik-codes.php:666
+#: shortcodes/oik-codes.php:663
 msgid "Display the generated HTML"
 msgstr "Display the generated HTML"
 
-#: shortcodes/oik-codes.php:679
+#: shortcodes/oik-codes.php:676
 msgid "Display information about the [oik] shortcode"
 msgstr "Display information about the [oik] shortcode"
 
-#: shortcodes/oik-codes.php:691
+#: shortcodes/oik-codes.php:688
 msgid "Sort the shortcode codes by name."
 msgstr "Sort the shortcode codes by name."
 
-#: shortcodes/oik-codes.php:700
+#: shortcodes/oik-codes.php:697
 msgid "Display the currently available shortcodes"
 msgstr "Display the currently available shortcodes"
 
-#: shortcodes/oik-codes.php:713
+#: shortcodes/oik-codes.php:710
 msgid ""
 "The currently available shortcodes are displayed in a table with a brief "
 "description, the known syntax and a link to further help."
 msgstr "The currently available shortcodes are displayed in a table with a brief description, the known syntax and a link to further help."
 
-#: shortcodes/oik-codes.php:715
+#: shortcodes/oik-codes.php:712
 msgid "[bw_codes] - list shortcodes"
 msgstr "[bw_codes] - list shortcodes"
 

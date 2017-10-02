@@ -176,6 +176,27 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	/**
+	 * We need to be able to find the shortcode function to produce the correct link
+	 */
+	function test_bw_code_example_link() {
+		$this->switch_to_locale( "en_GB" );
+		$atts = array( "bw" );
+		$html = bw_ret( bw_code_example_link( $atts ) );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_code_example_link_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$atts = array( "bw" );
+		$html = bw_ret( bw_code_example_link( $atts ) );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+		
+	}
+	
 	
 	
 }
