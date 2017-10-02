@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 18:58:25+00:00\n"
+"POT-Creation-Date: 2017-10-02 19:22:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1642,7 +1642,7 @@ msgstr "ID"
 msgid "Parent ID to use if not current post"
 msgstr "Parent ID to use if not current post"
 
-#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:46
+#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:49
 msgid "Post status"
 msgstr "Post status"
 
@@ -1677,6 +1677,7 @@ msgstr "This is a caption"
 
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
+#: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
 msgid "text"
 msgstr "text"
 
@@ -1752,7 +1753,8 @@ msgstr "Required height"
 
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
 #: libs/oik-sc-help.php:481 shortcodes/oik-button.php:48
-#: shortcodes/oik-button.php:104 shortcodes/oik-qrcode.php:37
+#: shortcodes/oik-button.php:104 shortcodes/oik-countdown.php:73
+#: shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr "URL"
 
@@ -1965,6 +1967,7 @@ msgstr "Display attachment's Caption and Description"
 
 #: shortcodes/oik-attachments.php:329 shortcodes/oik-attachments.php:338
 #: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
+#: shortcodes/oik-count.php:48
 msgid "post type"
 msgstr "post type"
 
@@ -2320,9 +2323,17 @@ msgstr "So the normal snippet code is not invoked in this case."
 msgid "Count posts for the selected post type"
 msgstr "Count posts for the selected post type"
 
-#: shortcodes/oik-count.php:45
+#: shortcodes/oik-count.php:48
 msgid "Post type to count"
 msgstr "Post type to count"
+
+#: shortcodes/oik-countdown.php:60
+msgid "Countdown timer"
+msgstr "Countdown timer"
+
+#: shortcodes/oik-countdown.php:70 shortcodes/oik-countdown.php:71
+msgid "date"
+msgstr "date"
 
 #: shortcodes/oik-countdown.php:70
 msgid "Target date in format yyyy-mm-dd-hh-mm-ss"

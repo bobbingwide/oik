@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /**
  * Return the required JavaScript date or, if it's an adjustment, leave the adjustment as is
@@ -57,7 +57,7 @@ function bw_countdown( $atts=null, $content=null, $tag=null ) {
  * Help hook for [bw_countdown] 
  */
 function bw_countdown__help( $shortcode="bw_countdown" ) {
-  return( "Countdown timer" );
+  return( __( "Countdown timer", "oik" ) );
 }
 
 /**
@@ -67,11 +67,11 @@ function bw_countdown__help( $shortcode="bw_countdown" ) {
  *
  */ 
 function bw_countdown__syntax( $shortcode="bw_countdown" ) {
-  $syntax = array( "until" => bw_skv( null, "<i>date</i>", "Target date in format yyyy-mm-dd-hh-mm-ss" )
-                 , "since" => bw_skv( null, "<i>date</i>", "Start date in format yyyy-mm-dd-hh-mm-ss" )
-                 , "description" => bw_skv( null, "<i>text</i>", "Description for countdown" )
-                 , "expiryUrl" => bw_skv( null, "<i>URL</i>", "Target URL when countdown reaches zero" )
-                 , "expiryText" => bw_skv( null, "<i>text</i>", "Text to replace time when countdown reaches zero" )
+  $syntax = array( "until" => BW_::bw_skv( null, "<i>" . __( "date", "oik" ) . "</i>", __( "Target date in format yyyy-mm-dd-hh-mm-ss", "oik" ) )
+                 , "since" => BW_::bw_skv( null, "<i>" . __( "date", "oik" ) . "</i>", __( "Start date in format yyyy-mm-dd-hh-mm-ss", "oik" ) )
+                 , "description" => BW_::bw_skv( null, "<i>" . __( "text", "oik" ) . "</i>", __( "Description for countdown", "oik" ) )
+                 , "expiryUrl" => BW_::bw_skv( null, "<i>" . __( "URL", "oik" ) . "</i>", __( "Target URL when countdown reaches zero", "oik" ) )
+                 , "expiryText" => BW_::bw_skv( null, "<i>" . __( "text", "oik" ) . "</i>", __( "Text to replace time when countdown reaches zero", "oik" ) )
                  );
   return( $syntax );                              
 

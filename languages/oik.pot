@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 18:58:25+00:00\n"
+"POT-Creation-Date: 2017-10-02 19:22:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1641,7 +1641,7 @@ msgstr ""
 msgid "Parent ID to use if not current post"
 msgstr ""
 
-#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:46
+#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:49
 msgid "Post status"
 msgstr ""
 
@@ -1676,6 +1676,7 @@ msgstr ""
 
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
+#: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
 msgid "text"
 msgstr ""
 
@@ -1751,7 +1752,8 @@ msgstr ""
 
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
 #: libs/oik-sc-help.php:481 shortcodes/oik-button.php:48
-#: shortcodes/oik-button.php:104 shortcodes/oik-qrcode.php:37
+#: shortcodes/oik-button.php:104 shortcodes/oik-countdown.php:73
+#: shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr ""
 
@@ -1964,6 +1966,7 @@ msgstr ""
 
 #: shortcodes/oik-attachments.php:329 shortcodes/oik-attachments.php:338
 #: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
+#: shortcodes/oik-count.php:48
 msgid "post type"
 msgstr ""
 
@@ -2319,8 +2322,16 @@ msgstr ""
 msgid "Count posts for the selected post type"
 msgstr ""
 
-#: shortcodes/oik-count.php:45
+#: shortcodes/oik-count.php:48
 msgid "Post type to count"
+msgstr ""
+
+#: shortcodes/oik-countdown.php:60
+msgid "Countdown timer"
+msgstr ""
+
+#: shortcodes/oik-countdown.php:70 shortcodes/oik-countdown.php:71
+msgid "date"
 msgstr ""
 
 #: shortcodes/oik-countdown.php:70

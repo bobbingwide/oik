@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 18:58:25+00:00\n"
+"POT-Creation-Date: 2017-10-02 19:22:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2061,7 +2061,7 @@ msgid "Parent ID to use if not current post"
 msgstr "Pranet ID tO UsE If nOt cruernt psot"
 
 
-#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:46
+#: libs/oik-sc-help.php:337 shortcodes/oik-count.php:49
 msgid "Post status"
 msgstr "Psot satuts"
 
@@ -2104,6 +2104,7 @@ msgstr "Tihs Is A cpaiton"
 
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
+#: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
 msgid "text"
 msgstr "txet"
 
@@ -2199,7 +2200,8 @@ msgstr "Rqeiuerd hiehgt"
 
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
 #: libs/oik-sc-help.php:481 shortcodes/oik-button.php:48
-#: shortcodes/oik-button.php:104 shortcodes/oik-qrcode.php:37
+#: shortcodes/oik-button.php:104 shortcodes/oik-countdown.php:73
+#: shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr "URL"
 
@@ -2464,6 +2466,7 @@ msgstr "Dsilpay attcamhnet's Cpaiton And Dsercpiiton"
 
 #: shortcodes/oik-attachments.php:329 shortcodes/oik-attachments.php:338
 #: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
+#: shortcodes/oik-count.php:48
 msgid "post type"
 msgstr "psot tpye"
 
@@ -2910,9 +2913,19 @@ msgid "Count posts for the selected post type"
 msgstr "Cuont psots fOr thE sleceetd psot tpye"
 
 
-#: shortcodes/oik-count.php:45
+#: shortcodes/oik-count.php:48
 msgid "Post type to count"
 msgstr "Psot tpye tO cuont"
+
+
+#: shortcodes/oik-countdown.php:60
+msgid "Countdown timer"
+msgstr "Cuotnodwn tmier"
+
+
+#: shortcodes/oik-countdown.php:70 shortcodes/oik-countdown.php:71
+msgid "date"
+msgstr "dtae"
 
 
 #: shortcodes/oik-countdown.php:70
