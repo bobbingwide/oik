@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2016
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /** 
  * Return a unique contact form ID 
@@ -30,7 +30,7 @@ function bw_contact_form( $atts=null, $content=null, $tag=null ) {
 		$atts['email'] = $email_to; 
 		bw_display_contact_form( $atts );
 	} else { 
-		e( "Cannot produce contact form for unknown user." );
+		e( __( "Cannot produce contact form for unknown user.", "oik" ) );
 	}  
 	return( bw_ret() );
 }
@@ -70,10 +70,10 @@ function _bw_show_contact_form_oik( $atts ) {
 	sdiv( $class );
 	bw_form();
 	stag( "table" ); 
-	bw_textfield( "oiku_name", 30, "Name *", null, "textBox", "required" );
-	bw_emailfield( "oiku_email", 30, "Email *", null, "textBox", "required" );
-	bw_textfield( "oiku_subject", 30, "Subject", null, "textBox" );
-	bw_textarea( "oiku_text", 30, "Message", null, 10 );
+	BW_::bw_textfield( "oiku_name", 30, __( "Name *", "oik" ), null, "textBox", "required" );
+	BW_::bw_emailfield( "oiku_email", 30, __( "Email *", "oik" ), null, "textBox", "required" );
+	BW_::bw_textfield( "oiku_subject", 30, __( "Subject", "oik" ), null, "textBox" );
+	BW_::bw_textarea( "oiku_text", 30, __( "Message", "oik" ), null, 10 );
 	// @TODO Optional "required" checkbox
 	//bw_checkbox( "oiku_checkbox, 
 	etag( "table" );

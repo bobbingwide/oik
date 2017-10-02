@@ -41,6 +41,7 @@
 			<file>tests/test-shortcodes-oik-cite.php</file>
 			<file>tests/test-shortcodes-oik-codes.php</file>
 			<file>tests/test-shortcodes-oik-company.php</file>
+			<file>tests/test-shortcodes-oik-contact-form.php</file>
 			<file>tests/test-shortcodes-oik-directions.php</file>
 			<file>tests/test-shortcodes-oik-email.php</file>
 			<file>tests/test-shortcodes-oik-phone.php</file>

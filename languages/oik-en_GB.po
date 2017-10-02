@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 14:10:37+00:00\n"
+"POT-Creation-Date: 2017-10-02 14:57:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2213,17 +2213,17 @@ msgstr "Display information about the [oik] shortcode"
 msgid "Sort the shortcode codes by name."
 msgstr "Sort the shortcode codes by name."
 
-#: shortcodes/oik-codes.php:697
+#: shortcodes/oik-codes.php:696
 msgid "Display the currently available shortcodes"
 msgstr "Display the currently available shortcodes"
 
-#: shortcodes/oik-codes.php:710
+#: shortcodes/oik-codes.php:703
 msgid ""
 "The currently available shortcodes are displayed in a table with a brief "
 "description, the known syntax and a link to further help."
 msgstr "The currently available shortcodes are displayed in a table with a brief description, the known syntax and a link to further help."
 
-#: shortcodes/oik-codes.php:712
+#: shortcodes/oik-codes.php:705
 msgid "[bw_codes] - list shortcodes"
 msgstr "[bw_codes] - list shortcodes"
 
@@ -2232,6 +2232,10 @@ msgstr "[bw_codes] - list shortcodes"
 #: shortcodes/oik-geo.php:84 shortcodes/oik-phone.php:200
 msgid "Use alternative value"
 msgstr "Use alternative value"
+
+#: shortcodes/oik-contact-form.php:33
+msgid "Cannot produce contact form for unknown user."
+msgstr "Cannot produce contact form for unknown user."
 
 #: shortcodes/oik-contact-form.php:47
 msgid "Contact %s"
