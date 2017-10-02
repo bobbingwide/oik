@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 08:34:38+00:00\n"
+"POT-Creation-Date: 2017-10-02 09:27:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2458,7 +2458,8 @@ msgid "Display attachment's Caption and Description"
 msgstr "Dsilpay attcamhnet's Cpaiton And Dsercpiiton"
 
 
-#: shortcodes/oik-attachments.php:329
+#: shortcodes/oik-attachments.php:329 shortcodes/oik-attachments.php:338
+#: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
 msgid "post type"
 msgstr "psot tpye"
 
@@ -2477,6 +2478,11 @@ msgstr "Cnaont bE oevrrdiedn"
 #: shortcodes/oik-attachments.php:348
 msgid "Attachment types to pair"
 msgstr "Attcamhnet tpyes tO piar"
+
+
+#: shortcodes/oik-attachments.php:358
+msgid "post mime types"
+msgstr "psot mmie tpyes"
 
 
 #: shortcodes/oik-attachments.php:358

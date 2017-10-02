@@ -354,9 +354,9 @@ function bw_portfolio__syntax( $shortcode="bw_portfolio" ) {
 
 function bw_images__syntax( $shortcode="bw_images" ) {
   $syntax = _sc_posts(); 
-  $syntax['post_type'] = bw_skv( "attachment", "<i>post type</i>", "Post type to display" );
-  $syntax['post_mime_type'] = bw_skv( "image", "<i>post mime types</i>", "Image type" );
-  $syntax['thumbnail'] = bw_skv( "full", "thumbnail|medium|large|nnn|wxh", "image size" ); 
+  $syntax['post_type'] = BW_::bw_skv( "attachment", "<i>" . __( "post type", "oik" ) . "</i>", __( "Post type to display", "oik" ) );
+  $syntax['post_mime_type'] = BW_::bw_skv( "image", "<i>" . __( "post mime types", "oik" ) . "</i>", __( "Image type", "oik" ) );
+  $syntax['thumbnail'] = BW_::bw_skv( "full", "thumbnail|medium|large|nnn|wxh", __( "image size", "oik" ) ); 
   $syntax += _sc_captions();
   $syntax += _sc_classes();
   return( $syntax );
