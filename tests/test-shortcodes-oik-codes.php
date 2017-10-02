@@ -139,6 +139,42 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	/**
+	 * Test the bw_code shortcode using the bw_codes shortcode
+	 */
+	function test_bw_code() {
+		$this->switch_to_locale( "en_GB" );
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$atts = array( "shortcode" => "bw"
+								 , "help" => "y"
+								 , "syntax" => "y"
+								 , "example" => "y"
+								 , "live" => "y"
+								 , "snippet" => "y"
+								 );
+		$html = bw_code( $atts );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	/**
+	 * Test the bw_code shortcode using the bw_codes shortcode
+	 */
+	function test_bw_code_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$atts = array( "shortcode" => "bw"
+								 , "help" => "y"
+								 , "syntax" => "y"
+								 , "example" => "y"
+								 , "live" => "y"
+								 , "snippet" => "y"
+								 );
+		$html = bw_code( $atts );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
 	
 	
 	

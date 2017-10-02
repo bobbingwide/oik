@@ -27,7 +27,7 @@ oik_require( "includes/oik-sc-help.inc" );
  */
 function bw_code_link( $shortcode ) {
   if ( is_admin() ) {
-     alink( null, admin_url("admin.php?page=oik_sc_help&amp;code=$shortcode"), $shortcode );
+     BW_::alink( null, admin_url("admin.php?page=oik_sc_help&amp;code=$shortcode"), $shortcode );
   } else {
     e( $shortcode );
   }  
@@ -287,31 +287,31 @@ function bw_code( $atts=null, $content=null, $tag=null ) {
     
     $help = bw_validate_torf( $help );
     if ( $help ) {
-      p( "Help for shortcode: [${shortcode}]", "bw_code_help" );
+			BW_::p( sprintf( __( 'Help for shortcode: [%1$s]', "oik" ), $shortcode ), "bw_code_help"  );
       //bw_trace2( $shortcode, "before do_action" );
       do_action( "bw_sc_help", $shortcode );
     }  
     $syntax = bw_validate_torf( $syntax );
     if ( $syntax ) {
-      p( "Syntax", "bw_code_syntax" ); 
+      BW_::p( __( "Syntax", "oik" ), "bw_code_syntax" ); 
       do_action( "bw_sc_syntax", $shortcode );
     }  
     $example = bw_validate_torf( $example );
     if ( $example ) {
-      p( "Example", "bw_code_example");
+      BW_::p( __( "Example", "oik" ), "bw_code_example");
       do_action( "bw_sc_example", $shortcode );
     }
 
     $live = bw_validate_torf( $live ) ;
     if ( $live ) {
-      p("Live example", "bw_code_live_example" );
+      BW_::p( __( "Live example", "oik" ), "bw_code_live_example" );
       $live_example = bw_do_shortcode( '['.$shortcode.']' );
       e( $live_example );
     }
     
     $snippet = bw_validate_torf( $snippet );
     if ( $snippet ) {
-      p( "Snippet", "bw_code_snippet" );
+      BW_::p( __( "Snippet", "oik" ), "bw_code_snippet" );
       do_action( "bw_sc_snippet", $shortcode );
     }
   } else {

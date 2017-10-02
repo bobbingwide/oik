@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 13:20:11+00:00\n"
+"POT-Creation-Date: 2017-10-02 13:50:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2553,7 +2553,7 @@ msgid "Expand to the logo for oik"
 msgstr "Epxnad tO thE lgoo fOr OIk"
 
 
-#: shortcodes/oik-bob-bing-wide.php:222 shortcodes/oik-codes.php:676
+#: shortcodes/oik-bob-bing-wide.php:222 shortcodes/oik-codes.php:677
 #: shortcodes/oik-geo.php:66
 msgid "e.g."
 msgstr "E.g."
@@ -2689,7 +2689,7 @@ msgid "Help"
 msgstr "Hlep"
 
 
-#: shortcodes/oik-codes.php:173 shortcodes/oik-codes.php:296
+#: shortcodes/oik-codes.php:173 shortcodes/oik-codes.php:297
 msgid "Syntax"
 msgstr "Snyatx"
 
@@ -2699,77 +2699,82 @@ msgid "Expands in titles?"
 msgstr "Epxnads In ttiels?"
 
 
-#: shortcodes/oik-codes.php:301
+#: shortcodes/oik-codes.php:291
+msgid "Help for shortcode: [%1$s]"
+msgstr "Hlep fOr sohtrocde: [%1$s]"
+
+
+#: shortcodes/oik-codes.php:302
 msgid "Example"
 msgstr "Eaxpmle"
 
 
-#: shortcodes/oik-codes.php:307
+#: shortcodes/oik-codes.php:308
 msgid "Live example"
 msgstr "Lvie eaxpmle"
 
 
-#: shortcodes/oik-codes.php:314
+#: shortcodes/oik-codes.php:315
 msgid "Snippet"
 msgstr "Sinppet"
 
 
-#: shortcodes/oik-codes.php:653
+#: shortcodes/oik-codes.php:654
 msgid "Display the help and syntax for a shortcode"
 msgstr "Dsilpay thE hlep And snyatx fOr A sohtrocde"
 
 
-#: shortcodes/oik-codes.php:660
+#: shortcodes/oik-codes.php:661
 msgid "shortcode"
 msgstr "sohtrocde"
 
 
-#: shortcodes/oik-codes.php:660
+#: shortcodes/oik-codes.php:661
 msgid "The shortcode you want explained"
 msgstr "ThE sohtrocde yOU wnat epxalnied"
 
 
-#: shortcodes/oik-codes.php:661
+#: shortcodes/oik-codes.php:662
 msgid "Display help for the shortcode"
 msgstr "Dsilpay hlep fOr thE sohtrocde"
 
 
-#: shortcodes/oik-codes.php:662
+#: shortcodes/oik-codes.php:663
 msgid "Display the syntax"
 msgstr "Dsilpay thE snyatx"
 
 
-#: shortcodes/oik-codes.php:663
+#: shortcodes/oik-codes.php:664
 msgid "Display an example, if possible"
 msgstr "Dsilpay An eaxpmle, If psoislbe"
 
 
-#: shortcodes/oik-codes.php:664
+#: shortcodes/oik-codes.php:665
 msgid "Display the live results using default values"
 msgstr "Dsilpay thE lvie rseluts uisng dfeualt vlaeus"
 
 
-#: shortcodes/oik-codes.php:665
+#: shortcodes/oik-codes.php:666
 msgid "Display the generated HTML"
 msgstr "Dsilpay thE gneretaed HMTL"
 
 
-#: shortcodes/oik-codes.php:678
+#: shortcodes/oik-codes.php:679
 msgid "Display information about the [oik] shortcode"
 msgstr "Dsilpay ifnroamiton aobut thE [oik] sohtrocde"
 
 
-#: shortcodes/oik-codes.php:690
+#: shortcodes/oik-codes.php:691
 msgid "Sort the shortcode codes by name."
 msgstr "Srot thE sohtrocde cdoes by nmae."
 
 
-#: shortcodes/oik-codes.php:699
+#: shortcodes/oik-codes.php:700
 msgid "Display the currently available shortcodes"
 msgstr "Dsilpay thE cruertnly aavlibale sohtroceds"
 
 
-#: shortcodes/oik-codes.php:712
+#: shortcodes/oik-codes.php:713
 msgid ""
 "The currently available shortcodes are displayed in a table with a brief "
 "description, the known syntax and a link to further help."
@@ -2778,7 +2783,7 @@ msgstr ""
 "dsercpiiton, thE konwn snyatx And A lnik tO fruhter hlep."
 
 
-#: shortcodes/oik-codes.php:714
+#: shortcodes/oik-codes.php:715
 msgid "[bw_codes] - list shortcodes"
 msgstr "[bw_codes] - lsit sohtroceds"
 
