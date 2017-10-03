@@ -298,7 +298,7 @@ function bw_follow_link_gener( $social, $lc_social, $social_network, $me, $class
   $dash = retstag( "span", "genericon genericon-$lc_social bw_follow_me $class" );
   $dash .= retetag( "span" );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
-  alink( null, $social, $dash, $follow_me_tooltip );  
+  BW_::alink( null, $social, $dash, $follow_me_tooltip );  
 } 
 
 /**
@@ -332,16 +332,16 @@ function bw_follow_link_( $social, $lc_social, $social_network, $me, $class ) {
   $imagefile = oik_url( 'images/'. $lc_social . '_' . $suffix . '.png' );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
   $image = retimage( "bw_follow ", $imagefile, $follow_me_tooltip );
-  alink( $class , $social, $image, $follow_me_tooltip );
+  BW_::alink( $class , $social, $image, $follow_me_tooltip );
 }
 
 /**
  * Syntax for [bw_follow_me] shortcode
  */
 function bw_follow_me__syntax( $shortcode="bw_follow_me" ) {
-  $syntax = array( "theme" => bw_skv( null, "gener|dash", "Icon font selection" )
-                 , "class" => bw_skv( null, "<i>class names</i>", "CSS class names" )
-                 , "alt" => bw_skv( null, "0|1", "Use alternative value" )
+  $syntax = array( "theme" => BW_::bw_skv( null, "gener|dash", __( "Icon font selection", "oik" ) )
+                 , "class" => BW_::bw_skv( null, "<i>" . __( "class names", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
+                 , "alt" => BW_::bw_skv( null, "0|1", __( "Use alternative value", "oik" ) )
                  );
   return( $syntax );
 }                 

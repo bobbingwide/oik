@@ -17,6 +17,7 @@ class Tests_shortcodes_oik_follow extends BW_UnitTestCase {
 		parent::setUp();
 		$oik_plugins = oik_require_lib( "oik_plugins" );
 		oik_require( "shortcodes/oik-follow.php" );
+		oik_require( "includes/oik-sc-help.inc" );
 	}
 	
 	function test_bw_follow_link_dash() {
@@ -64,5 +65,28 @@ class Tests_shortcodes_oik_follow extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
+	
+	function test_bw_follow_me__syntax() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = bw_follow_me__syntax();
+		$html = $this->arraytohtml( $array );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_follow_me__syntax_bb_BB() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "bb_BB" );
+		$array = bw_follow_me__syntax();
+		$html = $this->arraytohtml( $array );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+		
+		
+																					
+		
 
 }
