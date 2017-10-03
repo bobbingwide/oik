@@ -461,9 +461,9 @@ function bw_list_wp_scripts() {
   stag( "table" );
   stag( "thead" );
   stag( "tr" );
-  th( "handle" );
-  th( "version" );
-  th( "dependencies" );
+  bw_th( __( "handle", "oik" ) );
+  bw_th( __( "version", "oik" ) );
+  bw_th( __( "dependencies", "oik" ) );
   etag( "tr" );
   etag( "thead" );
   stag( "tbody" );
@@ -481,16 +481,16 @@ function bw_list_wp_scripts() {
 function bw_list_wp_script( $key, $script ) {
   stag( "tr" );
   if ( $script->handle <> $key ) {
-    td( $key );  
+    bw_td( $key );  
     // gobang();
   } else {
     $unmin = str_replace( ".min", "", $script->src );
     //$unmin = $script->src; 
     $link = retlink( null, $unmin, $script->handle ); 
-    td( $link  );
+    bw_td( $link  );
   }  
-  td( $script->ver );
-  td( implode( ",", $script->deps ) );
+  bw_td( $script->ver );
+  bw_td( implode( ",", $script->deps ) );
   etag( "tr" );
 } 
 
