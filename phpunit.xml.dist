@@ -48,6 +48,7 @@
 			<file>tests/test-shortcodes-oik-directions.php</file>
 			<file>tests/test-shortcodes-oik-domain.php</file>
 			<file>tests/test-shortcodes-oik-email.php</file>
+			<file>tests/test-shortcodes-oik-follow.php</file>
 			<file>tests/test-shortcodes-oik-phone.php</file>
 			<file>tests/test-shortcodes-oik-qrcode.php</file>
 		</testsuite>

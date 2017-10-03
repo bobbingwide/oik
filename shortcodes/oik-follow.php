@@ -253,7 +253,7 @@ function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class 
   }
   $dash .= retetag( "span" );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
-  alink( null, $social, $dash, $follow_me_tooltip );  
+  BW_::alink( null, $social, $dash, $follow_me_tooltip );  
 }
 
 /**
