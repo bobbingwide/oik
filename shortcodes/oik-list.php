@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2012-2016 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -43,8 +43,6 @@ function bw_sl( $atts=null, $start=1 ) {
       break;
     case "o":
     case "ol":
-			//bw_trace2();
-			//bw_backtrace();
 			$extra = kv( "start", $start );
       sol( $class, null, $extra);
       break;
@@ -94,8 +92,6 @@ function bw_list_id( $id ) {
   stag( "li" );
   oik_require( "shortcodes/oik-parent.php" );
   bw_post_link( $id );
-  //$title = get_the_title( $id );
-  //alink( null, get_permalink( $id ), $title );
   etag( "li");
 } 
 
@@ -178,9 +174,9 @@ function bw_list( $atts=null, $content=null, $tag=null ) {
  */
 function bw_list__syntax( $shortcode="bw_list" ) {
   $syntax = _sc_posts(); 
-  $syntax['numberposts'] = bw_skv( "-1", "numeric", "number of items to list. -1=list all" );
-  $syntax['thumbnail'] = bw_skv( "none", "thumbnail|medium|large|full|nnn|wxh", "image size" ); 
-  $syntax['uo'] = bw_skv( "u", "o", "Display unordered or ordered list" );
+  $syntax['numberposts'] = BW_::bw_skv( "-1", __( "numeric", "oik" ), __( "number of items to list. -1=list all", "oik" ) );
+  $syntax['thumbnail'] = BW_::bw_skv( "none", "thumbnail|medium|large|full|nnn|wxh", __( "image size", "oik" ) ); 
+  $syntax['uo'] = BW_::bw_skv( "u", "o", __( "Display unordered or ordered list", "oik" ) );
   return( $syntax );
 }
 

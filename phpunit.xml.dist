@@ -54,6 +54,7 @@
 			<file>tests/test-shortcodes-oik-iframe.php</file>
 			<file>tests/test-shortcodes-oik-jquery.php</file>
 			<file>tests/test-shortcodes-oik-link.php</file>
+			<file>tests/test-shortcodes-oik-list.php</file>
 			<file>tests/test-shortcodes-oik-phone.php</file>
 			<file>tests/test-shortcodes-oik-qrcode.php</file>
 		</testsuite>
