@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 12:43:58+00:00\n"
+"POT-Creation-Date: 2017-10-03 17:53:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1413,7 +1413,7 @@ msgstr ""
 msgid "Copyright text prefix"
 msgstr ""
 
-#: includes/oik-sc-help.inc:205
+#: includes/oik-sc-help.inc:205 shortcodes/oik-googlemap.php:270
 msgid "company name"
 msgstr ""
 
@@ -2047,7 +2047,8 @@ msgstr ""
 msgid "e.g."
 msgstr ""
 
-#: shortcodes/oik-bookmarks.php:57 shortcodes/oik-phone.php:201
+#: shortcodes/oik-bookmarks.php:57 shortcodes/oik-googlemap.php:277
+#: shortcodes/oik-phone.php:201
 msgid "number"
 msgstr ""
 
@@ -2513,59 +2514,79 @@ msgid ""
 "The Google directions button will enable the user to get directions to you."
 msgstr ""
 
-#: shortcodes/oik-googlemap.php:254
-msgid "Some of the default values are extracted from oik information:"
+#: shortcodes/oik-googlemap.php:255
+msgid "To display a Googlemap for your company location"
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:256
-msgid "company - for the Company name"
-msgstr ""
-
-#: shortcodes/oik-googlemap.php:257
-msgid "lat - for the latitude"
+msgid "Some of the default values are extracted from oik information:"
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:258
-msgid "long - for the longitude"
+msgid "company - for the Company name"
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:259
-msgid "width - map width (  100% )"
+msgid "lat - for the latitude"
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:260
+msgid "long - for the longitude"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:261
+msgid "width - map width (  100% )"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:262
 msgid "height - map height ( 400px - to allow for the info window )"
 msgstr ""
 
-#: shortcodes/oik-googlemap.php:266
+#: shortcodes/oik-googlemap.php:270
 msgid "type your company name"
 msgstr ""
 
-#: shortcodes/oik-googlemap.php:267
+#: shortcodes/oik-googlemap.php:271
 msgid "latitude"
 msgstr ""
 
-#: shortcodes/oik-googlemap.php:268
+#: shortcodes/oik-googlemap.php:272
 msgid "longitude"
 msgstr ""
 
-#: shortcodes/oik-googlemap.php:269
-msgid "post code or zip code"
-msgstr ""
-
-#: shortcodes/oik-googlemap.php:270
-msgid "width of the Google map"
-msgstr ""
-
-#: shortcodes/oik-googlemap.php:271
-msgid "height of the map"
-msgstr ""
-
-#: shortcodes/oik-googlemap.php:272
-msgid "Additional markers"
+#: shortcodes/oik-googlemap.php:273
+msgid "postcode"
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:273
+msgid "post code or zip code"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:274 shortcodes/oik-qrcode.php:39
+msgid "width"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:274
+msgid "width of the Google map"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:275 shortcodes/oik-qrcode.php:40
+msgid "height"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:275
+msgid "height of the map"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:276
+msgid "marker1,marker2"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:276
+msgid "Additional markers"
+msgstr ""
+
+#: shortcodes/oik-googlemap.php:277
 msgid "Zoom level"
 msgstr ""
 
@@ -2796,15 +2817,7 @@ msgid "Link URL for QR code image"
 msgstr ""
 
 #: shortcodes/oik-qrcode.php:39
-msgid "width"
-msgstr ""
-
-#: shortcodes/oik-qrcode.php:39
 msgid "width of QR code image, if required"
-msgstr ""
-
-#: shortcodes/oik-qrcode.php:40
-msgid "height"
 msgstr ""
 
 #: shortcodes/oik-qrcode.php:40

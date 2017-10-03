@@ -4,6 +4,7 @@
  * Unit tests for the [bw_show_googlemap] shortcode
  * Specifically to test issue #44 - Uncaught Syntax Error when lat / lng is null
  *
+ * More tests in tests/test-shortcodes-oik-googlemap.php
  */
 
 class Tests_oik_googlemap extends BW_UnitTestCase {

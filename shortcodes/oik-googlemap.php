@@ -81,13 +81,15 @@ function bw_gmap_infowindow( $title, $postcode ) {
   bw_echo( 'infowindow.open( map, marker );' );
 } 
 
-/* 
+/**
  * Display a GoogleMap using Google Maps JavaScript API V3
  * 
- * Display a GoogleMap centred around the lat and long specified in oik options
- * zoomed to level 12 - which is good for local viewing
- * with a red marker centred at the lat,long and showing the postcode as a tool tip 
- * and an info window showing the title and postcode
+ * Display a GoogleMap 
+ * - centred around the lat and long specified in oik options
+ * - zoomed to level 12 - which is good for local viewing
+ * - with a red marker centred at the lat,long 
+ * - and showing the postcode as a tool tip 
+ * - and an info window showing the title and postcode
  *
  * For programming details see http://code.google.com/apis/maps/documentation/javascript/basics.html#Welcome
  * Restrictions of this implementation
@@ -122,7 +124,7 @@ function bw_gmap_infowindow( $title, $postcode ) {
  */
 function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $markers=null, $zoom=12 ) {
 	bw_trace2();
-  static $map = 0;
+	$map = bw_gmap_map( false );
 	$latlng = bw_gmap_latlng( $lat, $lng ); 
 	
   if ( !$map ) {
@@ -165,11 +167,11 @@ function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $mark
     $hv = '';  
   }  
   bw_echo( '<div class="bw_map_canvas" id="bw_map_canvas' . $map . '" style="min-height: 200px; width:' . $width. ';' .$hv .';"></div>');
-  $map++;
+  bw_gmap_map();
 
 }
 
-/* 
+/** 
  * Fixed or percentage?
  * 
  * @param string $value - the value being tested
@@ -183,8 +185,8 @@ function bw_forp( $value, $append='px' ) {
   return( $value );   
 }
 
-/* 
- * Implement [bw_show_googlemap] shortcode to display a Google Map
+/** 
+ * Implements [bw_show_googlemap] shortcode to display a Google Map
  *
  *
  * For oik 2.4-alpha.1001 this has been changed to work with oik-user
@@ -244,33 +246,35 @@ function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
 }
 
 /**
- * bw_show_googlemap example
+ * Example for [bw_show_googlemap] shortcode 
  * 
  * Note: This works on a normal page but not when invoked on the oik Shortcodes thickbox overlay
  * - probably something to do with the javascript not being processed by the .js
 */ 
 function bw_show_googlemap__example( $shortcode = "bw_show_googlemap" ) {
-  bw_invoke_shortcode( $shortcode, null, "To display a Googlemap for your company location" );    
-  p( "Some of the default values are extracted from oik information:" );
+  bw_invoke_shortcode( $shortcode, null, __( "To display a Googlemap for your company location", "oik" ) );    
+  BW_::p( __( "Some of the default values are extracted from oik information:", "oik" ) );
   sul();
-  li( "company - for the Company name" );
-  li( "lat - for the latitude" );
-  li( "long - for the longitude" );
-  li( "width - map width (  100% )" );
-  li( "height - map height ( 400px - to allow for the info window )" );
-  eul();
+  BW_::lit( __( "company - for the Company name", "oik" ) );
+  BW_::lit( __( "lat - for the latitude", "oik" ) );
+  BW_::lit( __( "long - for the longitude", "oik" ) );
+  BW_::lit( __( "width - map width (  100% )", "oik" ) );
+  BW_::lit( __( "height - map height ( 400px - to allow for the info window )", "oik" ) );
+  eul();																																			 
 }
 
-
+/**
+ * Syntax for [bw_show_googlemap] shortcode
+ */
 function bw_show_googlemap__syntax( $shortcode = "bw_show_googlemap" ) {
-  $syntax = array( "company" => bw_skv( "", "company name", "type your company name" )
-                 , "lat" => bw_skv( "<i>lat</i>", "latitude", "latitude" )
-                 , "long" => bw_skv( "<i>long</i>", "longitude", "longitude" )
-                 , "postcode" => bw_skv( "<i>postcode</i>", "postcode", "post code or zip code" )
-                 , "width" => bw_skv( "100%", "width", "width of the Google map" )
-                 , "height" => bw_skv( "400px", "height", "height of the map" )
-                 , "markers" => bw_skv( null, "marker1,marker2", "Additional markers" )
-                 , "zoom" => bw_skv( 12, "number", "Zoom level" )
+  $syntax = array( "company" => BW_::bw_skv( "", __( "company name", "oik" ), __( "type your company name", "oik" ) )
+                 , "lat" => BW_::bw_skv( "<i>lat</i>", __( "latitude", "oik" ) , __( "latitude", "oik" ) )
+                 , "long" => BW_::bw_skv( "<i>long</i>", __( "longitude", "oik" ), __( "longitude", "oik" ) )
+                 , "postcode" => BW_::bw_skv( "<i>postcode</i>", __( "postcode", "oik" ), __( "post code or zip code", "oik" ) )
+                 , "width" => BW_::bw_skv( "100%", __( "width", "oik" ), __( "width of the Google map", "oik" ) )
+                 , "height" => BW_::bw_skv( "400px", __( "height", "oik" ), __( "height of the map", "oik" ) )
+                 , "markers" => BW_::bw_skv( null, __( "marker1,marker2", "oik" ), __( "Additional markers", "oik" ) )
+                 , "zoom" => BW_::bw_skv( 12, __( "number", "oik" ), __( "Zoom level", "oik" ) )
                  );
   return( $syntax );
 }
@@ -573,4 +577,26 @@ function bw_gmap_latlng( $lat, $lng ) {
 	
 	bw_trace2( $latlng, "latlng", true );
 	return $latlng;
+}
+
+/**
+ * Returns the map index 
+ * 
+ * $inc  | action | return
+ * ----  | ------ | ------
+ * true  | $map++ | next value
+ * false | nop    | current value
+ * null  | 0    | current value	= 0
+ * 
+ * @param bool|null $inc 
+ * 
+ */
+function bw_gmap_map( $inc=true ) {
+	static $map=0;
+	if ( $inc ) {
+		$map++;
+	}	elseif ( null === $inc ) {
+		$map = 0;
+	}
+	return $map;
 }
