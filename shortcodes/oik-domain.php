@@ -12,15 +12,15 @@
  */
 function bw_wpadmin( $atts=null, $content=null, $tags=null ) {
   $site = bw_get_option( "domain" );
-  e( "Site:&nbsp; ");
+  e( __( "Site:", "oik" ) . "&nbsp; ");
 	if ( $site ) {
 		$site = trim_scheme( $site );
 		$site_url = set_url_scheme( "http://" . $site . "/wp-admin" );
-		alink( null, $site_url, $site, "Website: " . $site );
+		BW_::alink( null, $site_url, $site, sprintf( __( 'Website: %1$s', "oik" ), $site ) );
 	} else {
 		$site_url = get_option( "siteurl" );
 		$site_url = trim_scheme( $site_url );
-		alink( null, get_admin_url(), $site_url );
+		BW_::alink( null, get_admin_url(), $site_url );
 	}
   return( bw_ret() );
 }

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 07:59:58+00:00\n"
+"POT-Creation-Date: 2017-10-03 08:40:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -3007,6 +3007,16 @@ msgstr "FIt pramateer. UsE fit=0 wtih fx=scrollVert|scrollHorz"
 #: shortcodes/oik-cycle.php:129
 msgid "Display Prev and Next links"
 msgstr "Dsilpay Perv And Nxet lniks"
+
+
+#: shortcodes/oik-domain.php:15
+msgid "Site:"
+msgstr "Stie:"
+
+
+#: shortcodes/oik-domain.php:19
+msgid "Website: %1$s"
+msgstr "Wbeiste: %1$s"
 
 
 #: shortcodes/oik-email.php:75 shortcodes/oik-email.php:127
