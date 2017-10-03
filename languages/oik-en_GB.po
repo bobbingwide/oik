@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 11:21:09+00:00\n"
+"POT-Creation-Date: 2017-10-03 12:43:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2484,6 +2484,14 @@ msgstr "template"
 #: shortcodes/oik-galleries.php:37
 msgid "Name for a gallery template"
 msgstr "Name for a gallery template"
+
+#: shortcodes/oik-galleries.php:71
+msgid "To display NextGEN gallery with id=1 and the carousel template"
+msgstr "To display NextGEN gallery with id=1 and the carousel template"
+
+#: shortcodes/oik-galleries.php:72
+msgid "Visit the NextGEN Gallery page"
+msgstr "Visit the NextGEN Gallery page"
 
 #: shortcodes/oik-geo.php:15
 msgid "Lat."

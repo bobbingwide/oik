@@ -64,12 +64,13 @@ function bw_callablefunction( $class, $method ) {
 /**
  * Give an example of the NextGEN gallery and a link to more examples
  * 
- * This function will probably work even if the NextGEN is not activated
- *
-*/
+ * This function work even if the NextGEN plugin is not activated or the nggallery shortcode is not defined.
+ * http://nextgen-gallery.com/gallery-page/
+ */
 function nggallery__example( $shortcode="nggallery" ) {
-  bw_invoke_shortcode( $shortcode, 'id=1 template="carousel"', "To display NextGEN gallery with id=1 and the carousel template" );
-  alink( null, "http://nextgen-gallery.com/gallery-page/", "Visit the NextGEN Gallery page" );
+  bw_invoke_shortcode( $shortcode, 'id=1 template="carousel"', __( "To display NextGEN gallery with id=1 and the carousel template", "oik" ) );
+  BW_::alink( null, "https://www.imagely.com/docs/displaying-galleries-overview/", __( "Visit the NextGEN Gallery page", "oik" ) );
+	
 }
 
 /**

@@ -10,7 +10,7 @@ class Tests_shortcodes_oik_galleries extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		
-		//oik_require_lib( "oik-sc-help" );
+		oik_require_lib( "oik-sc-help" );
 		oik_require( "shortcodes/oik-galleries.php" ); 														
 	}
 	
@@ -48,6 +48,28 @@ class Tests_shortcodes_oik_galleries extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
+	
+	/**
+	 * We don't want nggallery to do anything 
+	 * so let's consider replacing the shortcode with null
+	 */
+	function test_nggallery__example() {
+		remove_shortcode( "nggallery" );
+		$this->switch_to_locale( "en_GB" );
+		$html = bw_ret( nggallery__example() );
+    //$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_nggallery__example_bb_BB() {
+		remove_shortcode( "nggallery" );
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( nggallery__example() );
+    //$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+
 	
 	
 }
