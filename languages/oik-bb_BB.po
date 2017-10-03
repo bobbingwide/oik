@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 20:43:49+00:00\n"
+"POT-Creation-Date: 2017-10-03 21:06:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1934,6 +1934,7 @@ msgstr "CSS calss nmaes"
 
 #: libs/oik-sc-help.php:301 libs/oik-sc-help.php:570
 #: shortcodes/oik-contact-form.php:296 shortcodes/oik-galleries.php:35
+#: shortcodes/oik-link.php:339
 msgid "id"
 msgstr "Id"
 
@@ -3398,6 +3399,11 @@ msgstr "tool tIp srtnig"
 #: shortcodes/oik-link.php:342
 msgid "URL to link to"
 msgstr "URL tO lnik tO"
+
+
+#: shortcodes/oik-link.php:373
+msgid "Example: Display a link to post with ID=%1$s"
+msgstr "Eaxpmle: Dsilpay A lnik tO psot wtih ID=%1$s"
 
 
 #: shortcodes/oik-list.php:181

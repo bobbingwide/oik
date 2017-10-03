@@ -46,6 +46,39 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	function test_bw_link__example() {
+		$post = $this->dummy_post();
+		$id = _bw_get_an_id();
+		$this->assertEquals( $post->ID, $id );
+		$this->switch_to_locale( "en_GB" );
+		$html = bw_ret( bw_link__example() );
+		$html = str_replace( $id, "42", $html );
+		$html = $this->replace_home_url( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_link__example_bb_BB() {
+		$post = $this->dummy_post();
+		$id = _bw_get_an_id();
+		$this->assertEquals( $post->ID, $id );
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( bw_link__example() );
+		$html = str_replace( $id, "42", $html );
+		$html = $this->replace_home_url( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	
+	function dummy_post() {
+		$args = array( 'post_type' => 'page', 'post_title' => 'post title', 'post_excerpt' => 'Excerpt. No post ID' );
+		$id = self::factory()->post->create( $args );
+		$post = get_post( $id );
+		return $post;
+	}
+	
 	
 }
 	

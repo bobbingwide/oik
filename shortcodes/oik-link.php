@@ -321,7 +321,7 @@ function bw_link( $atts=null, $content=null, $tag=null ) {
 		}
 		$url = bw_link_url( $url, $atts ); 
 	}
-	alink( $class, $url, $text, $title );
+	BW_::alink( $class, $url, $text, $title );
 	return( bw_ret()); 
 }
 
@@ -355,7 +355,7 @@ function _bw_get_an_id() {
 	oik_require( "includes/bw_posts.inc" );
 	$id = bw_global_post_id();
 	if ( !$id ) {
-		$posts = wp_get_recent_posts( array( "numberposts" => 1, "post_status" => "published" ) );
+		$posts = wp_get_recent_posts( array( "numberposts" => 1, "post_status" => "publish", "post_type" => "page" ) );
 		$post = bw_array_get( $posts, 0, null );
 		if ( $post )
 			$id = $post['ID'];
@@ -370,7 +370,7 @@ function _bw_get_an_id() {
  */
 function bw_link__example( $shortcode="bw_link" ) {
 	$id = _bw_get_an_id();
-	$text = "Example: Display a link to post with ID=$id";
+	$text = sprintf( __( 'Example: Display a link to post with ID=%1$s', "oik" ), $id );
 	$example = $id;
 	bw_invoke_shortcode( $shortcode, $example, $text );
 } 
