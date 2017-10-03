@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2015
+<?php // (C) Copyright Bobbing Wide 2012-2017
 /**
  * Determine the jQuery script file URL
  * 
@@ -189,7 +189,6 @@ function bw_jquery_enqueue_script( $script, $debug=false ) {
   $enqueued = bw_jquery_script_is( $script );  
   if ( !$enqueued ) {
     $script_url = bw_jquery_script( $script, $debug ); 
-    // p( "$script_url:$script" );
     $dependence = bw_jquery_dependencies( $script );
     bw_trace2( $dependence, "dependence" );
     $enqueued = wp_enqueue_script( $script, $script_url, $dependence ); 
@@ -495,24 +494,30 @@ function bw_list_wp_script( $key, $script ) {
   etag( "tr" );
 } 
 
+/**
+ * Help for [bw_jq] shortcode
+ */
 function bw_jq__help( $shortcode = "bw_jq" ) {
-  return( "Perform a jQuery method" );
+  return( __( "Perform a jQuery method", "oik" ) );
 }
 
+/**
+ * Syntax for [bw_jq] shortcode
+ */
 function bw_jq__syntax( $shortcode = "bw_jq" ) {
-  $syntax = array( "script" => bw_skv( null, "<i>script-name</i>", "Handle for the jQuery script" )
-                 , "selector" => bw_skv( null, "<i>selector</i>", "jQuery selector" )
-                 , "method" => bw_skv( null, "<i>method</i>", "jQuery method to perform" )
-                 , "debug" => bw_skv( false, "<i>bool</i>", "Use true when you want to debug the jQuery" )
-                 , "windowload" => bw_skv( false, "<i>bool</i>", "Use true when the jQuery is to run when the window has loaded" )
-                 , "parms" => bw_skv( null, "<i>parm=value1,parm2=value2</i>", "Variable list of parameters" )
-                 , "src" => bw_skv( null, "<i>ID</i>|<i>URL</i>", "ID or full URL of JavaScript" )
-                 , "inline" => bw_skv( null, "T|Y", "Set to T=True or Y=Yes when the script tag must be inline" )
+  $syntax = array( "script" => BW_::bw_skv( null, "<i>" . __( "script-name", "oik" ) . "</i>", __( "Handle for the jQuery script", "oik" ) )
+                 , "selector" => BW_::bw_skv( null, "<i>" . __( "selector", "oik" ) . "</i>", __( "jQuery selector", "oik" ) )
+                 , "method" => BW_::bw_skv( null, "<i>" . __( "method", "oik" ) . "</i>", __( "jQuery method to perform", "oik" ) )
+                 , "debug" => BW_::bw_skv( "false", "true", __( "Use true when you want to debug the jQuery", "oik" ) )
+                 , "windowload" => BW_::bw_skv( "false", "true", __( "Use true when the jQuery is to run when the window has loaded", "oik" ) )
+                 , "parms" => BW_::bw_skv( null, "<i>" . __( "parm=value1,parm2=value2", "oik" ) . "</i>", __( "Variable list of parameters", "oik" ) )
+                 , "src" => BW_::bw_skv( null, "<i>" . __( "ID", "oik" ) . "</i>|<i>" . __( "URL", "oik" ) . "</i>", __( "ID or full URL of JavaScript", "oik" ) )
+                 , "inline" => BW_::bw_skv( null, "T|Y", __( "Set to T=True or Y=Yes when the script tag must be inline", "oik" ) )
                  );
   return( $syntax );
 }                  
 
 function bw_jq__example( $shortcode = "bw_jq" ) {
- p( "Example to be completed! " );
+ BW_::p( __( "Example to be completed!", "oik" ) );
 }
 

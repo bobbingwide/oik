@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 18:11:25+00:00\n"
+"POT-Creation-Date: 2017-10-03 19:33:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1402,11 +1402,11 @@ msgstr "paired HTML tag for the stag shortcode"
 
 #: includes/oik-sc-help.inc:204 includes/oik-sc-help.inc:206
 #: includes/oik-sc-help.inc:208 shortcodes/oik-email.php:132
-#: shortcodes/oik-email.php:133 shortcodes/oik-pages.php:96
-#: shortcodes/oik-phone.php:199 shortcodes/oik-phone.php:214
-#: shortcodes/oik-phone.php:236 shortcodes/oik-phone.php:248
-#: shortcodes/oik-phone.php:269 shortcodes/oik-phone.php:282
-#: shortcodes/oik-qrcode.php:38
+#: shortcodes/oik-email.php:133 shortcodes/oik-iframe.php:54
+#: shortcodes/oik-pages.php:96 shortcodes/oik-phone.php:199
+#: shortcodes/oik-phone.php:214 shortcodes/oik-phone.php:236
+#: shortcodes/oik-phone.php:248 shortcodes/oik-phone.php:269
+#: shortcodes/oik-phone.php:282 shortcodes/oik-qrcode.php:38
 msgid "string"
 msgstr "string"
 
@@ -1550,7 +1550,8 @@ msgstr "unique identifier"
 #: libs/oik-sc-help.php:323 libs/oik-sc-help.php:324 libs/oik-sc-help.php:339
 #: libs/oik-sc-help.php:373 libs/oik-sc-help.php:412 libs/oik-sc-help.php:453
 #: libs/oik-sc-help.php:454 libs/oik-sc-help.php:485 libs/oik-sc-help.php:486
-#: shortcodes/oik-galleries.php:36
+#: shortcodes/oik-galleries.php:36 shortcodes/oik-iframe.php:50
+#: shortcodes/oik-iframe.php:51
 msgid "numeric"
 msgstr "numeric"
 
@@ -1638,6 +1639,7 @@ msgid "Attached media MIME type"
 msgstr "Attached media MIME type"
 
 #: libs/oik-sc-help.php:336 libs/oik-sc-help.php:408 oik-ids.php:34
+#: shortcodes/oik-jquery.php:514
 msgid "ID"
 msgstr "ID"
 
@@ -1757,7 +1759,8 @@ msgstr "Required height"
 #: libs/oik-sc-help.php:455 libs/oik-sc-help.php:466 libs/oik-sc-help.php:480
 #: libs/oik-sc-help.php:481 shortcodes/oik-button.php:48
 #: shortcodes/oik-button.php:104 shortcodes/oik-countdown.php:73
-#: shortcodes/oik-qrcode.php:37
+#: shortcodes/oik-iframe.php:48 shortcodes/oik-iframe.php:49
+#: shortcodes/oik-jquery.php:514 shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr "URL"
 
@@ -1859,7 +1862,7 @@ msgid "The default oik plugins server is currently set to: %1$s"
 msgstr "The default oik plugins server is currently set to: %1$s"
 
 #: libs/oik_plugins.php:272 libs/oik_themes.php:247
-#: shortcodes/oik-jquery.php:466
+#: shortcodes/oik-jquery.php:465
 msgid "version"
 msgstr "version"
 
@@ -2595,77 +2598,97 @@ msgstr "Zoom level"
 msgid "Embed a page in an iframe"
 msgstr "Embed a page in an iframe"
 
-#: shortcodes/oik-iframe.php:45
+#: shortcodes/oik-iframe.php:48
 msgid "Full URL for the page"
 msgstr "Full URL for the page"
 
-#: shortcodes/oik-iframe.php:46
+#: shortcodes/oik-iframe.php:49
 msgid "Full URL for the page - use as an alternative to the url= parameter"
 msgstr "Full URL for the page - use as an alternative to the url= parameter"
 
-#: shortcodes/oik-iframe.php:47 shortcodes/oik-logo.php:171
+#: shortcodes/oik-iframe.php:50 shortcodes/oik-logo.php:171
 msgid "Width in pixels"
 msgstr "Width in pixels"
 
-#: shortcodes/oik-iframe.php:48 shortcodes/oik-logo.php:172
+#: shortcodes/oik-iframe.php:51 shortcodes/oik-logo.php:172
 msgid "Height in pixels"
 msgstr "Height in pixels"
 
-#: shortcodes/oik-iframe.php:49
+#: shortcodes/oik-iframe.php:52
 msgid "Support vertical scrolling"
 msgstr "Support vertical scrolling"
 
-#: shortcodes/oik-iframe.php:50
+#: shortcodes/oik-iframe.php:53
 msgid "Value for frameborder parameter"
 msgstr "Value for frameborder parameter"
 
-#: shortcodes/oik-iframe.php:51
+#: shortcodes/oik-iframe.php:54
 msgid "Type of the iframe"
 msgstr "Type of the iframe"
 
-#: shortcodes/oik-jquery.php:465
+#: shortcodes/oik-jquery.php:464
 msgid "handle"
 msgstr "handle"
 
-#: shortcodes/oik-jquery.php:467
+#: shortcodes/oik-jquery.php:466
 msgid "dependencies"
 msgstr "dependencies"
 
-#: shortcodes/oik-jquery.php:503
+#: shortcodes/oik-jquery.php:501
+msgid "Perform a jQuery method"
+msgstr "Perform a jQuery method"
+
+#: shortcodes/oik-jquery.php:508
+msgid "script-name"
+msgstr "script-name"
+
+#: shortcodes/oik-jquery.php:508
 msgid "Handle for the jQuery script"
 msgstr "Handle for the jQuery script"
 
-#: shortcodes/oik-jquery.php:504
+#: shortcodes/oik-jquery.php:509
+msgid "selector"
+msgstr "selector"
+
+#: shortcodes/oik-jquery.php:509
 msgid "jQuery selector"
 msgstr "jQuery selector"
 
-#: shortcodes/oik-jquery.php:505
+#: shortcodes/oik-jquery.php:510
+msgid "method"
+msgstr "method"
+
+#: shortcodes/oik-jquery.php:510
 msgid "jQuery method to perform"
 msgstr "jQuery method to perform"
 
-#: shortcodes/oik-jquery.php:506
+#: shortcodes/oik-jquery.php:511
 msgid "Use true when you want to debug the jQuery"
 msgstr "Use true when you want to debug the jQuery"
 
-#: shortcodes/oik-jquery.php:507
+#: shortcodes/oik-jquery.php:512
 msgid "Use true when the jQuery is to run when the window has loaded"
 msgstr "Use true when the jQuery is to run when the window has loaded"
 
-#: shortcodes/oik-jquery.php:508
+#: shortcodes/oik-jquery.php:513
+msgid "parm=value1,parm2=value2"
+msgstr "parm=value1,parm2=value2"
+
+#: shortcodes/oik-jquery.php:513
 msgid "Variable list of parameters"
 msgstr "Variable list of parameters"
 
-#: shortcodes/oik-jquery.php:509
+#: shortcodes/oik-jquery.php:514
 msgid "ID or full URL of JavaScript"
 msgstr "ID or full URL of JavaScript"
 
-#: shortcodes/oik-jquery.php:510
+#: shortcodes/oik-jquery.php:515
 msgid "Set to T=True or Y=Yes when the script tag must be inline"
 msgstr "Set to T=True or Y=Yes when the script tag must be inline"
 
-#: shortcodes/oik-jquery.php:516
-msgid "Example to be completed! "
-msgstr "Example to be completed! "
+#: shortcodes/oik-jquery.php:521
+msgid "Example to be completed!"
+msgstr "Example to be completed!"
 
 #: shortcodes/oik-link.php:339
 msgid "ID of the post to link to or external URL"
