@@ -1,9 +1,9 @@
-<?php // (C) Copyright Bobbing Wide 2012
+<?php // (C) Copyright Bobbing Wide 2012-2017
 if ( defined( 'OIK_GALLERIES_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_GALLERIES_SHORTCODES_INCLUDED', true );
 
 /*
-    Copyright 2011,2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -21,14 +21,20 @@ define( 'OIK_GALLERIES_SHORTCODES_INCLUDED', true );
 
 */
 
+/**
+ * Help for [nggallery] shortcode - provided by NextGEN
+ */
 function nggallery__help( $shortcode="nggallery" ) {
-  return( "Display a NextGEN gallery" );
+  return( __( "Display a NextGEN gallery", "oik" ) );
 }
 
+/**
+ * Syntax for [nggallery] shortcode
+ */
 function nggallery__syntax( $shortcode="nggallery" ) {
-  $syntax = array( "id" => bw_skv( null, "<i>id</i>", "Gallery ID. Must be specified." )
-                 , "images" => bw_skv( "0", "<i>numeric</i>", "Number of images per page. 0=unlimited" )
-                 , "template" => bw_skv( "", "<i>template</i>|carousel|", "Name for a gallery template" ) 
+  $syntax = array( "id" => BW_::bw_skv( null, "<i>" . __( "id", "oik" ) . "</i>", __("Gallery ID. Must be specified.", "oik" ) )
+                 , "images" => BW_::bw_skv( "0", "<i>" . __( "numeric", "oik" ) . "</i>", __( "Number of images per page. 0=unlimited", "oik" ) )
+                 , "template" => BW_::bw_skv( "", "<i>" . __( "template", "oik" ) . "</i>|carousel", __( "Name for a gallery template", "oik" ) ) 
                  );
   return( $syntax );
 }

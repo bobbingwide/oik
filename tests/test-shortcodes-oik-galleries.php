@@ -1,0 +1,54 @@
+<?php // (C) Copyright Bobbing Wide 2017
+
+/**
+ * @package 
+ * 
+ * Tests for logic in shortcodes/oik-galleries.php
+ */
+class Tests_shortcodes_oik_galleries extends BW_UnitTestCase {
+
+	function setUp() { 
+		parent::setUp();
+		
+		//oik_require_lib( "oik-sc-help" );
+		oik_require( "shortcodes/oik-galleries.php" ); 														
+	}
+	
+	function test_nggallery__help() {
+		$this->switch_to_locale( "en_GB" );
+		$html = nggallery__help();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_nggallery__help_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = nggallery__help();
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+		
+	
+	function test_nggallery__syntax() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "en_GB" );
+		$array = nggallery__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_nggallery__syntax_bb_BB() {
+		//$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( "bb_BB" );
+		$array = nggallery__syntax();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	
+}
+	

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 09:49:41+00:00\n"
+"POT-Creation-Date: 2017-10-03 11:21:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1526,8 +1526,9 @@ msgid "oik generated example."
 msgstr "oik generated example."
 
 #: libs/oik-sc-help.php:300 shortcodes/oik-blockquote.php:31
-#: shortcodes/oik-cite.php:20 shortcodes/oik-phone.php:203
-#: shortcodes/oik-phone.php:273 shortcodes/oik-phone.php:286
+#: shortcodes/oik-cite.php:20 shortcodes/oik-follow.php:343
+#: shortcodes/oik-phone.php:203 shortcodes/oik-phone.php:273
+#: shortcodes/oik-phone.php:286
 msgid "class names"
 msgstr "class names"
 
@@ -1538,7 +1539,7 @@ msgid "CSS class names"
 msgstr "CSS class names"
 
 #: libs/oik-sc-help.php:301 libs/oik-sc-help.php:570
-#: shortcodes/oik-contact-form.php:296
+#: shortcodes/oik-contact-form.php:296 shortcodes/oik-galleries.php:35
 msgid "id"
 msgstr "id"
 
@@ -1549,6 +1550,7 @@ msgstr "unique identifier"
 #: libs/oik-sc-help.php:323 libs/oik-sc-help.php:324 libs/oik-sc-help.php:339
 #: libs/oik-sc-help.php:373 libs/oik-sc-help.php:412 libs/oik-sc-help.php:453
 #: libs/oik-sc-help.php:454 libs/oik-sc-help.php:485 libs/oik-sc-help.php:486
+#: shortcodes/oik-galleries.php:36
 msgid "numeric"
 msgstr "numeric"
 
@@ -2463,15 +2465,23 @@ msgstr "Follow %1$s on %2$s"
 msgid "Icon font selection"
 msgstr "Icon font selection"
 
-#: shortcodes/oik-galleries.php:29
+#: shortcodes/oik-galleries.php:28
+msgid "Display a NextGEN gallery"
+msgstr "Display a NextGEN gallery"
+
+#: shortcodes/oik-galleries.php:35
 msgid "Gallery ID. Must be specified."
 msgstr "Gallery ID. Must be specified."
 
-#: shortcodes/oik-galleries.php:30
+#: shortcodes/oik-galleries.php:36
 msgid "Number of images per page. 0=unlimited"
 msgstr "Number of images per page. 0=unlimited"
 
-#: shortcodes/oik-galleries.php:31
+#: shortcodes/oik-galleries.php:37
+msgid "template"
+msgstr "template"
+
+#: shortcodes/oik-galleries.php:37
 msgid "Name for a gallery template"
 msgstr "Name for a gallery template"
 
