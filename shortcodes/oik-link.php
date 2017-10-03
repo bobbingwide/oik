@@ -329,17 +329,17 @@ function bw_link( $atts=null, $content=null, $tag=null ) {
  * Help hook for [bw_link] shortcode 
  */
 function bw_link__help( $shortcode="bw_link" ) {
-	return( "Display a link to a post." );
+	return( __( "Display a link to a post.", "oik" ) );
 }
 
 /**
  * Syntax hook for [bw_link] shortcode
  */
 function bw_link__syntax( $shortcode="bw_link" ) {
-	$syntax = array( "id" => bw_skv( "id", "<i>ID</i>|<i>URL</i>", "ID of the post to link to or external URL" )
-								 , "text" => bw_skv( "<i>post title</i>", "<i>text</i>", "Text for the link" )
-								 , "title" => bw_skv( "<i>post title</i>", "<i>tool tip string</i>", "Tool tip text" )
-								 , "href,url,src,link" => bw_skv( null, "<i>href</i>", "URL to link to" )
+	$syntax = array( "id" => BW_::bw_skv( __( "id", "oik" ), "<i>" . __( "ID", "oik" ) . "</i>|<i>" . __( "URL", "oik" ) . "</i>", __( "ID of the post to link to or external URL", "oik" ) )
+								 , "text" => BW_::bw_skv( "<i>" . __( "post title", "oik" ) . "</i>", "<i>" . __( "text", "oik" ) . "</i>", __( "Text for the link", "oik" ) )
+								 , "title" => BW_::bw_skv( "<i>" . __( "post title", "oik" ) . "</i>", "<i>" . __( "tool tip string", "oik" ) . "</i>", __( "Tool tip text", "oik" ) )
+								 , "href,url,src,link" => BW_::bw_skv( null, "<i>" . __( "URL", "oik" ) . "</i>", __( "URL to link to", "oik" ) )
 								 );
 	$syntax += _sc_classes();
 	return( $syntax );

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 19:33:04+00:00\n"
+"POT-Creation-Date: 2017-10-03 20:43:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1638,7 +1638,7 @@ msgid "Attached media MIME type"
 msgstr ""
 
 #: libs/oik-sc-help.php:336 libs/oik-sc-help.php:408 oik-ids.php:34
-#: shortcodes/oik-jquery.php:514
+#: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:339
 msgid "ID"
 msgstr ""
 
@@ -1682,6 +1682,7 @@ msgstr ""
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
 #: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
+#: shortcodes/oik-link.php:340
 msgid "text"
 msgstr ""
 
@@ -1759,7 +1760,8 @@ msgstr ""
 #: libs/oik-sc-help.php:481 shortcodes/oik-button.php:48
 #: shortcodes/oik-button.php:104 shortcodes/oik-countdown.php:73
 #: shortcodes/oik-iframe.php:48 shortcodes/oik-iframe.php:49
-#: shortcodes/oik-jquery.php:514 shortcodes/oik-qrcode.php:37
+#: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:339
+#: shortcodes/oik-link.php:342 shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr ""
 
@@ -2689,12 +2691,24 @@ msgstr ""
 msgid "Example to be completed!"
 msgstr ""
 
+#: shortcodes/oik-link.php:332
+msgid "Display a link to a post."
+msgstr ""
+
 #: shortcodes/oik-link.php:339
 msgid "ID of the post to link to or external URL"
 msgstr ""
 
+#: shortcodes/oik-link.php:340 shortcodes/oik-link.php:341
+msgid "post title"
+msgstr ""
+
 #: shortcodes/oik-link.php:340
 msgid "Text for the link"
+msgstr ""
+
+#: shortcodes/oik-link.php:341
+msgid "tool tip string"
 msgstr ""
 
 #: shortcodes/oik-link.php:342
