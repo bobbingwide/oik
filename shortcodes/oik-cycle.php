@@ -116,17 +116,17 @@ function bw_cycle( $atts=null, $content=null, $tag=null ) {
  * Implement help hook for [bw_cycle] shortcode
  */
 function bw_cycle__help( $shortcode="bw_cycle" ) { 
-  return( __( "Display pages using jQuery cycle" ) );
+  return( __( "Display pages using jQuery cycle", "oik" ) );
 }
 
 /**
  * Syntax hook for [bw_cycle] shortcode
  */
 function bw_cycle__syntax( $shortcode="bw_cycle" ) {
-  $syntax = array( "fx" => bw_skv( "fade", bw_cycle_fxs(), "Cycle transition effects" ) 
-                 , "class" => bw_skv( "cycle", "<i>class</i>", "CSS class names" )
-                 , "fit" => bw_skv( 1, "0", "Fit parameter. Use fit=0 with fx=scrollVert|scrollHorz" )
-                 , "prevnext" => bw_skv( null, "y", "Display Prev and Next links" )
+  $syntax = array( "fx" => BW_::bw_skv( "fade", bw_cycle_fxs(), __( "Cycle transition effects", "oik" ) ) 
+                 , "class" => BW_::bw_skv( "cycle", "<i>" . __( "class", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
+                 , "fit" => BW_::bw_skv( 1, "0", __( "Fit parameter. Use fit=0 with fx=scrollVert|scrollHorz", "oik" ) )
+                 , "prevnext" => BW_::bw_skv( null, "y", __( "Display Prev and Next links", "oik" ) )
                  );
   
   oik_require( "shortcodes/oik-pages.php" );

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012, 2014
+<?php // (C) Copyright Bobbing Wide 2012-2017
 if ( defined( 'OIK_PAGES_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_PAGES_SHORTCODES_INCLUDED', true );
 /*
@@ -92,8 +92,8 @@ function bw_pages( $atts = NULL ) {
 function bw_pages__syntax( $shortcode="bw_pages" ) {
   $syntax = _sc_posts(); 
   $syntax = array_merge( $syntax, _sc_classes() );
-  $syntax["format"] = bw_skv( null, "<i>format</i>", "field format string" );
-  $syntax["read_more"] = bw_skv( null, "''|<i>string</i>", "text for read more button" ); 
+  $syntax["format"] = BW_::bw_skv( null, "<i>" . __( "format" , "oik" ) . "</i>", __( "field format string", "oik" ) );
+  $syntax["read_more"] = BW_::bw_skv( null, "''|<i>" . __( "string", "oik" ) . "</i>", __( "text for read more button", "oik" ) ); 
   return( $syntax );   
 }
 

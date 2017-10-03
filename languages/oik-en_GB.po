@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 07:32:07+00:00\n"
+"POT-Creation-Date: 2017-10-03 07:59:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1402,10 +1402,11 @@ msgstr "paired HTML tag for the stag shortcode"
 
 #: includes/oik-sc-help.inc:204 includes/oik-sc-help.inc:206
 #: includes/oik-sc-help.inc:208 shortcodes/oik-email.php:124
-#: shortcodes/oik-email.php:125 shortcodes/oik-phone.php:199
-#: shortcodes/oik-phone.php:214 shortcodes/oik-phone.php:236
-#: shortcodes/oik-phone.php:248 shortcodes/oik-phone.php:269
-#: shortcodes/oik-phone.php:282 shortcodes/oik-qrcode.php:38
+#: shortcodes/oik-email.php:125 shortcodes/oik-pages.php:96
+#: shortcodes/oik-phone.php:199 shortcodes/oik-phone.php:214
+#: shortcodes/oik-phone.php:236 shortcodes/oik-phone.php:248
+#: shortcodes/oik-phone.php:269 shortcodes/oik-phone.php:282
+#: shortcodes/oik-qrcode.php:38
 msgid "string"
 msgstr "string"
 
@@ -2387,6 +2388,10 @@ msgstr "Display pages using jQuery cycle"
 msgid "Cycle transition effects"
 msgstr "Cycle transition effects"
 
+#: shortcodes/oik-cycle.php:127
+msgid "class"
+msgstr "class"
+
 #: shortcodes/oik-cycle.php:128
 msgid "Fit parameter. Use fit=0 with fx=scrollVert|scrollHorz"
 msgstr "Fit parameter. Use fit=0 with fx=scrollVert|scrollHorz"
@@ -2654,6 +2659,10 @@ msgstr "Simple paginated list"
 #: shortcodes/oik-navi.php:352
 msgid "Number of posts per page. Default from Reading Settings."
 msgstr "Number of posts per page. Default from Reading Settings."
+
+#: shortcodes/oik-pages.php:95
+msgid "format"
+msgstr "format"
 
 #: shortcodes/oik-pages.php:95
 msgid "field format string"
