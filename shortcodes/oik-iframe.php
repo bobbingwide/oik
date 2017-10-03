@@ -1,7 +1,7 @@
-<?php // (C) Copyright Bobbing Wide 2012, 2013
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
- * Implement the [bw_iframe] shortcode 
+ * Implements the [bw_iframe] shortcode 
  *
  * @param array $atts - parameters to the shortcode
  * @param string $content - content for the shortcode
@@ -34,18 +34,24 @@ function bw_iframe( $atts=null, $content=null, $tag=null ) {
   return( bw_ret());
 }
 
+/**
+ * Help for [bw_iframe] shortcode 
+ */
 function bw_iframe__help() {
-  return( "Embed a page in an iframe" );
+  return( __( "Embed a page in an iframe", "oik" ) );
 }
 
+/**
+ * Syntax for [bw_iframe] shortcode
+ */
 function bw_iframe__syntax( $shortcode="bw_iframe" ) {
-  $syntax = array( "url" => bw_skv( null, "URL", "Full URL for the page" )
-                 , "src" => bw_skv( null, "URL", "Full URL for the page - use as an alternative to the url= parameter" )
-                 , "width" => bw_skv( null, "<i>numeric</i>", "Width in pixels" )
-                 , "height" => bw_skv( null, "<i>numeric</i>", "Height in pixels" )
-                 , "scrolling" => bw_skv( "no", "|yes", "Support vertical scrolling" )
-                 , "frameborder" => bw_skv( "0", "1", "Value for frameborder parameter" )
-                 , "type" => bw_skv( "text/html", "string", "Type of the iframe" ) 
+  $syntax = array( "url" => BW_::bw_skv( null, __( "URL", "oik" ), __( "Full URL for the page", "oik" ) )
+                 , "src" => BW_::bw_skv( null, __( "URL", "oik" ), __( "Full URL for the page - use as an alternative to the url= parameter", "oik" ) )
+                 , "width" => BW_::bw_skv( null, "<i>" . __( "numeric", "oik" ) . "</i>", __( "Width in pixels", "oik" ) )
+                 , "height" => BW_::bw_skv( null, "<i>" . __( "numeric", "oik" ) . "</i>", __( "Height in pixels", "oik" ) )
+                 , "scrolling" => BW_::bw_skv( "no", "yes", __( "Support vertical scrolling", "oik" ) )
+                 , "frameborder" => BW_::bw_skv( "0", "1", __( "Value for frameborder parameter", "oik" ) )
+                 , "type" => BW_::bw_skv( "text/html", __( "string", "oik" ), __( "Type of the iframe", "oik" ) ) 
                  );
   // Add the others                 
   $syntax += _sc_classes();                

@@ -51,6 +51,7 @@
 			<file>tests/test-shortcodes-oik-follow.php</file>
 			<file>tests/test-shortcodes-oik-galleries.php</file>
 			<file>tests/test-shortcodes-oik-googlemap.php</file>
+			<file>tests/test-shortcodes-oik-iframe.php</file>
 			<file>tests/test-shortcodes-oik-phone.php</file>
 			<file>tests/test-shortcodes-oik-qrcode.php</file>
 		</testsuite>

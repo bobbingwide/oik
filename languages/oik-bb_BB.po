@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 17:53:17+00:00\n"
+"POT-Creation-Date: 2017-10-03 18:11:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -3245,37 +3245,42 @@ msgid "Zoom level"
 msgstr "Zoom lveel"
 
 
-#: shortcodes/oik-iframe.php:42
+#: shortcodes/oik-iframe.php:41
+msgid "Embed a page in an iframe"
+msgstr "Ebmed A pgae In An irfmae"
+
+
+#: shortcodes/oik-iframe.php:45
 msgid "Full URL for the page"
 msgstr "Flul URL fOr thE pgae"
 
 
-#: shortcodes/oik-iframe.php:43
+#: shortcodes/oik-iframe.php:46
 msgid "Full URL for the page - use as an alternative to the url= parameter"
 msgstr "Flul URL fOr thE pgae - UsE As An atlreanitve tO thE url= pramateer"
 
 
-#: shortcodes/oik-iframe.php:44 shortcodes/oik-logo.php:171
+#: shortcodes/oik-iframe.php:47 shortcodes/oik-logo.php:171
 msgid "Width in pixels"
 msgstr "Wdith In pxiles"
 
 
-#: shortcodes/oik-iframe.php:45 shortcodes/oik-logo.php:172
+#: shortcodes/oik-iframe.php:48 shortcodes/oik-logo.php:172
 msgid "Height in pixels"
 msgstr "Hiehgt In pxiles"
 
 
-#: shortcodes/oik-iframe.php:46
+#: shortcodes/oik-iframe.php:49
 msgid "Support vertical scrolling"
 msgstr "Spuoprt vreitacl srcloilng"
 
 
-#: shortcodes/oik-iframe.php:47
+#: shortcodes/oik-iframe.php:50
 msgid "Value for frameborder parameter"
 msgstr "Vlaue fOr faremobdrer pramateer"
 
 
-#: shortcodes/oik-iframe.php:48
+#: shortcodes/oik-iframe.php:51
 msgid "Type of the iframe"
 msgstr "Tpye Of thE irfmae"
 
