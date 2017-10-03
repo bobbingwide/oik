@@ -77,14 +77,20 @@ function bw_countdown__syntax( $shortcode="bw_countdown" ) {
 
 }
 
+/**
+ * Examples for [bw_countdown] shortcode
+ */
 function bw_countdown__example( $shortcode="bw_countdown" ) {
-  $text = "Countdown timer set to expire in 30 seconds";
-  $example = "until=+30s expiryText='Timer expired' description='30 second timer'";
+  $text = __( "Countdown timer set to expire in 30 seconds", "oik" );
+	$expired = __( "Timer expired", "oik" );
+	$description = __( '30 second timer', "oik" );
+  $example = "until=+30s expiryText='" . $expired . "' description='" . $description . "'";
   bw_invoke_shortcode( $shortcode, $example, $text );
   
   
-  $text = "Countdown timer - counting up" ;
-  $example = "since=+0s description='Time you have been looking at this page' format=S id=since ";
+  $text = __( "Countdown timer - counting up", "oik" ) ;
+	$description = __( "Time you have been looking at this page", "oik" );
+  $example = "since=+0s description='" . $description . "' format=S id=since ";
   bw_invoke_shortcode( $shortcode, $example, $text );
   
 }

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-02 19:22:19+00:00\n"
+"POT-Creation-Date: 2017-10-03 07:32:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2355,7 +2355,27 @@ msgstr "Target URL when countdown reaches zero"
 msgid "Text to replace time when countdown reaches zero"
 msgstr "Text to replace time when countdown reaches zero"
 
-#: shortcodes/oik-countdown.php:93
+#: shortcodes/oik-countdown.php:84
+msgid "Countdown timer set to expire in 30 seconds"
+msgstr "Countdown timer set to expire in 30 seconds"
+
+#: shortcodes/oik-countdown.php:85
+msgid "Timer expired"
+msgstr "Timer expired"
+
+#: shortcodes/oik-countdown.php:86
+msgid "30 second timer"
+msgstr "30 second timer"
+
+#: shortcodes/oik-countdown.php:91
+msgid "Countdown timer - counting up"
+msgstr "Countdown timer - counting up"
+
+#: shortcodes/oik-countdown.php:92
+msgid "Time you have been looking at this page"
+msgstr "Time you have been looking at this page"
+
+#: shortcodes/oik-countdown.php:102
 msgid "No snippet available for this shortcode"
 msgstr "No snippet available for this shortcode"
 
