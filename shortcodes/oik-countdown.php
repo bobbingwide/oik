@@ -89,6 +89,9 @@ function bw_countdown__example( $shortcode="bw_countdown" ) {
   
 }
 
+/**
+ * Snippet for [bw_countdown] shortcode
+ */
 function bw_countdown__snippet( $shortcode="bw_countdown" ) {
-  p( "No snippet available for this shortcode" );
+  BW_::p( __( "No snippet available for this shortcode", "oik" ) );
 }
