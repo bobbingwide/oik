@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 08:40:47+00:00\n"
+"POT-Creation-Date: 2017-10-03 09:49:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -590,8 +590,8 @@ msgid "Alt. slogan"
 msgstr "Alt. solagn"
 
 
-#: admin/oik-admin.inc:407 admin/oik-admin.inc:597 shortcodes/oik-email.php:73
-#: shortcodes/oik-email.php:124
+#: admin/oik-admin.inc:407 admin/oik-admin.inc:597 shortcodes/oik-email.php:75
+#: shortcodes/oik-email.php:132
 msgid "Email"
 msgstr "Eamil"
 
@@ -1745,8 +1745,8 @@ msgstr "End A %1$s wtih %2$s"
 
 #: includes/oik-sc-help.inc:187 includes/oik-sc-help.inc:196
 #: libs/oik-sc-help.php:409 libs/oik-sc-help.php:410 libs/oik-sc-help.php:411
-#: shortcodes/oik-blocks.php:128 shortcodes/oik-email.php:137
-#: shortcodes/oik-email.php:150 shortcodes/oik-phone.php:202
+#: shortcodes/oik-blocks.php:128 shortcodes/oik-email.php:145
+#: shortcodes/oik-email.php:158 shortcodes/oik-phone.php:202
 #: shortcodes/oik-phone.php:226 shortcodes/oik-phone.php:260
 msgid "tag"
 msgstr "tAg"
@@ -1763,8 +1763,8 @@ msgstr "piaerd HMTL tAg fOr thE satg sohtrocde"
 
 
 #: includes/oik-sc-help.inc:204 includes/oik-sc-help.inc:206
-#: includes/oik-sc-help.inc:208 shortcodes/oik-email.php:124
-#: shortcodes/oik-email.php:125 shortcodes/oik-pages.php:96
+#: includes/oik-sc-help.inc:208 shortcodes/oik-email.php:132
+#: shortcodes/oik-email.php:133 shortcodes/oik-pages.php:96
 #: shortcodes/oik-phone.php:199 shortcodes/oik-phone.php:214
 #: shortcodes/oik-phone.php:236 shortcodes/oik-phone.php:248
 #: shortcodes/oik-phone.php:269 shortcodes/oik-phone.php:282
@@ -2798,7 +2798,7 @@ msgid "[bw_codes] - list shortcodes"
 msgstr "[bw_codes] - lsit sohtroceds"
 
 
-#: shortcodes/oik-company.php:67 shortcodes/oik-email.php:126
+#: shortcodes/oik-company.php:67 shortcodes/oik-email.php:134
 #: shortcodes/oik-follow.php:344 shortcodes/oik-geo.php:75
 #: shortcodes/oik-geo.php:84 shortcodes/oik-phone.php:200
 msgid "Use alternative value"
@@ -3019,41 +3019,46 @@ msgid "Website: %1$s"
 msgstr "Wbeiste: %1$s"
 
 
-#: shortcodes/oik-email.php:75 shortcodes/oik-email.php:127
-msgid "Send email to: "
-msgstr "Sned eamil tO: "
+#: shortcodes/oik-email.php:91
+msgid "Send email to: %1$s"
+msgstr "Sned eamil tO: %1$s"
 
 
-#: shortcodes/oik-email.php:124 shortcodes/oik-phone.php:214
+#: shortcodes/oik-email.php:132 shortcodes/oik-phone.php:214
 #: shortcodes/oik-phone.php:236 shortcodes/oik-phone.php:248
 #: shortcodes/oik-phone.php:269 shortcodes/oik-phone.php:282
 msgid "Prefix string"
 msgstr "Perifx srtnig"
 
 
-#: shortcodes/oik-email.php:125 shortcodes/oik-phone.php:199
+#: shortcodes/oik-email.php:133 shortcodes/oik-phone.php:199
 msgid "Separator string"
 msgstr "Sperataor srtnig"
 
 
-#: shortcodes/oik-email.php:127
+#: shortcodes/oik-email.php:135
+msgid "Send email to: "
+msgstr "Sned eamil tO: "
+
+
+#: shortcodes/oik-email.php:135
 msgid "title string"
 msgstr "ttile srtnig"
 
 
-#: shortcodes/oik-email.php:127 shortcodes/oik-link.php:341
+#: shortcodes/oik-email.php:135 shortcodes/oik-link.php:341
 msgid "Tool tip text"
 msgstr "Tool tIp txet"
 
 
-#: shortcodes/oik-email.php:137 shortcodes/oik-email.php:150
+#: shortcodes/oik-email.php:145 shortcodes/oik-email.php:158
 #: shortcodes/oik-phone.php:202 shortcodes/oik-phone.php:226
 #: shortcodes/oik-phone.php:260
 msgid "enclosing HTML tag"
 msgstr "ecnolisng HMTL tAg"
 
 
-#: shortcodes/oik-email.php:138 shortcodes/oik-email.php:151
+#: shortcodes/oik-email.php:146 shortcodes/oik-email.php:159
 #: shortcodes/oik-phone.php:215 shortcodes/oik-phone.php:237
 #: shortcodes/oik-phone.php:249 shortcodes/oik-phone.php:270
 #: shortcodes/oik-phone.php:283
@@ -3061,7 +3066,7 @@ msgid "field"
 msgstr "feild"
 
 
-#: shortcodes/oik-email.php:138 shortcodes/oik-email.php:151
+#: shortcodes/oik-email.php:146 shortcodes/oik-email.php:159
 #: shortcodes/oik-phone.php:215 shortcodes/oik-phone.php:237
 #: shortcodes/oik-phone.php:249 shortcodes/oik-phone.php:270
 #: shortcodes/oik-phone.php:283

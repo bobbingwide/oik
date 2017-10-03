@@ -70,9 +70,11 @@ function _bw_atdot( $email, $atts ) {
  * Notes: Using class=email for Microformat
  */   
 function _bw_email( $atts=null ) {
-  $prefix = bw_array_get_dcb( $atts, "prefix", "Email" );
+  $prefix = bw_array_get( $atts, "prefix", null );
+	if ( !$prefix ) {
+		$prefix = __( "Email", "oik" );
+	}
   $sep = bw_array_get( $atts, "sep", ": " );
-  $title = bw_array_get_dcb( $atts, "title", "Send email to: " );
   $tag = bw_array_get( $atts, "tag", "span" );
   stag( $tag, "email");
   e( $prefix );
@@ -84,7 +86,13 @@ function _bw_email( $atts=null ) {
   }  
   $email_link = _bw_mailto_link( $email, $atts ); 
   $email = _bw_atdot( $email, $atts ); 
-  alink( NULL, $email_link, $email, esc_attr( $title . $email) );
+  $title = bw_array_get( $atts, "title",  null );
+	if ( !$title ) {
+		$title = sprintf( __( 'Send email to: %1$s', "oik" ), $email );
+	} else {
+		$title .= $email;
+	}
+  BW_::alink( NULL, $email_link, $email, esc_attr( $title ) );
   etag( $tag );
   return( bw_ret() );
 }

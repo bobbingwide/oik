@@ -74,6 +74,54 @@ class Tests_shortcodes_oik_email extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	function test_bw_email() {
+		$this->switch_to_locale( "en_GB" );
+		$atts = array( "email" => "herb@bobbingwide.com" ); 
+		$html = bw_email( $atts);
+		$html_array = $this->tag_break( $html ); 
+		$this->assertNotNull( $html_array );
+		$html_array = $this->replace_antispambot( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	function test_bw_email_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$atts = array( "email" => "herb@bobbingwide.com" ); 
+		$html = bw_email( $atts);
+		$html_array = $this->tag_break( $html ); 
+		$this->assertNotNull( $html_array );
+		$html_array = $this->replace_antispambot( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	function test_bw_mailto() {
+		$this->switch_to_locale( "en_GB" );
+		$atts = array( "email" => "herb@bobbingwide.com" ); 
+		$html = bw_mailto( $atts);
+		$html_array = $this->tag_break( $html ); 
+		$this->assertNotNull( $html_array );
+		$html_array = $this->replace_antispambot( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	function test_bw_mailto_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$atts = array( "email" => "herb@bobbingwide.com" ); 
+		$html = bw_mailto( $atts);
+		$html_array = $this->tag_break( $html ); 
+		$this->assertNotNull( $html_array );
+		$html_array = $this->replace_antispambot( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	
+	
 	
 	
 }
