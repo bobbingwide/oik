@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-04 07:27:29+00:00\n"
+"POT-Creation-Date: 2017-10-04 09:30:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2211,7 +2211,8 @@ msgstr "Rqeiuerd hiehgt"
 #: shortcodes/oik-button.php:104 shortcodes/oik-countdown.php:73
 #: shortcodes/oik-iframe.php:48 shortcodes/oik-iframe.php:49
 #: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:339
-#: shortcodes/oik-link.php:342 shortcodes/oik-qrcode.php:37
+#: shortcodes/oik-link.php:342 shortcodes/oik-logo.php:169
+#: shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr "URL"
 
@@ -3217,7 +3218,8 @@ msgid "post code or zip code"
 msgstr "psot cdoe Or zIp cdoe"
 
 
-#: shortcodes/oik-googlemap.php:274 shortcodes/oik-qrcode.php:39
+#: shortcodes/oik-googlemap.php:274 shortcodes/oik-logo.php:171
+#: shortcodes/oik-qrcode.php:39
 msgid "width"
 msgstr "wdith"
 
@@ -3227,7 +3229,8 @@ msgid "width of the Google map"
 msgstr "wdith Of thE Goolge mAp"
 
 
-#: shortcodes/oik-googlemap.php:275 shortcodes/oik-qrcode.php:40
+#: shortcodes/oik-googlemap.php:275 shortcodes/oik-logo.php:172
+#: shortcodes/oik-qrcode.php:40
 msgid "height"
 msgstr "hiehgt"
 
@@ -3447,22 +3450,32 @@ msgid "Link when clicked"
 msgstr "Lnik wehn cilkced"
 
 
+#: shortcodes/oik-logo.php:170 shortcodes/oik-qrcode.php:10
+msgid "company"
+msgstr "cmoapny"
+
+
 #: shortcodes/oik-logo.php:170
 msgid "Text for tooltip"
 msgstr "Txet fOr tootlip"
 
 
-#: shortcodes/oik-navi.php:199
-msgid "%1s to %2s of %3s"
-msgstr "%1s tO %2s Of %3s"
+#: shortcodes/oik-navi.php:189
+msgid "%1$s to %2$s of %3$s"
+msgstr "%1$s tO %2$s Of %3$s"
 
 
-#: shortcodes/oik-navi.php:342
+#: shortcodes/oik-navi.php:332
 msgid "Simple paginated list"
 msgstr "Smilpe pganitaed lsit"
 
 
-#: shortcodes/oik-navi.php:352
+#: shortcodes/oik-navi.php:342
+msgid "integer"
+msgstr "itngeer"
+
+
+#: shortcodes/oik-navi.php:342
 msgid "Number of posts per page. Default from Reading Settings."
 msgstr "Nmuebr Of psots pEr pgae. Dfeualt form Raeidng Steitgns."
 
@@ -3589,11 +3602,6 @@ msgstr "Porduly pworeed by WroPderss"
 #: shortcodes/oik-power.php:18
 msgid "Semantic Personal Publishing Platform"
 msgstr "Smenaitc Preosanl Pbuilhsnig Palftrom"
-
-
-#: shortcodes/oik-qrcode.php:10
-msgid "company"
-msgstr "cmoapny"
 
 
 #: shortcodes/oik-qrcode.php:37

@@ -166,16 +166,6 @@ function bw_navi_posts( $posts=null, $atts=null, $start=null ) {
 }
 
 /**
- * Determine the number of pages
- */
-function bw_determine_pages( $posts, $posts_per_page ) {
-  // p( "Post count: $count" );
-  // p( "per page: $posts_per_page" );
-  // p( "Pages: $pages" );
-  return( $pages );
-}
-
-/**
  * Display "start to end of count" message
  *
  * Display the start to end of count message if the count is set
@@ -193,10 +183,10 @@ function bw_navi_s2eofn( $start, $end, $count, $prefix=null ) {
     $end++;
     //$count++;
     if ( $prefix ) {
-      br( $prefix );
+      BW_::br( $prefix );
     }
     span( "bw_s2eofn" );  
-    e( sprintf( __( '%1s to %2s of %3s', 'oik') , $start, $end, $count ) );
+    e( sprintf( __( '%1$s to %2$s of %3$s', 'oik') , $start, $end, $count ) );
     epan();
   }   
 }
@@ -339,7 +329,7 @@ function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
  * Help hook for [bw_navi] shortcode
  */   
 function bw_navi__help( $shortcode="bw_navi" ) {
-  return( __( "Simple paginated list" ) ); 
+  return( __( "Simple paginated list", "oik" ) ); 
 }
 
 /**
@@ -349,7 +339,7 @@ function bw_navi__help( $shortcode="bw_navi" ) {
 function bw_navi__syntax( $shortcode="bw_navi" ) {
   oik_require( "shortcodes/oik-list.php" );
   $syntax = bw_list__syntax();
-  $syntax['posts_per_page'] = bw_skv( get_option( "posts_per_page" ), "<i>integer</i>|.", "Number of posts per page. Default from Reading Settings." );
+  $syntax['posts_per_page'] = BW_::bw_skv( get_option( "posts_per_page" ), "<i>" . __( "integer", "oik" ) . "</i>|.", __( "Number of posts per page. Default from Reading Settings.", "oik" ) );
   return( $syntax );
 }
 

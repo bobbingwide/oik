@@ -57,6 +57,7 @@
 			<file>tests/test-shortcodes-oik-list.php</file>
 			<file>tests/test-shortcodes-oik-login.php</file>
 			<file>tests/test-shortcodes-oik-logo.php</file>
+			<file>tests/test-shortcodes-oik-navi.php</file>
 			<file>tests/test-shortcodes-oik-phone.php</file>
 			<file>tests/test-shortcodes-oik-qrcode.php</file>
 		</testsuite>
