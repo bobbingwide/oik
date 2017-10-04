@@ -153,7 +153,7 @@ function bw_logo( $atts=null ) {
     $image = retimage( "bw_logo", $image_url, $company, $width, $height );
     if ( $link ) {
 			$link = bw_logo_link( $link, $atts );
-      alink( "bw_logo", $link, $image, $company );
+      BW_::alink( "bw_logo", $link, $image, $company );
     }  
     else {
       e( $image );  

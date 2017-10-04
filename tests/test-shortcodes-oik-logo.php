@@ -10,7 +10,8 @@ class Tests_shortcodes_oik_logo extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		oik_require_lib( "oik-sc-help" );
-		oik_require( "shortcodes/oik-logo.php" ); 														
+		oik_require( "shortcodes/oik-logo.php" ); 
+		oik_require_lib( "oik_plugins" );
 	}
 	
 	function test_bw_logo__syntax() {
@@ -32,6 +33,18 @@ class Tests_shortcodes_oik_logo extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	/**
+	 * We need to set a logo image
+	 */ 
+	function test_bw_logo() {
+		bw_update_option( "logo-image", "image-URL" );
+	
+		$this->switch_to_locale( "en_GB" );
+		$atts = array( "link" => ".", "text" => "logo text" );
+		$html = bw_logo( $atts );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
 	
 	
 }
