@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013,2014
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /**
  * Implement [bw_login] shortcode
@@ -55,13 +55,19 @@ function bw_login_shortcode( $atts=null, $content=null, $tag=null ) {
   return( $form );
 }
 
+/**
+ * Help for [bw_login] shortcode
+ */
 function bw_login__help( $shortcode="bw_login" ) {
-  return( "Display the login form or protected content" );
+  return( __( "Display the login form or protected content", "oik" ) );
 }
 
+/**
+ * Syntax for [bw_login] shortcode
+ */
 function bw_login__syntax( $shortcode="bw_login" ) {
-  $syntax = array( "redirect" => bw_skv( "", "ID", "post ID to redirect to" )
-                 , "remember" => bw_skv( "Y", "|N", "display 'Remember me?' checkbox" )
+  $syntax = array( "redirect" => BW_::bw_skv( "", __( "ID", "oik" ), __( "post ID to redirect to", "oik" ) )
+                 , "remember" => BW_::bw_skv( "Y", "N", __( "display 'Remember me?' checkbox", "oik" ) )
                  );
   return( $syntax );                 
 }
@@ -79,7 +85,7 @@ function bw_loginout_shortcode( $atts=null, $content=null, $tag=null ) {
  * Help hook for [bw_loginout] 
  */
 function bw_loginout__help( $shortcode="bw_loginout" ) {
-  return( "Display the Login or Logout link" );
+  return( __( "Display the Login or Logout link", "oik" ) );
 }
 
 /**
@@ -91,7 +97,7 @@ function bw_register_shortcode( $atts=null, $content=null, $tag=null ) {
 } 
 
 function bw_register__help( $shortcode="bw_register" ) {
-  return( "Display a link to the Registration form, if Registration is enabled" );
+  return( __( "Display a link to the Registration form, if Registration is enabled", "oik" ) );
 }
  
   

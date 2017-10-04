@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-03 21:06:18+00:00\n"
+"POT-Creation-Date: 2017-10-04 07:27:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1948,7 +1948,7 @@ msgstr "uinuqe iedtnfieir"
 #: libs/oik-sc-help.php:373 libs/oik-sc-help.php:412 libs/oik-sc-help.php:453
 #: libs/oik-sc-help.php:454 libs/oik-sc-help.php:485 libs/oik-sc-help.php:486
 #: shortcodes/oik-galleries.php:36 shortcodes/oik-iframe.php:50
-#: shortcodes/oik-iframe.php:51
+#: shortcodes/oik-iframe.php:51 shortcodes/oik-list.php:177
 msgid "numeric"
 msgstr "nmureic"
 
@@ -2058,6 +2058,7 @@ msgstr "Attcaehd mdeia MMIE tpye"
 
 #: libs/oik-sc-help.php:336 libs/oik-sc-help.php:408 oik-ids.php:34
 #: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:339
+#: shortcodes/oik-login.php:69
 msgid "ID"
 msgstr "ID"
 
@@ -2093,7 +2094,7 @@ msgstr "wxh"
 
 
 #: libs/oik-sc-help.php:349 shortcodes/oik-attachments.php:359
-#: shortcodes/oik-list.php:182
+#: shortcodes/oik-list.php:178
 msgid "image size"
 msgstr "iamge szie"
 
@@ -3406,24 +3407,39 @@ msgid "Example: Display a link to post with ID=%1$s"
 msgstr "Eaxpmle: Dsilpay A lnik tO psot wtih ID=%1$s"
 
 
-#: shortcodes/oik-list.php:181
+#: shortcodes/oik-list.php:177
 msgid "number of items to list. -1=list all"
 msgstr "nmuebr Of ietms tO lsit. -1=list All"
 
 
-#: shortcodes/oik-list.php:183
+#: shortcodes/oik-list.php:179
 msgid "Display unordered or ordered list"
 msgstr "Dsilpay uondrreed Or odrreed lsit"
 
 
-#: shortcodes/oik-login.php:63
+#: shortcodes/oik-login.php:62
+msgid "Display the login form or protected content"
+msgstr "Dsilpay thE lgoin from Or porettced cnoetnt"
+
+
+#: shortcodes/oik-login.php:69
 msgid "post ID to redirect to"
 msgstr "psot ID tO rdericet tO"
 
 
-#: shortcodes/oik-login.php:64
+#: shortcodes/oik-login.php:70
 msgid "display 'Remember me?' checkbox"
 msgstr "dsilpay 'Rmemeebr mE?' cehkcobx"
+
+
+#: shortcodes/oik-login.php:88
+msgid "Display the Login or Logout link"
+msgstr "Dsilpay thE Lgoin Or Lgouot lnik"
+
+
+#: shortcodes/oik-login.php:100
+msgid "Display a link to the Registration form, if Registration is enabled"
+msgstr "Dsilpay A lnik tO thE Rgesirttaoin from, If Rgesirttaoin Is eanlbed"
 
 
 #: shortcodes/oik-logo.php:169
