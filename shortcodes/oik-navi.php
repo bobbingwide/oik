@@ -288,7 +288,7 @@ function bw_navi_start_from_atts( $atts ) {
  */
 function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
 	bw_push();
-	$posts_per_page = bw_array_get_dcb( $atts, "posts_per_page", null );
+	$posts_per_page = bw_array_get( $atts, "posts_per_page", null );
 	if ( !$posts_per_page ) {
 		$atts['posts_per_page'] = get_option( "posts_per_page" ); 
 		$atts = oik_navi_shortcode_atts( $atts );
