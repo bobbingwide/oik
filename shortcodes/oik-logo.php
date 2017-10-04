@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2016 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -166,10 +166,10 @@ function bw_logo( $atts=null ) {
  * Syntax hook for [bw_logo] shortcode
  */
 function bw_logo__syntax( $shortcode="bw_logo" ) {
-  $syntax = array( "link" => bw_skv( "", ".|<i>URL</i>", "Link when clicked" )
-                 , "text" => bw_skv( "", "<i>company</i>", "Text for tooltip" )
-                 , "width" => bw_skv( "", "<i>width</i>", "Width in pixels" )
-                 , "height" => bw_skv( "", "<i>height</i>", "Height in pixels" )
+  $syntax = array( "link" => BW_::bw_skv( "", ".|<i>" . __( "URL", "oik" ) . "</i>", __( "Link when clicked", "oik" ) )
+                 , "text" => BW_::bw_skv( "", "<i>" . __( "company", "oik" ) . "</i>", __( "Text for tooltip", "oik" ) )
+                 , "width" => BW_::bw_skv( "", "<i>" . __( "width", "oik" ) . "</i>", __( "Width in pixels", "oik" ) )
+                 , "height" => BW_::bw_skv( "", "<i>" . __( "height", "oik" ) . "</i>", __( "Height in pixels", "oik" ) )
                  );  
   return( $syntax );
 }

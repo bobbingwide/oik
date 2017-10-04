@@ -41,7 +41,7 @@ function bw_login_shortcode( $atts=null, $content=null, $tag=null ) {
       $form = null;
     }
   } else {
-    $redirect = bw_array_get_dcb( $atts, "redirect", null );
+    $redirect = bw_array_get( $atts, "redirect", null );
     if ( $redirect == null ) { 
       $redirect = get_permalink(); 
     } 
