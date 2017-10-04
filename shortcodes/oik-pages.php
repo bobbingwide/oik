@@ -101,19 +101,22 @@ function bw_pages__syntax( $shortcode="bw_pages" ) {
  * Help hook for [bw_pages] shortcode
  */
 function bw_pages__help( $shortcode="bw_pages" ) {
-  return( "Display page thumbnails and excerpts as links" );
+  return( __( "Display page thumbnails and excerpts as links", "oik" ) );
 }
 
 /**
  * Example hook for [bw_pages] shortcode
  */
 function bw_pages__example( $shortcode="bw_pages" ) {
-  e( "Display sub-pages of the current or selected item. " );
-  e( "The item may be a page, post or custom post type. " );
-  e( "The default display is formatted with a featured image, excerpt and a read more link. " );
-  e( "For examples visit ");  
-  $link = "http://www.oik-plugins.com/oik-shortcodes/$shortcode/$shortcode";
-  alink( NULL, $link, "$shortcode help" );   
+  e( __( "Display sub-pages of the current or selected item.", "oik" ) );
+	e( ' ' );
+  e( __( "The item may be a page, post or custom post type.", "oik" ) );
+	e( ' ' );
+  e( __( "The default display is formatted with a featured image, excerpt and a read more link.", "oik" ) );
+	e( ' ' );
+  $link = "https://www.oik-plugins.com/oik-shortcodes/$shortcode/$shortcode";
+  $link = retlink( NULL, $link, sprintf( __( '%1$s help', "oik" ), $shortcode ) );   
+  e( sprintf( __( 'For examples visit %1$s', "oik" ), $link ) );  
 }
 
 /**

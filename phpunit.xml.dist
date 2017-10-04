@@ -59,6 +59,7 @@
 			<file>tests/test-shortcodes-oik-logo.php</file>
 			<file>tests/test-shortcodes-oik-navi.php</file>
 			<file>tests/test-shortcodes-oik-phone.php</file>
+			<file>tests/test-shortcodes-oik-pages.php</file>
 			<file>tests/test-shortcodes-oik-qrcode.php</file>
 		</testsuite>
 		<testsuite name="random">

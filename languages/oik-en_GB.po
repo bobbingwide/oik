@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-04 09:30:42+00:00\n"
+"POT-Creation-Date: 2017-10-04 10:52:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1175,10 +1175,6 @@ msgstr "Mobile phone number (block)"
 msgid "Information about a Drupal module"
 msgstr "Information about a Drupal module"
 
-#: includes/oik-sc-help.inc:82
-msgid "Display page thumbnails and excerpts as links"
-msgstr "Display page thumbnails and excerpts as links"
-
 #: includes/oik-sc-help.inc:83
 msgid "Display attached PDF files"
 msgstr "Display attached PDF files"
@@ -2153,7 +2149,7 @@ msgstr "No"
 msgid "Yes"
 msgstr "Yes"
 
-#: shortcodes/oik-codes.php:154
+#: shortcodes/oik-codes.php:154 shortcodes/oik-pages.php:118
 msgid "%1$s help"
 msgstr "%1$s help"
 
@@ -2792,6 +2788,28 @@ msgstr "field format string"
 #: shortcodes/oik-pages.php:96
 msgid "text for read more button"
 msgstr "text for read more button"
+
+#: shortcodes/oik-pages.php:104
+msgid "Display page thumbnails and excerpts as links"
+msgstr "Display page thumbnails and excerpts as links"
+
+#: shortcodes/oik-pages.php:111
+msgid "Display sub-pages of the current or selected item."
+msgstr "Display sub-pages of the current or selected item."
+
+#: shortcodes/oik-pages.php:113
+msgid "The item may be a page, post or custom post type."
+msgstr "The item may be a page, post or custom post type."
+
+#: shortcodes/oik-pages.php:115
+msgid ""
+"The default display is formatted with a featured image, excerpt and a read "
+"more link."
+msgstr "The default display is formatted with a featured image, excerpt and a read more link."
+
+#: shortcodes/oik-pages.php:119
+msgid "For examples visit %1$s"
+msgstr "For examples visit %1$s"
 
 #: shortcodes/oik-parent.php:78
 msgid "ID from which to find the parent"

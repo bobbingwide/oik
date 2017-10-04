@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-04 09:30:42+00:00\n"
+"POT-Creation-Date: 2017-10-04 10:52:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1482,11 +1482,6 @@ msgid "Information about a Drupal module"
 msgstr "Ifnroamiton aobut A Durapl mdolue"
 
 
-#: includes/oik-sc-help.inc:82
-msgid "Display page thumbnails and excerpts as links"
-msgstr "Dsilpay pgae tuhbmanlis And ecxretps As lniks"
-
-
 #: includes/oik-sc-help.inc:83
 msgid "Display attached PDF files"
 msgstr "Dsilpay attcaehd PDF flies"
@@ -2695,7 +2690,7 @@ msgid "Yes"
 msgstr "YEs"
 
 
-#: shortcodes/oik-codes.php:154
+#: shortcodes/oik-codes.php:154 shortcodes/oik-pages.php:118
 msgid "%1$s help"
 msgstr "%1$s hlep"
 
@@ -3493,6 +3488,35 @@ msgstr "feild froamt srtnig"
 #: shortcodes/oik-pages.php:96
 msgid "text for read more button"
 msgstr "txet fOr raed mroe btuotn"
+
+
+#: shortcodes/oik-pages.php:104
+msgid "Display page thumbnails and excerpts as links"
+msgstr "Dsilpay pgae tuhbmanlis And ecxretps As lniks"
+
+
+#: shortcodes/oik-pages.php:111
+msgid "Display sub-pages of the current or selected item."
+msgstr "Dsilpay sUb-pgaes Of thE cruernt Or sleceetd ietm."
+
+
+#: shortcodes/oik-pages.php:113
+msgid "The item may be a page, post or custom post type."
+msgstr "ThE ietm mAy bE A pgae, psot Or csuotm psot tpye."
+
+
+#: shortcodes/oik-pages.php:115
+msgid ""
+"The default display is formatted with a featured image, excerpt and a read "
+"more link."
+msgstr ""
+"ThE dfeualt dsilpay Is froamtted wtih A faeuterd iamge, ecxrept And A raed "
+"mroe lnik."
+
+
+#: shortcodes/oik-pages.php:119
+msgid "For examples visit %1$s"
+msgstr "FOr eaxpmels vsiit %1$s"
 
 
 #: shortcodes/oik-parent.php:78

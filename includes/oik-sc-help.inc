@@ -79,7 +79,6 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 		case "bw_mob": $l10n_help = __( 'Mobile phone number (inline)', 'oik' ); break;
 		case "bw_mobile": $l10n_help = __( 'Mobile phone number (block)', 'oik' ); break;
 		case "bw_module": $l10n_help = __( 'Information about a Drupal module', 'oik' ); break;
-		case "bw_pages": $l10n_help = __( 'Display page thumbnails and excerpts as links', 'oik' ); break;
 		case "bw_pdf": $l10n_help = __( 'Display attached PDF files', 'oik' ); break;
 		case "bw_picasa": $l10n_help = __( 'Follow me on Picasa', 'oik' ); break;
 		case "bw_pinterest": $l10n_help = __( 'Follow me on Pinterest', 'oik' ); break; 
