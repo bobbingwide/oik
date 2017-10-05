@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-05 09:01:07+00:00\n"
+"POT-Creation-Date: 2017-10-05 10:40:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -776,7 +776,7 @@ msgid "PayPal country"
 msgstr "PyaaPl cuotnry"
 
 
-#: admin/oik-admin.inc:523 shortcodes/oik-paypal.php:239
+#: admin/oik-admin.inc:523 shortcodes/oik-paypal.php:249
 msgid "PayPal currency"
 msgstr "PyaaPl cruercny"
 
@@ -2106,7 +2106,7 @@ msgstr "Tihs Is A cpaiton"
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
 #: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
-#: shortcodes/oik-link.php:340
+#: shortcodes/oik-link.php:340 shortcodes/oik-paypal.php:251
 msgid "text"
 msgstr "txet"
 
@@ -2866,6 +2866,7 @@ msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
 
 #: shortcodes/oik-contact-form.php:296 shortcodes/oik-contact-form.php:298
+#: shortcodes/oik-paypal.php:247
 msgid "email"
 msgstr "eamil"
 
@@ -3533,52 +3534,58 @@ msgid "ID from which to find the parent"
 msgstr "ID form wihch tO fnid thE pranet"
 
 
-#: shortcodes/oik-paypal.php:91
-msgid "paypal-email"
-msgstr "pyaapl-eamil"
-
-
-#: shortcodes/oik-paypal.php:92
-msgid "paypal-country"
-msgstr "pyaapl-cuotnry"
-
-
-#: shortcodes/oik-paypal.php:94
-msgid "paypal-currency"
-msgstr "pyaapl-cruercny"
-
-
-#: shortcodes/oik-paypal.php:236
+#: shortcodes/oik-paypal.php:246
 msgid "Button type"
 msgstr "Btuotn tpye"
 
 
-#: shortcodes/oik-paypal.php:237
+#: shortcodes/oik-paypal.php:247
 msgid "PayPal email address"
 msgstr "PyaaPl eamil adderss"
 
 
-#: shortcodes/oik-paypal.php:238
+#: shortcodes/oik-paypal.php:248
+msgid "country"
+msgstr "cuotnry"
+
+
+#: shortcodes/oik-paypal.php:248
 msgid "PayPal Country code"
 msgstr "PyaaPl Cuotnry cdoe"
 
 
-#: shortcodes/oik-paypal.php:240
+#: shortcodes/oik-paypal.php:249
+msgid "currency"
+msgstr "cruercny"
+
+
+#: shortcodes/oik-paypal.php:250 shortcodes/oik-paypal.php:254
+#: shortcodes/oik-paypal.php:255 shortcodes/oik-paypal.php:256
+msgid "nn.mm"
+msgstr "nn.mm"
+
+
+#: shortcodes/oik-paypal.php:250
 msgid "Amount without currency symbol"
 msgstr "Aomnut wtiohut cruercny smyobl"
 
 
-#: shortcodes/oik-paypal.php:241
+#: shortcodes/oik-paypal.php:251
 msgid "Product name"
 msgstr "Porudct nmae"
 
 
-#: shortcodes/oik-paypal.php:242
+#: shortcodes/oik-paypal.php:252
+msgid "SKU"
+msgstr "SKU"
+
+
+#: shortcodes/oik-paypal.php:252
 msgid "Stock Keeping Unit"
 msgstr "Sotck Keeipng Uint"
 
 
-#: shortcodes/oik-paypal.php:243
+#: shortcodes/oik-paypal.php:253
 msgid ""
 "Shipping Address Required? 0=prompt, optional, 1=do not prompt, 2=prompt and "
 "require"
@@ -3587,17 +3594,17 @@ msgstr ""
 "rqeiure"
 
 
-#: shortcodes/oik-paypal.php:244
+#: shortcodes/oik-paypal.php:254
 msgid "Weight in kilos or pounds"
 msgstr "Wiehgt In klios Or puodns"
 
 
-#: shortcodes/oik-paypal.php:245
+#: shortcodes/oik-paypal.php:255
 msgid "Shipping cost"
 msgstr "Sihppnig csot"
 
 
-#: shortcodes/oik-paypal.php:246
+#: shortcodes/oik-paypal.php:256
 msgid "Shipping cost2"
 msgstr "Sihppnig csot2"
 

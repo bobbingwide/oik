@@ -28,7 +28,8 @@ define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
    PayPal generated code for the buttons was
    
    Pay now - rather than Buy Now
-                            
+   
+	 `                         
    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
      <input type="hidden" name="cmd" value="_xclick">
      <input type="hidden" name="business" value="herb@bobbingwide.com">
@@ -44,9 +45,11 @@ define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
      <input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
      <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
    </form>
+	 `
                          
    Donate
    
+	 `
    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
    <input type="hidden" name="cmd" value="_donations">
    <input type="hidden" name="business" value="herb@bobbingwide.com">
@@ -59,9 +62,11 @@ define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
    <input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
    </form>
+	 `
    
    Add to cart
-   
+  
+	` 
   <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
   <input type="hidden" name="cmd" value="_cart">
   <input type="hidden" name="business" value="herb@bobbingwide.com">
@@ -79,6 +84,7 @@ define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
   <input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
   <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
   </form>
+	`
   
   Note: Image locations are currently hardcoded for en_GB
   
@@ -243,17 +249,17 @@ function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
  * Syntax hook for [paypal] shortcode
  */  
 function paypal__syntax( $shortcode="paypal" ) {
-  $syntax = array( "type" => bw_skv( "donate", "pay|buy|add|view", "Button type" )
-                 , "email" => bw_skv( "paypal-email", "<i>email</i>", "PayPal email address" )
-                 , "location" => bw_skv( "GB", "<i>country</i>", "PayPal Country code" )
-                 , "currency" => bw_skv( "GBP", "<i>currency</i>", "PayPal currency" )
-                 , "amount" => bw_skv( null, "<i>nn.mm</i>", "Amount without currency symbol" ) 
-                 , "productname" => bw_skv( "oik-plugin", "<i>text</i>", "Product name" )
-                 , "sku" =>  bw_skv( "oik", "<i>SKU</i>", "Stock Keeping Unit" )
-                 , "shipadd" => bw_skv( "2", "0|1", "Shipping Address Required? 0=prompt, optional, 1=do not prompt, 2=prompt and require" )
-                 , "weight" => bw_skv( null, "nn.mm", "Weight in kilos or pounds" )
-                 , "shipcost" => bw_skv( null, "nn.mm", "Shipping cost" )
-                 , "shipcost2" => bw_skv( null, "nn.mm", "Shipping cost2" )
+  $syntax = array( "type" => BW_::bw_skv( "donate", "pay|buy|add|view", __( "Button type", "oik" ) )
+                 , "email" => BW_::bw_skv( "paypal-email", "<i>" . __( "email", "oik" ) . "</i>", __( "PayPal email address", "oik" ) )
+                 , "location" => BW_::bw_skv( "GB", "<i>" . __( "country", "oik" ) . "</i>", __( "PayPal Country code", "oik" ) )
+                 , "currency" => BW_::bw_skv( "GBP", "<i>" . __( "currency", "oik" ) . "</i>", __( "PayPal currency", "oik" ) )
+                 , "amount" => BW_::bw_skv( null, "<i>" . __( "nn.mm", "oik" ) . "</i>", __( "Amount without currency symbol", "oik" ) ) 
+                 , "productname" => BW_::bw_skv( "oik-plugin", "<i>" . __( "text", "oik" ) . "</i>", __( "Product name", "oik" ) )
+                 , "sku" =>  BW_::bw_skv( "oik", "<i>" . __( "SKU", "oik" ) . "</i>", __( "Stock Keeping Unit", "oik" ) )
+                 , "shipadd" => BW_::bw_skv( "2", "0|1", __( "Shipping Address Required? 0=prompt, optional, 1=do not prompt, 2=prompt and require", "oik" ) )
+                 , "weight" => BW_::bw_skv( null, "<i>" . __( "nn.mm", "oik" ) . "</i>", __( "Weight in kilos or pounds", "oik" ) )
+                 , "shipcost" => BW_::bw_skv( null, "<i>" . __( "nn.mm", "oik" ) . "</i>", __( "Shipping cost", "oik" ) )
+                 , "shipcost2" => BW_::bw_skv( null, "<i>" . __( "nn.mm", "oik" ) . "</i>", __( "Shipping cost2", "oik" ) )
                  );
   return( $syntax );
 }                  
