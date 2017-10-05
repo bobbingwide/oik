@@ -62,6 +62,7 @@
 			<file>tests/test-shortcodes-oik-pages.php</file>
 			<file>tests/test-shortcodes-oik-parent.php</file>
 			<file>tests/test-shortcodes-oik-paypal.php</file>
+			<file>tests/test-shortcodes-oik-posts.php</file>
 			<file>tests/test-shortcodes-oik-qrcode.php</file>
 		</testsuite>
 		<testsuite name="random">

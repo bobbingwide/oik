@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2012,2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -56,6 +56,6 @@ function bw_posts( $atts = NULL ) {
 function bw_posts__syntax( $shortcode="bw_posts" ) {
   $syntax = _sc_posts(); 
   $syntax = array_merge( $syntax, _sc_classes() );
-  $syntax['numberposts'] = bw_skv( 10, "numeric", "number to return" );
+  $syntax['numberposts'] = BW_::bw_skv( 10, __( "numeric", "oik" ), __( "number to return", "oik" ) );
   return( $syntax );   
 }
