@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-04 10:52:32+00:00\n"
+"POT-Creation-Date: 2017-10-05 09:01:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -899,7 +899,7 @@ msgstr ","
 msgid "-"
 msgstr "-"
 
-#: bobbcomp.inc:625 includes/oik-sc-help.inc:204
+#: bobbcomp.inc:625 includes/oik-sc-help.inc:203
 msgid "&copy; Copyright"
 msgstr "&copy; Copyright"
 
@@ -925,7 +925,6 @@ msgid ": "
 msgstr ": "
 
 #: includes/bw_formatter.inc:130 includes/bw_posts.inc:315
-#: shortcodes/oik-parent.php:43
 msgid "Post: "
 msgstr "Post: "
 
@@ -1175,212 +1174,212 @@ msgstr "Mobile phone number (block)"
 msgid "Information about a Drupal module"
 msgstr "Information about a Drupal module"
 
-#: includes/oik-sc-help.inc:83
+#: includes/oik-sc-help.inc:82
 msgid "Display attached PDF files"
 msgstr "Display attached PDF files"
 
-#: includes/oik-sc-help.inc:84
+#: includes/oik-sc-help.inc:83
 msgid "Follow me on Picasa"
 msgstr "Follow me on Picasa"
 
-#: includes/oik-sc-help.inc:85
+#: includes/oik-sc-help.inc:84
 msgid "Follow me on Pinterest"
 msgstr "Follow me on Pinterest"
 
-#: includes/oik-sc-help.inc:86
+#: includes/oik-sc-help.inc:85
 msgid "Display matched portfolio files"
 msgstr "Display matched portfolio files"
 
-#: includes/oik-sc-help.inc:87
+#: includes/oik-sc-help.inc:86
 msgid "Display posts"
 msgstr "Display posts"
 
-#: includes/oik-sc-help.inc:88
+#: includes/oik-sc-help.inc:87
 msgid "Powered by WordPress"
 msgstr "Powered by WordPress"
 
-#: includes/oik-sc-help.inc:89
+#: includes/oik-sc-help.inc:88
 msgid "Display an uploaded QR code image"
 msgstr "Display an uploaded QR code image"
 
-#: includes/oik-sc-help.inc:90
+#: includes/oik-sc-help.inc:89
 msgid "Show Google map [bw_show_googlemap]"
 msgstr "Show Google map [bw_show_googlemap]"
 
-#: includes/oik-sc-help.inc:91 shortcodes/oik-phone.php:185
+#: includes/oik-sc-help.inc:90 shortcodes/oik-phone.php:185
 #: shortcodes/oik-phone.php:282
 msgid "Skype name"
 msgstr "Skype name"
 
-#: includes/oik-sc-help.inc:92
+#: includes/oik-sc-help.inc:91
 msgid "Primary slogan"
 msgstr "Primary slogan"
 
-#: includes/oik-sc-help.inc:93
+#: includes/oik-sc-help.inc:92
 msgid "Display posts in tabbed blocks"
 msgstr "Display posts in tabbed blocks"
 
-#: includes/oik-sc-help.inc:94
+#: includes/oik-sc-help.inc:93
 msgid "Telephone number (inline)"
 msgstr "Telephone number (inline)"
 
-#: includes/oik-sc-help.inc:95
+#: includes/oik-sc-help.inc:94
 msgid "Telephone number (block)"
 msgstr "Telephone number (block)"
 
-#: includes/oik-sc-help.inc:96
+#: includes/oik-sc-help.inc:95
 msgid "List pages as fluid thumbnail links"
 msgstr "List pages as fluid thumbnail links"
 
-#: includes/oik-sc-help.inc:97
+#: includes/oik-sc-help.inc:96
 msgid "Display tide times and heights"
 msgstr "Display tide times and heights"
 
-#: includes/oik-sc-help.inc:98
+#: includes/oik-sc-help.inc:97
 msgid "Simple tree of pages/posts or custom post types"
 msgstr "Simple tree of pages/posts or custom post types"
 
-#: includes/oik-sc-help.inc:99
+#: includes/oik-sc-help.inc:98
 msgid "Follow me on Twitter"
 msgstr "Follow me on Twitter"
 
-#: includes/oik-sc-help.inc:100
+#: includes/oik-sc-help.inc:99
 msgid "Site: link to wp-admin"
 msgstr "Site: link to wp-admin"
 
-#: includes/oik-sc-help.inc:101
+#: includes/oik-sc-help.inc:100
 msgid "WTF"
 msgstr "WTF"
 
-#: includes/oik-sc-help.inc:102
+#: includes/oik-sc-help.inc:101
 msgid "Follow me on YouTube"
 msgstr "Follow me on YouTube"
 
-#: includes/oik-sc-help.inc:103
+#: includes/oik-sc-help.inc:102
 msgid "Trace facility form"
 msgstr "Trace facility form"
 
-#: includes/oik-sc-help.inc:104
+#: includes/oik-sc-help.inc:103
 msgid "Force trace off"
 msgstr "Force trace off"
 
-#: includes/oik-sc-help.inc:105
+#: includes/oik-sc-help.inc:104
 msgid "Force trace on"
 msgstr "Force trace on"
 
-#: includes/oik-sc-help.inc:106 libs/oik-sc-help.php:355
+#: includes/oik-sc-help.inc:105 libs/oik-sc-help.php:355
 msgid "Display the caption for an image. Standard WordPress shortcode"
 msgstr "Display the caption for an image. Standard WordPress shortcode"
 
-#: includes/oik-sc-help.inc:107
+#: includes/oik-sc-help.inc:106
 msgid "Clear divs "
 msgstr "Clear divs "
 
-#: includes/oik-sc-help.inc:108
+#: includes/oik-sc-help.inc:107
 msgid "Display a collage (Artisteer theme)"
 msgstr "Display a collage (Artisteer theme)"
 
-#: includes/oik-sc-help.inc:109
+#: includes/oik-sc-help.inc:108
 msgid "Show a valid CSS icon (Artisteer theme)"
 msgstr "Show a valid CSS icon (Artisteer theme)"
 
-#: includes/oik-sc-help.inc:112 libs/oik-sc-help.php:424
+#: includes/oik-sc-help.inc:111 libs/oik-sc-help.php:424
 msgid "Embed media"
 msgstr "Embed media"
 
-#: includes/oik-sc-help.inc:113
+#: includes/oik-sc-help.inc:112
 msgid "End a tag started with [stag]"
 msgstr "End a tag started with [stag]"
 
-#: includes/oik-sc-help.inc:114 libs/oik-sc-help.php:383
+#: includes/oik-sc-help.inc:113 libs/oik-sc-help.php:383
 msgid "Display the attached images in a gallery"
 msgstr "Display the attached images in a gallery"
 
-#: includes/oik-sc-help.inc:115
+#: includes/oik-sc-help.inc:114
 msgid "Display a Slideshow Gallery Pro slideshow"
 msgstr "Display a Slideshow Gallery Pro slideshow"
 
-#: includes/oik-sc-help.inc:116
+#: includes/oik-sc-help.inc:115
 msgid "Login link (Artisteer themes)"
 msgstr "Login link (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:117
+#: includes/oik-sc-help.inc:116
 msgid "NextGen gallery slideshow"
 msgstr "NextGen gallery slideshow"
 
-#: includes/oik-sc-help.inc:119
+#: includes/oik-sc-help.inc:118
 msgid "Paypal shortcodes"
 msgstr "Paypal shortcodes"
 
-#: includes/oik-sc-help.inc:120
+#: includes/oik-sc-help.inc:119
 msgid "Playlist"
 msgstr "Playlist"
 
-#: includes/oik-sc-help.inc:121
+#: includes/oik-sc-help.inc:120
 msgid "Produce a post link (Artisteer themes)"
 msgstr "Produce a post link (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:122
+#: includes/oik-sc-help.inc:121
 msgid "Produce an RSS feeds button (Artisteer themes)"
 msgstr "Produce an RSS feeds button (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:123
+#: includes/oik-sc-help.inc:122
 msgid "Produce an RSS title (Artisteer themes)"
 msgstr "Produce an RSS title (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:124
+#: includes/oik-sc-help.inc:123
 msgid "Produce an RSS URL (Artisteer themes)"
 msgstr "Produce an RSS URL (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:125
+#: includes/oik-sc-help.inc:124
 msgid "Search button (Artisteer themes)"
 msgstr "Search button (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:126
+#: includes/oik-sc-help.inc:125
 msgid "Start a div"
 msgstr "Start a div"
 
-#: includes/oik-sc-help.inc:127
+#: includes/oik-sc-help.inc:126
 msgid "Start and end a div"
 msgstr "Start and end a div"
 
-#: includes/oik-sc-help.inc:128
+#: includes/oik-sc-help.inc:127
 msgid "Start a tag"
 msgstr "Start a tag"
 
-#: includes/oik-sc-help.inc:129
+#: includes/oik-sc-help.inc:128
 msgid "Produce a template_url (Artisteer themes)"
 msgstr "Produce a template_url (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:130
+#: includes/oik-sc-help.inc:129
 msgid "Top of page button (Artisteer themes)"
 msgstr "Top of page button (Artisteer themes)"
 
-#: includes/oik-sc-help.inc:131
+#: includes/oik-sc-help.inc:130
 msgid "Embed video files"
 msgstr "Embed video files"
 
-#: includes/oik-sc-help.inc:132
+#: includes/oik-sc-help.inc:131
 msgid "Caption (WordPress shortcode - alias)"
 msgstr "Caption (WordPress shortcode - alias)"
 
-#: includes/oik-sc-help.inc:133
+#: includes/oik-sc-help.inc:132
 msgid "Valid XHTML button (Artisteer theme)"
 msgstr "Valid XHTML button (Artisteer theme)"
 
-#: includes/oik-sc-help.inc:134
+#: includes/oik-sc-help.inc:133
 msgid "Current year (Artisteer theme)"
 msgstr "Current year (Artisteer theme)"
 
-#: includes/oik-sc-help.inc:151
+#: includes/oik-sc-help.inc:150
 msgid "start a %1$s tag"
 msgstr "start a %1$s tag"
 
-#: includes/oik-sc-help.inc:176
+#: includes/oik-sc-help.inc:175
 msgid "end a %1$s with %2$s"
 msgstr "end a %1$s with %2$s"
 
-#: includes/oik-sc-help.inc:187 includes/oik-sc-help.inc:196
+#: includes/oik-sc-help.inc:186 includes/oik-sc-help.inc:195
 #: libs/oik-sc-help.php:409 libs/oik-sc-help.php:410 libs/oik-sc-help.php:411
 #: shortcodes/oik-blocks.php:128 shortcodes/oik-email.php:145
 #: shortcodes/oik-email.php:158 shortcodes/oik-phone.php:202
@@ -1388,16 +1387,16 @@ msgstr "end a %1$s with %2$s"
 msgid "tag"
 msgstr "tag"
 
-#: includes/oik-sc-help.inc:187
+#: includes/oik-sc-help.inc:186
 msgid "HTML start tag"
 msgstr "HTML start tag"
 
-#: includes/oik-sc-help.inc:196
+#: includes/oik-sc-help.inc:195
 msgid "paired HTML tag for the stag shortcode"
 msgstr "paired HTML tag for the stag shortcode"
 
-#: includes/oik-sc-help.inc:204 includes/oik-sc-help.inc:206
-#: includes/oik-sc-help.inc:208 shortcodes/oik-email.php:132
+#: includes/oik-sc-help.inc:203 includes/oik-sc-help.inc:205
+#: includes/oik-sc-help.inc:207 shortcodes/oik-email.php:132
 #: shortcodes/oik-email.php:133 shortcodes/oik-iframe.php:54
 #: shortcodes/oik-pages.php:96 shortcodes/oik-phone.php:199
 #: shortcodes/oik-phone.php:214 shortcodes/oik-phone.php:236
@@ -1406,63 +1405,63 @@ msgstr "paired HTML tag for the stag shortcode"
 msgid "string"
 msgstr "string"
 
-#: includes/oik-sc-help.inc:204
+#: includes/oik-sc-help.inc:203
 msgid "Copyright text prefix"
 msgstr "Copyright text prefix"
 
-#: includes/oik-sc-help.inc:205 shortcodes/oik-googlemap.php:270
+#: includes/oik-sc-help.inc:204 shortcodes/oik-googlemap.php:270
 msgid "company name"
 msgstr "company name"
 
-#: includes/oik-sc-help.inc:205 shortcodes/oik-qrcode.php:38
+#: includes/oik-sc-help.inc:204 shortcodes/oik-qrcode.php:38
 msgid "from oik options - company"
 msgstr "from oik options - company"
 
-#: includes/oik-sc-help.inc:206
+#: includes/oik-sc-help.inc:205
 msgid ". All rights reserved."
 msgstr ". All rights reserved."
 
-#: includes/oik-sc-help.inc:206
+#: includes/oik-sc-help.inc:205
 msgid "copyright suffix text"
 msgstr "copyright suffix text"
 
-#: includes/oik-sc-help.inc:207
+#: includes/oik-sc-help.inc:206
 msgid "year"
 msgstr "year"
 
-#: includes/oik-sc-help.inc:207
+#: includes/oik-sc-help.inc:206
 msgid "from oik options - yearfrom"
 msgstr "from oik options - yearfrom"
 
-#: includes/oik-sc-help.inc:208
+#: includes/oik-sc-help.inc:207
 msgid "default: ',' if one year difference '-' otherwise"
 msgstr "default: ',' if one year difference '-' otherwise"
 
-#: includes/oik-sc-help.inc:217
+#: includes/oik-sc-help.inc:216
 msgid "Advertisement selection - Artisteer theme options"
 msgstr "Advertisement selection - Artisteer theme options"
 
-#: includes/oik-sc-help.inc:218
+#: includes/oik-sc-help.inc:217
 msgid "Alignment"
 msgstr "Alignment"
 
-#: includes/oik-sc-help.inc:219
+#: includes/oik-sc-help.inc:218
 msgid "0 if inline, 1 for block"
 msgstr "0 if inline, 1 for block"
 
-#: includes/oik-sc-help.inc:232
+#: includes/oik-sc-help.inc:231
 msgid "page name"
 msgstr "page name"
 
-#: includes/oik-sc-help.inc:232
+#: includes/oik-sc-help.inc:231
 msgid "Page to link to"
 msgstr "Page to link to"
 
-#: includes/oik-sc-help.inc:240
+#: includes/oik-sc-help.inc:239
 msgid "collage ID"
 msgstr "collage ID"
 
-#: includes/oik-sc-help.inc:240
+#: includes/oik-sc-help.inc:239
 msgid "Index of the theme_collages post meta to display"
 msgstr "Index of the theme_collages post meta to display"
 
@@ -1637,7 +1636,7 @@ msgstr "Attached media MIME type"
 
 #: libs/oik-sc-help.php:336 libs/oik-sc-help.php:408 oik-ids.php:34
 #: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:339
-#: shortcodes/oik-login.php:69
+#: shortcodes/oik-login.php:69 shortcodes/oik-parent.php:84
 msgid "ID"
 msgstr "ID"
 
@@ -2811,7 +2810,15 @@ msgstr "The default display is formatted with a featured image, excerpt and a re
 msgid "For examples visit %1$s"
 msgstr "For examples visit %1$s"
 
-#: shortcodes/oik-parent.php:78
+#: shortcodes/oik-parent.php:43
+msgid "Post: %1$s"
+msgstr "Post: %1$s"
+
+#: shortcodes/oik-parent.php:77
+msgid "Display a link back to the parent page"
+msgstr "Display a link back to the parent page"
+
+#: shortcodes/oik-parent.php:84
 msgid "ID from which to find the parent"
 msgstr "ID from which to find the parent"
 

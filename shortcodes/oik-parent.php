@@ -3,7 +3,7 @@ if ( defined( 'OIK_PARENT_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_PARENT_SHORTCODES_INCLUDED', true );
 
 /*
-    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -40,7 +40,7 @@ function bw_post_link( $link=null, $class="bw_post" ) {
     $title = get_the_title( $link );
     bw_pop();
     if ( empty( $title ) ) {
-      $title = __( "Post: " ) . $link;
+      $title = sprintf( __( 'Post: %1$s', "oik" ) , $link );
     }
     $link = retlink( $class, $url, $title, null, "id-$link" );
   }
@@ -70,12 +70,18 @@ function bw_parent( $atts=null, $content=null, $tag=null ) {
   return( bw_ret());
 }
 
+/**
+ * Help for [bw_parent] shortcode
+ */
 function bw_parent__help() {
-  return( "Display a link back to the parent page" );
+  return( __( "Display a link back to the parent page", "oik" ) );
 }
 
+/**
+ * Syntax for [bw_parent] shortcode
+ */
 function bw_parent__syntax( $shortcode="bw_parent" ) {
-  $syntax = array( "id" => bw_skv( null, "<i>ID</id>", "ID from which to find the parent" ) );
+  $syntax = array( "id" => BW_::bw_skv( null, "<i>". __( "ID", "oik" ) . "</id>", __( "ID from which to find the parent", "oik" ) ) );
   return( $syntax );
 }
 
