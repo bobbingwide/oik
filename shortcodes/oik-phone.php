@@ -85,7 +85,10 @@ function _bw_telephone_link( &$atts, $number, $start=true ) {
  *
  */
 function _bw_telephone( $atts=null ) {
-  $prefix = bw_array_get_dcb( $atts, "prefix", "Tel" );
+  $prefix = bw_array_get( $atts, "prefix", null );
+	if ( !$prefix ) {
+		$prefix = __( "Tel", "oik" );
+	}
   $sep = bw_array_get( $atts, "sep", ": " );
   $number = bw_array_get( $atts, "number", null );
   $index = bw_array_get( $atts, "index", "telephone" );
@@ -126,7 +129,10 @@ function bw_telephone( $atts = null ) {
  */
 function bw_fax( $atts = null ) {
   $atts['index'] = bw_array_get( $atts, "index", "fax" );
-  $atts['prefix'] = bw_array_get_dcb( $atts, "prefix", "Fax" );
+  $atts['prefix'] = bw_array_get( $atts, "prefix", null );
+	if ( !$atts['prefix'] ) {
+		$atts['prefix'] = __( "Fax", "oik" );
+	}
   return( _bw_telephone( $atts ) );
 }
 
@@ -135,7 +141,10 @@ function bw_fax( $atts = null ) {
  */
 function bw_mobile( $atts = null ) {
   $atts['index'] = bw_array_get( $atts, "index", "mobile" );
-  $atts['prefix'] = bw_array_get_dcb( $atts, "prefix", "Mobile" );
+  $atts['prefix'] = bw_array_get( $atts, "prefix", null );
+	if ( !$atts['prefix'] ) {
+		$atts['prefix'] = __( "Mobile", "oik" );
+	}
   return( _bw_telephone( $atts ) );
 }
 
@@ -144,7 +153,10 @@ function bw_mobile( $atts = null ) {
  */
 function bw_emergency( $atts = null ) {
   $atts['index'] = bw_array_get( $atts, "index", "emergency" );
-  $atts['prefix'] = bw_array_get_dcb( $atts, "prefix", "Emergency" );
+  $atts['prefix'] = bw_array_get( $atts, "prefix", null );
+	if ( !$atts['prefix'] ) {
+		$atts['prefix'] = __( "Emergency", "oik" );
+	}
   $atts['class'] = bw_array_get( $atts, "class", "bw_emergency" );
   return( _bw_telephone( $atts ) );
 }
@@ -167,7 +179,10 @@ function bw_tel( $atts=null ) {
 function bw_mob( $atts=null ) {
   $atts['tag'] = bw_array_get( $atts, "tag", "span" );
   $atts['index'] = bw_array_get( $atts, "index", "mobile" );
-  $atts['prefix'] = bw_array_get_dcb( $atts, "prefix", "Mobile" );
+  $atts['prefix'] = bw_array_get( $atts, "prefix", null );
+	if ( !$atts['prefix'] ) {
+		$atts['prefix'] = __( "Mobile", "oik" );
+	}
   return _bw_telephone( $atts );
 }
 
@@ -182,7 +197,10 @@ function bw_mob( $atts=null ) {
 */
 function bw_skype( $atts=null, $content=null, $tag=null ) {
   $atts['index'] = bw_array_get( $atts, "index", "skype" );
-  $atts['prefix'] = bw_array_get_dcb( $atts, "prefix", "Skype name" );
+  $atts['prefix'] = bw_array_get( $atts, "prefix", null );
+	if ( !$atts['prefix'] ) {
+		$atts['prefix'] = __( "Skype name", "oik" );
+	}
   $atts['class'] = bw_array_get( $atts, "class", "bw_skype" );
   $atts['number'] = bw_array_get( $atts, "number", null );
   if ( !$atts['number'] ) {

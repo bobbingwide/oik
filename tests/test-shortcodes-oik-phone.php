@@ -159,6 +159,24 @@ class Tests_shortcodes_oik_phone extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
+	
+	/**
+	 * Test the translations of the default prefixes
+	 */
+	function test_phone_shortcodes_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$atts = array( "number" => "0123 456789" );
+		$html = bw_telephone( $atts );
+		$html .= bw_fax( $atts );
+		$html .= bw_mobile( $atts );
+		$html .= bw_emergency( $atts );
+		$html .= bw_tel( $atts );
+		$html .= bw_mob( $atts );
+		$html .= bw_skype( $atts );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
 
 	
 	
