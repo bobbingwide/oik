@@ -3,7 +3,7 @@ if ( !defined( 'OIK_PAYPAL_SHORTCODES_INCLUDED' ) ) {
 define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2011-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -88,10 +88,20 @@ define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
 function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
 
   oik_require( "bobbforms.inc" );
-  $bw_paypal_email = bw_array_get_dcb( $atts, "email", "paypal-email" , "bw_get_option", "bw_options"  );        
-  $atts['location'] = bw_array_get_dcb( $atts, "location", 'paypal-country', "bw_get_option", "bw_options" );  
+  $bw_paypal_email = bw_array_get( $atts, "email", null );
+	if ( !$bw_paypal_email ) {
+		$bw_paypay_email = bw_get_option( "paypal-email" );
+	}
+  $atts['location'] = bw_array_get( $atts, "location", null );
+	if ( !$atts['location'] ) {
+		$atts['location'] = bw_get_option( "paypal-country" );
+	}
   $bw_paypal_location = bw_array_get( $atts, "location", "GB" );
-  $atts['currency'] = bw_array_get_dcb( $atts, "currency", 'paypal-currency', "bw_get_option", "bw_options" );  
+	
+  $atts['currency'] = bw_array_get( $atts, "currency", null );
+	if ( !$atts['currency'] ) {
+		$atts['currency'] = bw_get_option( 'paypal-currency'); 
+	} 
   $bw_paypal_currency = bw_array_get( $atts, "currency", 'GBP' ); // hardcoded at present
   $atts['productname'] = bw_array_get( $atts, "productname", "oik-plugin" );
   $atts['sku'] = bw_array_get( $atts, "sku", "oik" );
