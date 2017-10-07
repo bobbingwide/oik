@@ -7,7 +7,8 @@
 */ 
 function bw_qrcode( $atts ) {
   $link = bw_array_get( $atts, 'link', null );
-  $text = bw_array_get_dcb( $atts, 'text', 'company', 'bw_get_option' );
+  $company = bw_get_option( "company" );
+  $text = bw_array_get( $atts, 'text', $company );
   $width = bw_array_get( $atts, 'width', null );
   $height = bw_array_get( $atts, 'height', null );
 
@@ -16,12 +17,11 @@ function bw_qrcode( $atts ) {
   $baseurl = $upload_dir['baseurl'];
   
   $logo_image = bw_get_option( "qrcode-image" );
-  $company = bw_get_option( "company" );
   $image_url = $baseurl . $logo_image;
   
-  $image = retimage( NULL, $image_url, "QR code for " . $text , $width, $height );
+  $image = retimage( NULL, $image_url, sprintf( __( 'QR code for %1$s', "oik" ), $text ) , $width, $height );
   if ( $link ) {
-    alink( NULL, $link, $image, $company );
+    BW_::alink( NULL, $link, $image, $company );
   }  
   else {
     e( $image );  

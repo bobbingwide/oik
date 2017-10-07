@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-05 10:40:00+00:00\n"
+"POT-Creation-Date: 2017-10-07 08:25:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -542,20 +542,20 @@ msgid "Telephone"
 msgstr "Tlepeohne"
 
 
-#: admin/oik-admin.inc:364 shortcodes/oik-phone.php:138
-#: shortcodes/oik-phone.php:170 shortcodes/oik-phone.php:248
+#: admin/oik-admin.inc:364 shortcodes/oik-phone.php:146
+#: shortcodes/oik-phone.php:184 shortcodes/oik-phone.php:266
 msgid "Mobile"
 msgstr "Mbolie"
 
 
-#: admin/oik-admin.inc:376 shortcodes/oik-phone.php:129
-#: shortcodes/oik-phone.php:236
+#: admin/oik-admin.inc:376 shortcodes/oik-phone.php:134
+#: shortcodes/oik-phone.php:254
 msgid "Fax"
 msgstr "FAx"
 
 
-#: admin/oik-admin.inc:377 shortcodes/oik-phone.php:147
-#: shortcodes/oik-phone.php:269
+#: admin/oik-admin.inc:377 shortcodes/oik-phone.php:158
+#: shortcodes/oik-phone.php:287
 msgid "Emergency"
 msgstr "Eemgrnecy"
 
@@ -776,7 +776,7 @@ msgid "PayPal country"
 msgstr "PyaaPl cuotnry"
 
 
-#: admin/oik-admin.inc:523 shortcodes/oik-paypal.php:249
+#: admin/oik-admin.inc:523 shortcodes/oik-paypal.php:255
 msgid "PayPal currency"
 msgstr "PyaaPl cruercny"
 
@@ -1521,8 +1521,8 @@ msgid "Show Google map [bw_show_googlemap]"
 msgstr "Sohw Goolge mAp [bw_show_googlemap]"
 
 
-#: includes/oik-sc-help.inc:90 shortcodes/oik-phone.php:185
-#: shortcodes/oik-phone.php:282
+#: includes/oik-sc-help.inc:90 shortcodes/oik-phone.php:202
+#: shortcodes/oik-phone.php:300
 msgid "Skype name"
 msgstr "Sykpe nmae"
 
@@ -1740,8 +1740,8 @@ msgstr "End A %1$s wtih %2$s"
 #: includes/oik-sc-help.inc:186 includes/oik-sc-help.inc:195
 #: libs/oik-sc-help.php:409 libs/oik-sc-help.php:410 libs/oik-sc-help.php:411
 #: shortcodes/oik-blocks.php:128 shortcodes/oik-email.php:145
-#: shortcodes/oik-email.php:158 shortcodes/oik-phone.php:202
-#: shortcodes/oik-phone.php:226 shortcodes/oik-phone.php:260
+#: shortcodes/oik-email.php:158 shortcodes/oik-phone.php:220
+#: shortcodes/oik-phone.php:244 shortcodes/oik-phone.php:278
 msgid "tag"
 msgstr "tAg"
 
@@ -1759,10 +1759,10 @@ msgstr "piaerd HMTL tAg fOr thE satg sohtrocde"
 #: includes/oik-sc-help.inc:203 includes/oik-sc-help.inc:205
 #: includes/oik-sc-help.inc:207 shortcodes/oik-email.php:132
 #: shortcodes/oik-email.php:133 shortcodes/oik-iframe.php:54
-#: shortcodes/oik-pages.php:96 shortcodes/oik-phone.php:199
-#: shortcodes/oik-phone.php:214 shortcodes/oik-phone.php:236
-#: shortcodes/oik-phone.php:248 shortcodes/oik-phone.php:269
-#: shortcodes/oik-phone.php:282 shortcodes/oik-qrcode.php:38
+#: shortcodes/oik-pages.php:96 shortcodes/oik-phone.php:217
+#: shortcodes/oik-phone.php:232 shortcodes/oik-phone.php:254
+#: shortcodes/oik-phone.php:266 shortcodes/oik-phone.php:287
+#: shortcodes/oik-phone.php:300 shortcodes/oik-qrcode.php:38
 msgid "string"
 msgstr "srtnig"
 
@@ -1913,15 +1913,15 @@ msgstr "OIk gneretaed eaxpmle."
 
 #: libs/oik-sc-help.php:300 shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20 shortcodes/oik-follow.php:343
-#: shortcodes/oik-phone.php:203 shortcodes/oik-phone.php:273
-#: shortcodes/oik-phone.php:286
+#: shortcodes/oik-phone.php:221 shortcodes/oik-phone.php:291
+#: shortcodes/oik-phone.php:304
 msgid "class names"
 msgstr "calss nmaes"
 
 
 #: libs/oik-sc-help.php:300 shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20 shortcodes/oik-cycle.php:127
-#: shortcodes/oik-follow.php:343 shortcodes/oik-phone.php:203
+#: shortcodes/oik-follow.php:343 shortcodes/oik-phone.php:221
 msgid "CSS class names"
 msgstr "CSS calss nmaes"
 
@@ -1943,6 +1943,7 @@ msgstr "uinuqe iedtnfieir"
 #: libs/oik-sc-help.php:454 libs/oik-sc-help.php:485 libs/oik-sc-help.php:486
 #: shortcodes/oik-galleries.php:36 shortcodes/oik-iframe.php:50
 #: shortcodes/oik-iframe.php:51 shortcodes/oik-list.php:177
+#: shortcodes/oik-posts.php:59
 msgid "numeric"
 msgstr "nmureic"
 
@@ -2106,7 +2107,7 @@ msgstr "Tihs Is A cpaiton"
 #: libs/oik-sc-help.php:370 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
 #: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
-#: shortcodes/oik-link.php:340 shortcodes/oik-paypal.php:251
+#: shortcodes/oik-link.php:340 shortcodes/oik-paypal.php:257
 msgid "text"
 msgstr "txet"
 
@@ -2569,7 +2570,8 @@ msgstr "E.g."
 
 
 #: shortcodes/oik-bookmarks.php:57 shortcodes/oik-googlemap.php:277
-#: shortcodes/oik-phone.php:201
+#: shortcodes/oik-phone.php:219 shortcodes/oik-slideshows.php:81
+#: shortcodes/oik-slideshows.php:83 shortcodes/oik-slideshows.php:96
 msgid "number"
 msgstr "nmuebr"
 
@@ -2805,7 +2807,7 @@ msgstr "[bw_codes] - lsit sohtroceds"
 
 #: shortcodes/oik-company.php:67 shortcodes/oik-email.php:134
 #: shortcodes/oik-follow.php:344 shortcodes/oik-geo.php:75
-#: shortcodes/oik-geo.php:84 shortcodes/oik-phone.php:200
+#: shortcodes/oik-geo.php:84 shortcodes/oik-phone.php:218
 msgid "Use alternative value"
 msgstr "UsE atlreanitve vlaue"
 
@@ -2866,7 +2868,7 @@ msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
 
 #: shortcodes/oik-contact-form.php:296 shortcodes/oik-contact-form.php:298
-#: shortcodes/oik-paypal.php:247
+#: shortcodes/oik-paypal.php:253
 msgid "email"
 msgstr "eamil"
 
@@ -3030,14 +3032,14 @@ msgid "Send email to: %1$s"
 msgstr "Sned eamil tO: %1$s"
 
 
-#: shortcodes/oik-email.php:132 shortcodes/oik-phone.php:214
-#: shortcodes/oik-phone.php:236 shortcodes/oik-phone.php:248
-#: shortcodes/oik-phone.php:269 shortcodes/oik-phone.php:282
+#: shortcodes/oik-email.php:132 shortcodes/oik-phone.php:232
+#: shortcodes/oik-phone.php:254 shortcodes/oik-phone.php:266
+#: shortcodes/oik-phone.php:287 shortcodes/oik-phone.php:300
 msgid "Prefix string"
 msgstr "Perifx srtnig"
 
 
-#: shortcodes/oik-email.php:133 shortcodes/oik-phone.php:199
+#: shortcodes/oik-email.php:133 shortcodes/oik-phone.php:217
 msgid "Separator string"
 msgstr "Sperataor srtnig"
 
@@ -3058,24 +3060,24 @@ msgstr "Tool tIp txet"
 
 
 #: shortcodes/oik-email.php:145 shortcodes/oik-email.php:158
-#: shortcodes/oik-phone.php:202 shortcodes/oik-phone.php:226
-#: shortcodes/oik-phone.php:260
+#: shortcodes/oik-phone.php:220 shortcodes/oik-phone.php:244
+#: shortcodes/oik-phone.php:278
 msgid "enclosing HTML tag"
 msgstr "ecnolisng HMTL tAg"
 
 
 #: shortcodes/oik-email.php:146 shortcodes/oik-email.php:159
-#: shortcodes/oik-phone.php:215 shortcodes/oik-phone.php:237
-#: shortcodes/oik-phone.php:249 shortcodes/oik-phone.php:270
-#: shortcodes/oik-phone.php:283
+#: shortcodes/oik-phone.php:233 shortcodes/oik-phone.php:255
+#: shortcodes/oik-phone.php:267 shortcodes/oik-phone.php:288
+#: shortcodes/oik-phone.php:301
 msgid "field"
 msgstr "feild"
 
 
 #: shortcodes/oik-email.php:146 shortcodes/oik-email.php:159
-#: shortcodes/oik-phone.php:215 shortcodes/oik-phone.php:237
-#: shortcodes/oik-phone.php:249 shortcodes/oik-phone.php:270
-#: shortcodes/oik-phone.php:283
+#: shortcodes/oik-phone.php:233 shortcodes/oik-phone.php:255
+#: shortcodes/oik-phone.php:267 shortcodes/oik-phone.php:288
+#: shortcodes/oik-phone.php:301
 msgid "oik options field to use"
 msgstr "OIk otpoins feild tO UsE"
 
@@ -3445,7 +3447,7 @@ msgid "Link when clicked"
 msgstr "Lnik wehn cilkced"
 
 
-#: shortcodes/oik-logo.php:170 shortcodes/oik-qrcode.php:10
+#: shortcodes/oik-logo.php:170
 msgid "company"
 msgstr "cmoapny"
 
@@ -3534,58 +3536,58 @@ msgid "ID from which to find the parent"
 msgstr "ID form wihch tO fnid thE pranet"
 
 
-#: shortcodes/oik-paypal.php:246
+#: shortcodes/oik-paypal.php:252
 msgid "Button type"
 msgstr "Btuotn tpye"
 
 
-#: shortcodes/oik-paypal.php:247
+#: shortcodes/oik-paypal.php:253
 msgid "PayPal email address"
 msgstr "PyaaPl eamil adderss"
 
 
-#: shortcodes/oik-paypal.php:248
+#: shortcodes/oik-paypal.php:254
 msgid "country"
 msgstr "cuotnry"
 
 
-#: shortcodes/oik-paypal.php:248
+#: shortcodes/oik-paypal.php:254
 msgid "PayPal Country code"
 msgstr "PyaaPl Cuotnry cdoe"
 
 
-#: shortcodes/oik-paypal.php:249
+#: shortcodes/oik-paypal.php:255
 msgid "currency"
 msgstr "cruercny"
 
 
-#: shortcodes/oik-paypal.php:250 shortcodes/oik-paypal.php:254
-#: shortcodes/oik-paypal.php:255 shortcodes/oik-paypal.php:256
+#: shortcodes/oik-paypal.php:256 shortcodes/oik-paypal.php:260
+#: shortcodes/oik-paypal.php:261 shortcodes/oik-paypal.php:262
 msgid "nn.mm"
 msgstr "nn.mm"
 
 
-#: shortcodes/oik-paypal.php:250
+#: shortcodes/oik-paypal.php:256
 msgid "Amount without currency symbol"
 msgstr "Aomnut wtiohut cruercny smyobl"
 
 
-#: shortcodes/oik-paypal.php:251
+#: shortcodes/oik-paypal.php:257
 msgid "Product name"
 msgstr "Porudct nmae"
 
 
-#: shortcodes/oik-paypal.php:252
+#: shortcodes/oik-paypal.php:258
 msgid "SKU"
 msgstr "SKU"
 
 
-#: shortcodes/oik-paypal.php:252
+#: shortcodes/oik-paypal.php:258
 msgid "Stock Keeping Unit"
 msgstr "Sotck Keeipng Uint"
 
 
-#: shortcodes/oik-paypal.php:253
+#: shortcodes/oik-paypal.php:259
 msgid ""
 "Shipping Address Required? 0=prompt, optional, 1=do not prompt, 2=prompt and "
 "require"
@@ -3594,42 +3596,42 @@ msgstr ""
 "rqeiure"
 
 
-#: shortcodes/oik-paypal.php:254
+#: shortcodes/oik-paypal.php:260
 msgid "Weight in kilos or pounds"
 msgstr "Wiehgt In klios Or puodns"
 
 
-#: shortcodes/oik-paypal.php:255
+#: shortcodes/oik-paypal.php:261
 msgid "Shipping cost"
 msgstr "Sihppnig csot"
 
 
-#: shortcodes/oik-paypal.php:256
+#: shortcodes/oik-paypal.php:262
 msgid "Shipping cost2"
 msgstr "Sihppnig csot2"
 
 
-#: shortcodes/oik-phone.php:88 shortcodes/oik-phone.php:214
+#: shortcodes/oik-phone.php:90 shortcodes/oik-phone.php:232
 msgid "Tel"
 msgstr "TEl"
 
 
-#: shortcodes/oik-phone.php:201
+#: shortcodes/oik-phone.php:219
 msgid "Number override"
 msgstr "Nmuebr oevrrdie"
 
 
-#: shortcodes/oik-phone.php:204
+#: shortcodes/oik-phone.php:222
 msgid "other"
 msgstr "ohter"
 
 
-#: shortcodes/oik-phone.php:204
+#: shortcodes/oik-phone.php:222
 msgid "tel: or sms: link"
 msgstr "tEl: Or sms: lnik"
 
 
-#: shortcodes/oik-phone.php:273 shortcodes/oik-phone.php:286
+#: shortcodes/oik-phone.php:291 shortcodes/oik-phone.php:304
 msgid "additional CSS class names"
 msgstr "addtioianl CSS calss nmaes"
 
@@ -3642,6 +3644,11 @@ msgstr "Porduly pworeed by WroPderss"
 #: shortcodes/oik-power.php:18
 msgid "Semantic Personal Publishing Platform"
 msgstr "Smenaitc Preosanl Pbuilhsnig Palftrom"
+
+
+#: shortcodes/oik-qrcode.php:22
+msgid "QR code for %1$s"
+msgstr "QR cdoe fOr %1$s"
 
 
 #: shortcodes/oik-qrcode.php:37
@@ -3659,102 +3666,112 @@ msgid "height of QR code image, if required"
 msgstr "hiehgt Of QR cdoe iamge, If rqeiuerd"
 
 
-#: shortcodes/oik-slideshows.php:77
+#: shortcodes/oik-slideshows.php:66
+msgid "Mobile friendly portfolio slideshow"
+msgstr "Mbolie firneldy proftloio siledhsow"
+
+
+#: shortcodes/oik-slideshows.php:79
 msgid "Image size"
 msgstr "Iamge szie"
 
 
-#: shortcodes/oik-slideshows.php:78
+#: shortcodes/oik-slideshows.php:80
 msgid "Disable slideshow wrapping"
 msgstr "Dsibale siledhsow warppnig"
 
 
-#: shortcodes/oik-slideshows.php:79
+#: shortcodes/oik-slideshows.php:81
 msgid "Transition speed in milliseconds"
 msgstr "Tarsntioin seped In mliilesocdns"
 
 
-#: shortcodes/oik-slideshows.php:80
+#: shortcodes/oik-slideshows.php:82
 msgid "Transition effect"
 msgstr "Tarsntioin effcet"
 
 
-#: shortcodes/oik-slideshows.php:81
+#: shortcodes/oik-slideshows.php:83
 msgid "Time per slide when slideshow is playing"
 msgstr "Tmie pEr silde wehn siledhsow Is paliyng"
 
 
-#: shortcodes/oik-slideshows.php:82
+#: shortcodes/oik-slideshows.php:84
 msgid "Exclude the featured image"
 msgstr "Ecxulde thE faeuterd iamge"
 
 
-#: shortcodes/oik-slideshows.php:83
+#: shortcodes/oik-slideshows.php:85
 msgid "Autoplay the slideshow"
 msgstr "Atupoaly thE siledhsow"
 
 
-#: shortcodes/oik-slideshows.php:84
+#: shortcodes/oik-slideshows.php:86
 msgid "Position of the pager"
 msgstr "Psotioin Of thE pgaer"
 
 
-#: shortcodes/oik-slideshows.php:85
+#: shortcodes/oik-slideshows.php:87
 msgid "Position of the navigation links"
 msgstr "Psotioin Of thE nvagitaoin lniks"
 
 
-#: shortcodes/oik-slideshows.php:86
+#: shortcodes/oik-slideshows.php:88
 msgid "Show the image caption"
 msgstr "Sohw thE iamge cpaiton"
 
 
-#: shortcodes/oik-slideshows.php:87
+#: shortcodes/oik-slideshows.php:89
 msgid "Show the image title"
 msgstr "Sohw thE iamge ttile"
 
 
-#: shortcodes/oik-slideshows.php:88
+#: shortcodes/oik-slideshows.php:90
 msgid "Show the image description"
 msgstr "Sohw thE iamge dsercpiiton"
 
 
-#: shortcodes/oik-slideshows.php:89
+#: shortcodes/oik-slideshows.php:91
 msgid "Behavior when image clicked"
 msgstr "Bhevaoir wehn iamge cilkced"
 
 
-#: shortcodes/oik-slideshows.php:90
+#: shortcodes/oik-slideshows.php:92
+msgid "New URL opens in"
+msgstr "NEw URL oepns In"
+
+
+#: shortcodes/oik-slideshows.php:93
+msgid "Display centered slideshow"
+msgstr "Dsilpay cneeterd siledhsow"
+
+
+#: shortcodes/oik-slideshows.php:94
 msgid "Alternative to pagerpos=bottom"
 msgstr "Atlreanitve tO pagerpos=bottom"
 
 
-#: shortcodes/oik-slideshows.php:91
-msgid "Support fluid layouts"
-msgstr "Spuoprt fulid lyauots"
-
-
-#: shortcodes/oik-slideshows.php:92
+#: shortcodes/oik-slideshows.php:96
 msgid "Force slide container height, in pixels"
 msgstr "Froce silde cnoatnier hiehgt, In pxiles"
 
 
-#: shortcodes/oik-slideshows.php:93
+#: shortcodes/oik-slideshows.php:97
 msgid "ID of post from which the slides should be taken"
 msgstr "ID Of psot form wihch thE sileds sohlud bE tkaen"
 
 
-#: shortcodes/oik-slideshows.php:94
+#: shortcodes/oik-slideshows.php:98
 msgid "IDs of attachments to exclude"
 msgstr "IDs Of attcamhnets tO ecxulde"
 
 
-#: shortcodes/oik-slideshows.php:95
+#: shortcodes/oik-slideshows.php:99
 msgid "IDs of attachments to include"
 msgstr "IDs Of attcamhnets tO icnulde"
 
 
-#: shortcodes/oik-slideshows.php:102
+#: shortcodes/oik-slideshows.php:107
 msgid ""
 "To display the slideshow using thumbnail sized images, changing every 10 "
 "secs, using <i>fadeZoom</i>"
@@ -3763,14 +3780,19 @@ msgstr ""
 "sces, uisng <i>fadeZoom</i>"
 
 
-#: shortcodes/oik-slideshows.php:107
-msgid "Note: Default values are set on the Portfolio slideshow options page"
-msgstr "Ntoe: Dfeualt vlaeus ArE sEt On thE Proftloio siledhsow otpoins pgae"
+#: shortcodes/oik-slideshows.php:110
+msgid "Note: Default values are set on the Portfolio slideshow options page."
+msgstr "Ntoe: Dfeualt vlaeus ArE sEt On thE Proftloio siledhsow otpoins pgae."
 
 
-#: shortcodes/oik-slideshows.php:108
+#: shortcodes/oik-slideshows.php:111
 msgid "You can choose from any documented jQuery cycle transition listed here:"
 msgstr "YOU cAn cohsoe form Any dcomuneetd juQrey ccyle tarsntioin lsietd hree:"
+
+
+#: shortcodes/oik-slideshows.php:112
+msgid "jQuery Cycle Plugin - beginner demos"
+msgstr "juQrey Ccyle Pulign - bgenienr dmeos"
 
 
 #: shortcodes/oik-table.php:162

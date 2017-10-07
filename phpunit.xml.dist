@@ -65,6 +65,7 @@
 			<file>tests/test-shortcodes-oik-posts.php</file>
 			<file>tests/test-shortcodes-oik-power.php</file>
 			<file>tests/test-shortcodes-oik-qrcode.php</file>
+			<file>tests/test-shortcodes-oik-slideshows.php</file>
 		</testsuite>
 		<testsuite name="random">
 			<!-- We can't actually run tests in a random order due to use of static variables -->

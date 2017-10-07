@@ -53,15 +53,17 @@ function bw_gp_slideshow( $atts, $hmm=NULL, $tag=NULL ) {
 
 
 /**
- * Information extracted from
- * portfolio-slideshow\inc\shortcode.php (Version 1.3.5 ) 
+ * Help for [portfolio_slideshow] shortcode
+ * 
+ * - Information extracted from portfolio-slideshow\inc\shortcode.php (Version 1.3.5 ) 
+ * - updated for Version 1.12.0
  
 	extract( shortcode_atts( array(
  * 
 */ 
 
 function portfolio_slideshow__help( $shortcode="portfolio_slideshow" ) {
-  return( "Mobile friendly portfolio slideshow" );
+  return( __( "Mobile friendly portfolio slideshow", "oik" ) );
 } 
 
 /**
@@ -74,39 +76,40 @@ function portfolio_slideshow__syntax( $shortcode="portfolio_slideshow" ) {
 
   global $ps_options;
 
-  $syntax = array( "size" => bw_skv( $ps_options['size'], "thumbnail|medium|large|full", "Image size" )
-                 , 'nowrap' => bw_skv( $ps_options['nowrap'], "true|false", "Disable slideshow wrapping" )
-                 , 'speed' => bw_skv( $ps_options['speed'], "<i>number</i>", "Transition speed in milliseconds" )
-                 , 'trans' => bw_skv( $ps_options['trans'], "fade|scrollHorz", "Transition effect" )
-                 , 'timeout' => bw_skv( $ps_options['timeout'], "<i>number</i>", "Time per slide when slideshow is playing" )
-                 , 'exclude_featured' => bw_skv( $ps_options['exclude_featured'], "true|false", "Exclude the featured image" )
-                 , 'autoplay' => bw_skv( $ps_options['autoplay'], "true|false", "Autoplay the slideshow" )
-                 , 'pagerpos' => bw_skv( $ps_options['pagerpos'], "top|bottom|disabed", "Position of the pager" )
-                 , 'navpos' => bw_skv( $ps_options['navpos'], "top|bottom|disabled", "Position of the navigation links" )
-                 , 'showcaps' => bw_skv( $ps_options['showcaps'], "true|false", "Show the image caption" )
-                 , 'showtitles' => bw_skv( $ps_options['showtitles'], "true|false", "Show the image title" )
-                 , 'showdesc' => bw_skv( $ps_options['showdesc'], "true|false", "Show the image description" )
-                 , 'click' =>	bw_skv( $ps_options['click'], "advance|openurl", "Behavior when image clicked" )
-                 , 'thumbs' => bw_skv( '', "true", "Alternative to pagerpos=bottom" )
-                 , 'fluid'	=>	bw_skv( $ps_options['allowfluid'], "true|false", "Support fluid layouts" )
-                 , 'slideheight' => bw_skv( '', "<i>number</i>", "Force slide container height, in pixels" )
-                 , 'id' => bw_skv( '', "post-id", "ID of post from which the slides should be taken" )
-                 , 'exclude' => bw_skv( '', "id1,id2,etc", "IDs of attachments to exclude" )
-                 , 'include' => bw_skv( '', "id1,id2,etc", "IDs of attachments to include" )
+  $syntax = array( "size" => BW_::bw_skv( $ps_options['size'], "thumbnail|medium|large|full", __( "Image size", "oik" ) )
+                 , 'nowrap' => BW_::bw_skv( $ps_options['nowrap'], "true|false", __( "Disable slideshow wrapping", "oik" ) )
+                 , 'speed' => BW_::bw_skv( $ps_options['speed'], "<i>" . __( "number", "oik" ) . "</i>", __( "Transition speed in milliseconds", "oik" ) )
+                 , 'trans' => BW_::bw_skv( $ps_options['trans'], "fade|scrollHorz", __( "Transition effect", "oik" ) )
+                 , 'timeout' => BW_::bw_skv( $ps_options['timeout'], "<i>" . __( "number", "oik" ) . "</i>", __( "Time per slide when slideshow is playing", "oik" ) )
+                 , 'exclude_featured' => BW_::bw_skv( $ps_options['exclude_featured'], "true|false", __( "Exclude the featured image", "oik" ) )
+                 , 'autoplay' => BW_::bw_skv( $ps_options['autoplay'], "true|false", __( "Autoplay the slideshow", "oik" ) )
+                 , 'pagerpos' => BW_::bw_skv( $ps_options['pagerpos'], "top|bottom|disabled", __( "Position of the pager", "oik" ) )
+                 , 'navpos' => BW_::bw_skv( $ps_options['navpos'], "top|bottom|disabled", __( "Position of the navigation links", "oik" ) )
+                 , 'showcaps' => BW_::bw_skv( $ps_options['showcaps'], "true|false", __( "Show the image caption", "oik" ) )
+                 , 'showtitles' => BW_::bw_skv( $ps_options['showtitles'], "true|false", __( "Show the image title", "oik" ) )
+                 , 'showdesc' => BW_::bw_skv( $ps_options['showdesc'], "true|false", __( "Show the image description", "oik" ) )
+                 , 'click' =>	BW_::bw_skv( $ps_options['click'], "advance|openurl", __( "Behavior when image clicked", "oik" ) )
+								 , 'target' => BW_::bw_skv( $ps_options['target'], "_self|_blank|_parent", __( "New URL opens in", "oik" ) )  
+								 , 'centered' => BW_::bw_skv( $ps_options['centered'], "true|false", __( "Display centered slideshow", "oik" ) )  
+                 , 'thumbs' => BW_::bw_skv( '', "true", __( "Alternative to pagerpos=bottom", "oik" ) )
+                 //, 'fluid'	=>	BW_::bw_skv( $ps_options['allowfluid'], "true|false", "Support fluid layouts" )
+                 , 'slideheight' => BW_::bw_skv( '', "<i>" . __( "number", "oik" ) . "</i>", __( "Force slide container height, in pixels", "oik" ) )
+                 , 'id' => BW_::bw_skv( '', "post-id", __( "ID of post from which the slides should be taken", "oik" ) )
+                 , 'exclude' => BW_::bw_skv( '', "id1,id2,etc", __( "IDs of attachments to exclude", "oik" ) )
+                 , 'include' => BW_::bw_skv( '', "id1,id2,etc", __( "IDs of attachments to include", "oik" ) )
                  );
   return( $syntax );
+	
 }  
 
 function portfolio_slideshow__example( $shortcode="portfolio_slideshow" ) {
   
-  p( "To display the slideshow using thumbnail sized images, changing every 10 secs, using <i>fadeZoom</i>" );
+  BW_::p( __( "To display the slideshow using thumbnail sized images, changing every 10 secs, using <i>fadeZoom</i>", "oik" ) );
   $example = "[$shortcode size=thumbnail speed=10000 trans=\"fadeZoom\"]";
-  p( $example );
-  // e( do_shortcode( $example ));
-    
-  p( "Note: Default values are set on the Portfolio slideshow options page" );
-  p( "You can choose from any documented jQuery cycle transition listed here:" );
-  alink( null, "http://jquery.malsup.com/cycle/begin.html", "jQuery Cycle Plugin - beginner demos" );
+  BW_::p( $example );
+  BW_::p( __( "Note: Default values are set on the Portfolio slideshow options page.", "oik" ) );
+  BW_::p( __( "You can choose from any documented jQuery cycle transition listed here:", "oik" ) );
+  BW_::alink( null, "http://jquery.malsup.com/cycle/begin.html", __( "jQuery Cycle Plugin - beginner demos", "oik" ) );
    
   
 }               

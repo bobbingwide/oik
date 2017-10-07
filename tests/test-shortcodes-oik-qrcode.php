@@ -11,7 +11,8 @@ class Tests_shortcodes_oik_qrcode extends BW_UnitTestCase {
 		parent::setUp();
 		
 		//oik_require_lib( "oik-sc-help" );
-		oik_require( "shortcodes/oik-qrcode.php" ); 														
+		oik_require( "shortcodes/oik-qrcode.php" ); 	
+		oik_require_lib( "oik_plugins" );
 	}
 	
 	function test_bw_qrcode__syntax() {
@@ -31,6 +32,32 @@ class Tests_shortcodes_oik_qrcode extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
+	
+	function test_bw_qrcode() {
+		bw_update_option( "qrcode-image", "/qrcode-image.jpg" );
+		bw_update_option( "company", "company" );
+		$this->switch_to_locale( "en_GB" );
+		$atts = array( "link" => "https://example.com" );
+		$html = bw_qrcode( $atts );
+		$html = $this->replace_home_url( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	function test_bw_qrcode_bb_BB() {
+		bw_update_option( "qrcode-image", "/qrcode-image.jpg" );
+		bw_update_option( "company", "company" );
+		$this->switch_to_locale( "bb_BB" );
+		$atts = array( "link" => "https://example.com" );
+		$html = bw_qrcode( $atts );
+		$html = $this->replace_home_url( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+		
+		
 	
 	
 }
