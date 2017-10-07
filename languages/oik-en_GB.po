@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-07 08:25:34+00:00\n"
+"POT-Creation-Date: 2017-10-07 16:35:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -3012,31 +3012,47 @@ msgstr "IDs of attachments to exclude"
 msgid "IDs of attachments to include"
 msgstr "IDs of attachments to include"
 
-#: shortcodes/oik-slideshows.php:107
+#: shortcodes/oik-slideshows.php:109
 msgid ""
 "To display the slideshow using thumbnail sized images, changing every 10 "
 "secs, using <i>fadeZoom</i>"
 msgstr "To display the slideshow using thumbnail sized images, changing every 10 secs, using <i>fadeZoom</i>"
 
-#: shortcodes/oik-slideshows.php:110
+#: shortcodes/oik-slideshows.php:112
 msgid "Note: Default values are set on the Portfolio slideshow options page."
 msgstr "Note: Default values are set on the Portfolio slideshow options page."
 
-#: shortcodes/oik-slideshows.php:111
+#: shortcodes/oik-slideshows.php:113
 msgid "You can choose from any documented jQuery cycle transition listed here:"
 msgstr "You can choose from any documented jQuery cycle transition listed here:"
 
-#: shortcodes/oik-slideshows.php:112
+#: shortcodes/oik-slideshows.php:114
 msgid "jQuery Cycle Plugin - beginner demos"
 msgstr "jQuery Cycle Plugin - beginner demos"
 
-#: shortcodes/oik-table.php:162
+#: shortcodes/oik-table.php:157
 msgid "oik-fields plugin version must be version 1.31 or higher"
 msgstr "oik-fields plugin version must be version 1.31 or higher"
 
-#: shortcodes/oik-table.php:201
+#: shortcodes/oik-table.php:196
+msgid "fields"
+msgstr "fields"
+
+#: shortcodes/oik-table.php:196
 msgid "CSV of field names"
 msgstr "CSV of field names"
+
+#: shortcodes/oik-table.php:204
+msgid "Display custom post data in a tabular form"
+msgstr "Display custom post data in a tabular form"
+
+#: shortcodes/oik-table.php:215
+msgid "No example for %1$s"
+msgstr "No example for %1$s"
+
+#: shortcodes/oik-table.php:222
+msgid "No snippet for %1$s"
+msgstr "No snippet for %1$s"
 
 #: shortcodes/oik-thumbs.php:87
 msgid "Enclose in an Artisteer block"

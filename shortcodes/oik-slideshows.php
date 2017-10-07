@@ -3,7 +3,7 @@ if ( defined( 'OIK_SLIDESHOWS_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_SLIDESHOWS_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2011, 2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -100,18 +100,18 @@ function portfolio_slideshow__syntax( $shortcode="portfolio_slideshow" ) {
                  );
   return( $syntax );
 	
-}  
+}
 
+/**
+ * Example for [portfolio_slideshow]
+ */   
 function portfolio_slideshow__example( $shortcode="portfolio_slideshow" ) {
-  
   BW_::p( __( "To display the slideshow using thumbnail sized images, changing every 10 secs, using <i>fadeZoom</i>", "oik" ) );
   $example = "[$shortcode size=thumbnail speed=10000 trans=\"fadeZoom\"]";
   BW_::p( $example );
   BW_::p( __( "Note: Default values are set on the Portfolio slideshow options page.", "oik" ) );
   BW_::p( __( "You can choose from any documented jQuery cycle transition listed here:", "oik" ) );
   BW_::alink( null, "http://jquery.malsup.com/cycle/begin.html", __( "jQuery Cycle Plugin - beginner demos", "oik" ) );
-   
-  
 }               
                  
   

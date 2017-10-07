@@ -123,17 +123,12 @@ function bw_format_table_row( $post, $atts ) {
       $field_name = "post_" . $value;  
       $field_value = $post->$field_name;
       bw_theme_field( $field_name, $field_value, $atts );
-      
-       // e( $post->$field );
     } else {
-       // e( "key==value" . $key . $value . $key==$value );
        bw_trace2( $value );
        bw_custom_column( $value, $post->ID );   
-       //bw_flush();
     }   
     etag( "td" );
   }  
-  // bw_tablerow( $field_arr );
   etag( "tr");
 }
 
@@ -159,7 +154,7 @@ function bw_format_table( $posts, $atts ) {
     oik_require2( "includes/bw_fields.inc", "oik-fields" );
     if ( !function_exists( "bw_theme_field" ) ) {
       bw_trace2( "Please upgrade oik-fields" );
-      p( "oik-fields plugin version must be version 1.31 or higher" );
+      BW_::p( __( "oik-fields plugin version must be version 1.31 or higher", "oik" ) );
       return;
     }
   }
@@ -198,7 +193,7 @@ function bw_table( $atts=null, $content=null, $tag=null ) {
 function bw_table__syntax( $shortcode="bw_table" ) {
   $syntax = _sc_posts(); 
   $syntax = array_merge( $syntax, _sc_classes() );
-  $syntax['fields'] = bw_skv( "title,excerpt", "<i>fields</i>", "CSV of field names" );
+  $syntax['fields'] = BW_::bw_skv( "title,excerpt", "<i>" . __( "fields", "oik" ) . "</i>", __( "CSV of field names", "oik" ) );
   return( $syntax );   
 }
 
@@ -206,7 +201,7 @@ function bw_table__syntax( $shortcode="bw_table" ) {
  * Help hook for [bw_table] shortcode
  */
 function bw_table__help( $shortcode="bw_table" ) {
-  return( "Display custom post data in a tabular form" );
+  return( __( "Display custom post data in a tabular form", "oik" ) );
 }
 
 /**
@@ -217,13 +212,13 @@ function bw_table__example( $shortcode="bw_table" ) {
  $example = 'post_type="post" orderby="post_date" order=DESC numberposts=4';
  // oops it went into a loop! 
  //bw_invoke_shortcode( $shortcode, $example, $text );
- p( "No example for $shortcode" );
+ BW_::p( sprintf( __( 'No example for %1$s', "oik" ) , $shortcode ) );
 } 
 
 /**
  * Snippet hook for [bw_table] shortcode
  */
 function bw_table__snippet( $shortcode="bw_table" ) {
- p( "No snippet for $shortcode" );
+ BW_::p( sprintf( __( 'No snippet for %1$s', "oik" ),  $shortcode ) ); 
 }
 
