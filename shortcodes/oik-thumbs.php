@@ -79,20 +79,25 @@ function bw_thumbs( $atts = NULL ) {
   return( bw_ret() );
 }
 
+/**
+ * Syntax fo [bw_thumbs] shortcode
+ */
 function bw_thumbs__syntax( $shortcode="bw_thumbs" ) {
   $syntax = _sc_posts(); 
   $syntax += _sc_classes();
-  $syntax['orderby'] = bw_skv( 'title', "date|ID|parent|rand|menu_order", "Sort sequence" );
-  $syntax['order'] = bw_skv( 'ASC', "DESC", "Sort order" );
-  $syntax['block'] = bw_skv( "false", "true", "Enclose in an Artisteer block" );
+  $syntax['orderby'] = BW_::bw_skv( 'title', "date|ID|parent|rand|menu_order", __( "Sort sequence", "oik" ) );
+  $syntax['order'] = BW_::bw_skv( 'ASC', "DESC", __( "Sort order", "oik" ) );
+  $syntax['block'] = BW_::bw_skv( "false", "true", __( "Enclose in an Artisteer block", "oik" ) );
   return( $syntax );   
-} 
+}
 
+/**
+ * Example for [bw_thumbs] shortcode
+ */ 
 function bw_thumbs__example( $shortcode="bw_thumbs" ) {
- 
- $text = "To display 3 thumbnail images" ;
- $example = 'numberposts=3 post_type=attachment post_mime_type=image';
- bw_invoke_shortcode( $shortcode, $example, $text );
+	$text = __( "To display 3 thumbnail images", "oik" ) ;
+	$example = 'numberposts=3 post_type=attachment post_mime_type=image';
+	bw_invoke_shortcode( $shortcode, $example, $text );
 }
 
 

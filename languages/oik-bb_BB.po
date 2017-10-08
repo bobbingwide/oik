@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-08 08:23:13+00:00\n"
+"POT-Creation-Date: 2017-10-08 17:16:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1984,7 +1984,7 @@ msgstr "csuotm ctageroy sulg"
 
 
 #: libs/oik-sc-help.php:328 shortcodes/oik-attachments.php:349
-#: shortcodes/oik-thumbs.php:85
+#: shortcodes/oik-thumbs.php:88
 msgid "Sort sequence"
 msgstr "Srot sqeeucne"
 
@@ -2586,7 +2586,7 @@ msgid "Sort by field"
 msgstr "Srot by feild"
 
 
-#: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:86
+#: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:89
 msgid "Sort order"
 msgstr "Srot odrer"
 
@@ -3825,19 +3825,24 @@ msgid "No snippet for %1$s"
 msgstr "NO sinppet fOr %1$s"
 
 
-#: shortcodes/oik-tabs.php:105
+#: shortcodes/oik-tabs.php:117
 msgid "Example: Display the two most recent pages."
 msgstr "Eaxpmle: Dsilpay thE twO msot rcenet pgaes."
 
 
-#: shortcodes/oik-tabs.php:111
+#: shortcodes/oik-tabs.php:123
 msgid "Snippet not produced for this shortcode: %1$s"
 msgstr "Sinppet nOt porudecd fOr tihs sohtrocde: %1$s"
 
 
-#: shortcodes/oik-thumbs.php:87
+#: shortcodes/oik-thumbs.php:90
 msgid "Enclose in an Artisteer block"
 msgstr "Ecnolse In An Atrsieter bolck"
+
+
+#: shortcodes/oik-thumbs.php:98
+msgid "To display 3 thumbnail images"
+msgstr "TO dsilpay 3 tuhbmanil iamegs"
 
 
 #: shortcodes/oik-trace.php:32

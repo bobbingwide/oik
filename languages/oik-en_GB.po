@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-08 08:23:13+00:00\n"
+"POT-Creation-Date: 2017-10-08 17:16:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1581,7 +1581,7 @@ msgid "custom category slug"
 msgstr "custom category slug"
 
 #: libs/oik-sc-help.php:328 shortcodes/oik-attachments.php:349
-#: shortcodes/oik-thumbs.php:85
+#: shortcodes/oik-thumbs.php:88
 msgid "Sort sequence"
 msgstr "Sort sequence"
 
@@ -2066,7 +2066,7 @@ msgstr "Number of bookmarks to return. -1=unlimited"
 msgid "Sort by field"
 msgstr "Sort by field"
 
-#: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:86
+#: shortcodes/oik-bookmarks.php:59 shortcodes/oik-thumbs.php:89
 msgid "Sort order"
 msgstr "Sort order"
 
@@ -3054,17 +3054,21 @@ msgstr "No example for %1$s"
 msgid "No snippet for %1$s"
 msgstr "No snippet for %1$s"
 
-#: shortcodes/oik-tabs.php:105
+#: shortcodes/oik-tabs.php:117
 msgid "Example: Display the two most recent pages."
 msgstr "Example: Display the two most recent pages."
 
-#: shortcodes/oik-tabs.php:111
+#: shortcodes/oik-tabs.php:123
 msgid "Snippet not produced for this shortcode: %1$s"
 msgstr "Snippet not produced for this shortcode: %1$s"
 
-#: shortcodes/oik-thumbs.php:87
+#: shortcodes/oik-thumbs.php:90
 msgid "Enclose in an Artisteer block"
 msgstr "Enclose in an Artisteer block"
+
+#: shortcodes/oik-thumbs.php:98
+msgid "To display 3 thumbnail images"
+msgstr "To display 3 thumbnail images"
 
 #: shortcodes/oik-trace.php:32
 msgid "text for the trace button"
