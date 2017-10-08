@@ -1,12 +1,24 @@
-<?php // (C) Copyright Bobbing Wide 2012, 2013
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
- * Return the next selector for [bw_tabs]
- * @return string - CSS selector
+ * Returns the next selector for [bw_tabs]
+ *
+ * $inc  | action | return
+ * ----  | ------ | ------
+ * true  | $tabs_id++ | next value
+ * false | nop    | current value
+ * null  | 0    | current value	= 0
+ * 
+ * @param bool|null $inc - increment the id?
+ * @return string - tab selector ID
  */
-function bw_tabs_id() { 
+function bw_tabs_id( $inc=true ) { 
   static $tabs_id = 0;
-  $tabs_id++;
+	if ( $inc ) {
+		$tabs_id++;
+	} elseif ( null === $inc ) {
+		$tabs_id = 0;
+	}	
   return( "bw_tabs-$tabs_id" );
 }
 
@@ -16,7 +28,7 @@ function bw_tabs_id() {
 function bw_format_tabs_list( $post, $atts, $selector ) {
   stag( "li" );
   $url = "#" . $selector . "-" . $post->ID;
-  alink( NULL, $url, get_the_title( $post->ID ) );
+  BW_::alink( NULL, $url, get_the_title( $post->ID ) );
   etag( "li" );
 }
 
@@ -98,12 +110,15 @@ function bw_tabs__syntax() {
   return( _sc_posts() );
 }
 
+/**
+ * Example for [bw_tabs] shortcode
+ */
 function bw_tabs__example( $shortcode="bw_tabs" ) {
-  $text = "Example: Display the two most recent pages.";
+  $text = __( "Example: Display the two most recent pages.", "oik" );
   $example = "numberposts=2 post_type=page orderby=date order=DESC post_parent=0";
   bw_invoke_shortcode( $shortcode, $example, $text );
 }
 
 function bw_tabs__snippet( $shortcode="bw_tabs" ) {
-  e( "Snippet not produced for this shortcode: $shortcode" );
+  e( sprintf( __( 'Snippet not produced for this shortcode: %1$s', "oik" ), $shortcode ) );
 }

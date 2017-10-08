@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-07 16:35:13+00:00\n"
+"POT-Creation-Date: 2017-10-08 08:23:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -3823,6 +3823,16 @@ msgstr "NO eaxpmle fOr %1$s"
 #: shortcodes/oik-table.php:222
 msgid "No snippet for %1$s"
 msgstr "NO sinppet fOr %1$s"
+
+
+#: shortcodes/oik-tabs.php:105
+msgid "Example: Display the two most recent pages."
+msgstr "Eaxpmle: Dsilpay thE twO msot rcenet pgaes."
+
+
+#: shortcodes/oik-tabs.php:111
+msgid "Snippet not produced for this shortcode: %1$s"
+msgstr "Sinppet nOt porudecd fOr tihs sohtrocde: %1$s"
 
 
 #: shortcodes/oik-thumbs.php:87
