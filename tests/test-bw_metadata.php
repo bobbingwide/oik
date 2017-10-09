@@ -157,6 +157,33 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 	function unset_bw_l10n() {
 		unset( $GLOBALS[ 'bw_l10n' ] );
 	}
+	
+	/**
+	 * We no longer want to perform a secret translation of the field title if it's unchanged after
+	 * applying the "oik_form_field_title_${field_name}" filter.
+	 */
+	function test_bw_l10n_field_title() {
+		$this->switch_to_locale( 'en_GB' );
+		$title = __( "oik documentation", "oik" );
+		$html = bw_l10n_field_title( "field_name", $title, "text", "field value", array( "hint" => __( "oik", "oik" ) ) );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	function test_bw_l10n_field_title_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$title = __( "oik documentation", "oik" );
+		$html = bw_l10n_field_title( "field_name", $title, "text", "field value", array( "hint" => __( "oik", "oik" ) ) );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	
+	
+	
+	
 
 	
 	

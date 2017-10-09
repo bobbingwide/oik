@@ -26,10 +26,8 @@ function bw_metadata_loaded() {
  * The $bw_mapping['fields'][$post_type] array will not exist until a field has been added. for the post type.
  * We also check that $bw_mapping contains 'fields'
  *
- *
  * @param string $post_type - the post type being edited
  * @param object $post - the post being edited
- *
  */
 function bw_effort_meta_boxes( $post_type, $post ) {
   oik_require( 'bobbforms.inc' );
@@ -40,12 +38,6 @@ function bw_effort_meta_boxes( $post_type, $post ) {
     if ( $fields ) {
       add_meta_box( 'bw_effort', __( "Fields", "oik"), 'bw_effort_box', $post_type, 'normal' , 'high' , $fields );
     }
-    //foreach ( $bw_mapping['field'] as $object_type => $fields ) {
-      // bw_trace( "object_type", __FUNCTION__, __LINE__, __FILE__, $object_type );
-      // bw_trace2( $fields );
-    //  if ( $object_type == $post_type ) {
-    //  }
-    //}
   }  
 }
 
@@ -58,7 +50,7 @@ function bw_effort_meta_boxes( $post_type, $post ) {
  */
 function bw_default_value( $value, $args ) {
   if ( !$value ) {
-    $value = bw_array_get( $args, '#default', NULL );
+    $value = bw_array_get( $args, '#default', null );
   }
   return( $value );
 }
@@ -332,7 +324,7 @@ function bw_form_function( $prefix="bw_form_field_", $field_type= 'text', $field
 } 
 
 /**
- * Append any #hint to the field_title 
+ * Append any 'hint' to the field_title 
  * 
  * - If there is a 'hint' or '#hint' in the $args then append it to the $field_title within a span with class "bw_hint" 
  * - Don't translate 'hint' 
@@ -365,24 +357,22 @@ function _bw_form_field_title( $field_title, $args ) {
 } 
 
 /**
- * Localize/customize the field title
+ * Customizes the field title
  * 
- * Allow localization/customization of the field title.
- * Applies the "oik_form_field_title_${field_name}" filter(s) 
- * 
- * If the result is unchanged then return the l10n version, with "oik" as the text-domain
+ * - Applies the "oik_form_field_title_${field_name}" filter(s)
+ * - Appends any 'hint'
  * 
  * @TODO Or use the value specified in the $args
- * 
+ *
+ * @param string $field_name The field name
+ * @param string $field_title the translated field title
+ * @param string $field_type the field type
+ * @param string $field_value the current field value
+ * @param array $args additional parameters
+ * @return string customized field title
  */
 function bw_l10n_field_title( $field_name, $field_title, $field_type, $field_value, $args=null ) {
-  bw_trace2();
-  $stitle = $field_title; 
   $field_title = apply_filters( "oik_form_field_title_${field_name}", $field_title, $field_type );
-  if ( $field_title == $stitle ) {
-    $field_title = translate( $field_title, "oik" ); // Use translate so that makepot.php/makeoik.php doesn't find this call
-  }
-  //  $args = apply_filters( "
   $field_title = _bw_form_field_title( $field_title, $args ); 
   return( $field_title );
 }
