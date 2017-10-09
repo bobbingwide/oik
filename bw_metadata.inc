@@ -419,12 +419,12 @@ function bw_check_metabox_field( $data ) {
  * Create fields in the meta box to accept data for the fields
  *
  * This should not display 'taxonomy' fields as they appear in their own metaboxes.
- * @TOOD Similarly 'virtual' fields should not have their values loaded using get_post_meta()
+ * 
+ * @TODO Similarly 'virtual' fields should not have their values loaded using get_post_meta()
  * @TODO Worry about Fields metaboxes which don't have any fields simply because they're all (custom) taxonomies
  *
  * @param post $post - the post object
- * @param array $args -
- *
+ * @param array $args -	contains 'args' - array of fields to display
  */
 function bw_effort_box( $post, $args ) {
   global $bw_fields; 

@@ -73,6 +73,27 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
+	
+	/**
+	 * ... but we'll test it anyway
+	 * except field title won't be translated
+	 *
+	 */
+	function test_bw_effort_box_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$this->reset_global_bw_fields();
+		$post = $this->dummy_post();
+		$args = $this->get_args(); 
+		ob_start();   
+		bw_effort_box( $post, $args );
+		$html = ob_get_contents();
+		ob_end_clean();
+		$html = $this->replace_oik_url( $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		 
+	}
 		
 	function reset_global_bw_fields() {
 		//global $bw_fields;
@@ -179,14 +200,6 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( 'en_GB' );
 	}
-	
-	
-	
-	
-	
 
-	
-	
-	
 }
 	
