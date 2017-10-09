@@ -334,21 +334,33 @@ function bw_form_function( $prefix="bw_form_field_", $field_type= 'text', $field
 /**
  * Append any #hint to the field_title 
  * 
- * If there is a #hint in the $args then append it to the $field_title within a span with class "bw_hint" 
+ * - If there is a 'hint' or '#hint' in the $args then append it to the $field_title within a span with class "bw_hint" 
+ * - Don't translate 'hint' 
+ * - but do translate '#hint'
+ * - '#hint' is being deprecated.
  * 
  * @param string $field_title - the title of the field
- * @param array $args - array of args, possibly containing a key of '#hint' 
+ * @param array $args - array of args, possibly containing a key of 'hint' or '#hint' (deprecated)
  * @return string $field_title - the updated field title. Note: A single non-blank space character is prepended to the hint text.
  */
 function _bw_form_field_title( $field_title, $args ) {
-  $hint = bw_array_get( $args, "#hint", null ); 
-  if ( $hint ) {
-    $sphint = "&nbsp;";
-    $sphint .= retstag( "span", "bw_hint" );
-    $sphint .= bw_tt( $hint );
-    $sphint .= retetag( "span" ); 
-    $field_title .= $sphint;
-  }  
+	$hint = bw_array_get( $args, "hint", null );
+	if ( $hint ) {
+		$sphint = "&nbsp;";
+		$sphint .= retstag( "span", "bw_hint" );
+		$sphint .= $hint;
+		$sphint .= retetag( "span" ); 
+		$field_title .= $sphint;
+	} else {
+		$hint = bw_array_get( $args, "#hint", null ); 
+		if ( $hint ) {
+			$sphint = "&nbsp;";
+			$sphint .= retstag( "span", "bw_hint" );
+			$sphint .= bw_tt( $hint );
+			$sphint .= retetag( "span" ); 
+			$field_title .= $sphint;
+		}
+	}   
   return( $field_title );
 } 
 

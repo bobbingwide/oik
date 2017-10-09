@@ -90,9 +90,74 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 		$args = array( "args" => array( "field" ) );
 		return $args;
 	}
+	
+	/**
+	 * This is the code that is being deprecated
+	 */
+	function test__bw_form_field_title_hash_hint() {
+		$this->setExpectedDeprecated( "bw_translate" );
+		$this->unset_bw_l10n();
+		$this->switch_to_locale( 'en_GB' );
+		$args = array( '#hint' => "bobbingwide" );
+		$html = _bw_form_field_title( __( "oik", "oik" ), $args );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	/**
+	 * This is the code that is being deprecated.
+	 * Note: #hint strings only get translated if the string itself has been somehow registered as translatable
+	 * So "bobbingwide will be translated but "bobbing wide" won't be.
+	 * 
+	 */
+	function test__bw_form_field_title_hash_hint_bb_BB() {
+		$this->setExpectedDeprecated( "bw_translate" );
+		$this->switch_to_locale( 'bb_BB' );
+		$this->unset_bw_l10n();
+		$oik = __( "oik", "oik" );
+		$this->assertEquals( "OIk", $oik );
+		$args = array( '#hint' => "bobbingwide" );
+		$html = _bw_form_field_title( $oik, $args );
+		$args = array( '#hint' => "bobbing wide" );
+		$html .= _bw_form_field_title( $oik, $args );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * This is the replacement logic using 'hint' rather than #hint
+	 * where hint has to be translated already
+	 */
+	function test__bw_form_field_title_hint() {
+		$this->switch_to_locale( 'en_GB' );
+		$this->unset_bw_l10n();
+		$args = array( 'hint' => __( "bobbingwide", "oik" ) );
+		$html = _bw_form_field_title( __( "oik", "oik" ), $args );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	
+	/**
+	 * This is the replacement logic using 'hint' rather than #hint
+	 * where hint has to be translated already
+	 */
+	function test__bw_form_field_title_hint_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$this->unset_bw_l10n();
+		$args = array( 'hint' => __( "bobbingwide", "oik" ) );
+		$html = _bw_form_field_title( __( "oik", "oik" ), $args );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
 		
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	function unset_bw_l10n() {
+		unset( $GLOBALS[ 'bw_l10n' ] );
+	}
 
-		
 	
 	
 	
