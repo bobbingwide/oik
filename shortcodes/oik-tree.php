@@ -1,7 +1,7 @@
-<?php // (C) Copyright Bobbing Wide 2012-2015
+<?php // (C) Copyright Bobbing Wide 2012-2017
 /*
 
-    Copyright 2012-2015 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -36,7 +36,7 @@ function bw_format_tree( $post, $atts ) {
   bw_push();
   $title = do_shortcode( $title );
   bw_pop();
-  alink( "bw_tree", $url, $title ); 
+  BW_::alink( "bw_tree", $url, $title ); 
   $atts['post_parent'] = $post->ID;
   bw_tree_func( $atts );
   etag( "li" );
@@ -101,6 +101,5 @@ function bw_tree( $atts = NULL ) {
  */
 function bw_tree__syntax( $shortcode="bw_tree" ) {
   $syntax = _sc_posts(); 
-  // $syntax = array_merge( $syntax, _sc_classes() );
   return( $syntax );   
 }
