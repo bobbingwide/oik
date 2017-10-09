@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-08 17:16:59+00:00\n"
+"POT-Creation-Date: 2017-10-09 09:59:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1682,6 +1682,7 @@ msgstr "This is a caption"
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
 #: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
 #: shortcodes/oik-link.php:340 shortcodes/oik-paypal.php:257
+#: shortcodes/oik-trace.php:32
 msgid "text"
 msgstr "text"
 
@@ -3077,6 +3078,34 @@ msgstr "text for the trace button"
 #: shortcodes/oik-trace.php:33
 msgid "trace control links to display"
 msgstr "trace control links to display"
+
+#: shortcodes/oik-trace.php:42
+msgid "To display the trace options and trace reset buttons."
+msgstr "To display the trace options and trace reset buttons."
+
+#: shortcodes/oik-trace.php:43
+msgid "To display a link to the active trace file."
+msgstr "To display a link to the active trace file."
+
+#: shortcodes/oik-trace.php:44
+msgid "To display the trace reset only"
+msgstr "To display the trace reset only"
+
+#: shortcodes/oik-trace.php:69
+msgid "View trace log"
+msgstr "View trace log"
+
+#: shortcodes/oik-trace.php:69
+msgid "View trace output in your browser. %1$s"
+msgstr "View trace output in your browser. %1$s"
+
+#: shortcodes/oik-trace.php:78
+msgid "Trace options"
+msgstr "Trace options"
+
+#: shortcodes/oik-trace.php:96
+msgid "Trace reset"
+msgstr "Trace reset"
 
 #: shortcodes/oik-wtf.php:70
 msgid "Event to trigger the revealing"

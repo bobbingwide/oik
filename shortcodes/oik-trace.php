@@ -22,15 +22,15 @@ define( 'OIK_TRACE_SHORTCODES_INCLUDED', true );
 */
 
 /**
- * Returns syntax for [bwtrace] shortcode 
+ * Syntax for [bwtrace] shortcode 
  * 
  * Note that the function name is based on the shortcode not the implementing function.
  * This enables both the shortcode and the help and examples to be implemented as lazy functions
  * **?** Actually it's an oversight! Herb 2012/03/20
 	*/
 function bwtrace__syntax( $shortcode='bwtrace' ) {
-  $syntax = array( "text" => bw_skv( " ", "text", "text for the trace button" )
-                 , "option" => bw_skv( "", "view|reset", "trace control links to display" )
+  $syntax = array( "text" => BW_::bw_skv( " ", __( "text", "oik" ), __( "text for the trace button", "oik" ) )
+                 , "option" => BW_::bw_skv( "", "view|reset", __( "trace control links to display", "oik" ) )
                  );
   return( $syntax );
 }
@@ -39,11 +39,10 @@ function bwtrace__syntax( $shortcode='bwtrace' ) {
  * Displays examples for [bwtrace] shortcode
  */
 function bwtrace__example( $shortcode='bwtrace' ) {    
-  bw_invoke_shortcode( $shortcode, null, "To display the trace options and trace reset buttons." );    
-  bw_invoke_shortcode( $shortcode, "option=view", "To display a link to the active trace file." );
-  bw_invoke_shortcode( $shortcode, "option=reset", "To display the trace reset only" );
+  bw_invoke_shortcode( $shortcode, null, __( "To display the trace options and trace reset buttons.", "oik" ) );    
+  bw_invoke_shortcode( $shortcode, "option=view", __( "To display a link to the active trace file.", "oik" ) );
+  bw_invoke_shortcode( $shortcode, "option=reset", __( "To display the trace reset only", "oik" ) );
 }                   
-
 
 /**
  * Implements [bwtrace] shortcode
@@ -55,9 +54,8 @@ function bwtrace__example( $shortcode='bwtrace' ) {
  *  option=view, reset, other
  *  text=text for the trace options button
  * @return string - the expanded shortcode. If trace is not enabled it returns null. 
- * 
  */
-function bw_trace_button( $atts = NULL ) {
+function bw_trace_button( $atts=NULL ) {
   global $bw_trace_on;
   if ( $bw_trace_on ) {   
     $option = bw_array_get( $atts, 'option', NULL );
@@ -66,7 +64,7 @@ function bw_trace_button( $atts = NULL ) {
       case 'view':
         oik_require2( 'admin/oik-bwtrace.inc', "oik-bwtrace" );
         $bw_trace_url = bw_trace_url();
-        alink( NULL, $bw_trace_url, "View trace log", "View trace output in your browser. $bw_trace_url");
+        BW_::alink( NULL, $bw_trace_url, __( "View trace log", "oik" ), sprintf( __( 'View trace output in your browser. %1$s', "oik" ), $bw_trace_url ) );
         break;
         
       case 'reset':
@@ -75,9 +73,9 @@ function bw_trace_button( $atts = NULL ) {
         
       default:     
         $url = get_site_url( NULL, 'wp-admin/options-general.php?page=bw_trace_options' );    
-        $text = bw_array_get( $atts, 'text', "Trace options" );
+        $text = bw_array_get( $atts, 'text', __( "Trace options", "oik" ) );
         $img = retimage( null, oik_url( 'images/oik-trace_48.png'), $text );
-        alink(  null, $url, $img, $text );         
+        BW_::alink(  null, $url, $img, $text );         
         bw_trace_reset_form();
         break;  
         
@@ -92,7 +90,7 @@ function bw_trace_button( $atts = NULL ) {
 function bw_trace_reset_form() {
   oik_require( "bobbforms.inc" );
   e( '<form method="post" action="" class="bw_inline">' ); 
-  e( "<input type=\"submit\" name=\"_bw_trace_reset\" value=\"Trace reset\" />" ); 
+	e ( isubmit( "_bw_trace_reset", __( "Trace reset", "oik" ), null )); 
   etag( "form" );
 }
 
