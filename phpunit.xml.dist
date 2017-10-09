@@ -71,6 +71,7 @@
 			<file>tests/test-shortcodes-oik-thumbs.php</file>
 			<file>tests/test-shortcodes-oik-trace.php</file>
 			<file>tests/test-shortcodes-oik-tree.php</file>
+			<file>tests/test-shortcodes-oik-wtf.php</file>
 		</testsuite>
 		<testsuite name="random">
 			<!-- We can't actually run tests in a random order due to use of static variables -->

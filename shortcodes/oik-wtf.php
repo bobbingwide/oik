@@ -48,11 +48,11 @@ function bw_wtf( $atts=null, $content=null, $tag=null ) {
   }
   $event = bw_array_get_from( $atts, "event,0", "hover" );
   $effect = bw_array_get_from( $atts, "effect,1", "slideToggle" );
-  $text = bw_array_get_from( $atts, "text,2", "$event to $effect source" );
+  $text = bw_array_get_from( $atts, "text,2", sprintf( __( '%1$s to %2$s source', "oik" ), $event, $effect ) );
   oik_require( "includes/bw_jquery.inc" );
   bw_jquery_af( "div.bw_wtf", $event , "p.bw_wtf", $effect );
   sdiv( "bw_wtf" );
-  p( $text );
+  BW_::p( $text );
   stag( 'p', "bw_wtf", null, 'lang="HTML" escaped="true" style="display:none;"' );
   $escaped_content = str_replace(array( "[", "]" ), array( "&#091;", "&#093" ), $escaped_content ); 
   $escaped_content = str_replace( "\n", "", $escaped_content );
@@ -67,9 +67,9 @@ function bw_wtf( $atts=null, $content=null, $tag=null ) {
  * Syntax hook for [bw_wtf] shortcode
  */
 function bw_wtf__syntax( $shortcode="bw_wtf" ) {
-  $syntax = array( "event" => bw_skv( "hover", "click", "Event to trigger the revealing" )
-                 , "effect" => bw_skv( "event", "slideToggle", "Method used to reveal the content" )
-                 , "text" => bw_skv( "\$event to \$effect source", "<i>text</i>text", "Text above the hidden content" )
+  $syntax = array( "event" => BW_::bw_skv( "hover", "click", __( "Event to trigger the revealing", "oik" ) )
+                 , "effect" => BW_::bw_skv( "slideToggle", "toggle", __( "Method used to reveal the content", "oik" ) )
+                 , "text" => BW_::bw_skv( sprintf( __( '%1$s to %2$s source', "oik" ), "hover", "slideToggle" ), "<i>" . __( "text", "oik" ) . "</i>", __( "Text above the hidden content", "oik" ) )
                  );
   return( $syntax );
 }
