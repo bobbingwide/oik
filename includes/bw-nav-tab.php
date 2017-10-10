@@ -26,7 +26,7 @@ function bw_nav_tab_link( $nav_tab, $nav_label, $page, $tab ) {
  * This is the bobbingwide/oik approach.
  *
  * In any admin page that that can display a series of tabs
- * you code bw_nav_tabs() passing the defaults for the first page that you're creating
+ * you code `bw_nav_tabs()` passing the defaults for the first page that you're creating
  * That seems fair enough.
  * The routine invokes "bw_nav_tabs_$page", passing the name of the currently selected $tab
  * 
