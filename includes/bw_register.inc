@@ -218,7 +218,7 @@ function bw_register_post_type( $post_type, $post_type_args ) {
  * @return array hopefully all of the required labels
  */
 function bw_default_labels( $labels= array() ) {
-  $ucplural = bw_array_get_dcb( $labels, 'name', 'Post', "bw_ucfirst" );
+  $ucplural = bw_array_get_dcb( $labels, 'name', 'Posts', "bw_ucfirst" );
   $lcplural = strtolower( $ucplural );
   $labels['name'] = bw_array_get( $labels, 'name', $ucplural );
   $labels['menu_name'] = bw_array_get( $labels, 'menu_name', $ucplural );

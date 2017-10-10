@@ -32,6 +32,7 @@
 			<file>tests/test-includes-bw_messages.php</file>
 			<file>tests/test-includes-bw_nav-tab.php</file>
 			<file>tests/test-includes-bw_posts.php</file>
+			<file>tests/test-includes-bw_register.php</file>
 			<file>tests/test-includes-oik-contact-form-email.php</file>
 			<file>tests/test-shortcodes-oik-attachments.php</file>
 			<file>tests/test-shortcodes-oik-blockquote.php</file>
