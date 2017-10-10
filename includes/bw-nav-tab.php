@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014, 2015
+<?php // (C) Copyright Bobbing Wide 2014-2017
 
 /**
  * Create a nav-tab link
@@ -13,9 +13,8 @@ function bw_nav_tab_link( $nav_tab, $nav_label, $page, $tab ) {
   if ( $nav_tab == $tab ) {
     $class .= " nav-tab-active";
   }
-  //$page = bw_array_get( $_REQUEST, "page", null );
   $link = admin_url("admin.php?page=$page&amp;tab=$nav_tab"); 
-  alink( $class, $link, $nav_label );
+  BW_::alink( $class, $link, $nav_label );
 }
 
 /**
