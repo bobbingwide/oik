@@ -112,10 +112,44 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
 		$this->switch_to_locale( 'bb_BB' );
 		$array = bw_default_labels( array( "name" => __( "Themes", "oik" ) ) );
 		$html = $this->arraytohtml( $array, true );
-		$this->generate_expected_file( $html );
+		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( 'en_GB' );
   }
 	
+	function test_bw_default_taxonomy_labels() {
+		$this->switch_to_locale( 'en_GB' );
+		$array = bw_default_taxonomy_labels();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
 	
+	function test_bw_default_taxonomy_labels_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$array = bw_default_taxonomy_labels();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	function test_bw_default_taxonomy_labels_themes() {
+		$this->switch_to_locale( 'en_GB' );
+		$array = bw_default_taxonomy_labels( array( "name" => "Themes" ) );
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	function test_bw_default_taxonomy_labels_themes_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$array = bw_default_taxonomy_labels( array( "name" => __( "Themes", "oik" ) ) );
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+	}
+		
 }

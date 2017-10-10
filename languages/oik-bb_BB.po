@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-10 12:44:02+00:00\n"
+"POT-Creation-Date: 2017-10-10 14:02:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1188,6 +1188,7 @@ msgstr "All %1$s"
 
 
 #: includes/bw_register.inc:236 includes/bw_register.inc:240
+#: includes/bw_register.inc:294
 msgid "New %1$s"
 msgstr "NEw %1$s"
 
@@ -1242,6 +1243,41 @@ msgstr "Rmevoe faeuterd iamge"
 #: includes/bw_register.inc:250
 msgid "Use as featured image"
 msgstr "UsE As faeuterd iamge"
+
+
+#: includes/bw_register.inc:293
+msgid "Update %1$s"
+msgstr "Udptae %1$s"
+
+
+#: includes/bw_register.inc:295
+msgid "Parent %1$s"
+msgstr "Pranet %1$s"
+
+
+#: includes/bw_register.inc:296
+msgid "Parent %1$s:"
+msgstr "Pranet %1$s:"
+
+
+#: includes/bw_register.inc:297
+msgid "Popular %1$s"
+msgstr "Ppoluar %1$s"
+
+
+#: includes/bw_register.inc:298
+msgid "Separate %1$s with commas"
+msgstr "Speratae %1$s wtih cmoams"
+
+
+#: includes/bw_register.inc:299
+msgid "Add or remove %1$s"
+msgstr "Add Or rmevoe %1$s"
+
+
+#: includes/bw_register.inc:300
+msgid "Choose from most used %1$s"
+msgstr "Cohsoe form msot uesd %1$s"
 
 
 #: includes/deprecated.inc:378

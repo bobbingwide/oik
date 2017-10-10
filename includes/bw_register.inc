@@ -290,15 +290,15 @@ function bw_default_taxonomy_labels( $labels = array() ) {
   $labels = bw_default_labels( $labels );
   $ucplural = bw_array_get( $labels, "name", null );
   $ucsingular =  bw_array_get( $labels, "singular_name", $ucplural );
-  $labels['update_item'] = bw_array_get( $labels, "update_item" , "Update $ucplural" ); 
-  $labels['new_item_name'] = bw_array_get( $labels, "new_item_name" , "New $ucsingular" ); 
-  $labels['parent_item'] = bw_array_get( $labels, "parent_item" , "Parent $ucsingular" ); 
-  $labels['parent_item_colon'] = bw_array_get( $labels, "parent_item_colon" , "Parent $ucsingular:"  ); 
-  $labels['popular_items'] = bw_array_get( $labels, "popular_items" , "Popular $ucplural" ); 
-  $labels['separate_items_with_commas'] = bw_array_get( $labels, "separate_items_with_commas", "Separate $ucplural with commas" ); 
-  $labels['add_or_remove_items'] = bw_array_get( $labels, "add_or_remove_items", "Add or remove $ucplural" ); 
-  $labels['choose_from_most_used'] = bw_array_get( $labels, "choose_from_most_used", "Choose from most used $ucplural" );
-  // $labels['not_found'] = bw_array_get( $labels, "not_found", "No $ucplural found" );
+  $labels['update_item'] = bw_array_get( $labels, "update_item" , sprintf( __( 'Update %1$s',  "oik" ), $ucplural ) ); 
+  $labels['new_item_name'] = bw_array_get( $labels, "new_item_name" , sprintf( __( 'New %1$s', "oik" ), $ucsingular ) ); 
+  $labels['parent_item'] = bw_array_get( $labels, "parent_item" , sprintf( __( 'Parent %1$s', "oik" ), $ucsingular ) ); 
+  $labels['parent_item_colon'] = bw_array_get( $labels, "parent_item_colon" , sprintf( __( 'Parent %1$s:', "oik" ), $ucsingular ) ); 
+  $labels['popular_items'] = bw_array_get( $labels, "popular_items" , sprintf( __( 'Popular %1$s', "oik" ), $ucplural ) ); 
+  $labels['separate_items_with_commas'] = bw_array_get( $labels, "separate_items_with_commas", sprintf( __( 'Separate %1$s with commas', "oik" ), $ucplural ) ); 
+  $labels['add_or_remove_items'] = bw_array_get( $labels, "add_or_remove_items", sprintf( __( 'Add or remove %1$s', "oik" ), $ucplural ) ); 
+  $labels['choose_from_most_used'] = bw_array_get( $labels, "choose_from_most_used", sprintf( __( 'Choose from most used %1$s', "oik" ), $ucplural ) );
+  // $labels['not_found'] = bw_array_get( $labels, "not_found", sprintf( __( 'No %1$s found', "oik") , $ucplural ) );
   //bw_trace2();
   return( $labels );
 }  
