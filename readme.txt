@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 3.9
-Tested up to: 4.8.1
+Tested up to: 4.8.2
 Stable tag: 3.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -90,6 +90,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.2.0-beta-20171010
+100% internationalized PHP source code. Ready for translation. UK English version complete.
+
 = 3.2.0-alpha-20170822 = 
 Upgrade for improved internationalization and localization. Default language now US English. 
 
@@ -400,9 +403,16 @@ Upgrade oik to version 1.12 before updating oik-nivo-slider to version 1.2. For 
 = 1.11 =
 There are many changes in version 1.11 to support lazy invocation of code.  
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
- 
 
 == Changelog ==
+= 3.2.0-beta-20171010 = 
+* Changed: 100% internationalized [github bobbingwide oik issues 9]
+* Fixed: Howdy override logic updated for WordPress 4.8 changes [github bobbingwide oik issues 63]
+* Fixed: Missing assignment in concatenation of Install text [github bobbingwide oik issues 84]
+* Fixed: cURL error 60: SSL certificate problem [github bobbingwide oik issues 77]
+* Changed: Update icons for [bw_follow_me] [github bobbingwide oik issues 86]
+* Tested: With WordPress 4.8.2
+
 = 3.2.0-alpha-20170822 = 
 * Changed: Attempt to cater for old/renamed versions of plugins [github bobbingwide oik issue 80]
 * Changed: More work on internationalization and localization [github bobbingwide oik issues 9]
@@ -410,7 +420,6 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Changed: oik-plugins server now uses https [github bobbingwide oik issues 70]
 * Fixed: bw_invoke_shortcode should use bw_push and bw_pop [github bobbingwide oik issue 82]
 * Fixed: oik_box() improvements [github bobbingwide oik issues 81]
-* Fixed: Howdy override logic updated for WordPress 4.8 changes [github bobbingwide oik issues 63]
 * Tested: With WordPress 4.8.1
 
 = 3.2.0-alpha-20170616 =
