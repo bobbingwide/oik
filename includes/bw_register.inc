@@ -218,7 +218,12 @@ function bw_register_post_type( $post_type, $post_type_args ) {
  * @return array hopefully all of the required labels
  */
 function bw_default_labels( $labels= array() ) {
-  $ucplural = bw_array_get_dcb( $labels, 'name', 'Posts', "bw_ucfirst" );
+  $ucplural = bw_array_get( $labels, 'name', null );
+	if ( !$ucplural ) {
+		$ucplural = __( 'Posts', "oik" );
+	} else {
+		$ucplural = bw_ucfirst( $ucplural );
+	}
   $lcplural = strtolower( $ucplural );
   $labels['name'] = bw_array_get( $labels, 'name', $ucplural );
   $labels['menu_name'] = bw_array_get( $labels, 'menu_name', $ucplural );
@@ -227,22 +232,22 @@ function bw_default_labels( $labels= array() ) {
     $ucsingular = bw_singularize( $ucplural );
   }
   $labels['singular_name'] = $ucsingular; 
-  $labels['all_items'] = bw_array_get( $labels, 'all_items', "All $ucplural" );
-  $labels['add_new'] = bw_array_get( $labels, 'add_new', "New $ucsingular" );
-  $labels['add_new_item'] = bw_array_get( $labels, 'add_new_item', "Create New $ucsingular" );
-  $labels['edit'] = bw_array_get( $labels, 'edit', "Edit" );
-  $labels['edit_item'] = bw_array_get( $labels, 'edit_item', "Edit $ucsingular" );
-  $labels['new_item'] = bw_array_get( $labels, 'new_item', "New $ucsingular" );
-  $labels['view'] = bw_array_get( $labels, 'view', "View $ucsingular" );
-  $labels['view_item'] = bw_array_get( $labels, 'view_item', "View $ucsingular" );
-  $labels['search_items'] = bw_array_get( $labels, 'search_items', "View $ucplural" );
-  $labels['not_found'] = bw_array_get( $labels, 'not_found', "No $lcplural found" );
-  $labels['not_found_in_trash'] = bw_array_get( $labels, 'not_found_in_trash', "No $lcplural found in Trash" ); 
+  $labels['all_items'] = bw_array_get( $labels, 'all_items', sprintf( __( 'All %1$s', "oik" ), $ucplural ) );
+  $labels['add_new'] = bw_array_get( $labels, 'add_new', sprintf( __( 'New %1$s', "oik" ), $ucsingular ) );
+  $labels['add_new_item'] = bw_array_get( $labels, 'add_new_item', sprintf( __( 'Create New %1$s', "oik" ), $ucsingular ) );
+  $labels['edit'] = bw_array_get( $labels, 'edit', __( 'Edit', "oik" ) );
+  $labels['edit_item'] = bw_array_get( $labels, 'edit_item', sprintf( __( 'Edit %1$s', "oik" ), $ucsingular ) );
+  $labels['new_item'] = bw_array_get( $labels, 'new_item', sprintf( __( 'New %1$s', "oik" ), $ucsingular ) );
+  $labels['view'] = bw_array_get( $labels, 'view', sprintf( __( 'View %1$s', "oik"), $ucsingular ) );
+  $labels['view_item'] = bw_array_get( $labels, 'view_item', sprintf( __( 'View %1$s', "oik" ), $ucsingular ) );
+  $labels['search_items'] = bw_array_get( $labels, 'search_items', sprintf( __( 'View %1$s', "oik" ), $ucplural ) );
+  $labels['not_found'] = bw_array_get( $labels, 'not_found', sprintf( __( 'No %1$s found', "oik" ), $lcplural ) );
+  $labels['not_found_in_trash'] = bw_array_get( $labels, 'not_found_in_trash', sprintf( __( 'No %1$s found in Trash', "oik") , $lcplural ) ); 
 	// These labels were added in WordPress 4.3.0
-  $labels['featured_image'] = bw_array_get( $labels, 'featured_image', 'Featured Image' );
-	$labels['set_featured_image'] = bw_array_get( $labels, 'set_featured_image', 'Set featured image' );
-	$labels['remove_featured_image'] = bw_array_get( $labels, 'remove_featured_image', 'Remove featured image' );
-	$labels['use_featured_image'] = bw_array_get( $labels, 'use_featured_image', 'Use as featured image' );
+  $labels['featured_image'] = bw_array_get( $labels, 'featured_image', __( 'Featured Image', "oik" ) );
+	$labels['set_featured_image'] = bw_array_get( $labels, 'set_featured_image', __( 'Set featured image', "oik" ) );
+	$labels['remove_featured_image'] = bw_array_get( $labels, 'remove_featured_image', __( 'Remove featured image', "oik" ) );
+	$labels['use_featured_image'] = bw_array_get( $labels, 'use_featured_image', __( 'Use as featured image', "oik" ) );
   // should each array element now be translated? 
   bw_trace2( $labels, "labels", true, BW_TRACE_VERBOSE );
   return( $labels );

@@ -37,16 +37,21 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
 		}
 	}
 	
-	/**
-	 * This test is actually failing but we'll let it go for the time being
-	 * as we test the routines passing the "name" as the plural version
-	 */
 	function test_bw_default_labels() {
 		$this->switch_to_locale( 'en_GB' );
 		$array = bw_default_labels();
 		$html = $this->arraytohtml( $array, true );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
+  }
+	
+	function test_bw_default_labels_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$array = bw_default_labels();
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
   }
 	
 	function test_bw_default_labels_posts() {
@@ -57,6 +62,15 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
   }
 	
+	function test_bw_default_labels_posts_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$array = bw_default_labels( array( "name" => __( "Posts", "oik" ) ) );
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+  }
+	
 	function test_bw_default_labels_pages() {
 		$this->switch_to_locale( 'en_GB' );
 		$array = bw_default_labels( array( "name" => "Pages" ) );
@@ -65,12 +79,42 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
   }
 	
+	/**
+	 * Note: "Pages" is not in the oik text domain so this won't be translated
+	 * in the generated labels.
+	 */
+	function test_bw_default_labels_pages_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$array = bw_default_labels( array( "name" => __( "Pages", "oik" ) ) );
+		$html = $this->arraytohtml( $array, true );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
+  }
+	
+	/**
+	 * Note: Passing in lower case 'contacts' means name will be lower case.
+	 * This may not be what we want. So we won't do it. 
+	 */
 	function test_bw_default_labels_contacts() {
 		$this->switch_to_locale( 'en_GB' );
 		$array = bw_default_labels( array( "name" => "Contacts" ) );
 		$html = $this->arraytohtml( $array, true );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
+  }
+	
+	/**
+	 * It would have been Contacts but that's not in the oik text domain
+	 * so we'll use "Themes" instead
+	 */
+	function test_bw_default_labels_themes_bb_BB() {
+		$this->switch_to_locale( 'bb_BB' );
+		$array = bw_default_labels( array( "name" => __( "Themes", "oik" ) ) );
+		$html = $this->arraytohtml( $array, true );
+		$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( 'en_GB' );
   }
 	
 	

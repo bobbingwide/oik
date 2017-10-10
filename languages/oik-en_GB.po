@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-09 12:24:48+00:00\n"
+"POT-Creation-Date: 2017-10-10 12:44:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -916,7 +916,7 @@ msgstr "yearfrom"
 msgid "%1$s %2$s %3$s. "
 msgstr "%1$s %2$s %3$s. "
 
-#: bw_metadata.inc:41
+#: bw_metadata.inc:39
 msgid "Fields"
 msgstr "Fields"
 
@@ -936,9 +936,59 @@ msgstr "[Edit]"
 msgid "read more"
 msgstr "read more"
 
-#: includes/bw_register.inc:221
-msgid "Post"
-msgstr "Post"
+#: includes/bw_register.inc:223
+msgid "Posts"
+msgstr "Posts"
+
+#: includes/bw_register.inc:235
+msgid "All %1$s"
+msgstr "All %1$s"
+
+#: includes/bw_register.inc:236 includes/bw_register.inc:240
+msgid "New %1$s"
+msgstr "New %1$s"
+
+#: includes/bw_register.inc:237
+msgid "Create New %1$s"
+msgstr "Create New %1$s"
+
+#: includes/bw_register.inc:238 libs/oik_plugins.php:120
+#: libs/oik_themes.php:116
+msgid "Edit"
+msgstr "Edit"
+
+#: includes/bw_register.inc:239
+msgid "Edit %1$s"
+msgstr "Edit %1$s"
+
+#: includes/bw_register.inc:241 includes/bw_register.inc:242
+#: includes/bw_register.inc:243
+msgid "View %1$s"
+msgstr "View %1$s"
+
+#: includes/bw_register.inc:244
+msgid "No %1$s found"
+msgstr "No %1$s found"
+
+#: includes/bw_register.inc:245
+msgid "No %1$s found in Trash"
+msgstr "No %1$s found in bin"
+
+#: includes/bw_register.inc:247
+msgid "Featured Image"
+msgstr "Featured Image"
+
+#: includes/bw_register.inc:248
+msgid "Set featured image"
+msgstr "Set featured image"
+
+#: includes/bw_register.inc:249
+msgid "Remove featured image"
+msgstr "Remove featured image"
+
+#: includes/bw_register.inc:250
+msgid "Use as featured image"
+msgstr "Use as featured image"
 
 #: includes/deprecated.inc:378
 msgid ""
@@ -1850,10 +1900,6 @@ msgstr "Delete"
 #: libs/oik_plugins.php:117
 msgid "Delete plugin's profile entry"
 msgstr "Delete plugin's profile entry"
-
-#: libs/oik_plugins.php:120 libs/oik_themes.php:116
-msgid "Edit"
-msgstr "Edit"
 
 #: libs/oik_plugins.php:266
 msgid "default oik plugins server"

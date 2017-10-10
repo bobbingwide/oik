@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.0-alpha-20170822\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-10-09 12:24:48+00:00\n"
+"POT-Creation-Date: 2017-10-10 12:44:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1152,7 +1152,7 @@ msgid "%1$s %2$s %3$s. "
 msgstr "%1$s %2$s %3$s. "
 
 
-#: bw_metadata.inc:41
+#: bw_metadata.inc:39
 msgid "Fields"
 msgstr "Feidls"
 
@@ -1177,9 +1177,71 @@ msgid "read more"
 msgstr "raed mroe"
 
 
-#: includes/bw_register.inc:221
-msgid "Post"
-msgstr "Psot"
+#: includes/bw_register.inc:223
+msgid "Posts"
+msgstr "Psots"
+
+
+#: includes/bw_register.inc:235
+msgid "All %1$s"
+msgstr "All %1$s"
+
+
+#: includes/bw_register.inc:236 includes/bw_register.inc:240
+msgid "New %1$s"
+msgstr "NEw %1$s"
+
+
+#: includes/bw_register.inc:237
+msgid "Create New %1$s"
+msgstr "Certae NEw %1$s"
+
+
+#: includes/bw_register.inc:238 libs/oik_plugins.php:120
+#: libs/oik_themes.php:116
+msgid "Edit"
+msgstr "Eidt"
+
+
+#: includes/bw_register.inc:239
+msgid "Edit %1$s"
+msgstr "Eidt %1$s"
+
+
+#: includes/bw_register.inc:241 includes/bw_register.inc:242
+#: includes/bw_register.inc:243
+msgid "View %1$s"
+msgstr "Veiw %1$s"
+
+
+#: includes/bw_register.inc:244
+msgid "No %1$s found"
+msgstr "NO %1$s fuond"
+
+
+#: includes/bw_register.inc:245
+msgid "No %1$s found in Trash"
+msgstr "NO %1$s fuond In Tarsh"
+
+
+#: includes/bw_register.inc:247
+msgid "Featured Image"
+msgstr "Faeuterd Iamge"
+
+
+#: includes/bw_register.inc:248
+msgid "Set featured image"
+msgstr "SEt faeuterd iamge"
+
+
+#: includes/bw_register.inc:249
+msgid "Remove featured image"
+msgstr "Rmevoe faeuterd iamge"
+
+
+#: includes/bw_register.inc:250
+msgid "Use as featured image"
+msgstr "UsE As faeuterd iamge"
 
 
 #: includes/deprecated.inc:378
@@ -2317,11 +2379,6 @@ msgstr "Dletee"
 #: libs/oik_plugins.php:117
 msgid "Delete plugin's profile entry"
 msgstr "Dletee pulign's porifle etnry"
-
-
-#: libs/oik_plugins.php:120 libs/oik_themes.php:116
-msgid "Edit"
-msgstr "Eidt"
 
 
 #: libs/oik_plugins.php:266
