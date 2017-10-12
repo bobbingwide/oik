@@ -50,6 +50,11 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	
 	
 	function test_bw_translate_bobbingwide() {
+		if ( !defined( 'BW_TRANSLATE_DEPRECATED' ) ) {
+      define( 'BW_TRANSLATE_DEPRECATED', true ); 
+		} else {
+			$this->assertTrue( BW_TRANSLATE_DEPRECATED );
+		}
 		$this->setExpectedDeprecated( "bw_translate" );
 		$actual = bw_translate( "bobbingwide" );
 		$expected = "bobbingwide";

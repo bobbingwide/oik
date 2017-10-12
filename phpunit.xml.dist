@@ -9,10 +9,10 @@
 	<!-- for PHPUnit 5.7, 6.1, 6.2 -->
 	<testsuites>
 		<testsuite name="oik">
+			<file>tests/test-bw-translate.php</file>
 			<file>tests/test-bobbcomp.php</file>
 			<file>tests/test-bobbfunc.php</file>
 			<file>tests/test-bw_metadata.php</file>
-			<file>tests/test-bw-translate.php</file>
 			<file>tests/test-class-dependencies-cache.php</file>
 			<file>tests/test-oik-add-shortcodes.php</file>
 			<file>tests/test-oik-bob-bing-wide.php</file>
