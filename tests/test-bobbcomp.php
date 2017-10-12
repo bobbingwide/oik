@@ -14,6 +14,7 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
+		oik_require_lib( "oik_plugins" );
 	}
 	
 	
@@ -54,6 +55,9 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	 * @TODO Cater for 2018
 	 */
 	function test_bw_copyright() {
+		$this->switch_to_locale( 'en_GB' );
+		bw_update_option( "company", "Bobbing Wide" );
+		bw_update_option( "yearfrom", "2010" );
 		$html = bw_copyright();
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
@@ -64,6 +68,8 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	 */
 	function test_bw_copyright_bb_BB() {
 		$this->switch_to_locale( 'bb_BB' );
+		bw_update_option( "company", "Bobbing Wide" );
+		bw_update_option( "yearfrom", "2010" );
 		$html = bw_copyright();
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
