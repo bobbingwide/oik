@@ -50,6 +50,7 @@ class Tests_oik_follow extends BW_UnitTestCase {
 		$this->switch_to_locale( "bb_BB" );
 		$saved = bw_get_option_arr( "github" );
 		$value = bw_update_option( "github", "bobbingwide" );
+		$me = bw_update_option( "contact", null );
 		$html = bw_follow( array( "network" => "github" ) );
 		$value2 = bw_update_option( "github", $saved );
 		//$this->assertStringStartsWith( '<a href="https://github.com/' . $value, $html );
