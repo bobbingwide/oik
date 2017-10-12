@@ -41,25 +41,13 @@ class Tests_oik_googlemap extends BW_UnitTestCase {
 		$atts = array();
 		$html = bw_show_googlemap( $atts, null, null );
 		$html_array = $this->tag_break( $html );
-		//$this->generate_expected_file( $html_array );
-		
-		$expected = '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&amp;region=GB&amp;key=AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU"></script>';
-		$expected .= '<script type="text/javascript">function initialize0() ';
-		$expected .= '{var latlng = new google.maps.LatLng(50.887856,-0.965113);';
-		$expected .= 'var myOptions = { zoom: 12, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP };';
-		$expected .= 'var map = new google.maps.Map(document.getElementById("bw_map_canvas0"), myOptions); }';
-		$expected .= 'window.onload=initialize0;</script><div class="bw_map_canvas" id="bw_map_canvas0" style="min-height: 200px; width:100%; height:400px;"></div>';
-		
-		//$this->assertEquals( $expected, $html );
-		
 		$this->assertArrayEqualsFile( $html_array );
 	}
 
 	/**
 	 * Test second call
 	 * 
-	 * Will null lat and long as parameters cause 
-	 * this invalid code to be generated? 
+	 * Will null lat and long as parameters cause this invalid code to be generated? 
 	 *
 	 * `
 	 * var latlng = new google.maps.LatLng(,);
@@ -67,19 +55,18 @@ class Tests_oik_googlemap extends BW_UnitTestCase {
 	 * @TODO Ensure this really is called second.
 	 */
 	function test_bw_show_googlemap_null_lat_and_long() {
+		$this->switch_to_locale( "en_GB" );
+		bw_gmap_map( null );
+		bw_update_option( "company", null );
+		bw_update_option( "postal-code", null );
+		bw_update_option( "gmap_intro", null );
+		bw_update_option( "google_maps_api_key", "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU" );
 		$atts = array( "lat"=> null
 								 , "long" => null );
 		$html = bw_show_googlemap( $atts, null, null );
-		$expected = null;
-		
-		//$expected = '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&amp;region=GB&amp;key=AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU"></script>';
-		$expected .= '<script type="text/javascript">function initialize1() ';
-		$expected .= '{var latlng = new google.maps.LatLng(50.887856,-0.965113);';
-		$expected .= 'var myOptions = { zoom: 12, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP };';
-		$expected .= 'var map = new google.maps.Map(document.getElementById("bw_map_canvas1"), myOptions); initialize0();}';
-		$expected .= 'window.onload=initialize1;</script><div class="bw_map_canvas" id="bw_map_canvas1" style="min-height: 200px; width:100%; height:400px;"></div>';
-		
-		$this->assertEquals( $expected, $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 	}
 
 	function test_bw_default_empty_att() {
