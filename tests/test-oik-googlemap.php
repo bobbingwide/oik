@@ -17,7 +17,7 @@ class Tests_oik_googlemap extends BW_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
-		//$oik_plugins = oik_require_lib( "oik_plugins" );
+		$oik_plugins = oik_require_lib( "oik_plugins" );
 		//bw_trace2( $oik_plugins, "oik_plugins" );
 		oik_require( "shortcodes/oik-googlemap.php" );
 	}
@@ -28,8 +28,20 @@ class Tests_oik_googlemap extends BW_UnitTestCase {
 	 var latlng = new google.maps.LatLng(,);
 	 */
 	function test_bw_show_googlemap() {
+		$this->switch_to_locale( "en_GB" );
+		bw_update_option( "company", null );
+		bw_update_option( "postal-code", null );
+		bw_update_option( "gmap_intro", null );
+		bw_update_option( "google_maps_api_key", "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU" );
+		bw_update_option( "contact", null );
+		bw_update_option( "lat", null );
+		bw_update_option( "long", null );
+	
+		bw_gmap_map( null );
 		$atts = array();
 		$html = bw_show_googlemap( $atts, null, null );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
 		
 		$expected = '<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&amp;region=GB&amp;key=AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU"></script>';
 		$expected .= '<script type="text/javascript">function initialize0() ';
@@ -38,7 +50,9 @@ class Tests_oik_googlemap extends BW_UnitTestCase {
 		$expected .= 'var map = new google.maps.Map(document.getElementById("bw_map_canvas0"), myOptions); }';
 		$expected .= 'window.onload=initialize0;</script><div class="bw_map_canvas" id="bw_map_canvas0" style="min-height: 200px; width:100%; height:400px;"></div>';
 		
-		$this->assertEquals( $expected, $html );
+		//$this->assertEquals( $expected, $html );
+		
+		$this->assertArrayEqualsFile( $html_array );
 	}
 
 	/**
