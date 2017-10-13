@@ -108,6 +108,11 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 * to apply changes before comparing with expected.
 	 */
 	function test_oik_tinymce_buttons() {
+		bw_update_option( "oik-button-shortcodes", "on" , "bw_buttons" );
+		bw_update_option( "oik-paypal-shortcodes", "on"	, "bw_buttons" );
+		bw_update_option( "oik-shortc-shortcodes", "0" , "bw_buttons" );
+		bw_update_option( "oik-quicktags", "on", "bw_buttons" ); 
+		bw_update_option( "oik-shortcake", "0", "bw_buttons" ); 
 	
 		ob_start();   
 		oik_tinymce_buttons();
