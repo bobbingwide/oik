@@ -14,6 +14,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		oik_require( "admin/oik-admin.inc" );	 
 		oik_require( "includes/oik-sc-help.inc" ); 														
 		$this->_url = oik_get_plugins_server();
+		oik_require_lib( "oik_plugins" );
 	}
 
 	/**
@@ -48,6 +49,8 @@ a:1:{i:0;s:10:"genericons";}}</p>'
    * 
 	 */
 	function test_sc__snippet() {
+		bw_update_option( "contact", null );
+		bw_update_option( "twitter", "herb_miller" );
 		do_action( "oik_add_shortcodes" );
 		_sc__snippet( "bw_twitter", "theme=gener alt=0" );
 		$html = bw_ret();
