@@ -341,6 +341,16 @@ $expected[] = '</form>';
 	}
 	
 	/**
+	 * The oik plugins page expects us-tides to be version 0.3.0
+	 * We need to ensure the plugin_slugs transient is reset to reflect the latest set of installed plugins
+	 */
+	function test_bw_get_plugin_version() {
+		delete_transient( "plugin_slugs" );
+		$version = bw_get_plugin_version( "us-tides" );
+		$this->assertEquals( "0.3.0", $version );
+	}
+	
+	/**
 	 * Tests oik_plugins_do_page
 	 *
 	 * tests oik_plugins_server_settings 
@@ -405,6 +415,22 @@ $expected[] = '</form>';
 		$this->assertNotNull( $html_array );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	
+	
+	/**
+	 * The oik themes page expects genesis-oik to be version 1.0.8
+	 * We need to ensure this version of the theme is installed.
+	 *
+	 * @TODO - change test_oik_themes_do_page to work with any installed theme
+	 */
+	function test_bw_get_theme_version() {
+		//delete_transient( "theme_slugs" );
+		$theme_object = bw_get_theme_name( "genesis-oik" );
+		$this->assertNotNull( $theme_object );
+		$version = bw_get_theme_version( "genesis-oik", $theme_object );
+		$this->assertEquals( "1.0.8", $version );
 	}
 
 	/**
