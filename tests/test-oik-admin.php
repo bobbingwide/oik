@@ -618,6 +618,8 @@ $expected[] = '</div>';
 	 * - Tests: oik_extra_shortcode_options, oik_extra_usage_notes
 	 */
 	function test_oik_options_do_page_1() {
+	
+		$this->update_options1();
 		ob_start(); 
 		oik_options_do_page_1();
 		$html = ob_get_contents();
@@ -633,6 +635,27 @@ $expected[] = '</div>';
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 		
+	}
+	
+	/**
+	 * Update the alt=1 options for environment independence
+	 */
+	function update_options1() {
+		$bw_options = get_option( "bw_options1" );
+		$bw_options['contact'] = "herbt internet";
+		$bw_options['email'] = "herb_miller@btinternet.com";
+		$bw_options['telephone'] = "45465";
+		$bw_options['mobile'] = "";
+		$bw_options['extended-address'] = "La Lumiere";
+		$bw_options['street-address'] = "Les Grandes Vignes";
+		$bw_options['locality'] = "Merindol les Oliviers";
+		$bw_options['region'] = "Drome";
+		$bw_options['postal-code'] = "26170";
+		$bw_options['country-name'] = "France";
+		$bw_options['gmap_intro'] = "This Google map shows you where [bw_company] is located";
+		$bw_options['lat'] = "44.267467";
+		$bw_options['long'] = "5.161042";
+		update_option( "bw_options1", $bw_options );
 	}
 	
 	
@@ -928,6 +951,8 @@ $expected[] = '</div>';
 	 */
 	function test_oik_options_do_page_1_bb_BB() {
 		do_action( "oik_add_shortcodes" );
+	
+		$this->update_options1();
 	
 		$this->switch_to_locale( "bb_BB" );
 		ob_start(); 
