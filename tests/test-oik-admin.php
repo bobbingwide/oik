@@ -205,10 +205,11 @@ $expected[] = '</form>';
 	/**
 	 * Test the PayPal donate button 
 	 *
-	 * Note: Expects paypal_country to be set to "United Kingdom" and currency set to GBP
-	 * @TODO Replace with actual value
+	 * Note: Expects paypal country to be set to "United Kingdom" and currency set to GBP
 	 */
 	function test_oik_support() {
+		bw_update_option( "paypal-country", "United Kingdom" );
+		bw_update_option( "paypal-currency", "GBP" );
 		$html = bw_ret( oik_support() ) ;
 		$html_array = $this->tag_break( $html );
 		//$this->generate_expected_file( $html_array );
