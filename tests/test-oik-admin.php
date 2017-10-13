@@ -509,6 +509,12 @@ $expected[] = '</div>';
 		$bw_options['telephone'] = "+44 (0)2392 410090";
 		$bw_options['mobile'] = "+44 (0)7876 236864";
 		update_option( "bw_options", $bw_options );
+		
+		oik_require( "shortcodes/oik-googlemap.php" );
+		$id = bw_gmap_map( null );
+		$id = bw_gmap_map();
+		$id = bw_gmap_map();
+		$this->assertEquals( 2, $id );
 	
 		ob_start(); 
 		oik_options_do_page();
