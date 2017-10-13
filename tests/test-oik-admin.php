@@ -532,15 +532,11 @@ $expected[] = '</div>';
 	 * - oik_address_info
 	 * - oik_follow_me
 	 * 
-	 * @TODO In order to support testing in another installation
-	 * we'll need to set all the bw_options fields to the defaults or something else.
+	 * @TODO Change tests to use http://qw/src
 	 */
 	function test_oik_options_do_page() {
 	
-		$bw_options = get_option( "bw_options" );
-		$bw_options['telephone'] = "+44 (0)2392 410090";
-		$bw_options['mobile'] = "+44 (0)7876 236864";
-		update_option( "bw_options", $bw_options );
+		$this->update_options();
 		
 		oik_require( "shortcodes/oik-googlemap.php" );
 		$id = bw_gmap_map( null );
@@ -554,6 +550,11 @@ $expected[] = '</div>';
 		ob_end_clean();
 		$this->assertNotNull( $html );
 		$html = $this->replace_admin_url( $html );
+		$html = str_replace( get_stylesheet_directory_uri(), "http://qw/wordpress/wp-content/themes/genesis-a2z", $html );
+		$upload_dir = wp_upload_dir();
+		$baseurl = $upload_dir['baseurl'];
+		$html = str_replace( $baseurl, "https://qw/wordpress/wp-content/uploads", $html );
+		$html = str_replace( site_url(), "http://qw/wordpress", $html ); 
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
@@ -563,6 +564,52 @@ $expected[] = '</div>';
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Set the options to the values expected in the test output
+	 * 
+	 * - First pass is to set them to the values in the current test output
+	 * - @TODO Set values that will test the logic when content is actually displayed
+	 * - which is needed for textarea fields
+	 */
+	function update_options() {
+		$bw_options = get_option( "bw_options" );
+		$bw_options['telephone'] = "+44 (0)2392 410090";
+		$bw_options['mobile'] = "+44 (0)7876 236864";
+		$bw_options['business'] = "web design, web development";
+		$bw_options['formal'] = "Bobbing Wide - web design, web development";
+		$bw_options['main-slogan'] = "";
+		$bw_options['alt-slogan'] = "";
+		$bw_options['contact'] = "";
+		$bw_options['email'] = "";
+		$bw_options['admin'] = "";
+		$bw_options['contact-link'] = "";
+		$bw_options['contact-text'] = "";
+		$bw_options['contact-title'] = "";
+		$bw_options['street-address'] = "";
+		$bw_options['locality'] = "";
+		$bw_options['region'] = "";
+		$bw_options['postal-code'] = "";
+		$bw_options['country-name'] = "";
+		$bw_options['gmap_intro'] = "";
+		$bw_options['lat'] = "";
+		$bw_options['long'] = "";
+		$bw_options['google_maps_api_key'] = "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU"; 
+		$bw_options['customjQCSS'] = "http://qw/wordpress/wp-content/themes/jquery-ui/themes/base/jquery-ui.css";
+		$bw_options['twitter'] = "herb_miller";
+		$bw_options['facebook'] = "bobbingwide";
+		$bw_options['linkedin'] = "herbmiller777";
+		$bw_options['googleplus'] = "herbmiller777";
+		$bw_options['youtube'] = "bobbingwide";
+		$bw_options['flickr'] = "herb_miller";
+		$bw_options['picasa'] = "bobbingwide";
+		$bw_options['github'] = "splurge";
+		$bw_options['paypal-country'] = "United Kingdom";
+		$bw_options['logo-image'] = "30048";
+		$bw_options['art-version'] = "41";
+		$bw_options['howdy'] = "hi:";
+		update_option( "bw_options", $bw_options );
 	}
 	
 	/**
