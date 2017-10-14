@@ -554,7 +554,7 @@ $expected[] = '</div>';
 		$upload_dir = wp_upload_dir();
 		$baseurl = $upload_dir['baseurl'];
 		$html = str_replace( $baseurl, "https://qw/wordpress/wp-content/uploads", $html );
-		$html = str_replace( site_url(), "http://qw/wordpress", $html ); 
+		$html = $this->replace_site_url( $html );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
@@ -977,14 +977,20 @@ $expected[] = '</div>';
 	 * Tests oik_buttons_do_page for bb_BB
 	 */
 	 function test_oik_button_do_page_bb_BB() {
+	 
+		bw_update_option( "oik-button-shortcodes", "on" , "bw_buttons" );
+		bw_update_option( "oik-paypal-shortcodes", "on"	, "bw_buttons" );
+		bw_update_option( "oik-shortc-shortcodes", "0" , "bw_buttons" );
+		bw_update_option( "oik-quicktags", "on", "bw_buttons" ); 
+		bw_update_option( "oik-shortcake", "0", "bw_buttons" ); 
 		$this->switch_to_locale( "bb_BB" );
 		ob_start();
 		oik_buttons_do_page();
 		$html = ob_get_contents();
 		ob_end_clean();
 		$this->assertNotNull( $html );
-	 
 		$html = $this->replace_admin_url( $html );
+		$html = $this->replace_site_url( $html );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
@@ -1170,6 +1176,14 @@ $expected[] = '</div>';
 		$html_array = $this->tag_break( $html );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Temporary until we change the tests\data files
+	 */
+	function replace_site_url( $html ) {
+		$html = str_replace( site_url(), "http://qw/wordpress", $html ); 
+		return $html;
 	}
 	
 		
