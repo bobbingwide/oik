@@ -1082,13 +1082,20 @@ $expected[] = '</div>';
 		$this->assertArrayEqualsFile( $html_array );
 	}
 
-/**
+	/**
 	 * Test the oik Buttons section for bb_BB
 	 * 
 	 * Since we invoke bw_flush() we need to capture the output buffer
 	 * to apply changes before comparing with expected.
 	 */
 	function test_oik_tinymce_buttons_bb_BB() {
+	
+		bw_update_option( "oik-button-shortcodes", "on" , "bw_buttons" );
+		bw_update_option( "oik-paypal-shortcodes", "on"	, "bw_buttons" );
+		bw_update_option( "oik-shortc-shortcodes", "0" , "bw_buttons" );
+		bw_update_option( "oik-quicktags", "on", "bw_buttons" ); 
+		bw_update_option( "oik-shortcake", "0", "bw_buttons" ); 
+	
 		$this->switch_to_locale( "bb_BB" );
 		ob_start();   
 		oik_tinymce_buttons();
