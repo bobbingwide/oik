@@ -1009,6 +1009,9 @@ $expected[] = '</div>';
 	 * @TODO Replace with actual value
 	 */
 	function test_oik_support_bb_BB() {
+	
+		bw_update_option( "paypal-country", "United Kingdom" );
+		bw_update_option( "paypal-currency", "GBP" );
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( oik_support() ) ;
 		$html_array = $this->tag_break( $html );
