@@ -301,7 +301,11 @@ $expected[] = '</form>';
 	 * @TODO Test oik_enqueue_scripts() separately
 	 */
 	function test_oik_menu_header() {
+		if ( !defined( 'BW_TRANSLATE_DEPRECATED' ) ) {
+      define( 'BW_TRANSLATE_DEPRECATED', true ); 
+		}
 		$this->setExpectedDeprecated( "bw_translate" );
+		
 	 	oik_menu_header( "Menu header title", "menu header class" );
 		$html = bw_ret();
 		$html_array = $this->tag_break( $html );
@@ -577,8 +581,12 @@ $expected[] = '</div>';
 		$bw_options = get_option( "bw_options" );
 		$bw_options['telephone'] = "+44 (0)2392 410090";
 		$bw_options['mobile'] = "+44 (0)7876 236864";
+		$bw_options['fax'] = "";
+		$bw_options['emergency'] = "";
+		$bw_options['company'] = "Bobbing Wide";
 		$bw_options['business'] = "web design, web development";
 		$bw_options['formal'] = "Bobbing Wide - web design, web development";
+		$bw_options['abbr'] = "bw";
 		$bw_options['main-slogan'] = "";
 		$bw_options['alt-slogan'] = "";
 		$bw_options['contact'] = "";
@@ -587,6 +595,7 @@ $expected[] = '</div>';
 		$bw_options['contact-link'] = "";
 		$bw_options['contact-text'] = "";
 		$bw_options['contact-title'] = "";
+		$bw_options['extended-address'] = "";
 		$bw_options['street-address'] = "";
 		$bw_options['locality'] = "";
 		$bw_options['region'] = "";
@@ -604,9 +613,13 @@ $expected[] = '</div>';
 		$bw_options['youtube'] = "bobbingwide";
 		$bw_options['flickr'] = "herb_miller";
 		$bw_options['picasa'] = "bobbingwide";
+		$bw_options['pinterest'] = "bobbingwide";
+		$bw_options['instagram'] = "bobbingwide";
 		$bw_options['github'] = "splurge";
+		$bw_options['wordpress'] = "";
 		$bw_options['paypal-country'] = "United Kingdom";
 		$bw_options['logo-image'] = "30048";
+		$bw_options['qrcode-image'] = "";
 		$bw_options['art-version'] = "41";
 		$bw_options['howdy'] = "hi:";
 		update_option( "bw_options", $bw_options );
@@ -639,6 +652,7 @@ $expected[] = '</div>';
 	
 	/**
 	 * Update the alt=1 options for environment independence
+	 * Note: We also need to update some of tbhe bw_options fields!
 	 */
 	function update_options1() {
 		$bw_options = get_option( "bw_options1" );
@@ -656,6 +670,7 @@ $expected[] = '</div>';
 		$bw_options['lat'] = "44.267467";
 		$bw_options['long'] = "5.161042";
 		update_option( "bw_options1", $bw_options );
+		bw_update_option( 'company', "Bobbing Wide" );
 	}
 	
 	
