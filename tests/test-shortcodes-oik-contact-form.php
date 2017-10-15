@@ -13,6 +13,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		oik_require( "shortcodes/oik-contact-form.php" );
 		
 		oik_require( "includes/oik-sc-help.inc" );
+		oik_require_lib( "oik_plugins" );
 		
 		//if ( !did_action( "oik_add_shortcodes" ) ) {
 		//do_action( "oik_add_shortcodes" );
@@ -23,6 +24,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	 * test bw_contact_form invalid user
 	 */
 	function test_bw_contact_form_invalid_user() {
+		bw_update_option( "email", null );
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_contact_form( null );
     //$this->generate_expected_file( $html );
@@ -30,6 +32,8 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	}
 	
 	function test_bw_contact_form_invalid_user_bb_BB() {
+	
+		bw_update_option( "email", null );
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_contact_form( null );
     //$this->generate_expected_file( $html );
@@ -42,6 +46,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	function test_bw_contact_form() {
 		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "en_GB" );
+		bw_update_option( "contact", null );
 		$atts = array( "email" => "herb@bobbingwide.com" );
 		$html = bw_contact_form( $atts );
 		$html = $this->replace_contact_form_id( $html );
@@ -55,6 +60,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	function test_bw_contact_form_bb_BB() {
 		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "bb_BB" );
+		bw_update_option( "contact", null );
 		$atts = array( "email" => "herb@bobbingwide.com" );
 		$html = bw_contact_form( $atts );
 		$html = $this->replace_contact_form_id( $html );
@@ -138,6 +144,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	 * We don't really need a valid user to test this
 	 */
 	function test_bw_contact_form__example() {
+		bw_update_option( "email", null );
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( bw_contact_form__example() );
 		//$this->generate_expected_file( $html );
@@ -145,6 +152,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	}
 	
 	function test_bw_contact_form__example_bb_BB() {
+		bw_update_option( "email", null );
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( bw_contact_form__example() );
 		//$this->generate_expected_file( $html );
