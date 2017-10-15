@@ -11,7 +11,8 @@ class Tests_shortcodes_oik_googlemap extends BW_UnitTestCase {
 		parent::setUp();
 		
 		oik_require_lib( "oik-sc-help" );
-		oik_require( "shortcodes/oik-googlemap.php" ); 														
+		oik_require( "shortcodes/oik-googlemap.php" );
+		oik_require_lib( "oik_plugins" ); 														
 	}
 	
 	function test_bw_show_googlemap__syntax() {
@@ -37,6 +38,15 @@ class Tests_shortcodes_oik_googlemap extends BW_UnitTestCase {
 	 */
 	function test_bw_show_googlemap__example() {
 		bw_gmap_map( null );
+		
+		bw_update_option( "company", null );
+		bw_update_option( "postal-code", null );
+		bw_update_option( "gmap_intro", null );
+		bw_update_option( "google_maps_api_key", "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU" );
+		bw_update_option( "contact", null );
+		bw_update_option( "lat", null );
+		bw_update_option( "long", null );
+		
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( bw_show_googlemap__example() );
 		$html_array = $this->tag_break( $html );
@@ -46,6 +56,14 @@ class Tests_shortcodes_oik_googlemap extends BW_UnitTestCase {
 	
 	function test_bw_show_googlemap__example_bb_BB() {
 		bw_gmap_map( null );
+		
+		bw_update_option( "company", null );
+		bw_update_option( "postal-code", null );
+		bw_update_option( "gmap_intro", null );
+		bw_update_option( "google_maps_api_key", "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU" );
+		bw_update_option( "contact", null );
+		bw_update_option( "lat", null );
+		bw_update_option( "long", null );
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( bw_show_googlemap__example() );
 		$html_array = $this->tag_break( $html );
