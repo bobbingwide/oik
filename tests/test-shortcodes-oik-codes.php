@@ -71,10 +71,12 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 	/**
 	 * If "oik_add_shortcodes" has not been run then we won't find the correct name for the implementing function.
 	 * 
+	 
 	 */
 	function test_bw_code__example() {
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( bw_code__example() );
+		$html = $this->replace_oik_plugins_server( $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
@@ -82,6 +84,7 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 	function test_bw_code__example_bb_BB() {
 		$this->switch_to_locale( "bb_BB" );
 		$html = bw_ret( bw_code__example() );
+		$html = $this->replace_oik_plugins_server( $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
@@ -153,6 +156,7 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 								 , "snippet" => "y"
 								 );
 		$html = bw_code( $atts );
+		$html = $this->replace_oik_plugins_server( $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
@@ -171,6 +175,7 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 								 , "snippet" => "y"
 								 );
 		$html = bw_code( $atts );
+		$html = $this->replace_oik_plugins_server( $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
@@ -195,6 +200,12 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 		
+	}
+	
+	function replace_oik_plugins_server( $html ) {
+		$html = str_replace( oik_get_plugins_server(), "https://qw/oikcom", $html );
+		return $html;
+	
 	}
 	
 	
