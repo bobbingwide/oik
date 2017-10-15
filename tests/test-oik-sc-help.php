@@ -186,6 +186,7 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 	}
 	
 	function test_bw_copyright__syntax() {
+		bw_update_option( "company", "Bobbing Wide" );
 		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "en_GB" );
 		$array = bw_copyright__syntax();
@@ -196,6 +197,7 @@ a:1:{i:0;s:10:"genericons";}}</p>'
 	
 	function test_bw_copyright__syntax_bb_BB() {
 		//$this->setExpectedDeprecated( "bw_translate" );
+		bw_update_option( "company", "Bobbing Wide" );
 		$this->switch_to_locale( "bb_BB" );
 		$array = bw_copyright__syntax();
 		$html = $this->arraytohtml( $array, true );
