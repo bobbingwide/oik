@@ -37,6 +37,17 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
 		}
 	}
 	
+	/**
+	 * Test added to check if the language file was being loaded
+	 * @TODO Proper solution will confirm that it's the latest language file
+	 * loaded from the plugin rather than a previous one loaded from wp-content/languages/plugins
+	 */
+	function test_en_GB_text_domain_loaded() {
+		$this->switch_to_locale( 'en_GB' );
+		$noposts = __( 'No %1$s found in Trash', "oik");
+		$this->assertEquals( 'No %1$s found in bin', $noposts );
+	}
+	
 	function test_bw_default_labels() {
 		$this->switch_to_locale( 'en_GB' );
 		$array = bw_default_labels();
