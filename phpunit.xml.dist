@@ -8,6 +8,10 @@
 	>
 	<!-- for PHPUnit 5.7, 6.1, 6.2 -->
 	<testsuites>
+	
+		<testsuite name="prerequisites">
+			<file>tests/test-prerequisites.php</file>
+		</testsuite>
 		<testsuite name="oik">
 			<file>tests/test-bw-translate.php</file>
 			<file>tests/test-bobbcomp.php</file>
