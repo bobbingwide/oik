@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2015 
+<?php // (C) Copyright Bobbing Wide 2013-2017 
 
 /**
  * Query the field type given the field name
@@ -36,8 +36,11 @@ function bw_query_field_type( $name ) {
  */
 if ( !function_exists( "bw_custom_column" ) ) {
 function bw_custom_column_admin( $column, $post_id ) {
-  bw_custom_column( $column, $post_id );
-  bw_flush();
+	$post_type = bw_determine_post_type_from_hook( current_filter() );
+	if ( $post_type && bw_field_registered_for_object_type( $column, $post_type ) ) {
+		bw_custom_column( $column, $post_id );
+		bw_flush();
+	}
 }
 
 /**
@@ -448,5 +451,42 @@ function bw_get_field_data( $field ) {
   global $bw_fields;
   $data = bw_array_get( $bw_fields, $field, null );
   return( $data );
+}
+
+/**
+ * Determines post type from hook
+ *
+ * - Quite a few hook names are constructed with the $post_type variable
+ * - This function performs a simple extraction of the $post_type
+ * - It should only be called when the current hook name is believed to be  $prefix . $post_type . $suffix
+ *
+ * @param string $hook the current hook
+ * @param string $prefix="manage_"
+ * @param string $suffix="_posts_custom_column"
+ * @return string|null the post type determined from the hook
+ */
+function bw_determine_post_type_from_hook( $hook, $prefix="manage_", $suffix="_posts_custom_column" ) {
+	$post_type = null;
+	if ( 0 === strpos( $hook, $prefix ) ) {
+		$filter = substr( $hook, strlen( $prefix ) );
+		$suffix_start = strpos( $filter, $suffix );
+		if ( $suffix_start ) {
+			$post_type = substr( $filter, 0, $suffix_start );
+		}
+	}
+	return $post_type;
+}
+
+/**
+ * Returns true if the field name is registered for the object type
+ * 
+ * @param string $field_name field name
+ * @param string $object_type object type name
+ * @return bool true if the association has been registered
+ */
+function bw_field_registered_for_object_type( $field_name, $object_type ) {
+	global $bw_mapping;
+	$registered = isset( $bw_mapping['field'][$object_type][$field_name] );
+  return $registered;
 }
 
