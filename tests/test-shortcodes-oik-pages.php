@@ -10,7 +10,8 @@ class Tests_shortcodes_oik_pages extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		oik_require_lib( "oik-sc-help" );
-		oik_require( "shortcodes/oik-pages.php" ); 														
+		oik_require( "shortcodes/oik-pages.php" ); 
+		update_option( "posts_per_page", 10 ); 											
 	}
 	
 	function test_bw_pages__help() {
@@ -61,9 +62,6 @@ class Tests_shortcodes_oik_pages extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
-	
-	
-	
 	
 	
 }

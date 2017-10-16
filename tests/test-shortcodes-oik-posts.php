@@ -10,7 +10,8 @@ class Tests_shortcodes_oik_posts extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		oik_require_lib( "oik-sc-help" );
-		oik_require( "shortcodes/oik-posts.php" ); 														
+		oik_require( "shortcodes/oik-posts.php" );
+		update_option( "posts_per_page", 10 ); 											
 	}
 	
 	

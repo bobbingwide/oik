@@ -13,6 +13,7 @@ class Tests_shortcodes_oik_table extends BW_UnitTestCase {
 		oik_require_lib( "oik-sc-help" );
 		oik_require( "shortcodes/oik-table.php" ); 	
 		oik_require_lib( "oik_plugins" );
+		update_option( "posts_per_page", 10 ); 											
 	}
 	
 	function test_bw_table__help() {

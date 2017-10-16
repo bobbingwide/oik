@@ -10,7 +10,8 @@ class Tests_shortcodes_oik_navi extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		oik_require_lib( "oik-sc-help" );
-		oik_require( "shortcodes/oik-navi.php" ); 														
+		oik_require( "shortcodes/oik-navi.php" ); 
+		update_option( "posts_per_page", 10 ); 											
 	}
 	
 	
@@ -62,9 +63,6 @@ class Tests_shortcodes_oik_navi extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
     $this->switch_to_locale( "en_GB" );
 	}
-	
-	
-	
 	
 }
 	

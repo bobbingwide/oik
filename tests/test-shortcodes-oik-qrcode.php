@@ -17,6 +17,7 @@ class Tests_shortcodes_oik_qrcode extends BW_UnitTestCase {
 	
 	function test_bw_qrcode__syntax() {
 		//$this->setExpectedDeprecated( "bw_translate" );
+		bw_update_option( "company", "Bobbing Wide" );
 		$this->switch_to_locale( "en_GB" );
 		$array = bw_qrcode__syntax();
 		$html = $this->arraytohtml( $array, true );
@@ -25,6 +26,7 @@ class Tests_shortcodes_oik_qrcode extends BW_UnitTestCase {
 	}
 	
 	function test_bw_qrcode__syntax_bb_BB() {
+		bw_update_option( "company", "Bobbing Wide" );
 		$this->switch_to_locale( "bb_BB" );
 		$array = bw_qrcode__syntax();
 		$html = $this->arraytohtml( $array, true );

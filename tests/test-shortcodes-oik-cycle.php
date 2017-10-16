@@ -10,7 +10,8 @@ class Tests_shortcodes_oik_cycle extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		oik_require( "includes/oik-sc-help.inc" );
-		oik_require( "shortcodes/oik-cycle.php" ); 														
+		oik_require( "shortcodes/oik-cycle.php" ); 
+		update_option( "posts_per_page", 10 ); 											
 	}
 	
 	function test_bw_cycle__help() {
