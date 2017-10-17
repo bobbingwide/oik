@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2016
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
  * Dependency checking logic for WordPress plugins and themes
@@ -14,7 +14,11 @@ if ( function_exists( "oik_plugin_lazy_activation" ) ) {
 	// It's already defined so we don't need this lot
 } else { 
 	bw_trace2( __FILE__, "doing_it_wrong", false, BW_TRACE_ERROR );
-	_doing_it_wrong( __FILE__, "Use libs/oik-activation.php", "oik v3.0.0" );
+	_doing_it_wrong( __FILE__, "Use libs/oik-activation.php", "oik v3.0.0" )
+	echo "<!-- ";
+	echo __FILE__;
+	var_dump( debug_backtrace() );
+	echo "-->";
 }
 
 /** 
