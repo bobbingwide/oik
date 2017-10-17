@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2016
+<?php // (C) Copyright Bobbing Wide 2013-2017
 
 /**
  * Performs the reverse of ltrim(), up to a point
@@ -39,7 +39,7 @@ function bw_build_url( $parts ) {
 		$newurl .= $parts['query'];
 	}
 	if ( isset( $parts['fragment'] ) ) {  
-		$newurl .= "/#";
+		$newurl .= "#";
 		$newurl .= $parts['fragment'];
 	}
 	return( $newurl );
@@ -259,20 +259,25 @@ function bw_link_url( $url, $atts ) {
 	bw_trace2( $parts, "parts" );
 	$scheme = bw_array_get( $parts, "scheme", null );
 	if ( !$scheme ) {
-		$parts['scheme'] = "http://" ;
-		$parts['host'] = bw_array_get( $parts, "host", null );
+		$path = bw_array_get( $parts, "path", null );
+		if ( $path ) {
+			$parts['scheme'] = "http://" ;
+			$parts['host'] = bw_array_get( $parts, "host", null );
     
-		if ( $parts['host'] ) {
-			// No need to check if this is a domain, just use it.
-			// OR do we?
-			//gobang();
+			if ( $parts['host'] ) {
+				// No need to check if this is a domain, just use it.
+				// OR do we?
+				//gobang();
+			} else {
+				// No host... 
+				// check to see if the path is a domain?
+				$parts = bw_host_or_path( $parts );
+				
+				//$newurl = set_url_scheme( "$domain/$url" );
+			}	
 		} else {
-			// No host... 
-			// check to see if the path is a domain?
-			$parts = bw_host_or_path( $parts );
-      
-			//$newurl = set_url_scheme( "$domain/$url" );
-      
+			$parts['scheme'] = null;
+			$parts['host'] = null;
 		}
 		$newurl = bw_build_url( $parts );
 	} else {
