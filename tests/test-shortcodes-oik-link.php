@@ -132,7 +132,10 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 	function test_bw_link_fragment() { 
 		bw_update_option( "domain", null );
 		$domain = bw_get_domain();					
-		$inout = array(	"#fragment" 						=> '<a class="bw_link" href="#fragment" title="#fragment">#fragment</a>' 
+		$inout = array(	"#fragment" 						=> '<a class="bw_link" href="#fragment" title="fragment">fragment</a>' 
+									,	"#frag ment" 						=> '<a class="bw_link" href="#frag ment" title="frag ment">frag ment</a>' 
+									,	"#frag-ment" 						=> '<a class="bw_link" href="#frag-ment" title="frag ment">frag ment</a>' 
+									,	"#frag_ment" 						=> '<a class="bw_link" href="#frag_ment" title="frag ment">frag ment</a>' 
 									, "/#fragment" 						=> '<a class="bw_link" href="http://' . $domain . '#fragment" title="/#fragment">/#fragment</a>'
 									, "example.com#fragment" 	=> '<a class="bw_link" href="http://example.com#fragment" title="example.com#fragment">example.com#fragment</a>'
 									, "example.com/path#fragment" 	=> '<a class="bw_link" href="http://example.com/path#fragment" title="example.com/path#fragment">example.com/path#fragment</a>'

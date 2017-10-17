@@ -214,7 +214,7 @@ function bw_host_or_path( $parts ) {
 } 
 
 /**
- * Construct a suitable URL    
+ * Constructs a suitable URL    
  *
  * We've been given what may be an URL.
  * What can we do to make the link really easy to use?
@@ -228,26 +228,6 @@ function bw_host_or_path( $parts ) {
  * - path
  * - query - after the question mark ?
  * - fragment - after the hashmark #
- *
- * Shortcode examples that we might reasonably use
- * 
- 	 `
-   [bw_link 18356] &#8211; link to post 18356
-   [bw_link child] &#8211; current logic links to the child page named child
-
-   [bw_link http://qw/wordpress/oik_todo/bw_link-enhancements/]
-
-   [bw_link /somewhere] &#8211; link to somewhere in the current bw_domain. Can we check the permalink exists?
-
-   [bw_link post_type] &#8211; link to the Post type archive
-
-   [bw_link example.com] &#8211; link to example.com
-   [bw_link example.com/path - link to example.com path
-
-   [bw_link child] &#8211; current logic links to the child page named child
-
-   [bw_link s://p ] &#8211; multisite &#8211; link to a multisite ID
- * `
  * 
  * @param string $url - an URL - or part thereof
  * @param array $atts - shortcode parameters 
@@ -322,7 +302,7 @@ function bw_link( $atts=null, $content=null, $tag=null ) {
 			$text = get_the_title();
 		}
 		if ( !$text ) {
-			$text = $url;
+			$text = bw_link_text_from_url( $url );
 		}
 		$url = bw_link_url( $url, $atts ); 
 	}
@@ -385,4 +365,26 @@ function bw_link__example( $shortcode="bw_link" ) {
  */                 
 function bw_link__snippet( $shortcode="bw_link" ) {
 	_sc__snippet( $shortcode, _bw_get_an_id() );
+}
+
+/**
+ * Returns nice link text
+ *
+ * Converts a simple fragment URL into nice link text
+ *
+ * @param string $url
+ * @return string nice link text
+ */
+function bw_link_text_from_url( $url ) {
+	bw_trace2();
+	$text = $url;
+	if ( '#' === substr( $text, 0, 1 ) ) {
+		$text = substr( $text, 1 );
+		$text = str_replace( "-", " ", $text );
+		$text = str_replace( "_", " ", $text );
+		
+	}
+		
+	return $text;
+
 }                   
