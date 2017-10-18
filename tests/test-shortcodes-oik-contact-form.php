@@ -15,9 +15,6 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		oik_require( "includes/oik-sc-help.inc" );
 		oik_require_lib( "oik_plugins" );
 		
-		//if ( !did_action( "oik_add_shortcodes" ) ) {
-		//do_action( "oik_add_shortcodes" );
-		//}	
 	}
 	
 	/**

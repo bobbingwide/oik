@@ -35,13 +35,17 @@ class Tests_shortcodes_oik_thumbs extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * We run the example twice but throw away the output of the first call
-	 * since it's not easy to verify and all we want to do at present is to check the i18n/10n
+	 * Since it's not easy to verify and all we want to do at present is to check the i18n/10n of the text preceding
+	 * - We run the example twice 
+	 * - but throw away the output of the first call
+	 * - Prior to running the second test we remove the shortcode. 
+	 * - We also need to reset the cached expansion of the shortcode
 	 */ 
 	function test_bw_thumbs__example() {
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( bw_thumbs__example() );
 		$this->remove_shortcode( "bw_thumbs" );
+		bw_expand_shortcode();
 		$html = bw_ret( bw_thumbs__example() );
 		//$post_1 = $this->dummy_post( 1 );
 		//$attachment_1 = $this->dummy_attachment( 0 );

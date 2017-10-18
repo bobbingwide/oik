@@ -222,7 +222,7 @@ function _sc__snippet( $shortcode="bw_code", $atts=null ) {
   $example .= ']';
   bw_save_scripts(); 
   bw_push();
-  $formatted_example = apply_filters( 'the_content', $example ); 
+	$formatted_example = bw_expand_shortcode( $example );
   bw_pop();
   bw_trace2( $formatted_example, "formatted example" );
   $escaped_example = esc_html( $formatted_example );
@@ -552,7 +552,7 @@ function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
   //p( $example );
 	$saved = bw_global_post();
   bw_push();
-  $expanded = apply_filters( 'the_content', $example );
+	$expanded = bw_expand_shortcode( $example );
 	bw_pop();
 	bw_global_post( $saved );
   e( $expanded );
@@ -580,8 +580,34 @@ function playlist__syntax( $shortcode="playlist" ) {
                  , "artists" => BW_::bw_skv( "true", "false", __( "Display artists?", null ) )
                  );
   return( $syntax );
-}                
+} 
 
+/**
+ * Expand the shortcode
+ * 
+ * Returns the cached version if available
+ * 
+ * Note: The cached version may have been created for a different locale
+ * In tests we might need to reset it by calling bw_expand_shortcode with null
+ * 
+ * @param string|null $example shortcode to be expanded
+ * @return string the generated HTML
+ */
+function bw_expand_shortcode( $example=null ) {
+	static $previous_example = null;
+	static $previous_expanded = null;
+	static $previous_locale = null; 
+	$locale = get_locale();
+	if ( ( $previous_example == $example ) && ( $previous_locale == $locale ) ) {
+		$expanded = $previous_expanded;
+	} else {
+		$expanded = apply_filters( 'the_content', $example );
+		$previous_example = $example;
+		$previous_expanded = $expanded;
+		$previous_locale = $locale;
+	}
+	return $expanded;
+}
 
 } /* end !defined */
 
