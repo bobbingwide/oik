@@ -32,6 +32,7 @@
 			<file>tests/test-issue-2.php</file>
 			<file>tests/test-issue-7.php</file>
 			<file>tests/test-issue-65.php</file>
+			<file>tests/test-issue-68.php</file>
 			<file>tests/test-oik-admin.php</file>
 			<file>tests/test-includes-bw_fields.php</file>
 			<file>tests/test-includes-bw_formatter.php</file>

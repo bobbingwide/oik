@@ -38,26 +38,20 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	 * Notes: 
 	 * - We can't use bw_follow or bw_github since they're not actually shortcodes
 	 * - The test is dependent upon oik-css being active - it alters automatic paragraph creation
-	 * - the oik-option valuue for Twitter is expected to be herb_miller
-	 * 
-	 -'<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;https://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;generi
-con genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
--</p><p>a:4:{s:7:"scripts";a:0:{}s:14:"queued_scripts";a:0:{}s:6:"styles";a:1:{s:10:"genericons";O:14:"_WP_Dependency":6:{s:6:"handle";s:10:"genericons";s:3:"src";s:72:
-"http://qw/wordpress/wp-content/plugins/oik/css/genericons/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";
-a:1:{i:0;s:10:"genericons";}}</p>'
-+'something with serialized stuff'
-   * 
+	 * - the oik-option value for Twitter is expected to be herb_miller
+	 * - test updated for Issue #68 to report the generated stylesheet link
+	 * - deregisters genericons as it may have been enqueued by Jetpack
 	 */
 	function test_sc__snippet() {
+		wp_deregister_style( "genericons" );
 		bw_update_option( "contact", null );
 		bw_update_option( "twitter", "herb_miller" );
 		do_action( "oik_add_shortcodes" );
 		_sc__snippet( "bw_twitter", "theme=gener alt=0" );
 		$html = bw_ret();
-		$expected_output = '<p lang="HTML" escaped="true">&lt;p&gt;&lt;a href=&quot;https://www.twitter.com/herb_miller&quot; title=&quot;Follow me on Twitter&quot;&gt;&lt;span class=&quot;genericon genericon-twitter bw_follow_me &quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;';
-		$expected_output .= "\n</p>";
-		$this->assertEquals( $expected_output, $html );
-		//'/genericons.css";s:4:"deps";a:0:{}s:3:"ver";b:0;s:4:"args";s:3:"all";s:5:"extra";a:0:{}}}s:13:"queued_styles";a:1:{i:0;s:10:"genericons";}}</p>', $html );
+		$html = $this->replace_oik_url( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
 	}
 	
 	function test_div__help() {
