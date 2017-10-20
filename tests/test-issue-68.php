@@ -27,6 +27,30 @@ class Tests_issue_68 extends BW_UnitTestCase {
 	}
 	
 	/**
+	 * We expect the results of script_concat_settings() to be as below. 
+	 * 
+	 * - If they're not the tests might fail...
+	 * - But so far they haven't 
+	 * - The value of wp_options 'can_compress_scripts' is expected to be 1.
+	 * - This is used for both $compress_scripts and $compress_css
+	 * - Using SCRIPT_DEBUG true means $concatenate_scripts will be false.
+	 * 
+	 * So the code should save the value, set it to 0 and then reset it. 
+	 * No need to save the value though, we can just rerun script_concat_settings()
+	 */
+	function test_compress_css() {
+		script_concat_settings();
+		global $concatenate_scripts, $compress_scripts, $compress_css;
+		$this->assertEquals( 0, $concatenate_scripts );
+		$this->assertEquals( 1, $compress_scripts );
+		$this->assertEquals( 1, $compress_css );
+		//$concatenate_scripts = 1;
+		//$compress_scripts = 0;
+		//$compress_css = 0;
+		
+	}
+	
+	/**
 	 * We want to be able to see the HTML that's generated as a result of the scripts and styles that have been enqueued
 	 * On the first invocation there should might not be any latest HTML.
 	 * On the second, if nothing's been enqueued, then there shouldn't be any new HTML.
