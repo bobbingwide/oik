@@ -153,8 +153,35 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		
 		$html = bw_ret();
 		$html_array = $this->tag_break( $html );
-		//$this->generate_expected_file( $html );
-		$this->assertArrayEqualsFile( $html );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	/**
+	 * Tests that the bw_jquery enqueued code is also displayed as part of the snippet
+	 *
+	 * We also want to test that jquery is enqueued and becomes part of the snippet
+	 * along with the jQuery queued in global $bw_jq using bw_jquery
+	 */
+	function test_bw_wtf_example_snippet_includes_bw_jq() {
+		$this->reset_wp_scripts_done();
+		$this->switch_to_locale( 'en_GB');
+		_sc__example( "bw_wtf" );
+		_sc__snippet( "bw_wtf" );
+		$html = bw_ret();
+		$this->assertNotNull( $html );
+		$html = $this->replace_home_url( $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->reset_wp_scripts_done();
+	}
+	
+	/**
+	 * Do we also need to reset wp_styles? 
+	 */
+	function reset_wp_scripts_done() {
+		unset( $GLOBALS['bw_jq'] );
+		unset( $GLOBALS['wp_scripts'] );
 	}
 	
 

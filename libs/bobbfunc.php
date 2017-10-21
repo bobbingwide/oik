@@ -960,7 +960,10 @@ function bw_jq_flush() {
 }  
 
 /**
- * Append some more jQuery code to be output later
+ * Appends some more jQuery code to be output later
+ *
+ * If it's not already set then we need to enqueue jquery and ensure that all the jQuery gets flushed at the end of processing.
+ * Note: 
  * 
  * @param $text - some well formed jQuery code
  * @global $bw_jq
@@ -971,14 +974,25 @@ function bw_jq( $text ) {
 		wp_enqueue_script( 'jquery' ); 
 		if ( !is_admin() ) {
 			add_action( 'wp_footer', "bw_jq_flush", 25 );
-		}  
+		} else {
+			add_action( "admin_print_footer_scripts", "bw_jq_flush", 25 );
+		}
 	 //bw_trace2( $bw_jq, "bw_jq not set" );  
 	}
 	$bw_jq .=$text;
-	//bw_trace2( $bw_jq, "bw_jq", false );  
-	if ( is_admin() ) {
-		bw_jq_flush();
-	}  
+}
+
+/**
+ * Returns any queued jQuery
+ *
+ * @return string queued jQuery
+ */
+function bw_jq_get() {
+	global $bw_jq;
+	if ( isset( $bw_jq ) ) { 	
+		return $bw_jq;
+	}
+	return null;
 }
 
 /**
