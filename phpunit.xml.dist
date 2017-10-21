@@ -14,6 +14,7 @@
 		</testsuite>
 		<testsuite name="oik">
 			<file>tests/test-bw-translate.php</file>
+			<file>tests/test-issue-69.php</file>
 			<file>tests/test-bobbcomp.php</file>
 			<file>tests/test-bobbfunc.php</file>
 			<file>tests/test-bw_metadata.php</file>

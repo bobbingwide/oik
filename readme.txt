@@ -90,7 +90,7 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
-= 3.2.0-beta-20171017 = 
+= 3.2.0-beta-20171021 = 
 Added more tests to close issues. 
 
 = 3.2.0-beta-20171010
@@ -408,11 +408,14 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
-= 3.2.0-beta-20171017 = 
+= 3.2.0-beta-20171021 = 
 * Fixed: bw_custom_column_admin should check the context [github bobbingwide oik issues 2]
 * Fixed: oik_box() produces messages when $id=null and $callback is a method [github bobbingwide oik issues 7]
 * Fixed: tested in multiple environments [github bobbingwide oik issues 9]
 * Fixed: Improved support for internal ( fragment ) links using [bw_link]	[github bobbingwide oik issues 16]
+* Fixed: Added tests for bw_register_taxonomy being called multiple times [github bobbingwide oik issues 65]
+* Fixed: Shortcode snippet HTML matches the example. Also displays the enqueued styles, scripts and jQuery [github bobbingwide oik issues 68]
+* Fixed: Warning issued during plugin activation under WP-cli [github bobbingwide issues 69]
 * Tested: With PHP 7.0 and 7.1
 
 = 3.2.0-beta-20171010 = 
