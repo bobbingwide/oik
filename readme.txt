@@ -416,6 +416,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Fixed: Added tests for bw_register_taxonomy being called multiple times [github bobbingwide oik issues 65]
 * Fixed: Shortcode snippet HTML matches the example. Also displays the enqueued styles, scripts and jQuery [github bobbingwide oik issues 68]
 * Fixed: Warning issued during plugin activation under WP-cli [github bobbingwide issues 69]
+* Tested: With WordPress 4.8.2 and 4.9-beta3
 * Tested: With PHP 7.0 and 7.1
 
 = 3.2.0-beta-20171010 = 

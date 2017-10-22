@@ -50,6 +50,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		_sc__snippet( "bw_twitter", "theme=gener alt=0" );
 		$html = bw_ret();
 		$html = $this->replace_oik_url( $html );
+		$html = $this->replace_wp_version( $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
@@ -256,7 +257,11 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	}
-
-
+	
+	function replace_wp_version( $html ) {
+		global $wp_version; 
+		$html = str_replace( $wp_version, "x.y.z", $html );
+		return $html;
+  }
 	
 }
