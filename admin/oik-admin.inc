@@ -223,13 +223,13 @@ function oik_documentation() {
   BW_::p( __( "For more information:", "oik" ) );
   sul();
   stag( "li" );
-  BW_:alink( null, "https://www.oik-plugins.com/getting-started-with-oik-plugins/", __( "Getting started", "oik" ), __( "Getting started", "oik" ) );
+  BW_:alink( null, "https://www.oik-plugins.com/getting-started-with-oik-plugins/", __( "Getting started", "oik" ) );
 	etag( "li" );
   stag( "li" );
-  BW_::alink( null,  "https://www.oik-plugins.com/oik/oik-faq", __( "Frequently Asked Questions", "oik" ), __( "Frequently Asked Questions", "oik" ) );
+  BW_::alink( null,  "https://www.oik-plugins.com/oik/oik-faq", __( "Frequently Asked Questions", "oik" ) );
   etag( "li" );
   stag( "li" );
-  BW_::alink( null, "https://wordpress.org/support/plugin/oik", __( "Forum", "oik" ), __( "Forum", "oik" ) );
+  BW_::alink( null, "https://wordpress.org/support/plugin/oik", __( "Forum", "oik" ) );
   etag( "li" );
   eul();
   sp();

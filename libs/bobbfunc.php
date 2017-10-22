@@ -225,7 +225,7 @@ function _alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=
  * @param string $class - the classes for the anchor tag
  * @param string $url - the fully formed URL e.g. http://www.oik-plugins.com
  * @param string $linktori - is the text or image
- * @param string $alt - if NULL will use $linktori
+ * @param string $alt - text for title= attribute. a11y recommendations are to leave this null
  * @param string $id - the unique ID for the anchor tag
  * @param string $extra - anything else that needs to go in the <a> tag. e.g. 'onclick=then some javascript' 
  *
@@ -243,31 +243,34 @@ function alink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=N
  * Parameters as for `alink()`
  *
  * @param string $class - the classes for the anchor tag
- * @param string $url - the fully formed URL e.g. http://www.oik-plugins.com
+ * @param string $url - the fully formed URL e.g. https://www.oik-plugins.com
  * @param string $linktori - is the text or image
- * @param string $alt - if NULL will use $linktori
+ * @param string $alt - text for title= attribute. a11y recommendations are to leave this null
  * @param string $id - the unique ID for the anchor tag
  * @param string $extra - anything else that needs to go in the <a> tag. e.g. 'onclick=then some javascript' 
  * @return string the link
  * 
  */
 function retlink( $class=NULL, $url, $linktori=NULL, $alt=NULL, $id=NULL, $extra=NULL  ) {
-  if ( is_null( $linktori ) )
+  if ( is_null( $linktori ) )	{
     $linktori = $url;
+	}
   $link = "<a" ;
-  $link .= kv( "class", $class ); // aclass( $class );
-  $link .= kv( "id", $id ); // aid( $id );
-  $link .= kv( "href", $url ); // ahref( $url );
-  if ( is_null( $alt ) )
-     $alt = $linktori;
-  // Is alt= allowed with XHTML Strict 1.0?    
-  // aalt( $alt );
-  $link .= atitle( $alt );
-  if ( $extra )
-    $link .= $extra ;
+  $link .= kv( "class", $class ); 
+  $link .= kv( "id", $id ); 
+  $link .= kv( "href", $url ); 
+  if ( !is_null( $alt ) ) {
+		if ( $alt != $linktori ) {
+			$link .= atitle( $alt );
+		}
+	}
+  if ( $extra ) {
+    $link .= $extra;
+	}
   $link .= ">";
-  if ( $linktori )
+  if ( $linktori ) {
     $link .= $linktori;
+	}
   $link .= "</a>";
   return( $link );
 }  

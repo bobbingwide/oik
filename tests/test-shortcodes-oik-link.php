@@ -111,13 +111,13 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 		bw_update_option( "domain", null );
 		$domain = bw_get_domain();					
 		$inout = array( "" => '<a class="bw_link"></a>'
-									, "/" => '<a class="bw_link" href="http://' . $domain . '" title="/">/</a>'
-									, "/somewhere" => '<a class="bw_link" href="http://' . $domain . '/somewhere" title="/somewhere">/somewhere</a>'
-									, "/somewhere/child" => '<a class="bw_link" href="http://' . $domain . '/somewhere/child" title="/somewhere/child">/somewhere/child</a>'
-									,	"example.com" 					=> '<a class="bw_link" href="http://example.com" title="example.com">example.com</a>'
-									, "example.com/path"			=> '<a class="bw_link" href="http://example.com/path" title="example.com/path">example.com/path</a>'
-									, "http://example.com" => '<a class="bw_link" href="http://example.com" title="http://example.com">http://example.com</a>'
-									, "https://example.com" => '<a class="bw_link" href="https://example.com" title="https://example.com">https://example.com</a>'
+									, "/" => '<a class="bw_link" href="http://' . $domain . '">/</a>'
+									, "/somewhere" => '<a class="bw_link" href="http://' . $domain . '/somewhere">/somewhere</a>'
+									, "/somewhere/child" => '<a class="bw_link" href="http://' . $domain . '/somewhere/child">/somewhere/child</a>'
+									,	"example.com" 					=> '<a class="bw_link" href="http://example.com">example.com</a>'
+									, "example.com/path"			=> '<a class="bw_link" href="http://example.com/path">example.com/path</a>'
+									, "http://example.com" => '<a class="bw_link" href="http://example.com">http://example.com</a>'
+									, "https://example.com" => '<a class="bw_link" href="https://example.com">https://example.com</a>'
 									);
 		foreach ( $inout as $in => $expected ) {
 			$atts = array( $in );
@@ -132,15 +132,15 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 	function test_bw_link_fragment() { 
 		bw_update_option( "domain", null );
 		$domain = bw_get_domain();					
-		$inout = array(	"#fragment" 						=> '<a class="bw_link" href="#fragment" title="fragment">fragment</a>' 
-									,	"#frag ment" 						=> '<a class="bw_link" href="#frag ment" title="frag ment">frag ment</a>' 
-									,	"#frag-ment" 						=> '<a class="bw_link" href="#frag-ment" title="frag ment">frag ment</a>' 
-									,	"#frag_ment" 						=> '<a class="bw_link" href="#frag_ment" title="frag ment">frag ment</a>' 
-									, "/#fragment" 						=> '<a class="bw_link" href="http://' . $domain . '#fragment" title="/#fragment">/#fragment</a>'
-									, "example.com#fragment" 	=> '<a class="bw_link" href="http://example.com#fragment" title="example.com#fragment">example.com#fragment</a>'
-									, "example.com/path#fragment" 	=> '<a class="bw_link" href="http://example.com/path#fragment" title="example.com/path#fragment">example.com/path#fragment</a>'
-									, "http://example.com/#fragment" => '<a class="bw_link" href="http://example.com/#fragment" title="http://example.com/#fragment">http://example.com/#fragment</a>'
-									, "https://example.com/#fragment" => '<a class="bw_link" href="https://example.com/#fragment" title="https://example.com/#fragment">https://example.com/#fragment</a>'
+		$inout = array(	"#fragment" 						=> '<a class="bw_link" href="#fragment">fragment</a>' 
+									,	"#frag ment" 						=> '<a class="bw_link" href="#frag ment">frag ment</a>' 
+									,	"#frag-ment" 						=> '<a class="bw_link" href="#frag-ment">frag ment</a>' 
+									,	"#frag_ment" 						=> '<a class="bw_link" href="#frag_ment">frag ment</a>' 
+									, "/#fragment" 						=> '<a class="bw_link" href="http://' . $domain . '#fragment">/#fragment</a>'
+									, "example.com#fragment" 	=> '<a class="bw_link" href="http://example.com#fragment">example.com#fragment</a>'
+									, "example.com/path#fragment" 	=> '<a class="bw_link" href="http://example.com/path#fragment">example.com/path#fragment</a>'
+									, "http://example.com/#fragment" => '<a class="bw_link" href="http://example.com/#fragment">http://example.com/#fragment</a>'
+									, "https://example.com/#fragment" => '<a class="bw_link" href="https://example.com/#fragment">https://example.com/#fragment</a>'
 									);
 		foreach ( $inout as $in => $expected ) {
 			$atts = array( $in );
@@ -158,7 +158,7 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 	function test_bw_link_id() {
 		$siteurl = home_url();
 		$parent = $this->dummy_post(); 				
-		$inout = array( $parent->ID => '<a class="bw_link" href="' . $siteurl . '/post-title/" title="post title">post title</a>'
+		$inout = array( $parent->ID => '<a class="bw_link" href="' . $siteurl . '/post-title/">post title</a>'
 									);
 		foreach ( $inout as $in => $expected ) {
 			$atts = array( $in );
