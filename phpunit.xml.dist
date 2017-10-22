@@ -47,6 +47,7 @@
 			<file>tests/test-shortcodes-oik-blockquote.php</file>
 			<file>tests/test-shortcodes-oik-blocks.php</file>
 			<file>tests/test-shortcodes-oik-bookmarks.php</file>
+			<file>tests/test-shortcodes-oik-bob-bing-wide.php</file>
 			<file>tests/test-shortcodes-oik-button.php</file>
 			<file>tests/test-shortcodes-oik-bw.php</file>
 			<file>tests/test-shortcodes-oik-cite.php</file>

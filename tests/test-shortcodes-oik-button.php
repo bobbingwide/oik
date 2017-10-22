@@ -80,6 +80,22 @@ class Tests_shortcodes_oik_button extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	function test_bw_button__example() {
+		$this->switch_to_locale( "en_GB" );
+		$html = bw_ret( bw_button__example() );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	function test_bw_button__example_bb_BB() {
+		$this->switch_to_locale( "bb_BB" );
+		$html = bw_ret( bw_button__example() );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+		$this->switch_to_locale( "en_GB" );
+	}
+	
 	
 	
 	

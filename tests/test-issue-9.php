@@ -3,86 +3,17 @@
 class Tests_issue_9 extends BW_UnitTestCase {
 
 	/** 
-	 * When the tests for the functions have been written then these notes can either be removed or copied to the issue's comments. 
-	 * This is to be of help to anyone converting other plugins that use the oik APIs.
+	 * Issue #9 - 100% translatable and localizable on WordPress.org
 	 * 
+	 * For notes to assist conversion from the API for oik v3.1.4 or earlier to oik v3.2 or later,
+	 * such that all translatable strings can be internationalized and therefore localized, see
+	 * https://github.com/bobbingwide/oik/issues/9#issuecomment-331842723
+	 *
+	 * These are the basic tests showing that the static methods in class BW_ produce the same 
+	 * output as the original functions. 
 	 * 
-	 * T
-
- 
-Test | From     | BW_::method() | oik # | Tot # | Parameters to translate
---   | ----     | ------------- | ----- | ----- | --------------------------
-y | _alink   | alink         |  12 | 46   |  array( null, null,'string', 'string' );
-y |_bwtnt   | bwtnt         | 39    | 50    | array( 'string', null );
-y | alink    | alink         |  52	  |       | array( null, null, 'string', 'string', null, null );
-y | br | br | 11 | 58 | array( 'string' );
-  | bw_array_get_dcb | n/a  | 20 | 115 |  array( null, null, 'string' );
-y | bw_emailfield   | 1  | 34 |  array( null, null, 'string', null, null, null );
-y | bw_emailfield_arr   | 1 | 11 |  array( null, 'string', null, null, null, null, null );
- | bw_form_field   |  | 150 |  array( null, null, 'string' );
- | bw_radio   | 3 | 16 |  array( null, null, 'string', null, null, null ); 
- | bw_register_field   | | 343 |  array( null, null, 'string' );
- | bw_select_arr   | 2 | 18 |  array( null, 'string', null, null, null, null, null );
- | bw_skv   | 250 | 769 |  array( null, 'string', 'string' );
- | bw_textarea   | 12 | 139 |  array( null, null, 'string', null, null ); 
- | bw_textarea_arr   | 6 | 48 |  array( null, 'string', null, null, null, null, null );
- | bw_textarea_cb_arr   | 1  | 53 |  array( null, 'string' ); // missing the remaining parms as a test.
- | bw_textfield   | 27 | 139 |  array( null, null, 'string', null, null, null );
- | bw_textfield_arr | 60 | 161 |  array( null, 'string', null, null, null, null, null );
- | bw_translate   | | 138 |  array( 'string' );
- | bw_translate | 20 | 109 | array( 'string' )
- | bw_tt   | 1 | 1 |  array( null, 'string' );
- | bwt   | 1  | 1 |  array( 'string' );
- | ehwhat   | | |  array( 'string' );
- | label | 10 | 90 | array( null, 'string' ); 
- | li   | 15 | 44 |  array( 'string' );
- | lit   | 4 | 12 |  array( 'string' );
- | oik_box   | 23 | 197 |  array( null, null, 'string' );
- | oik_box | oik_box | 32  | 194 |  array( null, null, 'string' );
- | oik_menu_header   | 11 | 76 |  array( 'string', null );
- | oik_menu_header | oik_menu_header | 12 | 78 | array( 'string', null );
-y | p        | p             | 129   | 902      | array( 'string' );
- | td   | 4 | 51 |  array( 'string' );
- | th   | 3 | 60 |  array( 'string' );
-	
-Since the following functions were not listed in makeoik then
-the strings weren't being extracted so translation couldn't have been performed on them
-
-bw_checkbox | 
-bw_checkbox_arr | 
-
-therefore it's OK to call BW_::label() in bw_checkbox(), so no need to change bw_checkbox_arr()
-
-bw_form_field_  |
-bw_form_field_* |
-
-
-bw_register_field relied on translation being performed in bw_form_field or bw_format_field
-
-However, the `gettext` filter could be invoked so the text could be modified by any plugin that implements this hook.
-
-bw_translate() should mostly become __() with the required text domain depending on the source file
-
-bw_tt() performed deferred translation of #hint text for fields 
-
-bwt() is only used by th()
-
-li() simply calls lit() so we'll implement lit()
-
-ehwhat() is not a function
-
-td() is sometimes used for text - the string should be translated. Consider using bw_td(). 
-th() is also sometimes used for text, the string should be translated and bw_th() used instead. 
-
-bw_array_get_dcb() is a special case that performs translation for the default text.
-Rather than replace the callback parameter with null when we've already performed translation
-we should just change the call to bw_array_get()
-
-br()
-
-retimage() - title parameter should be translated using __()
-	 
-
+	 * The original functions will eventually be deprecated. 
+	 * But that won't be until all the plugins and themes that use them have been converted.
 	 */
 	
 	/** 
@@ -92,12 +23,10 @@ retimage() - title parameter should be translated using __()
 	 */
 	function setUp() {
 		parent::setUp();
-		//bobbcomp::bw_get_option( "fred" );
 		oik_require_lib( "class-BW-" );
 	}
 
 	function test_BW_p() {
-		
 		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( p( "This page left intentionally blank" ) );
 		$actual = bw_ret( BW_::p( __( "This page left intentionally blank" , "oik" ) ) );
@@ -256,10 +185,5 @@ retimage() - title parameter should be translated using __()
 		$actual = bw_ret( BW_::br( __( "optional text", "oik" ) ) );
 		$this->assertEquals( $expected, $actual );
 	}
-		
-	
-	
-	
-		
 
 }

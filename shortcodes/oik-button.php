@@ -53,9 +53,12 @@ function bw_button__syntax( $shortcode='bw_button' ) {
   return( $syntax ); 
 }
 
+/**
+ * Example for [bw_button]
+ */
 function bw_button__example( $shortcode='bw_button' ) {
-  $text = "To create a button suggesting that the user tries the bbboing plugin" ;
-  $example = 'text="go bbboing\'ing" link="http://www.oik-plugins.com/oik-plugins/bbboing/" title="Give the bbboing plugin a test drive"';
+  $text = __( "To create a button suggesting that the user tries the bbboing plugin", "oik" ) ;
+  $example = 'link="https://www.oik-plugins.com/oik-plugins/bbboing/" text="'. __( "Give the bbboing plugin a test drive", "oik" ) . '"';
   bw_invoke_shortcode( $shortcode, $example, $text );
 }
   

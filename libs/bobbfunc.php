@@ -1361,7 +1361,7 @@ function bw_translate( $text ) {
 /**
  * Turn off translation performed by `bw_translate()`
  * 
- * Helper function for bw_translate()
+ * Helper function for `bw_translate()`
  */
 function bw_translation_off() {
   bw_context( "bw_translation", "off" );

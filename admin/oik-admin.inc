@@ -831,36 +831,28 @@ function oik_code_table() {
 
 /**
  * Constants for the oik-plugins servers
- * oik-plugins.co.uk is the test site so we don't break oik-plugins.com
- * as we test oik v1.17 and the transition to oik v2.0
+ * oik-plugins.co.uk was the test site so we didn't break oik-plugins.com as we tested oik v1.17 and the transition to oik v2.0
+ * It's not so important now we're on oik v3.2
  */
-define( 'OIK_PLUGINS_COM', "http://www.oik-plugins.com" );
-define( 'OIK_PLUGINS_COUK', "http://www.oik-plugins.co.uk" );
+if ( !defined( "OIK_PLUGINS_COM" ) ) {
+	define( "OIK_PLUGINS_COM", "https://www.oik-plugins.com" );
+}
+if ( !defined( "OIK_PLUGINS_COUK" ) ) {
+	define( 'OIK_PLUGINS_COUK', "https://www.oik-plugins.co.uk" );
+}
 
 /** 
- * Return the URL for the Premium (Pro) or Freemium version
+ * Return the domain for the Premium (Pro) or Freemium version
  * 
- * THIS could also append the other parameters such as the key value pairs for registration codes
- * We're trying to find the value for 
+ * We're trying to find the value to be set in `$transient->response[$plugin_slug]->url`
  * 
- * $transient->response[$plugin_slug]->url
- 
-
-  // define( 'BW_OIK_PLUGINS_SERVER', "http://qw/wpit" );     
-  // $url = "http://api.wordpress.org/plugins/info/1.0/";
-  // $url = "http://qw/wpit/plugins/update-check/1.0/";
-  // $url = "http://qw/wpit/plugins/update-check/";
-
- * 
+ * @return string the 
  */
 if ( !function_exists( "oik_get_plugins_server" ) ) { 
 function oik_get_plugins_server() {
   if ( defined( 'BW_OIK_PLUGINS_SERVER' )) {
     $url = BW_OIK_PLUGINS_SERVER;
   } else {
-		if ( !defined( "OIK_PLUGINS_COM" ) ) {
-			define( "OIK_PLUGINS_COM", "http://www.oik-plugins.com" );
-		}
     $url = OIK_PLUGINS_COM;
   }
   return( $url );

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2014
+<?php // (C) Copyright Bobbing Wide 2010-2017
 if ( !defined( 'OIK_BOB_BING_WIDE_SHORTCODES_INCLUDED' ) ) {
 define( 'OIK_BOB_BING_WIDE_SHORTCODES_INCLUDED', true );
 
@@ -125,7 +125,7 @@ function bw_lbw( $atts=NULL ) {
  */
 if ( !function_exists( "bw_loik" ) ) {
 function bw_loik( $atts=null) {
-  return( retlink( "bw_loik", "http://www.oik-plugins.com/oik", bw_oik(), "Link to the oik plugin")) ;
+  return( retlink( "bw_loik", "https://www.oik-plugins.com/oik", bw_oik(), null )) ;
 }
 } 
 

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2016
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /**
  * Pre-deprecation notice 
@@ -637,7 +637,7 @@ function oik_lazy_themes_api_result( $result, $action, $args ) {
   * http://api.wordpress.org/themes/info/1.0/', array( 'body' => array('action' => $action, 'request' => serialize($args)))
   *
   */
-  $url = "http://www.oik-plugins.com";
+  $url = "https://www.oik-plugins.com";
   //$url = "http://qw/wpit";
   $url .= "/themes/info/";
   $post_args =  array( 'timeout' => 15

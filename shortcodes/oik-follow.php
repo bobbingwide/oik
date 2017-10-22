@@ -25,24 +25,6 @@ function bw_follow( $atts=null ) {
 }
 
 /**
- * Return the preferred scheme for the social network
- * 
- * @param string $lc_social - lower case name of the social network
- * @return string scheme - either http or https - without "://"
- */
-function _bw_social_scheme( $lc_social ) {
-  $schemes = array( "facebook" => "https"
-                  , "google" => "https" 
-                  , "picasa" => "https" 
-									, "github" => "https"
-									, "wordpress" => "https"
-									, "twitter" => "https"
-                  );
-  $scheme = bw_array_get( $schemes, $lc_social, "http" );
-  return( $scheme );
-}
-
-/**
  * Return the preferred hostname for the social network
  * 
  * @param string $lc_social - lower case name of the social network
@@ -59,7 +41,7 @@ function _bw_social_host( $lc_social ) {
 }
 
 /**
- * Return the URL for the social network 
+ * Returns the URL for the social network 
  * 
  * @param string $lc_social - lower case version of the social network name
  * @param string $social - stored value - may only be the user name - e.g. the Twitter username without @
@@ -67,9 +49,13 @@ function _bw_social_host( $lc_social ) {
  */
 function bw_social_url( $lc_social, $social ) {
   $url = parse_url( $social );
-  $social_url = bw_array_get_dcb( $url, "scheme", $lc_social, "_bw_social_scheme" );
+  $social_url = bw_array_get( $url, "scheme", "https" );
   $social_url .= "://";
-  $social_url .= bw_array_get_dcb( $url, "host", $lc_social, "_bw_social_host" );
+	$host = bw_array_get( $url, "host", null );
+	if ( !$host ) {
+		$host = _bw_social_host( $lc_social );
+	}
+  $social_url .= $host;
   $path = "/"; 
   $path .= bw_array_get( $url, "path", $social );
   $path = str_replace( "//", "/", $path );

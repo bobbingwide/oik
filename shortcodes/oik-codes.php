@@ -365,7 +365,7 @@ function bw_code_example_link( $atts ) {
     $function = null;
   }
   if ( $function ) {
-    $link = "http://www.oik-plugins.com/oik-shortcodes/$shortcode/$function";  
+    $link = "https://www.oik-plugins.com/oik-shortcodes/$shortcode/$function";  
     BW_::alink( "bw_code $shortcode", $link, $link_text, sprintf( __( 'Link to help for shortcode: %1$s', "oik" ), $shortcode ) );   
   } else { 
     span( "bw_code $shortcode" );
