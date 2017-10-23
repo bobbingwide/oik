@@ -75,7 +75,7 @@ Yes - see above
 The shortcode reference includes the standard WordPress shortcodes and help for shortcodes provided by other oik plugins.
 
 
-For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCommerce) see [WP-a2z.org](http://wp-a2z.org/sites)
+For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCommerce) see [WP-a2z.org](https://wp-a2z.org/sites)
 
 
 ## Screenshots 
@@ -91,7 +91,13 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 3.2.0-beta-20171010
+# 3.2.0-RC1 
+Version 3.2 Release Candidate, available from oik-plugins.com
+
+# 3.2.0-beta-20171021 
+Added more tests to close issues.
+
+# 3.2.0-beta-20171010 
 100% internationalized PHP source code. Ready for translation. UK English version complete.
 
 # 3.2.0-alpha-20170822 
@@ -112,7 +118,7 @@ Tested with WordPress 4.7.1 and WordPress Multisite.
 # 3.1.1 
 Upgrade if using WordPress Multisite. Fixes a problem with Network Admin.
 
-# 3.1.0 
+# 3.1.0 # 	7
 Tested with WordPress 4.7 and WordPress Multisite.
 
 # 3.0.3 
@@ -406,6 +412,20 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 3.2.0-RC1 
+* Changed: Improved accessibility of links by removing title= attribute in most cases https://github.com/bobbingwide/oik/issues/79
+
+# 3.2.0-beta-20171021 
+* Fixed: bw_custom_column_admin should check the context https://github.com/bobbingwide/oik/issues/2
+* Fixed: oik_box() produces messages when $id=null and $callback is a method https://github.com/bobbingwide/oik/issues/7
+* Fixed: tested in multiple environments https://github.com/bobbingwide/oik/issues/9
+* Fixed: Improved support for internal ( fragment ) links using [bw_link]	https://github.com/bobbingwide/oik/issues/16
+* Fixed: Added tests for bw_register_taxonomy being called multiple times https://github.com/bobbingwide/oik/issues/65
+* Fixed: Shortcode snippet HTML matches the example. Also displays the enqueued styles, scripts and jQuery https://github.com/bobbingwide/oik/issues/68
+* Fixed: Warning issued during plugin activation under WP-cli https://github.com/bobbingwide/issues/69
+* Tested: With WordPress 4.8.2 and 4.9-beta3
+* Tested: With PHP 7.0 and 7.1
+
 # 3.2.0-beta-20171010 
 * Changed: 100% internationalized https://github.com/bobbingwide/oik/issues/9
 * Fixed: Howdy override logic updated for WordPress 4.8 changes https://github.com/bobbingwide/oik/issues/63
