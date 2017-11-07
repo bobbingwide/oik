@@ -11,8 +11,8 @@ define( "BOBBFUNC_INCLUDED", "3.2.0" );
  *
  * These functions were part of the oik base plugin in bobbfunc.inc and bobbcomp.inc
  * Some functions may now be unused. This hasn't yet been confirmed.
- * 
- * 
+ *
+ *
  */
 
 /** 
@@ -402,14 +402,12 @@ function nullretetag( $tag, $class=NULL ) {
      $ret = retetag( $tag );
   return( $ret );   
 }
-
 /**
  * Return an end tag 
  */
 function retetag( $tag ) {
    return( '</'.$tag.'>');
 }  
-
 /** 
  * Output an end tag
  */
@@ -417,7 +415,6 @@ function etag( $tag ) {
   //  bw_echo( '</'.$tag.'>'."\n";
   bw_echo( '</'.$tag.'>' );
 }    
-
 /**
  * Start a paragraph
  * 
