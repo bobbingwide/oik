@@ -69,6 +69,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 		$html = $this->replace_admin_url( $html );
 		
 		$custom_CSS = bw_get_option( "customCSS"	);
+		
 		$expected = null;
 		$expected .= '<p>To style the output from shortcodes you can create and edit a custom CSS file for your theme.</p>';
 		$expected .= '<p>Use the [bw_editcss] shortcode to create the <b>edit CSS</b> link anywhere on your website.</p>';
@@ -82,6 +83,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 			$expected .= '<a class="bw_custom_css" href="https://qw/src/wp-admin/theme-editor.php?file=custom.css&theme=genesis-image" title="Edit custom CSS">{}</a>';
       $theme = bw_get_theme();
 			$expected = str_replace( "theme=genesis-image", "theme=" . $theme, $expected );
+			$expected = str_replace( "file=custom.css", "file=" . $custom_CSS, $expected );
 		}
 		$this->assertEquals( $expected, $html );
 	}
@@ -556,6 +558,7 @@ $expected[] = '</form>';
 		$bw_options['long'] = "";
 		$bw_options['google_maps_api_key'] = "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU"; 
 		$bw_options['customjQCSS'] = "http://qw/wordpress/wp-content/themes/jquery-ui/themes/base/jquery-ui.css";
+		$bw_options['customCSS'] = "custom.css";
 		$bw_options['twitter'] = "herb_miller";
 		$bw_options['facebook'] = "bobbingwide";
 		$bw_options['linkedin'] = "herbmiller777";
