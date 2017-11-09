@@ -110,6 +110,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 * to apply changes before comparing with expected.
 	 */
 	function test_oik_tinymce_buttons() {
+		$_SERVER['REQUEST_URI'] = "/";
 		bw_update_option( "oik-button-shortcodes", "on" , "bw_buttons" );
 		bw_update_option( "oik-paypal-shortcodes", "on"	, "bw_buttons" );
 		bw_update_option( "oik-shortc-shortcodes", "0" , "bw_buttons" );
@@ -557,6 +558,7 @@ $expected[] = '</form>';
 		$bw_options['lat'] = "";
 		$bw_options['long'] = "";
 		$bw_options['google_maps_api_key'] = "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU"; 
+		$bw_options['domain'] = "";
 		$bw_options['customjQCSS'] = "http://qw/wordpress/wp-content/themes/jquery-ui/themes/base/jquery-ui.css";
 		$bw_options['customCSS'] = "custom.css";
 		$bw_options['twitter'] = "herb_miller";
@@ -568,12 +570,15 @@ $expected[] = '</form>';
 		$bw_options['picasa'] = "bobbingwide";
 		$bw_options['pinterest'] = "bobbingwide";
 		$bw_options['instagram'] = "bobbingwide";
+		$bw_options['skype'] = "bobbingwide";
 		$bw_options['github'] = "splurge";
 		$bw_options['wordpress'] = "";
+		$bw_options['paypal-email'] = "herb@bobbingwide.com";
 		$bw_options['paypal-country'] = "United Kingdom";
 		$bw_options['logo-image'] = "30048";
 		$bw_options['qrcode-image'] = "";
 		$bw_options['art-version'] = "41";
+		$bw_options['yearfrom'] = "2010";
 		$bw_options['howdy'] = "hi:";
 		update_option( "bw_options", $bw_options );
 	}
@@ -1036,7 +1041,7 @@ $expected[] = '</form>';
 		
 		bw_update_option( "customCSS", "custom.css" );
 		$html = bw_ret( oik_custom_css_box() );
-		$html = $this->replace_admin_url( $html );
+		$html = $this->replace_network_admin_url( $html );
 		
     $theme = bw_get_theme();
 		$html = str_replace( "theme=" . $theme, "theme=genesis-image", $html );
@@ -1049,6 +1054,21 @@ $expected[] = '</form>';
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
+	
+	
+	/**
+	 * Replaces the admin_url in $expected
+	 *
+	 * For WPMS we need to support network_admin_url()
+	 * 
+	 * Note: assumes https protocol
+	 * @param string $expected
+	 * @return string updated string
+	 */
+	function replace_network_admin_url( $expected ) {
+		$expected = str_replace( network_admin_url(), "https://qw/src/wp-admin/", $expected );
+		return $expected;
+	}
 
 	/**
 	 * Test the oik Buttons section for bb_BB
@@ -1057,6 +1077,8 @@ $expected[] = '</form>';
 	 * to apply changes before comparing with expected.
 	 */
 	function test_oik_tinymce_buttons_bb_BB() {
+	
+		$_SERVER['REQUEST_URI'] = "/";
 	
 		bw_update_option( "oik-button-shortcodes", "on" , "bw_buttons" );
 		bw_update_option( "oik-paypal-shortcodes", "on"	, "bw_buttons" );

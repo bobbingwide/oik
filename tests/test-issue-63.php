@@ -25,17 +25,19 @@ class Tests_issue_63 extends BW_UnitTestCase {
         (
             [class] => with-avatar
         )
-		`		
+		`
+	 * If the test fails when checking for "Hi," then it could be because the language files do not match the version of WordPress.
+	 * This was the case in the qw/wpms environment. 		
 	 */
 	function tests_oik_admin_bar_menu() {
 		require_once( ABSPATH . WPINC . '/class-wp-admin-bar.php' );
 		oik_require_lib( "oik_plugins" );
 		bw_update_option( "howdy", "omga:" );
-		wp_set_current_user( 1 );
-		
+		$this->switch_to_locale( 'en_GB' );
+		$user = wp_set_current_user( 1 );
 		$wp_admin_bar = new WP_admin_bar();
 		wp_admin_bar_my_account_item( $wp_admin_bar );
-		$node = $wp_admin_bar->get_node( 'my-account' );
+		$node = $wp_admin_bar->get_node( 'my-account' ); 
 		$this->assertEquals( 'my-account', $node->id );
 		$this->assertStringStartsWith( 'Hi, <span class="display-name">', $node->title );
 		oik_admin_bar_menu( $wp_admin_bar );

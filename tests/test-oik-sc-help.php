@@ -182,6 +182,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	
 	function test_bw_copyright__syntax() {
 		bw_update_option( "company", "Bobbing Wide" );
+		bw_update_option( "yearfrom", "2010" );
 		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "en_GB" );
 		$array = bw_copyright__syntax();
@@ -193,6 +194,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	function test_bw_copyright__syntax_bb_BB() {
 		//$this->setExpectedDeprecated( "bw_translate" );
 		bw_update_option( "company", "Bobbing Wide" );
+		bw_update_option( "yearfrom", "2010" );
 		$this->switch_to_locale( "bb_BB" );
 		$array = bw_copyright__syntax();
 		$html = $this->arraytohtml( $array, true );

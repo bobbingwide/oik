@@ -35,6 +35,9 @@ class Tests_shortcodes_oik_logo extends BW_UnitTestCase {
 	
 	/**
 	 * We need to set a logo image
+	 *
+	 * In multisite the link will be to the site_url().
+	 * We need to set it back to '.'.
 	 */ 
 	function test_bw_logo() {
 		bw_update_option( "logo-image", "image-URL" );
@@ -42,6 +45,9 @@ class Tests_shortcodes_oik_logo extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 		$atts = array( "link" => ".", "text" => "logo text" );
 		$html = bw_logo( $atts );
+		if ( is_multisite() ) {
+			$html = str_replace( site_url(), ".", $html );
+		}
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
