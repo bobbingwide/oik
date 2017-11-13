@@ -236,7 +236,7 @@ div.bw_messages div.error { color: red; font-weight: bold; }
  * and also for the dummy theme called texticons which is used by [bw_dash] when the 
  * icon is not recognised as being in dashicons or genericons but is implemented as a 'text icon'.
  */
-a span.bw_follow_me { text-decoration: none; width: auto; height: auto; vertical-align: bottom;  } 
+a span.bw_follow_me { text-decoration: none; width: auto; height: auto; vertical-align: 16%;  } 
 .bw_follow_me { background-color: #222; padding: 4px; margin-right: 4px;  border-radius: 10% 10%; } 
 .bw_code.bw_follow_me { background-color: transparent; }
 a span.dashicons-linkedin span { vertical-align: text-bottom; font-family: 'Myriad Pro',Futura,Arial,sans-serif; font-weight: bold; padding: 0px 5px 10px; 5px; }
@@ -277,6 +277,7 @@ a.x1 img.bw_follow { max-width: 25px; }
 a.x2 img.bw_follow { max-width: 41px; }
 a.x24 img.bw_follow { max-width: 48px; } 
 a.x3 img.bw_follow { max-width: 48px; margin: 2px;}
+/* a.bw_follow_new img.bw_follow { margin: 0px; } */
 
 a.x1, 
 a.x2, 
@@ -290,8 +291,10 @@ a.bw_follow_new {
 	-webkit-box-shadow: 0px 0px 1px #4d4d4d;
   -moz-box-shadow: 0px 0px 1px #4d4d4d;
   box-shadow: 0px 0px 1px #4d4d4d;
-	line-height: 0.8;
-	margin: 0 1px 0 0; 
+	line-height: 0.7em;
+	margin: 0 4px 0 1px; 
+	box-sizing: border-box;
+	padding-right: 0px;
  }
  
 

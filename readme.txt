@@ -2,8 +2,8 @@
 Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
-Requires at least: 3.9
-Tested up to: 4.8.2
+Requires at least: 4.8 
+Tested up to: 4.9-RC2
 Stable tag: 3.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -90,6 +90,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.2.0-RC2 = 
+Minor change to styling for bw_follow_me. 
+
 = 3.2.0-RC1 = 
 Version 3.2 Release Candidate, available from oik-plugins.com
 
@@ -411,6 +414,11 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.2.0-RC2 = 
+* Changed: Styling changes for bw_follow_me [github bobbingwide oik issues 86]
+* Tested: With WordPress 4.9-RC2 and WordPress Multisite [github bobbingwide oik issues 88]
+* Tested: Improve i18n/l19n tests for environment independence [github bobbingwide oik issues 9]
+
 = 3.2.0-RC1 = 
 * Changed: Improved accessibility of links by removing title= attribute in most cases [github bobbingwide oik issues 79]
 
