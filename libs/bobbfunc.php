@@ -1259,12 +1259,17 @@ function bw_wp_error( $code, $text=null, $data=null ) {
 
 /** 
  * Return the global post ID
+ * 
+ * In WordPress 4.9 new logic hides the globals $post from widgets.
+ * 
  * @return ID - the global post ID or 0
  */
 function bw_global_post_id() {
   if ( isset( $GLOBALS['post'] )) {
     $post_id = $GLOBALS['post']->ID;
-  } else {
+  } elseif ( isset( $GLOBALS['id'] ) ) {
+		$post_id = $GLOBALS['id'];
+	} else {
     $post_id = 0;
   }  
   return( $post_id ) ;
@@ -1288,7 +1293,7 @@ function bw_current_post_id( $id=null ) {
   if ( !$current_post_id ) { 
     $current_post_id = bw_global_post_id();
   }
-  //bw_trace2( $current_post_id, "current_post_id" );
+  //bw_trace2( $current_post_id, "current_post_id", true );
   return( $current_post_id ); 
 }
 

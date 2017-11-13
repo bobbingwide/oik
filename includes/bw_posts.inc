@@ -23,16 +23,24 @@ oik_require( "includes/bw_images.inc" );
 
 /** 
  * Return the global post's post_type
- * @return string/NULL - the global post's post_type or NULL
+ * 
+ * Note: In WordPress 4.9 text widgets the global post gets nulled. 
+ * We have to reload the post using the global post ID. 
+ * 
+ * @return string/NULL - the global post's post_type or null
  */
 if ( !function_exists( "bw_global_post_type" ) ) { 
 function bw_global_post_type() {
+	$post_type = null;
   if ( isset( $GLOBALS['post'] )) {
     $post_type = $GLOBALS['post']->post_type;
-  } else {  
-    $post_type = NULL;
-  }  
-  return( $post_type ) ;
+	} elseif ( isset( $GLOBALS['id'] ) ) {
+		$post = get_post( $GLOBALS['id'] );
+		if ( $post ) {
+			$post_type = $post->post_type;
+		}
+	} 
+  return $post_type ;
 }
 }
 
