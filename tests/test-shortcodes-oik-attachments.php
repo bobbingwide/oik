@@ -20,6 +20,7 @@ class Tests_shortcodes_oik_attachments extends BW_UnitTestCase {
 		$atts = array( 'title' => "Translated title" );
 		$html = bw_ret( bw_link_attachment( $post, $atts ) );
 		$html = $this->replace_home_url( $html );
+		//$html = $this->replace_upload_url( $html );
 		$html = $this->replace_post_id( $html, $post, 'id="link-' );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );

@@ -84,6 +84,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
       $theme = bw_get_theme();
 			$expected = str_replace( "theme=genesis-image", "theme=" . $theme, $expected );
 			$expected = str_replace( "file=custom.css", "file=" . $custom_CSS, $expected );
+			$html = $this->replace_network_admin_url( $html );
 		}
 		$this->assertEquals( $expected, $html );
 	}
@@ -575,7 +576,9 @@ $expected[] = '</form>';
 		$bw_options['wordpress'] = "";
 		$bw_options['paypal-email'] = "herb@bobbingwide.com";
 		$bw_options['paypal-country'] = "United Kingdom";
+		$bw_options['paypal-currency'] = "GBP";
 		$bw_options['logo-image'] = "30048";
+		$bw_options['login-logo'] = "on";
 		$bw_options['qrcode-image'] = "";
 		$bw_options['art-version'] = "41";
 		$bw_options['yearfrom'] = "2010";

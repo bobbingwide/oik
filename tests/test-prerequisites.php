@@ -1,4 +1,3 @@
-
 <?php // (C) Copyright Bobbing Wide 2017
 
 
@@ -93,6 +92,40 @@ class Tests_prerequisites extends BW_UnitTestCase {
 		$wpdb->query( 'COMMIT' );
 		bw_trace2( $wpdb, "wpdb" );
 	}
+	
+	/** 
+	 * For some reason qw/phphants returned /files/ instead of /wp-content/uploads
+	 * Don't know why but it broke 3 tests.
+	 * 
+	 * `
+    [path] => C:\apache\htdocs\wpms/wp-content/uploads/2017/11
+    [url] => https://qw/wpms/wp-content/uploads/2017/11
+    [subdir] => /2017/11
+    [basedir] => C:\apache\htdocs\wpms/wp-content/uploads
+    [baseurl] => https://qw/wpms/wp-content/uploads
+    [error] =>
+	 * `
+	 * 
+	 * But they're not broken any more
+	 (
+    [path] => C:\apache\htdocs\wpms/wp-content/blogs.dir/9/files/2017/11
+    [url] => https://qw/wpms/phphants/files/2017/11
+    [subdir] => /2017/11
+    [basedir] => C:\apache\htdocs\wpms/wp-content/blogs.dir/9/files
+    [baseurl] => https://qw/wpms/phphants/files
+    [error] =>
+)
+	 */
+	function test_wp_upload_dir() {
+		$upload_dir = wp_upload_dir();
+		//print_r( $upload_dir );
+		if ( is_multisite() ) {
+      $this->assertContains( "/files", $upload_dir['basedir'] );
+		} else {
+			$this->assertContains( "/wp-content/uploads", $upload_dir['basedir'] );
+		}
+	}
+		
 	
 	
 	

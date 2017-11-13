@@ -61,6 +61,8 @@ class Tests_oik_googlemap extends BW_UnitTestCase {
 		bw_update_option( "postal-code", null );
 		bw_update_option( "gmap_intro", null );
 		bw_update_option( "google_maps_api_key", "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU" );
+		bw_update_option( "lat", null );
+		bw_update_option( "long", null );
 		$atts = array( "lat"=> null
 								 , "long" => null );
 		$html = bw_show_googlemap( $atts, null, null );
