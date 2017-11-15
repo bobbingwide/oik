@@ -115,11 +115,14 @@ class Tests_prerequisites extends BW_UnitTestCase {
     [baseurl] => https://qw/wpms/phphants/files
     [error] =>
 )
+
 	 */
 	function test_wp_upload_dir() {
 		$upload_dir = wp_upload_dir();
 		//print_r( $upload_dir );
-		if ( is_multisite() ) {
+		
+		
+		if ( is_multisite() && !is_main_site() ) {
       $this->assertContains( "/files", $upload_dir['basedir'] );
 		} else {
 			$this->assertContains( "/wp-content/uploads", $upload_dir['basedir'] );
