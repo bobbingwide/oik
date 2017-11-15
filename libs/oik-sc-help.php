@@ -210,7 +210,9 @@ function bw_report_scripts( $verbose=true ) {
 	//p( $serialized );
 	$latest_html = $dependencies_cache->get_latest_html();
 	//oik_require_lib( "bobbfunc" );
-	$latest_html .= bw_jq_get();
+    if ( function_exists( "bw_jq_get") ) {
+        $latest_html .= bw_jq_get();
+    }
 	return $latest_html;
 }
 

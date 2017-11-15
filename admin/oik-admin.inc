@@ -25,7 +25,9 @@
  */
 function oik_options_init() {
 	//bw_trace2();
-	oik_l10n_enable_jti();
+	if ( function_exists( "oik_l10n_enable_jti" ) ) {
+		oik_l10n_enable_jti();
+	}
   register_setting( 'oik_options_options', 'bw_options', 'oik_options_validate' );
   register_setting( 'oik_options_options1', 'bw_options1', 'oik_options_validate' );
   register_setting( 'oik_plugins_options', 'bw_plugins', 'oik_plugins_validate' ); // No validation yet
