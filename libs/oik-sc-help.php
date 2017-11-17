@@ -39,7 +39,7 @@ function bw_form_sc_get_first_parm_name( $parameter ) {
  *
  * Links are of the form
  *
- * `http://oik-plugins.co.uk/oik_sc_param/$shortcode-$parameter-parameter/`
+ * `https://oik-plugins.com/oik_sc_param/$shortcode-$parameter-parameter/`
  *
  * where the URL is determined by oik_get_plugins_server()
  *
@@ -49,10 +49,16 @@ function bw_form_sc_get_first_parm_name( $parameter ) {
  */
 function bw_form_sc_parm_help( $parameter, $shortcode ) {
 	$parm = $parameter;
-	oik_require( "admin/oik-admin.inc" );
-	$url = oik_get_plugins_server();
-	$url .= "/oik_sc_param/$shortcode-$parm-parameter";
-	$ret = retlink( null, $url, $parameter, "$shortcode $parameter parameter" );
+	if ( !function_exists( "oik_get_plugins_server" ) ) {
+		oik_require_lib( "oik_plugins" );
+	} 
+	if ( function_exists( "oik_get_plugins_server" ) ) {
+		$url = oik_get_plugins_server();
+		$url .= "/oik_sc_param/$shortcode-$parm-parameter";
+		$ret = retlink( null, $url, $parameter, "$shortcode $parameter parameter" );
+	} else {
+		$ret = null;
+	}
 	return( $ret );
 }
 

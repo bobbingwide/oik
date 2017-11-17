@@ -183,7 +183,6 @@ function bw_wp( $suffix=false ) {
  * Implement [bw_editcss] shortcode to create an Edit (custom) CSS button. 
  */
 function bw_editcss( $atts=null ) {
-  oik_require( "admin/oik-admin.inc" );
   $theme = bw_get_theme();
   oik_custom_css( $theme );
   return( bw_ret());

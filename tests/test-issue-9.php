@@ -66,7 +66,7 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	 */
 	function test_BW_oik_box() {
 		$this->setExpectedDeprecated( "bw_translate" );
-		oik_require( "admin/oik-admin.inc" );
+		oik_require( "admin/oik-admin.php" );
 		$expected = bw_ret( oik_box( "class", "ID", "Behavior when image clicked" ) );
 		$actual = bw_ret( BW_::oik_box( "class", "ID", __( "Behavior when image clicked", "oik" ) ) );
 		$this->assertEquals( $expected, $actual );

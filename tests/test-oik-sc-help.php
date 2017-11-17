@@ -11,7 +11,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	function setUp() { 
 	
 		parent::setUp();
-		oik_require( "admin/oik-admin.inc" );	 
+		oik_require( "admin/oik-admin.php" );	 
 		oik_require( "includes/oik-sc-help.inc" ); 														
 		$this->_url = oik_get_plugins_server();
 		oik_require_lib( "oik_plugins" );

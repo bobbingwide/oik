@@ -12,7 +12,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	function setUp() {
 		parent::setUp();
 		//bobbcomp::bw_get_option( "fred" );
-		oik_require( "admin/oik-admin.inc" );
+		oik_require( "admin/oik-admin.php" );
 		oik_require_lib( "oik_plugins" );
 		oik_require_lib( "oik_themes" );
 		oik_require_lib( "class-oik-update" );
@@ -35,7 +35,6 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	}
 	
 	function test_oik_shortcode_options() {
-		//oik_require( "admin/oik-admin.inc" );
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( oik_shortcode_options() );
 		$html = $this->replace_admin_url( $html );
@@ -46,7 +45,6 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	}
 	
 	function test_oik_shortcode_options_bb_BB() {
-		//oik_require( "admin/oik-admin.inc" );
 		$this->switch_to_locale( 'bb_BB' );
 		$html = bw_ret( oik_shortcode_options() );
 		$html = $this->replace_admin_url( $html );
@@ -62,9 +60,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 * Both routes are tested in the bb_BB version.
 	 */
 	function test_oik_custom_css_box() {
-	
 		$this->switch_to_locale( 'en_GB' );
-		//oik_require( "admin/oik-admin.inc" );
 		$html = bw_ret( oik_custom_css_box() );
 		$html = $this->replace_admin_url( $html );
 		
@@ -1038,8 +1034,6 @@ $expected[] = '</form>';
 	 * 
 	 */
 	function test_oik_custom_css_box_edit_link_bb_BB() {
-		//oik_require( "admin/oik-admin.inc" );
-		
 		$this->switch_to_locale( "bb_BB" );
 		
 		bw_update_option( "customCSS", "custom.css" );
