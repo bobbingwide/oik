@@ -1,7 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2017
 
 /** 
- * Unit tests for the includes/bw_register.inc file
+ * Unit tests for the includes/bw_register.php file
  */
 
 class Tests_includes_bw_register extends BW_UnitTestCase {
@@ -14,7 +14,7 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
-		oik_require( "includes/bw_register.inc" );
+		oik_require( "includes/bw_register.php" );
 	}
 	
 	/**

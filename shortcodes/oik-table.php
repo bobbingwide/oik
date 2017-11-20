@@ -3,7 +3,7 @@ if ( defined( 'OIK_TABLE_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_TABLE_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -47,7 +47,7 @@ function bw_table_header( $title_arr ) {
  */ 
 function bw_default_title_arr( $field_arr ) {
   $title_arr =array();
-  oik_require( "includes/bw_register.inc" );
+  oik_require( "includes/bw_register.php" );
   if ( count( $field_arr) ) {
     foreach ( $field_arr as $key => $name ) {
       //$title_arr[$name] = bw_titleify( $name );

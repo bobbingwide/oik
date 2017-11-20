@@ -48,7 +48,11 @@ class Tests_bw_translate extends BW_UnitTestCase {
 		$this->assertEquals( '0=zero', $domain->translate( 0 ) );
 	}
 	
-	
+	/**
+	 * We can't change the value of a constant from FALSE
+	 * so if you want to allow calls to bw_translate to be run without deprecated messages
+	 * being produce then you have to comment out any setting in wp-config.php 
+	 */
 	function test_bw_translate_bobbingwide() {
 		if ( !defined( 'BW_TRANSLATE_DEPRECATED' ) ) {
       define( 'BW_TRANSLATE_DEPRECATED', true ); 
