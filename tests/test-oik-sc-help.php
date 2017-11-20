@@ -3,7 +3,7 @@
 /**
  * @package oik-sc-help
  * 
- * Tests for logic in includes/oik-sc-help.inc
+ * Tests for logic in includes/oik-sc-help.php
  * Tests for logic in libs/oik-sc-help.php are in oik-libs
  */
 class Tests_oik_sc_help extends BW_UnitTestCase {
@@ -12,7 +12,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	
 		parent::setUp();
 		oik_require( "admin/oik-admin.php" );	 
-		oik_require( "includes/oik-sc-help.inc" ); 														
+		oik_require( "includes/oik-sc-help.php" ); 														
 		$this->_url = oik_get_plugins_server();
 		oik_require_lib( "oik_plugins" );
 	}

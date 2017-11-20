@@ -557,7 +557,7 @@ function oik_main_shortcode_options() {
  */
 function oik_usage_notes() {
   $alt0_suffix = str_replace( " ", "", _oik_alt0_suffix() );
-  oik_require( "includes/oik-sc-help.inc" );
+  oik_require( "includes/oik-sc-help.php" );
   BW_::p( __( "Use the shortcodes in your pages, widgets and titles. e.g.", "oik" ) );
   bw_invoke_shortcode( "bw_contact", $alt0_suffix, __( "Display your contact name.", "oik" ) );
   bw_invoke_shortcode( "bw_telephone", $alt0_suffix, __( "Display your telephone number.", "oik" ) );     
@@ -633,7 +633,7 @@ function oik_extra_shortcode_options() {
  * Display additional usage notes
  */
 function oik_extra_usage_notes() {
-  oik_require( "includes/oik-sc-help.inc" );
+  oik_require( "includes/oik-sc-help.php" );
   BW_::p( __( "Use the shortcodes in your pages, widgets and titles. e.g.", "oik" ) );
   bw_invoke_shortcode( "bw_contact", "alt=1",__( "Display your alternative contact name.", "oik" ) );
   bw_invoke_shortcode( "bw_email", "alt=1 prefix=e-mail", __( "Display your alternative email address, with a prefix of 'e-mail'.", "oik" ) );

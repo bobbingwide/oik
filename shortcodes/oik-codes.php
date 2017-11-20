@@ -18,7 +18,7 @@
     http://www.gnu.org/licenses/gpl-2.0.html
 
 */
-oik_require( "includes/oik-sc-help.inc" );
+oik_require( "includes/oik-sc-help.php" );
 
 /**
  * Create a link to the shortcode if in admin pages

@@ -17,7 +17,7 @@ class Tests_shortcodes_oik_follow extends BW_UnitTestCase {
 		parent::setUp();
 		$oik_plugins = oik_require_lib( "oik_plugins" );
 		oik_require( "shortcodes/oik-follow.php" );
-		oik_require( "includes/oik-sc-help.inc" );
+		oik_require( "includes/oik-sc-help.php" );
 	}
 	
 	function test_bw_follow_link_dash() {

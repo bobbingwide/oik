@@ -25,7 +25,7 @@ function oik_ajax_list_shortcodes() {
  */
 function oik_ajax_load_shortcode_syntax() {
   do_action( "oik_add_shortcodes" );
-  oik_require( "includes/oik-sc-help.inc" );
+  oik_require( "includes/oik-sc-help.php" );
   $shortcode = bw_array_get( $_REQUEST, 'shortcode', 'oik' );
   $sc_syntax = _bw_lazy_sc_syntax( $shortcode );
   $sc_json = json_encode( $sc_syntax );   
@@ -41,7 +41,7 @@ function oik_ajax_load_shortcode_syntax() {
  */
 function oik_ajax_load_shortcode_help() {
   do_action( "oik_add_shortcodes" );
-  oik_require( "includes/oik-sc-help.inc" );
+  oik_require( "includes/oik-sc-help.php" );
   $shortcode = bw_array_get( $_REQUEST, 'shortcode', 'oik' );
   bw_trace2( $shortcode, "shortcode" );
   $sc_help = bw_lazy_sc_example( $shortcode );
@@ -56,7 +56,7 @@ function oik_ajax_load_shortcode_help() {
  *
  */
 function oik_shortcake_shortcode_ui_before_do_shortcode() {
-  //oik_require( "includes/oik-sc-help.inc" );
+  //oik_require( "includes/oik-sc-help.php" );
 	oik_require_lib( "class-dependencies-cache" );
   dependencies_cache::save_scripts();
   echo( "<!-- before shortcode preview -->" );

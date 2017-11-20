@@ -12,7 +12,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		parent::setUp();
 		oik_require( "shortcodes/oik-contact-form.php" );
 		
-		oik_require( "includes/oik-sc-help.inc" );
+		oik_require( "includes/oik-sc-help.php" );
 		oik_require_lib( "oik_plugins" );
 		
 	}

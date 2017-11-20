@@ -12,7 +12,7 @@ class Tests_shortcodes_oik_jquery extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		
-		oik_require( "includes/oik-sc-help.inc" );
+		oik_require( "includes/oik-sc-help.php" );
 		oik_require( "shortcodes/oik-jquery.php" ); 														
 	}
 	

@@ -437,7 +437,7 @@ function oik_require_lib_wrapper( $lib ) {
  * @return array updated help array
  */
 function oik_oik_sc__help( $help, $shortcode ) {
-	oik_require( "includes/oik-sc-help.inc" );
+	oik_require( "includes/oik-sc-help.php" );
 	$help = oik_lazy_sc__help( $help, $shortcode );
 	return $help;
 }

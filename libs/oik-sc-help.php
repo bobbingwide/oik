@@ -1,21 +1,20 @@
 <?php // (C) Copyright Bobbing Wide 2012-2017
 if ( !defined( "OIK_SC_HELP_INCLUDED" ) ) {
-define( "OIK_SC_HELP_INCLUDED", "3.2.0" );
+define( "OIK_SC_HELP_INCLUDED", "3.2.1" );
 
 /**
  * Shortcode help 
  * 
  * Library: oik-sc-help
  * Provides: oik-sc-help
- * Depends: on the oik plugin @TODO,	class-BW-
+ * Depends: on the oik plugin, class-BW-, bobbfunc  @TODO complete this
+ * Deferred dependencies: oik_plugins, class-dependencies-cache
  *
  * Implements low level functions for displaying shortcode help.
  * This includes the help functions for some base shortcodes.
  * Parts of this library file is now deprecated in favour of "class-oik-sc-help"
  *
  */
-
-//oik_require( "includes/oik-sc-help.inc" );
 
 /**
  * Get first parm name

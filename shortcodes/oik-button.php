@@ -21,7 +21,7 @@ define( 'OIK_BUTTON_SHORTCODES_INCLUDED', true );
 
 */
 
-oik_require( "includes/oik-sc-help.inc" );
+oik_require( "includes/oik-sc-help.php" );
 
 /**
  * Create a "button" style link
