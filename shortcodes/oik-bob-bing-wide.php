@@ -21,8 +21,6 @@ define( 'OIK_BOB_BING_WIDE_SHORTCODES_INCLUDED', true );
 
 */
 
-oik_require( "bobbcomp.inc" );
-
 /**
  * functions moved to oik-bob-bing-wide plugin
  * <pre>
@@ -72,10 +70,10 @@ oik_require( "bobbcomp.inc" );
  
 /**
  * These functions are used by oik AND are also defined as shortcodes in the oik-bob-bing-wide plugin
- * bw_oik() - in bobbcomp.inc
- * bw_lbw()
- * bw_loik()
- * bw_wp()
+ * - bw_oik() 
+ * - bw_lbw()
+ * - bw_loik()
+ * - bw_wp()
  */  
 
 /**

@@ -1,7 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2017
 
 /** 
- * Unit tests for the bobbcomp.inc file
+ * Unit tests for the includes/bobbcomp.php file
  */
 
 class Tests_oik_bobbcomp extends BW_UnitTestCase {

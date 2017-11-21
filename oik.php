@@ -59,7 +59,7 @@ function oik_plugin_file_loaded() {
 	oik_require_lib_wrapper( "bobbfunc" );
 	oik_require_lib_wrapper( "class-BW-" );
   require_once( "oik-add-shortcodes.php" );
-  require_once( "bobbcomp.inc" );
+  require_once( "includes/bobbcomp.php" );
    
   if ( defined('DOING_AJAX') && DOING_AJAX ) {
     oik_require( "includes/oik-ajax.php" );

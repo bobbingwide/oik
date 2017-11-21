@@ -161,10 +161,6 @@ function ebw( $bw_class_prefix=NULL ) {
 	echo bw( $bw_class_prefix );
 }
 
-// Herb 2015/06/28	
-//oik_require( "bobbcomp.inc" );
-// Moved logic for art_button to bobbcomp.inc
-
 /** 
  * Return a $default value if the $value is not set
  * 

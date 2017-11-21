@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-20 17:23:16+00:00\n"
+"POT-Creation-Date: 2017-11-21 18:12:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1013,148 +1013,53 @@ msgid "Please don't attempt to apply updates using WordPress."
 msgstr "Pelsae dOn't attmept tO apply udptaes uisng WroPderss."
 
 
-#: admin/oik-plugins.inc:30 libs/oik_plugins.php:36
-msgid "plugin server settings"
-msgstr "pulign sreevr steitgns"
+#: bw_metadata.inc:39
+msgid "Fields"
+msgstr "Feidls"
 
 
-#: admin/oik-plugins.inc:51 admin/oik-themes.inc:50 libs/oik_plugins.php:122
-#: libs/oik_themes.php:118
-msgid "Check"
-msgstr "Cehck"
-
-
-#: admin/oik-plugins.inc:78 admin/oik-themes.inc:77 libs/oik_plugins.php:84
-#: libs/oik_themes.php:80
-msgid "Add new"
-msgstr "Add nEw"
-
-
-#: admin/oik-plugins.inc:82 libs/oik_plugins.php:88
-msgid "Edit plugin"
-msgstr "Eidt pulign"
-
-
-#: admin/oik-plugins.inc:84 admin/oik-themes.inc:83 libs/oik_plugins.php:90
-#: libs/oik_themes.php:86
-msgid "Settings"
-msgstr "Steitgns"
-
-
-#: admin/oik-plugins.inc:203 admin/oik-themes.inc:188 libs/oik_plugins.php:230
-#: libs/oik_themes.php:205
-msgid "settings must not be blank"
-msgstr "steitgns msut nOt bE balnk"
-
-
-#: admin/oik-plugins.inc:253 libs/oik_plugins.php:271 libs/oik_plugins.php:290
-#: libs/oik_plugins.php:305
-msgid "plugin"
-msgstr "pulign"
-
-
-#: admin/oik-plugins.inc:254 admin/oik-plugins.inc:266
-#: admin/oik-themes.inc:237 admin/oik-themes.inc:249 libs/oik_plugins.php:273
-#: libs/oik_plugins.php:291 libs/oik_plugins.php:306 libs/oik_themes.php:248
-#: libs/oik_themes.php:266 libs/oik_themes.php:281
-msgid "server"
-msgstr "sreevr"
-
-
-#: admin/oik-plugins.inc:255 admin/oik-themes.inc:238 libs/oik_plugins.php:274
-#: libs/oik_plugins.php:292 libs/oik_themes.php:249 libs/oik_themes.php:267
-msgid "apikey"
-msgstr "aipeky"
-
-
-#: admin/oik-plugins.inc:267 admin/oik-themes.inc:250 libs/oik_plugins.php:307
-#: libs/oik_themes.php:282
-msgid "apikey?"
-msgstr "aipeky?"
-
-
-#: admin/oik-plugins.inc:299 libs/oik_plugins.php:343
-msgid "A new version of the plugin is available"
-msgstr "A nEw vreison Of thE pulign Is aavlibale"
-
-
-#: admin/oik-plugins.inc:306 libs/oik_plugins.php:350
-msgid "Plugin is up to date."
-msgstr "Pulign Is Up tO dtae."
-
-
-#: admin/oik-themes.inc:29 libs/oik_themes.php:32
-msgid "theme server settings"
-msgstr "tehme sreevr steitgns"
-
-
-#: admin/oik-themes.inc:81 libs/oik_themes.php:84
-msgid "Edit theme"
-msgstr "Eidt tehme"
-
-
-#: admin/oik-themes.inc:236 libs/oik_themes.php:246 libs/oik_themes.php:265
-#: libs/oik_themes.php:280
-msgid "theme"
-msgstr "tehme"
-
-
-#: admin/oik-themes.inc:276 libs/oik_themes.php:308
-msgid "A new version of the theme is available"
-msgstr "A nEw vreison Of thE tehme Is aavlibale"
-
-
-#: admin/oik-themes.inc:283 libs/oik_themes.php:315
-msgid "Theme is up to date."
-msgstr "Tehme Is Up tO dtae."
-
-
-#: bobbcomp.inc:263 shortcodes/oik-button.php:83 shortcodes/oik-button.php:103
+#: includes/bobbcomp.php:263 shortcodes/oik-button.php:83
+#: shortcodes/oik-button.php:103
 msgid "me"
 msgstr "mE"
 
 
-#: bobbcomp.inc:310 bobbcomp.inc:328
+#: includes/bobbcomp.php:310 includes/bobbcomp.php:328
 msgid "OIK Information Kit"
 msgstr "OIK Ifnroamiton KIt"
 
 
 #. translators: "Separator between two adjacent years e.g. 2017,2018 "
-#: bobbcomp.inc:506
+#: includes/bobbcomp.php:506
 msgid ","
 msgstr ","
 
 
 #. translators: "Separator for a year range e.g. 2011-2017 "
-#: bobbcomp.inc:514
+#: includes/bobbcomp.php:514
 msgid "-"
 msgstr "-"
 
 
-#: bobbcomp.inc:625 includes/oik-sc-help.php:200
+#: includes/bobbcomp.php:625 includes/oik-sc-help.php:200
 msgid "&copy; Copyright"
 msgstr "&copy; Cporygiht"
 
 
-#: bobbcomp.inc:634
+#: includes/bobbcomp.php:634
 msgid "All rights reserved."
 msgstr "All rgiths rsereevd."
 
 
-#: bobbcomp.inc:637
+#: includes/bobbcomp.php:637
 msgid "yearfrom"
 msgstr "yaefrorm"
 
 
 #. translators: "Copyright-prefix company-name year-range. "
-#: bobbcomp.inc:641
+#: includes/bobbcomp.php:641
 msgid "%1$s %2$s %3$s. "
 msgstr "%1$s %2$s %3$s. "
-
-
-#: bw_metadata.inc:39
-msgid "Fields"
-msgstr "Feidls"
 
 
 #: includes/bw_fields.inc:358 includes/bw_formatter.inc:412
@@ -1177,105 +1082,105 @@ msgid "read more"
 msgstr "raed mroe"
 
 
-#: includes/bw_register.inc:223
+#: includes/bw_register.php:223
 msgid "Posts"
 msgstr "Psots"
 
 
-#: includes/bw_register.inc:235
+#: includes/bw_register.php:235
 msgid "All %1$s"
 msgstr "All %1$s"
 
 
-#: includes/bw_register.inc:236 includes/bw_register.inc:240
-#: includes/bw_register.inc:294
+#: includes/bw_register.php:236 includes/bw_register.php:240
+#: includes/bw_register.php:294
 msgid "New %1$s"
 msgstr "NEw %1$s"
 
 
-#: includes/bw_register.inc:237
+#: includes/bw_register.php:237
 msgid "Create New %1$s"
 msgstr "Certae NEw %1$s"
 
 
-#: includes/bw_register.inc:238 libs/oik_plugins.php:120
+#: includes/bw_register.php:238 libs/oik_plugins.php:120
 #: libs/oik_themes.php:116
 msgid "Edit"
 msgstr "Eidt"
 
 
-#: includes/bw_register.inc:239
+#: includes/bw_register.php:239
 msgid "Edit %1$s"
 msgstr "Eidt %1$s"
 
 
-#: includes/bw_register.inc:241 includes/bw_register.inc:242
-#: includes/bw_register.inc:243
+#: includes/bw_register.php:241 includes/bw_register.php:242
+#: includes/bw_register.php:243
 msgid "View %1$s"
 msgstr "Veiw %1$s"
 
 
-#: includes/bw_register.inc:244
+#: includes/bw_register.php:244
 msgid "No %1$s found"
 msgstr "NO %1$s fuond"
 
 
-#: includes/bw_register.inc:245
+#: includes/bw_register.php:245
 msgid "No %1$s found in Trash"
 msgstr "NO %1$s fuond In Tarsh"
 
 
-#: includes/bw_register.inc:247
+#: includes/bw_register.php:247
 msgid "Featured Image"
 msgstr "Faeuterd Iamge"
 
 
-#: includes/bw_register.inc:248
+#: includes/bw_register.php:248
 msgid "Set featured image"
 msgstr "SEt faeuterd iamge"
 
 
-#: includes/bw_register.inc:249
+#: includes/bw_register.php:249
 msgid "Remove featured image"
 msgstr "Rmevoe faeuterd iamge"
 
 
-#: includes/bw_register.inc:250
+#: includes/bw_register.php:250
 msgid "Use as featured image"
 msgstr "UsE As faeuterd iamge"
 
 
-#: includes/bw_register.inc:293
+#: includes/bw_register.php:293
 msgid "Update %1$s"
 msgstr "Udptae %1$s"
 
 
-#: includes/bw_register.inc:295
+#: includes/bw_register.php:295
 msgid "Parent %1$s"
 msgstr "Pranet %1$s"
 
 
-#: includes/bw_register.inc:296
+#: includes/bw_register.php:296
 msgid "Parent %1$s:"
 msgstr "Pranet %1$s:"
 
 
-#: includes/bw_register.inc:297
+#: includes/bw_register.php:297
 msgid "Popular %1$s"
 msgstr "Ppoluar %1$s"
 
 
-#: includes/bw_register.inc:298
+#: includes/bw_register.php:298
 msgid "Separate %1$s with commas"
 msgstr "Speratae %1$s wtih cmoams"
 
 
-#: includes/bw_register.inc:299
+#: includes/bw_register.php:299
 msgid "Add or remove %1$s"
 msgstr "Add Or rmevoe %1$s"
 
 
-#: includes/bw_register.inc:300
+#: includes/bw_register.php:300
 msgid "Choose from most used %1$s"
 msgstr "Cohsoe form msot uesd %1$s"
 
@@ -2391,10 +2296,30 @@ msgid "Display artists?"
 msgstr "Dsilpay atrsits?"
 
 
+#: libs/oik_plugins.php:36
+msgid "plugin server settings"
+msgstr "pulign sreevr steitgns"
+
+
 #: libs/oik_plugins.php:57 libs/oik_themes.php:53
 msgctxt "examine"
 msgid "Check"
 msgstr "Cehck"
+
+
+#: libs/oik_plugins.php:84 libs/oik_themes.php:80
+msgid "Add new"
+msgstr "Add nEw"
+
+
+#: libs/oik_plugins.php:88
+msgid "Edit plugin"
+msgstr "Eidt pulign"
+
+
+#: libs/oik_plugins.php:90 libs/oik_themes.php:86
+msgid "Settings"
+msgstr "Steitgns"
 
 
 #: libs/oik_plugins.php:115 libs/oik_themes.php:111
@@ -2417,6 +2342,16 @@ msgid "Delete plugin's profile entry"
 msgstr "Dletee pulign's porifle etnry"
 
 
+#: libs/oik_plugins.php:122 libs/oik_themes.php:118
+msgid "Check"
+msgstr "Cehck"
+
+
+#: libs/oik_plugins.php:230 libs/oik_themes.php:205
+msgid "settings must not be blank"
+msgstr "steitgns msut nOt bE balnk"
+
+
 #: libs/oik_plugins.php:266
 msgid "default oik plugins server"
 msgstr "dfeualt OIk puligns sreevr"
@@ -2427,10 +2362,27 @@ msgid "The default oik plugins server is currently set to: %1$s"
 msgstr "ThE dfeualt OIk puligns sreevr Is cruertnly sEt tO: %1$s"
 
 
+#: libs/oik_plugins.php:271 libs/oik_plugins.php:290 libs/oik_plugins.php:305
+msgid "plugin"
+msgstr "pulign"
+
+
 #: libs/oik_plugins.php:272 libs/oik_themes.php:247
 #: shortcodes/oik-jquery.php:465
 msgid "version"
 msgstr "vreison"
+
+
+#: libs/oik_plugins.php:273 libs/oik_plugins.php:291 libs/oik_plugins.php:306
+#: libs/oik_themes.php:248 libs/oik_themes.php:266 libs/oik_themes.php:281
+msgid "server"
+msgstr "sreevr"
+
+
+#: libs/oik_plugins.php:274 libs/oik_plugins.php:292 libs/oik_themes.php:249
+#: libs/oik_themes.php:267
+msgid "apikey"
+msgstr "aipeky"
 
 
 #: libs/oik_plugins.php:275 libs/oik_themes.php:250
@@ -2448,6 +2400,11 @@ msgid "Add new plugin"
 msgstr "Add nEw pulign"
 
 
+#: libs/oik_plugins.php:307 libs/oik_themes.php:282
+msgid "apikey?"
+msgstr "aipeky?"
+
+
 #: libs/oik_plugins.php:309
 msgid "Change plugin"
 msgstr "Cahgne pulign"
@@ -2456,6 +2413,11 @@ msgstr "Cahgne pulign"
 #: libs/oik_plugins.php:337
 msgid "Error checking the plugin: %1$s"
 msgstr "Error cehkcnig thE pulign: %1$s"
+
+
+#: libs/oik_plugins.php:343
+msgid "A new version of the plugin is available"
+msgstr "A nEw vreison Of thE pulign Is aavlibale"
 
 
 #: libs/oik_plugins.php:344 libs/oik_plugins.php:351
@@ -2472,6 +2434,21 @@ msgstr "Cruernt vreison: %1$s"
 #: libs/oik_plugins.php:346 libs/oik_themes.php:311
 msgid "New version: %1$s"
 msgstr "NEw vreison: %1$s"
+
+
+#: libs/oik_plugins.php:350
+msgid "Plugin is up to date."
+msgstr "Pulign Is Up tO dtae."
+
+
+#: libs/oik_themes.php:32
+msgid "theme server settings"
+msgstr "tehme sreevr steitgns"
+
+
+#: libs/oik_themes.php:84
+msgid "Edit theme"
+msgstr "Eidt tehme"
 
 
 #: libs/oik_themes.php:111
@@ -2494,6 +2471,11 @@ msgid "The default oik themes server is currently set to: %1$s"
 msgstr "ThE dfeualt OIk tehems sreevr Is cruertnly sEt tO: %1$s"
 
 
+#: libs/oik_themes.php:246 libs/oik_themes.php:265 libs/oik_themes.php:280
+msgid "theme"
+msgstr "tehme"
+
+
 #: libs/oik_themes.php:254
 msgid "Add theme"
 msgstr "Add tehme"
@@ -2514,9 +2496,19 @@ msgid "Error checking the theme: %1$s"
 msgstr "Error cehkcnig thE tehme: %1$s"
 
 
+#: libs/oik_themes.php:308
+msgid "A new version of the theme is available"
+msgstr "A nEw vreison Of thE tehme Is aavlibale"
+
+
 #: libs/oik_themes.php:309 libs/oik_themes.php:316
 msgid "Theme: %1$s"
 msgstr "Tehme: %1$s"
+
+
+#: libs/oik_themes.php:315
+msgid "Theme is up to date."
+msgstr "Tehme Is Up tO dtae."
 
 
 #: oik-add-shortcodes.php:16
@@ -2637,27 +2629,27 @@ msgid "CSS class prefix"
 msgstr "CSS calss perifx"
 
 
-#: shortcodes/oik-bob-bing-wide.php:105
+#: shortcodes/oik-bob-bing-wide.php:103
 msgid "Visit the Bobbing Wide website: "
 msgstr "Vsiit thE Bboibng Wdie wbeiste: "
 
 
-#: shortcodes/oik-bob-bing-wide.php:108
+#: shortcodes/oik-bob-bing-wide.php:106
 msgid "Visit the website: "
 msgstr "Vsiit thE wbeiste: "
 
 
-#: shortcodes/oik-bob-bing-wide.php:211
+#: shortcodes/oik-bob-bing-wide.php:209
 msgid "Spells out the %1$s backronym"
 msgstr "Seplls OUt thE %1$s bcarknoym"
 
 
-#: shortcodes/oik-bob-bing-wide.php:213
+#: shortcodes/oik-bob-bing-wide.php:211
 msgid "Expand to the logo for oik"
 msgstr "Epxnad tO thE lgoo fOr OIk"
 
 
-#: shortcodes/oik-bob-bing-wide.php:221 shortcodes/oik-codes.php:673
+#: shortcodes/oik-bob-bing-wide.php:219 shortcodes/oik-codes.php:673
 #: shortcodes/oik-geo.php:66
 msgid "e.g."
 msgstr "E.g."
