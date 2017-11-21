@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-21 18:12:21+00:00\n"
+"POT-Creation-Date: 2017-11-21 19:20:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -842,21 +842,25 @@ msgstr "yearfrom"
 msgid "%1$s %2$s %3$s. "
 msgstr "%1$s %2$s %3$s. "
 
-#: includes/bw_fields.inc:358 includes/bw_formatter.inc:412
+#: includes/bw_fields.inc:358 includes/bw_formatter.php:412
 msgid ": "
 msgstr ": "
 
-#: includes/bw_formatter.inc:130 includes/bw_posts.inc:323
-msgid "Post: "
-msgstr "Post: "
+#: includes/bw_formatter.php:130 shortcodes/oik-parent.php:43
+msgid "Post: %1$s"
+msgstr "Post: %1$s"
 
-#: includes/bw_formatter.inc:369
+#: includes/bw_formatter.php:369
 msgid "[Edit]"
 msgstr "[Edit]"
 
 #: includes/bw_posts.inc:164
 msgid "read more"
 msgstr "read more"
+
+#: includes/bw_posts.inc:323
+msgid "Post: "
+msgstr "Post: "
 
 #: includes/bw_register.php:223
 msgid "Posts"
@@ -2888,10 +2892,6 @@ msgstr "The default display is formatted with a featured image, excerpt and a re
 #: shortcodes/oik-pages.php:119
 msgid "For examples visit %1$s"
 msgstr "For examples visit %1$s"
-
-#: shortcodes/oik-parent.php:43
-msgid "Post: %1$s"
-msgstr "Post: %1$s"
 
 #: shortcodes/oik-parent.php:77
 msgid "Display a link back to the parent page"

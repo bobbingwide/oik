@@ -1,7 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2017
 
 /** 
- * Unit tests for the includes/bw_formatter.inc file
+ * Unit tests for the includes/bw_formatter.php file
  */
 
 class Tests_includes_bw_formatter extends BW_UnitTestCase {
@@ -14,7 +14,7 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
-		oik_require( "includes/bw_formatter.inc" );
+		oik_require( "includes/bw_formatter.php" );
 	}
 	
 	/**
@@ -58,13 +58,21 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 	}
 	
 	function dummy_post() {
-		//$post = new stdClass;
-		//$post->ID = 1;
 		$args = array( 'post_type' => 'page', 'post_title' => 'post title' );
 		$id = self::factory()->post->create( $args );
 		$post = get_post( $id );
 		return $post;
 	}
+	
+	function dummy_post_no_title() {
+		$args = array( 'post_type' => 'page', 'post_title' => null, 'post_status' => 'draft' );
+		$id = self::factory()->post->create( $args );
+		$post = get_post( $id );
+		print_r( $post );
+		$this->assertEmpty( $post->title );
+		return $post;
+	}
+	
 	
 	/**
 	 * Replaces home_url and site_url
@@ -78,6 +86,42 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 		$expected = str_replace( site_url(), "https://qw/src", $expected );
 		return $expected;
 	}
+	
+	/**
+	 * Test default title where none is set for the post.
+	 */
+	function test_bw_field_function_title() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'en_GB' );
+    $post = $this->dummy_post();
+		$post->ID = 0;
+		$atts = array();
+		bw_field_function_title( $post,	$atts, null );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * Test default title where none is set for the post
+	 */
+	function test_bw_field_function_title_bb_BB() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'bb_BB' );
+    $post = $this->dummy_post();
+		$post->ID = 0;
+		$atts = array();
+		bw_field_function_title( $post,	$atts, null );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	
 	
 	
 }

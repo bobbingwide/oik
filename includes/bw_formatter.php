@@ -127,7 +127,7 @@ function bw_field_function_title( $post, &$atts, $f ) {
   bw_pop();
   bw_trace2( $atts, "look for title", false );
   if ( empty( $atts['title'] ) ) {
-    $atts['title'] = __( "Post: " ) . $post->ID;
+    $atts['title'] = sprintf( __( 'Post: %1$s', "oik" ) , $post->ID );
     
   } 
   span( "title" );

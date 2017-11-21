@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-21 18:12:21+00:00\n"
+"POT-Creation-Date: 2017-11-21 19:20:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1062,17 +1062,17 @@ msgid "%1$s %2$s %3$s. "
 msgstr "%1$s %2$s %3$s. "
 
 
-#: includes/bw_fields.inc:358 includes/bw_formatter.inc:412
+#: includes/bw_fields.inc:358 includes/bw_formatter.php:412
 msgid ": "
 msgstr ": "
 
 
-#: includes/bw_formatter.inc:130 includes/bw_posts.inc:323
-msgid "Post: "
-msgstr "Psot: "
+#: includes/bw_formatter.php:130 shortcodes/oik-parent.php:43
+msgid "Post: %1$s"
+msgstr "Psot: %1$s"
 
 
-#: includes/bw_formatter.inc:369
+#: includes/bw_formatter.php:369
 msgid "[Edit]"
 msgstr "[Edit]"
 
@@ -1080,6 +1080,11 @@ msgstr "[Edit]"
 #: includes/bw_posts.inc:164
 msgid "read more"
 msgstr "raed mroe"
+
+
+#: includes/bw_posts.inc:323
+msgid "Post: "
+msgstr "Psot: "
 
 
 #: includes/bw_register.php:223
@@ -3615,11 +3620,6 @@ msgstr ""
 #: shortcodes/oik-pages.php:119
 msgid "For examples visit %1$s"
 msgstr "FOr eaxpmels vsiit %1$s"
-
-
-#: shortcodes/oik-parent.php:43
-msgid "Post: %1$s"
-msgstr "Psot: %1$s"
 
 
 #: shortcodes/oik-parent.php:77
