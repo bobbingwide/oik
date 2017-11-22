@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-21 19:20:33+00:00\n"
+"POT-Creation-Date: 2017-11-21 19:33:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2892,6 +2892,10 @@ msgstr "The default display is formatted with a featured image, excerpt and a re
 #: shortcodes/oik-pages.php:119
 msgid "For examples visit %1$s"
 msgstr "For examples visit %1$s"
+
+#: shortcodes/oik-pages.php:126
+msgid "No snippet available"
+msgstr "No snippet available"
 
 #: shortcodes/oik-parent.php:77
 msgid "Display a link back to the parent page"

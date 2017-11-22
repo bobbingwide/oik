@@ -3,7 +3,7 @@ if ( defined( 'OIK_PAGES_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_PAGES_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -35,7 +35,7 @@ oik_require( "includes/bw_images.inc" );
 function bw_query_post_formatter( $atts ) {
   $format = bw_array_get( $atts, "format", null );
   if ( $format ) {
-    oik_require( "includes/bw_formatter.inc" );
+    oik_require( "includes/bw_formatter.php" );
     $bw_post_formatter = "bw_format_as_required";
   } else {
     $bw_post_formatter = "bw_format_post";
@@ -123,6 +123,6 @@ function bw_pages__example( $shortcode="bw_pages" ) {
  * Snippet hook for [bw_pages] shortcode
  */
 function bw_pages__snippet( $shortcode="bw_pages" ) {
-  e( "No snippet available" );
+  e( __( "No snippet available", "oik" ) );
 } 
 
