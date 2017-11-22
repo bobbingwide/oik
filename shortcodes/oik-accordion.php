@@ -1,10 +1,23 @@
-<?php // (C) Copyright Bobbing Wide 2012-2014
-/** 
- * Return the next unique ID for the accordion selector
+<?php // (C) Copyright Bobbing Wide 2012-2017
+/**
+ * Returns the next selector for [bw_accordion]
+ *
+ * $inc  | action | return
+ * ----  | ------ | ------
+ * true  | $accordion_id++ | next value
+ * false | nop    | current value
+ * null  | 0    | current value	= 0
+ * 
+ * @param bool|null $inc - increment the id?
+ * @return string - tab selector ID
  */
-function bw_accordion_id() { 
+function bw_accordion_id( $inc=true ) { 
   static $accordion_id = 0;
-  $accordion_id++;
+	if ( $inc ) {
+		$accordion_id++;
+	} elseif ( null === $inc ) {
+		$accordion_id = 0;
+	}	
   return( "bw_accordion-$accordion_id" );
 }
 
@@ -27,7 +40,7 @@ function bw_accordion_id() {
 
 */
 function bw_accordion( $atts=null, $content=null, $tag=null ) {
-  oik_require( "includes/bw_posts.inc" );
+  oik_require( "includes/bw_posts.php" );
   $posts = bw_get_posts( $atts );
   if ( $posts ) {
     oik_require( "shortcodes/oik-jquery.php" );
@@ -79,15 +92,14 @@ function bw_accordion__syntax( $shortcode="bw_accordion" ) {
 }
 
 function bw_accordion__example( $shortcode="bw_accordion" ) {
-  $text = "Display the two most recent pages";
+  $text = __( "Display the two most recent pages", "oik" );
   $example = "numberposts=2 post_type=page orderby=date order=DESC post_parent=0";
   bw_invoke_shortcode( $shortcode, $example, $text );
 }
 
 function bw_accordion__snippet( $shortcode="bw_accordion" ) {
   $example = "numberposts=2 post_type=page orderby=date order=DESC post_parent=0";
-  //_sc__snippet( $shortcode, $example );
-  e( "Snippet not produced for this shortcode: $shortcode" );
+  e( sprintf( __( 'Snippet not produced for this shortcode: %1$s', "oik" ), $shortcode ) );
 }
 
 

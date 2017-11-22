@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-21 19:33:01+00:00\n"
+"POT-Creation-Date: 2017-11-22 17:06:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -854,11 +854,11 @@ msgstr "Post: %1$s"
 msgid "[Edit]"
 msgstr "[Edit]"
 
-#: includes/bw_posts.inc:164
+#: includes/bw_posts.php:164
 msgid "read more"
 msgstr "read more"
 
-#: includes/bw_posts.inc:323
+#: includes/bw_posts.php:323
 msgid "Post: "
 msgstr "Post: "
 
@@ -2024,6 +2024,14 @@ msgstr "oik custom image link URL"
 msgid "Howdy, %s"
 msgstr "Howdy, %s"
 
+#: shortcodes/oik-accordion.php:95
+msgid "Display the two most recent pages"
+msgstr "Display the two most recent pages"
+
+#: shortcodes/oik-accordion.php:102 shortcodes/oik-tabs.php:123
+msgid "Snippet not produced for this shortcode: %1$s"
+msgstr "Snippet not produced for this shortcode: %1$s"
+
 #: shortcodes/oik-address.php:12 shortcodes/oik-address.php:46
 msgid "Work"
 msgstr "Work"
@@ -3137,10 +3145,6 @@ msgstr "No snippet for %1$s"
 #: shortcodes/oik-tabs.php:117
 msgid "Example: Display the two most recent pages."
 msgstr "Example: Display the two most recent pages."
-
-#: shortcodes/oik-tabs.php:123
-msgid "Snippet not produced for this shortcode: %1$s"
-msgstr "Snippet not produced for this shortcode: %1$s"
 
 #: shortcodes/oik-thumbs.php:90
 msgid "Enclose in an Artisteer block"

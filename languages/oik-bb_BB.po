@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-21 19:33:01+00:00\n"
+"POT-Creation-Date: 2017-11-22 17:06:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1077,12 +1077,12 @@ msgid "[Edit]"
 msgstr "[Edit]"
 
 
-#: includes/bw_posts.inc:164
+#: includes/bw_posts.php:164
 msgid "read more"
 msgstr "raed mroe"
 
 
-#: includes/bw_posts.inc:323
+#: includes/bw_posts.php:323
 msgid "Post: "
 msgstr "Psot: "
 
@@ -2536,6 +2536,16 @@ msgid "Howdy, %s"
 msgstr "Hwody, %s"
 
 
+#: shortcodes/oik-accordion.php:95
+msgid "Display the two most recent pages"
+msgstr "Dsilpay thE twO msot rcenet pgaes"
+
+
+#: shortcodes/oik-accordion.php:102 shortcodes/oik-tabs.php:123
+msgid "Snippet not produced for this shortcode: %1$s"
+msgstr "Sinppet nOt porudecd fOr tihs sohtrocde: %1$s"
+
+
 #: shortcodes/oik-address.php:12 shortcodes/oik-address.php:46
 msgid "Work"
 msgstr "Wrok"
@@ -3929,11 +3939,6 @@ msgstr "NO sinppet fOr %1$s"
 #: shortcodes/oik-tabs.php:117
 msgid "Example: Display the two most recent pages."
 msgstr "Eaxpmle: Dsilpay thE twO msot rcenet pgaes."
-
-
-#: shortcodes/oik-tabs.php:123
-msgid "Snippet not produced for this shortcode: %1$s"
-msgstr "Sinppet nOt porudecd fOr tihs sohtrocde: %1$s"
 
 
 #: shortcodes/oik-thumbs.php:90
