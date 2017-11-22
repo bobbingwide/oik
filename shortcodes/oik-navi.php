@@ -301,7 +301,7 @@ function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
 	if ( $field ) {
 		bw_navi_field( $field, $atts, $posts_per_page );
 	} else {
-		oik_require( "includes/bw_posts.inc" );
+		oik_require( "includes/bw_posts.php" );
 		$posts = bw_get_posts( $atts ); 
 		if ( !$posts_per_page ) {
 			$start = oik_navi_s2eofn_from_query( $atts );

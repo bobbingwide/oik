@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2015, 2016
+<?php // (C) Copyright Bobbing Wide 2015-2017
 
 /**
  * Load an array of node references - for hierarchical post types
@@ -15,7 +15,7 @@
  * 
  */
 function bw_load_noderef2( $args ) {
-  oik_require( "includes/bw_posts.inc" );
+  oik_require( "includes/bw_posts.php" );
   $post_types = array();
   $post_type = bw_array_get( $args, '#type', $args );
   if ( is_array( $post_type ) ) { 

@@ -53,7 +53,7 @@ function bw_format_tabs_list( $post, $atts, $selector ) {
  *
  */
 function bw_tabs( $atts=null, $content=null, $tag=null ) {
-  oik_require( "includes/bw_posts.inc" );
+  oik_require( "includes/bw_posts.php" );
   $posts = bw_get_posts( $atts );
   if ( $posts ) {
     oik_require( "shortcodes/oik-jquery.php" );

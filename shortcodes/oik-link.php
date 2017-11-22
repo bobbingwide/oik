@@ -333,11 +333,12 @@ function bw_link__syntax( $shortcode="bw_link" ) {
 /**
  * Return a post ID for bw_link example
  * 
- * If the global post ID is not set try for a recently published post ID#
+ * If the global post ID is not set try for a recently published post ID
  *
+ * @return integer ID
  */  
 function _bw_get_an_id() {
-	oik_require( "includes/bw_posts.inc" );
+	oik_require( "includes/bw_posts.php" );
 	$id = bw_global_post_id();
 	if ( !$id ) {
 		$posts = wp_get_recent_posts( array( "numberposts" => 1, "post_status" => "publish", "post_type" => "page" ) );

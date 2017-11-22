@@ -19,7 +19,7 @@
 
 */
 
-oik_require( "includes/bw_posts.inc" );
+oik_require( "includes/bw_posts.php" );
 oik_require( "shortcodes/oik-list.php" );
 
 /**

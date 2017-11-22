@@ -359,7 +359,7 @@ function bw_jquery_src( $atts ) {
  * 
  */
 function bw_jquery_enqueue_attached_scripts() {
-  oik_require( "includes/bw_posts.inc" );
+  oik_require( "includes/bw_posts.php" );
   $atts = array( "post_type" => "attachment" 
                , "post_mime_type" => "application/javascript"
                ); 

@@ -136,13 +136,12 @@ function bw_simple_list( $posts, $atts ) {
 }
 
 /**
- *
  * Implement [bw_list] shortcode
  * 
  * List sub-pages of the current or selected page - in a simple list 
  * This is similar to [bw_pages] but it produces a simple list of links to the content type
  *
- *
+ * `
  * [bw_list class="classes for the list" 
  *   post_type='page'
  *   post_parent=0 
@@ -152,13 +151,15 @@ function bw_simple_list( $posts, $atts ) {
 
  *   thumbnail=specification - see bw_thumbnail()
  *   customcategoryname=custom category value 
+ * ]
+ * `
  * 
  * You can also use all of the other parameters to get_post
- * such as meta_key= meta_value= post_type= etcetera
- * If you want to list the current item then remember to exclude=-1 
+ * such as meta_key= meta_value= post_type= etcetera.
+ * If you want to list the current item then remember to exclude=-1. 
  */
 function bw_list( $atts=null, $content=null, $tag=null ) {
-  oik_require( "includes/bw_posts.inc" );
+  oik_require( "includes/bw_posts.php" );
   $posts = bw_get_posts( $atts );
   $atts['thumbnail'] = bw_array_get( $atts, "thumbnail", "none" );
   $ol = bw_sl( $atts );

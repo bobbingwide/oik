@@ -11,7 +11,7 @@ class Tests_prerequisites extends BW_UnitTestCase {
 	 */
 	function setUp() {
 		// parent::setUp();
-		oik_require( "includes/bw_posts.inc" );
+		oik_require( "includes/bw_posts.php" );
 		
 	}
 	

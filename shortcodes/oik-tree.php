@@ -18,7 +18,7 @@
     http://www.gnu.org/licenses/gpl-2.0.html
 
 */
-oik_require( "includes/bw_posts.inc" );
+oik_require( "includes/bw_posts.php" );
 
 /**
  * Format the tree - as a nested list

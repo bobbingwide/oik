@@ -143,7 +143,7 @@ function bw_term_array( $terms ) {
  * 
  */
 function bw_load_noderef( $args ) {
-  oik_require( "includes/bw_posts.inc" );
+  oik_require( "includes/bw_posts.php" );
   $post_types = array();
   $post_type = bw_array_get( $args, '#type', $args );
   if ( is_array( $post_type ) ) { 

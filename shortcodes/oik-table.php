@@ -22,7 +22,7 @@ define( 'OIK_TABLE_SHORTCODES_INCLUDED', true );
 */
 
 
-oik_require( "includes/bw_posts.inc" );
+oik_require( "includes/bw_posts.php" );
 oik_require( "includes/bw_images.inc" );
 oik_require( "bobbforms.inc" );
 

@@ -4,7 +4,7 @@ if ( defined( 'OIK_THUMBS_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_THUMBS_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2012 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -21,7 +21,7 @@ define( 'OIK_THUMBS_SHORTCODES_INCLUDED', true );
     http://www.gnu.org/licenses/gpl-2.0.html
 
 */
-oik_require( "includes/bw_posts.inc" );
+oik_require( "includes/bw_posts.php" );
 oik_require( "shortcodes/oik-attachments.php" );
 
 /**
