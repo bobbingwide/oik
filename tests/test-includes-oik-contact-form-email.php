@@ -1,7 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2017
 
 /** 
- * Unit tests for the includes/oik-contact-form-email.inc file
+ * Unit tests for the includes/oik-contact-form-email.php file
  */
 
 class Tests_includes_oik_contact_form_email extends BW_UnitTestCase {
@@ -14,7 +14,7 @@ class Tests_includes_oik_contact_form_email extends BW_UnitTestCase {
 	 */
 	function setUp() {
 		parent::setUp();
-		oik_require( "includes/oik-contact-form-email.inc" );
+		oik_require( "includes/oik-contact-form-email.php" );
 	}
 	
 	/**

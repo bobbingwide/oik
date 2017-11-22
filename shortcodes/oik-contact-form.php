@@ -247,7 +247,7 @@ function _bw_process_contact_form_oik() {
 	$email_to = bw_array_get( $_REQUEST, "oiku_email_to", null );
 	$message = bw_get_message();
 	if ( $email_to && $message ) {
-		oik_require( "includes/oik-contact-form-email.inc" );
+		oik_require( "includes/oik-contact-form-email.php" );
 		$fields = array();
 		$subject = bw_get_subject();
 		$fields['comment_content'] = $message;
