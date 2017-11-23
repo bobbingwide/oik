@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012
+<?php // (C) Copyright Bobbing Wide 2012-2017
 
 /** 
  * Return an array of top level nav menus
@@ -21,7 +21,7 @@
 
  */
 function bw_get_nav_menus() {
-  oik_require( "bw_metadata.inc" );
+  oik_require( "includes/bw_metadata.php" );
   $menus = wp_get_nav_menus( $args = array() );
   $terms = bw_term_array( $menus );
   $terms[0] = "none";

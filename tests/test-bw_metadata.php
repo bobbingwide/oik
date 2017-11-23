@@ -1,7 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2017
 
 /** 
- * Unit tests for the bw_metadata.inc file
+ * Unit tests for the includes/bw_metadata.php file
  */
 
 class Tests_bw_metadata extends BW_UnitTestCase {
