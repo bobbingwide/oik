@@ -305,7 +305,7 @@ function bw_field_function_metadata( $class, $label, $value ) {
  */
 function bw_field_function_categories( $post, &$atts, $f ) {
   $categories_list = get_the_category_list( ",", "", $post->ID );
-  bw_field_function_metadata( "bw_categories", "Categories", $categories_list );
+  bw_field_function_metadata( "bw_categories", __( "Categories", "oik" ), $categories_list );
 }
 
 /**
@@ -313,7 +313,7 @@ function bw_field_function_categories( $post, &$atts, $f ) {
  */
 function bw_field_function_comments( $post, &$atts, $f ) {
   $comments_number = get_comments_number( $post->ID );
-  bw_field_function_metadata( "bw_comments", "Comments", $comments_number );
+  bw_field_function_metadata( "bw_comments", __( "Comments", "oik" ), $comments_number );
 }
 
 /**
@@ -321,7 +321,7 @@ function bw_field_function_comments( $post, &$atts, $f ) {
  */
 function bw_field_function_tags( $post, &$atts, $f ) {
   $tag_list = get_the_tag_list( "", ",", "", $post->ID );
-  bw_field_function_metadata( "bw_tags", "Tags", $tag_list );
+  bw_field_function_metadata( "bw_tags", __( "Tags", "oik" ), $tag_list );
 }
 
 /**
@@ -345,7 +345,7 @@ function bw_field_function_author( $post, &$atts, $f ) {
   $author_posts_url = get_author_posts_url( $post->post_author );
   $author_name =  get_the_author_meta( "nicename", $post->post_author );
   $author_link = retlink( "url fn n", $author_posts_url, $author_name );
-  bw_field_function_metadata( "bw_author", "By", $author_link );
+  bw_field_function_metadata( "bw_author", __( "By", "oik" ), $author_link );
 }
 
 /**
@@ -356,7 +356,7 @@ function bw_field_function_date( $post, &$atts, $f ) {
   $date_format = get_option('date_format');
   
   $date = get_post_time( $date_format, false, $post->ID, false );
-  bw_field_function_metadata( "bw_date", "Date", $date );
+  bw_field_function_metadata( "bw_date", __( "Date", "oik" ), $date );
 }
 
 /**
@@ -401,35 +401,7 @@ function bw_format_block_end( $post, $atts, $in_block ) {
   }    
 }
 
-/**
- * Return the default separator between the field label and field value
- * @return string - separator - with spaces if required
+/* 
+ * We should be able to survive with bw_default_sep and bw_format_sep being loaded from the bw_fields library.
+ * So these functions are now longer required here.
  */
-if ( !function_exists( "bw_default_sep" ) ) {
-function bw_default_sep() {
-  $sep = bw_get_option( "bw_separator", "bw_fields" );
-  if ( !$sep ) {
-    $sep = __( ": " );
-  }  
-  return( $sep);
-} 
-}
-
-/**
- *
- */
-if ( !function_exists( "bw_format_sep" ) ) {
-function bw_format_sep( $type="field" ) {
-  static $sep = null;
-  if ( !$sep ) {
-    $sep = bw_default_sep( $type );
-  }
-  span( "sep" );
-  e( $sep );
-  epan();
-}
-}
-
-  
-
-

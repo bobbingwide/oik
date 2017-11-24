@@ -121,8 +121,195 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 		$this->switch_to_locale( 'en_GB' );
 	}
 	
+	/**
+	 * This test will return a null list of categories since "Category" is not associated to the "page" post type
+	 */
+	function test_bw_field_function_categories() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'en_GB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_categories( $post, $atts, $f );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * This test will return a null list of categories since "Category" is not associated to the "page" post type
+	 */
+	function test_bw_field_function_categories_bb_BB() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'bb_BB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_categories( $post, $atts, $f );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
 	
 	
+	/**
+	 * This test will return a count of 0 Comments 
+	 */
+	function test_bw_field_function_comments() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'en_GB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_comments( $post, $atts, $f );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
 	
+	/**
+	 * This test will return a count of 0 Comments 
+	 */
+	function test_bw_field_function_comments_bb_BB() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'bb_BB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_comments( $post, $atts, $f );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * This test will return a null list of tags since "Tags" is not associated to the "page" post type
+	 */
+	function test_bw_field_function_tags() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'en_GB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_tags( $post, $atts, $f );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * This test will return a null list of tags since "Tags" is not associated to the "page" post type
+	 */
+	function test_bw_field_function_tags_bb_BB() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'bb_BB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_tags( $post, $atts, $f );
+		$html = bw_ret();
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * We need to alter the author's URL and nicename in the output for environment independence.
+	 */
+	function test_bw_field_function_author() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'en_GB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_author( $post, $atts, $f );
+		$html = bw_ret();
+		$author_posts_url = get_author_posts_url( $post->post_author );
+		$author_name =  get_the_author_meta( "nicename", $post->post_author );
+		$html = str_replace( $author_posts_url, "https://qw/src/author/author", $html );
+		$html = str_replace( $author_name, "author name", $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * We need to alter the author's URL and nicename in the output for environment independence.
+	 * This is an iffy test since bb_BB for By is By
+	 */
+	function test_bw_field_function_author_bb_BB() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'bb_BB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_author( $post, $atts, $f );
+		$html = bw_ret();
+		$author_posts_url = get_author_posts_url( $post->post_author );
+		$author_name =  get_the_author_meta( "nicename", $post->post_author );
+		$html = str_replace( $author_posts_url, "https://qw/src/author/author", $html );
+		$html = str_replace( $author_name, "author name", $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	
+	/**
+	 * We need to alter the date for environment and date independence.
+	 */
+	function test_bw_field_function_date() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'en_GB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_date( $post, $atts, $f );
+		$html = bw_ret();
+    $date_format = get_option('date_format');
+    $date = get_post_time( $date_format, false, $post->ID, false );
+		$html = str_replace( $date, "ccyy/mm/dd", $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+	
+	/**
+	 * We need to alter the date for environment and date independence.
+	 */
+	function test_bw_field_function_date_bb_BB() {
+		wp_set_current_user( 1 );
+		$this->switch_to_locale( 'bb_BB' );
+    $post = $this->dummy_post();
+		$atts = array();
+		$f = null;
+		bw_field_function_date( $post, $atts, $f );
+		$html = bw_ret();
+    $date_format = get_option('date_format');
+    $date = get_post_time( $date_format, false, $post->ID, false );
+		$html = str_replace( $date, "ccyy/mm/dd", $html );
+		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		$this->switch_to_locale( 'en_GB' );
+	}
+
+
+	
+
 }
 	

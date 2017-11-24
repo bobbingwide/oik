@@ -1,7 +1,7 @@
 <?php // (C) Copyright Bobbing Wide 2017
 
 /** 
- * Unit tests for the includes/bw_fields.inc file
+ * Unit tests for the includes/bw_fields.inc file - now libs/bw_fields.php
  */
 
 class Tests_includes_bw_fields extends BW_UnitTestCase {

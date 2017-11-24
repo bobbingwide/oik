@@ -340,6 +340,7 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "class-dependencies-cache" => null
 						, "class-BW-" => null
 						, "oik-l10n" => null
+						, "bw_fields" => null
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	

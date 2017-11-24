@@ -151,10 +151,10 @@ function bw_format_table( $posts, $atts ) {
   $excerpts = bw_query_table_columns( $atts, $post_type );
   
   if ( !function_exists( "bw_theme_field" ) ) {
-    oik_require2( "includes/bw_fields.inc", "oik-fields" );
+    oik_require_lib( "bw_fields" );
     if ( !function_exists( "bw_theme_field" ) ) {
-      bw_trace2( "Please upgrade oik-fields" );
-      BW_::p( __( "oik-fields plugin version must be version 1.31 or higher", "oik" ) );
+      bw_trace2( "bw_theme_field missing" );
+      BW_::p( __( "Error: bw_theme_field function missing.", "oik" ) );
       return;
     }
   }

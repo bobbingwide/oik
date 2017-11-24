@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-22 17:06:57+00:00\n"
+"POT-Creation-Date: 2017-11-24 16:59:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -802,10 +802,6 @@ msgstr "New version?: %s"
 msgid "Please don't attempt to apply updates using WordPress."
 msgstr "Please don't attempt to apply updates using WordPress."
 
-#: bw_metadata.inc:39
-msgid "Fields"
-msgstr "Fields"
-
 #: includes/bobbcomp.php:263 shortcodes/oik-button.php:83
 #: shortcodes/oik-button.php:103
 msgid "me"
@@ -842,17 +838,37 @@ msgstr "yearfrom"
 msgid "%1$s %2$s %3$s. "
 msgstr "%1$s %2$s %3$s. "
 
-#: includes/bw_fields.inc:358 includes/bw_formatter.php:412
-msgid ": "
-msgstr ": "
-
 #: includes/bw_formatter.php:130 shortcodes/oik-parent.php:43
 msgid "Post: %1$s"
 msgstr "Post: %1$s"
 
+#: includes/bw_formatter.php:308
+msgid "Categories"
+msgstr "Categories"
+
+#: includes/bw_formatter.php:316
+msgid "Comments"
+msgstr "Comments"
+
+#: includes/bw_formatter.php:324
+msgid "Tags"
+msgstr "Tags"
+
+#: includes/bw_formatter.php:348
+msgid "By"
+msgstr "By"
+
+#: includes/bw_formatter.php:359
+msgid "Date"
+msgstr "Date"
+
 #: includes/bw_formatter.php:369
 msgid "[Edit]"
 msgstr "[Edit]"
+
+#: includes/bw_metadata.php:39
+msgid "Fields"
+msgstr "Fields"
 
 #: includes/bw_posts.php:164
 msgid "read more"
@@ -994,11 +1010,11 @@ msgid ""
 "admin for verification before accepting a user"
 msgstr "oik BuddyPress signup email - Send sign up verification emails via site admin for verification before accepting a user"
 
-#: includes/oik-contact-form-email.inc:36
+#: includes/oik-contact-form-email.php:36
 msgid "Contact form submission"
 msgstr "Contact form submission"
 
-#: includes/oik-contact-form-email.inc:128
+#: includes/oik-contact-form-email.php:128
 msgid "Failed to send email to: %1$s subject: %2$s"
 msgstr "Failed to send email to: %1$s subject: %2$s"
 
@@ -1474,6 +1490,10 @@ msgstr "Index of the theme_collages post meta to display"
 msgid "None"
 msgstr "None"
 
+#: libs/bw_fields.php:367
+msgid ": "
+msgstr ": "
+
 #: libs/class-BW-.php:108 libs/oik-admin.php:69
 msgid "Toggle panel: %s"
 msgstr "Toggle panel: %s"
@@ -1552,7 +1572,7 @@ msgstr "unique identifier"
 #: libs/oik-sc-help.php:388 libs/oik-sc-help.php:427 libs/oik-sc-help.php:468
 #: libs/oik-sc-help.php:469 libs/oik-sc-help.php:500 libs/oik-sc-help.php:501
 #: shortcodes/oik-galleries.php:36 shortcodes/oik-iframe.php:50
-#: shortcodes/oik-iframe.php:51 shortcodes/oik-list.php:177
+#: shortcodes/oik-iframe.php:51 shortcodes/oik-list.php:178
 #: shortcodes/oik-posts.php:59
 msgid "numeric"
 msgstr "numeric"
@@ -1671,7 +1691,7 @@ msgid "wxh"
 msgstr "wxh"
 
 #: libs/oik-sc-help.php:364 shortcodes/oik-attachments.php:359
-#: shortcodes/oik-list.php:178
+#: shortcodes/oik-list.php:179
 msgid "image size"
 msgstr "image size"
 
@@ -2807,15 +2827,15 @@ msgstr "tool tip string"
 msgid "URL to link to"
 msgstr "URL to link to"
 
-#: shortcodes/oik-link.php:358
+#: shortcodes/oik-link.php:359
 msgid "Example: Display a link to post with ID=%1$s"
 msgstr "Example: Display a link to post with ID=%1$s"
 
-#: shortcodes/oik-list.php:177
+#: shortcodes/oik-list.php:178
 msgid "number of items to list. -1=list all"
 msgstr "number of items to list. -1=list all"
 
-#: shortcodes/oik-list.php:179
+#: shortcodes/oik-list.php:180
 msgid "Display unordered or ordered list"
 msgstr "Display unordered or ordered list"
 
@@ -3119,8 +3139,8 @@ msgid "jQuery Cycle Plugin - beginner demos"
 msgstr "jQuery Cycle Plugin - beginner demos"
 
 #: shortcodes/oik-table.php:157
-msgid "oik-fields plugin version must be version 1.31 or higher"
-msgstr "oik-fields plugin version must be version 1.31 or higher"
+msgid "Error: bw_theme_field function missing."
+msgstr "Error: bw_theme_field function missing."
 
 #: shortcodes/oik-table.php:196
 msgid "fields"
