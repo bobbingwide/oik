@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-24 16:59:29+00:00\n"
+"POT-Creation-Date: 2017-11-24 17:59:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1208,74 +1208,6 @@ msgstr "Add Or rmevoe %1$s"
 #: includes/bw_register.php:300
 msgid "Choose from most used %1$s"
 msgstr "Cohsoe form msot uesd %1$s"
-
-
-#: includes/deprecated.inc:378
-msgid ""
-"oik comes with a set of companion plugins. Activate these when you find a "
-"need for them."
-msgstr ""
-"OIk cmoes wtih A sEt Of cmoapinon puligns. Atcvitae tehse wehn yOU fnid A "
-"need fOr tehm."
-
-
-#: includes/deprecated.inc:380
-msgid "email signature - build an email signature for your email client"
-msgstr "eamil sgianutre - biuld An eamil sgianutre fOr yuor eamil cilnet"
-
-
-#: includes/deprecated.inc:381
-msgid "custom header image - define a custom header image for any post/page"
-msgstr "csuotm haeedr iamge - dfenie A csuotm haeedr iamge fOr Any psot/pgae"
-
-
-#: includes/deprecated.inc:382
-msgid ""
-"oik sidebar - apply widget wrangler sidebar functionality to Artisteer themes"
-msgstr ""
-"OIk sdibear - apply wdiegt wargnelr sdibear fnutcoianilty tO Atrsieter tehems"
-
-
-#: includes/deprecated.inc:383
-msgid ""
-"oik fields - allow custom fields to be shown within the content of your page "
-"or post"
-msgstr ""
-"OIk feidls - allow csuotm feidls tO bE sohwn wtiihn thE cnoetnt Of yuor pgae "
-"Or psot"
-
-
-#: includes/deprecated.inc:384
-msgid "oik trace - problem determination trace "
-msgstr "OIk tarce - porlbem dtereimaniton tarce "
-
-
-#: includes/deprecated.inc:385
-msgid "oik action trace - trace WordPress actions and filters"
-msgstr "OIk atcoin tarce - tarce WroPderss atcoins And flietrs"
-
-
-#: includes/deprecated.inc:386
-msgid "oik bbpress - strip tags from bbPress forum title tooltips"
-msgstr "OIk bpberss - srtip tgas form bPberss froum ttile tootlpis"
-
-
-#: includes/deprecated.inc:387
-msgid ""
-"oik bob bing wide shortcodes - activate this plugin to enable the "
-"<code>[bw_plug]</code> shortcode"
-msgstr ""
-"OIk bOb bnig wdie sohtroceds - atcvitae tihs pulign tO eanlbe thE "
-"<code>[bw_plug]</code> sohtrocde"
-
-
-#: includes/deprecated.inc:388
-msgid ""
-"oik BuddyPress signup email - Send sign up verification emails via site "
-"admin for verification before accepting a user"
-msgstr ""
-"OIk BduydrPses sgiunp eamil - Sned sgin Up vreficitaoin eamlis vIA stie "
-"amdin fOr vreficitaoin bferoe accpeitng A uesr"
 
 
 #: includes/oik-contact-form-email.php:36
