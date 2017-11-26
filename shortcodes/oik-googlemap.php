@@ -270,7 +270,7 @@ function bw_show_googlemap__syntax( $shortcode = "bw_show_googlemap" ) {
   $syntax = array( "company" => BW_::bw_skv( "", __( "company name", "oik" ), __( "type your company name", "oik" ) )
                  , "lat" => BW_::bw_skv( "<i>lat</i>", __( "latitude", "oik" ) , __( "latitude", "oik" ) )
                  , "long" => BW_::bw_skv( "<i>long</i>", __( "longitude", "oik" ), __( "longitude", "oik" ) )
-                 , "postcode" => BW_::bw_skv( "<i>postcode</i>", __( "postcode", "oik" ), __( "post code or zip code", "oik" ) )
+                 , "postcode" => BW_::bw_skv( "<i>postcode</i>", __( "postcode", "oik" ), __( "postcode or ZIP code", "oik" ) )
                  , "width" => BW_::bw_skv( "100%", __( "width", "oik" ), __( "width of the Google map", "oik" ) )
                  , "height" => BW_::bw_skv( "400px", __( "height", "oik" ), __( "height of the map", "oik" ) )
                  , "markers" => BW_::bw_skv( null, __( "marker1,marker2", "oik" ), __( "Additional markers", "oik" ) )
