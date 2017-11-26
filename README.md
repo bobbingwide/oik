@@ -5,7 +5,7 @@
 * Tags: shortcodes, shortcode, advanced, oik
 * Requires at least: 4.8
 * Tested up to: 4.9
-* Stable tag: 3.2.0
+* Stable tag: 3.2.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.2.1 
+Translation ready. Tested with WordPress 4.9 and WordPress Multisite.
+
 # 3.2.0 
 Translation ready. Tested with WordPress 4.9 and WordPress Multisite.
 
@@ -418,6 +421,14 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 3.2.1 
+* Changed: Change caption__example and embed__example for WordPress 4.9 https://github.com/bobbingwide/oik/issues/88
+* Changed: Renamed some .inc files to .php to enable WordPress.org to find translatable strings https://github.com/bobbingwide/oik/issues/9
+* Fixed: Changed some translatable strings and UK English versions of them
+* Fixed: Correct logic to fix warning from dashboard https://github.com/bobbingwide/oik/issues/69
+* Tested: With PHP 7.0 and 7.1
+* Tested: With WordPress 4.9 and WordPress Multisite
+
 # 3.2.0 
 * Fixed: Avoid fatal error when  oik_l10n_enable_jti() https://github.com/bobbingwide/oik/issues/9
 * Fixed: Avoid fatal error when bw_jq_get() not available https://github.com/bobbingwide/oik/issues/68
