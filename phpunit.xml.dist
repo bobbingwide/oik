@@ -14,6 +14,7 @@
 		</testsuite>
 		<testsuite name="oik">
 			<file>tests/test-bw-translate.php</file>
+			<file>tests/test-wpautop.php</file>
 			<file>tests/test-issue-69.php</file>
 			<file>tests/test-bobbcomp.php</file>
 			<file>tests/test-bobbfunc.php</file>
@@ -44,6 +45,7 @@
 			<file>tests/test-includes-bw_posts.php</file>
 			<file>tests/test-includes-bw_register.php</file>
 			<file>tests/test-includes-oik-contact-form-email.php</file>
+			<file>tests/test-shortcodes-oik-address.php</file>
 			<file>tests/test-shortcodes-oik-attachments.php</file>
 			<file>tests/test-shortcodes-oik-blockquote.php</file>
 			<file>tests/test-shortcodes-oik-blocks.php</file>
