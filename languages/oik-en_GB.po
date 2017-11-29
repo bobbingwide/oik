@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-26 13:04:53+00:00\n"
+"POT-Creation-Date: 2017-11-29 19:51:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2003,21 +2003,29 @@ msgstr "Display the two most recent pages"
 msgid "Snippet not produced for this shortcode: %1$s"
 msgstr "Snippet not produced for this shortcode: %1$s"
 
-#: shortcodes/oik-address.php:12 shortcodes/oik-address.php:46
+#: shortcodes/oik-address.php:12 shortcodes/oik-address.php:47
 msgid "Work"
 msgstr "Work"
 
-#: shortcodes/oik-address.php:46
+#: shortcodes/oik-address.php:47
 msgid "type"
 msgstr "type"
 
-#: shortcodes/oik-address.php:46
+#: shortcodes/oik-address.php:47
 msgid "Address type."
 msgstr "Address type."
 
-#: shortcodes/oik-address.php:47
+#: shortcodes/oik-address.php:48
 msgid "suffix for alternative address"
 msgstr "suffix for alternative address"
+
+#: shortcodes/oik-address.php:49
+msgid "HTML formatting tag"
+msgstr "HTML formatting tag"
+
+#: shortcodes/oik-address.php:55
+msgid "Display the address defined in oik options"
+msgstr "Display the address defined in oik options"
 
 #: shortcodes/oik-attachments.php:323
 msgid "Display attachment's Caption and Description"
