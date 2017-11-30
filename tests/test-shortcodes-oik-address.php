@@ -10,7 +10,8 @@ class Tests_shortcodes_oik_address extends BW_UnitTestCase {
 	function setUp() { 
 		parent::setUp();
 		oik_require( "shortcodes/oik-address.php" );
-		oik_require_lib( "oik-sc-help" ); 														
+		oik_require_lib( "oik-sc-help" );
+		$this->update_options();
 	}
 	
 	function test_bw_address__syntax() {
@@ -94,6 +95,19 @@ class Tests_shortcodes_oik_address extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	/**
+	 * Set the options to the values expected in the test output
+	 */
+	function update_options() {
+		$bw_options = get_option( "bw_options" );
+		$bw_options['extended-address'] = "";
+		$bw_options['street-address'] = "41 Redhill Road";
+		$bw_options['locality'] = "Rowland's Castle";
+		$bw_options['region'] = "HAMPSHIRE";
+		$bw_options['postal-code'] = "PO9 6DE";
+		$bw_options['country-name'] = "United Kingdom";
+		update_option( "bw_options", $bw_options );
+	}
 
 	
 }
