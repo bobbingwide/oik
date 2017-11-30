@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.2.1\n"
+"Project-Id-Version: oik 3.2.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-29 19:51:16+00:00\n"
+"POT-Creation-Date: 2017-11-30 19:34:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -347,7 +347,7 @@ msgid "Integrate with shortcake"
 msgstr ""
 
 #: admin/oik-admin.php:212 admin/oik-admin.php:261 admin/oik-admin.php:547
-#: admin/oik-admin.php:627
+#: admin/oik-admin.php:607
 msgid "Save changes"
 msgstr ""
 
@@ -646,7 +646,7 @@ msgstr ""
 msgid "'Howdy,' replacement string"
 msgstr ""
 
-#: admin/oik-admin.php:561 admin/oik-admin.php:637
+#: admin/oik-admin.php:561 admin/oik-admin.php:617
 msgid "Use the shortcodes in your pages, widgets and titles. e.g."
 msgstr ""
 
@@ -667,7 +667,7 @@ msgid "Display your email address."
 msgstr ""
 
 #: admin/oik-admin.php:566
-msgid "Display a Googlemap for your primary address."
+msgid "Display a Google Map for your primary address."
 msgstr ""
 
 #: admin/oik-admin.php:567
@@ -700,104 +700,104 @@ msgstr ""
 msgid "usage notes"
 msgstr ""
 
-#: admin/oik-admin.php:638
+#: admin/oik-admin.php:618
 msgid "Display your alternative contact name."
 msgstr ""
 
-#: admin/oik-admin.php:639
+#: admin/oik-admin.php:619
 msgid "Display your alternative email address, with a prefix of 'e-mail'."
 msgstr ""
 
-#: admin/oik-admin.php:640
+#: admin/oik-admin.php:620
 msgid "Display your alternative telephone number."
 msgstr ""
 
-#: admin/oik-admin.php:641
+#: admin/oik-admin.php:621
 msgid "Display your alternative address."
 msgstr ""
 
-#: admin/oik-admin.php:642
-msgid "Display a Googlemap for your alternative address."
+#: admin/oik-admin.php:622
+msgid "Display a Google Map for your alternative address."
 msgstr ""
 
-#: admin/oik-admin.php:643
+#: admin/oik-admin.php:623
 msgid "Display directions to the alternative address."
 msgstr ""
 
-#: admin/oik-admin.php:768
+#: admin/oik-admin.php:748
 msgid "Edit custom CSS"
 msgstr ""
 
-#: admin/oik-admin.php:787
+#: admin/oik-admin.php:767
 msgid "shortcode help"
 msgstr ""
 
-#: admin/oik-admin.php:788
+#: admin/oik-admin.php:768
 msgid "About shortcodes"
 msgstr ""
 
-#: admin/oik-admin.php:792
+#: admin/oik-admin.php:772
 msgid "%1$s - more information"
 msgstr ""
 
-#: admin/oik-admin.php:793
+#: admin/oik-admin.php:773
 msgid "%1$s - snippet"
 msgstr ""
 
-#: admin/oik-admin.php:796
+#: admin/oik-admin.php:776
 msgid "Shortcode summary"
 msgstr ""
 
-#: admin/oik-admin.php:805
+#: admin/oik-admin.php:785
 msgid ""
 "This page lists all the currently active shortcodes. To find out more "
 "information about a shortcode click on the shortcode name in the Help column."
 msgstr ""
 
-#: admin/oik-admin.php:806
+#: admin/oik-admin.php:786
 msgid ""
 "Depending on how the shortcode is implemented you will either be shown some "
 "more information with one or more examples, or an 'oik generated example.'"
 msgstr ""
 
-#: admin/oik-admin.php:807
+#: admin/oik-admin.php:787
 msgid ""
 "You will also be shown the HTML snippet for the example. There should be no "
 "need to do anything with this output."
 msgstr ""
 
-#: admin/oik-admin.php:808
+#: admin/oik-admin.php:788
 msgid ""
 "For further information on a shortcode or its parameters click on the links "
 "in the Syntax column."
 msgstr ""
 
-#: admin/oik-admin.php:1073
+#: admin/oik-admin.php:1053
 msgid ""
 "WordPress has previously determined that there is a new version available: %s"
 msgstr ""
 
-#: admin/oik-admin.php:1075 admin/oik-admin.php:1179
+#: admin/oik-admin.php:1055 admin/oik-admin.php:1159
 msgid "Current version: %s"
 msgstr ""
 
-#: admin/oik-admin.php:1077
+#: admin/oik-admin.php:1057
 msgid "However, this is a symlinked plugin, located at <br /> %s"
 msgstr ""
 
-#: admin/oik-admin.php:1080
+#: admin/oik-admin.php:1060
 msgid "So please don't attempt to apply updates."
 msgstr ""
 
-#: admin/oik-admin.php:1175
+#: admin/oik-admin.php:1155
 msgid "This plugin is a Git repository."
 msgstr ""
 
-#: admin/oik-admin.php:1177
+#: admin/oik-admin.php:1157
 msgid "New version?: %s"
 msgstr ""
 
-#: admin/oik-admin.php:1181
+#: admin/oik-admin.php:1161
 msgid "Please don't attempt to apply updates using WordPress."
 msgstr ""
 
@@ -2002,27 +2002,27 @@ msgstr ""
 msgid "Snippet not produced for this shortcode: %1$s"
 msgstr ""
 
-#: shortcodes/oik-address.php:12 shortcodes/oik-address.php:47
+#: shortcodes/oik-address.php:15 shortcodes/oik-address.php:50
 msgid "Work"
 msgstr ""
 
-#: shortcodes/oik-address.php:47
+#: shortcodes/oik-address.php:50
 msgid "type"
 msgstr ""
 
-#: shortcodes/oik-address.php:47
+#: shortcodes/oik-address.php:50
 msgid "Address type."
 msgstr ""
 
-#: shortcodes/oik-address.php:48
+#: shortcodes/oik-address.php:51
 msgid "suffix for alternative address"
 msgstr ""
 
-#: shortcodes/oik-address.php:49
+#: shortcodes/oik-address.php:52
 msgid "HTML formatting tag"
 msgstr ""
 
-#: shortcodes/oik-address.php:55
+#: shortcodes/oik-address.php:58
 msgid "Display the address defined in oik options"
 msgstr ""
 
@@ -2588,7 +2588,7 @@ msgid ""
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:255
-msgid "To display a Googlemap for your company location"
+msgid "To display a Google Map for your company location"
 msgstr ""
 
 #: shortcodes/oik-googlemap.php:256

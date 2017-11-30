@@ -563,7 +563,7 @@ function oik_usage_notes() {
   bw_invoke_shortcode( "bw_telephone", $alt0_suffix, __( "Display your telephone number.", "oik" ) );     
   bw_invoke_shortcode( "bw_address", $alt0_suffix, __( "Display your address.", "oik" ) );
   bw_invoke_shortcode( "bw_email", $alt0_suffix, __( "Display your email address.", "oik" ) );
-  bw_invoke_shortcode( "bw_show_googlemap", $alt0_suffix, __( "Display a Googlemap for your primary address.", "oik" ) );
+  bw_invoke_shortcode( "bw_show_googlemap", $alt0_suffix, __( "Display a Google Map for your primary address.", "oik" ) );
   bw_invoke_shortcode( "bw_directions", $alt0_suffix, __( "Display a button for obtaining directions to your address.", "oik" ) );
   bw_invoke_shortcode( "bw_follow_me", $alt0_suffix, __( "Show all your <b>Follow me</b> buttons.", "oik" ) );
   bw_invoke_shortcode( "bw_follow_me", "$alt0_suffix theme=gener", __( "Show your <b>Follow me</b> buttons using genericons.", "oik" ) );
@@ -603,26 +603,6 @@ function oik_extra_shortcode_options() {
   //oik_contact_info( $option, $options, $alt1_suffix );
   oik_address_info( $option, $options, $alt1_suffix );
 
-	
-	/*
-  BW_::bw_textfield_arr( $option, "Email [bw_email alt=1]", $options, 'email', 50 );
-	
-  BW_::bw_textfield_arr( $option, "Telephone [bw_telephone alt=1]", $options, 'telephone', 50 );
-  BW_::bw_textfield_arr( $option, "Mobile [bw_mobile alt=1]", $options, 'mobile', 50 );
-	
-
-  
-  BW_::bw_textfield_arr( $option, "Extended-address [bw_address alt=1]", $options, 'extended-address', 50 );
-  BW_::bw_textfield_arr( $option, "Street-address", $options, 'street-address', 50 );
-  BW_::bw_textfield_arr( $option, "Locality", $options, 'locality', 50 );
-  BW_::bw_textfield_arr( $option, "Region", $options, 'region', 50 );
-  BW_::bw_textfield_arr( $option, "Post Code", $options, 'postal-code', 50 );
-  BW_::bw_textfield_arr( $option, "Country name", $options, 'country-name', 50 );
-  
-  BW_::bw_textarea_arr( $option, "Google Maps introductory text for [bw_show_googlemap alt=1]", $options, 'gmap_intro', 50 );
-  BW_::bw_textfield_arr( $option, "Latitude [bw_geo alt=1] [bw_directions alt=1]", $options, 'lat', 50 );
-  BW_::bw_textfield_arr( $option, "Longitude [bw_show_googlemap alt=1]", $options, 'long', 50 );
- 	*/
   etag( "table" ); 
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
   etag( "form" );
@@ -639,7 +619,7 @@ function oik_extra_usage_notes() {
   bw_invoke_shortcode( "bw_email", "alt=1 prefix=e-mail", __( "Display your alternative email address, with a prefix of 'e-mail'.", "oik" ) );
   bw_invoke_shortcode( "bw_telephone", "alt=1", __( "Display your alternative telephone number.", "oik" ) );
   bw_invoke_shortcode( "bw_address", "alt=1", __( "Display your alternative address.", "oik" ) );
-  bw_invoke_shortcode( "bw_show_googlemap", "alt=1", __("Display a Googlemap for your alternative address.", "oik" ) );
+  bw_invoke_shortcode( "bw_show_googlemap", "alt=1", __("Display a Google Map for your alternative address.", "oik" ) );
   bw_invoke_shortcode( "bw_directions", "alt=1", __( "Display directions to the alternative address.", "oik" ) );
   bw_flush();
 }

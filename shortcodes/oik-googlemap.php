@@ -82,9 +82,9 @@ function bw_gmap_infowindow( $title, $postcode ) {
 } 
 
 /**
- * Display a GoogleMap using Google Maps JavaScript API V3
+ * Display a Google Map using Google Maps JavaScript API V3
  * 
- * Display a GoogleMap 
+ * Display a Google Map 
  * - centred around the lat and long specified in oik options
  * - zoomed to level 12 - which is good for local viewing
  * - with a red marker centred at the lat,long 
@@ -252,7 +252,7 @@ function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
  * - probably something to do with the javascript not being processed by the .js
 */ 
 function bw_show_googlemap__example( $shortcode = "bw_show_googlemap" ) {
-  bw_invoke_shortcode( $shortcode, null, __( "To display a Googlemap for your company location", "oik" ) );    
+  bw_invoke_shortcode( $shortcode, null, __( "To display a Google Map for your company location", "oik" ) );    
   BW_::p( __( "Some of the default values are extracted from oik information:", "oik" ) );
   sul();
   BW_::lit( __( "company - for the Company name", "oik" ) );
