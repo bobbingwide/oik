@@ -915,6 +915,55 @@ $expected[] = '</form>';
 	}
 	
 	/**
+	 * Tests oik_options_do_page for bb_BB
+	 * 
+	 * tests: oik_main_shortcode_options and oik_usage_notes
+	 * plus:  
+   * - oik_contact_numbers
+	 * - oik_company_info
+	 * - oik_contact_info
+	 * - oik_address_info
+	 * - oik_follow_me
+	 * 
+	 * @TODO Change tests to use http://qw/src
+	 */
+	function test_oik_options_do_page_bb_BB() {
+	
+		$this->switch_to_locale( "bb_BB" );
+	
+		$this->update_options();
+		
+		oik_require( "shortcodes/oik-googlemap.php" );
+		$id = bw_gmap_map( null );
+		$id = bw_gmap_map();
+		$id = bw_gmap_map();
+		$this->assertEquals( 2, $id );
+	
+		ob_start(); 
+		oik_options_do_page();
+		$html = ob_get_contents();
+		ob_end_clean();
+		$this->assertNotNull( $html );
+		$html = $this->replace_admin_url( $html );
+		$html = str_replace( get_stylesheet_directory_uri(), "http://qw/wordpress/wp-content/themes/genesis-a2z", $html );
+		$upload_dir = wp_upload_dir();
+		$baseurl = $upload_dir['baseurl'];
+		$html = str_replace( $baseurl, "https://qw/wordpress/wp-content/uploads", $html );
+		$html = $this->replace_site_url( $html );
+		$html_array = $this->tag_break( $html );
+		
+		$this->assertNotNull( $html_array );
+		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
+		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+		
+		$this->switch_to_locale( "en_GB" );
+	}
+	
+	/**
 	 * Tests oik_options_do_page_1 for bb_BB locale
 	 *
 	 * Tests: 
@@ -925,6 +974,14 @@ $expected[] = '</form>';
 		do_action( "oik_add_shortcodes" );
 	
 		$this->update_options1();
+		
+		oik_require( "shortcodes/oik-googlemap.php" );
+		$id = bw_gmap_map( null );
+		$id = bw_gmap_map();
+		$id = bw_gmap_map();
+		$id = bw_gmap_map();
+		$id = bw_gmap_map();
+		$this->assertEquals( 4, $id );
 	
 		$this->switch_to_locale( "bb_BB" );
 		ob_start(); 
