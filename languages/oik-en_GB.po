@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-30 21:21:52+00:00\n"
+"POT-Creation-Date: 2017-11-30 21:52:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -706,8 +706,8 @@ msgid "Display your alternative contact name."
 msgstr "Display your alternative contact name."
 
 #: admin/oik-admin.php:619
-msgid "Display your alternative email address, with a prefix of 'e-mail'."
-msgstr "Display your alternative email address, with a prefix of 'e-mail'."
+msgid "Display your alternative email address, with a prefix of '%1$s'."
+msgstr "Display your alternative email address, with a prefix of '%1$s'."
 
 #: admin/oik-admin.php:620
 msgid "Display your alternative telephone number."

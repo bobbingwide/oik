@@ -616,7 +616,7 @@ function oik_extra_usage_notes() {
   oik_require( "includes/oik-sc-help.php" );
   BW_::p( __( "Use the shortcodes in your pages, widgets and titles. e.g.", "oik" ) );
   bw_invoke_shortcode( "bw_contact", "alt=1",__( "Display your alternative contact name.", "oik" ) );
-  bw_invoke_shortcode( "bw_email", "alt=1 prefix=e-mail", __( "Display your alternative email address, with a prefix of 'e-mail'.", "oik" ) );
+  bw_invoke_shortcode( "bw_email", "alt=1 prefix=e-mail", sprintf( __( 'Display your alternative email address, with a prefix of \'%1$s\'.', "oik" ), "e-mail" ) );
   bw_invoke_shortcode( "bw_telephone", "alt=1", __( "Display your alternative telephone number.", "oik" ) );
   bw_invoke_shortcode( "bw_address", "alt=1", __( "Display your alternative address.", "oik" ) );
   bw_invoke_shortcode( "bw_show_googlemap", "alt=1", __("Display a Google Map for your alternative address.", "oik" ) );
