@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-30 19:34:59+00:00\n"
+"POT-Creation-Date: 2017-11-30 21:21:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -493,12 +493,12 @@ msgid "Contact button tooltip"
 msgstr "Contact button tooltip"
 
 #: admin/oik-admin.php:427
-msgid "Extended-address"
-msgstr "Extended-address"
+msgid "Extended address"
+msgstr "Extended address"
 
 #: admin/oik-admin.php:428
-msgid "Street-address"
-msgstr "Street-address"
+msgid "Street address"
+msgstr "Street address"
 
 #: admin/oik-admin.php:429
 msgid "Locality"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.2.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-30 19:34:59+00:00\n"
+"POT-Creation-Date: 2017-11-30 21:21:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -617,13 +617,13 @@ msgstr "Cnoatct btuotn tootlip"
 
 
 #: admin/oik-admin.php:427
-msgid "Extended-address"
-msgstr "Etxneedd-adderss"
+msgid "Extended address"
+msgstr "Etxneedd adderss"
 
 
 #: admin/oik-admin.php:428
-msgid "Street-address"
-msgstr "Srteet-adderss"
+msgid "Street address"
+msgstr "Srteet adderss"
 
 
 #: admin/oik-admin.php:429

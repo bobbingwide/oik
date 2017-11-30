@@ -424,8 +424,8 @@ function oik_contact_info( $option, $options, $alt0_suffix ) {
  *  country-name     e.g.  UK 
  */
 function oik_address_info( $option, $options, $alt0_suffix ) {    
-  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Extended-address", "oik" ), " [bw_address$alt0_suffix]" ), $options, 'extended-address', 50 );
-  BW_::bw_textfield_arr( $option, __( "Street-address", "oik" ), $options, 'street-address', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Extended address", "oik" ), " [bw_address$alt0_suffix]" ), $options, 'extended-address', 50 );
+  BW_::bw_textfield_arr( $option, __( "Street address", "oik" ), $options, 'street-address', 50 );
   BW_::bw_textfield_arr( $option, __( "Locality", "oik" ), $options, 'locality', 50 );
   BW_::bw_textfield_arr( $option, __( "Region", "oik" ), $options, 'region', 50 );
   BW_::bw_textfield_arr( $option, __( "Post Code", "oik" ), $options, 'postal-code', 50 );
