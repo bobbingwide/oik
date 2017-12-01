@@ -47,6 +47,67 @@ class Tests_wpautop extends BW_UnitTestCase {
 		$this->assertEquals( $unexpected, $actual );
 	}
 	
+	/** 
+	 * Test for TRAC 2691 - wpautop adds an extra p and end p around HTML comments
+	 * 
+	 * We do expect there to be p and end p tags around uncommented content but not before the comment.
+	 */
+	function test_wpautop_adding_unwanted_pendp() {
+		$input      = "<!-- HTML Comment -->\n";
+		$unexpected = "<p><!-- HTML Comment --></p>\n";
+		$actual = wpautop( $input );
+		$this->assertEquals( $unexpected, $actual );
+		
+		$input      = "<!-- HTML Comment -->Content\n";
+		$unexpected = "<p><!-- HTML Comment -->Content</p>\n";
+		$actual = wpautop( $input );
+		$this->assertEquals( $unexpected, $actual );
+		
+	}
+	
+	 /**
+	  * Test wpautop when just processing content and new lines
+		* 
+		* Whatever it does here the same should happen when HTML comments are dotted willy nilly between the tokens.
+		* 
+		* Note: This test suggests the current code is correctly ignoring the HTML comments when there's just content and new lines.
+		*/
+	function test_wpautop_just_content_and_newlines() {
+		$input_tokens =    array( null,  "Content", null,     "\n" , "More content" , "\n\n" ,     "After 2 new lines",  null,    null );
+		$expected_tokens = array( "<p>", "Content", "<br />", "\n" , "More content" , "</p>\n<p>", "After 2 new lines" , "</p>",  "\n" );
+		
+		$input = implode( '',$input_tokens );
+		$expected = implode( '', $expected_tokens );
+		$actual = wpautop( $input );
+		$this->assertEquals( $expected, $actual );
+		
+		for ( $index=0; $index < count( $input_tokens ); $index++ ) {
+			if ( $input_tokens[ $index ] !== null ) {
+				$input_tokens[ $index] .= "<!-- HTML Comment $index -->";
+				$expected_tokens[ $index ] .= "<!-- HTML Comment $index -->";
+			}
+			$input = implode( '', $input_tokens );
+			$expected = implode( '', $expected_tokens );
+			$actual = wpautop( $input );
+			$input = str_replace( "\n", "?", $input );
+			$actual = str_replace( "\n", "?", $actual );
+			$expected = str_replace( "\n", "?", $actual );
+			/*
+			echo $index . PHP_EOL;
+			echo $input . PHP_EOL;
+			echo $expected . PHP_EOL;
+			echo $actual . PHP_EOL;
+			*/
+			$this->assertEquals( $expected, $actual );
+			
+		}
+	}
+		
+		
+	
+	
+	
+	
 	/**
 	 * WordPress core can take what appears to be correct HTML and change it unexpectedly.
 	 * 
