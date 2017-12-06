@@ -4,7 +4,7 @@ Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 4.8 
 Tested up to: 4.9.1
-Stable tag: 3.2.2
+Stable tag: 3.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.2.3 = 
+Upgrade if you're using PHP 7.2
+
 = 3.2.2 = 
 Upgrade for improvements related to the bw_address shortcode. Translation ready. Tested with WordPress 4.9.1 and WordPress Multisite. 
 
@@ -423,6 +426,12 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.2.3 =
+* Changed: update oik_remote::are_you_local to support testing in WPMS [github bobbingwide oik-libs issues 9]
+* Fixed: Cater for old/renamed versions of plugins [github bobbingwide oik issues 80]
+* Tested: With PHP 7.0, 7.1 and 7.2 [github bobbingwide oik issues 91]
+* Tested: With WordPress 4.9.1 and WordPress Multisite
+
 = 3.2.2 = 
 * Changed: Added tag= parameter to [bw_address] shortcode [github bobbingwide oik issues 89]
 * Changed: String changes for improved internationalization [github bobbingwide oik issues 9]
