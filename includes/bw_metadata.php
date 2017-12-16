@@ -514,7 +514,7 @@ function bw_effort_save_postdata( $post_id, $post, $update ) {
  */
 function bw_update_post_meta( $post_id, $field, $mydata ) {
   delete_post_meta( $post_id, $field );
-  if ( count( $mydata ) ) { 
+  if ( is_array( $mydata) && count( $mydata ) ) {
     foreach ( $mydata as $key => $value ) {
       add_post_meta( $post_id, $field, $value, false ); 
     }
