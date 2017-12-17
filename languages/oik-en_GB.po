@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.2.2\n"
+"Project-Id-Version: oik 3.2.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-11-30 21:52:24+00:00\n"
+"POT-Creation-Date: 2017-12-16 19:19:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -128,7 +128,7 @@ msgid "Update"
 msgstr "Update"
 
 #: admin/oik-activation.php:203 libs/oik-activation.php:191
-#: libs/oik-depends.php:143
+#: libs/oik-depends.php:150
 msgid "%1$s may not be fully functional."
 msgstr "%1$s may not be fully functional."
 
@@ -1457,30 +1457,30 @@ msgstr "oik updates"
 msgid "Updates"
 msgstr "Updates"
 
-#: libs/oik-activation.php:23 libs/oik-depends.php:277
+#: libs/oik-activation.php:23 libs/oik-depends.php:284
 msgid "Install %1$s"
 msgstr "Install %1$s"
 
-#: libs/oik-activation.php:55 libs/oik-depends.php:305
+#: libs/oik-activation.php:55 libs/oik-depends.php:312
 msgid "Activate %1$s"
 msgstr "Activate %1$s"
 
-#: libs/oik-activation.php:73 libs/oik-depends.php:323 libs/oik_themes.php:395
+#: libs/oik-activation.php:73 libs/oik-depends.php:330 libs/oik_themes.php:395
 msgid "Upgrade %1$s"
 msgstr "Upgrade %1$s"
 
-#: libs/oik-activation.php:189 libs/oik-depends.php:93
-#: libs/oik-depends.php:140
+#: libs/oik-activation.php:189 libs/oik-depends.php:100
+#: libs/oik-depends.php:147
 msgid " version "
 msgstr " version "
 
-#: libs/oik-activation.php:193 libs/oik-depends.php:99
-#: libs/oik-depends.php:145
+#: libs/oik-activation.php:193 libs/oik-depends.php:106
+#: libs/oik-depends.php:152
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr "Please install and activate the required minimum version of this plugin: %1$s"
 
-#: libs/oik-depends.php:96
+#: libs/oik-depends.php:103
 msgid "Plugin %1$s may not be fully functional."
 msgstr "Plugin %1$s may not be fully functional."
 
