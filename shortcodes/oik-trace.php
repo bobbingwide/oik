@@ -62,7 +62,7 @@ function bw_trace_button( $atts=NULL ) {
 
     switch ( $option ) {
       case 'view':
-        oik_require2( 'admin/oik-bwtrace.inc', "oik-bwtrace" );
+        oik_require2( 'admin/oik-bwtrace.php', "oik-bwtrace" );
         $bw_trace_url = bw_trace_url();
         BW_::alink( NULL, $bw_trace_url, __( "View trace log", "oik" ), sprintf( __( 'View trace output in your browser. %1$s', "oik" ), $bw_trace_url ) );
         break;
