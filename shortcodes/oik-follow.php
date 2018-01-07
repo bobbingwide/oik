@@ -14,10 +14,15 @@
 function bw_follow( $atts=null ) {
   $social_network = bw_array_get( $atts, 'network', 'Facebook' );
   $lc_social = strtolower( $social_network );
-  $social = bw_array_get( $atts, 'url', null );
-  if ( !$social ) {
-    $social = bw_get_option_arr( $lc_social, null, $atts );
-  }
+	$me = bw_array_get( $atts, "me", null );
+	if ( !$me ) {
+		$social = bw_array_get( $atts, 'url', null );
+  	if ( !$social ) {
+			$social = bw_get_option_arr( $lc_social, null, $atts );
+		}
+  }	else {
+		$social = $me;
+	}
   if ( $social ) {
     bw_follow_link( $social, $lc_social, $social_network, $atts );  
   }
@@ -64,9 +69,15 @@ function bw_social_url( $lc_social, $social ) {
 }  
 
 /**
- * Implement [bw_twitter] shortcode 
+ * Implement [bw_twitter] shortcode
+ *
+ * Supports me= as a positional parameter overriding the stored values 
  */
 function bw_twitter( $atts=null ) {
+	$atts['me'] = bw_array_get_from( $atts, "me,0", null );
+	if ( $atts['me'] ) {
+		$atts['theme'] = bw_array_get( $atts, 'theme', 'dash' );
+	}
   $atts['network'] = "Twitter" ;
   return( bw_follow( $atts ) );  
 }
@@ -238,9 +249,29 @@ function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class 
     $dash .= retetag( "span" );
   }
   $dash .= retetag( "span" );
+	$dash .= bw_follow_hash_at( $me );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
   BW_::alink( null, $social, $dash, $follow_me_tooltip );  
 }
+
+/**
+ * Append the @name or #hashtag 
+ *
+ */
+function bw_follow_hash_at( $me ) {
+	$extra = null;
+	$char = $me[0];
+	switch ( $char ) {
+		case '@':
+		case '#':
+			$extra = $me;
+			break;
+			
+		default:
+	}
+	return $extra;
+}
+	
 
 /**
  * Create a follow me link using genericons
@@ -283,6 +314,7 @@ function bw_follow_link_gener( $social, $lc_social, $social_network, $me, $class
   wp_enqueue_style( 'genericons' );
   $dash = retstag( "span", "genericon genericon-$lc_social bw_follow_me $class" );
   $dash .= retetag( "span" );
+	$dash .= bw_follow_hash_at( $me );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
   BW_::alink( null, $social, $dash, $follow_me_tooltip );  
 } 
@@ -318,6 +350,7 @@ function bw_follow_link_( $social, $lc_social, $social_network, $me, $class ) {
   $imagefile = oik_url( 'images/'. $lc_social . '_' . $suffix . '.png' );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
   $image = retimage( "bw_follow ", $imagefile, $follow_me_tooltip );
+	//$image .= bw_follow_hash_at( $me );
   BW_::alink( $class , $social, $image, $follow_me_tooltip );
 }
 
