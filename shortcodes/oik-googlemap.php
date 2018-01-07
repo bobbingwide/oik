@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2018 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -201,13 +201,29 @@ function bw_forp( $value, $append='px' ) {
  * @param string $tag - the shortcode 
  */
 function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
-	$company = bw_get_option_arr( "company", "bw_options", $atts );
+  $markers = bw_array_get( $atts, "markers", null );
+	$ids = bw_array_get( $atts, "id", null );
+	if ( $ids ) {
+		$ids = bw_as_array( $ids );
+		$id = array_shift( $ids );
+		
+		$lat = get_post_meta( $id, "_lat", true );
+		$long = get_post_meta( $id, "_long", true );
+		$postcode = get_post_meta( $id, "_post_code", true );
+		
+		$post = get_post( $id );
+		$company = $post->post_title;
+		$markers .= bw_gmap_id_markers( $ids );
+		
+	
+	} else {
+		$lat = bw_get_option_arr( "lat", "bw_options", $atts );
+		$long = bw_get_option_arr( "long", "bw_options", $atts );
+		$company = bw_get_option_arr( "company", "bw_options", $atts );
+		$postcode = bw_array_get( $atts, "postcode", null );
+	}
   $width = bw_array_get( $atts, "width", null );
   $height = bw_array_get( $atts, "height", null );
-  $lat = bw_get_option_arr( "lat", "bw_options", $atts );
-  $long = bw_get_option_arr( "long", "bw_options", $atts );
-	$postcode = bw_array_get( $atts, "postcode", null );
-  $markers = bw_array_get( $atts, "markers", null );
   $zoom = bw_array_get( $atts, "zoom", 12 ); 
   $alt = bw_array_get( $atts, "alt", null );
   $alt = str_replace( "0", "", $alt );
@@ -232,6 +248,7 @@ function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
     $postcode = bw_get_option_arr( "postal-code", "bw_options", $atts );
   }
   $postcode = str_replace( " ", "&nbsp;", $postcode );
+	
  
   bw_googlemap_v3( $company      
             , $lat
@@ -599,4 +616,44 @@ function bw_gmap_map( $inc=true ) {
 		$map = 0;
 	}
 	return $map;
+}
+
+/**
+ * Obtains latlng markers for the selected ids
+ *
+ * Note: There aren't any messages for missing posts. We assume the posts are public. 
+ * 
+ * @param array $ids array of post IDs 
+ * @return string comma separated lat:lng pairs
+ */
+function bw_gmap_id_markers( $ids ) {
+	$markers = null;
+	$latlngs = array();
+	$ids = bw_as_array( $ids );
+	foreach ( $ids as $id ) {
+		$latlng = bw_gmap_get_latlng( $id );
+		if ( $latlng ) {
+			$latlngs[] = $latlng;
+		}
+	}
+	$markers = implode( ",", $latlngs );
+  return $markers;
+}
+
+/**
+ * Obtains the latlng for the post
+ * 
+ * @param integer $id - the post ID
+ * @return string|null - the lat:lng if both values are set
+ */
+function bw_gmap_get_latlng( $id ) {
+	$lat = get_post_meta( $id, "_lat", true );
+	$long = get_post_meta( $id, "_long", true );
+	if ( $lat && $long ) {
+		$latlng = $lat . ':' . $long;
+	} else {
+		$latlng = null;
+	}
+	return $latlng;
+	
 }
