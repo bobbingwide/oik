@@ -120,6 +120,50 @@ class Tests_shortcodes_oik_email extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
+	/**
+	 * $prefix Expression        Result
+	 * ------- ----------        ------
+	 * null    !$prefix          true
+	 * null    $prefix === null  true    
+	 * ""      !$prefix          true
+	 * ""      $prefix === null  false
+	 *
+	 * Testing if ( !$prefix ) is not the same as if ( null === $prefix ).
+	 * We want to detect the fact that $prefix is a null string.
+	 *  
+	 */
+	function test_prefix_null() {
+		$atts = array( "prefix" => "" );
+		$prefix = bw_array_get( $atts, "prefix", null );
+		$this->assertEquals( "", $prefix );
+		//echo "?" . $prefix . "?";
+		if ( !$prefix ) {
+			$prefix = __( "Email", "oik" );
+		}	else {
+			gob();
+		}
+	
+	}
+	
+	/**
+	 * No need for a bb_BB version of this test
+	 */
+	function test_bw_email_prefix_null() {
+		$this->switch_to_locale( "en_GB" );
+		$atts = array( "email" => "herb@bobbingwide.com", "prefix" => "", "sep" => "" ); 
+		$html = bw_email( $atts);
+		$html_array = $this->tag_break( $html ); 
+		$this->assertNotNull( $html_array );
+		$html_array = $this->replace_antispambot( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

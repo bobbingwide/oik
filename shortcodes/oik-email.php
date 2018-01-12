@@ -71,7 +71,7 @@ function _bw_atdot( $email, $atts ) {
  */   
 function _bw_email( $atts=null ) {
   $prefix = bw_array_get( $atts, "prefix", null );
-	if ( !$prefix ) {
+	if ( null === $prefix ) {
 		$prefix = __( "Email", "oik" );
 	}
   $sep = bw_array_get( $atts, "sep", ": " );
