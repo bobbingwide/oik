@@ -77,5 +77,45 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 		$this->switch_to_locale( 'en_GB' );
 	}
 	
+	/**
+	 * We want to test what happens when me="" and other variations
+	 *
+	 */
+	function test_bw_get_me() {
+		$me = bw_get_me( array( "me" => "" ) );
+		$this->assertEquals( "", $me );
+		
+		$me = bw_get_me( array( "contact" => "", "display_name" => "" ) );
+		$this->assertEquals( "", $me );
+		
+		bw_update_option( "contact", null );
+		
+		$me = bw_get_me( array( "display_name" => "" ) );
+		$this->assertEquals( "", $me );
+		
+		update_option( "display_name", null );
+		
+		$me = bw_get_me( array() );
+		$this->assertEquals( "me", $me );
+	
+	}
+
+/*	
+	
+function bw_get_me( $atts=null ) {
+  $me = bw_array_get( $atts, "me", null );
+  if ( !$me ) {
+    $me = bw_get_option_arr( "contact", "bw_options", $atts );
+    if ( !$me ) {
+      $me = bw_get_option_arr( "display_name", null, $atts );
+      if ( !$me ) {
+        $me = __( "me", "oik" );
+      }
+    }
+  }
+  return( $me ); 
+}
+*/
+	
 
 }
