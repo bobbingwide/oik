@@ -259,16 +259,19 @@ function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class 
  *
  */
 function bw_follow_hash_at( $me ) {
+
 	$extra = null;
-	$char = $me[0];
-	switch ( $char ) {
-		case '@':
-		case '#':
-			$extra = $me;
-			break;
+	if ( $me ) {
+		$char = $me[0];
+		switch ( $char ) {
+			case '@':
+			case '#':
+				$extra = $me;
+				break;
 			
-		default:
-	}
+			default:
+		}
+	}	
 	return $extra;
 }
 	
