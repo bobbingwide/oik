@@ -38,7 +38,7 @@ function bw_effort_meta_boxes( $post_type, $post ) {
     if ( $fields ) {
       add_meta_box( 'bw_effort', __( "Fields", "oik"), 'bw_effort_box', $post_type, 'normal' , 'high' , $fields );
     }
-  }  
+  }
 }
 
 /**
@@ -197,7 +197,7 @@ function bw_form_field_noderef( $name, $type, $title, $value, $args ) {
   $options = bw_load_noderef2( $args );
   $args['#options'] =  $options;
   $value = bw_get_noderef_id( $value );
-  bw_select( $name, $title, $value, $args );
+  BW_::bw_select( $name, $title, $value, $args );
 }
    
 /**
@@ -430,6 +430,7 @@ function bw_effort_box( $post, $args ) {
   global $bw_fields; 
   $fields = $args['args'];
   //bw_trace2( $fields );
+	//sdiv( "panel-wrap" );
   stag( 'table', "form-table" );
   foreach ( $fields as $field ) {
     $data = $bw_fields[$field];
@@ -442,6 +443,7 @@ function bw_effort_box( $post, $args ) {
     }  
   }
   etag( "table" );
+	//ediv();
   echo( bw_ret());
 }
 
