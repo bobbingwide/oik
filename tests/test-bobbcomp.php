@@ -52,28 +52,31 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * @TODO Cater for 2018
+	 * 
 	 */
 	function test_bw_copyright() {
 		$this->switch_to_locale( 'en_GB' );
 		bw_update_option( "company", "Bobbing Wide" );
 		bw_update_option( "yearfrom", "2010" );
 		$html = bw_copyright();
+		$yearto = bw_format_date( null, '-Y' );
+		$html = str_replace( $yearto, "-CCYY", $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
 	
 	/**
-	 * @TODO Cater for 2018
+	 * 
 	 */
 	function test_bw_copyright_bb_BB() {
 		$this->switch_to_locale( 'bb_BB' );
 		bw_update_option( "company", "Bobbing Wide" );
 		bw_update_option( "yearfrom", "2010" );
 		$html = bw_copyright();
+		$yearto = bw_format_date( null, '-Y' );
+		$html = str_replace( $yearto, "-CCYY", $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
-		
 		$this->switch_to_locale( 'en_GB' );
 	}
 	
@@ -84,38 +87,36 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	function test_bw_get_me() {
 		$me = bw_get_me( array( "me" => "" ) );
 		$this->assertEquals( "", $me );
-		
 		$me = bw_get_me( array( "contact" => "", "display_name" => "" ) );
 		$this->assertEquals( "", $me );
-		
 		bw_update_option( "contact", null );
-		
 		$me = bw_get_me( array( "display_name" => "" ) );
 		$this->assertEquals( "", $me );
-		
-		update_option( "display_name", null );
-		
 		$me = bw_get_me( array() );
 		$this->assertEquals( "me", $me );
 	
 	}
-
-/*	
 	
-function bw_get_me( $atts=null ) {
-  $me = bw_array_get( $atts, "me", null );
-  if ( !$me ) {
-    $me = bw_get_option_arr( "contact", "bw_options", $atts );
-    if ( !$me ) {
-      $me = bw_get_option_arr( "display_name", null, $atts );
-      if ( !$me ) {
-        $me = __( "me", "oik" );
-      }
-    }
-  }
-  return( $me ); 
-}
-*/
+	/**
+	 * Test bw_copyright nullable parameters
+	 *
+	 * prefix
+	 * company
+	 * suffix 
+	 * 
+	 * yearfrom
+	 */
+	function test_bw_copyright_parms() {
+		$this->switch_to_locale( 'en_GB' );
+		bw_update_option( "company", "Bobbing Wide" );
+		$yearfrom = bw_format_date( null, 'Y' );
+		bw_update_option( "yearfrom", $yearfrom );
+		$atts = array( "prefix" => " ", "company" => " ", "suffix" => " " );
+		$html = bw_copyright( $atts );
+		$html = str_replace( $yearfrom, "CCYY", $html );
+		$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
 	
 
 }

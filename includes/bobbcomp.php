@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2017
+<?php // (C) Copyright Bobbing Wide 2010-2018
 /**
  * Company information
  *
@@ -222,7 +222,7 @@ function bw_get_current_user_id() {
  */
 function bw_get_option_arr( $field, $set="bw_options", $atts=null ) {
 	$option = bw_array_get( $atts, $field, null ); 
-	if ( !$option ) {
+	if ( null === $option  ) {
 		$alt = bw_array_get( $atts, "alt", null );
 		if ( is_callable( "oiku_loaded" ) ) {
 			if ( $alt === null ) {
@@ -255,11 +255,11 @@ function bw_get_option_arr( $field, $set="bw_options", $atts=null ) {
  */
 function bw_get_me( $atts=null ) {
   $me = bw_array_get( $atts, "me", null );
-  if ( !$me ) {
+  if ( null === $me ) {
     $me = bw_get_option_arr( "contact", "bw_options", $atts );
-    if ( !$me ) {
+    if ( null === $me || "" === $me ) {
       $me = bw_get_option_arr( "display_name", null, $atts );
-      if ( !$me ) {
+      if ( null === $me ) {
         $me = __( "me", "oik" );
       }
     }
@@ -621,16 +621,16 @@ function bw_user_list() {
  */ 
 function bw_copyright( $atts = NULL ) {
 	$copyright = bw_array_get( $atts, "prefix", null );
-	if ( null == $copyright ) {
+	if ( null === $copyright ) {
 		$copyright = __( "&copy; Copyright", "oik" );
 	}
 	$company = bw_array_get( $atts, "company", null );
-	if ( null == $company ) { 
+	if ( null === $company ) { 
 		$company = bw_get_option( "company", "bw_options" );
 	}
 	$expanded_company = bw_do_shortcode( $company );
 	$suffix = bw_array_get( $atts, "suffix", null );
-	if ( null == $suffix ) {
+	if ( null === $suffix ) {
 		$suffix = __( "All rights reserved.", "oik" );
 	}
 	$yearto = bw_format_date( null, 'Y');
