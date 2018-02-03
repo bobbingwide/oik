@@ -374,6 +374,8 @@ function bw_register_custom_tags( $taxonomy, $object_type=null, $arg=null ) {
   //bw_trace2();
   $args = bw_default_taxonomy_args( $taxonomy, $arg );
   $args['hierarchical'] = false;
+	
+	$args['show_in_rest'] = true;
   bw_register_taxonomy( $taxonomy, $object_type, $args) ; 
 }
 
@@ -387,6 +389,7 @@ function bw_register_custom_tags( $taxonomy, $object_type=null, $arg=null ) {
 function bw_register_custom_category( $taxonomy, $object_type=null, $arg=null ) {
   $args = bw_default_taxonomy_args( $taxonomy, $arg );
   $args['hierarchical'] = true;
+	$args['show_in_rest'] = true;
   bw_register_taxonomy( $taxonomy, $object_type, $args ); 
 }
 
