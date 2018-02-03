@@ -492,6 +492,9 @@ $expected[] = '</form>';
 	
 		$this->update_options();
 		
+		$me = bw_get_me();
+		$this->assertEquals( "me", $me );
+		
 		oik_require( "shortcodes/oik-googlemap.php" );
 		$id = bw_gmap_map( null );
 		$id = bw_gmap_map();
