@@ -34,6 +34,29 @@ class Tests_shortcodes_oik_paypal extends BW_UnitTestCase {
 	}
 	
 	
+	/**
+	 * Test the default processing
+	 */ 
+	function test_bw_pp_shortcodes() {  
+		$atts= null;
+		$html = bw_pp_shortcodes( $atts );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	
+	/**
+	 * Test the default shortcode produced by the PayPal button
+	 * Issue #101 - [paypal type="pay" shipadd="0"]
+	 */ 
+	function test_bw_pp_shortcodes_issue_101() {  
+		$atts= array( "type" => "pay" );
+		$html = bw_pp_shortcodes( $atts );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	
 	
 }
 	
