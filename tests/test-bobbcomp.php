@@ -98,7 +98,7 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * Test bw_copyright nullable parameters
+	 * Test bw_copyright nullable parameters with blanks
 	 *
 	 * prefix
 	 * company
@@ -114,7 +114,28 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 		$atts = array( "prefix" => " ", "company" => " ", "suffix" => " " );
 		$html = bw_copyright( $atts );
 		$html = str_replace( $yearfrom, "CCYY", $html );
-		$this->generate_expected_file( $html );
+		//$this->generate_expected_file( $html );
+		$this->assertArrayEqualsFile( $html );
+	}
+	
+	/**
+	 * Test bw_copyright nullable parameters with null strings
+	 *
+	 * prefix
+	 * company
+	 * suffix 
+	 * 
+	 * yearfrom
+	 */
+	function test_bw_copyright_parms_with_null_strings() {
+		$this->switch_to_locale( 'en_GB' );
+		bw_update_option( "company", "Bobbing Wide" );
+		$yearfrom = bw_format_date( null, 'Y' );
+		bw_update_option( "yearfrom", $yearfrom );
+		$atts = array( "prefix" => "", "company" => "", "suffix" => "" );
+		$html = bw_copyright( $atts );
+		$html = str_replace( $yearfrom, "CCYY", $html );
+		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
 	
