@@ -130,7 +130,8 @@ function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
                   case "pay": 
                          
                          $code .= ihidden( "cmd", "_xclick" );
-                         $code .= ihidden( "amount", $atts['amount'] );
+												 
+                        $code .= ihidden( "amount", bw_array_get( $atts, 'amount', "0.00" ) );
                          $code .= ihidden( "button_subtype", "services" );
                          $code .= ihidden( "no_note", "0" );
                          $code .= ihidden( "bn", "PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" );

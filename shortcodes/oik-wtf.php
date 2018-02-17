@@ -54,7 +54,9 @@ function bw_wtf( $atts=null, $content=null, $tag=null ) {
   sdiv( "bw_wtf" );
   BW_::p( $text );
   stag( 'p', "bw_wtf", null, 'lang="HTML" escaped="true" style="display:none;"' );
-  $escaped_content = str_replace(array( "[", "]" ), array( "&#091;", "&#093" ), $escaped_content ); 
+  $escaped_content = str_replace(array( "[", "]" ), array( "&#091;", "&#093;" ), $escaped_content ); 
+	//$escaped_content = str_replace( "&#8211;", "&#045;&#045;", $escaped_content );
+	$escaped_content = str_replace( "-", "&#045;", $escaped_content );
   $escaped_content = str_replace( "\n", "", $escaped_content );
   $escaped_content = str_replace( "\r", "", $escaped_content );
   e( $escaped_content );
