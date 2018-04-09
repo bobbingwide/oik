@@ -222,19 +222,17 @@ function bw_datepicker_enqueue_script( ) {
  *
  */
 if ( !function_exists( "bw_form_field_date" ) ) { 
-function bw_form_field_date( $name, $type, $title, $value, $args ) {
-  $args['#length'] = bw_array_get( $args, '#length', 10 );
-  wp_enqueue_style( "jquery-ui-datepicker-css", plugin_dir_url( __FILE__). "css/jquery.ui.datepicker.css" ); 
-  //wp_enqueue_style( "jquery-ui-theme-css", plugin_dir_url( __FILE__). "css/jquery.ui.theme.css" );
-  wp_enqueue_style( "jquery-ui-theme-css", oik_url( "css/jquery-ui-1.9.2.custom.css" ) );
-   
-  bw_datepicker_enqueue_script();
-  bw_jquery( "#${name}", "datepicker", bw_jkv( "dateFormat : 'yy-mm-dd', changeMonth: true, changeYear: true" ) );
-  if ( $value ) {
-    $value = bw_format_date( $value );
-  }
-  bw_form_field_( $name, $type, $title, $value, $args ); 
-}
+	function bw_form_field_date( $name, $type, $title, $value, $args ) {
+		$args['#length'] = bw_array_get( $args, '#length', 10 );
+		wp_enqueue_style( "jquery-ui-datepicker-css", oik_url( "css/jquery.ui.datepicker.css" ) );
+		wp_enqueue_style( "jquery-ui-theme-css", oik_url( "css/jquery-ui-1.9.2.custom.css" ) );
+		bw_datepicker_enqueue_script();
+		bw_jquery( "#${name}", "datepicker", bw_jkv( "dateFormat : 'yy-mm-dd', changeMonth: true, changeYear: true" ) );
+		if ( $value ) {
+			$value = bw_format_date( $value );
+		}
+		bw_form_field_( $name, $type, $title, $value, $args );
+	}
 }
 
 /** 
