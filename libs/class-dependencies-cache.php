@@ -1,4 +1,4 @@
-<?php // (C) Copyright BobbingWide 2017
+<?php // (C) Copyright BobbingWide 2017, 2018
 if ( !defined( "CLASS_DEPENDENCIES_CACHE_INCLUDED" ) ) {
 define( "CLASS_DEPENDENCIES_CACHE_INCLUDED", "0.0.2" );
 
@@ -328,13 +328,15 @@ class dependencies_cache {
 	 * @TODO Confirm this is acceptable.
 	 */
 	function capture_scripts() {
-		ob_start();
-		_wp_footer_scripts();
-		$html = ob_get_contents();
-		ob_end_clean();
-		$this->captured_html .= $html;
-		$this->latest_html = $html;
-	}
+		if ( !doing_filter( "replace_editor" ) ) {
+			ob_start();
+			_wp_footer_scripts();
+			$html = ob_get_contents();
+			ob_end_clean();
+			$this->captured_html .= $html;
+			$this->latest_html = $html;
+		}
+	}	
 	
 	/** 
 	 * Returns the captured HTML
