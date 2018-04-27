@@ -159,26 +159,21 @@ function bw_pre_theme_field() {
 }
 
 /**
- * Theme a custom field  
+ * Themes a custom field  
  * 
  * @param string $key - field name e.g. _txn_amount
  * @param mixed $value - post metadata value
  * @param array $field - the field structure if defined using `bw_register_field()`
- * 
  */
 function bw_theme_field( $key, $value, $field=null ) {
-  //bw_trace2();
   $type = bw_array_get( $field, "#field_type", null );
-  //
-  //if ( function_exists( "bw_pre_theme_field" ) ) {
-    bw_pre_theme_field();
-  //}
+  //bw_trace2( $type, "Type", true, BW_TRACE_DEBUG );
+	bw_pre_theme_field();
   // Try for a theming function named "bw_theme_field_$type_$key 
-  
   $funcname = bw_funcname( "bw_theme_field_${type}", $key );
+	
   // If there isn't a generic one for the type 
   // nor a specific one just try for the field
-  
   if ( $funcname == "bw_theme_field_" && $type ) { 
     $funcname = bw_funcname( "bw_theme_field_", $key );
   }  
