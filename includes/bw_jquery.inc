@@ -1,14 +1,17 @@
 <?php // (C) Copyright Bobbing Wide 2013
 
 /**
- * Return the JavaScript code to create the given date
+ * Returns the JavaScript code to create the given date
+ * 
  * @param string $date - in format yyyy/mm/dd/hh/mm/ss, where the separators can be  space, hyphen, period or slash
  * @return string - JavaScript to create a new date enclosed in single quotes e.g. 'new Date( yyyy,mm,dd,hh,mm,ss )'
  */
 function bw_jsdate( $date ) {
   $date = str_replace( array( " ", "-", ".", ":" ), "/", $date );
   $dates = explode( "/", $date );
-  $dates[1] -= 1;
+	if ( isset( $dates[1] ) ) {
+		$dates[1] -= 1;
+	}
   $jsdate = implode( ",", $dates );
   return( "'new Date( $jsdate )'" );
 }
