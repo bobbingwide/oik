@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017,2018
 
 /** 
  * Unit tests for the includes/bw_register.php file
@@ -30,6 +30,7 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
 									 , "Dukes" => "Duke"
 									 , "Duchesses" => "Duchesse"
 									 , "Less" => "Le"
+									 , "Status" => "Statu"
 									 );
 		foreach ( $plutos as $plural => $expected ) {
 			$singular = bw_singularize( $plural );

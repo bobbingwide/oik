@@ -85,7 +85,6 @@
 			<file>tests/test-shortcodes-oik-table.php</file>
 			<file>tests/test-shortcodes-oik-tabs.php</file>
 			<file>tests/test-shortcodes-oik-thumbs.php</file>
-			<file>tests/test-shortcodes-oik-trace.php</file>
 			<file>tests/test-shortcodes-oik-tree.php</file>
 			<file>tests/test-shortcodes-oik-wtf.php</file>
 		</testsuite>
