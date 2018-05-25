@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2018
 if ( !defined( 'OIK_BOOT_INCLUDED' ) ) {
-define( 'OIK_BOOT_INCLUDED', "3.2.0" );
+define( 'OIK_BOOT_INCLUDED', "3.2.5" );
 define( 'OIK_BOOT_FILE', __FILE__ );
 /**
  * Library: oik_boot

@@ -86,7 +86,7 @@ function _bw_telephone_link( &$atts, $number, $start=true ) {
  */
 function _bw_telephone( $atts=null ) {
   $prefix = bw_array_get( $atts, "prefix", null );
-	if ( !$prefix ) {
+	if ( null === $prefix ) {
 		$prefix = __( "Tel", "oik" );
 	}
   $sep = bw_array_get( $atts, "sep", ": " );

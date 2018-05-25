@@ -4,7 +4,7 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, shortcode, advanced, oik
 * Requires at least: 4.8
-* Tested up to: 4.9.1
+* Tested up to: 5.0-alpha-42125
 * Stable tag: 3.2.3
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -91,6 +91,12 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.2.5 
+Upgrade for fixes that support Gutenberg.
+
+# 3.2.4 
+Upgrade for improvements to [bw_show_googlemap] and [bw_twitter]
+
 # 3.2.3 
 Upgrade if you're using PHP 7.2
 
@@ -427,6 +433,25 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 3.2.5 
+* Fixed: Ensure oik_path returns forward slashes https://github.com/bobbingwide/oik/issues/56
+* Fixed: prefix="" parameter no longer working for bw_telephone and bw_email https://github.com/bobbingwide/oik/issues/96
+* Fixed: Support for WordPress 5.0 and the new editor - Gutenberg https://github.com/bobbingwide/oik/issues/97
+* Fixed: prevent fatal error in bw_table shortcode https://github.com/bobbingwide/oik/issues/98
+* Fixed: Eliminate Warnings produced when BW_TRANSLATE_DEPRECATED is true https://github.com/bobbingwide/oik/issues/99
+* Fixed: Notices from [paypal] shortcode causes Gutenberg to report Updating failed https://github.com/bobbingwide/oik/issues/101
+* Fixed: bw_wtf - right square bracket displaying as &#093 https://github.com/bobbingwide/oik/issues/102
+* Fixed: bs_jsdate - Notice: Undefined offset leads to Gutenberg Updating failed  https://github.com/bobbingwide/oik/issues/103
+* Fixed: bw_form_field_date enqueuing jquery.ui.datepicker.css from wrong folder https://github.com/bobbingwide/oik/issues/104
+* Fixed: Reduce trace records produced https://github.com/bobbingwide/oik/issues/106
+
+# 3.2.4 
+* Changed: Add ids= parameter to [bw_show_googlemap] https://github.com/bobbingwide/oik/issues/94
+* Changed: Improve ad-hoc usage of [bw_twitter] https://github.com/bobbingwide/oik/issues/95
+* Fixed: Support oik-bwtrace v2.1.1 https://github.com/bobbingwide/oik/issues/92
+* Tested: With PHP 7.2
+* Tested: With WordPress 4.9.1
+
 # 3.2.3 
 * Changed: update oik_remote::are_you_local to support testing in WPMS https://github.com/bobbingwide/oik-libs/issues/9
 * Fixed: Cater for old/renamed versions of plugins https://github.com/bobbingwide/oik/issues/80

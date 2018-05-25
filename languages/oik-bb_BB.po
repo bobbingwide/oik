@@ -1,16 +1,16 @@
-# Copyright (C) 2017 oik
+# Copyright (C) 2018 oik
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.2.3\n"
+"Project-Id-Version: oik 3.2.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2017-12-16 19:19:53+00:00\n"
+"POT-Creation-Date: 2018-05-25 05:52:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 #: admin/class-bw-list-table.php:153
@@ -776,7 +776,7 @@ msgid "PayPal country"
 msgstr "PyaaPl cuotnry"
 
 
-#: admin/oik-admin.php:525 shortcodes/oik-paypal.php:255
+#: admin/oik-admin.php:525 shortcodes/oik-paypal.php:256
 msgid "PayPal currency"
 msgstr "PyaaPl cruercny"
 
@@ -1732,7 +1732,7 @@ msgid "Copyright text prefix"
 msgstr "Cporygiht txet perifx"
 
 
-#: includes/oik-sc-help.php:201 shortcodes/oik-googlemap.php:270
+#: includes/oik-sc-help.php:201 shortcodes/oik-googlemap.php:287
 msgid "company name"
 msgstr "cmoapny nmae"
 
@@ -1807,7 +1807,7 @@ msgid "None"
 msgstr "Nnoe"
 
 
-#: libs/bw_fields.php:367
+#: libs/bw_fields.php:362
 msgid ": "
 msgstr ": "
 
@@ -1877,7 +1877,7 @@ msgstr "OIk gneretaed eaxpmle."
 
 
 #: libs/oik-sc-help.php:315 shortcodes/oik-blockquote.php:31
-#: shortcodes/oik-cite.php:20 shortcodes/oik-follow.php:329
+#: shortcodes/oik-cite.php:20 shortcodes/oik-follow.php:365
 #: shortcodes/oik-phone.php:221 shortcodes/oik-phone.php:291
 #: shortcodes/oik-phone.php:304
 msgid "class names"
@@ -1886,7 +1886,7 @@ msgstr "calss nmaes"
 
 #: libs/oik-sc-help.php:315 shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20 shortcodes/oik-cycle.php:127
-#: shortcodes/oik-follow.php:329 shortcodes/oik-phone.php:221
+#: shortcodes/oik-follow.php:365 shortcodes/oik-phone.php:221
 msgid "CSS class names"
 msgstr "CSS calss nmaes"
 
@@ -2072,8 +2072,8 @@ msgstr "Tihs Is A cpaiton"
 #: libs/oik-sc-help.php:389 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
 #: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
-#: shortcodes/oik-link.php:325 shortcodes/oik-paypal.php:257
-#: shortcodes/oik-trace.php:32 shortcodes/oik-wtf.php:72
+#: shortcodes/oik-link.php:325 shortcodes/oik-paypal.php:258
+#: shortcodes/oik-trace.php:32 shortcodes/oik-wtf.php:74
 msgid "text"
 msgstr "txet"
 
@@ -2637,7 +2637,7 @@ msgid "e.g."
 msgstr "E.g."
 
 
-#: shortcodes/oik-bookmarks.php:57 shortcodes/oik-googlemap.php:277
+#: shortcodes/oik-bookmarks.php:57 shortcodes/oik-googlemap.php:294
 #: shortcodes/oik-phone.php:219 shortcodes/oik-slideshows.php:81
 #: shortcodes/oik-slideshows.php:83 shortcodes/oik-slideshows.php:96
 msgid "number"
@@ -2884,7 +2884,7 @@ msgstr "[bw_codes] - lsit sohtroceds"
 
 
 #: shortcodes/oik-company.php:67 shortcodes/oik-email.php:134
-#: shortcodes/oik-follow.php:330 shortcodes/oik-geo.php:75
+#: shortcodes/oik-follow.php:366 shortcodes/oik-geo.php:75
 #: shortcodes/oik-geo.php:84 shortcodes/oik-phone.php:218
 msgid "Use alternative value"
 msgstr "UsE atlreanitve vlaue"
@@ -2946,7 +2946,7 @@ msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
 
 #: shortcodes/oik-contact-form.php:296 shortcodes/oik-contact-form.php:298
-#: shortcodes/oik-paypal.php:253
+#: shortcodes/oik-paypal.php:254
 msgid "email"
 msgstr "eamil"
 
@@ -3160,13 +3160,13 @@ msgid "oik options field to use"
 msgstr "OIk otpoins feild tO UsE"
 
 
-#: shortcodes/oik-follow.php:241 shortcodes/oik-follow.php:286
-#: shortcodes/oik-follow.php:319
+#: shortcodes/oik-follow.php:253 shortcodes/oik-follow.php:321
+#: shortcodes/oik-follow.php:354
 msgid "Follow %1$s on %2$s"
 msgstr "Floolw %1$s On %2$s"
 
 
-#: shortcodes/oik-follow.php:328
+#: shortcodes/oik-follow.php:364
 msgid "Icon font selection"
 msgstr "Iocn fnot sleceiton"
 
@@ -3233,99 +3233,99 @@ msgstr ""
 "ThE Goolge driceitnos btuotn wlil eanlbe thE uesr tO gEt driceitnos tO yOU."
 
 
-#: shortcodes/oik-googlemap.php:255
+#: shortcodes/oik-googlemap.php:272
 msgid "To display a Google Map for your company location"
 msgstr "TO dsilpay A Goolge MAp fOr yuor cmoapny lcotaoin"
 
 
-#: shortcodes/oik-googlemap.php:256
+#: shortcodes/oik-googlemap.php:273
 msgid "Some of the default values are extracted from oik information:"
 msgstr "Smoe Of thE dfeualt vlaeus ArE etxartced form OIk ifnroamiton:"
 
 
-#: shortcodes/oik-googlemap.php:258
+#: shortcodes/oik-googlemap.php:275
 msgid "company - for the Company name"
 msgstr "cmoapny - fOr thE Cmoapny nmae"
 
 
-#: shortcodes/oik-googlemap.php:259
+#: shortcodes/oik-googlemap.php:276
 msgid "lat - for the latitude"
 msgstr "lAt - fOr thE ltatidue"
 
 
-#: shortcodes/oik-googlemap.php:260
+#: shortcodes/oik-googlemap.php:277
 msgid "long - for the longitude"
 msgstr "lnog - fOr thE lnoigutde"
 
 
-#: shortcodes/oik-googlemap.php:261
+#: shortcodes/oik-googlemap.php:278
 msgid "width - map width (  100% )"
 msgstr "wdith - mAp wdith (  100% )"
 
 
-#: shortcodes/oik-googlemap.php:262
+#: shortcodes/oik-googlemap.php:279
 msgid "height - map height ( 400px - to allow for the info window )"
 msgstr "hiehgt - mAp hiehgt ( 400px - tO allow fOr thE ifno wniodw )"
 
 
-#: shortcodes/oik-googlemap.php:270
+#: shortcodes/oik-googlemap.php:287
 msgid "type your company name"
 msgstr "tpye yuor cmoapny nmae"
 
 
-#: shortcodes/oik-googlemap.php:271
+#: shortcodes/oik-googlemap.php:288
 msgid "latitude"
 msgstr "ltatidue"
 
 
-#: shortcodes/oik-googlemap.php:272
+#: shortcodes/oik-googlemap.php:289
 msgid "longitude"
 msgstr "lnoigutde"
 
 
-#: shortcodes/oik-googlemap.php:273
+#: shortcodes/oik-googlemap.php:290
 msgid "postcode"
 msgstr "psoctdoe"
 
 
-#: shortcodes/oik-googlemap.php:273
+#: shortcodes/oik-googlemap.php:290
 msgid "postcode or ZIP code"
 msgstr "psoctdoe Or ZIP cdoe"
 
 
-#: shortcodes/oik-googlemap.php:274 shortcodes/oik-logo.php:171
+#: shortcodes/oik-googlemap.php:291 shortcodes/oik-logo.php:171
 #: shortcodes/oik-qrcode.php:39
 msgid "width"
 msgstr "wdith"
 
 
-#: shortcodes/oik-googlemap.php:274
+#: shortcodes/oik-googlemap.php:291
 msgid "width of the Google map"
 msgstr "wdith Of thE Goolge mAp"
 
 
-#: shortcodes/oik-googlemap.php:275 shortcodes/oik-logo.php:172
+#: shortcodes/oik-googlemap.php:292 shortcodes/oik-logo.php:172
 #: shortcodes/oik-qrcode.php:40
 msgid "height"
 msgstr "hiehgt"
 
 
-#: shortcodes/oik-googlemap.php:275
+#: shortcodes/oik-googlemap.php:292
 msgid "height of the map"
 msgstr "hiehgt Of thE mAp"
 
 
-#: shortcodes/oik-googlemap.php:276
+#: shortcodes/oik-googlemap.php:293
 msgid "marker1,marker2"
 msgstr "mraekr1,mraekr2"
 
 
-#: shortcodes/oik-googlemap.php:276
+#: shortcodes/oik-googlemap.php:293
 msgid "Additional markers"
 msgstr "Addtioianl mraekrs"
 
 
-#: shortcodes/oik-googlemap.php:277
+#: shortcodes/oik-googlemap.php:294
 msgid "Zoom level"
 msgstr "Zoom lveel"
 
@@ -3614,58 +3614,58 @@ msgid "ID from which to find the parent"
 msgstr "ID form wihch tO fnid thE pranet"
 
 
-#: shortcodes/oik-paypal.php:252
+#: shortcodes/oik-paypal.php:253
 msgid "Button type"
 msgstr "Btuotn tpye"
 
 
-#: shortcodes/oik-paypal.php:253
+#: shortcodes/oik-paypal.php:254
 msgid "PayPal email address"
 msgstr "PyaaPl eamil adderss"
 
 
-#: shortcodes/oik-paypal.php:254
+#: shortcodes/oik-paypal.php:255
 msgid "country"
 msgstr "cuotnry"
 
 
-#: shortcodes/oik-paypal.php:254
+#: shortcodes/oik-paypal.php:255
 msgid "PayPal Country code"
 msgstr "PyaaPl Cuotnry cdoe"
 
 
-#: shortcodes/oik-paypal.php:255
+#: shortcodes/oik-paypal.php:256
 msgid "currency"
 msgstr "cruercny"
 
 
-#: shortcodes/oik-paypal.php:256 shortcodes/oik-paypal.php:260
-#: shortcodes/oik-paypal.php:261 shortcodes/oik-paypal.php:262
+#: shortcodes/oik-paypal.php:257 shortcodes/oik-paypal.php:261
+#: shortcodes/oik-paypal.php:262 shortcodes/oik-paypal.php:263
 msgid "nn.mm"
 msgstr "nn.mm"
 
 
-#: shortcodes/oik-paypal.php:256
+#: shortcodes/oik-paypal.php:257
 msgid "Amount without currency symbol"
 msgstr "Aomnut wtiohut cruercny smyobl"
 
 
-#: shortcodes/oik-paypal.php:257
+#: shortcodes/oik-paypal.php:258
 msgid "Product name"
 msgstr "Porudct nmae"
 
 
-#: shortcodes/oik-paypal.php:258
+#: shortcodes/oik-paypal.php:259
 msgid "SKU"
 msgstr "SKU"
 
 
-#: shortcodes/oik-paypal.php:258
+#: shortcodes/oik-paypal.php:259
 msgid "Stock Keeping Unit"
 msgstr "Sotck Keeipng Uint"
 
 
-#: shortcodes/oik-paypal.php:259
+#: shortcodes/oik-paypal.php:260
 msgid ""
 "Shipping Address Required? 0=prompt, optional, 1=do not prompt, 2=prompt and "
 "require"
@@ -3674,17 +3674,17 @@ msgstr ""
 "rqeiure"
 
 
-#: shortcodes/oik-paypal.php:260
+#: shortcodes/oik-paypal.php:261
 msgid "Weight in kilos or pounds"
 msgstr "Wiehgt In klios Or puodns"
 
 
-#: shortcodes/oik-paypal.php:261
+#: shortcodes/oik-paypal.php:262
 msgid "Shipping cost"
 msgstr "Sihppnig csot"
 
 
-#: shortcodes/oik-paypal.php:262
+#: shortcodes/oik-paypal.php:263
 msgid "Shipping cost2"
 msgstr "Sihppnig csot2"
 
@@ -3873,32 +3873,32 @@ msgid "jQuery Cycle Plugin - beginner demos"
 msgstr "juQrey Ccyle Pulign - bgenienr dmeos"
 
 
-#: shortcodes/oik-table.php:157
+#: shortcodes/oik-table.php:158
 msgid "Error: bw_theme_field function missing."
 msgstr "Error: bw_tehme_feild fnutcoin msiisng."
 
 
-#: shortcodes/oik-table.php:196
+#: shortcodes/oik-table.php:197
 msgid "fields"
 msgstr "feidls"
 
 
-#: shortcodes/oik-table.php:196
+#: shortcodes/oik-table.php:197
 msgid "CSV of field names"
 msgstr "CSV Of feild nmaes"
 
 
-#: shortcodes/oik-table.php:204
+#: shortcodes/oik-table.php:205
 msgid "Display custom post data in a tabular form"
 msgstr "Dsilpay csuotm psot dtaa In A tbaluar from"
 
 
-#: shortcodes/oik-table.php:215
+#: shortcodes/oik-table.php:216
 msgid "No example for %1$s"
 msgstr "NO eaxpmle fOr %1$s"
 
 
-#: shortcodes/oik-table.php:222
+#: shortcodes/oik-table.php:223
 msgid "No snippet for %1$s"
 msgstr "NO sinppet fOr %1$s"
 
@@ -3963,22 +3963,22 @@ msgid "Trace reset"
 msgstr "Tarce rseet"
 
 
-#: shortcodes/oik-wtf.php:51 shortcodes/oik-wtf.php:72
+#: shortcodes/oik-wtf.php:51 shortcodes/oik-wtf.php:74
 msgid "%1$s to %2$s source"
 msgstr "%1$s tO %2$s suocre"
 
 
-#: shortcodes/oik-wtf.php:70
+#: shortcodes/oik-wtf.php:72
 msgid "Event to trigger the revealing"
 msgstr "Eevnt tO tirgger thE rveaeilng"
 
 
-#: shortcodes/oik-wtf.php:71
+#: shortcodes/oik-wtf.php:73
 msgid "Method used to reveal the content"
 msgstr "Mteohd uesd tO rveael thE cnoetnt"
 
 
-#: shortcodes/oik-wtf.php:72
+#: shortcodes/oik-wtf.php:74
 msgid "Text above the hidden content"
 msgstr "Txet aobve thE hdiedn cnoetnt"
 

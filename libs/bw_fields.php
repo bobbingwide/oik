@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017 
+<?php // (C) Copyright Bobbing Wide 2013-2018 
 if ( !defined( "BW_FIELDS_INCLUDED" ) ) {
-define( "BW_FIELDS_INCLUDED", "3.2.1" );
+define( "BW_FIELDS_INCLUDED", "3.2.5" );
 
 /**
  * Library: bw_fields

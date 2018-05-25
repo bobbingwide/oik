@@ -1,6 +1,6 @@
 <?php // (C) Copyright BobbingWide 2017, 2018
 if ( !defined( "CLASS_DEPENDENCIES_CACHE_INCLUDED" ) ) {
-define( "CLASS_DEPENDENCIES_CACHE_INCLUDED", "0.0.2" );
+define( "CLASS_DEPENDENCIES_CACHE_INCLUDED", "0.1.0" );
 
 /**
  * Script and style functions
