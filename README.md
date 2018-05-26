@@ -444,6 +444,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Fixed: bs_jsdate - Notice: Undefined offset leads to Gutenberg Updating failed  https://github.com/bobbingwide/oik/issues/103
 * Fixed: bw_form_field_date enqueuing jquery.ui.datepicker.css from wrong folder https://github.com/bobbingwide/oik/issues/104
 * Fixed: Reduce trace records produced https://github.com/bobbingwide/oik/issues/106
+* Changed: Move trace shortcodes to oik-bwtrace https://github.com/bobbingwide/oik/issues/105
 
 # 3.2.4 
 * Changed: Add ids= parameter to [bw_show_googlemap] https://github.com/bobbingwide/oik/issues/94

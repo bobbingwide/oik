@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2017
+<?php // (C) Copyright Bobbing Wide 2011-2018
 
 /**
  * Implement "oik_add_shortcodes" action for oik
@@ -114,10 +114,7 @@ function bw_oik_lazy_add_shortcodes() {
 
   bw_add_shortcode( 'gpslides', 'bw_gp_slideshow', oik_path( "shortcodes/oik-slideshows.php"), false  );
 
-  /* Shortcodes for each of the more useful APIs */
-  bw_add_shortcode( 'bwtron', 'bw_trace_on', oik_path( "shortcodes/oik-trace.php") , false );
-  bw_add_shortcode( 'bwtroff', 'bw_trace_off', oik_path( "shortcodes/oik-trace.php") , false );
-  bw_add_shortcode( 'bwtrace', 'bw_trace_button', oik_path( "shortcodes/oik-trace.php") , false );
+  /* Trace related shortcodes moved to oik-bwtrace v3.0.0 in oik v3.2.5; bwtron, bwtroff and bwtrace. */
 
   add_action( "bw_sc_help", "bw_sc_help" );
   add_action( "bw_sc_syntax", "bw_sc_syntax" );
