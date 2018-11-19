@@ -1,4 +1,26 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017
+<?php // (C) Copyright Bobbing Wide 2013-2018
+
+/**
+ * Returns the next selector for [bw_countdown]
+ *
+ * $inc  | action | return
+ * ----  | ------ | ------
+ * true  | $countdown_id++ | next value
+ * false | nop    | current value
+ * null  | 0    | current value	= 0
+ * 
+ * @param bool|null $inc - increment the id?
+ * @return string - tab selector ID
+ */
+function bw_countdown_id( $inc=true ) { 
+  static $countdown_id = 0;
+	if ( $inc ) {
+		$countdown_id++;
+	} elseif ( null === $inc ) {
+		$countdown_id = 0;
+	}	
+  return( "countdown-$countdown_id" );
+}
 
 /**
  * Return the required JavaScript date or, if it's an adjustment, leave the adjustment as is
@@ -38,7 +60,10 @@ function bw_countdown( $atts=null, $content=null, $tag=null ) {
     }
   } 
   $class = bw_array_get( $atts, "class", null );
-  $id = bw_array_get( $atts, "id", "countdown" );
+  $id = bw_array_get( $atts, "id", null );
+  if ( null === $id ) { 
+	$id = bw_countdown_id();
+  }
   $debug = bw_array_get( $atts, "debug", false );  
   $script = bw_array_get( $atts, "script", "countdown" ); 
   $style = bw_array_get( $atts, "style", $script );

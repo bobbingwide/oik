@@ -66,6 +66,7 @@ function oik_plugin_file_loaded() {
     oik_ajax_lazy_init();
   } else {
     add_action('wp_enqueue_scripts', 'oik_enqueue_stylesheets', 11);
+    add_action( 'admin_enqueue_scripts', 'add_thickbox' );
   }
   add_action( 'init', 'oik_main_init', 20 );
     
