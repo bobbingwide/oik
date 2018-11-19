@@ -357,6 +357,7 @@ function bw_images__syntax( $shortcode="bw_images" ) {
   $syntax['post_type'] = BW_::bw_skv( "attachment", "<i>" . __( "post type", "oik" ) . "</i>", __( "Post type to display", "oik" ) );
   $syntax['post_mime_type'] = BW_::bw_skv( "image", "<i>" . __( "post mime types", "oik" ) . "</i>", __( "Image type", "oik" ) );
   $syntax['thumbnail'] = BW_::bw_skv( "full", "thumbnail|medium|large|nnn|wxh", __( "image size", "oik" ) ); 
+	$syntax['link'] = BW_::bw_skv( null, "0|id,p", __("link to", "oik" ) );
   $syntax += _sc_captions();
   $syntax += _sc_classes();
   return( $syntax );
