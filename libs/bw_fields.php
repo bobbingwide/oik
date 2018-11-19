@@ -55,10 +55,14 @@ function bw_custom_column_admin( $column, $post_id ) {
 /**
  * Format custom column data for a taxonomy
  * @TODO - should be use $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "all"));
+ * 
+ * @param string $column
+ * @param integer $post_id
  */
 function bw_custom_column_taxonomy( $column, $post_id ) {
   //e( "$column taxonomy for $post_id" );
   $terms = get_the_term_list( $post_id, $column, "", ",", "" );
+	$terms = apply_filters( "bw_custom_column_taxonomy", $terms, $column, $post_id );
   e( $terms );    
 }
 
