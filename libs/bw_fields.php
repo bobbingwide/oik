@@ -1,11 +1,11 @@
 <?php // (C) Copyright Bobbing Wide 2013-2018 
 if ( !defined( "BW_FIELDS_INCLUDED" ) ) {
-define( "BW_FIELDS_INCLUDED", "3.2.5" );
+define( "BW_FIELDS_INCLUDED", "3.2.6" );
 
 /**
  * Library: bw_fields
  * Provides: bw_fields
- * Depends: @TODO Complete this
+ * Depends: on certain oik base functions
  * 
  */
 
@@ -53,14 +53,16 @@ function bw_custom_column_admin( $column, $post_id ) {
 }
 
 /**
- * Format custom column data for a taxonomy
- * @TODO - should be use $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "all"));
+ * Formats custom column data for a taxonomy
+ *
+ * The bw_custom_column_taxonomy filter allows you to change the separator between terms.
+ *
+ * When using the [bw_field] or [bw_fields] shortcode an alternative approach is to hook into the 'oik_shortcode_result' filter
  * 
  * @param string $column
  * @param integer $post_id
  */
 function bw_custom_column_taxonomy( $column, $post_id ) {
-  //e( "$column taxonomy for $post_id" );
   $terms = get_the_term_list( $post_id, $column, "", ",", "" );
 	$terms = apply_filters( "bw_custom_column_taxonomy", $terms, $column, $post_id );
   e( $terms );    

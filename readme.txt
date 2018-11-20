@@ -2,11 +2,12 @@
 Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
-Requires at least: 4.8 
-Tested up to: 5.0-alpha-42125
-Stable tag: 3.2.3
+Requires at least: 4.9.8 
+Tested up to: 5.0-beta5
+Stable tag: 3.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Gutenberg compatible: Likely-yes
 
 Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.
 
@@ -90,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.2.6 = 
+Upgrade for improvements to [bw_countdown] and Gutenberg compatibility.
+
 = 3.2.5 =
 Upgrade for fixes that support Gutenberg.
 
@@ -432,6 +436,16 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.2.6 = 
+* Added: Add bw_custom_column_taxonomy filter [github bobbingwide oik issues 108]
+* Changed: Initial work on bw_images linking to parent with link=p parameter [github bobbingwide oik issues 107]
+* Fixed: Respect the current scheme when registering cached styles and scripts [github bobbingwide oik issues 62]
+* Fixed: Support multiple countdown timers using bw_countdown_id() [github bobbingwide oik issues 108]
+* Fixed: TinyMCE buttons not working. Ensure thickbox is enqueued. Needs both CSS and Javascript [github bobbingwide oik issues 100]
+* Tested: With Gutenberg 4.4.0
+* Tested: With PHP 7.1 and 7.2
+* Tested: With WordPress 4.9.8 and WordPress 5.0-beta5
+
 = 3.2.5 =
 * Fixed: Ensure oik_path returns forward slashes [github bobbingwide oik issues 56]
 * Fixed: prefix="" parameter no longer working for bw_telephone and bw_email [github bobbingwide oik issues 96]
