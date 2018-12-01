@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, shortcode, advanced, oik
 * Requires at least: 4.9.8
-* Tested up to: 5.0-beta5
-* Stable tag: 3.2.6
+* Tested up to: 5.0-beta-RC1
+* Stable tag: 3.2.7
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Likely-yes
@@ -92,6 +92,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.2.7 
+Updated logic to set lat and long using Google Maps API
+
 # 3.2.6 
 Upgrade for improvements to [bw_countdown] and Gutenberg compatibility.
 
@@ -437,6 +440,11 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 3.2.7 
+* Fixed: Corrected logic to automatically determine lat and long from address and/or postcode. https://github.com/bobbingwide/oik/issues/112
+* Tested: With WordPress 5.0-RC1
+* Tested: With Gutenberg v4.6.1
+
 # 3.2.6 
 * Added: Add bw_custom_column_taxonomy filter https://github.com/bobbingwide/oik/issues/108
 * Changed: Initial work on bw_images linking to parent with link=p parameter https://github.com/bobbingwide/oik/issues/107
