@@ -540,7 +540,9 @@ function bw_geocode_googlemap( $input ) {
   
   if ( $address ) {
   
-    $map_url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=";
+    $map_url = "https://maps.google.com/maps/api/geocode/json?sensor=false";
+    $map_url .= str_replace( "&amp;", "&", bw_gmap_api_key() );
+    $map_url .= "&address=";
     // Google's documentation recommends using JSON since it's smaller than the XML output.
     // $map_url = "http://maps.google.com/maps/api/geocode/xml?sensor=false&address=";
     $map_url .= $address;
@@ -548,6 +550,7 @@ function bw_geocode_googlemap( $input ) {
     oik_require( "includes/oik-remote.inc" );
   
     $json = bw_remote_get( $map_url );
+    bw_trace2( $json, "json", true, BW_TRACE_DEBUG );
     if ( $json ) {
       $input = bw_set_geocoded_address( $input, $json );
    }
