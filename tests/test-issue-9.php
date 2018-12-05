@@ -86,13 +86,13 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	}
 	
 	function test_BW_bw_textfield() {
-		$expected = '<tr><td><label for="test">Text field</label></td><td><input type="text" size="9"name="test" id="test" value="Textfield value" class="" /></td></tr>';
+		$expected = '<tr><td><label for="test">Text field</label></td><td><input type="text" size="9" name="test" id="test" value="Textfield value" class="" /></td></tr>';
 		$actual = bw_ret( BW_::bw_textfield( "test", 9, __( "Text field", "oik" ), "Textfield value" ) );
 		$this->assertEquals( $expected, $actual );
 	}
 	
 	function test_BW_bw_textfield_arr() {
-		$expected = '<tr><td><label for="options[test]">Text field</label></td><td><input type="text" size="9"name="options[test]" id="options[test]" value="Textfield value" class="" /></td></tr>';
+		$expected = '<tr><td><label for="options[test]">Text field</label></td><td><input type="text" size="9" name="options[test]" id="options[test]" value="Textfield value" class="" /></td></tr>';
 		$array = [ 'test' => "Textfield value" ];
 		$actual = bw_ret( BW_::bw_textfield_arr( "options", __( "Text field", "oik" ), $array, "test", 9 ) );
 		$this->assertEquals( $expected, $actual );
