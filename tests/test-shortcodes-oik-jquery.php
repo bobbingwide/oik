@@ -70,10 +70,14 @@ class Tests_shortcodes_oik_jquery extends BW_UnitTestCase {
 	
 	/**
 	 * Similar logic to http://develop.wp-a2z.org/oik_api/tests_dependencies_scriptssetup/
+	 * This needed updating for WordPress 5.0 - wp_default_packages is new.
 	 */
 	function setup_test_scripts() {
 		remove_action( 'wp_default_scripts', 'wp_default_scripts' );
-		$GLOBALS['wp_scripts'] = new WP_Scripts();
+		remove_action( 'wp_default_scripts', 'wp_default_packages' );
+		$scripts = new WP_Scripts();
+		//print_r( $scripts );
+		$GLOBALS['wp_scripts'] = $scripts;
 		//$wp_scripts->registered = array( "test1" => "script1" );
 		wp_register_script( "handle", "src", null, "42" );
 	}
