@@ -346,7 +346,11 @@ $expected[] = '</form>';
 	
 	/**
 	 * The oik plugins page expects us-tides to be version 0.3.0
-	 * We need to ensure the plugin_slugs transient is reset to reflect the latest set of installed plugins
+	 *
+	 * We need to ensure the plugin_slugs transient is reset to reflect the latest set of installed plugins.
+	 *
+	 * @TODO Sometimes you need to visit Plugins to ensure the plugin really is activated.
+	 * Find out why deleting the transient is not good enough.
 	 */
 	function test_bw_get_plugin_version() {
 		delete_transient( "plugin_slugs" );
