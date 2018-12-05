@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.2.5\n"
+"Project-Id-Version: oik 3.2.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2018-05-25 05:52:59+00:00\n"
+"POT-Creation-Date: 2018-12-05 18:05:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -1807,7 +1807,7 @@ msgid "None"
 msgstr "Nnoe"
 
 
-#: libs/bw_fields.php:362
+#: libs/bw_fields.php:368
 msgid ": "
 msgstr ": "
 
@@ -2071,7 +2071,7 @@ msgstr "Tihs Is A cpaiton"
 
 #: libs/oik-sc-help.php:389 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
-#: shortcodes/oik-countdown.php:72 shortcodes/oik-countdown.php:74
+#: shortcodes/oik-countdown.php:97 shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325 shortcodes/oik-paypal.php:258
 #: shortcodes/oik-trace.php:32 shortcodes/oik-wtf.php:74
 msgid "text"
@@ -2169,7 +2169,7 @@ msgstr "Rqeiuerd hiehgt"
 
 #: libs/oik-sc-help.php:477 libs/oik-sc-help.php:488 libs/oik-sc-help.php:502
 #: libs/oik-sc-help.php:503 shortcodes/oik-button.php:48
-#: shortcodes/oik-button.php:107 shortcodes/oik-countdown.php:73
+#: shortcodes/oik-button.php:107 shortcodes/oik-countdown.php:98
 #: shortcodes/oik-iframe.php:48 shortcodes/oik-iframe.php:49
 #: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:324
 #: shortcodes/oik-link.php:327 shortcodes/oik-logo.php:169
@@ -2483,12 +2483,12 @@ msgid "missing post processing function: %1$s"
 msgstr "msiisng psot porecssnig fnutcoin: %1$s"
 
 
-#: oik.php:232
+#: oik.php:233
 msgid "oik custom image link URL"
 msgstr "OIk csuotm iamge lnik URL"
 
 
-#: oik.php:290
+#: oik.php:291
 msgid "Howdy, %s"
 msgstr "Hwody, %s"
 
@@ -2569,6 +2569,11 @@ msgstr "psot mmie tpyes"
 #: shortcodes/oik-attachments.php:358
 msgid "Image type"
 msgstr "Iamge tpye"
+
+
+#: shortcodes/oik-attachments.php:360
+msgid "link to"
+msgstr "lnik tO"
 
 
 #: shortcodes/oik-blockquote.php:30
@@ -3005,67 +3010,67 @@ msgid "Post type to count"
 msgstr "Psot tpye tO cuont"
 
 
-#: shortcodes/oik-countdown.php:60
+#: shortcodes/oik-countdown.php:85
 msgid "Countdown timer"
 msgstr "Cuotnodwn tmier"
 
 
-#: shortcodes/oik-countdown.php:70 shortcodes/oik-countdown.php:71
+#: shortcodes/oik-countdown.php:95 shortcodes/oik-countdown.php:96
 msgid "date"
 msgstr "dtae"
 
 
-#: shortcodes/oik-countdown.php:70
+#: shortcodes/oik-countdown.php:95
 msgid "Target date in format yyyy-mm-dd-hh-mm-ss"
 msgstr "Traegt dtae In froamt yyyy-mm-dd-hh-mm-ss"
 
 
-#: shortcodes/oik-countdown.php:71
+#: shortcodes/oik-countdown.php:96
 msgid "Start date in format yyyy-mm-dd-hh-mm-ss"
 msgstr "Satrt dtae In froamt yyyy-mm-dd-hh-mm-ss"
 
 
-#: shortcodes/oik-countdown.php:72
+#: shortcodes/oik-countdown.php:97
 msgid "Description for countdown"
 msgstr "Dsercpiiton fOr cuotnodwn"
 
 
-#: shortcodes/oik-countdown.php:73
+#: shortcodes/oik-countdown.php:98
 msgid "Target URL when countdown reaches zero"
 msgstr "Traegt URL wehn cuotnodwn raehces zreo"
 
 
-#: shortcodes/oik-countdown.php:74
+#: shortcodes/oik-countdown.php:99
 msgid "Text to replace time when countdown reaches zero"
 msgstr "Txet tO rpealce tmie wehn cuotnodwn raehces zreo"
 
 
-#: shortcodes/oik-countdown.php:84
+#: shortcodes/oik-countdown.php:109
 msgid "Countdown timer set to expire in 30 seconds"
 msgstr "Cuotnodwn tmier sEt tO epxrie In 30 scenods"
 
 
-#: shortcodes/oik-countdown.php:85
+#: shortcodes/oik-countdown.php:110
 msgid "Timer expired"
 msgstr "Tmier epxried"
 
 
-#: shortcodes/oik-countdown.php:86
+#: shortcodes/oik-countdown.php:111
 msgid "30 second timer"
 msgstr "30 scenod tmier"
 
 
-#: shortcodes/oik-countdown.php:91
+#: shortcodes/oik-countdown.php:116
 msgid "Countdown timer - counting up"
 msgstr "Cuotnodwn tmier - cuotnnig Up"
 
 
-#: shortcodes/oik-countdown.php:92
+#: shortcodes/oik-countdown.php:117
 msgid "Time you have been looking at this page"
 msgstr "Tmie yOU hvae been looikng At tihs pgae"
 
 
-#: shortcodes/oik-countdown.php:102
+#: shortcodes/oik-countdown.php:127
 msgid "No snippet available for this shortcode"
 msgstr "NO sinppet aavlibale fOr tihs sohtrocde"
 

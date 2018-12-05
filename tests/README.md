@@ -1,5 +1,7 @@
 # PHPUnit tests for oik
 Unit Tests are not part of the run time deliverables.
+These tests were written to test oik internationalization.
+See [How I’m testing the internationalization and localization of my WordPress plugins](https://herbmiller.me/test-internationalization-localization-wordpress-plugins/)
 
 # Dependencies
 
@@ -8,10 +10,17 @@ Requires:
 - WordPress 4.9 or higher
 - wordpress-develop-tests
 - oik-batch - for oik-phpunit.php
+- WordPress language files for the bb_BB locale
 
 Plugins required to be activated:
 - oik
 - oik-fields 
+- oik-css
+- us-tides
+- oik-user
+
+Themes to be available:
+- genesis-oik 
 
 Syntax:
 

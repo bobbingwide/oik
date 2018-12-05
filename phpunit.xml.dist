@@ -6,7 +6,7 @@
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
 	>
-	<!-- for PHPUnit 5.7, 6.1, 6.2 -->
+	<!-- for PHPUnit 5.7, 6.1, 6.2, 6.5 -->
 	<testsuites>
 	
 		<testsuite name="prerequisites">
