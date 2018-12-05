@@ -13,7 +13,13 @@ class Tests_shortcodes_oik_paypal extends BW_UnitTestCase {
 		oik_require( "shortcodes/oik-paypal.php" ); 														
 	}
 	
-	
+
+	/**
+	 * @TODO - Remove the dependency upon PayPal options being set, by setting in the test.
+	 * PayPal country = "United Kingdom"
+	 *
+	 *
+	 */
 	function test_paypal__syntax() {
 		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "en_GB" );
