@@ -39,7 +39,7 @@ class Tests_oik_countdown extends BW_UnitTestCase {
 		$html = bw_countdown( $atts, null, null );
 		
 		$expected = null;
-		$expected .= '<div id="countdown"></div>'; 
+		$expected .= '<div id="countdown-1"></div>';
 		$this->assertEquals( $expected, $html );
 		
 		/**
@@ -48,7 +48,7 @@ class Tests_oik_countdown extends BW_UnitTestCase {
 		 * This primarily tests the change for #74 - no longer using `jQuery( document ).ready( function()`
 		 */
 		$expected_jq = null;
-		$expected_jq .= '<script type="text/javascript">jQuery( function() { jQuery( "div#countdown" ).countdown( {"until":10} ); });</script>';
+		$expected_jq .= '<script type="text/javascript">jQuery( function() { jQuery( "div#countdown-1" ).countdown( {"until":10} ); });</script>';
 		$jq = $this->get_jq();
 		$this->assertEquals( $expected_jq, $jq );
 		$this->reset_jq();  
