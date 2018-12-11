@@ -352,7 +352,7 @@ function bw_code( $atts=null, $content=null, $tag=null ) {
  */ 
 function bw_code_example_link( $atts ) {
   $shortcode_string = bw_array_get( $atts, 0, null );
-  $link_text = "&#91;";
+  $link_text = "<span>&#91;</span>";
   $link_text .= $shortcode_string; 
   $link_text .= "]";
   $shortcodes = explode( " ", $shortcode_string );
