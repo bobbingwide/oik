@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017
+<?php // (C) Copyright Bobbing Wide 2013-2019
 
 /** 
  * Return a unique contact form ID 
@@ -96,7 +96,7 @@ function bw_display_contact_form( $atts, $user=null ) {
 	$contact_form_id = bw_contact_form_id( true );
 	$contact = bw_array_get( $_REQUEST, $contact_form_id, null );
 	if ( $contact ) {
-		oik_require( "bobbforms.inc" );
+		oik_require_lib( "bobbforms" );
 		oik_require_lib( "oik-honeypot" );
 		do_action( "oik_check_honeypot", "Human check failed." );
 		$contact = bw_verify_nonce( "_oik_contact_form", "_oik_contact_nonce" );
@@ -148,10 +148,30 @@ function bw_akismet_check( $fields ) {
 		$query_string = bw_build_akismet_query_string( $fields );
 		$send = bw_call_akismet( $query_string );
 	} else {
-		bw_trace2( "Akismet not loaded." ); 
-		$send = true;
+		bw_trace2( "Akismet not loaded." );
+		$send = bw_basic_spam_check( $fields );
 	}
 	return( $send );
+}
+
+/**
+ * Performs a very basic spam check
+ *
+ * If there's any evidence of an attempt to include an URL then treat it as spam.
+ * The code supports http or https and is case insensitive.
+ *
+ * @param array $fields
+ * @return bool
+ */
+function bw_basic_spam_check( $fields ) {
+	//print_r( $fields );
+	$content = bw_array_get( $fields, "comment_content", null );
+	$content = strtolower( $content );
+	if ( false !== strpos( $content, 'http')) {
+		bw_trace2( "Spam check found http");
+		return false;
+	}
+	return true;
 }
 
 /**
