@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 4.9.8 
-Tested up to: 5.0
-Stable tag: 3.2.8
+Tested up to: 5.0.2
+Stable tag: 3.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Likely-yes
@@ -91,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.2.9 = 
+Upgrade for improved nested shortcode expansion in blocks.
+
 = 3.2.8 =
 Upgrade for peaceful coexistence with Gutenberg. Gutenberg compatible: Likely-yes
 
@@ -442,6 +445,14 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.2.9 = 
+* Fixed: Prevent nested shortcode expansion of [bw_code shortcode] as [shortcode], [github bobbingwide oik issues 115]
+* Changed: Add bw_basic_spam_check logic for [bw_code bw_contact_form], [github bobbingwide oik issues 116]
+* Changed: Add $asJSON parameter to oik_remote::bw_remote_get, [github bobbingwide oik issues 117]
+* Tested: With WordPress 5.0.2
+* Tested: With Gutenberg 4.7.1
+* Tested: With PHP 7.2
+
 = 3.2.8 = 
 * Fixed: Add missing space between parms in the input tag [github bobbingwide oik issues 114]
 * Changed: Updated PHPUnit tests for WordPress 5.0 [github bobbingwide oik issues 97]
