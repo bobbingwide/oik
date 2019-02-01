@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2017
+<?php // (C) Copyright Bobbing Wide 2011-2019
 
 /**
  * OIK Shortcodes APIs
@@ -12,7 +12,7 @@
 function _bw_missing_shortcodefunc( $atts, $content, $tag ) {
   global $bw_sc_file;
   // get_last_error ? 
-  $result = '&#91;' . $tag . ']';
+  $result = '<span>&#91;</span>' . $tag . ']';
   $result .= __( "<b>Unable to locate routine to expand shortcode.</b>", "oik" );
   
   // Stop it from attempting to load an external file over and over again
@@ -196,7 +196,7 @@ function bw_shortcode_event( $atts, $content=null, $tag=null) {
   }
   //bw_trace( $tag, __FUNCTION__, __LINE__, __FILE__, "tag" ); 
   $saved_post = bw_global_post();
-  $result = '&#91;' . $tag . ']';
+  $result = '<span>&#91;</span>' . $tag . ']';
   //bw_trace( $cf, __FUNCTION__, __LINE__, __FILE__, "current_filter" );
   if ( $shortcodefunc ) {
     //bw_trace( $bw_sc_ev, __FUNCTION__, __LINE__, __FILE__, "bw_sc_ev" );
@@ -380,7 +380,7 @@ function bw_get_shortcode_title_expansion( $shortcode ) {
  * @param string $shortcode - the shortcode tag
  * @param string|array $function - the implementing function
  * @param string  $file - the full file name to be loaded when the function is not already loaded
- * @param book $the_title - true if the shortcode is allowed to expand in "the_title" processing 
+ * @param bool $the_title - true if the shortcode is allowed to expand in "the_title" processing
  */
 function bw_add_shortcode( $shortcode, $function=NULL, $file=NULL, $the_title=TRUE ) {
 	$function = apply_filters( "oik_add_shortcode", $function, $shortcode ); 
@@ -402,8 +402,8 @@ function bw_add_shortcode( $shortcode, $function=NULL, $file=NULL, $the_title=TR
  * Loads oik shortcodes and registers them
  */
 function bw_oik_add_shortcodes() {
-  oik_require( "includes/oik-shortcodes.php" );
-  bw_oik_lazy_add_shortcodes();
+    oik_require("includes/oik-shortcodes.php");
+    bw_oik_lazy_add_shortcodes();
 }
 
 /** 
@@ -419,6 +419,7 @@ function bw_oik_add_shortcodes() {
  * @return string unchanged $content
  */  
 function oik_do_shortcode( $content ) {
+
 	if ( false === strpos( $content, '[' ) ) {
 		// no need to do anything yet!
 	} else {
@@ -432,7 +433,7 @@ function oik_do_shortcode( $content ) {
        *
        * Plugins may choose to defer shortcode registration until this action is invoked.
        */
-      do_action( "oik_add_shortcodes" );
+       do_action( "oik_add_shortcodes" );
     }  
     $oik_do_shortcode++;
   }  

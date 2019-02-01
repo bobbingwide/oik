@@ -239,7 +239,7 @@ function bw_list_shortcodes( $atts = NULL ) {
  * Display a table of active shortcodes
  *
  * @param array $atts - shortcode parameters
- * @return results of the shortcode
+ * @return string results of the shortcode
  * @uses bw_list_shortcodes()
  */
 function bw_codes( $atts = NULL ) {

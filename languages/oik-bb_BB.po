@@ -1,16 +1,16 @@
-# Copyright (C) 2018 oik
+# Copyright (C) 2019 oik
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.2.8\n"
+"Project-Id-Version: oik 3.2.9\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2018-12-05 18:05:00+00:00\n"
+"POT-Creation-Date: 2019-02-01 10:30:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 #: admin/class-bw-list-table.php:153
@@ -1892,7 +1892,7 @@ msgstr "CSS calss nmaes"
 
 
 #: libs/oik-sc-help.php:316 libs/oik-sc-help.php:590
-#: shortcodes/oik-contact-form.php:296 shortcodes/oik-galleries.php:35
+#: shortcodes/oik-contact-form.php:316 shortcodes/oik-galleries.php:35
 #: shortcodes/oik-link.php:324
 msgid "id"
 msgstr "Id"
@@ -2070,7 +2070,7 @@ msgstr "Tihs Is A cpaiton"
 
 
 #: libs/oik-sc-help.php:389 shortcodes/oik-blockquote.php:30
-#: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:297
+#: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:317
 #: shortcodes/oik-countdown.php:97 shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325 shortcodes/oik-paypal.php:258
 #: shortcodes/oik-trace.php:32 shortcodes/oik-wtf.php:74
@@ -2483,12 +2483,12 @@ msgid "missing post processing function: %1$s"
 msgstr "msiisng psot porecssnig fnutcoin: %1$s"
 
 
-#: oik.php:233
+#: oik.php:234
 msgid "oik custom image link URL"
 msgstr "OIk csuotm iamge lnik URL"
 
 
-#: oik.php:291
+#: oik.php:292
 msgid "Howdy, %s"
 msgstr "Hwody, %s"
 
@@ -2626,17 +2626,17 @@ msgid "Visit the website: "
 msgstr "Vsiit thE wbeiste: "
 
 
-#: shortcodes/oik-bob-bing-wide.php:209
+#: shortcodes/oik-bob-bing-wide.php:211
 msgid "Spells out the %1$s backronym"
 msgstr "Seplls OUt thE %1$s bcarknoym"
 
 
-#: shortcodes/oik-bob-bing-wide.php:211
+#: shortcodes/oik-bob-bing-wide.php:213
 msgid "Expand to the logo for oik"
 msgstr "Epxnad tO thE lgoo fOr OIk"
 
 
-#: shortcodes/oik-bob-bing-wide.php:219 shortcodes/oik-codes.php:673
+#: shortcodes/oik-bob-bing-wide.php:221 shortcodes/oik-codes.php:673
 #: shortcodes/oik-geo.php:66
 msgid "e.g."
 msgstr "E.g."
@@ -2925,68 +2925,68 @@ msgid "Message"
 msgstr "Mseasge"
 
 
-#: shortcodes/oik-contact-form.php:226
+#: shortcodes/oik-contact-form.php:246
 msgid "Thank you for your submission."
 msgstr "Tahnk yOU fOr yuor sbuimssoin."
 
 
-#: shortcodes/oik-contact-form.php:228
+#: shortcodes/oik-contact-form.php:248
 msgid "Thank you for your submission. Something went wrong. Please try again."
 msgstr "Tahnk yOU fOr yuor sbuimssoin. Smoteihng wnet worng. Pelsae try aagin."
 
 
-#: shortcodes/oik-contact-form.php:231
+#: shortcodes/oik-contact-form.php:251
 msgid "We would like to thank you for your submission."
 msgstr "WE wuold lkie tO tahnk yOU fOr yuor sbuimssoin."
 
 
-#: shortcodes/oik-contact-form.php:275
+#: shortcodes/oik-contact-form.php:295
 msgid "Invalid. Please correct and retry."
 msgstr "Ivnlaid. Pelsae croerct And rtery."
 
 
-#: shortcodes/oik-contact-form.php:289
+#: shortcodes/oik-contact-form.php:309
 msgid "Display a contact form for the specific user"
 msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
 
-#: shortcodes/oik-contact-form.php:296 shortcodes/oik-contact-form.php:298
+#: shortcodes/oik-contact-form.php:316 shortcodes/oik-contact-form.php:318
 #: shortcodes/oik-paypal.php:254
 msgid "email"
 msgstr "eamil"
 
 
-#: shortcodes/oik-contact-form.php:296
+#: shortcodes/oik-contact-form.php:316
 msgid "slug"
 msgstr "sulg"
 
 
-#: shortcodes/oik-contact-form.php:296
+#: shortcodes/oik-contact-form.php:316
 msgid "login"
 msgstr "lgoin"
 
 
-#: shortcodes/oik-contact-form.php:296
+#: shortcodes/oik-contact-form.php:316
 msgid "Value to identify the user"
 msgstr "Vlaue tO iedtnfiy thE uesr"
 
 
-#: shortcodes/oik-contact-form.php:297
+#: shortcodes/oik-contact-form.php:317
 msgid "Text for submit button"
 msgstr "Txet fOr sbuimt btuotn"
 
 
-#: shortcodes/oik-contact-form.php:298
+#: shortcodes/oik-contact-form.php:318
 msgid "Email address for submission"
 msgstr "Eamil adderss fOr sbuimssoin"
 
 
-#: shortcodes/oik-contact-form.php:311
+#: shortcodes/oik-contact-form.php:331
 msgid "Display a contact form for user: %1$s"
 msgstr "Dsilpay A cnoatct from fOr uesr: %1$s"
 
 
-#: shortcodes/oik-contact-form.php:321
+#: shortcodes/oik-contact-form.php:341
 msgid ""
 "Note: If the form is submitted from Shortcode help then two emails would be "
 "sent."
@@ -2995,7 +2995,7 @@ msgstr ""
 "snet."
 
 
-#: shortcodes/oik-contact-form.php:322
+#: shortcodes/oik-contact-form.php:342
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "SO thE nroaml sinppet cdoe Is nOt ivnkoed In tihs csae."
 
@@ -3545,17 +3545,17 @@ msgid "%1$s to %2$s of %3$s"
 msgstr "%1$s tO %2$s Of %3$s"
 
 
-#: shortcodes/oik-navi.php:332
+#: shortcodes/oik-navi.php:336
 msgid "Simple paginated list"
 msgstr "Smilpe pganitaed lsit"
 
 
-#: shortcodes/oik-navi.php:342
+#: shortcodes/oik-navi.php:346
 msgid "integer"
 msgstr "itngeer"
 
 
-#: shortcodes/oik-navi.php:342
+#: shortcodes/oik-navi.php:346
 msgid "Number of posts per page. Default from Reading Settings."
 msgstr "Nmuebr Of psots pEr pgae. Dfeualt form Raeidng Steitgns."
 
