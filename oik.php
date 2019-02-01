@@ -69,6 +69,7 @@ function oik_plugin_file_loaded() {
     add_action( 'admin_enqueue_scripts', 'add_thickbox' );
   }
   add_action( 'init', 'oik_main_init', 20 );
+  add_action( 'rest_api_init', 'oik_rest_api_init', 20 );
     
   add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
   add_filter( "attachment_fields_to_save", "oik_attachment_fields_to_save", null, 2 );
@@ -442,6 +443,59 @@ function oik_oik_sc__help( $help, $shortcode ) {
 	oik_require( "includes/oik-sc-help.php" );
 	$help = oik_lazy_sc__help( $help, $shortcode );
 	return $help;
+}
+
+
+/**
+ * Implements 'rest_api_init'
+ *
+ * Disables the_content processing to save time when the request doesn't need it.
+ *
+ */
+function oik_rest_api_init() {
+    $context = bw_array_get( $_REQUEST, 'context', null );
+    if ( $context === 'edit') {
+        remove_all_filters("the_content");
+    }
+
+}
+
+function oik_is_rest() {
+    $is_rest = defined( 'REST_REQUEST' ) && REST_REQUEST;
+    return $is_rest;
+}
+
+function oik_is_block_editor() {
+	$is_block_editor = false;
+	if ( function_exists( "get_current_screen" ) ) {
+		$current_screen = get_current_screen();
+		bw_trace2( $current_screen, "current_screen" );
+		$is_block_editor = $current_screen && $current_screen->is_block_editor();
+	} else {
+		bw_backtrace();
+		bw_trace2("get_current_screen", "function does not exist", null, BW_TRACE_DEBUG);
+	}
+	return $is_block_editor;
+}
+
+function oik_is_block_renderer( $renderer=null ) {
+	static $is_block_renderer = false;
+	if ( $renderer !== null  ) {
+		$is_block_renderer = $renderer;
+	}
+	return $is_block_renderer;
+}
+
+function oik_is_shortcode_expansion_necessary() {
+	$shortcode_expansion_necessary = true;
+	if ( oik_is_rest() ) {
+		if ( oik_is_block_renderer() ) {
+			// We need to do this
+		} else {
+			$shortcode_expansion_necessary = false;
+		}
+	}
+	return $shortcode_expansion_necessary;
 }
 	
 /**

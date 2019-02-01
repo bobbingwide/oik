@@ -182,7 +182,9 @@ function bw_wp( $suffix=false ) {
  */
 function bw_editcss( $atts=null ) {
   $theme = bw_get_theme();
-  oik_custom_css( $theme );
+  if ( function_exists( "oik_custom_css") ) {
+	  oik_custom_css( $theme );
+  }
   return( bw_ret());
 }
 

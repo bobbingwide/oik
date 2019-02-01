@@ -287,6 +287,10 @@ function bw_navi_start_from_atts( $atts ) {
  * @return string - generated HTML
  */
 function bw_navi( $atts=null, $content=null, $tag="bw_navi" ) {
+    if ( oik_is_rest() ) {
+        return null;
+    }
+    oik_require( "includes/oik-shortcodes.php");
 	bw_push();
 	$posts_per_page = bw_array_get( $atts, "posts_per_page", null );
 	if ( !$posts_per_page ) {
