@@ -45,6 +45,7 @@ class Tests_shortcodes_oik_paypal extends BW_UnitTestCase {
 	 */ 
 	function test_bw_pp_shortcodes() {  
 		$atts= null;
+		bw_update_option( "paypal-email", "herb@bobbingwide.com" );
 		$html = bw_pp_shortcodes( $atts );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
@@ -57,6 +58,7 @@ class Tests_shortcodes_oik_paypal extends BW_UnitTestCase {
 	 */ 
 	function test_bw_pp_shortcodes_issue_101() {  
 		$atts= array( "type" => "pay" );
+		bw_update_option( "paypal-email", "herb@bobbingwide.com" );
 		$html = bw_pp_shortcodes( $atts );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
