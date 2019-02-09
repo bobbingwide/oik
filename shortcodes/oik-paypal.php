@@ -3,7 +3,7 @@ if ( !defined( 'OIK_PAYPAL_SHORTCODES_INCLUDED' ) ) {
 define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2019 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -96,7 +96,7 @@ function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
   oik_require( "bobbforms.inc" );
   $bw_paypal_email = bw_array_get( $atts, "email", null );
 	if ( !$bw_paypal_email ) {
-		$bw_paypay_email = bw_get_option( "paypal-email" );
+		$bw_paypal_email = bw_get_option( "paypal-email" );
 	}
   $atts['location'] = bw_array_get( $atts, "location", null );
 	if ( !$atts['location'] ) {
