@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 4.9.8 
-Tested up to: 5.0.2
-Stable tag: 3.2.9
+Tested up to: 5.0.3
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Likely-yes
@@ -91,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.3.0 =
+Upgrade for a fix to the [paypal] shortcode. 
+
 = 3.2.9 = 
 Upgrade for improved nested shortcode expansion in blocks.
 
@@ -445,6 +448,16 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.3.0 = 
+* Fixed: Fix $bw_email_paypay typo. Leave the tests to later, [github bobbingwide oik issues 123]
+* Changed: Update tests to cater for Genesis-OIK v1.1.1 replacing v1.0.8
+* Changed: Wrapped some more LSB's in a span. Belt and braces., [github bobbingwide oik issue 115]
+* Changed: Attempt to improve performance for Parent Page pull down for hierarchical post types, [github bobbingwide oik issue 115]
+* Changed: Update capture_scripts for WordPress 5.0 but not Gutenberg., [github bobbingwide oik issues 97]
+* Tested: With WordPress 5.0.3
+* Tested: With Gutenberg 4.9.0
+* Tested: With PHP 7.2
+
 = 3.2.9 = 
 * Fixed: Prevent nested shortcode expansion of [bw_code shortcode] as [shortcode], [github bobbingwide oik issues 115]
 * Changed: Add bw_basic_spam_check logic for [bw_code bw_contact_form], [github bobbingwide oik issues 116]

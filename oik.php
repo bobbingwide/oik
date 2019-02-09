@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 3.2.9
+Version: 3.3.0
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -485,6 +485,22 @@ function oik_is_block_renderer( $renderer=null ) {
 	}
 	return $is_block_renderer;
 }
+
+
+/**
+ * Determines if shortcode expansion is necessary
+ *
+ * @TODO This is prototype code. Is it necessary?
+ *
+ * REST API | block renderer | Necessary?
+ * -------- | -------------- | ----------
+ * N        | n/a            | true
+ * Y        | false          | false - don't expand shortcodes
+ * Y        | true           | true - expand shortcodes when the block's being rendered
+
+ *
+ * @return bool
+ */
 
 function oik_is_shortcode_expansion_necessary() {
 	$shortcode_expansion_necessary = true;
