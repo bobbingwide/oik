@@ -238,7 +238,10 @@ div.bw_messages div.error { color: red; font-weight: bold; }
  * and also for the dummy theme called texticons which is used by [bw_dash] when the 
  * icon is not recognised as being in dashicons or genericons but is implemented as a 'text icon'.
  */
-a span.bw_follow_me { text-decoration: none; width: auto; height: auto; vertical-align: 16%;  } 
+a span.bw_follow_me { text-decoration: none; width: auto; height: auto; vertical-align: 16%;  }
+a span.bw_follow_me.genericon,
+a span.bw_follow_me.dashicons {
+    vertical-align: top;}
 .bw_follow_me { background-color: #222; padding: 4px; margin-right: 4px;  border-radius: 10% 10%; } 
 .bw_code.bw_follow_me { background-color: transparent; }
 a span.dashicons-linkedin span { vertical-align: text-bottom; font-family: 'Myriad Pro',Futura,Arial,sans-serif; font-weight: bold; padding: 0px 5px 10px; 5px; }
@@ -296,8 +299,22 @@ a.bw_follow_new {
 	line-height: 0.7em;
 	margin: 0 4px 0 1px; 
 	box-sizing: border-box;
-	padding-right: 0px;
+	padding: 0px;
  }
+
+
+/* Styling for bw_user - which is actually delivered by oik-user...
+
+ */
+div.bw_user-fields-0,
+div.bw_user-fields-1,
+div.bw_user-fields-2 {
+    display: block;
+    float: left;
+    position: relative;
+}
+
+
  
 
 
