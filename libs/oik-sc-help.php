@@ -48,6 +48,9 @@ function bw_form_sc_get_first_parm_name( $parameter ) {
  */
 function bw_form_sc_parm_help( $parameter, $shortcode ) {
 	$parm = $parameter;
+	if ( function_exists( "oik_shortcodes_define_shortcode_parameter_server" ) ) {
+		oik_shortcodes_define_shortcode_parameter_server();
+	}
 	if ( !function_exists( "oik_get_plugins_server" ) ) {
 		oik_require_lib( "oik_plugins" );
 	} 
