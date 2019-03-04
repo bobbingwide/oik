@@ -428,7 +428,7 @@ $expected[] = '</form>';
 	
 	
 	/**
-	 * The oik themes page expects genesis-oik to be version 1.1.1
+	 * The oik themes page expects genesis-oik to be version 1.2.0
 	 * We need to ensure this version of the theme is installed.
 	 *
 	 * @TODO - change test_oik_themes_do_page to work with any installed theme
@@ -438,7 +438,7 @@ $expected[] = '</form>';
 		$theme_object = bw_get_theme_name( "genesis-oik" );
 		$this->assertNotNull( $theme_object );
 		$version = bw_get_theme_version( "genesis-oik", $theme_object );
-		$this->assertEquals( "1.1.1", $version );
+		$this->assertEquals( "1.2.0", $version );
 	}
 
 	/**

@@ -12,7 +12,10 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	
 		parent::setUp();
 		oik_require( "admin/oik-admin.php" );	 
-		oik_require( "includes/oik-sc-help.php" ); 														
+		oik_require( "includes/oik-sc-help.php" );
+		if ( function_exists( "oik_shortcodes_define_shortcode_parameter_server" ) ) {
+			oik_shortcodes_define_shortcode_parameter_server();
+		}
 		$this->_url = oik_get_plugins_server();
 		oik_require_lib( "oik_plugins" );
 	}
