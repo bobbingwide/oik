@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2017
+<?php // (C) Copyright Bobbing Wide 2010-2019
 
 /**
  * Create a styled follow me button
@@ -187,13 +187,15 @@ function bw_follow_e( $atts=null ) {
 /**
  * Implement [bw_follow_me] shortcode
  *
- * Produce a Follow me button for each of these networks:  Twitter, Facebook, LinkedIn, GooglePlus, YouTube, Flickr, Pinterest, Instagram, GitHub and WordPress
+ * Produce a Follow me button for each of these networks:
+ * Twitter, Facebook, LinkedIn, YouTube, Flickr, Pinterest, Instagram, GitHub and WordPress
+ * or a selected set identified by network= parameter
  * 
  * @param array $atts - array of parameters
  * @return string - a set of "Follow me" links for the networks.
  */
 function bw_follow_me( $atts=null ) {
-	$networks = array( 'Twitter', 'Facebook', 'LinkedIn', 'GooglePlus', 'YouTube', 'Flickr', 'Pinterest', 'Instagram', 'GitHub', 'WordPress' );
+	$networks = bw_follow_me_networks( $atts );
 	$atts['me'] = bw_get_me( $atts ); 
 	foreach ( $networks as $network ) {
 		$atts['network'] = $network;
@@ -202,6 +204,56 @@ function bw_follow_me( $atts=null ) {
 	return( bw_ret());
 }
 
+/**
+ * Returns the array of networks for the follow me links
+ * @param $atts
+ * @return array
+ */
+
+function bw_follow_me_networks( $atts ) {
+	$all_networks = bw_follow_me_list_networks();
+	$network = bw_array_get( $atts, 'network', null);
+	$network = trim( $network );
+	$lc_network = strtolower( $network );
+	$lc_networks = explode( ',', $lc_network );
+	if ( $network && count( $lc_networks )) {
+		$networks = [];
+		foreach ( $lc_networks as $lc_network ) {
+			$network = bw_array_get( $all_networks, $lc_network, null );
+			if ( $network ) {
+				$networks[] = $network;
+			}
+		}
+
+	} else {
+		$networks = $all_networks;
+	}
+	return $networks;
+}
+
+/**
+ * Returns the default set of networks, which no longer includes GooglePlus
+ * @return array
+ */
+function bw_follow_me_list_networks() {
+	$lc_networks = [];
+	$networks = array(
+		'Twitter',
+		'Facebook',
+		'LinkedIn',
+		'YouTube',
+		'Flickr',
+		'Pinterest',
+		'Instagram',
+		'GitHub',
+		'WordPress'
+	);
+	foreach ( $networks as $network ) {
+		$lc_network = strtolower( $network );
+		$lc_networks[ $lc_network ] = $network;
+	}
+	return $lc_networks;
+}
 
 /**
  * Create the link for the selected theme= parameter
@@ -274,7 +326,6 @@ function bw_follow_hash_at( $me ) {
 	}	
 	return $extra;
 }
-	
 
 /**
  * Create a follow me link using genericons
@@ -361,9 +412,13 @@ function bw_follow_link_( $social, $lc_social, $social_network, $me, $class ) {
  * Syntax for [bw_follow_me] shortcode
  */
 function bw_follow_me__syntax( $shortcode="bw_follow_me" ) {
+
+	$networks = bw_follow_me_list_networks();
+	$networks = implode( ',', $networks );
   $syntax = array( "theme" => BW_::bw_skv( null, "gener|dash", __( "Icon font selection", "oik" ) )
                  , "class" => BW_::bw_skv( null, "<i>" . __( "class names", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
-                 , "alt" => BW_::bw_skv( null, "0|1", __( "Use alternative value", "oik" ) )
+                 , "alt" => BW_::bw_skv( null, "0", __( "Use option values", "oik" ) )
+	            , "network" => BW_::bw_skv( $networks, "<i>" .  __( "network1,network2", "oik") . "</i>", __("CSV list of network names", "oik" ) )
                  );
   return( $syntax );
 }                 

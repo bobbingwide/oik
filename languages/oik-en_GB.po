@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.2.9\n"
+"Project-Id-Version: oik 3.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2019-02-01 10:30:26+00:00\n"
+"POT-Creation-Date: 2019-03-05 10:21:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1239,7 +1239,7 @@ msgstr "Force trace off"
 msgid "Force trace on"
 msgstr "Force trace on"
 
-#: includes/oik-sc-help.php:102 libs/oik-sc-help.php:370
+#: includes/oik-sc-help.php:102 libs/oik-sc-help.php:373
 msgid "Display the caption for an image. Standard WordPress shortcode"
 msgstr "Display the caption for an image. Standard WordPress shortcode"
 
@@ -1255,7 +1255,7 @@ msgstr "Display a collage (Artisteer theme)"
 msgid "Show a valid CSS icon (Artisteer theme)"
 msgstr "Show a valid CSS icon (Artisteer theme)"
 
-#: includes/oik-sc-help.php:108 libs/oik-sc-help.php:443
+#: includes/oik-sc-help.php:108 libs/oik-sc-help.php:446
 msgid "Embed media"
 msgstr "Embed media"
 
@@ -1263,7 +1263,7 @@ msgstr "Embed media"
 msgid "End a tag started with [stag]"
 msgstr "End a tag started with [stag]"
 
-#: includes/oik-sc-help.php:110 libs/oik-sc-help.php:402
+#: includes/oik-sc-help.php:110 libs/oik-sc-help.php:405
 msgid "Display the attached images in a gallery"
 msgstr "Display the attached images in a gallery"
 
@@ -1352,7 +1352,7 @@ msgid "end a %1$s with %2$s"
 msgstr "end a %1$s with %2$s"
 
 #: includes/oik-sc-help.php:183 includes/oik-sc-help.php:192
-#: libs/oik-sc-help.php:428 libs/oik-sc-help.php:429 libs/oik-sc-help.php:430
+#: libs/oik-sc-help.php:431 libs/oik-sc-help.php:432 libs/oik-sc-help.php:433
 #: shortcodes/oik-blocks.php:128 shortcodes/oik-email.php:145
 #: shortcodes/oik-email.php:158 shortcodes/oik-phone.php:220
 #: shortcodes/oik-phone.php:244 shortcodes/oik-phone.php:278
@@ -1488,173 +1488,173 @@ msgstr "Plugin %1$s may not be fully functional."
 msgid "Humans leave this blank"
 msgstr "Humans leave this blank"
 
-#: libs/oik-sc-help.php:275
+#: libs/oik-sc-help.php:278
 msgid "?"
 msgstr "?"
 
-#: libs/oik-sc-help.php:306
+#: libs/oik-sc-help.php:309
 msgid "oik generated example."
 msgstr "oik generated example."
 
-#: libs/oik-sc-help.php:315 shortcodes/oik-blockquote.php:31
-#: shortcodes/oik-cite.php:20 shortcodes/oik-follow.php:365
+#: libs/oik-sc-help.php:318 shortcodes/oik-blockquote.php:31
+#: shortcodes/oik-cite.php:20 shortcodes/oik-follow.php:419
 #: shortcodes/oik-phone.php:221 shortcodes/oik-phone.php:291
 #: shortcodes/oik-phone.php:304
 msgid "class names"
 msgstr "class names"
 
-#: libs/oik-sc-help.php:315 shortcodes/oik-blockquote.php:31
+#: libs/oik-sc-help.php:318 shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20 shortcodes/oik-cycle.php:127
-#: shortcodes/oik-follow.php:365 shortcodes/oik-phone.php:221
+#: shortcodes/oik-follow.php:419 shortcodes/oik-phone.php:221
 msgid "CSS class names"
 msgstr "CSS class names"
 
-#: libs/oik-sc-help.php:316 libs/oik-sc-help.php:590
+#: libs/oik-sc-help.php:319 libs/oik-sc-help.php:593
 #: shortcodes/oik-contact-form.php:316 shortcodes/oik-galleries.php:35
 #: shortcodes/oik-link.php:324
 msgid "id"
 msgstr "id"
 
-#: libs/oik-sc-help.php:316
+#: libs/oik-sc-help.php:319
 msgid "unique identifier"
 msgstr "unique identifier"
 
-#: libs/oik-sc-help.php:338 libs/oik-sc-help.php:339 libs/oik-sc-help.php:354
-#: libs/oik-sc-help.php:392 libs/oik-sc-help.php:431 libs/oik-sc-help.php:475
-#: libs/oik-sc-help.php:476 libs/oik-sc-help.php:507 libs/oik-sc-help.php:508
+#: libs/oik-sc-help.php:341 libs/oik-sc-help.php:342 libs/oik-sc-help.php:357
+#: libs/oik-sc-help.php:395 libs/oik-sc-help.php:434 libs/oik-sc-help.php:478
+#: libs/oik-sc-help.php:479 libs/oik-sc-help.php:510 libs/oik-sc-help.php:511
 #: shortcodes/oik-galleries.php:36 shortcodes/oik-iframe.php:50
 #: shortcodes/oik-iframe.php:51 shortcodes/oik-list.php:178
 #: shortcodes/oik-posts.php:59
 msgid "numeric"
 msgstr "numeric"
 
-#: libs/oik-sc-help.php:338 shortcodes/oik-posts.php:59
+#: libs/oik-sc-help.php:341 shortcodes/oik-posts.php:59
 msgid "number to return"
 msgstr "number to return"
 
-#: libs/oik-sc-help.php:339
+#: libs/oik-sc-help.php:342
 msgid "offset from which to start"
 msgstr "offset from which to start"
 
-#: libs/oik-sc-help.php:340
+#: libs/oik-sc-help.php:343
 msgid "category ID"
 msgstr "category ID"
 
-#: libs/oik-sc-help.php:340
+#: libs/oik-sc-help.php:343
 msgid "numeric ID of the post category"
 msgstr "numeric ID of the post category"
 
-#: libs/oik-sc-help.php:341 libs/oik-sc-help.php:342
+#: libs/oik-sc-help.php:344 libs/oik-sc-help.php:345
 msgid "category-slug"
 msgstr "category-slug"
 
-#: libs/oik-sc-help.php:341
+#: libs/oik-sc-help.php:344
 msgid "category slugs (comma separated)"
 msgstr "category slugs (comma separated)"
 
-#: libs/oik-sc-help.php:342
+#: libs/oik-sc-help.php:345
 msgid "custom category slug"
 msgstr "custom category slug"
 
-#: libs/oik-sc-help.php:343 shortcodes/oik-attachments.php:349
+#: libs/oik-sc-help.php:346 shortcodes/oik-attachments.php:349
 #: shortcodes/oik-thumbs.php:88
 msgid "Sort sequence"
 msgstr "Sort sequence"
 
-#: libs/oik-sc-help.php:344 shortcodes/oik-attachments.php:350
+#: libs/oik-sc-help.php:347 shortcodes/oik-attachments.php:350
 msgid "Sort order."
 msgstr "Sort order."
 
-#: libs/oik-sc-help.php:345 libs/oik-sc-help.php:346 libs/oik-sc-help.php:353
-#: libs/oik-sc-help.php:433 libs/oik-sc-help.php:434 libs/oik-sc-help.php:589
-#: libs/oik-sc-help.php:594 libs/oik-sc-help.php:595
+#: libs/oik-sc-help.php:348 libs/oik-sc-help.php:349 libs/oik-sc-help.php:356
+#: libs/oik-sc-help.php:436 libs/oik-sc-help.php:437 libs/oik-sc-help.php:592
+#: libs/oik-sc-help.php:597 libs/oik-sc-help.php:598
 msgid "id1,id2"
 msgstr "id1,id2"
 
-#: libs/oik-sc-help.php:345 libs/oik-sc-help.php:433 libs/oik-sc-help.php:594
+#: libs/oik-sc-help.php:348 libs/oik-sc-help.php:436 libs/oik-sc-help.php:597
 msgid "IDs to include"
 msgstr "IDs to include"
 
-#: libs/oik-sc-help.php:346 libs/oik-sc-help.php:434 libs/oik-sc-help.php:595
+#: libs/oik-sc-help.php:349 libs/oik-sc-help.php:437 libs/oik-sc-help.php:598
 msgid "IDs to exclude"
 msgstr "IDs to exclude"
 
-#: libs/oik-sc-help.php:347
+#: libs/oik-sc-help.php:350
 msgid "meta key"
 msgstr "meta key"
 
-#: libs/oik-sc-help.php:347
+#: libs/oik-sc-help.php:350
 msgid "post metadata key"
 msgstr "post metadata key"
 
-#: libs/oik-sc-help.php:348
+#: libs/oik-sc-help.php:351
 msgid "meta value"
 msgstr "meta value"
 
-#: libs/oik-sc-help.php:348
+#: libs/oik-sc-help.php:351
 msgid "post metadata value"
 msgstr "post metadata value"
 
-#: libs/oik-sc-help.php:349
+#: libs/oik-sc-help.php:352
 msgid "custom post type"
 msgstr "custom post type"
 
-#: libs/oik-sc-help.php:349
+#: libs/oik-sc-help.php:352
 msgid "Content type to display"
 msgstr "Content type to display"
 
-#: libs/oik-sc-help.php:350
+#: libs/oik-sc-help.php:353
 msgid "mime type"
 msgstr "mime type"
 
-#: libs/oik-sc-help.php:350
+#: libs/oik-sc-help.php:353
 msgid "Attached media MIME type"
 msgstr "Attached media MIME type"
 
-#: libs/oik-sc-help.php:351 libs/oik-sc-help.php:427 oik-ids.php:34
+#: libs/oik-sc-help.php:354 libs/oik-sc-help.php:430 oik-ids.php:34
 #: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:324
 #: shortcodes/oik-login.php:69 shortcodes/oik-parent.php:84
 msgid "ID"
 msgstr "ID"
 
-#: libs/oik-sc-help.php:351
+#: libs/oik-sc-help.php:354
 msgid "Parent ID to use if not current post"
 msgstr "Parent ID to use if not current post"
 
-#: libs/oik-sc-help.php:352 shortcodes/oik-count.php:49
+#: libs/oik-sc-help.php:355 shortcodes/oik-count.php:49
 msgid "Post status"
 msgstr "Post status"
 
-#: libs/oik-sc-help.php:353
+#: libs/oik-sc-help.php:356
 msgid "IDs of posts to display"
 msgstr "IDs of posts to display"
 
-#: libs/oik-sc-help.php:354
+#: libs/oik-sc-help.php:357
 msgid "Number of posts per page. Use '.' for current value %1$s"
 msgstr "Number of posts per page. Use '.' for current value %1$s"
 
-#: libs/oik-sc-help.php:364
+#: libs/oik-sc-help.php:367
 msgid "nnn"
 msgstr "nnn"
 
-#: libs/oik-sc-help.php:364
+#: libs/oik-sc-help.php:367
 msgid "wxh"
 msgstr "wxh"
 
-#: libs/oik-sc-help.php:364 shortcodes/oik-attachments.php:359
+#: libs/oik-sc-help.php:367 shortcodes/oik-attachments.php:359
 #: shortcodes/oik-list.php:179
 msgid "image size"
 msgstr "image size"
 
-#: libs/oik-sc-help.php:379
+#: libs/oik-sc-help.php:382
 msgid "e.g.:"
 msgstr "e.g.:"
 
-#: libs/oik-sc-help.php:380
+#: libs/oik-sc-help.php:383
 msgid "This is a caption"
 msgstr "This is a caption"
 
-#: libs/oik-sc-help.php:389 shortcodes/oik-blockquote.php:30
+#: libs/oik-sc-help.php:392 shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:317
 #: shortcodes/oik-countdown.php:97 shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325 shortcodes/oik-paypal.php:258
@@ -1662,78 +1662,78 @@ msgstr "This is a caption"
 msgid "text"
 msgstr "text"
 
-#: libs/oik-sc-help.php:389
+#: libs/oik-sc-help.php:392
 msgid "value for CSS id= keyword"
 msgstr "value for CSS id= keyword"
 
-#: libs/oik-sc-help.php:390
+#: libs/oik-sc-help.php:393
 msgid "classname"
 msgstr "classname"
 
-#: libs/oik-sc-help.php:390
+#: libs/oik-sc-help.php:393
 msgid "custom class"
 msgstr "custom class"
 
-#: libs/oik-sc-help.php:391
+#: libs/oik-sc-help.php:394
 msgid "CSS alignment class"
 msgstr "CSS alignment class"
 
-#: libs/oik-sc-help.php:392
+#: libs/oik-sc-help.php:395
 msgid "width in pixels (Note: 10 is added to this number)"
 msgstr "width in pixels (Note: 10 is added to this number)"
 
-#: libs/oik-sc-help.php:425
+#: libs/oik-sc-help.php:428
 msgid "Order"
 msgstr "Order"
 
-#: libs/oik-sc-help.php:426 libs/oik-sc-help.php:593
+#: libs/oik-sc-help.php:429 libs/oik-sc-help.php:596
 msgid "Order by field"
 msgstr "Order by field"
 
-#: libs/oik-sc-help.php:427
+#: libs/oik-sc-help.php:430
 msgid "Post ID. Default: Current post ID"
 msgstr "Post ID. Default: Current post ID"
 
-#: libs/oik-sc-help.php:428
+#: libs/oik-sc-help.php:431
 msgid "Item tag"
 msgstr "Item tag"
 
-#: libs/oik-sc-help.php:429
+#: libs/oik-sc-help.php:432
 msgid "Icon tag"
 msgstr "Icon tag"
 
-#: libs/oik-sc-help.php:430
+#: libs/oik-sc-help.php:433
 msgid "Caption tag"
 msgstr "Caption tag"
 
-#: libs/oik-sc-help.php:431
+#: libs/oik-sc-help.php:434
 msgid "Columns"
 msgstr "Columns"
 
-#: libs/oik-sc-help.php:432
+#: libs/oik-sc-help.php:435
 msgid "Thumbnail image size"
 msgstr "Thumbnail image size"
 
-#: libs/oik-sc-help.php:459
+#: libs/oik-sc-help.php:462
 msgid "Embed example"
 msgstr "Embed example"
 
-#: libs/oik-sc-help.php:462
+#: libs/oik-sc-help.php:465
 msgid ""
 "Note: It's not possible to produce a proper working example due to the way "
 "the embed shortcode is handled."
 msgstr "Note: It's not possible to produce a proper working example due to the way the embed shortcode is handled."
 
-#: libs/oik-sc-help.php:475 libs/oik-sc-help.php:508
+#: libs/oik-sc-help.php:478 libs/oik-sc-help.php:511
 msgid "Required width"
 msgstr "Required width"
 
-#: libs/oik-sc-help.php:476 libs/oik-sc-help.php:507
+#: libs/oik-sc-help.php:479 libs/oik-sc-help.php:510
 msgid "Required height"
 msgstr "Required height"
 
-#: libs/oik-sc-help.php:477 libs/oik-sc-help.php:488 libs/oik-sc-help.php:502
-#: libs/oik-sc-help.php:503 shortcodes/oik-button.php:48
+#: libs/oik-sc-help.php:480 libs/oik-sc-help.php:491 libs/oik-sc-help.php:505
+#: libs/oik-sc-help.php:506 shortcodes/oik-button.php:48
 #: shortcodes/oik-button.php:107 shortcodes/oik-countdown.php:98
 #: shortcodes/oik-iframe.php:48 shortcodes/oik-iframe.php:49
 #: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:324
@@ -1742,67 +1742,67 @@ msgstr "Required height"
 msgid "URL"
 msgstr "URL"
 
-#: libs/oik-sc-help.php:477
+#: libs/oik-sc-help.php:480
 msgid "URL to embed, if not provided in shortcode content"
 msgstr "URL to embed, if not provided in shortcode content"
 
-#: libs/oik-sc-help.php:488 libs/oik-sc-help.php:502
+#: libs/oik-sc-help.php:491 libs/oik-sc-help.php:505
 msgid "If omitted uses first attachment"
 msgstr "If omitted uses first attachment"
 
-#: libs/oik-sc-help.php:489 libs/oik-sc-help.php:504
+#: libs/oik-sc-help.php:492 libs/oik-sc-help.php:507
 msgid "Allow looping of media"
 msgstr "Allow looping of media"
 
-#: libs/oik-sc-help.php:490 libs/oik-sc-help.php:505
+#: libs/oik-sc-help.php:493 libs/oik-sc-help.php:508
 msgid "Causes media to autoplay"
 msgstr "Causes media to autoplay"
 
-#: libs/oik-sc-help.php:491 libs/oik-sc-help.php:506
+#: libs/oik-sc-help.php:494 libs/oik-sc-help.php:509
 msgid "How the audio should be loaded"
 msgstr "How the audio should be loaded"
 
-#: libs/oik-sc-help.php:503
+#: libs/oik-sc-help.php:506
 msgid "Placeholder image"
 msgstr "Placeholder image"
 
-#: libs/oik-sc-help.php:589
+#: libs/oik-sc-help.php:592
 msgid "IDs for the playlist"
 msgstr "IDs for the playlist"
 
-#: libs/oik-sc-help.php:590
+#: libs/oik-sc-help.php:593
 msgid "current post"
 msgstr "current post"
 
-#: libs/oik-sc-help.php:590
+#: libs/oik-sc-help.php:593
 msgid "Post from which the playlist is chosen"
 msgstr "Post from which the playlist is chosen"
 
-#: libs/oik-sc-help.php:591
+#: libs/oik-sc-help.php:594
 msgid "Content type"
 msgstr "Content type"
 
-#: libs/oik-sc-help.php:592
+#: libs/oik-sc-help.php:595
 msgid "Ordering"
 msgstr "Ordering"
 
-#: libs/oik-sc-help.php:596
+#: libs/oik-sc-help.php:599
 msgid "Playlist style"
 msgstr "Playlist style"
 
-#: libs/oik-sc-help.php:597
+#: libs/oik-sc-help.php:600
 msgid "Display track list?"
 msgstr "Display track list?"
 
-#: libs/oik-sc-help.php:598
+#: libs/oik-sc-help.php:601
 msgid "Display track numbers?"
 msgstr "Display track numbers?"
 
-#: libs/oik-sc-help.php:599
+#: libs/oik-sc-help.php:602
 msgid "Display images?"
 msgstr "Display images?"
 
-#: libs/oik-sc-help.php:600
+#: libs/oik-sc-help.php:603
 msgid "Display artists?"
 msgstr "Display artists?"
 
@@ -2312,8 +2312,8 @@ msgid "[bw_codes] - list shortcodes"
 msgstr "[bw_codes] - list shortcodes"
 
 #: shortcodes/oik-company.php:67 shortcodes/oik-email.php:134
-#: shortcodes/oik-follow.php:366 shortcodes/oik-geo.php:75
-#: shortcodes/oik-geo.php:84 shortcodes/oik-phone.php:218
+#: shortcodes/oik-geo.php:75 shortcodes/oik-geo.php:84
+#: shortcodes/oik-phone.php:218
 msgid "Use alternative value"
 msgstr "Use alternative value"
 
@@ -2534,14 +2534,26 @@ msgstr "field"
 msgid "oik options field to use"
 msgstr "oik options field to use"
 
-#: shortcodes/oik-follow.php:253 shortcodes/oik-follow.php:321
-#: shortcodes/oik-follow.php:354
+#: shortcodes/oik-follow.php:305 shortcodes/oik-follow.php:372
+#: shortcodes/oik-follow.php:405
 msgid "Follow %1$s on %2$s"
 msgstr "Follow %1$s on %2$s"
 
-#: shortcodes/oik-follow.php:364
+#: shortcodes/oik-follow.php:418
 msgid "Icon font selection"
 msgstr "Icon font selection"
+
+#: shortcodes/oik-follow.php:420
+msgid "Use option values"
+msgstr "Use option values"
+
+#: shortcodes/oik-follow.php:421
+msgid "network1,network2"
+msgstr "network1,network2"
+
+#: shortcodes/oik-follow.php:421
+msgid "CSV list of network names"
+msgstr "CSV list of network names"
 
 #: shortcodes/oik-galleries.php:28
 msgid "Display a NextGEN gallery"
