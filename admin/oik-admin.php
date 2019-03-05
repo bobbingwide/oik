@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2017
+<?php // (C) Copyright Bobbing Wide 2011-2019
 
 /**
  * oik admin functions not in the oik-admin library
@@ -631,16 +631,57 @@ function oik_extra_usage_notes() {
  * @return array - returns a sanitized array.
  */
 function oik_options_validate( $input ) {
-  $customCSS = bw_array_get( $input, 'customCSS', null );
-  if ( $customCSS ) {
-    $sanfile = sanitize_file_name( $customCSS );
-    // Should we check the sanitized file name with the original ?
-    bw_create_file( get_stylesheet_directory(), $sanfile, plugin_dir_path( __FILE__ ) . 'custom.css' );  
-  }
-  
-  $input = oik_set_latlng( $input ); 
-  
-  return $input;
+	$input = oik_draconian_validation( $input );
+	$customCSS = bw_array_get( $input, 'customCSS', null );
+	if ( $customCSS ) {
+		$sanfile = sanitize_file_name( $customCSS );
+        // Should we check the sanitized file name with the original ?
+        bw_create_file( get_stylesheet_directory(), $sanfile, plugin_dir_path( __FILE__ ) . 'custom.css' );
+    }
+    $input = oik_set_latlng( $input );
+	return $input;
+}
+
+/**
+ * Performs sanitization on all the input fields passed
+ *
+ * Note: Missing fields cannot be sanitized
+ * Extraneous fields will be ignored.
+ *
+ * @param array $input
+ * @return mixed*
+ */
+function oik_draconian_validation( $input ) {
+	bw_trace2( null, null, true, BW_TRACE_VERBOSE );
+	bw_backtrace();
+
+	foreach ( $input as $key => $value ) {
+		$input[ $key ] = oik_sanitize_key_value( $key, $value );
+	}
+	bw_trace2( $input, "input after", false, BW_TRACE_VERBOSE );
+	return $input;
+}
+
+function oik_list_validations() {
+	static $validations = null;
+	if ( null === $validations ) {
+		$validations = [];
+		$validations['email'] = "sanitize_email";
+		$validations['gmap_intro'] = "sanitize_textarea_field";
+		$validations['paypal-email'] = "sanitize_email";
+	}
+	return $validations;
+}
+
+function oik_sanitize_key_value( $key, $value ) {
+	$validations = oik_list_validations();
+	$validation = bw_array_get( $validations, $key, null );
+	if ( $validation && is_callable( $validation ) ) {
+		$new_value = call_user_func( $validation, $value );
+	} else {
+		$new_value = sanitize_text_field( $value );
+	}
+	return $new_value;
 }
 
 /**
