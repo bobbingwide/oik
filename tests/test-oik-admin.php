@@ -1,8 +1,9 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017-2019
+
 
 class Tests_oik_admin extends BW_UnitTestCase {
 
-	
+
 	/** 
 	 * set up logic
 	 * 
@@ -428,17 +429,20 @@ $expected[] = '</form>';
 	
 	
 	/**
-	 * The oik themes page expects genesis-oik to be version 1.2.0
+	 * The oik themes page expects genesis-oik to be version 1.2.1
 	 * We need to ensure this version of the theme is installed.
 	 *
-	 * @TODO - change test_oik_themes_do_page to work with any installed theme
 	 */
 	function test_bw_get_theme_version() {
 		//delete_transient( "theme_slugs" );
 		$theme_object = bw_get_theme_name( "genesis-oik" );
 		$this->assertNotNull( $theme_object );
 		$version = bw_get_theme_version( "genesis-oik", $theme_object );
-		$this->assertEquals( "1.2.0", $version );
+		$expected = $theme_object->Version;
+		$this->assertEquals( $expected, $version );
+
+		// Do we really need to update this value each time the theme is updated?
+		$this->assertEquals( "1.2.1", $version );
 	}
 
 	/**
@@ -467,6 +471,7 @@ $expected[] = '</form>';
 		$this->assertNotNull( $html );
 		$html = $this->replace_admin_url( $html );
 		$html = str_replace( oik_update::oik_get_themes_server(), "http://qw/oikcom", $html );
+		$html = $this->replace_theme_version( $html );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
@@ -876,6 +881,7 @@ $expected[] = '</form>';
 		$this->assertNotNull( $html );
 		$html = $this->replace_admin_url( $html );
 		$html = str_replace( oik_update::oik_get_themes_server(), "http://qw/oikcom", $html );
+	    $html = $this->replace_theme_version( $html );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
@@ -1244,6 +1250,17 @@ $expected[] = '</form>';
 	 */
 	function replace_site_url( $html ) {
 		$html = str_replace( site_url(), "http://qw/wordpress", $html ); 
+		return $html;
+	}
+
+	/**
+	 * Fiddles the themeversion to 1.2.0
+	 *
+	 */
+	function replace_theme_version( $html ) {
+		$theme_object = bw_get_theme_name( "genesis-oik" );
+		$theme_version = bw_get_theme_version( "genesis-oik", $theme_object );
+		$html = str_replace( $theme_version, "1.2.0", $html );
 		return $html;
 	}
 	
