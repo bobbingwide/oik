@@ -2,9 +2,9 @@
 Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
-Requires at least: 4.9.8 
-Tested up to: 5.0.3
-Stable tag: 3.3.0
+Requires at least: 4.9.8
+Tested up to: 5.1.0
+Stable tag: 3.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Likely-yes
@@ -91,6 +91,11 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.3.1 =
+Upgrade for improved sanitization of oik options. 
+Upgrade for improvements to [bw_follow_me], used by oik-blocks.
+Note: [bw_follow_me] will no longer display an icon for GooglePlus.
+
 = 3.3.0 =
 Upgrade for a fix to the [paypal] shortcode. 
 
@@ -448,6 +453,17 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.3.1 =
+* Changed: Implement sanitization for oik options input fields., [github bobbingwide oik issue 125]
+* Changed: Update [bw_follow_me] to accept multiple network names., [github bobbingwide oik issue 124]
+* Changed: No longer display GooglePlus sharing link, [github bobbingwide oik issue 122]
+* Changed: Styling improvements for follow_me and bw_user ( part of oik-css )
+* Fixed: Update tests for PayPal shortcodes.,[github bobbingwide oik issues 123]
+* Fixed: Only call oik_shortcodes_define_shortcode_parameter_server when available
+* Tested: With WordPress 5.1.0 and WordPress Multi Site
+* Tested: With PHP 7.2
+* Tested: With Gutenberg 5.1.1
+
 = 3.3.0 = 
 * Fixed: Fix $bw_email_paypay typo. Leave the tests to later, [github bobbingwide oik issues 123]
 * Changed: Update tests to cater for Genesis-OIK v1.1.1 replacing v1.0.8
@@ -1642,13 +1658,14 @@ Plugins which participate with oik shared libraries are:
 These plugins are not dependent upon oik:
 
 * [allow-reinstalls](https://wordpress.org/plugins/allow-reinstalls/) - Allow re-installation of plugins and themes by upload
-* [oik-weight-zone-shipping](https://wordpress.org/plugins/oik-weight-zone-shipping) - Weight Zone Shipping for WooCommerce 2.6+
+* [oik-weight-zone-shipping](https://wordpress.org/plugins/oik-weight-zone-shipping) - Weight Zone Shipping for WooCommerce 
 * [oik-weightcountry-shipping](https://wordpress.org/plugins/oik-weightcountry-shipping) - Weight/Country Shipping for WooCommerce
 
 
-More FREE and Premium plugins are available from [oik-plugins.com](http://www.oik-plugins.com/wordpress-plugins-from-oik-plugins/) including:
+More FREE and Premium plugins are available from [oik-plugins.com](https://www.oik-plugins.com/wordpress-plugins-from-oik-plugins/) including:
 
 * [diy-oik](https://www.oik-plugins.com/oik-plugins/diy-oik) - Do-It-Yourself shortcodes
+* [oik-blocks](https://www.oik-plugins.com/oik-plugins/oik-blocks) - WordPress blocks for oik shortcodes
 * [oik-External link warning jQuery](https://www.oik-plugins.com/oik-plugins/external-link-warning-jquery/) - Warns visitor about leaving your site
 * [oik-fields](https://www.oik-plugins.com/oik-plugins/oik-fields-custom-post-type-field-apis) - custom post type field APIs
 * [oik-ms](https://www.oik-plugins.com/oik-plugins/oik-ms-oik-multisite-shortcodes/) - oik MultiSite shortcodes
@@ -1658,7 +1675,7 @@ More FREE and Premium plugins are available from [oik-plugins.com](http://www.oi
 * [oik-todo](https://www.oik-plugins.com/oik-plugins/oik-todo-todo-list) - TO DO list
 * [oik-types](https://www.oik-plugins.com/oik-plugins/oik-types) - custom content type, field and taxonomy manager
 * [oik-user](https://www.oik-plugins.com/oik-plugins/oik-user) - display oik information for each site user
-* [us-tides](https://www.oik-plugins.com/oik-plugins/us-tides) - US saltwater tide times and heights
+
 
 
 = Removal of child plugins (version 2.0) =
@@ -1698,7 +1715,7 @@ oik plugins are tested with:
 
 * WordPress
 * WordPress Multisite
-* PHP 7 and 7.1
+* PHP 7.1 and 7.2
 
 All of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier. 
 These are known as the [OIK Application Programming Interface (OIK API)](https://www.oik-plugins.com/apis/oik-apis)

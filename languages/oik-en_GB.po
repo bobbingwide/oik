@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.3.0\n"
+"Project-Id-Version: oik 3.3.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2019-03-05 10:21:09+00:00\n"
+"POT-Creation-Date: 2019-03-12 16:49:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -725,80 +725,80 @@ msgstr "Display a Google Map for your alternative address."
 msgid "Display directions to the alternative address."
 msgstr "Display directions to the alternative address."
 
-#: admin/oik-admin.php:748
+#: admin/oik-admin.php:789
 msgid "Edit custom CSS"
 msgstr "Edit custom CSS"
 
-#: admin/oik-admin.php:767
+#: admin/oik-admin.php:808
 msgid "shortcode help"
 msgstr "shortcode help"
 
-#: admin/oik-admin.php:768
+#: admin/oik-admin.php:809
 msgid "About shortcodes"
 msgstr "About shortcodes"
 
-#: admin/oik-admin.php:772
+#: admin/oik-admin.php:813
 msgid "%1$s - more information"
 msgstr "%1$s - more information"
 
-#: admin/oik-admin.php:773
+#: admin/oik-admin.php:814
 msgid "%1$s - snippet"
 msgstr "%1$s - snippet"
 
-#: admin/oik-admin.php:776
+#: admin/oik-admin.php:817
 msgid "Shortcode summary"
 msgstr "Shortcode summary"
 
-#: admin/oik-admin.php:785
+#: admin/oik-admin.php:826
 msgid ""
 "This page lists all the currently active shortcodes. To find out more "
 "information about a shortcode click on the shortcode name in the Help column."
 msgstr "This page lists all the currently active shortcodes. To find out more information about a shortcode click on the shortcode name in the Help column."
 
-#: admin/oik-admin.php:786
+#: admin/oik-admin.php:827
 msgid ""
 "Depending on how the shortcode is implemented you will either be shown some "
 "more information with one or more examples, or an 'oik generated example.'"
 msgstr "Depending on how the shortcode is implemented you will either be shown some more information with one or more examples, or an 'oik generated example.'"
 
-#: admin/oik-admin.php:787
+#: admin/oik-admin.php:828
 msgid ""
 "You will also be shown the HTML snippet for the example. There should be no "
 "need to do anything with this output."
 msgstr "You will also be shown the HTML snippet for the example. There should be no need to do anything with this output."
 
-#: admin/oik-admin.php:788
+#: admin/oik-admin.php:829
 msgid ""
 "For further information on a shortcode or its parameters click on the links "
 "in the Syntax column."
 msgstr "For further information on a shortcode or its parameters click on the links in the Syntax column."
 
-#: admin/oik-admin.php:1053
+#: admin/oik-admin.php:1094
 msgid ""
 "WordPress has previously determined that there is a new version available: %s"
 msgstr "WordPress has previously determined that there is a new version available: %s"
 
-#: admin/oik-admin.php:1055 admin/oik-admin.php:1159
+#: admin/oik-admin.php:1096 admin/oik-admin.php:1200
 msgid "Current version: %s"
 msgstr "Current version: %s"
 
-#: admin/oik-admin.php:1057
+#: admin/oik-admin.php:1098
 msgid "However, this is a symlinked plugin, located at <br /> %s"
 msgstr "However, this is a symlinked plugin, located at <br /> %s"
 
-#: admin/oik-admin.php:1060
+#: admin/oik-admin.php:1101
 msgid "So please don't attempt to apply updates."
 msgstr "So please don't attempt to apply updates."
 
-#: admin/oik-admin.php:1155
+#: admin/oik-admin.php:1196
 msgid "This plugin is a Git repository."
 msgstr "This plugin is a Git repository."
 
-#: admin/oik-admin.php:1157
+#: admin/oik-admin.php:1198
 msgid "New version?: %s"
 msgstr "New version?: %s"
 
-#: admin/oik-admin.php:1161
+#: admin/oik-admin.php:1202
 msgid "Please don't attempt to apply updates using WordPress."
 msgstr "Please don't attempt to apply updates using WordPress."
 
