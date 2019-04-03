@@ -783,6 +783,9 @@ static function bw_json_decode( $json, $assoc=false ) {
 	 * @return bool - true if a local IP
 	 */
 	static function are_you_local_IP( $url ) {
+		if ( !isset( $_SERVER['SERVER_NAME']) ) {
+			return false;
+		}
 		$local_host = $_SERVER['SERVER_NAME'];
 		$remote_host = parse_url( $url, PHP_URL_HOST );
 		$local = ( $local_host == $remote_host ); 
