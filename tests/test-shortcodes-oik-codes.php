@@ -186,6 +186,7 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 		$atts = array( "bw" );
 		$html = bw_ret( bw_code_example_link( $atts ) );
 		//$this->generate_expected_file( $html );
+		$html = $this->replace_oik_get_shortcodes_server( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
 	
@@ -194,6 +195,7 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 		$atts = array( "bw" );
 		$html = bw_ret( bw_code_example_link( $atts ) );
 		//$this->generate_expected_file( $html );
+		$html = $this->replace_oik_get_shortcodes_server( $html );
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 		
@@ -203,6 +205,12 @@ class Tests_shortcodes_oik_codes extends BW_UnitTestCase {
 		$html = str_replace( oik_get_plugins_server(), "https://qw/oikcom", $html );
 		return $html;
 	
+	}
+
+	function replace_oik_get_shortcodes_server( $html ) {
+		$html = str_replace( oik_get_shortcodes_server(), "https://www.oik-plugins.com", $html );
+		return $html;
+
 	}
 	
 	

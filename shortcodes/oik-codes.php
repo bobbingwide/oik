@@ -146,7 +146,7 @@ function bw_get_shortcode_syntax_link( $shortcode, $callback ) {
  */
 function bw_sc_link( $shortcode, $callback=null ) {
   $function = bw_get_shortcode_function( $shortcode, $callback );
-	$link = oik_get_plugins_server();
+  $link = oik_get_shortcodes_server( $shortcode );
   $link .= "/oik-shortcodes/$shortcode/$function"; 
   $link = apply_filters( "bw_sc_link", $link, $shortcode, $function );
   if ( $link ) {
@@ -364,7 +364,9 @@ function bw_code_example_link( $atts ) {
     $function = null;
   }
   if ( $function ) {
-    $link = "https://www.oik-plugins.com/oik-shortcodes/$shortcode/$function";  
+	$link = oik_get_shortcodes_server( );
+    $link .= "/oik-shortcodes/$shortcode/$function";
+	$link = apply_filters( "bw_sc_link", $link, $shortcode, $function );
     BW_::alink( "bw_code $shortcode", $link, $link_text, sprintf( __( 'Link to help for shortcode: %1$s', "oik" ), $shortcode ) );   
   } else { 
     span( "bw_code $shortcode" );
@@ -703,6 +705,22 @@ function bw_codes__example() {
 	BW_::br();
   BW_::alink( null, "http://www.oik-plugins.com/oik-shortcodes/bw_codes/bw_codes", __( "[bw_codes] - list shortcodes", "oik" ) );
   
+}
+
+/**
+ * Returns the shortcodes server
+ *
+ * This may be oik-plugins or, for WP-a2z the current sub-domain
+ *
+ * @return mixed|void
+ */
+function oik_get_shortcodes_server() {
+	if ( function_exists( "oik_shortcodes_loaded" ) ) {
+		$shortcodes_server = site_url();
+	} else {
+		$shortcodes_server = oik_get_plugin_server();
+	}
+	return $shortcodes_server;
 }
 
 
