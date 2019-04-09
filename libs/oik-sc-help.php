@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2019
 if ( !defined( "OIK_SC_HELP_INCLUDED" ) ) {
-define( "OIK_SC_HELP_INCLUDED", "3.2.3" );
+define( "OIK_SC_HELP_INCLUDED", "3.3.2" );
 
 /**
  * Shortcode help 

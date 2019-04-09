@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 4.9.8
-Tested up to: 5.1.0
-Stable tag: 3.3.1
+Tested up to: 5.1.1
+Stable tag: 3.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Likely-yes
@@ -91,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.3.2 = 
+Upgrade for improved support for [bw_code] shortcode.
+
 = 3.3.1 =
 Upgrade for improved sanitization of oik options. 
 Upgrade for improvements to [bw_follow_me], used by oik-blocks.
@@ -453,6 +456,13 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.3.2 = 
+* Changed: Improve [bw_code] shortcode; use oik_get_shortcodes_server, [github bobbingwide oik issues 127]
+* Fixed: Check if SERVER_NAME is set in are_you_local_ip, [github bobbingwide oik issues 128]
+* Tested: With WordPress 5.1.1 and WordPress Multi Site
+* Tested: With PHP 7.2
+* Tested: With Gutenberg 5.4.0
+
 = 3.3.1 =
 * Changed: Implement sanitization for oik options input fields., [github bobbingwide oik issue 125]
 * Changed: Update [bw_follow_me] to accept multiple network names., [github bobbingwide oik issue 124]
