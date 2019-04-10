@@ -5,7 +5,7 @@
 * Tags: shortcodes, shortcode, advanced, oik
 * Requires at least: 4.9.8
 * Tested up to: 5.1.1
-* Stable tag: 3.3.2
+* Stable tag: 3.3.3
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Likely-yes
@@ -92,6 +92,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.3.3 
+Correction for the update to the improved [bw_code] shortcode.
+
 # 3.3.2 
 Upgrade for improved support for [bw_code] shortcode.
 
@@ -457,6 +460,9 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 3.3.3 
+* Fixes: Avoid Fatal error for undefined function oik_get_plugin_server, https://github.com/bobbingwide/oik/issues/128
+
 # 3.3.2 
 * Changed: Improve [bw_code] shortcode; use oik_get_shortcodes_server, https://github.com/bobbingwide/oik/issues/127
 * Fixed: Check if SERVER_NAME is set in are_you_local_ip, https://github.com/bobbingwide/oik/issues/128

@@ -718,7 +718,14 @@ function oik_get_shortcodes_server() {
 	if ( function_exists( "oik_shortcodes_loaded" ) ) {
 		$shortcodes_server = site_url();
 	} else {
-		$shortcodes_server = oik_get_plugin_server();
+		if ( !function_exists( "oik_get_plugins_server" ) ) {
+			oik_require_lib( "oik_plugins" );
+		}
+		if ( function_exists( "oik_get_plugins_server" ) ) {
+			$shortcodes_server = oik_get_plugins_server();
+		} else {
+			$shortcodes_server = "https://www.oik-plugins.com";
+		}
 	}
 	return $shortcodes_server;
 }
