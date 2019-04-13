@@ -6,7 +6,7 @@ class Tests_issue_125 extends BW_UnitTestCase {
 	 * Issue #125 - tests for draconian validation
 	 * We assume the WordPress functions that are called have been tested
 	 * So here we only need to check that bad input is sanitized.
-	 * But we should at least test the example in the Issue. 
+	 * But we should at least test the example in the Issue.
 	 * The logic implicitely tests:
 	 * - oik_sanitize_key_value
 	 * - oik_list_validations
