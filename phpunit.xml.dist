@@ -37,6 +37,7 @@
 			<file>tests/test-issue-68.php</file>
 			<file>tests/test-issue-79.php</file>
 			<file>tests/test-issue-91.php</file>
+			<file>tests/test-issue-116.php</file>
 			<file>tests/test-issue-124.php</file>
 			<file>tests/test-issue-125.php</file>
 			<file>tests/test-oik-admin.php</file>
