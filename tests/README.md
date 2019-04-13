@@ -32,3 +32,13 @@ where pu invokes
 set PHPUNIT=c:\apache\htdocs\phpLibraries\phpunit\phpunit-6.5.13.phar
 php ..\..\plugins\oik-batch\oik-phpunit.php "--verbose" "--disallow-test-output" "--stop-on-error" "--stop-on-failure" "--log-junit=phpunit.json" %*
 
+
+## Notes
+In order for the tests to run to completion in multiple environments some settings must have particular values:
+
+- oik-css: Disable automatic paragraph creation should be unchecked
+- SCRIPT_DEBUG needs to be true
+- wp-mail-smtp: should not be activated
+- oik: PayPal country should be set to United Kingdom
+
+These settings allow the PhpUnit tests for oik-libs to run to completion as well.
