@@ -60,7 +60,7 @@ function oik_lazy_login_head() {
       etag( "style" );
       bw_flush();
       add_filter( "login_headerurl", "oik_login_headerurl" );
-      add_filter( "login_headertitle", "oik_login_headertitle" );
+      add_filter( "login_headertext", "oik_login_headertitle" );
     }  
   } 
 }
@@ -80,7 +80,7 @@ function oik_login_headerurl( $login_header_url ) {
 }
   
 /**
- * Implement "login_headertitle" for oik
+ * Implement "login_headertext" for oik
  *
  * Replace "Powered by WordPress" with our Site name
  *
