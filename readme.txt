@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 4.9.8
-Tested up to: 5.1.1
-Stable tag: 3.3.3
+Tested up to: 5.2
+Stable tag: 3.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Likely-yes
@@ -91,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.3.4 =
+Upgrade to avoid a deprecated filter notice being displayed if using a custom login logo with WordPress 5.2 and when WP_DEBUG is true.
+
 = 3.3.3 = 
 Correction for the update to the improved [bw_code] shortcode.
 
@@ -459,8 +462,16 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.3.4 = 
+* Fixed: Support WordPress 5.2,[github bobbingwide oik issues 130]
+* Fixed: Remove bwtrace shortcode logic from oik, [github bobbingwide oik issues 105]
+* Fixed:  update tests to cater for changes in oik-batch to resolve site_url()/ home_url() differences
+* Fixed: Improve error reporting capability for oik-clone, [github bobbingwide oik-clone issues 34]
+* Changed: Updated notes regarding testing in multiple environments, [github bobbingwide oik issues 114]
+* Fixed: Updated PhpUnit tests for issues 114, 116, 117, 124, 125 
+
 = 3.3.3 =
-* Fixes: Avoid Fatal error for undefined function oik_get_plugin_server, [github bobbingwide oik issues 128] 
+* Fixed: Avoid Fatal error for undefined function oik_get_plugin_server, [github bobbingwide oik issues 128] 
 
 = 3.3.2 = 
 * Changed: Improve [bw_code] shortcode; use oik_get_shortcodes_server, [github bobbingwide oik issues 127]
