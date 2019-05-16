@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 3.3.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2019-04-10 08:43:58+00:00\n"
+"POT-Creation-Date: 2019-05-16 16:11:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: bb_BB\n"
@@ -2073,7 +2073,7 @@ msgstr "Tihs Is A cpaiton"
 #: shortcodes/oik-cite.php:19 shortcodes/oik-contact-form.php:317
 #: shortcodes/oik-countdown.php:97 shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325 shortcodes/oik-paypal.php:258
-#: shortcodes/oik-trace.php:32 shortcodes/oik-wtf.php:74
+#: shortcodes/oik-wtf.php:74
 msgid "text"
 msgstr "txet"
 
@@ -3936,51 +3936,6 @@ msgstr "Ecnolse In An Atrsieter bolck"
 #: shortcodes/oik-thumbs.php:98
 msgid "To display 3 thumbnail images"
 msgstr "TO dsilpay 3 tuhbmanil iamegs"
-
-
-#: shortcodes/oik-trace.php:32
-msgid "text for the trace button"
-msgstr "txet fOr thE tarce btuotn"
-
-
-#: shortcodes/oik-trace.php:33
-msgid "trace control links to display"
-msgstr "tarce cnortol lniks tO dsilpay"
-
-
-#: shortcodes/oik-trace.php:42
-msgid "To display the trace options and trace reset buttons."
-msgstr "TO dsilpay thE tarce otpoins And tarce rseet btuotns."
-
-
-#: shortcodes/oik-trace.php:43
-msgid "To display a link to the active trace file."
-msgstr "TO dsilpay A lnik tO thE atcvie tarce flie."
-
-
-#: shortcodes/oik-trace.php:44
-msgid "To display the trace reset only"
-msgstr "TO dsilpay thE tarce rseet olny"
-
-
-#: shortcodes/oik-trace.php:67
-msgid "View trace log"
-msgstr "Veiw tarce lOg"
-
-
-#: shortcodes/oik-trace.php:67
-msgid "View trace output in your browser. %1$s"
-msgstr "Veiw tarce otuupt In yuor borswer. %1$s"
-
-
-#: shortcodes/oik-trace.php:76
-msgid "Trace options"
-msgstr "Tarce otpoins"
-
-
-#: shortcodes/oik-trace.php:93
-msgid "Trace reset"
-msgstr "Tarce rseet"
 
 
 #: shortcodes/oik-wtf.php:51 shortcodes/oik-wtf.php:74
