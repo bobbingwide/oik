@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 3.3.3\n"
+"Project-Id-Version: oik 3.3.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2019-05-16 16:11:13+00:00\n"
+"POT-Creation-Date: 2019-06-04 16:52:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -2846,19 +2846,19 @@ msgstr "company"
 msgid "Text for tooltip"
 msgstr "Text for tooltip"
 
-#: shortcodes/oik-navi.php:189
+#: shortcodes/oik-navi.php:192
 msgid "%1$s to %2$s of %3$s"
 msgstr "%1$s to %2$s of %3$s"
 
-#: shortcodes/oik-navi.php:336
+#: shortcodes/oik-navi.php:339
 msgid "Simple paginated list"
 msgstr "Simple paginated list"
 
-#: shortcodes/oik-navi.php:346
+#: shortcodes/oik-navi.php:349
 msgid "integer"
 msgstr "integer"
 
-#: shortcodes/oik-navi.php:346
+#: shortcodes/oik-navi.php:349
 msgid "Number of posts per page. Default from Reading Settings."
 msgstr "Number of posts per page. Default from Reading Settings."
 

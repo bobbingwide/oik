@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: shortcodes, shortcode, advanced, oik
 * Requires at least: 4.9.8
-* Tested up to: 5.2
-* Stable tag: 3.3.4
+* Tested up to: 5.2.1
+* Stable tag: 3.3.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Likely-yes
@@ -92,6 +92,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.3.5 
+Upgrade for improved capability to style pagination links
+
 # 3.3.4 
 Upgrade to avoid a deprecated filter notice being displayed if using a custom login logo with WordPress 5.2 and when WP_DEBUG is true.
 
@@ -463,6 +466,11 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 3.3.5 
+* Changed: Improve styling capability for [bw_navi],https://github.com/bobbingwide/oik/issues/131
+* Tested: With Gutenberg 5.8.0
+* Tested: With WordPress 5.2.1
+
 # 3.3.4 
 * Fixed: Support WordPress 5.2,https://github.com/bobbingwide/oik/issues/130
 * Fixed: Remove bwtrace shortcode logic from oik, https://github.com/bobbingwide/oik/issues/105
