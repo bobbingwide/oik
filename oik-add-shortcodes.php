@@ -415,12 +415,16 @@ function bw_oik_add_shortcodes() {
  * so invoke the "oik_add_shortcodes" action hook to register our own shortcodes
  * and advise other plugins to register theirs if they haven't already done so.
  *
+ * Similarly, if the content contains a reusable block we have to make the same assumption.
+ * This is probably more efficient than hooking into render_block or render_block_data
+ *
  * @param string $content 
  * @return string unchanged $content
  */  
 function oik_do_shortcode( $content ) {
 
-	if ( false === strpos( $content, '[' ) ) {
+	if ( false === strpos( $content, '[' )
+	     /* && 	false === strpos( $content, '<!-- wp:blocks ') */ ) {
 		// no need to do anything yet!
 	} else {
     static $oik_do_shortcode = 0;
@@ -459,7 +463,7 @@ function bw_oik_add_shortcodes_loaded() {
 	add_filter('wp_footer', 'oik_do_shortcode', 0 );
 	add_filter('get_the_excerpt', 'oik_do_shortcode', 0 );
 	add_filter('the_excerpt', 'oik_do_shortcode', 0 );
-	add_filter('the_content', 'oik_do_shortcode', 2 );
+	add_filter('the_content', 'oik_do_shortcode', 9 );
 	//add_filter('get_pages', 'do_shortcode' );
 	add_filter( "oik_do_shortcode", "oik_do_shortcode", 0 );
 	add_action( "oik_add_shortcodes", "bw_oik_add_shortcodes" );
