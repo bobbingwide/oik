@@ -449,13 +449,25 @@ function oik_oik_sc__help( $help, $shortcode ) {
 /**
  * Implements 'rest_api_init'
  *
- * Disables the_content processing to save time when the request doesn't need it.
+ * Disables the_content and get_the_excerpt processing to save time when the request probably doesn't need it.
  *
+ * e.g.
+ * `/wp-json/wp/v2/pages?per_page=100&exclude=20770&parent_exclude=20770&orderby=menu_order&order=asc&context=edit&_locale=user`
+ * @TODO Do we need to perform a sanity check against the HTTP_REFERER
+ * `[HTTP_REFERER] => https://s.b/hm/wp-admin/post.php?post=20770&action=edit&classic-editor__forget`
  */
 function oik_rest_api_init() {
+
     $context = bw_array_get( $_REQUEST, 'context', null );
+    bw_trace2( $context, "context", false );
     if ( $context === 'edit') {
+    	//bw_trace_attached_hooks( 'the_content');
+	    $hooks = bw_trace_get_attached_hooks( 'the_content' );
+	    bw_trace2( $hooks, 'the_content', false, BW_TRACE_ALWAYS );
+	    $hooks = bw_trace_get_attached_hooks( 'get_the_excerpt' );
+	    bw_trace2( $hooks, 'get_the_excerpt', false, BW_TRACE_ALWAYS );
         remove_all_filters("the_content");
+        remove_all_filters( 'get_the_excerpt');
     }
 
 }
