@@ -5,7 +5,7 @@
 * Tags: shortcodes, shortcode, advanced, oik
 * Requires at least: 4.9.8
 * Tested up to: 5.2.1
-* Stable tag: 3.3.5
+* Stable tag: 3.3.6
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Likely-yes
@@ -92,6 +92,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 3.3.6 
+Helps with some issues related to the WordPress block editor
+
 # 3.3.5 
 Upgrade for improved capability to style pagination links
 
@@ -466,6 +469,10 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 3.3.6 
+* Fixed: Disable get_the_excerpt processing for REST requests when context=edit, https://github.com/bobbingwide/oik/issues/120
+* Fixed: Shortcodes not being expanded in reusable blocks, https://github.com/bobbingwide/oik/issues/129
+
 # 3.3.5 
 * Changed: Improve styling capability for [bw_navi],https://github.com/bobbingwide/oik/issues/131
 * Tested: With Gutenberg 5.8.0
