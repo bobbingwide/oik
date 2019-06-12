@@ -462,10 +462,12 @@ function oik_rest_api_init() {
     bw_trace2( $context, "context", false );
     if ( $context === 'edit') {
     	//bw_trace_attached_hooks( 'the_content');
-	    $hooks = bw_trace_get_attached_hooks( 'the_content' );
-	    bw_trace2( $hooks, 'the_content', false, BW_TRACE_ALWAYS );
-	    $hooks = bw_trace_get_attached_hooks( 'get_the_excerpt' );
-	    bw_trace2( $hooks, 'get_the_excerpt', false, BW_TRACE_ALWAYS );
+	    if ( function_exists( 'bw_trace_get_attached_hooks')) {
+		    $hooks = bw_trace_get_attached_hooks( 'the_content' );
+		    bw_trace2( $hooks, 'the_content', false, BW_TRACE_ALWAYS );
+		    $hooks = bw_trace_get_attached_hooks( 'get_the_excerpt' );
+		    bw_trace2( $hooks, 'get_the_excerpt', false, BW_TRACE_ALWAYS );
+	    }
         remove_all_filters("the_content");
         remove_all_filters( 'get_the_excerpt');
     }
