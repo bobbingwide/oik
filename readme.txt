@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: shortcodes, shortcode, advanced, oik
 Requires at least: 4.9.8
-Tested up to: 5.2.1
-Stable tag: 3.3.6
+Tested up to: 5.2.2
+Stable tag: 3.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Likely-yes
@@ -91,6 +91,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 3.3.7 =
+Fixes a problem introduced in 3.3.6
+
 = 3.3.6 = 
 Helps with some issues related to the WordPress block editor
 
@@ -468,6 +471,9 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 3.3.7 =
+* Fixed: Check that bw_trace_get_attached_hooks is available,[github bobbingwide oik issues 120]
+
 = 3.3.6 =
 * Fixed: Disable get_the_excerpt processing for REST requests when context=edit, [github bobbingwide oik issues 120]
 * Fixed: Shortcodes not being expanded in reusable blocks, [github bobbingwide oik issues 129]
