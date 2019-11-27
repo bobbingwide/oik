@@ -1,7 +1,7 @@
 <?php 
 /*
 
-    Copyright 2014-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2014-2019 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -22,15 +22,16 @@ function bw_count( $atts=null, $content=null, $tag=null ) {
   $post_type = bw_array_get_from( $atts, "post_type,0", "post" );
   $count = wp_count_posts( $post_type );
   $status = bw_array_get_from( $atts, "status,1", "publish" );
-  
+  span( "bw_count $post_type $status");
   if ( property_exists( $count, $status ) ) { 
     e( $count->$status );
   } elseif ( property_exists( $count, "publish" ) ) { 
     e( $count->publish );
   } else {
     e( "No count available for $post_type $status" );
-  } 
-  bw_trace2( $count, "count", false );
+  }
+  epan();
+  bw_trace2( $count, "count", false, BW_TRACE_VERBOSE );
   return( bw_ret() );
 }
 
