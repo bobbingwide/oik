@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017
+<?php // (C) Copyright Bobbing Wide 2013-2017,2019
 
 /**
  * Performs the reverse of ltrim(), up to a point
@@ -241,7 +241,7 @@ function bw_link_url( $url, $atts ) {
 	if ( !$scheme ) {
 		$path = bw_array_get( $parts, "path", null );
 		if ( $path ) {
-			$parts['scheme'] = "http://" ;
+			$parts['scheme'] = is_ssl() ? 'https://' : 'http://';
 			$parts['host'] = bw_array_get( $parts, "host", null );
     
 			if ( $parts['host'] ) {
