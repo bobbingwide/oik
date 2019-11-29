@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017-2019
 
 /**
  * @package 
@@ -109,13 +109,15 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 	 */
 	function test_bw_link() { 
 		bw_update_option( "domain", null );
-		$domain = bw_get_domain();					
+		$domain = bw_get_domain();
+		$is_ssl = is_ssl();
+		$this->assertTrue( $is_ssl );
 		$inout = array( "" => '<a class="bw_link"></a>'
-									, "/" => '<a class="bw_link" href="http://' . $domain . '">/</a>'
-									, "/somewhere" => '<a class="bw_link" href="http://' . $domain . '/somewhere">/somewhere</a>'
-									, "/somewhere/child" => '<a class="bw_link" href="http://' . $domain . '/somewhere/child">/somewhere/child</a>'
-									,	"example.com" 					=> '<a class="bw_link" href="http://example.com">example.com</a>'
-									, "example.com/path"			=> '<a class="bw_link" href="http://example.com/path">example.com/path</a>'
+									, "/" => '<a class="bw_link" href="https://' . $domain . '">/</a>'
+									, "/somewhere" => '<a class="bw_link" href="https://' . $domain . '/somewhere">/somewhere</a>'
+									, "/somewhere/child" => '<a class="bw_link" href="https://' . $domain . '/somewhere/child">/somewhere/child</a>'
+									, "example.com" 					=> '<a class="bw_link" href="https://example.com">example.com</a>'
+									, "example.com/path"			=> '<a class="bw_link" href="https://example.com/path">example.com/path</a>'
 									, "http://example.com" => '<a class="bw_link" href="http://example.com">http://example.com</a>'
 									, "https://example.com" => '<a class="bw_link" href="https://example.com">https://example.com</a>'
 									);
@@ -136,9 +138,9 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 									,	"#frag ment" 						=> '<a class="bw_link" href="#frag ment">frag ment</a>' 
 									,	"#frag-ment" 						=> '<a class="bw_link" href="#frag-ment">frag ment</a>' 
 									,	"#frag_ment" 						=> '<a class="bw_link" href="#frag_ment">frag ment</a>' 
-									, "/#fragment" 						=> '<a class="bw_link" href="http://' . $domain . '#fragment">/#fragment</a>'
-									, "example.com#fragment" 	=> '<a class="bw_link" href="http://example.com#fragment">example.com#fragment</a>'
-									, "example.com/path#fragment" 	=> '<a class="bw_link" href="http://example.com/path#fragment">example.com/path#fragment</a>'
+									, "/#fragment" 						=> '<a class="bw_link" href="https://' . $domain . '#fragment">/#fragment</a>'
+									, "example.com#fragment" 	=> '<a class="bw_link" href="https://example.com#fragment">example.com#fragment</a>'
+									, "example.com/path#fragment" 	=> '<a class="bw_link" href="https://example.com/path#fragment">example.com/path#fragment</a>'
 									, "http://example.com/#fragment" => '<a class="bw_link" href="http://example.com/#fragment">http://example.com/#fragment</a>'
 									, "https://example.com/#fragment" => '<a class="bw_link" href="https://example.com/#fragment">https://example.com/#fragment</a>'
 									);
