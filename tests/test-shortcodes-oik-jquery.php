@@ -47,7 +47,7 @@ class Tests_shortcodes_oik_jquery extends BW_UnitTestCase {
 		$this->switch_to_locale( "en_GB" );
 	}
 	
-	function test_bw_list_wp_scripts() {
+	function dont_test_bw_list_wp_scripts() {
 		$this->switch_to_locale( "en_GB" );
 		$this->save_scripts();
 		$this->setup_test_scripts();
@@ -57,7 +57,7 @@ class Tests_shortcodes_oik_jquery extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 	}
 	
-	function test_bw_list_wp_scripts_bb_BB() {
+	function dont_test_bw_list_wp_scripts_bb_BB() {
 		$this->switch_to_locale( "bb_BB" );
 		$this->save_scripts();
 		$this->setup_test_scripts();
