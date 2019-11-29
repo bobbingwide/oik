@@ -7,7 +7,7 @@
  */
 class Tests_wpautop extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 		parent::setUp();
 	}
 	

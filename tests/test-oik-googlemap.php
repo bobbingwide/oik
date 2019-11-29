@@ -15,7 +15,7 @@ class Tests_oik_googlemap extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - we need oik-googlemap to load the functions we're testing
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		$oik_plugins = oik_require_lib( "oik_plugins" );
 		//bw_trace2( $oik_plugins, "oik_plugins" );

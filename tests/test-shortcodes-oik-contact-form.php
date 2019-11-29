@@ -7,7 +7,7 @@
  */
 class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 	
 		parent::setUp();
 		oik_require( "shortcodes/oik-contact-form.php" );

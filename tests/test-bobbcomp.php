@@ -12,7 +12,7 @@ class Tests_oik_bobbcomp extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - The oik plugin must be activated!
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		oik_require_lib( "oik_plugins" );
 	}

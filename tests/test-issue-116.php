@@ -13,7 +13,7 @@ class Tests_issue_116 extends BW_UnitTestCase {
 	 * 
 	 * - ensure any database updates are rolled back
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		oik_require( "shortcodes/oik-contact-form.php" );
 	}

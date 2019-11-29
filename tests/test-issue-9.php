@@ -21,7 +21,7 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	 * 
 	 * - ensure any database updates are rolled back
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		oik_require_lib( "class-BW-" );
 	}

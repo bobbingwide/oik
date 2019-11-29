@@ -17,7 +17,7 @@ class Tests_issue_125 extends BW_UnitTestCase {
 	 * 
 	 * - ensure any database updates are rolled back
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		oik_require( "admin/oik-admin.php" );
 	}

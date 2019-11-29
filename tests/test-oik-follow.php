@@ -15,7 +15,7 @@ class Tests_oik_follow extends BW_UnitTestCase {
 	 * - we need "oik_plugins" for bw_update_option 
 	 * - we need oik-follow to load the functions we're testing
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		$oik_plugins = oik_require_lib( "oik_plugins" );
 		bw_trace2( $oik_plugins, "oik_plugins" );

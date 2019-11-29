@@ -7,7 +7,7 @@
  */
 class Tests_issue_79 extends BW_UnitTestCase {
 
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 	}
 	

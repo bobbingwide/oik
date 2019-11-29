@@ -8,7 +8,7 @@
  */
 class Tests_oik_sc_help extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 	
 		parent::setUp();
 		oik_require( "admin/oik-admin.php" );	 

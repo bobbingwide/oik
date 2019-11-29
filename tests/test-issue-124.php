@@ -13,7 +13,7 @@ class Tests_issue_124 extends BW_UnitTestCase {
 	 * 
 	 * - ensure any database updates are rolled back
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		$oik_plugins = oik_require_lib( "oik_plugins" );
 		bw_trace2( $oik_plugins, "oik_plugins" );

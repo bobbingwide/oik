@@ -7,7 +7,7 @@
  */
 class Tests_shortcodes_oik_domain extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 		parent::setUp();
 		oik_require( "shortcodes/oik-domain.php" ); 
 																

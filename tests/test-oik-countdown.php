@@ -13,7 +13,7 @@ class Tests_oik_countdown extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - we need oik-countdown to load the functions we're testing
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		//$oik_plugins = oik_require_lib( "oik_plugins" );
 		//bw_trace2( $oik_plugins, "oik_plugins" );

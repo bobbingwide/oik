@@ -12,7 +12,7 @@ class Tests_includes_bw_images extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - The oik plugin must be activated!
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		oik_require( "includes/bw_images.inc" );
 	}

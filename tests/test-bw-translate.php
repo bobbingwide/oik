@@ -9,7 +9,7 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - if you don't call parent::setUp then $this->setExpectedDeprecated() won't work; as the deprecation checking is not enabled
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		oik_require_lib( "bobbfunc" );
 		

@@ -9,7 +9,7 @@ class Tests_prerequisites extends BW_UnitTestCase {
 	 * - ensure any database updates are NOT rolled back
 	 * - if you don't call parent::setUp then $this->setExpectedDeprecated() won't work; as the deprecation checking is not enabled
 	 */
-	function setUp() {
+	function setUp(): void {
 		// parent::setUp();
 		oik_require( "includes/bw_posts.php" );
 		
@@ -123,9 +123,9 @@ class Tests_prerequisites extends BW_UnitTestCase {
 		
 		
 		if ( is_multisite() && !is_main_site() ) {
-      $this->assertContains( "/files", $upload_dir['basedir'] );
+      $this->assertStringContainsString( "/files", $upload_dir['basedir'] );
 		} else {
-			$this->assertContains( "/wp-content/uploads", $upload_dir['basedir'] );
+			$this->assertStringContainsString( "/wp-content/uploads", $upload_dir['basedir'] );
 		}
 	}
 		

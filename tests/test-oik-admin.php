@@ -10,7 +10,7 @@ class Tests_oik_admin extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - require the libraries that would be loaded as standard for wp-admin processing
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		//bobbcomp::bw_get_option( "fred" );
 		oik_require( "admin/oik-admin.php" );

@@ -3,7 +3,7 @@
 
 class ajax_bobbfunc extends BW_UnitTestCase {
 
-	function setUp() {
+	function setUp(): void {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			// That's OK then
 		} else {

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017-2019
 
 class Tests_issue_68 extends BW_UnitTestCase {
 
@@ -20,7 +20,7 @@ class Tests_issue_68 extends BW_UnitTestCase {
 	 * 
 	 * - ensure any database updates are rolled back
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		oik_require_lib( "oik-sc-help" );
 		//$dependencies = oik_require_lib( "class-dependencies-cache" );

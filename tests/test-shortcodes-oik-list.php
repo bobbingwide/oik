@@ -7,7 +7,7 @@
  */
 class Tests_shortcodes_oik_list extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 		parent::setUp();
 		oik_require_lib( "oik-sc-help" );
 		oik_require( "shortcodes/oik-list.php" ); 

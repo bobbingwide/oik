@@ -7,7 +7,7 @@
  */
 class Tests_issue_71 extends BW_UnitTestCase {
 
-	//function setUp() {
+	//function setUp(): void {
 		///parent::setUp();
 		//oik_require( "includes/oik-filters.inc" );
 	//}

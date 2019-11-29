@@ -7,7 +7,7 @@
  */
 class Tests_shortcodes_oik_iframe extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 		parent::setUp();
 		oik_require( "shortcodes/oik-iframe.php" );
 		oik_require( "includes/oik-sc-help.php" ); 														

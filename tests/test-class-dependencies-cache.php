@@ -7,7 +7,7 @@
  */
 class Tests_class_dependencies_help extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 		$dependencies = oik_require_lib( "class-dependencies-cache" );
 		
 	}

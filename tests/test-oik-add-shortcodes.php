@@ -7,7 +7,7 @@
  */
 class Tests_oik_add_shortcodes extends BW_UnitTestCase {
 
-	function setUp() { 
+	function setUp(): void {
 	}
 
 	/**

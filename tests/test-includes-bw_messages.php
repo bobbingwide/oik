@@ -12,7 +12,7 @@ class Tests_includes_bw_messages extends BW_UnitTestCase {
 	 * - ensure any database updates are rolled back
 	 * - The oik plugin must be activated!
 	 */
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 		$this->unset_bw_messages();
 		oik_require( "includes/bw_messages.php" );

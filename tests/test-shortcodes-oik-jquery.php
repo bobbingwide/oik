@@ -9,7 +9,7 @@ class Tests_shortcodes_oik_jquery extends BW_UnitTestCase {
 
 	public $wp_scripts;
 
-	function setUp() { 
+	function setUp(): void {
 		parent::setUp();
 		
 		oik_require( "includes/oik-sc-help.php" );
