@@ -18,7 +18,7 @@ class Tests_issue_117 extends BW_UnitTestCase {
 	}
 	
 	/**
-	 *
+	 * Cater for the file line endings or CRLF or just LF
 	 */
 	function test_bw_remote_get_asJSON_false() {
 		$url = site_url( 'readme.html');
@@ -27,7 +27,8 @@ class Tests_issue_117 extends BW_UnitTestCase {
 		$contents = oik_remote::bw_remote_get( $url, false );
 		//echo $contents;
 		$this->assertStringStartsWith( '<!DOCTYPE html', $contents );
-		$this->assertStringEndsWith( "</html>\r\n", $contents );
+		str_replace( "html>\r", "html>", $contents );
+		$this->assertStringEndsWith( "</html>\n", $contents );
 	}
 
 }
