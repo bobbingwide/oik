@@ -527,8 +527,6 @@ function bw_code_example_link( $atts ) {
    | bw_wtf | WTF
    | bw_youtube | Follow me on YouTube
    | bwtrace | Trace facility form
-   | bwtroff | Force trace off
-   | bwtron | Force trace on
    | caption | Display the caption for an image. Standard WordPress shortcode
    | classes | Link to class definitions
    | clear | Clear divs 
