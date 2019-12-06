@@ -97,8 +97,6 @@ function oik_lazy_sc__help( $help, $shortcode ) {
 		case "bw_wtf": $l10n_help = __( 'WTF', 'oik' ); break;
 		case "bw_youtube": $l10n_help = __( 'Follow me on YouTube', 'oik' ); break;
 		case "bwtrace": $l10n_help = __( 'Trace facility form', 'oik' ); break;
-		case "bwtroff": $l10n_help = __( 'Force trace off', 'oik' ); break;
-		case "bwtron": $l10n_help = __( 'Force trace on', 'oik' ); break;
 		case "caption": $l10n_help = __( 'Display the caption for an image. Standard WordPress shortcode', 'oik' ); break;
 		case "clear": $l10n_help = __( 'Clear divs ', 'oik' ); break;
 		case "collage": $l10n_help = __( 'Display a collage (Artisteer theme)', 'oik' ); break;
