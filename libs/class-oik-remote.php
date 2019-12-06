@@ -1,13 +1,13 @@
 <?php // (C) Copyright Bobbing Wide 2012-2019
 
 if ( !defined( "CLASS_OIK_REMOTE_INCLUDED" ) ) {
-	define( "CLASS_OIK_REMOTE_INCLUDED", "0.3.1" );
+	define( "CLASS_OIK_REMOTE_INCLUDED", "0.3.2" );
 
 /**
  * Library: class-oik-remote
  * Provided: class-oik-remote
  * Depends: class-oik-update - a cyclical dependency
- * Version: v0.3.1
+ * Version: v0.3.2
  * 
  * Implements oik/includes/oik-remote.inc as a shared library.
  * Note: hyphens for plugins, underscores for libraries, hyphens for class libraries :-)
@@ -48,6 +48,7 @@ static function bw_remote_geth( $url, $args=null ) {
 	bw_trace2( $request, "request" );
 	if ( is_wp_error( $request ) ) {
 		bw_trace2( $request, "request is_wp_error" );
+		self::bw_retrieve_result( $request );
 		$result = null;
 	} else {
 		$json = wp_remote_retrieve_body( $request );
@@ -74,6 +75,7 @@ static function bw_remote_geth( $url, $args=null ) {
 		$request = wp_remote_get( $url, $args );
 		if ( is_wp_error( $request ) ) {
 			bw_trace2( $request, "request is_wp_error" );
+			self::bw_retrieve_result( $request );
 			$result = null;
 		} else {
 			$json = wp_remote_retrieve_body( $request );
