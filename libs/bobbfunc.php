@@ -1090,9 +1090,15 @@ function bw_jtorf( &$parms ) {
  * @return array $assoc_array
 */ 
 function bw_assoc( $array ) {
-  $assoc_array = array();
+	$assoc_array = array();
   foreach ( $array as $key => $value  ) {
-    $assoc_array[$value] = $value;
+  	if ( $value ) {
+  		if ( is_scalar( $value ) ) {
+		    $assoc_array[ $value ]=$value;
+	    } else {
+  			bw_trace2( $value, 'Not scalar', true, BW_TRACE_ERROR );
+	    }
+    }
   }
   return( $assoc_array );
 }    
