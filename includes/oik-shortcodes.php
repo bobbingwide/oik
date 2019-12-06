@@ -114,8 +114,6 @@ function bw_oik_lazy_add_shortcodes() {
 
   bw_add_shortcode( 'gpslides', 'bw_gp_slideshow', oik_path( "shortcodes/oik-slideshows.php"), false  );
 
-  /* Trace related shortcodes moved to oik-bwtrace v3.0.0 in oik v3.2.5; bwtron, bwtroff and bwtrace. */
-
   add_action( "bw_sc_help", "bw_sc_help" );
   add_action( "bw_sc_syntax", "bw_sc_syntax" );
   add_action( "bw_sc_example", "bw_sc_example");
