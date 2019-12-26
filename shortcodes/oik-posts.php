@@ -55,7 +55,7 @@ function bw_posts( $atts = NULL ) {
  */
 function bw_posts__syntax( $shortcode="bw_posts" ) {
   $syntax = _sc_posts(); 
-  $syntax = array_merge( $syntax, _sc_classes() );
+  $syntax += _sc_classes();
   $syntax['numberposts'] = BW_::bw_skv( 10, __( "numeric", "oik" ), __( "number to return", "oik" ) );
   return( $syntax );   
 }

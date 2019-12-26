@@ -193,7 +193,7 @@ function bw_table( $atts=null, $content=null, $tag=null ) {
  */
 function bw_table__syntax( $shortcode="bw_table" ) {
   $syntax = _sc_posts(); 
-  $syntax = array_merge( $syntax, _sc_classes() );
+  $syntax += _sc_classes();
   $syntax['fields'] = BW_::bw_skv( "title,excerpt", "<i>" . __( "fields", "oik" ) . "</i>", __( "CSV of field names", "oik" ) );
   return( $syntax );   
 }
