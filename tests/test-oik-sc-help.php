@@ -37,15 +37,22 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 
 	/**
 	 * Well, I couldn't get this to work. My themes don't appear to support html5 style
+	 * Remove  type=&#039;text/css&#039; if the theme doesn't suppport html style
+	 *
 	 */
 
-	function dont_test_remove_theme_supports() {
-		global $_wp_theme_features;
-		print_r( $_wp_theme_features );
+	function cater_for_theme_supports_html5_style( $html ) {
+		//global $_wp_theme_features;
+		//print_r( $_wp_theme_features );
 		$supports = current_theme_supports( 'html5', 'style');
-		$this->assertTrue( $supports);
-		$removed = remove_theme_support( 'html5');
-		$this->assertTrue( $removed );
+		if ( $supports ) {
+			// Nothing to do
+			//$this->assertTrue( $supports);
+		} else {
+			$html = str_replace( 'type=&#039;text/css&#039; ', '', $html );
+		}
+
+		return $html;
 
 	}
 	
@@ -71,6 +78,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		$html = bw_ret();
 		$html = $this->replace_oik_url( $html );
 		$html = $this->replace_wp_version( $html );
+		$html = $this->cater_for_theme_supports_html5_style( $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}

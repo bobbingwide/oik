@@ -113,6 +113,7 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		wp_enqueue_script( "issue-68", "http://example.com/issue-68.js", array(), "1.0", null, false );
 		bw_save_scripts();
 		$html = bw_report_scripts();
+		$html = str_replace(  "type='text/javascript' ", '', $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
@@ -123,6 +124,7 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		wp_enqueue_style( "issue-68", "http://example.com/issue-68.css", array(), "1.0", null, false );
 		bw_save_scripts();
 		$html = bw_report_scripts();
+		$html = str_replace(  "type='text/css' ", '', $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
