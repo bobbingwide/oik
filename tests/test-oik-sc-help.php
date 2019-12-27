@@ -34,6 +34,20 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
     $link = bw_form_sc_parm_help( "src,mp3,m4a,ogg,wav,wma", "audio" );
 		$this->assertEquals( $link, $expected_output );
 	}
+
+	/**
+	 * Well, I couldn't get this to work. My themes don't appear to support html5 style
+	 */
+
+	function dont_test_remove_theme_supports() {
+		global $_wp_theme_features;
+		print_r( $_wp_theme_features );
+		$supports = current_theme_supports( 'html5', 'style');
+		$this->assertTrue( $supports);
+		$removed = remove_theme_support( 'html5');
+		$this->assertTrue( $removed );
+
+	}
 	
 	/**
 	 * Test shortcode snippet logic for a shortcode that enqueues scripts and/or styles
@@ -44,6 +58,9 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	 * - the oik-option value for Twitter is expected to be herb_miller
 	 * - test updated for Issue #68 to report the generated stylesheet link
 	 * - deregisters genericons as it may have been enqueued by Jetpack
+	 *
+	 * - For WordPress 5.3 we can't remove the theme support
+	 * - Removing theme support doesn't appear to work
 	 */
 	function test_sc__snippet() {
 		wp_deregister_style( "genericons" );
