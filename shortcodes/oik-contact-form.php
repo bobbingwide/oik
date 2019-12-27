@@ -317,7 +317,7 @@ function bw_contact_form__syntax( $shortcode="bw_contact_form" ) {
 								 , "contact" => BW_::bw_skv( null, "<i>" . __( "text", "oik" ) . "</i>", __( "Text for submit button", "oik" ) )
 								 , "email" => BW_::bw_skv( null, "<i>" . __( "email", "oik" ) . "</i>", __( "Email address for submission", "oik" ) ) 
 								 );
-	$syntax += _sc_classes();
+	$syntax += _sc_classes( false );
 	return( $syntax );
 }
 
