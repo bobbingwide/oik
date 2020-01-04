@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 3.3.7
+Version: 3.4.0
 Author: bobbingwide
 Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: oik
@@ -58,7 +58,8 @@ function oik_plugin_file_loaded() {
 	oik_require_lib( "bwtrace" );
 	oik_require_lib_wrapper( "bobbfunc" );
 	oik_require_lib_wrapper( "class-BW-" );
-  require_once( "oik-add-shortcodes.php" );
+  //require_once( "oik-add-shortcodes.php" );
+	oik_require_lib_wrapper( 'oik-shortcodes' );
   require_once( "includes/bobbcomp.php" );
    
   if ( defined('DOING_AJAX') && DOING_AJAX ) {
@@ -148,6 +149,7 @@ function oik_main_init() {
   add_action( "admin_bar_menu", "oik_admin_bar_menu", 20 );
   add_action( 'login_head', 'oik_login_head');
 	add_action( 'admin_notices', "oik_admin_notices", 9 );
+	add_action( "oik_add_shortcodes", "bw_oik_add_shortcodes" );
 	
 	add_filter( "_sc__help", "oik_oik_sc__help", 10, 2 );
 	$bobbfunc = oik_require_lib_wrapper( "bobbfunc" );
@@ -216,6 +218,19 @@ function oik_network_admin_menu() {
  */
 function oik_admin_init() {
   oik_options_init();
+}
+
+/**
+ * Implement 'oik_add_shortcodes' action for oik
+ *
+ * Loads oik shortcodes and registers them
+ */
+function bw_oik_add_shortcodes() {
+	$oik_shortcodes_path = oik_path( 'includes/oik-shortcodes.php');
+	if ( file_exists( $oik_shortcodes_path ) ) {
+		oik_require( "includes/oik-shortcodes.php" );
+		bw_oik_lazy_add_shortcodes();
+	}
 }
 
 /**
@@ -343,6 +358,7 @@ function oik_query_libs_query_libs( $libraries ) {
 						, "class-BW-" => null
 						, "oik-l10n" => null
 						, "bw_fields" => null
+						, 'oik-shortcodes' => null
 						);
 	$new_libraries = oik_lib_check_libs( $libraries, $libs, "oik" );
 	
