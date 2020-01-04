@@ -2,19 +2,18 @@
 if ( !defined( 'OIK_SHORTCODES_INCLUDED' ) ) {
 	define( 'OIK_SHORTCODES_INCLUDED', "3.4.0" );
 	/**
-	 * Library: oik-l10n
-	 * Provides: oik-l10n
+	 * Library: oik-shortcodes
+	 * Provides: oik-shortcodes
+	 * Type: shared
 	 * Type: shared
 	 * Depends:    bwtrace
 	 * @copyright (C) Copyright Bobbing Wide 2020
 	 *
 	 */
 
-	//oik_require( 'oik-add-shortcodes.php');
-	// (C) Copyright Bobbing Wide 2011-2019
-
 	/**
-	 * OIK Shortcodes APIs
+	 * OIK Shortcodes APIs - copied from oik-add-shortcodes.php ( oik base plugin )
+	 * with oik base plugin specific logic removed.
 	 *
 	 * Note: The logic to add the OIK shortcodes is in includes/oik-shortcodes.php
 	 */
