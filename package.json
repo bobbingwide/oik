@@ -1,5 +1,5 @@
 {
-  "name": "oik-blocks",
+  "name": "oik",
   "scripts": {
     "dev": "cross-env BABEL_ENV=default webpack --watch",
     "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack"

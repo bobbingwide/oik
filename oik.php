@@ -70,6 +70,7 @@ function oik_plugin_file_loaded() {
     add_action( 'admin_enqueue_scripts', 'add_thickbox' );
   }
   add_action( 'init', 'oik_main_init', 20 );
+  add_action( 'init', 'oik_register_dynamic_blocks' );
   add_action( 'rest_api_init', 'oik_rest_api_init', 20 );
     
   add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
@@ -543,6 +544,47 @@ function oik_is_shortcode_expansion_necessary() {
 	}
 	return $shortcode_expansion_necessary;
 }
+
+function oik_register_dynamic_blocks() {
+	$library_file = oik_require_lib( 'oik-blocks');
+	oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik', 'oik' );
+	oik\oik_blocks\oik_blocks_register_block_styles( 'oik' );
+	if ( ! oik_blocks_is_registered( 'oik/address') ) {
+
+		register_block_type( 'oik/address',
+			[
+				'render_callback' => 'oik_dynamic_block_address'
+				, 'editor_script' =>'oik-blocks-js'
+				, 'editor_style'  =>'oik-blocks-css'
+				, 'style'         =>'oik-blocks-css'
+				, 'attributes'    =>[
+					'tag'=>[ 'type'=>'string' ]
+				]
+			] );
+	}
+
+}
+
+function oik_blocks_is_registered( $block ) {
+	return WP_Block_Type_Registry::get_instance()->is_registered( $block );
+}
+
+/**
+ * Server rendering dynamic address block.
+ *
+  * @param array $attributes array of block attributes.
+ * @return string generated HTML
+ */
+function oik_dynamic_block_address( $attributes ) {
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-address.php', 'oik', 'bw_address' );
+	if ( ! $html ) {
+		$attributes['tag'] = bw_array_get( $attributes, 'tag', 'div' );
+		$attributes['alt'] = bw_array_get( $attributes, 'alt', '0' );
+		$html = bw_address( $attributes, null, null );
+	}
+	return $html;
+}
+
 	
 /**
  * Initiate oik processing 

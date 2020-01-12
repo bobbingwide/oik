@@ -37,7 +37,8 @@ const {
 const Fragment = wp.element.Fragment;
 import { map, partial } from 'lodash';
 // Set the header for the block since it is reused
-const blockHeader = <h3>{ __( 'Address' ) }</h3>;
+//const blockHeader = <h3>{ __( 'Address' ) }</h3>;
+import { transforms } from './transforms.js';
 
 //var TextControl = wp.blocks.InspectorControls.TextControl;
 /**
@@ -54,12 +55,12 @@ const tagOptions =
  */
 export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
-    'oik-block/address',
+    'oik/address',
     {
         // Localize title using wp.i18n.__()
         title: __( 'Address' ),
 				
-		description: 'Displays your address',
+		description: 'Displays your address from oik-options',
 
         // Category Options: common, formatting, layout, widgets, embed
         category: 'common',
@@ -84,6 +85,7 @@ export default registerBlockType(
         },
         example: {
         },
+        transforms,
 
         supports: {
             customClassName: false,
@@ -119,7 +121,7 @@ export default registerBlockType(
         </InspectorControls>
 
         <ServerSideRender
-            block="oik-block/address" attributes={ props.attributes }
+            block="oik/address" attributes={ props.attributes }
             />
         </Fragment>
           );
