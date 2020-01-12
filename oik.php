@@ -562,6 +562,19 @@ function oik_register_dynamic_blocks() {
 				]
 			] );
 	}
+	if ( ! oik_blocks_is_registered( 'oik/contact-form') ) {
+
+		register_block_type( 'oik/contact-form',
+			[
+				'render_callback' => 'oik_dynamic_block_contact_form'
+				, 'editor_script' =>'oik-blocks-js'
+				, 'editor_style'  =>'oik-blocks-css'
+				, 'style'         =>'oik-blocks-css'
+				, 'attributes'    =>[
+				'tag'=>[ 'type'=>'string' ]
+			]
+			] );
+	}
 
 }
 
@@ -583,6 +596,25 @@ function oik_dynamic_block_address( $attributes ) {
 		$html = bw_address( $attributes, null, null );
 	}
 	return $html;
+}
+
+/**
+ * Server rendering contact-form block.
+ *
+ * @param array $attributes Attributes to the block.
+ * @return string generated HTML
+ */
+function oik_dynamic_block_contact_form( $attributes ) {
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-contact-form.php', 'oik', 'bw_contact_form' );
+	if ( ! $html ) {
+		if ( did_action( "oik_loaded" ) ) {
+			$html = bw_contact_form( $attributes );
+		} else {
+			$html="The Contact form block requires the oik plugin.";
+		}
+	}
+	return $html;
+
 }
 
 	
