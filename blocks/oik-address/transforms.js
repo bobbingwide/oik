@@ -15,7 +15,20 @@ const transforms = {
                 });
             },
         },
-    ],
+        {
+            type: 'shortcode',
+            tag: 'bw_address',
+            attributes: {
+                tag: {
+                    type: 'string',
+                    shortcode: ( { named: { tag } } ) => {
+                        return tag;
+                    },
+                },
+
+            },
+        },
+        ]
 };
 
 export { transforms } ;
