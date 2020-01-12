@@ -126,20 +126,7 @@ export default registerBlockType(
         </Fragment>
           );
         },
-        saver: props => {
-					// console.log( props );
-					//var shortcode =  {props.attributes.issue} ;
-					var lsb = '[';
-					var rsb = ']';
-          return (
-            <div>
-						{blockHeader}
-						{lsb}
-						bw_address
-						{rsb}
-            </div>
-          );
-        },
+
         save() {
                   return null;
         }
