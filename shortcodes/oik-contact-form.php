@@ -16,9 +16,9 @@ function bw_contact_form_id( $set=false ) {
 
 /**
  * Implements the [bw_contact_form] shortcode
- * 
- * Creates/processes an inline contact form for the user
- * 
+ *
+ * Creates/processes an inline contact form for the user.
+ *
  * @param array $atts - shortcode parameters
  * @param string $content - not yet expected 
  * @param string $tag - shortcode name
@@ -29,7 +29,11 @@ function bw_contact_form( $atts=null, $content=null, $tag=null ) {
 	if ( $email_to ) { 
 		$atts['email'] = $email_to; 
 		bw_display_contact_form( $atts );
-	} else { 
+	} else {
+		/*
+		* If no email address can be found, because it's not passed and not set in the oik-options,
+        * then you'll get this message.
+		*/
 		e( __( "Cannot produce contact form for unknown user.", "oik" ) );
 	}  
 	return( bw_ret() );

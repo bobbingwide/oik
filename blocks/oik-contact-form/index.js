@@ -68,10 +68,12 @@ registerBlockType(
 
         // Set for each piece of dynamic data used in your block
         attributes: {
-				
+		/*
           user: {
             type: 'string',
           },
+
+		 */
 					
         },
 			
