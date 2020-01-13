@@ -421,4 +421,28 @@ function bw_follow_me__syntax( $shortcode="bw_follow_me" ) {
 	            , "network" => BW_::bw_skv( $networks, "<i>" .  __( "network1,network2", "oik") . "</i>", __("CSV list of network names", "oik" ) )
                  );
   return( $syntax );
-}                 
+}
+
+/**
+ * Adjusts attributes passed during server side rendering.
+ *
+ * @param array $attributes Array of attributes
+ * @return array  Adjusted array
+ */
+function oik_follow_me_attributes( $attributes ) {
+	$attributes = oik_follow_me_unset_or_trim( $attributes, 'alt' );
+	$attributes = oik_follow_me_unset_or_trim( $attributes, 'user' );
+	return $attributes;
+}
+
+function oik_follow_me_unset_or_trim( $attributes, $key ) {
+	$value = bw_array_get( $attributes, $key, null );
+	if ( '' === $value ) {
+		unset( $attributes[$key] );
+	} elseif ( null !== $value ) {
+		$attributes[$key] = trim( $value );
+	}
+	return $attributes;
+
+}
+

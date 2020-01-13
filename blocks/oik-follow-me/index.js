@@ -8,6 +8,7 @@
  */
 import './style.scss';
 import './editor.scss';
+import { transforms } from './transforms.js';
 
 // Get just the __() localization function from wp.i18n
 const { __ } = wp.i18n;
@@ -20,6 +21,7 @@ const {
     PlainText,
     AlignmentToolbar,
     BlockControls,
+	ServerSideRender,
 } = wp.editor;
 const {
 	InspectorControls,
@@ -35,6 +37,8 @@ const {
 	TextControl,
 
 } = wp.components;
+const Fragment = wp.element.Fragment;
+import { map, partial } from 'lodash';
 
 const blockAttributes = {
 	user: {
@@ -43,7 +47,7 @@ const blockAttributes = {
 	},
 	alt: {
 		type: 'string',
-		default: '0',
+		default: '',
 	},
 	network: {
 		type: 'string',
@@ -62,14 +66,14 @@ const blockAttributes = {
 /**
  * Register e
  */
-export default registerBlockType(
+registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
     'oik/follow-me',
     {
         // Localize title using wp.i18n.__()
         title: __( 'Follow me' ),
 				
-				description: 'Displays Social media links',
+		description: 'Displays Social media links',
 
         // Category Options: common, formatting, layout, widgets, embed
         category: 'common',
@@ -80,13 +84,23 @@ export default registerBlockType(
         // Limit to 3 Keywords / Phrases
         keywords: [
             __( 'Follow' ),
+			__( 'Social'),
+			__( 'Links'),
             __( 'oik' ),
         ],
 
         // Set for each piece of dynamic data used in your block
         attributes: blockAttributes,
 				
-				supports: { html: false },
+		// supports: { html: false },
+		example: {
+		},
+		supports: {
+			customClassName: false,
+			className: false,
+			html: false,
+		},
+		transforms,
 
         edit: props => {
 					
@@ -101,7 +115,11 @@ export default registerBlockType(
 					const onChangeNetwork = ( event ) => {
 						props.setAttributes( { network: event } );
 					};
-					
+
+					const onChangeTheme = ( event ) => {
+						props.setAttributes({theme: event});
+					}
+
 					//var atts = props.attributes;
 					var children = [];
 					//for (var key of Object.keys( atts )) {
@@ -112,18 +130,26 @@ export default registerBlockType(
 					//}
 					
 					var atts = props.attributes;
-					var chatts = [];		
+					var chatts = '';
 					for (var key of Object.keys( atts )) {
 						var value = atts[key];
 						if ( value ) {
-							chatts.push( " " + key + "=" + value );
+							var chatts = chatts.concat( " " , key , "=" , value );
 						}
 					}
-					
-          return [
-						
+			var lsb = '['; // &#91;
+			var rsb = ']'; // &#93;
+			var user = props.attributes.user;
 
-              <InspectorControls key="follow-me">
+
+			var equivalent_shortcode = `${lsb}bw_follow_me${chatts}${rsb}`;
+			console.log( chatts );
+			console.log( equivalent_shortcode );
+					
+          return (
+						
+				<Fragment>
+              <InspectorControls>
 								<PanelBody key="pb">
 								<PanelRow>
 								<TextControl label="User" value={props.attributes.user} id="hm001" instanceId="fm-user" onChange={onChangeUser}  />
@@ -134,17 +160,33 @@ export default registerBlockType(
 								<PanelRow>
 								<TextControl label="Network(s)" value={props.attributes.network} id="hm003" instanceId="fm-network" onChange={onChangeNetwork}  />
 								</PanelRow>
-								 </PanelBody>
+
+				  <PanelRow>
+					  Equivalent shortcode<br />
+					  {equivalent_shortcode}
+				  </PanelRow>
+								</PanelBody>
               </InspectorControls>
-  					,
 					
 					
-            <div className={ props.className }>
-						[bw_follow_me{chatts}]
+            <div >
+
 						</div>
-          ];
+					<ServerSideRender
+						block="oik/follow-me" attributes={ props.attributes }
+					/>
+				</Fragment>
+		  );
         },
-        save: props => {
+
+
+
+	save() {
+		// Rendering in PHP
+		return null;
+	},
+
+        saver: props => {
 					// console.log( props );
 					//var shortcode =  {props.attributes.issue} ;
 					var lsb = '[';

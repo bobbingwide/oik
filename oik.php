@@ -575,6 +575,22 @@ function oik_register_dynamic_blocks() {
 			]
 			] );
 	}
+	if ( ! oik_blocks_is_registered( 'oik/follow-me') ) {
+
+		register_block_type( 'oik/follow-me',
+			[
+				'render_callback' => 'oik_dynamic_block_follow_me'
+				, 'editor_script' =>'oik-blocks-js'
+				, 'editor_style'  =>'oik-blocks-css'
+				, 'style'         =>'oik-blocks-css'
+				, 'attributes'    =>
+					[ 'user' => [ 'type'=>'string' ]
+					,'alt' => [ 'type' => 'string ']
+					, 'network' => [ 'type' => 'string']
+					, 'theme' => [ 'type' => 'string']
+					]
+			] );
+	}
 
 }
 
@@ -616,6 +632,24 @@ function oik_dynamic_block_contact_form( $attributes ) {
 	return $html;
 
 }
+
+/**
+ * Server rendering contact-form block.
+ *
+ * @param array $attributes Attributes to the block.
+ * @return string generated HTML
+ */
+function oik_dynamic_block_follow_me( $attributes ) {
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-follow.php', 'oik', 'bw_follow_me' );
+	if ( ! $html ) {
+		bw_trace2();
+		$attributes = oik_follow_me_attributes( $attributes );
+		$html = bw_follow_me( $attributes );
+	}
+	return $html;
+
+}
+
 
 	
 /**
