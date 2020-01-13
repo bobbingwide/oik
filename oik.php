@@ -550,7 +550,6 @@ function oik_register_dynamic_blocks() {
 	oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik', 'oik' );
 	oik\oik_blocks\oik_blocks_register_block_styles( 'oik' );
 	if ( ! oik_blocks_is_registered( 'oik/address') ) {
-
 		register_block_type( 'oik/address',
 			[
 				'render_callback' => 'oik_dynamic_block_address'
@@ -591,8 +590,30 @@ function oik_register_dynamic_blocks() {
 					]
 			] );
 	}
+	if ( ! oik_blocks_is_registered( 'oik/countdown') ) {
+
+				register_block_type( 'oik/countdown',
+			[
+				'render_callback' => 'oik_dynamic_block_countdown'
+				, 'editor_script' =>'oik-blocks-js'
+				, 'editor_style'  =>'oik-blocks-css'
+				, 'style'         =>'oik-blocks-css'
+				, 'script'        => null
+				, 'attributes'    =>
+					[ 'since' => [ 'type'=>'string' ]
+						,'until' => [ 'type' => 'string ']
+						, 'url' => [ 'type' => 'string']
+						, 'description' => [ 'type' => 'string']
+						, 'expirytext' => [ 'type' => 'string']
+						, 'format' => [ 'type' => 'string']
+						, 'className' => [ 'type' => 'string' ]
+					]
+			] );
+	}
 
 }
+
+
 
 function oik_blocks_is_registered( $block ) {
 	return WP_Block_Type_Registry::get_instance()->is_registered( $block );
@@ -632,6 +653,25 @@ function oik_dynamic_block_contact_form( $attributes ) {
 	return $html;
 
 }
+
+/**
+ * Server rendering countdown block.
+ *
+ * This block is a dynamic block but it cannot be Server Side Rendered since it generates inline jQuery code.
+ *
+ * @param array $attributes Attributes to the block.
+ * @return string generated HTML
+ */
+function oik_dynamic_block_countdown( $attributes ) {
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-countdown.php', 'oik', 'bw_countdown' );
+	if ( ! $html ) {
+		$attributes = bw_countdown_attributes( $attributes );
+		$html = bw_countdown( $attributes );
+	}
+	return $html;
+}
+
+
 
 /**
  * Server rendering contact-form block.

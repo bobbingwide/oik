@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2018
+<?php // (C) Copyright Bobbing Wide 2013-2020
 
 /**
  * Returns the next selector for [bw_countdown]
@@ -125,4 +125,15 @@ function bw_countdown__example( $shortcode="bw_countdown" ) {
  */
 function bw_countdown__snippet( $shortcode="bw_countdown" ) {
   BW_::p( __( "No snippet available for this shortcode", "oik" ) );
+}
+
+/**
+ *
+ */
+function bw_countdown_attributes( $attributes ) {
+	$attributes = \oik\oik_blocks\oik_blocks_attribute_unset_or_trim( $attributes, 'since');
+	$attributes = \oik\oik_blocks\oik_blocks_attribute_unset_or_trim( $attributes, 'until');
+	$attributes = \oik\oik_blocks\oik_blocks_attribute_unset_or_trim( $attributes, 'format');
+	return $attributes;
+
 }

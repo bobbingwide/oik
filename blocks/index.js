@@ -14,7 +14,7 @@ import './oik-address';		 // From oik & oik-user
 //import './oik-person';       // From oik-user bw_user  and bw_follow_me etc
 import './oik-contact-form'; // From oik bw_contact_form
 import './oik-follow-me';    // From oik bw_follow_me
-//import './oik-countdown';    // From oik bw_countdown
+import './oik-countdown';    // From oik bw_countdown
 //import './oik-nivo';         // From oik-nivo-slider nivo
 //import './oik-css';          // From oik-css bw_css
 //import './oik-csv';          // From oik-bob-bing-wide bw_csv
