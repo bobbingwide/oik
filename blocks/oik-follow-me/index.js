@@ -35,10 +35,12 @@ const {
   PanelRow,
   FormToggle,
 	TextControl,
+	SelectControl,
 
 } = wp.components;
 const Fragment = wp.element.Fragment;
 import { map, partial } from 'lodash';
+import { themeOptions} from './themeOptions.js';
 
 const blockAttributes = {
 	user: {
@@ -152,14 +154,21 @@ registerBlockType(
               <InspectorControls>
 								<PanelBody key="pb">
 								<PanelRow>
-								<TextControl label="User" value={props.attributes.user} id="hm001" instanceId="fm-user" onChange={onChangeUser}  />
+								<TextControl label="User" value={props.attributes.user} onChange={onChangeUser}  />
 								</PanelRow>
 								<PanelRow>
-								<TextControl label="Alt" value={props.attributes.alt} id="hm002" instanceId="fm-alt" onChange={onChangeAlt}  />
+								<TextControl label="Alt" value={props.attributes.alt} onChange={onChangeAlt}  />
 								</PanelRow>
 								<PanelRow>
-								<TextControl label="Network(s)" value={props.attributes.network} id="hm003" instanceId="fm-network" onChange={onChangeNetwork}  />
+								<TextControl label="Network(s)" value={props.attributes.network} onChange={onChangeNetwork}  />
 								</PanelRow>
+									<PanelRow>
+										<SelectControl label="Theme" value={props.attributes.fields}
+													   options={ map( themeOptions, ( key, label ) => ( { value: label, label: key } ) ) }
+													   onChange={onChangeTheme}
+										/>
+
+									</PanelRow>
 
 				  <PanelRow>
 					  Equivalent shortcode<br />
@@ -167,11 +176,6 @@ registerBlockType(
 				  </PanelRow>
 								</PanelBody>
               </InspectorControls>
-					
-					
-            <div >
-
-						</div>
 					<ServerSideRender
 						block="oik/follow-me" attributes={ props.attributes }
 					/>
