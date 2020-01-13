@@ -2,13 +2,13 @@
 namespace oik\oik_blocks;
 
 if ( ! defined( 'OIK_BLOCKS_INCLUDED' ) ) {
-	define( 'OIK_BLOCKS_INCLUDED', '1.0.0' );
+	define( 'OIK_BLOCKS_INCLUDED', '1.0.1' );
 	define( 'OIK_BLOCKS_FILE', __FILE__ );
 
 	/**
 	 * The oik-blocks shared library for Gutenberg blocks.
 	 *
-	 * @copyright (C) Bobbing Wide 2019
+	 * @copyright (C) Bobbing Wide 2019, 2020
 	 * Library: oik-blocks
 	 * Depends: oik_boot, bobbfunc
 	 * Provides: oik-blocks
@@ -129,6 +129,25 @@ if ( ! defined( 'OIK_BLOCKS_INCLUDED' ) ) {
 			$block_atts = null;
 		}
 		return $block_atts;
+	}
+
+
+	/**
+	 * Unsets or trims an attribute to make it shortcode compatible.
+	 *
+	 * @param $attributes
+	 * @param $key
+	 *
+	 * @return mixed
+	 */
+	function oik_blocks_attribute_unset_or_trim( $attributes, $key ) {
+		$value = bw_array_get( $attributes, $key, null );
+		if ( '' === $value ) {
+			unset( $attributes[$key] );
+		} elseif ( null !== $value ) {
+			$attributes[$key] = trim( $value );
+		}
+		return $attributes;
 	}
 
 }
