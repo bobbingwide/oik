@@ -43,6 +43,8 @@ const {
 } = wp.compose;	
 
 const Fragment = wp.element.Fragment;
+import { transforms } from './transforms.js';
+
 
 
 /**
@@ -109,6 +111,8 @@ registerBlockType(
         attributes: blockAttributes,
 				
 		supports: { html: false, className: false},
+
+		transforms,
 
         edit: props => {
 					
