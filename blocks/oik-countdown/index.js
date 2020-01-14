@@ -2,7 +2,8 @@
  * Implements the Countdown block
  *
  * Equivalent to [bw_countdown]
- *
+ * The block is dynamic, but cannot be Server Side Rendered since
+ * the original implementation generates inline jQuery and CSS which isn't enqueued in REST processing.
  *
  * @copyright (C) Copyright Bobbing Wide 2019, 2020
  * @author Herb Miller @bobbingwide
@@ -137,8 +138,6 @@ registerBlockType(
 					};
 					
 					// For the time being we'll show the generated shortcode.
-					
-					
 					var atts = props.attributes;
 					var chatts = '[bw_countdown'; 	
 					for (var key of Object.keys( atts )) {
@@ -152,34 +151,33 @@ registerBlockType(
           return (
           	<Fragment>
 						
-  					  <InspectorControls key="ic-countdown">
-								<PanelBody key="pb-countdown">
+  					  <InspectorControls>
+							<PanelBody>
 								<PanelRow>
-
-								<TextControl label="Since" value={props.attributes.since} key="cd-since" onChange={onChangeSince} />
+								<TextControl label="Since" value={props.attributes.since} onChange={onChangeSince} />
 								</PanelRow>
 								<PanelRow>
-						  <TextControl label="Until" value={props.attributes.until} key="cd-until" onChange={onChangeUntil} />
+						  		<TextControl label="Until" value={props.attributes.until} onChange={onChangeUntil} />
 								</PanelRow>
 								<PanelRow>
-								<TextControl label="URL" value={props.attributes.url} key="cd-url" onChange={onChangeURL} />
+								<TextControl label="URL" value={props.attributes.url} onChange={onChangeURL} />
 								</PanelRow>
 								<PanelRow>
-                					<TextControl label="Description" value={props.attributes.description} key="cd-desc" onChange={onChangeDescription} />
+                					<TextControl label="Description" value={props.attributes.description} onChange={onChangeDescription} />
 								</PanelRow>
-						  	<PanelRow>
-								<TextControl label="Expiry Text" value={props.attributes.expirytext} key="cd-expirytext" onChange={onChangeExpiryText}  />
-						  	</PanelRow>
-						  <PanelRow>
-						 	<TextControl label="Format" value={props.attributes.format} key="cd-format" onChange={onChangeFormat} />
-						  </PanelRow>
-								 </PanelBody>
+						  		<PanelRow>
+								<TextControl label="Expiry Text" value={props.attributes.expirytext} onChange={onChangeExpiryText}  />
+						  		</PanelRow>
+						  		<PanelRow>
+						 		<TextControl label="Format" value={props.attributes.format} onChange={onChangeFormat} />
+						  		</PanelRow>
+							 </PanelBody>
 
 					
 					
 
           	</InspectorControls>
-				<div className={ props.className } key="chatts">
+				<div className={ props.className } >
 					<p>The Countdown block will be rendered on the front end. <br />Shortcode equivalent:
 					<br />
 				{chatts}
