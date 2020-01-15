@@ -1,0 +1,16 @@
+.wp-block-oik-block-shortcode-block {
+
+	.blocks-plain-text {
+    -ms-flex: 1 0 0%;
+        flex: 1 0 0%;
+    padding: 4px 8px;
+    border: 1px solid #e2e4e7;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 13px; 
+	}
+		
+	.blocks-plain-text:focus {
+		border: 1px solid #555d66; 
+	}
+
+}

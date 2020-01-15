@@ -610,6 +610,27 @@ function oik_register_dynamic_blocks() {
 					]
 			] );
 	}
+	if ( ! oik_blocks_is_registered( 'oik/shortcode-block') ) {
+
+		register_block_type( 'oik/shortcode-block',
+			[
+				'render_callback' => 'oik_dynamic_block_shortcode_block'
+				, 'editor_script' =>'oik-blocks-js'
+				, 'editor_style'  =>'oik-blocks-css'
+				, 'style'         =>'oik-blocks-css'
+				, 'script'        => null
+				, 'attributes'    =>
+					[ 'since' => [ 'type'=>'string' ]
+						,'until' => [ 'type' => 'string ']
+						, 'url' => [ 'type' => 'string']
+						, 'description' => [ 'type' => 'string']
+						, 'expirytext' => [ 'type' => 'string']
+						, 'format' => [ 'type' => 'string']
+						, 'className' => [ 'type' => 'string' ]
+					]
+			] );
+	}
+
 
 }
 
@@ -686,6 +707,25 @@ function oik_dynamic_block_follow_me( $attributes ) {
 		$attributes = oik_follow_me_attributes( $attributes );
 		$html = bw_follow_me( $attributes );
 	}
+	return $html;
+
+}
+
+/**
+ * Server side rendering dynamic shortcode block
+ *
+ * Dynamically loads oik_shortcode_block to expand the shortcode
+ *
+ * @param array $attributes
+ * @return string generated HTML
+ */
+function oik_dynamic_block_shortcode_block( $attributes ) {
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-shortcode.php', 'oik', 'oik_shortcode_block' );
+	if ( ! $html ) {
+		$html = oik_shortcode_block( $attributes );
+	}
+	//oik_require( "shortcodes/oik-shortcode.php", "oik-blocks" );
+
 	return $html;
 
 }
