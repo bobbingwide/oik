@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2009-2019
+<?php // (C) Copyright Bobbing Wide 2009-2020
 if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
-define( "BOBBFUNC_INCLUDED", "3.3.8" );
+define( "BOBBFUNC_INCLUDED", "3.4.0" );
 
 /**
  * HTML output library functions
@@ -1522,6 +1522,32 @@ function bw_as_array( $mixed ) {
 		$mixed_array = array();
 	}      
 	return( $mixed_array );
+}
+
+/**
+ * Return the value from a list of possible parameters
+ *
+ * @param array $atts - an array of key value pairs
+ * @param mixed $from - a list e.g. ( "api,func" ) or array of key names
+ * @param string $default - the default value if not set
+ * @return string - the first value found or the default
+ */
+if ( !function_exists( 'bw_array_get_from')) {
+	function bw_array_get_from( $atts, $from, $default ) {
+		$from  =bw_as_array( $from );
+		$fc    =count( $from );
+		$f     =0;
+		$result=null;
+		while ( ( $f < $fc ) && $result === null ) {
+			$result=bw_array_get( $atts, $from[ $f ], null );
+			$f ++;
+		}
+		if ( ! $result ) {
+			$result=$default;
+		}
+
+		return ( $result );
+	}
 }
 
 } /* end !defined */

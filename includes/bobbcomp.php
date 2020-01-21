@@ -668,19 +668,22 @@ function bw_etag( $atts = NULL ) {
  * @param string $default - the default value if not set 
  * @return string - the first value found or the default
  */
-function bw_array_get_from( $atts, $from, $default ) {
-  $from = bw_as_array( $from );
-  $fc = count( $from );
-  $f = 0;
-  $result = null;
-  while ( ( $f < $fc ) && $result === null ) {
-    $result = bw_array_get( $atts, $from[$f], null );  
-    $f++;
-  }
-  if ( !$result ) {
-    $result = $default;
-  }
-  return( $result );      
+if ( !function_exists( 'bw_array_get_from')) {
+	function bw_array_get_from( $atts, $from, $default ) {
+		$from  =bw_as_array( $from );
+		$fc    =count( $from );
+		$f     =0;
+		$result=null;
+		while ( ( $f < $fc ) && $result === null ) {
+			$result=bw_array_get( $atts, $from[ $f ], null );
+			$f ++;
+		}
+		if ( ! $result ) {
+			$result=$default;
+		}
+
+		return ( $result );
+	}
 }
 
 // Moved bw_as_array() to libs/bobbfunc.php
