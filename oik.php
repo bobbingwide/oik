@@ -620,13 +620,10 @@ function oik_register_dynamic_blocks() {
 				, 'style'         =>'oik-blocks-css'
 				, 'script'        => null
 				, 'attributes'    =>
-					[ 'since' => [ 'type'=>'string' ]
-						,'until' => [ 'type' => 'string ']
-						, 'url' => [ 'type' => 'string']
-						, 'description' => [ 'type' => 'string']
-						, 'expirytext' => [ 'type' => 'string']
-						, 'format' => [ 'type' => 'string']
-						, 'className' => [ 'type' => 'string' ]
+					[ 'shortcode' => [ 'type'=>'string' ]
+						,'content' => [ 'type' => 'string ']
+						, 'parameters' => [ 'type' => 'string']
+
 					]
 			] );
 	}

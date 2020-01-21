@@ -24,11 +24,13 @@ const {
 
 const { 
 	Editable,
-	PlainText,
+
   AlignmentToolbar,
   BlockControls,
+	ServerSideRender,
  } = wp.editor;
 const {
+	PlainText,
 	InspectorControls,
 } = wp.blockEditor;
 	 
@@ -40,6 +42,7 @@ const {
   PanelRow,
   FormToggle,
 	TextControl,
+	TextareaControl,
 	SelectControl,
 } = wp.components;
 
@@ -69,7 +72,7 @@ const shortcode_attributes =
 						default: '',
 					},
 					
-					selector: {
+					parameters: {
 						type: 'string',
 						default: '',
 					},
@@ -135,6 +138,10 @@ export default registerBlockType(
 				const onChangeContent = ( value ) => {
 					setAttributes( { content: value } );
 				};
+
+				const onChangeParameters = ( value ) => {
+					setAttributes( { parameters: value } );
+				}
 				
 				const onChangeShortcode = ( value ) => {
 					
@@ -154,41 +161,48 @@ export default registerBlockType(
 				 /*
 									<GenericAttrs value={attributes.shortcode} />
 				 */
-				return [
+				return (
+					<Fragment>
 				
   					  <InspectorControls>
 								<PanelBody>
-									<TextControl label="Shortcode" value={attributes.shortcode} onChange={onChangeShortcode} />
-									
-																	
-									<SelectControl label="" value={attributes.shortcode}
-										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: key } ) ) }
+									<SelectControl label="Shortcode" value={attributes.shortcode}
+										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: label + ' - ' + key } ) ) }
 										onChange={partial( onChangeAttr, 'shortcode' )}
 									/>
-									<SelectControl label="Post Type" value={attributes.post_type} 
-										options={ map( bw_shortcodes_attrs.bw_posts.post_type, ( key, label ) => ( { value: label, label: key } ) ) }
-										onChange={partial( onChangeAttr, 'post_type' )}
+									<TextareaControl label="Parameters"
+													 value={ attributes.parameters }
+													 placeholder={ __( 'Enter your shortcode parameters' ) }
+													 onChange={onChangeParameters}
+													 rows="1"
 									/>
+									<TextareaControl label="Content"
+													 id={ inputId }
+													 value={ attributes.content }
+													 placeholder={ __( 'Enter your shortcode content' ) }
+													 onChange={onChangeContent}
+									/>
+
 									
 								</PanelBody>
               </InspectorControls>
 									
-						,
+
 					<div className="wp-block-oik-block-shortcode wp-block-shortcode">
 						<SelectControl label="Shortcode" value={attributes.shortcode}
-										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: key } ) ) }
+										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: label + ' - ' + key } ) ) }
 										onChange={partial( onChangeAttr, 'shortcode' )}
 									/>
 
-						<PlainText
-							id={ inputId }
-							value={ attributes.content }
-							placeholder={ __( 'Enter your shortcode content' ) }
-							onChange={onChangeContent}
-						/>
+
+
 					</div>
+						<ServerSideRender
+							block="oik/shortcode-block" attributes={ attributes }
+						/>
+					</Fragment>
 				 					
-				];
+			);
 			}
 		),
 				
