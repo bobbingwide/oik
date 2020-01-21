@@ -15,8 +15,13 @@ function oik_shortcode_block( $attributes ) {
 
 	//BW_::p( $shortcode );
 	///BW_::p( $content );
+	///
+	do_action( "oik_add_shortcodes" );
 
 	$result = bw_shortcode_event( $attributes, $content, $shortcode );
+	if ( null === $result ) {
+		$result = "<!-- No result for shortcode $shortcode -->";
+	}
 
 	return $result;
 
