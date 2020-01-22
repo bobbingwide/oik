@@ -77,11 +77,7 @@ const shortcode_attributes =
 						default: '',
 					},
 					
-					post_type: {
-						type: 'string',
-						default: '',
-						values: {},
-					}
+	
 };	
 
  
