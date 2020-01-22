@@ -42,7 +42,7 @@ class Tests_shortcodes_oik_googlemap extends BW_UnitTestCase {
 		bw_update_option( "company", null );
 		bw_update_option( "postal-code", null );
 		bw_update_option( "gmap_intro", null );
-		bw_update_option( "google_maps_api_key", "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU" );
+		bw_update_option( "google_maps_api_key", "AIza-not-a-personal-google-maps-api-key" );
 		bw_update_option( "contact", null );
 		bw_update_option( "lat", null );
 		bw_update_option( "long", null );
@@ -60,7 +60,7 @@ class Tests_shortcodes_oik_googlemap extends BW_UnitTestCase {
 		bw_update_option( "company", null );
 		bw_update_option( "postal-code", null );
 		bw_update_option( "gmap_intro", null );
-		bw_update_option( "google_maps_api_key", "AIzaSyBU6GyrIrVZZ0auvDzz_x0Xl1TzbcYrPJU" );
+		bw_update_option( "google_maps_api_key", "AIza-not-a-personal-google-maps-api-key" );
 		bw_update_option( "contact", null );
 		bw_update_option( "lat", null );
 		bw_update_option( "long", null );
