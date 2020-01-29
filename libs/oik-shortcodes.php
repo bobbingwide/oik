@@ -387,7 +387,7 @@ if ( !defined( 'OIK_SHORTCODES_INCLUDED' ) ) {
 	 */
 	function bw_get_shortcode_title_expansion( $shortcode ) {
 		global $bw_sc_te;
-		bw_trace2( $bw_sc_te, "bw_sc_te", true, BW_TRACE_DEBUG );
+		bw_trace2( $bw_sc_te, "bw_sc_te", true, BW_TRACE_VERBOSE );
 		$expand=bw_array_get( $bw_sc_te, $shortcode, null );
 
 		return ( $expand );
