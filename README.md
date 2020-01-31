@@ -2,21 +2,30 @@
 ![banner](https://raw.githubusercontent.com/bobbingwide/oik/master/assets/oik-banner-772x250.jpg)
 * Contributors: bobbingwide, vsgloik
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
-* Tags: shortcodes, shortcode, advanced, oik
-* Requires at least: 4.9.8
-* Tested up to: 5.2.2
-* Stable tag: 3.3.7
+* Tags: blocks, shortcodes, shortcode, advanced
+* Requires at least: 5.0.3
+* Tested up to: 5.3.2
+* Stable tag: 4.0.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
-* Gutenberg compatible: Likely-yes
+* Gutenberg compatible: Yes
 
 Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.
+
+Now with blocks:
+
+* Address - Displays your address from oik-options
+* Contact form - Displays a contact form
+* Countdown - Countdown / count since timer
+* Follow me - Displays your social media links
+* Google Maps - Displays a Google Maps map using oik options
+* Shortcode block for oik shortcodes - Expands oik shortcodes
+
 
 ## Description 
 The *oik base* plugin provides a series of advanced WordPress shortcodes that help you display dynamic content from your website's pages, posts, attachments, links and custom post types.
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information.
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
-
 
 oik now provides over 80 shortcodes including:
 
@@ -30,13 +39,27 @@ oik now provides over 80 shortcodes including:
 * [bw_button], [bw_contact_button] - to provide call-to-action button style links for Artisteer themes
 * helper shortcodes for web designers and developers: [bw_editcss], [bwtrace], [bw_wpadmin], [bw_wtf], [stag] & [etag]
 
-
 oik helps you to display information about you, your company, your social networking ids and your website using standard formats that search engines such as Google recognise.
 
 * You enter your information once, then use oik shortcodes to display it wherever you want; in titles, post and page content, header, sidebar and footer widgets.
 * Whenever you need to change a value you only need to update it in one place; and your website is updated instantly.
 * Shortcodes to display often included key information include: [bw_contact], [bw_telephone], [bw_mobile], [bw_mailto], [bw_company], [bw_address], [bw_show_googlemap], [bw_directions], [bw_logo], [bw_qrcode], [bw_copyright]
-* For your social networking use the [bw_follow_me] shortcode to display your links to Twitter, Facebook, LinkedIn, Google+, etcetera
+* For your social networking use the [bw_follow_me] shortcode to display your links to Twitter, Facebook, LinkedIn, etcetera
+
+
+
+New in v4.0.0:
+
+Six blocks for the Gutenberg block editor.
+
+* Address - displays your address from oik options
+* Contact form - displays a Contact form
+* Countdown - Countdown timers
+* Follow me - displays social media links
+* Google Maps - Displays a Google Maps map using oik options
+* Shortcode block for oik-shortcodes - Expands oik shortcodes
+
+These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 Features:
 
@@ -52,13 +75,12 @@ Features:
 ## Installation 
 See Frequently Asked Questions
 
-
 ## Frequently Asked Questions 
 # Installation 
 1. Upload the contents of the oik plugin to the `/wp-content/plugins/oik' directory
 1. Activate the oik base plugin through the 'Plugins' menu in WordPress
 1. Go to **oik options** > **options** to fill in your **o**ften **i**ncluded **k**ey information
-1. Use the shortcodes when writing your content
+1. Use the blocks or shortcodes when writing your content
 
 # Where is the FAQ? 
 [oik FAQ](https://www.oik-plugins.com/oik/oik-faq)
@@ -69,14 +91,18 @@ Yes - please use the [oik plugin forum](https://wordpress.org/support/plugin/oik
 # Can I get support? 
 Yes - see above
 
+# Where are the blocks documented? 
+[oik blocks](https://www.oik-plugins.com/oik-plugins/oik)
+
+For blocks of many other WordPress plugins ( including WordPress SEO, Jetpack, WooCommerce ) see [blocks.wp-a2z.org](https://blocks.wp-a2z.org)
+
 # Where are the shortcodes documented? 
 
 [oik shortcodes](https://www.oik-plugins.com/shortcodes)
 
 The shortcode reference includes the standard WordPress shortcodes and help for shortcodes provided by other oik plugins.
 
-
-For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCommerce) see [WP-a2z.org](https://wp-a2z.org/sites)
+For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCommerce) see [WP-a2z.org](https://wp-a2z.org/sitemap/sites)
 
 
 ## Screenshots 
@@ -92,6 +118,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.0.0 
+Now delivers a number of blocks for the block editor, with transforms for shortcodes.
+
 # 3.3.7 
 Fixes a problem introduced in 3.3.6
 
@@ -472,6 +501,26 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 4.0.0 
+* Fixed: Review use of id= parameter across shortcodes,https://github.com/bobbingwide/oik/issues/30
+* Fixed: Cater for invalid data causing warning in PHP 7.4,https://github.com/bobbingwide/oik/issues/91
+* Deleted: Forget about bwtroff and bwtron shortcodes,https://github.com/bobbingwide/oik/issues/105
+* Fixed: Ensure Class OIK_Autoload does not exist is traced as BW_TRACE_ERROR,https://github.com/bobbingwide/oik/issues/106
+* Changed: Adjust tests to cater for WordPress 5.3 changes,https://github.com/bobbingwide/oik/issues/130
+* Fixed: bw_link /permalink should use the same scheme as current content,https://github.com/bobbingwide/oik/issues/133
+* Changed: Allow styling of the bw_count shortcode,https://github.com/bobbingwide/oik/issues/134
+* Changed: Update tests for PHPUnit 8,https://github.com/bobbingwide/oik/issues/135
+* Changed: Use self::bw_retrieve_result to obtain error information for bw_remote_geth and bw_remote_get,https://github.com/bobbingwide/oik/issues/136
+* Changed: Implement oik-shortcodes shared library,https://github.com/bobbingwide/oik/issues/137
+* Changed: oik-bob-bing-wide needs bw_array_get_from in the bobbfunc shared library,https://github.com/bobbingwide/oik/issues/137
+* Added: Deliver blocks that were developed in oik-blocks,https://github.com/bobbingwide/oik/issues/138
+* Added: Generic shortcode block,https://github.com/bobbingwide/oik/issues/139
+* Fixed: Changed Google Maps API key in PHPUnit tests,https://github.com/bobbingwide/oik/issues/140
+* Tested: With WordPress 5.3.2 and WordPress Multi Site
+* Tested: With Gutenberg 7.3.0
+* Tested: With PHP 7.3 and PHP 7.4
+* Tested: With PHPUnit 8
+
 # 3.3.7 
 * Fixed: Check that bw_trace_get_attached_hooks is available,https://github.com/bobbingwide/oik/issues/120
 
@@ -1693,16 +1742,15 @@ Other plugins which depend upon the oik API are available on WordPress.org:
 * [bbboing](https://www.wordpress.org/extend/plugins/bbboing) - obfuscate text but leave it readable
 * [cookie-cat](https://www.wordpress.org/extend/plugins/cookie-cat) - [cookies] shortcode to list the cookies your website may use
 * [oik-batchmove](https://www.wordpress.org/extend/plugins/oik-batchmove) - batch change post categories or published date
-* [oik-css](https://www.wordpress.org/extend/plugins/oik-css) - [bw_css] for CSS styling per page
 * [oik-nivo-slider](https://wordpress.org/extend/plugins/oik-nivo-slider/) - [nivo] shortcode for the jQuery "Nivo slider" for posts, pages, attachments and custom post types
 * [oik-privacy-policy](https://www.wordpress.org/extend/plugins/oik-privacy-policy) - generate a privacy policy page, compliant with UK cookie law (EU cookie directive)
 * [oik-read-more](https://wordpress.org/plugins/oik-read-more) - progressively reveal content by clicking on "read more" buttons
-* [uk-tides](https://wordpress.org/extend/plugins/uk-tides/) - [bw_tides] shortcode for tide times and heights in the UK  (replaces oik-tides)
 
 Plugins which participate with oik shared libraries are:
 
 * [oik-bwtrace](https://wordpress.org/plugins/oik-bwtrace/) - Debug trace for WordPress, including action and filter tracing
-
+* [oik-css](https://www.wordpress.org/extend/plugins/oik-css) - [bw_css] for CSS styling per page
+* [uk-tides](https://wordpress.org/extend/plugins/uk-tides/) - [bw_tides] shortcode for tide times and heights in the UK  (replaces oik-tides)
 
 These plugins are not dependent upon oik:
 
@@ -1724,7 +1772,6 @@ More FREE and Premium plugins are available from [oik-plugins.com](https://www.o
 * [oik-todo](https://www.oik-plugins.com/oik-plugins/oik-todo-todo-list) - TO DO list
 * [oik-types](https://www.oik-plugins.com/oik-plugins/oik-types) - custom content type, field and taxonomy manager
 * [oik-user](https://www.oik-plugins.com/oik-plugins/oik-user) - display oik information for each site user
-
 
 
 # Removal of child plugins (version 2.0) 
@@ -1764,7 +1811,8 @@ oik plugins are tested with:
 
 * WordPress
 * WordPress Multisite
-* PHP 7.1 and 7.2
+* PHP 7.3 and 7.4
+* PHPUnit 8
 
 All of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier.
 These are known as the [OIK Application Programming Interface (OIK API)](https://www.oik-plugins.com/apis/oik-apis)
