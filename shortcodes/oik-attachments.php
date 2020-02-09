@@ -175,7 +175,7 @@ function bw_format_attachment( $post, $atts ) {
  * Well, that's the plan
  * `
  * [bw_attachments class="classes for bw_block" 
- *   post_type='atachment'
+ *   post_type='attachment'
  *   post_mime_type='
  *     application/pdf
  *      image/gif
@@ -198,7 +198,7 @@ function bw_attachments( $atts = NULL ) {
   $atts['id'] = bw_array_get_from( $atts, "id,0", null );
   $atts['post_status'] = 'inherit';
   $posts = bw_get_posts( $atts );
-  //bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts" );
+  //bw_trace2( $posts, 'posts', true, BW_TRACE_DEBUG );
   foreach ( $posts as $post ) {
     bw_format_attachment( $post, $atts );
   }

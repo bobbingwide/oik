@@ -45,6 +45,9 @@ oik helps you to display information about you, your company, your social networ
 * Shortcodes to display often included key information include: [bw_contact], [bw_telephone], [bw_mobile], [bw_mailto], [bw_company], [bw_address], [bw_show_googlemap], [bw_directions], [bw_logo], [bw_qrcode], [bw_copyright]
 * For your social networking use the [bw_follow_me] shortcode to display your links to Twitter, Facebook, LinkedIn, etcetera
 
+New in oik v4.1.0:
+
+* bw_table shortcode now supports a totals= parameter 
 
 
 New in v4.0.0:
@@ -117,6 +120,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 4.1.0-alpha-20200209 =
+Upgrade to try the totals= parameter for the [bw_table] shortcode. 
+
 = 4.0.0 =
 Now delivers a number of blocks for the block editor, with transforms for shortcodes.
 
@@ -500,6 +506,10 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.1.0-alpha-20200209 =
+* Changed: Added totals= and prefixes= parameter to the [bw_table] shortcode,[github bobbingwide oik issues 145]
+* Tested: With Gutenberg 7.4.0
+
 = 4.0.0 =
 * Fixed: Review use of id= parameter across shortcodes,[github bobbingwide oik issues 30]
 * Fixed: Cater for invalid data causing warning in PHP 7.4,[github bobbingwide oik issues 91]

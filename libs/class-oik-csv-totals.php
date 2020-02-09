@@ -1,6 +1,6 @@
 <?php
 if ( !defined( 'CLASS_OIK_CSV_TOTALS_INCLUDED' ) ) {
-	define( 'CLASS_OIK_CSV_TOTALS_INCLUDED', '0.0.0' );
+	define( 'CLASS_OIK_CSV_TOTALS_INCLUDED', '0.0.1' );
 
 	/**
 	 * @copyright Bobbing Wide 2020
