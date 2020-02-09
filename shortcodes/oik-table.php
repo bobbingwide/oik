@@ -106,12 +106,14 @@ function bw_query_table_columns( $atts=null, $post_type ) {
  * @param array $atts - shortcode parameters
  * 
  */
-function bw_format_table_row( $post, $atts ) {
+function bw_format_table_row( $post, $atts, $csv_totals ) {
   global $field_arr; 
   $atts['post'] = $post;
-  //bw_trace2( $field_arr, "field_arr", false );
+  $index = 0;
+  bw_trace2( $field_arr, "field_arr", false );
   stag( "tr" );
   foreach ( $field_arr as $key => $value ) {
+
     //bw_trace2( $key, "key", false );
     //bw_trace2( $value, "value", false );
     stag( "td", $value, $key );
@@ -125,10 +127,14 @@ function bw_format_table_row( $post, $atts ) {
       $field_value = $post->$field_name;
       bw_theme_field( $field_name, $field_value, $atts );
     } else {
-       bw_trace2( $value );
-       bw_custom_column( $value, $post->ID );   
-    }   
+       bw_trace2( $value, 'value', false, BW_TRACE_VERBOSE );
+       $field_value = bw_custom_column( $value, $post->ID );
+    }
+    if ( $csv_totals) {
+	    $csv_totals->column( $index, $field_value );
+	}
     etag( "td" );
+    $index++;
   }  
   etag( "tr");
 }
@@ -159,13 +165,28 @@ function bw_format_table( $posts, $atts ) {
       return;
     }
   }
+
+	$totals = bw_array_get( $atts, 'totals', null );
+	$csv_totals = null;
+	if ( $totals ) {
+		oik_require_lib( 'class-oik-csv-totals' );
+		$csv_totals = new Oik_csv_totals( $totals );
+	}
   $cp = bw_current_post_id();
   foreach ( $posts as $post ) {
     bw_current_post_id( $post->ID );
     if ( $excerpts )
-      $post->excerpt = bw_excerpt( $post );    
-    bw_format_table_row( $post, $atts );
+      $post->excerpt = bw_excerpt( $post );
+    if ( $totals ) {
+    	$csv_totals->rows();
+    }
+    bw_format_table_row( $post, $atts, $csv_totals );
   }
+
+  if ( $csv_totals ) {
+		$prefixes = bw_array_get( $atts, 'prefixes', null );
+		$csv_totals->totals_row( $prefixes );
+	}
   bw_current_post_id( $cp );
   etag( "tbody" );
   etag( "table" );
