@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017,2020 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -70,23 +70,22 @@ oik_require( "includes/bw_images.inc" );
  * @return string - HTML to display the image
  */
 function bw_thumbnail_full( $post ) {
-  $attachment_meta = get_post_meta( $post->ID, "_wp_attachment_metadata", false );
-  //bw_trace2( $attachment_meta, "attachment_meta", false );
-  $first = bw_array_get( $attachment_meta, 0, null );
-  
-  if ( $first ) { 
-    $file = bw_array_get( $first, "file", null );
-  }     
-  
-  if ( $first && $file)  {
-  
-    $upload_dir = wp_upload_dir();
-    $baseurl = $upload_dir['baseurl'];
-    $retimage = retimage( "full", $baseurl . '/' . $file );
-  } else {
-    $retimage = retimage( "full", $post->guid );
-  }  
-  return( $retimage );  
+	$attachment_meta = get_post_meta( $post->ID, "_wp_attachment_metadata", false );
+	bw_trace2( $attachment_meta, "attachment_meta", false, BW_TRACE_VERBOSE );
+	$first = bw_array_get( $attachment_meta, 0, null );
+
+	if ( $first ) {
+		$file = bw_array_get( $first, "file", null );
+		//bw_trace2( $file, "file", true) ;
+		$file = bw_verify_file_from_url( $file );
+	}
+	$retimage = null;
+	if ( $first && $file ) {
+		$upload_dir = wp_upload_dir();
+		$baseurl    = $upload_dir['baseurl'];
+		$retimage   = retimage( 'full', $baseurl . '/' . $file );
+	}
+	return $retimage;
 }
 
 /**
@@ -328,6 +327,7 @@ function bw_attachments__syntax( $shortcode="bw_attachments" ) {
   $syntax = _sc_posts(); 
   $syntax['post_type'] = BW_::bw_skv( "attachment", "<i>" . __( "post type", "oik" ) . "</i>", __( "Post type to display", "oik" ) );
   $syntax += _sc_thumbnail();
+  $syntax['titles'] = BW_::bw_skv( 'y', 'n', __('Display titles', 'oik' ) );
   $syntax += _sc_captions();
   $syntax += _sc_classes();
   return( $syntax );   

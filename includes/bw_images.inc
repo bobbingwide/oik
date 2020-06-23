@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2017,2020 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -359,7 +359,7 @@ function bw_get_attached_image( $post_id = null, $number = 1, $orderby = 'rand',
 }
 
 /**
- * Get the "thumbnail" image for an attachment
+ * Gets the "thumbnail" image for an attachment
  * 
  * This no longer sets the width and height of the image. Does this work when we want a really small image?
  * 
@@ -370,21 +370,21 @@ function bw_get_attached_image( $post_id = null, $number = 1, $orderby = 'rand',
  * 
  */ 
 function bw_get_attachment_thumbnail( $post_id, $size, $atts ) {
-  //bw_backtrace();
-  $thumbnail_arr = wp_get_attachment_image_src( $post_id, $size, false );
-  //bw_trace2( $thumbnail_arr, "thumbnail_arr" );
-  $thumbnail = bw_array_get( $thumbnail_arr, 0, null);
-  $text = bw_array_get( $atts, "title", NULL );
-  if ( $thumbnail ) {
-    $thumbnail_arr = bw_force_size( $thumbnail_arr, $size );
-    $classes = "bw_thumbnail " . bw_get_post_class( $post_id );
-    $thumbnail = retimage( $classes, $thumbnail, $text, $thumbnail_arr[1], $thumbnail_arr[2] ); 
-  } else {
-    $thumbnail = wp_get_attachment_link( $post_id, $size, false, false ); 
-  }  
-  //   $attachment_id, $size='thumbnail', $icon = false)
-  // function wp_get_attachment_link( $id = 0, $size = 'thumbnail', $permalink = false, $icon = false, $text = false ) {
-  return( bw_trace2( $thumbnail ));
+	$thumbnail_arr = wp_get_attachment_image_src( $post_id, $size, false );
+	$thumbnail = bw_array_get( $thumbnail_arr, 0, null);
+	$text = bw_array_get( $atts, "title", NULL );
+	if ( $thumbnail ) {
+		$thumbnail = bw_verify_file_from_url( $thumbnail );
+	}
+	if ( $thumbnail ) {
+		$thumbnail_arr = bw_force_size( $thumbnail_arr, $size );
+		$classes = "bw_thumbnail " . bw_get_post_class( $post_id );
+		$thumbnail = retimage( $classes, $thumbnail, $text, $thumbnail_arr[1], $thumbnail_arr[2] );
+	} else {
+		$thumbnail = wp_get_attachment_link( $post_id, $size, false, false );
+	}
+	bw_trace2( $thumbnail, 'thumbnail', true, BW_TRACE_VERBOSE );
+	return $thumbnail;
 }
 
 /**
@@ -396,11 +396,34 @@ function bw_get_post_class( $id ) {
   $classes = get_post_class( null, $id ); 
   $classlist = implode( " ", $classes );
   return( $classlist );
-}  
-  
+}
 
-  
-  
+/**
+ * Returns true if the filename for an uploaded file's URL exists
+ *
+ * We check that the $url is prefixed with 'baseurl' then
+ * convert it to 'basedir' to get the file name then that the file exists.
+ *
+ * Note: This code only checks the file if it's prefixed with the baseurl!
+ *
+ * @param $url - URL for the upload
+ * @param bool $placeholder - future use
+ * @return string|null
+ */
+function bw_verify_file_from_url( $url, $placeholder=false ) {
+	//bw_trace2();
+	$upload_dir = wp_get_upload_dir();
+	if ( 0 === strpos( $url, $upload_dir['baseurl'] ) ) {
+		$file = str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $url );
+		bw_trace2( $file, "file", true, BW_TRACE_VERBOSE );
+		if ( file_exists( $file )) {
+			// OK the link should work
+		} else {
+			$url = null;
+		}
+	}
+	return $url;
+}
 
 
 
