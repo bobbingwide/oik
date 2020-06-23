@@ -674,7 +674,7 @@ function bw_code__example() {
   BW_::br();
   e( __( "Display information about the [oik] shortcode", "oik" ) );
   BW_::br();
-  oik__help();
+  bw_lazy_sc_help( "oik");
   BW_::br();
   bw_lazy_sc_syntax( "oik" );
   oik__example();
