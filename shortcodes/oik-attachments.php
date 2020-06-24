@@ -194,8 +194,12 @@ function bw_format_attachment( $post, $atts ) {
  */
 function bw_attachments( $atts = NULL ) {
   $atts[ 'post_type'] = bw_array_get( $atts, "post_type", "attachment" );
-  $atts['id'] = bw_array_get_from( $atts, "id,0", null );
+  $id = bw_array_get_from( $atts, "id,0", null );
+  if ( null !== $id ) {
+	  $atts['id']=$id;
+  }
   $atts['post_status'] = 'inherit';
+
   $posts = bw_get_posts( $atts );
   //bw_trace2( $posts, 'posts', true, BW_TRACE_DEBUG );
   foreach ( $posts as $post ) {
