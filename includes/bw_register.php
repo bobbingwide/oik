@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2017,2020
 
 /**
  * Register functions for custom post types, taxonomies and fields
@@ -389,7 +389,9 @@ function bw_register_custom_tags( $taxonomy, $object_type=null, $arg=null ) {
 function bw_register_custom_category( $taxonomy, $object_type=null, $arg=null ) {
   $args = bw_default_taxonomy_args( $taxonomy, $arg );
   $args['hierarchical'] = true;
-	$args['show_in_rest'] = true;
+  if ( !isset( $args['rewrite']['hierarchical'] ) ) {
+	  $args['rewrite']['hierarchical']=true;
+  }
   bw_register_taxonomy( $taxonomy, $object_type, $args ); 
 }
 
