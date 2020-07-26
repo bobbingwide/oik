@@ -3,7 +3,7 @@ if ( defined( 'OIK_PARENT_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_PARENT_SHORTCODES_INCLUDED', true );
 
 /*
-    Copyright 2012-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017, 2020 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -81,7 +81,7 @@ function bw_parent__help() {
  * Syntax for [bw_parent] shortcode
  */
 function bw_parent__syntax( $shortcode="bw_parent" ) {
-  $syntax = array( "id" => BW_::bw_skv( null, "<i>". __( "ID", "oik" ) . "</id>", __( "ID from which to find the parent", "oik" ) ) );
+  $syntax = array( "id" => BW_::bw_skv( null, "<i>". __( "ID", "oik" ) . "</i>", __( "ID from which to find the parent", "oik" ) ) );
   return( $syntax );
 }
 
