@@ -389,9 +389,10 @@ function bw_register_custom_tags( $taxonomy, $object_type=null, $arg=null ) {
 function bw_register_custom_category( $taxonomy, $object_type=null, $arg=null ) {
   $args = bw_default_taxonomy_args( $taxonomy, $arg );
   $args['hierarchical'] = true;
-  if ( !isset( $args['rewrite']['hierarchical'] ) ) {
+    if ( !isset( $args['rewrite']['hierarchical'] ) ) {
 	  $args['rewrite']['hierarchical']=true;
   }
+	$args['show_in_rest'] = true;
   bw_register_taxonomy( $taxonomy, $object_type, $args ); 
 }
 
