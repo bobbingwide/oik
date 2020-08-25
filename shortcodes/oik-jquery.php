@@ -96,15 +96,34 @@ function _bw_jquery_known_sources( $script ) {
  * @return string - the script file e.g. jquery.cycle.min.js
  */
 function bw_jquery_filename( $script, $debug ) {
-  if ( !$debug ) { 
-    $packormins = array( "cycle.all" => ".min", "countdown" => ".min" );
-    $extra = bw_array_get( $packormins, $script, ".pack" );
-  } else {
-    $devs = array( "form" => "dev" );
-    $extra = bw_array_get( $devs, $script, null );
-  }
-  $file = "jquery.$script$extra.js";
-  return( $file );
+	if ( !$debug ) {
+		$packormins = array( "cycle.all" => ".min", "countdown" => ".min", "fancybox" => '.min' );
+		$extra = bw_array_get( $packormins, $script, ".pack" );
+	} else {
+		$devs = array( "form" => "dev" );
+		$extra = bw_array_get( $devs, $script, null );
+	}
+	$file = "jquery.$script$extra.js";
+	return $file ;
+}
+
+
+/**
+ * Returns the new script name given an old one.
+ *
+ * To cater for the removal of jQuery Migrate in WordPress 5.5,
+ * we have to update some of the jQuery files.
+ * This mapping allow the shortcodes to remain unchanged.
+ *
+ * @param $script
+ * @return mixed|null
+ */
+function bw_jquery_map_old_script_to_new( $script ) {
+	$scripts = [ 'fancybox-1.3.4' => 'fancybox',
+				'easing-1.3' => 'easing',
+				'mousewheel-3.0.4' => 'mousewheel'];
+	$script = bw_array_get( $scripts, $script, $script );
+	return $script;
 }
 
 /**
@@ -206,7 +225,7 @@ function bw_jquery_enqueue_script( $script, $debug=false ) {
  */
 function bw_jquery_enqueue_style_url( $script ) {
   $styles = array( "flexslider" => "flexslider.css" 
-                 , "fancybox-1.3.4" => "jquery.fancybox-1.3.4.css" 
+                 , "fancybox" => "jquery.fancybox.css"
                  , "countdown" => "jquery.countdown.css"
                  );
   $style = bw_array_get( $styles, $script, null );
@@ -295,6 +314,7 @@ function bwsc_jquery( $atts=null, $content=null, $tag=null ) {
     unset( $atts[1] );
     unset( $atts['script'] );
     $parms = bw_jkv( $atts );
+    $script = bw_jquery_map_old_script_to_new( $script );
     bw_jquery_enqueue_script( $script, $debug );
     bw_jquery_enqueue_style( $script );
     bw_jquery( $selector, $method, $parms, $windowload );
