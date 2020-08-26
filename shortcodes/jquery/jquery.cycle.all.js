@@ -70,6 +70,7 @@ $.fn.cycle = function(options, arg2) {
 		var $slides = opts.slideExpr ? $(opts.slideExpr, this) : $cont.children();
 		var els = $slides.get();
 
+
 		if (els.length < 2) {
 			log('terminating; too few slides: ' + els.length);
 			return;
@@ -293,6 +294,10 @@ function buildOptions($cont, $slides, els, options, o) {
 	opts.currSlide = opts.startingSlide || 0;
 	var first = opts.startingSlide;
 
+	var bc = ( $slides.css( 'backgroundColor') ) ;
+	if ( bc === 'rgb(0, 0, 0)') {
+		$slides.css({'backgroundColor': 'unset'});
+	}
 	// set position and zIndex on all the slides
 	$slides.css({position: 'absolute', top:0, left:0}).hide().each(function(i) {
 		var z;
