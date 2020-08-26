@@ -400,6 +400,8 @@ $expected[] = '</form>';
 	 * Test oik_plugins_add_settings
 	 */
 	function test_oik_plugins_add_settings() {
+		global $bw_plugin;
+		$bw_plugin = [ 'plugin' => null, 'server' => null, 'apikey' => null ];
 		$html = bw_ret( oik_plugins_add_settings() );
 		$this->assertNotNull( $html );
 		$html = $this->replace_admin_url( $html );
@@ -899,6 +901,8 @@ $expected[] = '</form>';
 	function test_oik_themes_add_settings_bb_BB() {
 	
 		$this->switch_to_locale( "bb_BB" );
+		global $bw_theme;
+		$bw_theme = [ 'theme' => null, 'server' => null, 'apikey' => null ];
 		$html = bw_ret( oik_themes_add_settings() );
 		$this->assertNotNull( $html );
 		//$html = $this->replace_admin_url( $html );

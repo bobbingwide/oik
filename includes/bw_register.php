@@ -340,14 +340,18 @@ function bw_default_taxonomy_args( $taxonomy, $arg ) {
  * @param mixed $args - array of arguments passed to register_taxonomy() 
  */
 function bw_register_taxonomy( $taxonomy, $object_type=NULL, $args=NULL ) {
-  //bw_trace2( $args );  
-  if ( !bw_query_taxonomy( $taxonomy ) ) {
-    register_taxonomy( $taxonomy, $object_type, $args );
-  } else {
-		register_taxonomy_for_object_type( $taxonomy, $object_type ); 
+	//bw_trace2( $args );
+	if ( !bw_query_taxonomy( $taxonomy ) ) {
+		register_taxonomy( $taxonomy, $object_type, $args );
+	} else {
+		register_taxonomy_for_object_type( $taxonomy, $object_type );
 	}
-  $field_title = bw_array_get( $args['labels'], 'name', $taxonomy );
-  bw_register_field( $taxonomy, "taxonomy", $field_title, $args );
+	if ( $args ) {
+		$field_title=bw_array_get( $args['labels'], 'name', $taxonomy );
+	} else {
+		$field_title = $taxonomy;
+	}
+	bw_register_field( $taxonomy, "taxonomy", $field_title, $args );
 }
 
 /**
