@@ -161,6 +161,7 @@ function bw_jquery_dependencies( $script ) {
                               , "accordion" => "jquery-ui"
                               , "flexslider" => "jquery"   
                               , "cycle" => "jquery"
+	  , "cycle.all" => "jquery,jquery-ui-core"
                               );
                               
   $dependence = bw_array_get( $dependencies, $script, 'jquery' );
@@ -227,6 +228,7 @@ function bw_jquery_enqueue_style_url( $script ) {
   $styles = array( "flexslider" => "flexslider.css" 
                  , "fancybox" => "jquery.fancybox.css"
                  , "countdown" => "jquery.countdown.css"
+	             , "cycle.all" => "jquery.cycle.all.css"
                  );
   $style = bw_array_get( $styles, $script, null );
   if ( $style ) {
@@ -257,7 +259,8 @@ function bw_jquery_enqueue_style( $script ) {
  *
  * This function allows you to specify your own URL for the custom CSS
  *
- * The jQuery UI custom CSS file delivered with the oik base plugin is quite old; v1.9.2 whereas the latest (as of July 2015) is v1.11
+ * The jQuery UI custom CSS file delivered with the oik base plugin is quite old; v1.9.2 whereas the latest (as of July 2015)
+ * is v1.11
  * The original file was built using {@link http://jqueryui.com/themeroller}
  *
  * If you want a different theme then you can build a custom file
@@ -525,9 +528,9 @@ function bw_jq__help( $shortcode = "bw_jq" ) {
  * Syntax for [bw_jq] shortcode
  */
 function bw_jq__syntax( $shortcode = "bw_jq" ) {
-  $syntax = array( "script" => BW_::bw_skv( null, "<i>" . __( "script-name", "oik" ) . "</i>", __( "Handle for the jQuery script", "oik" ) )
-                 , "selector" => BW_::bw_skv( null, "<i>" . __( "selector", "oik" ) . "</i>", __( "jQuery selector", "oik" ) )
+  $syntax = array( "selector" => BW_::bw_skv( null, "<i>" . __( "selector", "oik" ) . "</i>", __( "jQuery selector", "oik" ) )
                  , "method" => BW_::bw_skv( null, "<i>" . __( "method", "oik" ) . "</i>", __( "jQuery method to perform", "oik" ) )
+				 , "script" => BW_::bw_skv( null, "<i>" . __( "script-name", "oik" ) . "</i>", __( "Handle for the jQuery script", "oik" ) )
                  , "debug" => BW_::bw_skv( "false", "true", __( "Use true when you want to debug the jQuery", "oik" ) )
                  , "windowload" => BW_::bw_skv( "false", "true", __( "Use true when the jQuery is to run when the window has loaded", "oik" ) )
                  , "parms" => BW_::bw_skv( null, "<i>" . __( "parm=value1,parm2=value2", "oik" ) . "</i>", __( "Variable list of parameters", "oik" ) )
