@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2020 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -133,8 +133,6 @@ function bw_get_logo_image_url( $logo_image ) {
  * @return string HTML for the company logo image
  */ 
 function bw_logo( $atts=null ) {
-  wp_register_script( "oik_bw_logo", oik_url( "shortcodes/oik_bw_logo.js" ), array( 'jquery') );  
-  wp_enqueue_script( "oik_bw_logo" );
   $link = bw_array_get( $atts, 'link', null );
   $text = bw_array_get( $atts, 'text', null );
   $width = bw_array_get( $atts, 'width', null );
@@ -147,8 +145,8 @@ function bw_logo( $atts=null ) {
   } else {   
     $company = bw_get_option( "company" );
   }
-  //$image_url = $baseurl . $logo_image;
   $image_url = bw_get_logo_image_url( $logo_image );
+  sdiv( 'bw_logo');
   if ( $image_url ) {
     $image = retimage( "bw_logo", $image_url, $company, $width, $height );
     if ( $link ) {
@@ -158,8 +156,9 @@ function bw_logo( $atts=null ) {
     else {
       e( $image );  
     } 
-  } 
-  return( bw_ret());
+  }
+  ediv();
+  return bw_ret();
 }
 
 /**
