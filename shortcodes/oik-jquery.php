@@ -1,12 +1,12 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2020
 /**
- * Determine the jQuery script file URL
+ * Determines the jQuery script file URL.
+ *
+ * This is only called if the jQuery is not already enqueued.
  * 
- * @param string $script - the jquery script root
- * @param bool $debug - use debug or minified (packed) version
- * @return string - fully qualified script file URL or null
- * 
- * @link
+ * @param string $script - the jquery script root.
+ * @param bool $debug - use debug or minified (packed) version.
+ * @return string - fully qualified script file URL or null.
  */
 function bw_jquery_script( $script, $debug=false ) {
   if ( !$debug && defined('SCRIPT_DEBUG') && SCRIPT_DEBUG == true ) {
@@ -18,28 +18,23 @@ function bw_jquery_script( $script, $debug=false ) {
 }
 
 /**
- * Default jQuery script file filter
+ * Default jQuery script file filter.
  *
- * If no other plugin responds then we assume it's our script file
- * but if we don't find it then we have a look around.
- *
- * We currently assume that both the debug and minimised versions of the script file are going to be available.
- * ... sometimes we just copy whatever we have to the other version **?** 2013/06/09
- *
+ * We try to find the script URL ourselves.
+ * @param string $script_url Starts out as the script name
+ * @param string $script The script name, excluding jquery. prefix
+ * @param bool $debug true when we want to load a debuggable version
+ * @return string The string URL or null
  */
 function bw_jquery_script_url( $script_url, $script, $debug ) {
-  $script_path = oik_path( "shortcodes/" ) ;
-  $script_path .= "jquery/";
-  $script_path .= bw_jquery_filename( $script, $debug );
-  if ( !file_exists( $script_path ) ) {
-    $script_path = bw_jquery_script_plugin_file( $script, $debug );  
-  }
-  if ( $script_path ) {
-    $script_url = plugin_dir_url( $script_path ) . basename( $script_path );
-  } else {
-    $script_url = null;
-  }
-  return( $script_url );
+	$script_path = bw_jquery_script_plugin_file( $script, $debug );
+	if ( $script_path ) {
+		$script_url = plugin_dir_url( $script_path ) . basename( $script_path );
+	} else {
+	$script_url = null;
+	}
+	bw_trace2( $script_url, "script_url", true, BW_TRACE_VERBOSE );
+	return $script_url;
 }
 
 /**
@@ -51,45 +46,127 @@ function bw_jquery_script_url( $script_url, $script, $debug ) {
  */
 function bw_jquery_locate_script_file( $plugin, $script, $debug ) {
   $plugins = bw_as_array( $plugin );
+  bw_trace2( $plugins, "plugins_array", true, BW_TRACE_VERBOSE );
   $found = false;
   for ( $p=0; !$found && ( $p < count( $plugins ) ) ; $p++ ) {
     $file = WP_PLUGIN_DIR;
+
     $file .= $plugins[$p];
     $file .= bw_jquery_filename( $script, $debug );
     if ( file_exists( $file ) ) {  
       $found = true;
+	  bw_jquery_file_version( bw_jquery_filemtime( $file ) );
     }  
   }
   if ( !$found ) { 
     $file = null;
+    bw_jquery_file_version( 0 );
   }
   return( $file );  
-} 
+}
 
 /**
- * Return an array of known sources for particular jQuery scripts
+ * Gets or sets the jQuery script file version.
  *
- * This list excludes oik - we've already looked there
- * Note: The plugins do not need to be activated in order for the file to be found
- * Note: This is a temporary solution until a jQuery library manager is developed.
+ * @param null|integer $timestamp File timestamp to set. Use null to query the current value.
+ * @return integer current value for the timestamp
+ */
+function bw_jquery_file_version( $timestamp=null ) {
+	static $bw_jquery_file_version;
+	if ( null !== $timestamp ) {
+		$bw_jquery_file_version = $timestamp;
+	}
+	bw_trace2( $bw_jquery_file_version, "version", true, BW_TRACE_VERBOSE );
+	return $bw_jquery_file_version;
+}
+
+/**
+ * Picks the 'right' file for the job.
  *
- * This tiny list of jQuery libraries and plugins has been built from personal experience.
- * It doesn't take into account any themes which may also deliver the jQuery code.
- * Nor any external hosting. 
+ * It used to be that we assumed that both the debug and minimised versions of the script file were going to be available.
+ * To satisfy there were times when we just copied whatever version we had to the other version.
+ * Now we check the timestamps of the available files and return the most appropriate file,
+ * which is the most recently updated, while attempting to satisfy the value of SCRIPT_DEBUG.
+ *
+ * Times are: 0 < x < y < z
+ *
+ * debug_time | minified_time | debug | File to pick?
+ * ---------- | ------------- | ------ | --------------
+ * 0          | y             | true   | minified_file
+ * x          | y             | true   | debug_file
+ * y          | y             | true   | debug_file
+ * z          | y             | true   | debug_file
+ * 0          | y             | false  | minified_file
+ * x          | y             | false  | minified_file
+ * y          | y             | false  | minified_file
+ * z          | y             | false  | debug_file - it's newer
+ *
+ * If both are 0 then it's an error.
+ *
+ *
+ * @param string $script
+ * @return string $file
+ */
+function bw_jquery_pick_right_file( $plugin, $script, $debug ) {
+	$right_file = null;
+	$debug_file = bw_jquery_locate_script_file( $plugin, $script, true );
+	$debug_time = bw_jquery_file_version();
+	$minified_file = bw_jquery_locate_script_file( $plugin, $script, false );
+	$minified_time = bw_jquery_file_version();
+
+	if ( 0 === $debug_time && 0 === $minified_time ) {
+		$right_file = null;
+	} elseif ( 0 === $debug_time ) {
+		$right_file = $minified_file;
+		// Version already set.
+	} elseif ( $debug ) {
+		$right_file = $debug_file;
+		bw_jquery_file_version( $debug_time );
+	} elseif ( $debug_time > $minified_time ) {
+		$right_file = $debug_file;
+		bw_jquery_file_version( $debug_time );
+	} else {
+		$right_file = $minified_file;
+	}
+	bw_trace2( $right_file, "right file?", true, BW_TRACE_VERBOSE );
+	return $right_file;
+
+}
+
+/**
+ * Queries the file modification time of the file.
+ *
+ * @param string $file fully qualified filename of a file that exists.
+ * @return int timestamp of the file.
+ */
+function bw_jquery_filemtime( $file ) {
+	$filemtime = 0;
+	$filemtime = filemtime( $file );
+	return $filemtime;
+}
+
+/**
+ * Returns an array of known sources for particular jQuery scripts.
+ *
+ * This list now only includes the directory for oik's jQuery files.
+ *
  * Remember, this code is only being invoked since the jQuery script isn't already registered.
  * 
  * @param string $script - the base name of the jQuery script. cycle and cycle.all are basically the same script but with different names
  * @param string $plugins - the list of plugins to investigate. The shorter the list the better. 
  */
 function _bw_jquery_known_sources( $script ) {
-  $plugins = array( "cycle" => "jetpack/modules/shortcodes,tb-testimonials,picasaweb-photo-slide" 
-                  , "cycle.all" => "nextgen-gallery"
-                  );
+  //$plugins = array( "cycle" => "jetpack/modules/shortcodes,tb-testimonials,picasaweb-photo-slide"
+  //                , "cycle.all" => "nextgen-gallery"
+  //                );
+  $plugins = [ '/oik/shortcodes/jquery/' ];
   return( $plugins );
 }  
 
 /**
- * Determine whether or not the jQuery file is a .pack or .min or .dev or something else
+ * Determine whether or not the jQuery file is a .pack or .min or .dev or something else.
+ *
+ * I can't remember the reason for adding dev when the script is form
  * 
  * @param string $script - the jQuery script e.g. cycle
  * @param bool $debug - whether or not script debugging is required
@@ -104,9 +181,8 @@ function bw_jquery_filename( $script, $debug ) {
 		$extra = bw_array_get( $devs, $script, null );
 	}
 	$file = "jquery.$script$extra.js";
-	return $file ;
+	return $file;
 }
-
 
 /**
  * Returns the new script name given an old one.
@@ -139,20 +215,15 @@ function bw_jquery_map_old_script_to_new( $script ) {
  * 
  */
 function bw_jquery_script_plugin_file( $script, $debug ) {
-  $plugins = _bw_jquery_known_sources( $script );
-  $plugin = bw_array_get( $plugins, $script, null );
-  if ( $plugin ) {
-    $script_file = bw_jquery_locate_script_file( $plugin, $script, $debug );
-  } else {
-    $script_file = null;
-  }
-  return( $script_file );
-}   
+	$plugins = _bw_jquery_known_sources( $script );
+    $script_file = bw_jquery_pick_right_file( $plugins, $script, $debug );
+	return $script_file;
+}
 
 /**
- * Determine the dependencies for the jQuery script
+ * Determines the dependencies for the jQuery script
  * 
- * @param string $script - the name of the jQuery script e.g. nivo.slider-31
+ * @param string $script - the name of the jQuery script e.g. nivo.slider
  * @return array - scripts upon which this script are dependent. Defaults to array( 'jquery' )
  */
 function bw_jquery_dependencies( $script ) {
@@ -194,12 +265,13 @@ function bw_jquery_script_is( $script ) {
       $enqueued = true;
     }
   } 
-  bw_trace2( $enqueued, "enqueued?" );
-  return( $enqueued );  
+  bw_trace2( $enqueued, "enqueued?", true, BW_TRACE_VERBOSE );
+  return $enqueued;
 }
 
 /**
  * Enqueue the jQuery script identifying dependencies
+ *
  * 
  * @param string $script - the jQuery script including version number if part of file name
  * @param bool $debug - whether or not debug is enabled
@@ -210,8 +282,9 @@ function bw_jquery_enqueue_script( $script, $debug=false ) {
   if ( !$enqueued ) {
     $script_url = bw_jquery_script( $script, $debug ); 
     $dependence = bw_jquery_dependencies( $script );
-    bw_trace2( $dependence, "dependence" );
-    $enqueued = wp_enqueue_script( $script, $script_url, $dependence ); 
+    bw_trace2( $dependence, "dependence", true, BW_TRACE_VERBOSE );
+    $version = bw_jquery_file_version();
+    $enqueued = wp_enqueue_script( $script, $script_url, $dependence, $version );
   }
   return( $enqueued );  
 }
@@ -272,8 +345,7 @@ function bw_jquery_enqueue_style( $script ) {
  * 
  */
 function bw_jquery_enqueue_ui_theme() {
-	$customjQCSS = bw_get_option( 'customjQCSS' ); 
-	//bw_trace2( $customjQCSS, "customjQCSS" );
+	$customjQCSS = bw_get_option( 'customjQCSS' );
 	if ( empty( $customjQCSS ) ) {
 		$customjQCSS = oik_url( "css/jquery-ui-1.9.2.custom.css" );
 	} 
@@ -298,15 +370,19 @@ function bw_jquery_enqueue_ui_theme() {
  *
  */
 function bwsc_jquery( $atts=null, $content=null, $tag=null ) {
-  bw_trace2();
-  bw_backtrace();
+  bw_trace2( null, null, true, BW_TRACE_DEBUG );
   $selector = bw_array_get_from( $atts, "selector,0", null );
   $method = bw_array_get_from( $atts, "method,1", null );
   if ( !$method ) {
     $method = str_replace( ".", "", $selector );
+    if ( $method === '?') {
+	    bw_list_wp_scripts();
+	    $selector = null;
+	    $method = null;
+    }
   }
   $script = bw_array_get( $atts, "script", $method );
-  if ( $selector && $method ) { 
+  if ( $selector && $method ) {
     $windowload = bw_array_get( $atts, "windowload", false );
     $debug = bw_array_get( $atts, "debug", false );   
     unset( $atts['selector'] );
@@ -324,8 +400,6 @@ function bwsc_jquery( $atts=null, $content=null, $tag=null ) {
   } elseif ( $script ) {
     $debug = bw_array_get( $atts, "debug", false ); 
     bw_jquery_enqueue_script( $script, $debug );
-  } elseif ( "?" == $method ) {
-    bw_list_wp_scripts();
   } else {
     bw_jquery_src( $atts ); 
   }    
@@ -358,6 +432,7 @@ function bw_jquery_javascript( $src ) {
 function bw_jquery_src( $atts ) {
   $src = bw_array_get( $atts, "src", null );
   // bw_trace2( $src );
+
   if ( $src ) {
     if ( is_numeric( $src ) ) {
       $src = wp_get_attachment_url( $src );
@@ -480,7 +555,8 @@ We want to match the $script with part of the [handle] OR the [src] field
  */
 function bw_list_wp_scripts() {
   global $wp_scripts;
-  //bw_trace2( $wp_scripts, "global scripts" ); 
+  bw_trace2( $wp_scripts, "global scripts", null, BW_TRACE_DEBUG );
+
   stag( "table" );
   stag( "thead" );
   stag( "tr" );
