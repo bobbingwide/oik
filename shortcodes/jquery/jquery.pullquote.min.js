@@ -1,0 +1,1 @@
+(function($){$.fn.pullquote=function(options){var settings={class:"pullquote",prependto:"p",inline:false};return this.each(function(){if(options){$.extend(settings,options)}if(settings.inline){var $prependto=$(this)}else{var $prependto=$(this).closest(settings.prependto)}$(this).clone().addClass(settings.class).prependTo($prependto)})}})(jQuery);

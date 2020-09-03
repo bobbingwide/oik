@@ -1,8 +1,9 @@
 /*!
  * jQuery Cycle Plugin (with Transition Definitions)
  * Examples and documentation at: http://jquery.malsup.com/cycle/
- * Copyright (c) 2007-2012 M. Alsup
+ * Copyright (c) 2007-2012 M. Alsup, (C) 2020 Bobbing Wide
  * Version: 2.9999.81 (15-JAN-2013)
+ *
  * Dual licensed under the MIT and GPL licenses.
  * http://jquery.malsup.com/license.html
  * Requires: jQuery v1.7.1 or later

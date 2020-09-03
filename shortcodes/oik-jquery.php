@@ -166,7 +166,10 @@ function _bw_jquery_known_sources( $script ) {
 /**
  * Determine whether or not the jQuery file is a .pack or .min or .dev or something else.
  *
- * I can't remember the reason for adding dev when the script is form
+ * For WordPress 5.5 and above. I've changed the default suffix to .min
+ * and renamed most of the files.
+ * So the $packormins array is not really necessary anymore.
+ * I can't remember the reason for adding dev when the script is form.
  * 
  * @param string $script - the jQuery script e.g. cycle
  * @param bool $debug - whether or not script debugging is required
@@ -175,7 +178,7 @@ function _bw_jquery_known_sources( $script ) {
 function bw_jquery_filename( $script, $debug ) {
 	if ( !$debug ) {
 		$packormins = array( "cycle.all" => ".min", "countdown" => ".min", "fancybox" => '.min' );
-		$extra = bw_array_get( $packormins, $script, ".pack" );
+		$extra = bw_array_get( $packormins, $script, ".min" );
 	} else {
 		$devs = array( "form" => "dev" );
 		$extra = bw_array_get( $devs, $script, null );
