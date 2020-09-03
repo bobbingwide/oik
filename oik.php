@@ -75,6 +75,8 @@ function oik_plugin_file_loaded() {
     
   add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
   add_filter( "attachment_fields_to_save", "oik_attachment_fields_to_save", null, 2 );
+  add_filter( 'oembed_remote_get_args', 'oik_oembed_remote_get_args', 10, 2 );
+  //remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
 }
 
 /** 
@@ -269,6 +271,23 @@ function oik_attachment_fields_to_save( $post, $attachment) {
   $link = bw_array_get( $attachment, "bw_image_link", null ) ;
   update_post_meta( $post['ID'], '_bw_image_link', $link );  
   return $post;  
+}
+
+/**
+ * Filters `oembed_remote_get_args to set sslverify=true for local requests.
+ *
+ * Uses a method in the oik_remote class from the class-oik-remote shared library.
+ *
+ * @param array $args Array of arguments for the remote request
+ * @param string $url the target URL
+ * @return array
+ */
+function oik_oembed_remote_get_args( $args, $url ) {
+    if ( !class_exists( 'oik_remote') ) {
+        oik_require_lib( 'class-oik-remote');
+    }
+	$args = oik_remote::bw_adjust_args( $args, $url );
+	return $args;
 }
 
 /**
@@ -601,7 +620,7 @@ function oik_register_dynamic_blocks() {
 				, 'script'        => null
 				, 'attributes'    =>
 					[ 'since' => [ 'type'=>'string' ]
-						,'until' => [ 'type' => 'string ']
+						,'until' => [ 'type' => 'string']
 						, 'url' => [ 'type' => 'string']
 						, 'description' => [ 'type' => 'string']
 						, 'expirytext' => [ 'type' => 'string']
