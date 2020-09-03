@@ -155,8 +155,10 @@ a.bw_portfolio { background: none; padding-left: 0px;  }
 
 /* Prevent images from going outside their bounding divs */
 /* Does it matter what the class of the div is? Can't we do it for every image? */
+
+.entry-content img.bw_logo { max-width: 100%; }
 div.art-block img, div.textwidget img { max-width: 100% }
-img { max-width: 100%; width: auto/9; /* Prevent stretching of full-size images in IE8 */ } 
+
 div.nivo-slice img, div.nivo-box img { margin: 0px; max-width: none; }
 
 /* Fix for nested Artisteer blocks - see Support case 69871. 
