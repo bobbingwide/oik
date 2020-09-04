@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.0.3
-Tested up to: 5.3.2
-Stable tag: 4.0.0
+Tested up to: 5.5.1
+Stable tag: 4.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
@@ -120,6 +120,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 4.1.0 = 
+Updated to cater for WordPress 5.5 changes affecting jQuery.
+
 = 4.1.0-alpha-20200209 =
 Upgrade to try the totals= parameter for the [bw_table] shortcode. 
 
@@ -506,6 +509,27 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.1.0 = 
+* Changed: In bw_attachments ensure id parameter isn't being passed as null,[github bobbingwide oik-blocks issues 34]
+* Fixed: Avoid notices and warnings after updating translations,[github bobbingwide oik issues 147]
+* Fixed: Don't call oik__help,[github bobbingwide oik issues 148]
+* Changed: Improve bw_attachment for Dynamic content block,[github bobbingwide oik issues 149]
+* Changed: Improve bw_register_custom_category to default to using hierarchical permalinks,[github bobbingwide oik issues 150]
+* Fixed: Correct HTML end tag error in syntax for [bw_parent],[github bobbingwide oik issues 151]
+* Changed: No longer set img max-width 100%,[github bobbingwide oik issues 152]
+* Changed: Update tests to reflect change in sequence of parameters for bw_jq,[github bobbingwide oik issues 153]
+* Changed: Update jQuery files for fancybox,[github bobbingwide oik issues 154]
+* Changed: Update jquery cycle.all and CSS,[github bobbingwide oik issues 155]
+* Changed: Update tests for WordPress 5.5 and PHP 7.4,[github bobbingwide oik issues 156]
+* Changed: Add support to embed from local WordPress installs,[github bobbingwide oik issues 158]
+* Changed: Update [bw_logo] shortcode for jQuery 3.5.1 compatibility. No longer use JavaScript,[github bobbingwide oik issues 159]
+* Changed: Update PHPUnit expected results to reflect changes in WordPress 5.5.1-RC1,[github bobbingwide oik issues 160]
+* Changed: Update bw_jquery_enqueue_script to better support SCRIPT_DEBUG and minimised files,[github bobbingwide oik issues 161]
+* Fixed: Correct type for until attribute of oik/countdown,[github bobbingwide oik issues 162]
+* Tested: With WordPress 5.5.1 and WordPress Multi Site
+* Tested: With PHP 7.4
+* Tested: With PHPUnit 8
+
 = 4.1.0-alpha-20200209 =
 * Changed: Added totals= and prefixes= parameter to the [bw_table] shortcode,[github bobbingwide oik issues 145]
 * Tested: With Gutenberg 7.4.0
