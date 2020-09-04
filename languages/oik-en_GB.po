@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 4.1.0-alpha-20200209\n"
+"Project-Id-Version: oik 4.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2020-06-23 13:37:44+00:00\n"
+"POT-Creation-Date: 2020-09-04 13:46:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -1548,12 +1548,12 @@ msgstr "category slugs (comma separated)"
 msgid "custom category slug"
 msgstr "custom category slug"
 
-#: libs/oik-sc-help.php:348 shortcodes/oik-attachments.php:349
+#: libs/oik-sc-help.php:348 shortcodes/oik-attachments.php:353
 #: shortcodes/oik-thumbs.php:88
 msgid "Sort sequence"
 msgstr "Sort sequence"
 
-#: libs/oik-sc-help.php:349 shortcodes/oik-attachments.php:350
+#: libs/oik-sc-help.php:349 shortcodes/oik-attachments.php:354
 msgid "Sort order."
 msgstr "Sort order."
 
@@ -1604,7 +1604,7 @@ msgid "Attached media MIME type"
 msgstr "Attached media MIME type"
 
 #: libs/oik-sc-help.php:356 libs/oik-sc-help.php:432 oik-ids.php:34
-#: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:324
+#: shortcodes/oik-jquery.php:616 shortcodes/oik-link.php:324
 #: shortcodes/oik-login.php:69 shortcodes/oik-parent.php:84
 msgid "ID"
 msgstr "ID"
@@ -1633,7 +1633,7 @@ msgstr "nnn"
 msgid "wxh"
 msgstr "wxh"
 
-#: libs/oik-sc-help.php:369 shortcodes/oik-attachments.php:359
+#: libs/oik-sc-help.php:369 shortcodes/oik-attachments.php:363
 #: shortcodes/oik-list.php:179
 msgid "image size"
 msgstr "image size"
@@ -1728,8 +1728,8 @@ msgstr "Required height"
 #: libs/oik-sc-help.php:508 shortcodes/oik-button.php:48
 #: shortcodes/oik-button.php:107 shortcodes/oik-countdown.php:98
 #: shortcodes/oik-iframe.php:48 shortcodes/oik-iframe.php:49
-#: shortcodes/oik-jquery.php:514 shortcodes/oik-link.php:324
-#: shortcodes/oik-link.php:327 shortcodes/oik-logo.php:169
+#: shortcodes/oik-jquery.php:616 shortcodes/oik-link.php:324
+#: shortcodes/oik-link.php:327 shortcodes/oik-logo.php:168
 #: shortcodes/oik-qrcode.php:37
 msgid "URL"
 msgstr "URL"
@@ -1864,7 +1864,7 @@ msgid "plugin"
 msgstr "plugin"
 
 #: libs/oik_plugins.php:272 libs/oik_themes.php:247
-#: shortcodes/oik-jquery.php:465
+#: shortcodes/oik-jquery.php:567
 msgid "version"
 msgstr "version"
 
@@ -1979,11 +1979,11 @@ msgstr "Theme: %1$s"
 msgid "Theme is up to date."
 msgstr "Theme is up to date."
 
-#: oik.php:250
+#: oik.php:252
 msgid "oik custom image link URL"
 msgstr "oik custom image link URL"
 
-#: oik.php:308
+#: oik.php:327
 msgid "Howdy, %s"
 msgstr "Hi, %s"
 
@@ -2019,42 +2019,42 @@ msgstr "HTML formatting tag"
 msgid "Display the address defined in oik options"
 msgstr "Display the address defined in oik options"
 
-#: shortcodes/oik-attachments.php:322
+#: shortcodes/oik-attachments.php:326
 msgid "Display attachment's Caption and Description"
 msgstr "Display attachment's Caption and Description"
 
-#: shortcodes/oik-attachments.php:328 shortcodes/oik-attachments.php:338
-#: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
+#: shortcodes/oik-attachments.php:332 shortcodes/oik-attachments.php:342
+#: shortcodes/oik-attachments.php:351 shortcodes/oik-attachments.php:361
 #: shortcodes/oik-count.php:49
 msgid "post type"
 msgstr "post type"
 
-#: shortcodes/oik-attachments.php:328 shortcodes/oik-attachments.php:338
-#: shortcodes/oik-attachments.php:347 shortcodes/oik-attachments.php:357
+#: shortcodes/oik-attachments.php:332 shortcodes/oik-attachments.php:342
+#: shortcodes/oik-attachments.php:351 shortcodes/oik-attachments.php:361
 msgid "Post type to display"
 msgstr "Post type to display"
 
-#: shortcodes/oik-attachments.php:330
+#: shortcodes/oik-attachments.php:334
 msgid "Display titles"
 msgstr "Display titles"
 
-#: shortcodes/oik-attachments.php:339
+#: shortcodes/oik-attachments.php:343
 msgid "Cannot be overridden"
 msgstr "Cannot be overridden"
 
-#: shortcodes/oik-attachments.php:348
+#: shortcodes/oik-attachments.php:352
 msgid "Attachment types to pair"
 msgstr "Attachment types to pair"
 
-#: shortcodes/oik-attachments.php:358
+#: shortcodes/oik-attachments.php:362
 msgid "post mime types"
 msgstr "post mime types"
 
-#: shortcodes/oik-attachments.php:358
+#: shortcodes/oik-attachments.php:362
 msgid "Image type"
 msgstr "Image type"
 
-#: shortcodes/oik-attachments.php:360
+#: shortcodes/oik-attachments.php:364
 msgid "link to"
 msgstr "link to"
 
@@ -2648,7 +2648,7 @@ msgstr "postcode"
 msgid "postcode or ZIP code"
 msgstr "postcode or ZIP code"
 
-#: shortcodes/oik-googlemap.php:291 shortcodes/oik-logo.php:171
+#: shortcodes/oik-googlemap.php:291 shortcodes/oik-logo.php:170
 #: shortcodes/oik-qrcode.php:39
 msgid "width"
 msgstr "width"
@@ -2657,7 +2657,7 @@ msgstr "width"
 msgid "width of the Google map"
 msgstr "width of the Google map"
 
-#: shortcodes/oik-googlemap.php:292 shortcodes/oik-logo.php:172
+#: shortcodes/oik-googlemap.php:292 shortcodes/oik-logo.php:171
 #: shortcodes/oik-qrcode.php:40
 msgid "height"
 msgstr "height"
@@ -2690,11 +2690,11 @@ msgstr "Full URL for the page"
 msgid "Full URL for the page - use as an alternative to the url= parameter"
 msgstr "Full URL for the page - use as an alternative to the url= parameter"
 
-#: shortcodes/oik-iframe.php:50 shortcodes/oik-logo.php:171
+#: shortcodes/oik-iframe.php:50 shortcodes/oik-logo.php:170
 msgid "Width in pixels"
 msgstr "Width in pixels"
 
-#: shortcodes/oik-iframe.php:51 shortcodes/oik-logo.php:172
+#: shortcodes/oik-iframe.php:51 shortcodes/oik-logo.php:171
 msgid "Height in pixels"
 msgstr "Height in pixels"
 
@@ -2710,67 +2710,67 @@ msgstr "Value for frameborder parameter"
 msgid "Type of the iframe"
 msgstr "Type of the iframe"
 
-#: shortcodes/oik-jquery.php:464
+#: shortcodes/oik-jquery.php:566
 msgid "handle"
 msgstr "handle"
 
-#: shortcodes/oik-jquery.php:466
+#: shortcodes/oik-jquery.php:568
 msgid "dependencies"
 msgstr "dependencies"
 
-#: shortcodes/oik-jquery.php:501
+#: shortcodes/oik-jquery.php:603
 msgid "Perform a jQuery method"
 msgstr "Perform a jQuery method"
 
-#: shortcodes/oik-jquery.php:508
-msgid "script-name"
-msgstr "script-name"
-
-#: shortcodes/oik-jquery.php:508
-msgid "Handle for the jQuery script"
-msgstr "Handle for the jQuery script"
-
-#: shortcodes/oik-jquery.php:509
+#: shortcodes/oik-jquery.php:610
 msgid "selector"
 msgstr "selector"
 
-#: shortcodes/oik-jquery.php:509
+#: shortcodes/oik-jquery.php:610
 msgid "jQuery selector"
 msgstr "jQuery selector"
 
-#: shortcodes/oik-jquery.php:510
+#: shortcodes/oik-jquery.php:611
 msgid "method"
 msgstr "method"
 
-#: shortcodes/oik-jquery.php:510
+#: shortcodes/oik-jquery.php:611
 msgid "jQuery method to perform"
 msgstr "jQuery method to perform"
 
-#: shortcodes/oik-jquery.php:511
+#: shortcodes/oik-jquery.php:612
+msgid "script-name"
+msgstr "script-name"
+
+#: shortcodes/oik-jquery.php:612
+msgid "Handle for the jQuery script"
+msgstr "Handle for the jQuery script"
+
+#: shortcodes/oik-jquery.php:613
 msgid "Use true when you want to debug the jQuery"
 msgstr "Use true when you want to debug the jQuery"
 
-#: shortcodes/oik-jquery.php:512
+#: shortcodes/oik-jquery.php:614
 msgid "Use true when the jQuery is to run when the window has loaded"
 msgstr "Use true when the jQuery is to run when the window has loaded"
 
-#: shortcodes/oik-jquery.php:513
+#: shortcodes/oik-jquery.php:615
 msgid "parm=value1,parm2=value2"
 msgstr "parm=value1,parm2=value2"
 
-#: shortcodes/oik-jquery.php:513
+#: shortcodes/oik-jquery.php:615
 msgid "Variable list of parameters"
 msgstr "Variable list of parameters"
 
-#: shortcodes/oik-jquery.php:514
+#: shortcodes/oik-jquery.php:616
 msgid "ID or full URL of JavaScript"
 msgstr "ID or full URL of JavaScript"
 
-#: shortcodes/oik-jquery.php:515
+#: shortcodes/oik-jquery.php:617
 msgid "Set to T=True or Y=Yes when the script tag must be inline"
 msgstr "Set to T=True or Y=Yes when the script tag must be inline"
 
-#: shortcodes/oik-jquery.php:521
+#: shortcodes/oik-jquery.php:623
 msgid "Example to be completed!"
 msgstr "Example to be completed!"
 
@@ -2830,15 +2830,15 @@ msgstr "Display the Login or Logout link"
 msgid "Display a link to the Registration form, if Registration is enabled"
 msgstr "Display a link to the Registration form, if Registration is enabled"
 
-#: shortcodes/oik-logo.php:169
+#: shortcodes/oik-logo.php:168
 msgid "Link when clicked"
 msgstr "Link when clicked"
 
-#: shortcodes/oik-logo.php:170
+#: shortcodes/oik-logo.php:169
 msgid "company"
 msgstr "company"
 
-#: shortcodes/oik-logo.php:170
+#: shortcodes/oik-logo.php:169
 msgid "Text for tooltip"
 msgstr "Text for tooltip"
 
