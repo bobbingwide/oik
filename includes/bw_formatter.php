@@ -177,9 +177,15 @@ function bw_field_function_featured_image( $post, &$atts, $f ) {
  * 
  */
 function bw_content( $post ) {
-  $content = $post->post_content;
-  bw_trace2(); 
-  $content = bw_get_the_content( $content ); 
+    if ( bw_process_this_post( $post->ID ) ) {
+        $content = $post->post_content;
+        bw_trace2();
+        $content = bw_get_the_content($content);
+        bw_clear_processed_posts( $post->ID );
+    } else {
+        $content = bw_report_recursion_error( $post );
+    }
+
   return( $content );
 }  
 

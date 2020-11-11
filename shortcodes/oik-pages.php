@@ -66,20 +66,23 @@ function bw_query_post_formatter( $atts ) {
  */
 function bw_pages( $atts = NULL ) {
   $atts['numberposts'] = bw_array_get( $atts, 'numberposts', 10 );
+  $cp = bw_current_post_id();
   $posts = bw_get_posts( $atts );
+  // If we get into an infinite loop during development then you'll want to uncomment this line.
+  //return( "shortcircuit");
   bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts" );
   if ( $posts ) {
-    $cp = bw_current_post_id();
+
+    // Don't process the current post inside the loop
+    bw_process_this_post( $cp );
     $bw_post_formatter = bw_query_post_formatter( $atts );
     foreach ( $posts as $post ) {
       bw_current_post_id( $post->ID );
       $bw_post_formatter( $post, $atts );
     }
-    bw_current_post_id( $cp );
-    //bw_current_post_id();
-    
-    bw_clear_processed_posts();
-  }
+
+
+  } bw_current_post_id( $cp );
   return( bw_ret() );
 }
 

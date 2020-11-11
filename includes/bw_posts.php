@@ -83,12 +83,44 @@ function bw_process_this_post( $id ) {
 /**
  * Clear the array of processed posts
  * 
- * 
+ * This should only be done at the top level.
+ * When the current content is the first item in the array.
+ * Can we perform a pop to get the same result?
+ *
+ * @param integer|null $postID - if set then we pop the most recently added value else clear the lot
  */
-function bw_clear_processed_posts() {
+function bw_clear_processed_posts( $postID=null) {
   global $processed_posts;
-  $processed_posts = array();
-  bw_trace2( $processed_posts, "cleared", false, BW_TRACE_DEBUG );
+  if ( $postID ) {
+      array_pop( $processed_posts );
+  } else {
+      $processed_posts = array();
+  }
+  bw_trace2( $processed_posts, "cleared", true, BW_TRACE_DEBUG );
+  //bw_backtrace();
+}
+
+/**
+ * Reports a recursion error to the user.
+ *
+ * If WP_DEBUG is true then additional information is displayed.
+ *
+ * @param $post
+ * @return string
+ */
+function bw_report_recursion_error( $post, $type='post_content') {  $content = array();
+    $content[] = __( "Content not available; already processed.", "oik" );
+    if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        $content[] = '<span class="recursion-error-context">';
+        $content[] = $type;
+        $content[] = $post->post_title;
+        $content[] = '(' . $post->ID . ')';
+        global $processed_posts;
+        $content[] = implode( ',', $processed_posts );
+        $content[] = '</span>';
+    }
+    $content = implode( ' ', $content);
+    return $content;
 }
 
 /**
@@ -193,8 +225,11 @@ function bw_excerpt( $post ) {
     bw_more_text( $content['more_text'] );
     
     $excerpt = bw_get_the_excerpt( $excerpt );
+    bw_clear_processed_posts( $post->ID );
   } else {
-    $excerpt = "post already processed: " . $post->ID;
+      $excerpt = bw_report_recursion_error( $post, 'post_excerpt' );
+    //$excerpt = "Excerpt not available; already processed for: " . $post->post_title . ' ' . $post->ID;
+
   }
   // bw_current_post_id();  
   return( $excerpt );
@@ -452,7 +487,7 @@ function bw_get_posts( $atts=null ) {
   // If you want to retrieve the current post use exclude=-1
   //
   // Note: This supports multiple IDs, comma separated 
-  $attr['exclude'] = bw_array_get_dcb( $attr, "exclude", NULL, "bw_global_post_id" );
+  $attr['exclude'] = bw_array_get_dcb( $attr, "exclude", NULL, "bw_current_post_id" );
   
   // set suppress_filters to false when global bw_filters is set
   global $bw_filter;
