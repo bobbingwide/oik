@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017
+<?php // (C) Copyright Bobbing Wide 2013-2020
 
 /**
  * Format the post as specified by the user  
@@ -11,6 +11,7 @@
  * @param array $atts - the attributes
  */
 function bw_format_as_required( $post, $atts ) {
+  oik_require_lib( 'bw_fields' );
   $format = $atts['format'];
   $fs = str_split( $format );
   $in_block = bw_format_block_start( $post, $atts, false );
