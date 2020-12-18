@@ -610,11 +610,12 @@ function bw_user_list() {
  * Displays the copyright statement for the company
  * 
  * - showing start and end years
- * - e.g. (C) Copyright [bw_company] [bw_from]&sep[year]&suffix
+ * - e.g. (C) Copyright [bw_company] [bw_from]&sep[year]. &suffix
  * - where [bw_from] is the first year of the site
  * - &sep is the separator ( defaults to ',' for one year apart and '-' for a range ) 
  * - [year] represents the current year
- * - &suffix defaults to ". All rights reserved." 
+ * -
+ * - &suffix defaults to "All rights reserved."
  *
  * @param array $atts
  * @return string Copyright statement
@@ -638,7 +639,7 @@ function bw_copyright( $atts = NULL ) {
 	$years = bw_year_range( $yearfrom, $yearto, $atts );
 	span( "bw_copyright" );
 	/* translators: "Copyright-prefix company-name year-range. " */
-	e( sprintf( __( '%1$s %2$s %3$s. ', "oik" ), $copyright, $expanded_company, $years ) );
+	e( sprintf( __( '%1$s %2$s %3$s.&nbsp;', "oik" ), $copyright, $expanded_company, $years ) );
 	span( "suffix" );
 	e( $suffix );
 	epan();

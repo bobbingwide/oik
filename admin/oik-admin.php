@@ -203,9 +203,9 @@ function oik_tinymce_buttons() {
   $imagefile_bw = retimage( NULL, oik_url( 'admin/bw-bn-icon.gif' ), __( "Button shortcodes", "oik" ) );
   $imagefile_pp = retimage( NULL, oik_url( 'admin/bw-pp-icon.gif' ), __( "PayPal shortcodes", "oik" ) );
   $imagefile_sc = retimage( NULL, oik_url( 'admin/bw-sc-icon.gif' ), __( "ALL shortcodes", "oik" ) );
-  bw_checkbox_arr( "bw_buttons", $imagefile_bw . __(" Button shortcodes", "oik" ), $options, 'oik-button-shortcodes' ); 
-  bw_checkbox_arr( "bw_buttons", $imagefile_pp . __(" PayPal shortcodes", "oik" ), $options, 'oik-paypal-shortcodes' ); 
-  bw_checkbox_arr( "bw_buttons", $imagefile_sc . __(" ALL shortcodes", "oik" ), $options, 'oik-shortc-shortcodes' ); 
+  bw_checkbox_arr( "bw_buttons", $imagefile_bw . ' ' . __("Button shortcodes", "oik" ), $options, 'oik-button-shortcodes' );
+  bw_checkbox_arr( "bw_buttons", $imagefile_pp . ' ' . __("PayPal shortcodes", "oik" ), $options, 'oik-paypal-shortcodes' );
+  bw_checkbox_arr( "bw_buttons", $imagefile_sc . ' ' . __("ALL shortcodes", "oik" ), $options, 'oik-shortc-shortcodes' );
   bw_checkbox_arr( "bw_buttons", __( "[] quicktag for HTML editor", "oik" ), $options, "oik-quicktags" );
   bw_checkbox_arr( "bw_buttons", __( "Integrate with shortcake", "oik" ), $options, "oik-shortcake" );
   etag( "table" );

@@ -197,7 +197,7 @@ function etag__syntax( $shortcode="etag" ) {
 function bw_copyright__syntax( $shortcode="bw_copyright" ) {
   $syntax = array( "prefix" => BW_::bw_skv( __( "&copy; Copyright", "oik" ), "<i>" . __( "string", "oik" ) . "</i>", __( "Copyright text prefix", "oik" ) )
                  , "company" => BW_::bw_skv( bw_get_option( "company" ), "<i>" . __( "company name", "oik" ) . "</i>", __( "from oik options - company", "oik" ) )
-                 , "suffix" => BW_::bw_skv( __( ". All rights reserved.", "oik" ), "<i>" . __( "string", "oik" ) . "</i>", __( "copyright suffix text", "oik" ) )
+                 , "suffix" => BW_::bw_skv( __( "All rights reserved.", "oik" ), "<i>" . __( "string", "oik" ) . "</i>", __( "copyright suffix text", "oik" ) )
                  , "from" => BW_::bw_skv( bw_get_option( "yearfrom" ), "<i>" . __( "year", "oik" ) . "</i>", __( "from oik options - yearfrom", "oik" ) )
                  , "sep" => BW_::bw_skv( "-", ",|<i>" . __( "string", "oik" ) . "</i>", __( "default: ',' if one year difference '-' otherwise", "oik" ) )
                  );

@@ -100,10 +100,10 @@ function bw_lbw( $atts=NULL ) {
   $site = bw_array_get( $atts, 'site', "www.bobbingwide" );
   if ( $site == 'www.bobbingwide' ) {
      $text = $site;
-     $title = __( 'Visit the Bobbing Wide website: ', "oik" );
+     $title = __( 'Visit the Bobbing Wide website:', "oik" );
   } else {
     $text = $site; 
-    $title = __( 'Visit the website: ', "oik" );
+    $title = __( 'Visit the website:', "oik" );
   }     
   $site_s = bw_array_get( $sites, $s, NULL );
   $site .= $site_s;
@@ -113,7 +113,7 @@ function bw_lbw( $atts=NULL ) {
     $text .= '<b>' . $site_s. '</b>';
   $text .= $tld;  
    
-  $link = retlink( 'url', "https://" . $site, $text, $title . $site ) ;
+  $link = retlink( 'url', "https://" . $site, $text, $title . ' ' . $site ) ;
   return( $link );
 }
 }
