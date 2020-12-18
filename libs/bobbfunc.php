@@ -1305,8 +1305,9 @@ function bw_current_post_id( $id=null ) {
   if ( $id !== null ) {
     $current_post_id = $id;
   }
-  if ( !$current_post_id ) { 
-    $current_post_id = bw_global_post_id();
+  $return_id = $current_post_id;
+  if ( !$current_post_id ) {
+    return( bw_global_post_id() );
   }
   //bw_trace2( $current_post_id, "current_post_id", true );
   return( $current_post_id ); 
