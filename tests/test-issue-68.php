@@ -25,6 +25,18 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		oik_require_lib( "oik-sc-help" );
 		//$dependencies = oik_require_lib( "class-dependencies-cache" );
 	}
+
+	function test_gz_deflate_and_encode() {
+		$test_str   = '"wpCompressionTest Lorem ipsum dolor sit amet consectetuer mollis sapien urna ut a. Eu nonummy condimentum fringilla tempor pretium platea vel nibh netus Maecenas. Hac molestie amet justo quis pellentesque est ultrices interdum nibh Morbi. Cras mattis pretium Phasellus ante ipsum ipsum ut sociis Suspendisse Lorem. Ante et non molestie. Porta urna Vestibulum egestas id congue nibh eu risus gravida sit. Ac augue auctor Ut et non a elit massa id sodales. Elit eu Nulla at nibh adipiscing mattis lacus mauris at tempus. Netus nibh quis suscipit nec feugiat eget sed lorem et urna. Pellentesque lacus at ut massa consectetuer ligula ut auctor semper Pellentesque. Ut metus massa nibh quam Curabitur molestie nec mauris congue. Volutpat molestie elit justo facilisis neque ac risus Ut nascetur tristique. Vitae sit lorem tellus et quis Phasellus lacus tincidunt nunc Fusce. Pharetra wisi Suspendisse mus sagittis libero lacinia Integer consequat ac Phasellus. Et urna ac cursus tortor aliquam Aliquam amet tellus volutpat Vestibulum. Justo interdum condimentum In augue congue tellus sollicitudin Quisque quis nibh."';
+		$deflated = gzdeflate( $test_str, 1 );
+		$ld = strlen( $deflated );
+		$gzipped = gzencode( $test_str, 1 );
+		$lg = strlen( $gzipped );
+		$this->assertNotEquals( $ld, $lg );
+
+
+
+	}
 	
 	/**
 	 * We expect the results of script_concat_settings() to be as below. 
@@ -37,8 +49,37 @@ class Tests_issue_68 extends BW_UnitTestCase {
 	 * 
 	 * So the code should save the value, set it to 0 and then reset it. 
 	 * No need to save the value though, we can just rerun script_concat_settings()
+	 *
+	 * After updating to WordPress 5.4.1 this test failed. It appears that 'can_compress_scripts' had reverted to '0';
+	 * I don't know why. I'd run the tests with WordPress 5.4 the day before and everything was fine.
+	 * I updated the value to '1' and it worked.
+	 * A while later the value reset to '0'.
+	 * It happened after checking out the git repo to 5.3.2, then applying database updates on the front end.
+	 * The option may have been deleted!
+	 * At some point wp_ajax_wp_compression_test() is run ( in admin-footer.php ).
+	 * This sets the 'can_compress_scripts' option value to '0'.
+	 *
+	 * the value is set at the end of the ajax routine, when it receives 'test=no'
+	 *
+	 * elseif ( 'no' == $_GET['test'] ) {
+	check_ajax_referer( 'update_can_compress_scripts' );
+	update_site_option( 'can_compress_scripts', 3 );
 	 */
 	function test_compress_css() {
+
+		$zlib_output_compression = ini_get( 'zlib.output_compression');
+		//var_dump( $zlib_output_compression );
+		$output_handler = ini_get( 'output_handler' );
+		//var_dump( $output_handler );
+
+		$compressed_output = $zlib_output_compression || $output_handler === 'ob_gzhandler';
+		//echo 'compressed_output';
+		//var_dump( $compressed_output );
+
+		$can_compress_scripts = get_site_option( 'can_compress_scripts');
+		//echo 'compress_scripts';
+		//var_dump( $can_compress_scripts );
+
 		script_concat_settings();
 		global $concatenate_scripts, $compress_scripts, $compress_css;
 		$this->assertEquals( 0, $concatenate_scripts );
@@ -49,6 +90,8 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		//$compress_css = 0;
 		
 	}
+
+
 	
 	/**
 	 * We want to be able to see the HTML that's generated as a result of the scripts and styles that have been enqueued
