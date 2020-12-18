@@ -63,8 +63,9 @@ function bw_directions__help() {
  * Example hook for bw_directions
  */
 function bw_directions__example() {
-  BW_::br( __( "e.g.", "oik" ) );
-  BW_::e( __( "The Google directions button will enable the user to get directions to you.", "oik" ) );
+
+  BW_::br( __( "e.g. ", "oik" ) );
+  e( __( "The Google directions button will enable the user to get directions to you.", "oik" ) );
   e( bw_directions() );
 }
 
