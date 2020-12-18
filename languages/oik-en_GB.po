@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 4.1.0\n"
+"Project-Id-Version: oik 4.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2020-09-04 13:46:15+00:00\n"
+"POT-Creation-Date: 2020-12-18 20:19:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
@@ -49,7 +49,6 @@ msgstr "Filter by date"
 msgid "All dates"
 msgstr "All dates"
 
-#. translators: 1: month name, 2: 4-digit year
 #: admin/class-bw-list-table.php:582
 msgid "%1$s %2$d"
 msgstr "%1$s %2$d"
@@ -315,29 +314,17 @@ msgstr "Use the Themes page to manage oik themes servers and API keys"
 msgid "Manage theme servers and API keys"
 msgstr "Manage theme servers and API keys"
 
-#: admin/oik-admin.php:203
+#: admin/oik-admin.php:203 admin/oik-admin.php:206
 msgid "Button shortcodes"
 msgstr "Button shortcodes"
 
-#: admin/oik-admin.php:204
+#: admin/oik-admin.php:204 admin/oik-admin.php:207
 msgid "PayPal shortcodes"
 msgstr "PayPal shortcodes"
 
-#: admin/oik-admin.php:205
+#: admin/oik-admin.php:205 admin/oik-admin.php:208
 msgid "ALL shortcodes"
 msgstr "ALL shortcodes"
-
-#: admin/oik-admin.php:206
-msgid " Button shortcodes"
-msgstr " Button shortcodes"
-
-#: admin/oik-admin.php:207
-msgid " PayPal shortcodes"
-msgstr " PayPal shortcodes"
-
-#: admin/oik-admin.php:208
-msgid " ALL shortcodes"
-msgstr " ALL shortcodes"
 
 #: admin/oik-admin.php:209
 msgid "[] quicktag for HTML editor"
@@ -811,58 +798,55 @@ msgstr "me"
 msgid "OIK Information Kit"
 msgstr "OIK Information Kit"
 
-#. translators: "Separator between two adjacent years e.g. 2017,2018 "
 #: includes/bobbcomp.php:506
 msgid ","
 msgstr ","
 
-#. translators: "Separator for a year range e.g. 2011-2017 "
 #: includes/bobbcomp.php:514
 msgid "-"
 msgstr "-"
 
-#: includes/bobbcomp.php:625 includes/oik-sc-help.php:198
+#: includes/bobbcomp.php:626 includes/oik-sc-help.php:198
 msgid "&copy; Copyright"
 msgstr "&copy; Copyright"
 
-#: includes/bobbcomp.php:634
+#: includes/bobbcomp.php:635 includes/oik-sc-help.php:200
 msgid "All rights reserved."
 msgstr "All rights reserved."
 
-#: includes/bobbcomp.php:637
+#: includes/bobbcomp.php:638
 msgid "yearfrom"
 msgstr "yearfrom"
 
-#. translators: "Copyright-prefix company-name year-range. "
-#: includes/bobbcomp.php:641
-msgid "%1$s %2$s %3$s. "
-msgstr "%1$s %2$s %3$s. "
+#: includes/bobbcomp.php:642
+msgid "%1$s %2$s %3$s.&nbsp;"
+msgstr "%1$s %2$s %3$s.&nbsp;"
 
-#: includes/bw_formatter.php:130 shortcodes/oik-parent.php:43
+#: includes/bw_formatter.php:131 shortcodes/oik-parent.php:43
 msgid "Post: %1$s"
 msgstr "Post: %1$s"
 
-#: includes/bw_formatter.php:308
+#: includes/bw_formatter.php:315
 msgid "Categories"
 msgstr "Categories"
 
-#: includes/bw_formatter.php:316
+#: includes/bw_formatter.php:323
 msgid "Comments"
 msgstr "Comments"
 
-#: includes/bw_formatter.php:324
+#: includes/bw_formatter.php:331
 msgid "Tags"
 msgstr "Tags"
 
-#: includes/bw_formatter.php:348
+#: includes/bw_formatter.php:355
 msgid "By"
 msgstr "By"
 
-#: includes/bw_formatter.php:359
+#: includes/bw_formatter.php:366
 msgid "Date"
 msgstr "Date"
 
-#: includes/bw_formatter.php:369
+#: includes/bw_formatter.php:376
 msgid "[Edit]"
 msgstr "[Edit]"
 
@@ -870,11 +854,15 @@ msgstr "[Edit]"
 msgid "Fields"
 msgstr "Fields"
 
-#: includes/bw_posts.php:164
+#: includes/bw_posts.php:112
+msgid "Content not available; already processed."
+msgstr "Content not available; already processed."
+
+#: includes/bw_posts.php:196
 msgid "read more"
 msgstr "read more"
 
-#: includes/bw_posts.php:323
+#: includes/bw_posts.php:358
 msgid "Post: "
 msgstr "Post: "
 
@@ -1362,7 +1350,7 @@ msgstr "paired HTML tag for the stag shortcode"
 #: includes/oik-sc-help.php:198 includes/oik-sc-help.php:200
 #: includes/oik-sc-help.php:202 shortcodes/oik-email.php:132
 #: shortcodes/oik-email.php:133 shortcodes/oik-iframe.php:54
-#: shortcodes/oik-pages.php:96 shortcodes/oik-phone.php:217
+#: shortcodes/oik-pages.php:99 shortcodes/oik-phone.php:217
 #: shortcodes/oik-phone.php:232 shortcodes/oik-phone.php:254
 #: shortcodes/oik-phone.php:266 shortcodes/oik-phone.php:287
 #: shortcodes/oik-phone.php:300 shortcodes/oik-qrcode.php:38
@@ -1380,10 +1368,6 @@ msgstr "company name"
 #: includes/oik-sc-help.php:199 shortcodes/oik-qrcode.php:38
 msgid "from oik options - company"
 msgstr "from oik options - company"
-
-#: includes/oik-sc-help.php:200
-msgid ". All rights reserved."
-msgstr ". All rights reserved."
 
 #: includes/oik-sc-help.php:200
 msgid "copyright suffix text"
@@ -1433,7 +1417,7 @@ msgstr "Index of the theme_collages post meta to display"
 msgid "None"
 msgstr "None"
 
-#: libs/bw_fields.php:374
+#: libs/bw_fields.php:413
 msgid ": "
 msgstr ": "
 
@@ -2091,12 +2075,12 @@ msgid "CSS class prefix"
 msgstr "CSS class prefix"
 
 #: shortcodes/oik-bob-bing-wide.php:103
-msgid "Visit the Bobbing Wide website: "
-msgstr "Visit the Bobbing Wide website: "
+msgid "Visit the Bobbing Wide website:"
+msgstr "Visit the Bobbing Wide website:"
 
 #: shortcodes/oik-bob-bing-wide.php:106
-msgid "Visit the website: "
-msgstr "Visit the website: "
+msgid "Visit the website:"
+msgstr "Visit the website:"
 
 #: shortcodes/oik-bob-bing-wide.php:211
 msgid "Spells out the %1$s backronym"
@@ -2106,8 +2090,8 @@ msgstr "Spells out the %1$s backronym"
 msgid "Expand to the logo for oik"
 msgstr "Expand to the logo for oik"
 
-#: shortcodes/oik-bob-bing-wide.php:221 shortcodes/oik-codes.php:673
-#: shortcodes/oik-geo.php:66
+#: shortcodes/oik-bob-bing-wide.php:221 shortcodes/oik-bw.php:48
+#: shortcodes/oik-codes.php:673
 msgid "e.g."
 msgstr "e.g."
 
@@ -2197,10 +2181,6 @@ msgstr "contact-title"
 msgid "Class name prefix"
 msgstr "Class name prefix"
 
-#: shortcodes/oik-bw.php:48
-msgid "e.g. "
-msgstr "e.g. "
-
 #: shortcodes/oik-cite.php:19
 msgid "Text for the citation"
 msgstr "Text for the citation"
@@ -2217,7 +2197,7 @@ msgstr "No"
 msgid "Yes"
 msgstr "Yes"
 
-#: shortcodes/oik-codes.php:153 shortcodes/oik-pages.php:118
+#: shortcodes/oik-codes.php:153 shortcodes/oik-pages.php:121
 msgid "%1$s help"
 msgstr "%1$s help"
 
@@ -2308,7 +2288,7 @@ msgid "[bw_codes] - list shortcodes"
 msgstr "[bw_codes] - list shortcodes"
 
 #: shortcodes/oik-company.php:67 shortcodes/oik-email.php:134
-#: shortcodes/oik-geo.php:75 shortcodes/oik-geo.php:84
+#: shortcodes/oik-geo.php:76 shortcodes/oik-geo.php:85
 #: shortcodes/oik-phone.php:218
 msgid "Use alternative value"
 msgstr "Use alternative value"
@@ -2596,6 +2576,10 @@ msgid "Get directions to %s"
 msgstr "Get directions to %s"
 
 #: shortcodes/oik-geo.php:67
+msgid "e.g. "
+msgstr "e.g. "
+
+#: shortcodes/oik-geo.php:68
 msgid ""
 "The Google directions button will enable the user to get directions to you."
 msgstr "The Google directions button will enable the user to get directions to you."
@@ -2858,41 +2842,41 @@ msgstr "integer"
 msgid "Number of posts per page. Default from Reading Settings."
 msgstr "Number of posts per page. Default from Reading Settings."
 
-#: shortcodes/oik-pages.php:95
+#: shortcodes/oik-pages.php:98
 msgid "format"
 msgstr "format"
 
-#: shortcodes/oik-pages.php:95
+#: shortcodes/oik-pages.php:98
 msgid "field format string"
 msgstr "field format string"
 
-#: shortcodes/oik-pages.php:96
+#: shortcodes/oik-pages.php:99
 msgid "text for read more button"
 msgstr "text for read more button"
 
-#: shortcodes/oik-pages.php:104
+#: shortcodes/oik-pages.php:107
 msgid "Display page thumbnails and excerpts as links"
 msgstr "Display page thumbnails and excerpts as links"
 
-#: shortcodes/oik-pages.php:111
+#: shortcodes/oik-pages.php:114
 msgid "Display sub-pages of the current or selected item."
 msgstr "Display sub-pages of the current or selected item."
 
-#: shortcodes/oik-pages.php:113
+#: shortcodes/oik-pages.php:116
 msgid "The item may be a page, post or custom post type."
 msgstr "The item may be a page, post or custom post type."
 
-#: shortcodes/oik-pages.php:115
+#: shortcodes/oik-pages.php:118
 msgid ""
 "The default display is formatted with a featured image, excerpt and a read "
 "more link."
 msgstr "The default display is formatted with a featured image, excerpt and a read more link."
 
-#: shortcodes/oik-pages.php:119
+#: shortcodes/oik-pages.php:122
 msgid "For examples visit %1$s"
 msgstr "For examples visit %1$s"
 
-#: shortcodes/oik-pages.php:126
+#: shortcodes/oik-pages.php:129
 msgid "No snippet available"
 msgstr "No snippet available"
 
@@ -3161,25 +3145,20 @@ msgstr "Method used to reveal the content"
 msgid "Text above the hidden content"
 msgstr "Text above the hidden content"
 
-#. Plugin Name of the plugin/theme
 msgid "oik"
 msgstr "oik"
 
-#. Plugin URI of the plugin/theme
 msgid "https://www.oik-plugins.com/oik-plugins/oik"
 msgstr "https://www.oik-plugins.com/oik-plugins/oik"
 
-#. Description of the plugin/theme
 msgid ""
 "OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress "
 "content"
 msgstr "OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content"
 
-#. Author of the plugin/theme
 msgid "bobbingwide"
 msgstr "bobbingwide"
 
-#. Author URI of the plugin/theme
 msgid "https://bobbingwide.com/about-bobbing-wide"
 msgstr "https://bobbingwide.com/about-bobbing-wide"
 
