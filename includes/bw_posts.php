@@ -486,7 +486,7 @@ function bw_get_posts( $atts=null ) {
   // Regardless of the post type, exclude the current post, if exclude= parameter NOT specified
   // If you want to retrieve the current post use exclude=-1
   //
-  // Note: This supports multiple IDs, comma separated 
+  // Note: This supports multiple IDs, comma separated
   $attr['exclude'] = bw_array_get_dcb( $attr, "exclude", NULL, "bw_current_post_id" );
   
   // set suppress_filters to false when global bw_filters is set

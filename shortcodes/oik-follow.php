@@ -185,7 +185,7 @@ function bw_follow_e( $atts=null ) {
 }
 
 /**
- * Implement [bw_follow_me] shortcode
+ * Implement [bw_follow_me me="My name" network="Twitter,Facebook"] shortcode
  *
  * Produce a Follow me button for each of these networks:
  * Twitter, Facebook, LinkedIn, YouTube, Flickr, Pinterest, Instagram, GitHub and WordPress
