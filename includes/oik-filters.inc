@@ -60,16 +60,12 @@ if ( class_exists( "WP_Hook" ) ) {
  */
 function bw_replace_filter( $tag, $function_to_replace, $priority=10, $new_function="bw_disabled_filter" ) {
 	global $wp_filter;
-	//bw_trace2( $wp_filter, "wp_filter" );
 	$function_key = _wp_filter_build_unique_id( $tag, $function_to_replace, false );
 	$r = isset( $wp_filter[$tag][$priority][$function_key] );
 	if ( $r ) { 
 		$wp_hook_object = $wp_filter[$tag];
-		//bw_trace2( $wp_hook_object, "arrgh" );
 		$wp_hook_object->callbacks[$priority][$function_key]['replaced'] = $function_to_replace;
 		$wp_hook_object->callbacks[$priority][$function_key]['function'] = $new_function;
-		//bw_trace2( $wp_hook_object, "arrgh" );
-		bw_trace2(  $wp_filter[$tag][$priority][$function_key], "unchanged?", false, BW_TRACE_VERBOSE );
 	}	
 }
 
