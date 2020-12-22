@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 5.5.1
-* Stable tag: 4.1.0
+* Tested up to: 5.6
+* Stable tag: 4.1.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -121,6 +121,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.1.1 
+Tested with WordPress 5.6 and WordPress Multi Site.
+
 # 4.1.0 
 Updated to cater for WordPress 5.5 changes affecting jQuery.
 
@@ -510,6 +513,19 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 4.1.1 
+* Changed: Add theme functions for post_date and post_modified,https://github.com/bobbingwide/oik/issues/170
+* Changed: Change code and tests for new oik-i18n logic and update language files,https://github.com/bobbingwide/oik/issues/171
+* Changed: bw_current_post_id for compatibility with Full Site Editing
+* Changed: update test cases for jQuery 3.5.1 in WordPress 5.6,https://github.com/bobbingwide/oik/issues/169
+* Fixed: Ensure bw_format_sep is available by loading the bw_fields library,https://github.com/bobbingwide/oik/issues/165
+* Fixed: Prevent infinite recursion processing post_content in [bw_pages],https://github.com/bobbingwide/oik/issues/166
+* Fixed: Replace BW::e with e in bw_directions__example,https://github.com/bobbingwide/oik/issues/164
+* Tested: With Gutenberg 9.5.2
+* Tested: With PHP 7.4
+* Tested: With PHPUnit 8
+* Tested: With WordPress 5.6 and WordPress Multi Site
+
 # 4.1.0 
 * Changed: In bw_attachments ensure id parameter isn't being passed as null,https://github.com/bobbingwide/oik-blocks/issues/34
 * Fixed: Avoid notices and warnings after updating translations,https://github.com/bobbingwide/oik/issues/147
