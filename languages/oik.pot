@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: oik 4.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2020-12-18 20:19:34+00:00\n"
+"POT-Creation-Date: 2020-12-22 21:34:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -126,12 +126,12 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: admin/oik-activation.php:203 libs/oik-activation.php:197
+#: admin/oik-activation.php:204 libs/oik-activation.php:199
 #: libs/oik-depends.php:150
 msgid "%1$s may not be fully functional."
 msgstr ""
 
-#: admin/oik-activation.php:205
+#: admin/oik-activation.php:206
 msgid ""
 "Please install and activate the required minimum version of this plugin:"
 msgstr ""
@@ -1448,15 +1448,19 @@ msgstr ""
 msgid "Upgrade %1$s"
 msgstr ""
 
-#: libs/oik-activation.php:195 libs/oik-depends.php:100
-#: libs/oik-depends.php:147
-msgid " version "
+#: libs/oik-activation.php:195 libs/oik_plugins.php:272
+#: libs/oik_themes.php:247 shortcodes/oik-jquery.php:567
+msgid "version"
 msgstr ""
 
-#: libs/oik-activation.php:199 libs/oik-depends.php:106
+#: libs/oik-activation.php:201 libs/oik-depends.php:106
 #: libs/oik-depends.php:152
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
+msgstr ""
+
+#: libs/oik-depends.php:100 libs/oik-depends.php:147
+msgid " version "
 msgstr ""
 
 #: libs/oik-depends.php:103
@@ -1848,11 +1852,6 @@ msgstr ""
 
 #: libs/oik_plugins.php:271 libs/oik_plugins.php:290 libs/oik_plugins.php:305
 msgid "plugin"
-msgstr ""
-
-#: libs/oik_plugins.php:272 libs/oik_themes.php:247
-#: shortcodes/oik-jquery.php:567
-msgid "version"
 msgstr ""
 
 #: libs/oik_plugins.php:273 libs/oik_plugins.php:291 libs/oik_plugins.php:306
