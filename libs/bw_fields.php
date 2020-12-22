@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2013-2018, 2020
 if ( !defined( "BW_FIELDS_INCLUDED" ) ) {
-define( "BW_FIELDS_INCLUDED", "4.1.0" );
+define( "BW_FIELDS_INCLUDED", "4.1.1" );
 
 /**
  * Library: bw_fields
