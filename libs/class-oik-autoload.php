@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2015, 2016
+<?php // (C) Copyright Bobbing Wide 2016-2021
 if ( !defined( "CLASS_OIK_AUTOLOAD_INCLUDED" ) ) {
-define( "CLASS_OIK_AUTOLOAD_INCLUDED", "0.1.0" );
+define( "CLASS_OIK_AUTOLOAD_INCLUDED", "1.0.0" );
 
 /**
  * Implement autoloading for shared libraries
@@ -33,7 +33,11 @@ class OIK_Autoload {
 	 * @var OIK_autoload - the true instance
 	 */
 	private static $instance;
-	
+
+	/**
+	 * @var bool True to autoload shared library classes. False initially.
+	 */
+	private $autoload_shared_library;
 	/**
 	 * Return a single instance of this class
 	 *
@@ -50,6 +54,7 @@ class OIK_Autoload {
 	 * Constructor for the OIK_autoload class
 	 */
 	function __construct() {
+		$this->autoload_shared_library = false;
 		self::$loads = array();
 		$loads_more = apply_filters( "oik_query_autoload_classes", self::$loads );
 		self::$loads = $loads_more;
@@ -68,12 +73,25 @@ class OIK_Autoload {
 	 * What if we can't?
 	 */
 	function autoload( $class ) {
+		if ( $this->autoload_shared_library ) {
+			$library_file = $this->load_shared_library_class_file( $class );
+			if ( $library_file && !is_wp_error( $library_file)) {
+				return;
+			}
+		}
+
 		$class_file = $this->locate_class( $class );
 		if ( $class_file ) {
 			$file = $this->file( $class_file );
 			oik_require( $file, $class_file->plugin );
+		} else {
+			// Perhaps it's a shared library file
+			// or perhaps it's in classes
+			$this->load_shared_library_class_file( $class );
 		}
 	}
+
+
 	
 	/**
 	 * Determine the file name from the class and path
@@ -162,6 +180,32 @@ class OIK_Autoload {
 	function nortoload( $loads_more ) {
 		self::loads( $loads_more );
 		return( $loads_more );
+	}
+
+	/**
+	 * Enables / disables  the autoload shared library logic.
+	 *
+	 * @param bool $autoload_shared_library
+	 */
+	function set_autoload_shared_library( $autoload_shared_library ) {
+		if ( $autoload_shared_library ) {
+			$this->autoload_shared_library=$autoload_shared_library;
+		}
+	}
+
+	/**
+	 * Try loading a shared library class.
+	 *
+	 * @param $class
+	 * @return object/bool the library loaded or a simple bool if oik_libs is not loaded, so we used the fallback
+	 */
+	function load_shared_library_class_file( $class ) {
+		$lib = 'class-';
+		$file = str_replace( "_", "-", $class );
+		$file = strtolower( $file );
+		$lib .= $file;
+		$library_file = oik_require_lib( $lib );
+		return $library_file;
 	}
 
 
