@@ -1,8 +1,11 @@
-<?php // (C) Copyright Bobbing Wide 2016-2021
+<?php
 if ( !defined( "CLASS_OIK_AUTOLOAD_INCLUDED" ) ) {
-define( "CLASS_OIK_AUTOLOAD_INCLUDED", "1.0.0" );
+define( "CLASS_OIK_AUTOLOAD_INCLUDED", "1.1.0" );
 
 /**
+ * @copyright (C) Copyright Bobbing Wide 2016-2021
+ * @package oik, oik-libs
+ *
  * Implement autoloading for shared libraries
  *
  * The autoload function is not supposed to load the classes willy nilly.
@@ -49,23 +52,26 @@ class OIK_Autoload {
 		}
 		return self::$instance;
 	}
-	
 	/**
 	 * Constructor for the OIK_autoload class
 	 */
 	function __construct() {
 		$this->autoload_shared_library = false;
+		spl_autoload_register( array( $this, 'autoload' ) );
+	}
+
+	/**
+	 * Runs / reruns the oik_query_autoload_classes filter.
+	 */
+	function query_autoload_classes() {
 		self::$loads = array();
 		$loads_more = apply_filters( "oik_query_autoload_classes", self::$loads );
 		self::$loads = $loads_more;
 		$this->classes = null;
-		//self::loads( $loads_more );
-		spl_autoload_register( array( $this, 'autoload' ) );
 	}
 	
-
-	/** 
-	 * Autoload a class if we know how to
+	/**
+	 * Autoloads a class if we know how to.
 	 * 
 	 * The fact that we have gotten here means that the class is not already loaded so we need to load it.
 	 * @TODO We should also know which pre-requisite classes to load. Does spl_autoload_register() handle this?
@@ -90,8 +96,6 @@ class OIK_Autoload {
 			$this->load_shared_library_class_file( $class );
 		}
 	}
-
-
 	
 	/**
 	 * Determine the file name from the class and path

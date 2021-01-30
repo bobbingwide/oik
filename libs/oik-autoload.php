@@ -50,6 +50,7 @@ function oik_autoload( $autoload_shared_library=false ) {
 	if ( class_exists( "OIK_Autoload" ) ) {
 		$oik_autoload = OIK_Autoload::instance();
 		$oik_autoload->set_autoload_shared_library( $autoload_shared_library );
+		$oik_autoload->query_autoload_classes();
 	} else {
 		bw_trace2( "Class OIK_Autoload does not exist", null, false, BW_TRACE_ERROR );
 		die();
