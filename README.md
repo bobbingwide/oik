@@ -5,7 +5,7 @@
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
 * Tested up to: 5.6
-* Stable tag: 4.1.1
+* Stable tag: 4.1.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -46,10 +46,13 @@ oik helps you to display information about you, your company, your social networ
 * Shortcodes to display often included key information include: [bw_contact], [bw_telephone], [bw_mobile], [bw_mailto], [bw_company], [bw_address], [bw_show_googlemap], [bw_directions], [bw_logo], [bw_qrcode], [bw_copyright]
 * For your social networking use the [bw_follow_me] shortcode to display your links to Twitter, Facebook, LinkedIn, etcetera
 
+New in oik v4.1.2:
+
+* Easier to use shared library for autoloading classes.
+
 New in oik v4.1.0:
 
 * bw_table shortcode now supports a totals= parameter
-
 
 New in v4.0.0:
 
@@ -121,6 +124,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.1.2 
+Upgrade if another plugin needs to use improved oik autoloading.
+
 # 4.1.1 
 Tested with WordPress 5.6 and WordPress Multi Site.
 
@@ -513,6 +519,14 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 4.1.2 
+* Changed: Add support to autoload shared library classes,https://github.com/bobbingwide/oik/issues/172
+* Changed: Update more translatable strings used in shared libraries,https://github.com/bobbingwide/oik/issues/171
+* Tested: With WordPress 5.6 and WordPress Multi Site
+* Tested: With Gutenberg 9.8.2
+* Tested: With PHP 7.4
+* Tested: With PHPUnit 8
+
 # 4.1.1 
 * Changed: Add theme functions for post_date and post_modified,https://github.com/bobbingwide/oik/issues/170
 * Changed: Change code and tests for new oik-i18n logic and update language files,https://github.com/bobbingwide/oik/issues/171
