@@ -1,16 +1,16 @@
-# Copyright (C) 2020 oik
+# Copyright (C) 2021 oik
 # This file is distributed under the same license as the oik package.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 4.1.1\n"
+"Project-Id-Version: oik 4.1.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/oik\n"
-"POT-Creation-Date: 2020-12-22 21:34:51+00:00\n"
+"POT-Creation-Date: 2021-01-30 08:18:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 #: admin/class-bw-list-table.php:153
@@ -126,12 +126,18 @@ msgstr "Activate"
 msgid "Update"
 msgstr "Update"
 
-#: admin/oik-activation.php:204 libs/oik-activation.php:199
+#: admin/oik-activation.php:201 libs/oik-activation.php:195
+#: libs/oik-depends.php:147 libs/oik_plugins.php:272 libs/oik_themes.php:247
+#: shortcodes/oik-jquery.php:567
+msgid "version"
+msgstr "version"
+
+#: admin/oik-activation.php:203 libs/oik-activation.php:197
 #: libs/oik-depends.php:150
 msgid "%1$s may not be fully functional."
 msgstr "%1$s may not be fully functional."
 
-#: admin/oik-activation.php:206
+#: admin/oik-activation.php:205
 msgid ""
 "Please install and activate the required minimum version of this plugin:"
 msgstr "Please install and activate the required minimum version of this plugin:"
@@ -1445,18 +1451,13 @@ msgstr "Activate %1$s"
 msgid "Upgrade %1$s"
 msgstr "Upgrade %1$s"
 
-#: libs/oik-activation.php:195 libs/oik_plugins.php:272
-#: libs/oik_themes.php:247 shortcodes/oik-jquery.php:567
-msgid "version"
-msgstr "version"
-
-#: libs/oik-activation.php:201 libs/oik-depends.php:106
+#: libs/oik-activation.php:199 libs/oik-depends.php:106
 #: libs/oik-depends.php:152
 msgid ""
 "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr "Please install and activate the required minimum version of this plugin: %1$s"
 
-#: libs/oik-depends.php:100 libs/oik-depends.php:147
+#: libs/oik-depends.php:100
 msgid " version "
 msgstr " version "
 
