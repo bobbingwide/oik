@@ -72,7 +72,7 @@ function bw_default_title_arr( $field_arr ) {
  * @return bool - true if one of the columns is "excerpt"
  *
  */
-function bw_query_table_columns( $atts=null, $post_type ) {
+function bw_query_table_columns( $atts=null, $post_type=null ) {
   global $field_arr, $title_arr;
   $field_arr = array();
   $title_arr = array();

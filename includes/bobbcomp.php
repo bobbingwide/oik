@@ -409,7 +409,7 @@ function bw_default_empty_att( $bw_value=NULL, $bw_field=NULL, $bw_default=NULL,
  * then it's advisable to NOT use this function.  
  */
 if ( !function_exists( "bw_array_get_dcb" ) ) {
-function bw_array_get_dcb( $array = array(), $index, $default = NULL, $callback='__', $text_domain="oik" ) {
+function bw_array_get_dcb( $array, $index, $default = NULL, $callback='__', $text_domain="oik" ) {
   $value = bw_array_get( $array, $index, $default );
   if ( $value === $default ) {
     if ( is_callable( $callback ) ) {
