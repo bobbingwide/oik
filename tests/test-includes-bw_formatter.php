@@ -72,6 +72,14 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 		$this->assertEmpty( $post->title );
 		return $post;
 	}
+
+	function unset_global_post() {
+		global $post;
+		//print_r( $post );
+		$post = null;
+		//print_r( $post );
+
+	}
 	
 	
 	/**
@@ -94,8 +102,12 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 		wp_set_current_user( 1 );
 		$this->switch_to_locale( 'en_GB' );
     $post = $this->dummy_post();
+        $this->unset_global_post();
+
 		$post->ID = 0;
+		//$post->title = null;
 		$atts = array();
+
 		bw_field_function_title( $post,	$atts, null );
 		$html = bw_ret();
 		$html_array = $this->tag_break( $html );
@@ -111,6 +123,8 @@ class Tests_includes_bw_formatter extends BW_UnitTestCase {
 		wp_set_current_user( 1 );
 		$this->switch_to_locale( 'bb_BB' );
     $post = $this->dummy_post();
+		$this->unset_global_post();
+
 		$post->ID = 0;
 		$atts = array();
 		bw_field_function_title( $post,	$atts, null );
