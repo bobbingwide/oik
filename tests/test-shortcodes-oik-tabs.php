@@ -112,6 +112,9 @@ class Tests_shortcodes_oik_tabs extends BW_UnitTestCase {
 		$args = array( 'post_type' => 'page', 'post_title' => "post title $n", 'post_excerpt' => 'Excerpt. No post ID' );
 		$id = self::factory()->post->create( $args );
 		$post = get_post( $id );
+		//print_r( $post );
+		$GLOBALS['post'] = null;
+		$GLOBALS['id'] = 0;
 		return $post;
 	}
 

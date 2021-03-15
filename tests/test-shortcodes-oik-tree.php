@@ -70,6 +70,8 @@ class Tests_shortcodes_oik_tree extends BW_UnitTestCase {
 		$args = array( 'post_type' => 'page', 'post_title' => "post title $n", 'post_excerpt' => 'Excerpt. No post ID', 'post_parent' => $parent  );
 		$id = self::factory()->post->create( $args );
 		$post = get_post( $id );
+		$GLOBALS['post'] = null;
+		$GLOBALS['id'] = 0;
 		return $post;
 	}
 	
