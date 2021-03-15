@@ -3,7 +3,7 @@ if ( defined( 'OIK_BLOCKS_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_BLOCKS_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2010-2013 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2010-2021 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -24,7 +24,7 @@ define( 'OIK_BLOCKS_SHORTCODES_INCLUDED', true );
 /**
  * Return $new_version if the $array variable $index is defined else $art_version
  */
-function bw_art_level( $art_version, $array = array(), $index, $new_version ) {
+function bw_art_level( $art_version, $array, $index, $new_version ) {
   if ( isset( $array[$index] ) || ( is_array( $array) && array_key_exists( $index, $array ) ) )  {
     $version = $new_version;
   } else {
