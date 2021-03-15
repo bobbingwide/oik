@@ -6,7 +6,7 @@
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
 	>
-	<!-- for PHPUnit 5.7, 6.1, 6.2, 6.5 -->
+	<!-- for PHPUnit 9.5.2 -->
 	<testsuites>
 	
 		<testsuite name="prerequisites">
@@ -46,7 +46,7 @@
 			<file>tests/test-includes-bw_formatter.php</file>
 			<file>tests/test-includes-bw_images.php</file>
 			<file>tests/test-includes-bw_messages.php</file>
-			<file>tests/test-includes-bw_nav-tab.php</file>
+			<file>tests/test-includes-bw-nav-tab.php</file>
 			<file>tests/test-includes-bw_posts.php</file>
 			<file>tests/test-includes-bw_register.php</file>
 			<file>tests/test-includes-oik-contact-form-email.php</file>
@@ -65,7 +65,7 @@
 			<file>tests/test-shortcodes-oik-count.php</file>
 			<file>tests/test-shortcodes-oik-countdown.php</file>
 			<file>tests/test-shortcodes-oik-cycle.php</file>
-			<file>tests/test-shortcodes-oik-directions.php</file>
+			
 			<file>tests/test-shortcodes-oik-domain.php</file>
 			<file>tests/test-shortcodes-oik-email.php</file>
 			<file>tests/test-shortcodes-oik-follow.php</file>
