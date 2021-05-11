@@ -59,15 +59,13 @@ function bw_post_link( $link=null, $class="bw_post" ) {
  */
 function bw_parent( $atts=null, $content=null, $tag=null ) {
   $id = bw_array_get( $atts, "id", null );
-  if ( $id && ( $id === bw_global_post_id() ) ) {
-    $post = bw_global_post();
-  } else {
-    $post = get_post( $id ); 
+  if ( $id ) {
+    $post = get_post( $id );
   }
   if ( $post && $post->post_parent ) {
     bw_post_link( $post->post_parent, "bw_parent" );   
-  }  
-  return( bw_ret());
+  }
+  return bw_ret();
 }
 
 /**
