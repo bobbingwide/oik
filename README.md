@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 5.7
-* Stable tag: 4.1.3
+* Tested up to: 5.7.1
+* Stable tag: 4.2.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -124,6 +124,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.2.0 
+Update to use oik registered fields in the REST API.
+
 # 4.1.3 
 Tested with PHP 8.0 and WordPress 5.7
 
@@ -522,6 +525,14 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 4.2.0 
+* Changed: Further update tests for WordPress 5.7 compatibility,https://github.com/bobbingwide/oik/issues/173
+* Changed: Add support for post meta fields to be included in the REST API,https://github.com/bobbingwide/oik/issues/174
+* Tested: With WordPress 5.7.1 and WordPress Multi Site
+* Tested: With Gutenberg 10.6.0-rc.1
+* Tested: With PHP 8.0 and 7.4
+* Tested: With PHPUnit 9
+
 # 4.1.3 
 * Changed: Update tests for WordPress 5.7 compatibility,https://github.com/bobbingwide/oik/issues/173
 * Changed: Update tests for WordPress 5.6 compatibility,https://github.com/bobbingwide/oik/issues/169
