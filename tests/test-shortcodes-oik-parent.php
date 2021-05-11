@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017-2021
 
 /**
  * @package 
@@ -50,8 +50,12 @@ class Tests_shortcodes_oik_parent extends BW_UnitTestCase {
 	function test_bw_parent() {
 		$this->switch_to_locale( "en_GB" );
 		$child = $this->dummy_child();
+		$this->assertNotNull( $child->post_parent );
+		$this->assertNotNull( $child->ID );
 		$atts = array( "id" => $child->ID );
+
 		$html = bw_parent( $atts );
+
 		$html = $this->replace_post_id( $html, $this->parent, 'id="id-' );
 		$html = $this->replace_home_url( $html );
 		//$this->generate_expected_file( $html );
