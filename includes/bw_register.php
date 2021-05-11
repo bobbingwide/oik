@@ -403,15 +403,19 @@ function bw_register_custom_category( $taxonomy, $object_type=null, $arg=null ) 
 /** 
  * Register a field named $field_name for object type $object_type
  *
- * @TODO - determine is this works for "taxonomy" field types as well
+ * @TODO - determine if this works for "taxonomy" field types as well
  * 
  * @param string $field_name - meta_key of the field - precede with an underscore so it's not in custom fields
  * @param string $object_type - object type
+ * @param bool $rest - true for fields to be available to the REST api
  */
-function bw_register_field_for_object_type( $field_name, $object_type ) {
+function bw_register_field_for_object_type( $field_name, $object_type, $rest=false ) {
   global $bw_mapping;
   $bw_mapping['field'][$object_type][$field_name] = $field_name;
   $bw_mapping['type'][$field_name][$object_type] = $object_type;
+  if ( $rest ) {
+	  bw_maybe_register_post_meta( $field_name, $object_type );
+  }
 }  
 
 /** 
@@ -463,8 +467,48 @@ function bw_list_fields() {
   return( $fields ); 
 }
 
+function bw_auth_callback() {
+    return current_user_can( 'edit_posts');
+}
 
+function bw_maybe_register_post_meta( $field_name, $object_type ) {
+    $post_type = $object_type;
+    $meta_key = $field_name;
 
- 
-  
+    $description = bw_get_field_description( $field_name );
+    if ( $description ) {
+        $args = ['show_in_rest' => true,
+            'single' => true,
+            'type' => 'string',
+            'auth_callback' => 'bw_auth_callback',
+            'description' => $description
+        ];
+        $registered = bw_register_post_meta($post_type, $meta_key, $args);
+    }
+}
 
+/**
+ * Returns the field's description.
+ *
+ * Note: The field may not be registered even though the mapping has been registered.
+ *
+ *
+ * @param $field_name
+ * @return mixed
+ */
+function bw_get_field_description( $field_name ) {
+    global $bw_fields;
+    $description = null;
+    bw_trace2( $bw_fields, "bw_fields");
+    bw_backtrace();
+    $field = bw_array_get( $bw_fields, $field_name, null );
+    if ( $field ) {
+        $description = $field['#title'];
+    }
+    return $description;
+}
+
+ function bw_register_post_meta( $post_type, $meta_key, $args ) {
+    $registered = register_post_meta($post_type, $meta_key, $args);
+    return $registered;
+}
