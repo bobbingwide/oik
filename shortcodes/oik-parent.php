@@ -58,9 +58,12 @@ function bw_post_link( $link=null, $class="bw_post" ) {
  * @return string - generated HTML
  */
 function bw_parent( $atts=null, $content=null, $tag=null ) {
+	$post = null;
   $id = bw_array_get( $atts, "id", null );
   if ( $id ) {
     $post = get_post( $id );
+  } else {
+  	$post = get_post();
   }
   if ( $post && $post->post_parent ) {
     bw_post_link( $post->post_parent, "bw_parent" );   
