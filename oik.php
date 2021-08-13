@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 4.2.0
+Version: 4.3.0
 Author: bobbingwide
 Author URI: https://bobbingwide.com/about-bobbing-wide
 Text Domain: oik
@@ -566,8 +566,26 @@ function oik_is_shortcode_expansion_necessary() {
 
 function oik_register_dynamic_blocks() {
 	$library_file = oik_require_lib( 'oik-blocks');
-	oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik', 'oik' );
-	oik\oik_blocks\oik_blocks_register_block_styles( 'oik' );
+	//oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik', 'oik' );
+	//oik\oik_blocks\oik_blocks_register_block_styles( 'oik' );
+
+	$args = [ 'render_callback' => 'oik_dynamic_block_address' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-address', $args );
+	$args = [ 'render_callback' => 'oik_dynamic_block_contact_form' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-contact-form', $args );
+	$args = [ 'render_callback' => 'oik_dynamic_block_countdown' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-countdown', $args );
+	$args = [ 'render_callback' => 'oik_dynamic_block_follow_me' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-follow-me', $args );
+	//$args = [ 'render_callback' => 'oik_dynamic_block_googlemap' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-googlemap', );
+	$args = [ 'render_callback' => 'oik_dynamic_block_follow_me' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-follow-me', $args );
+	$args = [ 'render_callback' => 'oik_dynamic_block_shortcode_block' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-shortcode', $args );
+
+
+	/*
 	if ( ! oik_blocks_is_registered( 'oik/address') ) {
 		register_block_type( 'oik/address',
 			[
@@ -580,6 +598,8 @@ function oik_register_dynamic_blocks() {
 				]
 			] );
 	}
+	*/
+	/*
 	if ( ! oik_blocks_is_registered( 'oik/contact-form') ) {
 
 		register_block_type( 'oik/contact-form',
@@ -593,6 +613,8 @@ function oik_register_dynamic_blocks() {
 			]
 			] );
 	}
+	*/
+	/*
 	if ( ! oik_blocks_is_registered( 'oik/follow-me') ) {
 
 		register_block_type( 'oik/follow-me',
@@ -609,6 +631,8 @@ function oik_register_dynamic_blocks() {
 					]
 			] );
 	}
+	*/
+	/*
 	if ( ! oik_blocks_is_registered( 'oik/countdown') ) {
 
 				register_block_type( 'oik/countdown',
@@ -629,6 +653,8 @@ function oik_register_dynamic_blocks() {
 					]
 			] );
 	}
+	*/
+	/*
 	if ( ! oik_blocks_is_registered( 'oik/shortcode-block') ) {
 
 		register_block_type( 'oik/shortcode-block',
@@ -646,11 +672,10 @@ function oik_register_dynamic_blocks() {
 					]
 			] );
 	}
+	*/
 
 
 }
-
-
 
 function oik_blocks_is_registered( $block ) {
 	return WP_Block_Type_Registry::get_instance()->is_registered( $block );
@@ -708,8 +733,6 @@ function oik_dynamic_block_countdown( $attributes ) {
 	return $html;
 }
 
-
-
 /**
  * Server rendering contact-form block.
  *
@@ -745,17 +768,8 @@ function oik_dynamic_block_shortcode_block( $attributes ) {
 	return $html;
 
 }
-
-
 	
 /**
  * Initiate oik processing 
  */
 oik_plugin_file_loaded();
-        
-
-
-
-
-
-
