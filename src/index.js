@@ -8,10 +8,10 @@
  * @author Herb Miller @bobbingwide
  */
 import './oik-address';		 // From oik & oik-user
-import './oik-googlemap';    // From oik bw_show_googlemap
 import './oik-contact-form'; // From oik bw_contact_form
-import './oik-follow-me';    // From oik bw_follow_me
 import './oik-countdown';    // From oik bw_countdown
+import './oik-follow-me';    // From oik bw_follow_me
+import './oik-googlemap';    // From oik bw_show_googlemap
 import './oik-shortcode';    // From oik general purpose shortcode block
 
 
