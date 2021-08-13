@@ -1,38 +1,33 @@
 {
-  "name": "oik",
-  "scripts": {
-    "dev": "cross-env BABEL_ENV=default webpack --watch",
-    "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack"
-  },
-  "main": "blocks/index.js",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.1.2",
-    "babel-loader": "^7.1.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.26.3",
-    "browser-sync-webpack-plugin": "^1.2.0",
-    "classnames": "^2.2.5",
-    "cross-env": "^5.1.1",
-    "css-loader": "^0.28.7",
-    "eslint": "^4.14.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-wordpress": "^2.0.0",
-    "eslint-plugin-prettier": "^2.4.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "node-sass": "^4.9.4",
-    "postcss-loader": "^2.0.9",
-    "raw-loader": "^0.5.1",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.1",
-    "webpack": "^3.10.0"
-  },
-  "version": "0.0.0",
-  "license": "MIT",
-  "dependencies": {
-    "babel-plugin-lodash": "^3.3.4"
-  }
+	"name": "oik",
+	"version": "4.3.0",
+	"description": "OIK Information Kit",
+	"author": "bobbingwide",
+	"license": "GPL-2.0-or-later",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/bobbingwide/oik.git"
+	},
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"start": "wp-scripts start",
+		"packages-update": "wp-scripts packages-update",
+		"dev": "wp-scripts start",
+		"makepot": "wp i18n make-pot . languages/oik.pot --exclude=node_modules,vendor,src",
+		"makejson": "wp i18n make-json languages --no-purge",
+		"l10n": "l10n oik"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^5.3.3",
+		"@wordpress/blocks": "^8.0.3",
+		"@wordpress/i18n": "^3.20.0",
+		"postcss": "^8.3.6"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^15.0.1"
+	}
 }
