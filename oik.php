@@ -564,10 +564,13 @@ function oik_is_shortcode_expansion_necessary() {
 	return $shortcode_expansion_necessary;
 }
 
+/**
+ * Registers blocks on the server.
+ *
+ * Gives the block editor less to do.
+ */
 function oik_register_dynamic_blocks() {
 	$library_file = oik_require_lib( 'oik-blocks');
-	//oik\oik_blocks\oik_blocks_register_editor_scripts(  'oik', 'oik' );
-	//oik\oik_blocks\oik_blocks_register_block_styles( 'oik' );
 
 	$args = [ 'render_callback' => 'oik_dynamic_block_address' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-address', $args );
@@ -577,108 +580,10 @@ function oik_register_dynamic_blocks() {
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-countdown', $args );
 	$args = [ 'render_callback' => 'oik_dynamic_block_follow_me' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-follow-me', $args );
-	//$args = [ 'render_callback' => 'oik_dynamic_block_googlemap' ];
-	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-googlemap', );
-	$args = [ 'render_callback' => 'oik_dynamic_block_follow_me' ];
-	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-follow-me', $args );
+	// The Googlemap block is not server side rendered.
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-googlemap' );
 	$args = [ 'render_callback' => 'oik_dynamic_block_shortcode_block' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-shortcode', $args );
-
-
-	/*
-	if ( ! oik_blocks_is_registered( 'oik/address') ) {
-		register_block_type( 'oik/address',
-			[
-				'render_callback' => 'oik_dynamic_block_address'
-				, 'editor_script' =>'oik-blocks-js'
-				, 'editor_style'  =>'oik-blocks-css'
-				, 'style'         =>'oik-blocks-css'
-				, 'attributes'    =>[
-					'tag'=>[ 'type'=>'string' ]
-				]
-			] );
-	}
-	*/
-	/*
-	if ( ! oik_blocks_is_registered( 'oik/contact-form') ) {
-
-		register_block_type( 'oik/contact-form',
-			[
-				'render_callback' => 'oik_dynamic_block_contact_form'
-				, 'editor_script' =>'oik-blocks-js'
-				, 'editor_style'  =>'oik-blocks-css'
-				, 'style'         =>'oik-blocks-css'
-				, 'attributes'    =>[
-				'tag'=>[ 'type'=>'string' ]
-			]
-			] );
-	}
-	*/
-	/*
-	if ( ! oik_blocks_is_registered( 'oik/follow-me') ) {
-
-		register_block_type( 'oik/follow-me',
-			[
-				'render_callback' => 'oik_dynamic_block_follow_me'
-				, 'editor_script' =>'oik-blocks-js'
-				, 'editor_style'  =>'oik-blocks-css'
-				, 'style'         =>'oik-blocks-css'
-				, 'attributes'    =>
-					[ 'user' => [ 'type'=>'string' ]
-					,'alt' => [ 'type' => 'string ']
-					, 'network' => [ 'type' => 'string']
-					, 'theme' => [ 'type' => 'string']
-					]
-			] );
-	}
-	*/
-	/*
-	if ( ! oik_blocks_is_registered( 'oik/countdown') ) {
-
-				register_block_type( 'oik/countdown',
-			[
-				'render_callback' => 'oik_dynamic_block_countdown'
-				, 'editor_script' =>'oik-blocks-js'
-				, 'editor_style'  =>'oik-blocks-css'
-				, 'style'         =>'oik-blocks-css'
-				, 'script'        => null
-				, 'attributes'    =>
-					[ 'since' => [ 'type'=>'string' ]
-						,'until' => [ 'type' => 'string']
-						, 'url' => [ 'type' => 'string']
-						, 'description' => [ 'type' => 'string']
-						, 'expirytext' => [ 'type' => 'string']
-						, 'format' => [ 'type' => 'string']
-						, 'className' => [ 'type' => 'string' ]
-					]
-			] );
-	}
-	*/
-	/*
-	if ( ! oik_blocks_is_registered( 'oik/shortcode-block') ) {
-
-		register_block_type( 'oik/shortcode-block',
-			[
-				'render_callback' => 'oik_dynamic_block_shortcode_block'
-				, 'editor_script' =>'oik-blocks-js'
-				, 'editor_style'  =>'oik-blocks-css'
-				, 'style'         =>'oik-blocks-css'
-				, 'script'        => null
-				, 'attributes'    =>
-					[ 'shortcode' => [ 'type'=>'string' ]
-						,'content' => [ 'type' => 'string ']
-						, 'parameters' => [ 'type' => 'string']
-
-					]
-			] );
-	}
-	*/
-
-
-}
-
-function oik_blocks_is_registered( $block ) {
-	return WP_Block_Type_Registry::get_instance()->is_registered( $block );
 }
 
 /**
@@ -713,7 +618,6 @@ function oik_dynamic_block_contact_form( $attributes ) {
 		}
 	}
 	return $html;
-
 }
 
 /**
@@ -734,7 +638,7 @@ function oik_dynamic_block_countdown( $attributes ) {
 }
 
 /**
- * Server rendering contact-form block.
+ * Server rendering follow-me block.
  *
  * @param array $attributes Attributes to the block.
  * @return string generated HTML
