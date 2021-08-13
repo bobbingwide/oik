@@ -83,47 +83,37 @@ export default registerBlockType(
 				 */
 				return (
 					<Fragment>
-				
-  					  <InspectorControls>
-								<PanelBody>
-									<SelectControl label="Shortcode" value={attributes.shortcode}
+  					  	<InspectorControls>
+							<PanelBody>
+								<SelectControl label="Shortcode" value={attributes.shortcode}
 										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: label + ' - ' + key } ) ) }
 										onChange={partial( onChangeAttr, 'shortcode' )}
-									/>
-									<TextareaControl label="Parameters"
-													 value={ attributes.parameters }
-													 placeholder={ __( 'Enter your shortcode parameters' ) }
-													 onChange={onChangeParameters}
-													 rows="1"
-									/>
-									<TextareaControl label="Content"
+								/>
+								<TextareaControl label="Parameters"
+										 value={ attributes.parameters }
+										 placeholder={ __( 'Enter your shortcode parameters' ) }
+										 onChange={onChangeParameters}
+										 rows="1"
+								/>
+								<TextareaControl label="Content"
 													 value={ attributes.content }
 													 placeholder={ __( 'Enter your shortcode content' ) }
 													 onChange={onChangeContent}
-									/>
+								/>
+							</PanelBody>
+  					  	</InspectorControls>
+						<div {...blockProps}>
 
-									
-								</PanelBody>
-              </InspectorControls>
-									
-
-					<div className="wp-block-oik-block-shortcode wp-block-shortcode">
-						<SelectControl label="Shortcode" value={attributes.shortcode}
+							<SelectControl label="Shortcode" value={attributes.shortcode}
 										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: label + ' - ' + key } ) ) }
 										onChange={partial( onChangeAttr, 'shortcode' )}
-									/>
-
-
-
-					</div>
-					<div {...blockProps}>
-						<ServerSideRender
-							block="oik/shortcode-block" attributes={ attributes }
-						/>
-					</div>
+							/>
+							<ServerSideRender
+								block="oik/shortcode-block" attributes={ attributes }
+							/>
+						</div>
 					</Fragment>
-				 					
-			);
+				);
 			},
 				
 
