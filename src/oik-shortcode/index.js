@@ -9,82 +9,34 @@
  * - tag=div|span
  *
  *
- * @copyright (C) Copyright Bobbing Wide 2018-2020
+ * @copyright (C) Copyright Bobbing Wide 2018-2021
  * @author Herb Miller @bobbingwide
  */
 import './style.scss';
 import './editor.scss';
 
-// Get just the __() localization function from wp.i18n
-const { __ } = wp.i18n;
-// Get registerBlockType and Editable from wp.blocks
-const { 
-	registerBlockType,
-} = wp.blocks;
+import { __ } from '@wordpress/i18n';
+import classnames from 'classnames';
 
-const { 
-	Editable,
-
-  AlignmentToolbar,
-  BlockControls,
-	ServerSideRender,
- } = wp.editor;
-const {
-	PlainText,
-	InspectorControls,
-} = wp.blockEditor;
-	 
-const {
-  Toolbar,
-  Button,
-  Tooltip,
-  PanelBody,
-  PanelRow,
-  FormToggle,
+import { registerBlockType, createBlock } from '@wordpress/blocks';
+import {AlignmentControl, BlockControls, InspectorControls, useBlockProps, PlainText, BlockIcon} from '@wordpress/block-editor';
+import ServerSideRender from '@wordpress/server-side-render';
+import {
+	Toolbar,
+	PanelBody,
+	PanelRow,
+	FormToggle,
 	TextControl,
 	TextareaControl,
-	SelectControl,
-} = wp.components;
-
-const {
-	withInstanceId,
-} = wp.compose;	
-
-const Fragment = wp.element.Fragment;
-const RawHTML = wp.element.RawHTML;
-
-//var TextControl = wp.blocks.InspectorControls.TextControl;
+	SelectControl } from '@wordpress/components';
+import { Fragment} from '@wordpress/element';
+import { map, partial } from 'lodash';
 
 import { bw_shortcodes, getAttributes, bw_shortcodes_attrs } from './bw_shortcodes';
 //import GenericAttrs from './GenericAttrs';
 
-import { map, partial, has } from 'lodash';
-
-const shortcode_attributes =
-{
-					shortcode: {
-						type: 'string',
-						default: '',
-					},
-					
-					content: {
-						type: 'string',
-						default: '',
-					},
-					
-					parameters: {
-						type: 'string',
-						default: '',
-					},
-					
-	
-};	
-
- 
-
-
 /**
- * Register the oik-block/shortcode-block block
+ * Register the oik/shortcode-block block
  * 
  * registerBlockType is a function which takes the name of the block to register
  * and an object that contains the properties of the block.
@@ -94,43 +46,15 @@ export default registerBlockType(
     // Namespaced, hyphens, lowercase, unique name
 		'oik/shortcode-block',
     {
-        // Localize title using wp.i18n.__()
-        title: __( 'Shortcode block for oik-shortcodes' ),
-				
-		description: 'Expands oik shortcodes',
+		edit: props => {
+				const { attributes, setAttributes, instanceId, focus, isSelected } = props;
+				const { textAlign, label } = props.attributes;
+				const blockProps = useBlockProps( {
+					className: classnames( {
+						[ `has-text-align-${ textAlign }` ]: textAlign,
+					} ),
+				} );
 
-        // Category Options: common, formatting, layout, widgets, embed
-        category: 'layout',
-
-        // Dashicons Options - https://goo.gl/aTM1DQ
-        icon: 'shortcode',
-
-        // Limit to 3 Keywords / Phrases
-        keywords: [
-            __( 'Shortcode' ),
-            __( 'oik' ),
-        ],
-
-        // Set for each piece of dynamic data used in your block
-				// The shortcode should be displayed as a select list 
-				// with text override. a la? 
-				
-				// We can't set a default for the shortcode since the attribute is not created when it's the default value
-				// This can probably be used to our advantage if we expect the default value to come from options.
-				
-        attributes: shortcode_attributes,
-				
-		supports: {
-			customClassName: false,
-			className: false,
-			html: false,
-		},
-			
-		edit: withInstanceId(
-			( { attributes, setAttributes, instanceId, isSelected } ) => {
-				const inputId = `blocks-shortcode-input-${ instanceId }`;
-				
-				
 				const onChangeContent = ( value ) => {
 					setAttributes( { content: value } );
 				};
@@ -173,7 +97,6 @@ export default registerBlockType(
 													 rows="1"
 									/>
 									<TextareaControl label="Content"
-													 id={ inputId }
 													 value={ attributes.content }
 													 placeholder={ __( 'Enter your shortcode content' ) }
 													 onChange={onChangeContent}
@@ -193,14 +116,15 @@ export default registerBlockType(
 
 
 					</div>
+					<div {...blockProps}>
 						<ServerSideRender
 							block="oik/shortcode-block" attributes={ attributes }
 						/>
+					</div>
 					</Fragment>
 				 					
 			);
-			}
-		),
+			},
 				
 
 		/**
@@ -210,7 +134,6 @@ export default registerBlockType(
 		 */
 		save( { attributes } ) {
 			return null;
-		},
-	},
+		}
+	}
 );
-
