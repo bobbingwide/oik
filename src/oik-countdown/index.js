@@ -90,22 +90,22 @@ registerBlockType(
   					  <InspectorControls>
 							<PanelBody>
 								<PanelRow>
-								<TextControl label="Since" value={props.attributes.since} onChange={onChangeSince} />
+								<TextControl label={__("Since","oik")} value={props.attributes.since} onChange={onChangeSince} />
 								</PanelRow>
 								<PanelRow>
-						  		<TextControl label="Until" value={props.attributes.until} onChange={onChangeUntil} />
+						  		<TextControl label={__("Until", "oik" )}value={props.attributes.until} onChange={onChangeUntil} />
 								</PanelRow>
 								<PanelRow>
-								<TextControl label="URL" value={props.attributes.url} onChange={onChangeURL} />
+								<TextControl label={__("URL", "oik" )}value={props.attributes.url} onChange={onChangeURL} />
 								</PanelRow>
 								<PanelRow>
-                					<TextControl label="Description" value={props.attributes.description} onChange={onChangeDescription} />
+                					<TextControl label={__("Description", "oik" )}value={props.attributes.description} onChange={onChangeDescription} />
 								</PanelRow>
 						  		<PanelRow>
-								<TextControl label="Expiry Text" value={props.attributes.expirytext} onChange={onChangeExpiryText}  />
+								<TextControl label={__("Expiry Text", "oik" )}value={props.attributes.expirytext} onChange={onChangeExpiryText}  />
 						  		</PanelRow>
 						  		<PanelRow>
-						 		<TextControl label="Format" value={props.attributes.format} onChange={onChangeFormat} />
+						 		<TextControl label={__("Format", "oik" )}value={props.attributes.format} onChange={onChangeFormat} />
 						  		</PanelRow>
 							 </PanelBody>
 
@@ -115,7 +115,7 @@ registerBlockType(
           	</InspectorControls>
 				<div {...blockProps} >
 
-					<p>The Countdown block will be rendered on the front end. <br />Shortcode equivalent:
+					<p>{__("The Countdown block will be rendered on the front end.","oik" )} <br />{__("Shortcode equivalent:", "oik" )}
 					<br />
 				{chatts}
 					</p>
