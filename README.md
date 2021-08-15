@@ -4,15 +4,15 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 5.7.1
-* Stable tag: 4.2.0
+* Tested up to: 5.8
+* Stable tag: 4.3.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
 
 Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.
 
-Now with blocks:
+Now with 6 translatable blocks:
 
 * Address - Displays your address from oik-options
 * Contact form - Displays a contact form
@@ -45,6 +45,11 @@ oik helps you to display information about you, your company, your social networ
 * Whenever you need to change a value you only need to update it in one place; and your website is updated instantly.
 * Shortcodes to display often included key information include: [bw_contact], [bw_telephone], [bw_mobile], [bw_mailto], [bw_company], [bw_address], [bw_show_googlemap], [bw_directions], [bw_logo], [bw_qrcode], [bw_copyright]
 * For your social networking use the [bw_follow_me] shortcode to display your links to Twitter, Facebook, LinkedIn, etcetera
+
+New in oik v4.3.0:
+
+* oik's blocks can be used in the Widget block editor.
+* The blocks are internationalized; ready for translation
 
 New in oik v4.1.2:
 
@@ -124,6 +129,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.3.0 
+Update for compatibility with the Widget block editor in WordPress 5.8.
+
 # 4.2.0 
 Update to use oik registered fields in the REST API.
 
@@ -525,6 +533,17 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 4.3.0 
+* Changed: Refactor blocks to be built using wp-scripts and block.json,https://github.com/bobbingwide/oik/issues/177
+* Changed: Blocks are now internationalized,https://github.com/bobbingwide/oik/issues/177
+* Changed: Updated PHPUnit tests for WordPress 5.8,https://github.com/bobbingwide/oik/issues/178
+* Changed: Reconcile libs/class-oik-update.php
+* Fixed: Avoid Notice when id attribute not set
+* Tested: With WordPress 5.8 and WordPress Multi Site
+* Tested: With Gutenberg 11.2.0
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+
 # 4.2.0 
 * Changed: Further update tests for WordPress 5.7 compatibility,https://github.com/bobbingwide/oik/issues/173
 * Changed: Add support for post meta fields to be included in the REST API,https://github.com/bobbingwide/oik/issues/174
