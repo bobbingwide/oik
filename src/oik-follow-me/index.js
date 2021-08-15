@@ -62,16 +62,6 @@ registerBlockType(
 				props.setAttributes({theme: event});
 			}
 
-			//var atts = props.attributes;
-			var children = [];
-			//for (var key of Object.keys( atts )) {
-			//	var value = atts[key];
-			//	console.log( value );
-			children.push(<TextControl label="User" value={props.attributes.user} id="hm001" instanceId="fm-user"
-									   onChange={onChangeUser}/>);
-
-			//}
-
 			var atts = props.attributes;
 			var chatts = '';
 			for (var key of Object.keys(atts)) {
@@ -84,10 +74,9 @@ registerBlockType(
 			var rsb = ']'; // &#93;
 			var user = props.attributes.user;
 
-
 			var equivalent_shortcode = `${lsb}bw_follow_me${chatts}${rsb}`;
-			console.log(chatts);
-			console.log(equivalent_shortcode);
+			//console.log(chatts);
+			//console.log(equivalent_shortcode);
 
 			return (
 
@@ -95,17 +84,17 @@ registerBlockType(
 					<InspectorControls>
 						<PanelBody key="pb">
 							<PanelRow>
-								<TextControl label="User" value={props.attributes.user} onChange={onChangeUser}/>
+								<TextControl label={__("User", "oik" )}value={props.attributes.user} onChange={onChangeUser}/>
 							</PanelRow>
 							<PanelRow>
-								<TextControl label="Alt" value={props.attributes.alt} onChange={onChangeAlt}/>
+								<TextControl label={__("Alt", "oik" )}value={props.attributes.alt} onChange={onChangeAlt}/>
 							</PanelRow>
 							<PanelRow>
-								<TextControl label="Network(s)" value={props.attributes.network}
+								<TextControl label={__("Network(s)", "oik" )}value={props.attributes.network}
 											 onChange={onChangeNetwork}/>
 							</PanelRow>
 							<PanelRow>
-								<SelectControl label="Theme" value={props.attributes.fields}
+								<SelectControl label={__("Theme", "oik" )}value={props.attributes.fields}
 											   options={map(themeOptions, (key, label) => ({value: label, label: key}))}
 											   onChange={onChangeTheme}
 								/>
@@ -113,7 +102,7 @@ registerBlockType(
 							</PanelRow>
 
 							<PanelRow>
-								Equivalent shortcode<br/>
+								{__("Equivalent shortcode", "oik" )}<br/>
 								{equivalent_shortcode}
 							</PanelRow>
 						</PanelBody>
