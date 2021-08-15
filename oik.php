@@ -70,7 +70,7 @@ function oik_plugin_file_loaded() {
     add_action( 'admin_enqueue_scripts', 'add_thickbox' );
   }
   add_action( 'init', 'oik_main_init', 20 );
-  add_action( 'init', 'oik_register_dynamic_blocks' );
+  add_action( 'init', 'oik_register_dynamic_blocks', 21 );
   add_action( 'rest_api_init', 'oik_rest_api_init', 20 );
     
   add_filter( "attachment_fields_to_edit", "oik_attachment_fields_to_edit", null, 2 ); 
@@ -584,6 +584,33 @@ function oik_register_dynamic_blocks() {
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-googlemap' );
 	$args = [ 'render_callback' => 'oik_dynamic_block_shortcode_block' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-shortcode', $args );
+
+	/**
+	 * Localise the script by loading the required strings for the build/index.js file
+	 * from the locale specific .json file in the languages folder.
+	 */
+	$ok = wp_set_script_translations( 'oik-address-editor-script', 'oik' , __DIR__ .'/languages' );
+	add_filter( 'load_script_textdomain_relative_path', 'oik_load_script_textdomain_relative_path', 10, 2);
+}
+
+/**
+ * Filters $relative so that md5's match what's expected.
+ *
+ * Depending on how it was built the `build/index.js` may be preceded by `./` or `src/block-name/../../`.
+ * In either of these situations we want the $relative value to be returned as `build/index.js`.
+ * This then produces the correct md5 value and the .json file is found.
+ *
+ * @param $relative
+ * @param $src
+ *
+ * @return mixed
+ */
+function oik_load_script_textdomain_relative_path( $relative, $src ) {
+	//bw_trace2();
+	if ( false !== strrpos( $relative, './build/index.js' )) {
+		$relative = 'build/index.js';
+	}
+	return $relative;
 }
 
 /**
