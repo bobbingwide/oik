@@ -29,7 +29,7 @@ import { Fragment} from '@wordpress/element';
 import { map, partial } from 'lodash';
 
 // Set the header for the block since it is reused
-const blockHeader = <h3>{ __( 'Map' ) }</h3>;
+const blockHeader = <h3>{ __( 'Map', 'oik' ) }</h3>;
 
 
 /**
@@ -54,7 +54,7 @@ export default registerBlockType(
           return (
             <div {...blockProps}>
 							{blockHeader}
-							<p>This is where the map will appear</p>
+							<p>{__( "This is where the map will appear", "oik" )}</p>
             </div>
           );
         },
