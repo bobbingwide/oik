@@ -85,26 +85,26 @@ export default registerBlockType(
 					<Fragment>
   					  	<InspectorControls>
 							<PanelBody>
-								<SelectControl label="Shortcode" value={attributes.shortcode}
+								<SelectControl label={__("Shortcode", "oik" )} value={attributes.shortcode}
 										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: label + ' - ' + key } ) ) }
 										onChange={partial( onChangeAttr, 'shortcode' )}
 								/>
-								<TextareaControl label="Parameters"
+								<TextareaControl label={__("Parameters", "oik" )}
 										 value={ attributes.parameters }
-										 placeholder={ __( 'Enter your shortcode parameters' ) }
+										 placeholder={ __( "Enter your shortcode parameters", "oik" ) }
 										 onChange={onChangeParameters}
 										 rows="1"
 								/>
-								<TextareaControl label="Content"
+								<TextareaControl label={__("Content", "oik" )}
 													 value={ attributes.content }
-													 placeholder={ __( 'Enter your shortcode content' ) }
+													 placeholder={ __( "Enter your shortcode content", "oik" ) }
 													 onChange={onChangeContent}
 								/>
 							</PanelBody>
   					  	</InspectorControls>
 						<div {...blockProps}>
 
-							<SelectControl label="Shortcode" value={attributes.shortcode}
+							<SelectControl label={__("Shortcode", "oik" )} value={attributes.shortcode}
 										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: label + ' - ' + key } ) ) }
 										onChange={partial( onChangeAttr, 'shortcode' )}
 							/>

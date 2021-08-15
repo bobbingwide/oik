@@ -8,10 +8,12 @@
  * I stil have very little idea how this should work!
  * 
  * 
- * @copyright (C) Copyright Bobbing Wide 2018
+ * @copyright (C) Copyright Bobbing Wide 2018,2021
  * @author Herb Miller @bobbingwide
  
  */
+
+import { __ } from '@wordpress/i18n';
  
 const postTypeParmValues =  
 { post: "Post",
@@ -67,11 +69,11 @@ const bw_shortcodes = {
 	//,"bw_acronym":"Format an acronym"
 	//,"bw_action":"bw_shortcode_event"
 	//"bw_address":"Display the address"
-	"bw_admin":"Display the Admin contact name"
-	,"bw_alt_slogan":"Alternative slogan"
-	//,"bw_api":"Dynamic API syntax help"
-	//,"bw_archive":"Display category archives"
-	//,"bw_attachments":"List attachments with links"
+	"bw_admin":__("Display the Admin contact name","oik")
+	,"bw_alt_slogan":__("Alternative slogan","oik")
+	//,"bw_api":__("Dynamic API syntax help"
+	//,"bw_archive":__("Display category archives"
+	//,"bw_attachments":__("List attachments with links"
 	//,"bw_autop":"Dynamically re-enable\/disable automatic paragraph generation"
 	//,"bw_background":"Use attached image as the background"
 	//,"bw_block":"Format an Artisteer block"
@@ -79,16 +81,16 @@ const bw_shortcodes = {
 	//,"bw_blog":"Select blog to process"
 	//,"bw_blogs":"List blogs using bw_pages style display"
 	//,"bw_bookmarks":"List bookmarks"
-	,"bw_business":"Display your Business name"
-	//,"bw_button":"Show a link as a button"
+	,"bw_business":__("Display your Business name","oik")
+	//,"bw_button":__("Show a link as a button","oik")
 	//,"bw_cite":"Cite a blockquote"
 	//,"bw_code":"Display the help and syntax for a shortcode"
 	//,"bw_codes":"Display the currently available shortcodes"
-	,"bw_company":"Company name"
-	,"bw_contact":"Primary contact name"
-	,"bw_contact_button":"Contact form button"
+	,"bw_company":__("Company name","oik")
+	,"bw_contact":__("Primary contact name","oik")
+	,"bw_contact_button":__("Contact form button","oik")
 	//,"bw_contact_form":"Display a contact form for the specific user"
-	,"bw_copyright":"Format a Copyright statement"
+	,"bw_copyright":__("Format a Copyright statement","oik")
 	//,"bw_count":"Count posts for the selected post type"
 	//,"bw_countdown":"Countdown timer"
 	// ,"bw_crumbs":"Display breadcrumbs"
@@ -96,20 +98,20 @@ const bw_shortcodes = {
 	// ,"bw_csv":"Display CSV data in a table or list"
 	// ,"bw_cycle":"Display pages using jQuery cycle"
 	// ,"bw_dash":"Display a dash icon"
-	,"bw_directions":"Display a 'Google directions' button."
-	,"bw_domain":"Display the domain name"
+	,"bw_directions":__("Display a 'Google directions' button.","oik")
+	,"bw_domain":__("Display the domain name","oik")
 	//,"bw_eblock":"end a [bw_block]"
 	// ,"bw_editcss":"Edit Custom CSS file button"
-	,"bw_email":"Email primary contact (formal)"
-	,"bw_emergency":"Emergency telephone number"
+	,"bw_email":__("Email primary contact (formal)","oik")
+	,"bw_emergency":__("Emergency telephone number","oik")
 	//,"bw_facebook":"Facebook link"
-	,"bw_fax":"Fax number"
+	,"bw_fax":__("Fax number","oik")
 	//,"bw_field":"Format custom fields without labels"
 	// ,"bw_fields":"Format custom fields, with labels"
 	// ,"bw_flickr":"Flickr link"
 	// ,"bw_follow_me":"Display defined social media follow me links"
-	,"bw_formal":"Formal company name"
-	,"bw_geo":"Latitude and Longitude"
+	,"bw_formal":__("Formal company name","oik")
+	,"bw_geo":__("Latitude and Longitude","oik")
 	//,"bw_geshi":"Generic Syntax Highlighting"
 	// ,"bw_google":"Google+ link"
 	// ,"bw_google-plus":"Google+ link"
@@ -124,13 +126,13 @@ const bw_shortcodes = {
 	//,"bw_link":"Display a link to a post."
 	//,"bw_linkedin":"Follow me on LinkedIn"
 	// ,"bw_list":"Simple list of pages\/posts or custom post types"
-	,"bw_login":"Display the login form or protected content"
-	,"bw_loginout":"Display the Login or Logout link"
-	,"bw_logo":"Display the company logo"
-	,"bw_mailto":"Mailto (inline)"
-	,"bw_mob":"Mobile phone number (inline)"
-	,"bw_mobile":"Mobile phone number (block)"
-	,"bw_more":"Read more button to progressively reveal content"
+	,"bw_login":__("Display the login form or protected content","oik")
+	,"bw_loginout":__("Display the Login or Logout link","oik")
+	,"bw_logo":__("Display the company logo","oik")
+	,"bw_mailto":__("Mailto (inline)","oik")
+	,"bw_mob":__("Mobile phone number (inline)","oik")
+	,"bw_mobile":__("Mobile phone number (block)","oik")
+	,"bw_more":__("Read more button to progressively reveal content","oik")
 	//,"bw_mshot":"bw_shortcode_event"
 	//,"bw_navi":"Simple paginated list"
 	//,"bw_new":"Display a form to create a new post"
@@ -138,29 +140,29 @@ const bw_shortcodes = {
 	// ,"bw_otd":"Display 'On this day' in history related content "
 	// ,"bw_page":"Add page button"
 	// ,"bw_pages":"Display page thumbnails and excerpts as links"
-	,"bw_parent":"Display a link back to the parent page"
-	,"bw_pdf":"Display attached PDF files"
+	,"bw_parent":__("Display a link back to the parent page","oik")
+	,"bw_pdf":__("Display attached PDF files","oik")
 	//,"bw_picasa":"Follow me on Picasa"
 	// ,"bw_pinterest":"Follow me on Pinterest"
 	// ,"bw_plug":"Show plugin information"
 	// ,"bw_popup":"Display a popup after a timed delay"
-	,"bw_portfolio":"Display matched portfolio files"
+	,"bw_portfolio":__("Display matched portfolio files","oik")
 	//,"bw_post":"Add Post button"
 	// ,"bw_posts":"Display posts"
-	,"bw_power":"Powered by WordPress"
+	,"bw_power":__("Powered by WordPress","oik")
 	//,"bw_qrcode":"Display an uploaded QR code image"
-	,"bw_register":"Display a link to the Registration form, if Registration is enabled"
+	,"bw_register":__("Display a link to the Registration form, if Registration is enabled","oik")
 	//,"bw_related":"Display related content"
 	//,"bw_rpt":"bw_shortcode_event"
 	// ,"bw_rwd":"Dynamically generate oik responsive web design CSS classes"
 	// ,"bw_search":"Display search form"
 	// ,"bw_show_googlemap":"Show Google map [bw_show_googlemap]"
-	,"bw_skype":"Skype name"
-	,"bw_slogan":"Primary slogan"
+	,"bw_skype":__("Skype name","oik")
+	,"bw_slogan":__("Primary slogan","oik")
 	//,"bw_table":"Display custom post data in a tabular form"
 	// ,"bw_tabs":"Display posts in tabbed blocks"
-	,"bw_tel":"Telephone number (inline)"
-	,"bw_telephone":"Telephone number (block)"
+	,"bw_tel":__("Telephone number (inline)","oik")
+	,"bw_telephone":__("Telephone number (block)","oik")
 	//,"bw_terms":"Display taxonomy terms links"
 	//,"bw_testimonials":"Display testimonials"
 	// ,"bw_text":"bw_shortcode_event"
@@ -171,13 +173,13 @@ const bw_shortcodes = {
 	// ,"bw_user":"Display information about a user"
 	// ,"bw_users":"Display information about site users"
 	//,"bw_video":"Display the video specified (url=) or attached videos"
-	,"bw_wpadmin":"Site: link to wp-admin"
+	,"bw_wpadmin":__("Site: link to wp-admin","oik")
 	//,"bw_wtf":"WTF"
 	// ,"bw_youtube":"Follow me on YouTube"
 	// ,"bwtrace":"Trace facility form"
 	// ,"caption":"Display the caption for an image. Standard WordPress shortcode"
 	// ,"classes":"Link to class definitions"
-	,"clear":"Clear divs "
+	,"clear":__("Clear divs ","oik")
 	//,"clone":"Display the clone tree\/form for a post"
 	// ,"cloned":"Display clones of this content"
 	// ,"codes":"Create links to related shortcodes"
@@ -237,7 +239,7 @@ const bw_shortcodes = {
 	// ,"oikp_download":"Produce a download button for a plugin"
 	// ,"oikth_download":"Produce a download button for a theme"
 	// ,"parsed_source":"bw_shortcode_event"
-	,"paypal":"Paypal shortcodes"
+	,"paypal":__("Paypal shortcodes","oik")
 	//,"playlist":"Playlist"
 	// ,"post_author":"Display post author name"
 	// ,"post_author_link":"Display post author link"
@@ -268,7 +270,7 @@ const bw_shortcodes = {
 	// ,"wp":"Display a styled form of WordPress. "
 	// ,"wp_caption":"Display the caption for an image. Standard WordPress shortcode",
 	//,"wpms":"Styled form of WordPress Multi Site"
- 	,"OIK":"Spells out the oik backronym"
+ 	,"OIK":__("Spells out the oik backronym","oik")
 };
 
 
