@@ -92,8 +92,8 @@ class Tests_includes_bw_register extends BW_UnitTestCase {
   }
 	
 	/**
-	 * Note: "Pages" is not in the oik text domain so this won't be translated
-	 * in the generated labels.
+	 * Note: "Pages" is not expected to be in the oik text domain so this won't be translated
+	 * in the generated labels. Files in the tests folder should be excluded from makepot processing.
 	 */
 	function test_bw_default_labels_pages_bb_BB() {
 		$this->switch_to_locale( 'bb_BB' );
