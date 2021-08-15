@@ -33,8 +33,8 @@ import { transforms } from './transforms.js';
  * These are the different options for the tag attr
  */
 const tagOptions =
-    { "div": "Block",
-       "span": "Inline",
+    { "div": __( "Block", "oik" ),
+       "span": __( "Inline", "oik" )
     };
 
 /**
@@ -65,13 +65,12 @@ export default registerBlockType(
                 <InspectorControls >
                     <PanelBody>
                         <PanelRow>
-                            <SelectControl label="Display" value={props.attributes.tag}
+                            <SelectControl label={__("Display","oik")} value={props.attributes.tag}
                                      options={ map( tagOptions, ( key, label ) => ( { value: label, label: key } ) ) }
                                      onChange={partial( onChangeAttr, 'tag' )}
                             />
                         </PanelRow>
-                        <PanelRow>
-                            Equivalent shortcode<br />
+                        <PanelRow>{ __("Equivalent shortcode", "oik")}<br />
                             &#91;bw_address tag={props.attributes.tag}&#93;
                         </PanelRow>
                     </PanelBody>
