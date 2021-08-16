@@ -576,6 +576,8 @@ function oik_register_dynamic_blocks() {
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-address', $args );
 	$args = [ 'render_callback' => 'oik_dynamic_block_contact_form' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-contact-form', $args );
+    $args = [ 'render_callback' => 'oik_dynamic_block_content_block' ];
+    $registered = register_block_type_from_metadata( __DIR__ .'/src/oik-content', $args );
 	$args = [ 'render_callback' => 'oik_dynamic_block_countdown' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-countdown', $args );
 	$args = [ 'render_callback' => 'oik_dynamic_block_follow_me' ];
@@ -698,6 +700,21 @@ function oik_dynamic_block_shortcode_block( $attributes ) {
 
 	return $html;
 
+}
+
+/**
+ * Server rendering dynamic content block
+ *
+ * @param array $attributes
+ * @return string generated HTML
+ */
+function oik_dynamic_block_content_block( $attributes ) {
+    $html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-content.php', 'oik', 'oik_content_block' );
+    if ( ! $html ) {
+        $html = oik_content_block( $attributes );
+    }
+    //oik_require( "shortcodes/oik-shortcode.php", "oik-blocks" );
+    return $html;
 }
 	
 /**
