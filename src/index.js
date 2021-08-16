@@ -9,6 +9,7 @@
  */
 import './oik-address';		 // From oik & oik-user
 import './oik-contact-form'; // From oik bw_contact_form
+import './oik-content';      // Dynamic content block
 import './oik-countdown';    // From oik bw_countdown
 import './oik-follow-me';    // From oik bw_follow_me
 import './oik-googlemap';    // From oik bw_show_googlemap

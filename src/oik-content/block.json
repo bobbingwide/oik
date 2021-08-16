@@ -1,0 +1,91 @@
+{
+  "apiVersion": 2,
+  "name": "oik/content-block",
+  "title": "Dynamic content block",
+  "category": "layout",
+  "icon": "shortcode",
+  "description": "Expands content for dynamic oik shortcodes.",
+  "attributes": {
+    "shortcode": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "parameters": {
+"type": "string",
+"default": ""
+},
+    "post_type": {
+"type": "string",
+"default": ""
+},
+    "post_parent": {
+"type": "string",
+"default": ""
+},
+    "numberposts": {
+      "type": "integer",
+      "default": 10
+    },
+    "orderby": {
+"type": "string",
+"default": "date"
+},
+    "order": {
+"type": "string",
+"default": "desc"
+},
+    "align": {
+"type": "string",
+"default": ""
+},
+    "format": {
+"type": "string",
+"default": "LIER"
+},
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "align": true,
+    "alignWide": true,
+    "alignFull": true,
+    "html": false,
+    "customClassName": false,
+    "className": true,
+    "color": {
+      "gradients": false,
+      "text": true,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "content", "shortcode", "dynamic", "oik" ],
+  "textdomain": "oik-blocks"
+}
