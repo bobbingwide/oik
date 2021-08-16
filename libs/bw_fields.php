@@ -217,7 +217,7 @@ function bw_theme_field__post_title( $key, $value, $field ) {
  * @param $field
  */
 function bw_theme_field__post_date( $key, $value, $field ) {
-	bw_theme_field__date( $key, $value, $field );
+   bw_theme_field__date($key, $value, $field);
 }
 
 /**
@@ -229,7 +229,7 @@ function bw_theme_field__post_date( $key, $value, $field ) {
  * @param $field
  */
 function bw_theme_field__post_modified( $key, $value, $field ) {
-	bw_theme_field__date( $key, $value, $field );
+   bw_theme_field__date($key, $value, $field);
 }
 
 /**
@@ -242,7 +242,11 @@ function bw_theme_field__post_modified( $key, $value, $field ) {
  */
 function bw_theme_field__date( $key, $value, $field ) {
 	span( $key );
-	bw_theme_field_date( $key, $value, $field );
+    if ( function_exists( 'bw_theme_field_date') ) {
+        bw_theme_field_date( $key, $value, $field );
+    } else {
+        _bw_theme_field_default( $key, $value, $field );
+    }
 	epan();
 }
 
