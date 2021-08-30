@@ -157,7 +157,7 @@ function oik_main_init() {
 	add_filter( "_sc__help", "oik_oik_sc__help", 10, 2 );
 	$bobbfunc = oik_require_lib_wrapper( "bobbfunc" );
 	if ( $bobbfunc && !is_wp_error( $bobbfunc ) ) {
-    bw_load_plugin_textdomain();
+        bw_load_plugin_textdomain();
 		/**
 		 * Tell plugins that oik has been loaded.
 		*
@@ -571,6 +571,7 @@ function oik_is_shortcode_expansion_necessary() {
  */
 function oik_register_dynamic_blocks() {
 	$library_file = oik_require_lib( 'oik-blocks');
+	add_filter( 'block_type_metadata', 'oik_block_type_metadata', 10 );
 
 	$args = [ 'render_callback' => 'oik_dynamic_block_address' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-address', $args );
@@ -608,11 +609,29 @@ function oik_register_dynamic_blocks() {
  * @return mixed
  */
 function oik_load_script_textdomain_relative_path( $relative, $src ) {
-	//bw_trace2();
 	if ( false !== strrpos( $relative, './build/index.js' )) {
 		$relative = 'build/index.js';
 	}
+	//bw_trace2( $relative, "relative");
 	return $relative;
+}
+
+/**
+ * Implements block_type_metadata filter to set the textdomain if not set.
+ *
+ * Note: $metadata['name'] will be set for each block.
+ *
+ * @param $metadata
+ * @return mixed
+ */
+function oik_block_type_metadata( $metadata ) {
+    if ( !isset( $metadata['textdomain']) ) {
+        $name = $metadata['name'];
+        $name_parts = explode( '/', $name );
+        $textdomain = $name_parts[0];
+        $metadata['textdomain'] = $textdomain;
+    }
+    return $metadata;
 }
 
 /**
