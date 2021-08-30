@@ -86,6 +86,5 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "content", "shortcode", "dynamic", "oik" ],
-  "textdomain": "oik-blocks"
+  "keywords": [ "content", "shortcode", "dynamic", "oik" ]
 }
