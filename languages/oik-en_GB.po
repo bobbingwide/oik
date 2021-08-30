@@ -11,7 +11,7 @@ msgstr ""
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-08-15T12:28:31+00:00\n"
+"POT-Creation-Date: 2021-08-30T16:43:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik"
@@ -1507,7 +1507,7 @@ msgstr "Index of the theme_collages post meta to display"
 msgid "None"
 msgstr "None"
 
-#: libs/bw_fields.php:413
+#: libs/bw_fields.php:417
 msgid ": "
 msgstr ": "
 
@@ -3364,6 +3364,18 @@ msgid "Equivalent shortcode"
 msgstr "Equivalent shortcode"
 
 #: build/index.js:1
+msgid "Descending order"
+msgstr "Descending order"
+
+#: build/index.js:1
+msgid "Ascending order"
+msgstr "Ascending order"
+
+#: build/index.js:1
+msgid "Enter your advanced shortcode parameters"
+msgstr "Enter your advanced shortcode parameters"
+
+#: build/index.js:1
 msgid "Since"
 msgstr "Since"
 
@@ -3450,4 +3462,160 @@ msgstr "Content"
 #: build/index.js:1
 msgid "Enter your shortcode content"
 msgstr "Enter your shortcode content"
+
+#: src/oik-address/block.json
+msgctxt "block title"
+msgid "Address"
+msgstr "Address"
+
+#: src/oik-address/block.json
+msgctxt "block description"
+msgid "Displays a Block icon"
+msgstr "Displays a Block icon"
+
+#: src/oik-address/block.json
+msgctxt "block keyword"
+msgid "Address"
+msgstr "Address"
+
+#: src/oik-address/block.json
+#: src/oik-contact-form/block.json
+#: src/oik-content/block.json
+#: src/oik-countdown/block.json
+#: src/oik-follow-me/block.json
+#: src/oik-googlemap/block.json
+#: src/oik-shortcode/block.json
+msgctxt "block keyword"
+msgid "oik"
+msgstr "oik"
+
+#: src/oik-contact-form/block.json
+msgctxt "block title"
+msgid "Contact form"
+msgstr "Contact form"
+
+#: src/oik-contact-form/block.json
+msgctxt "block description"
+msgid "Displays a Contact form"
+msgstr "Displays a Contact form"
+
+#: src/oik-contact-form/block.json
+msgctxt "block keyword"
+msgid "Contact"
+msgstr "Contact"
+
+#: src/oik-contact-form/block.json
+msgctxt "block keyword"
+msgid "form"
+msgstr "form"
+
+#: src/oik-content/block.json
+msgctxt "block title"
+msgid "Dynamic content block"
+msgstr "Dynamic content block"
+
+#: src/oik-content/block.json
+msgctxt "block description"
+msgid "Expands content for dynamic oik shortcodes."
+msgstr "Expands content for dynamic oik shortcodes."
+
+#: src/oik-content/block.json
+msgctxt "block keyword"
+msgid "content"
+msgstr "content"
+
+#: src/oik-content/block.json
+msgctxt "block keyword"
+msgid "shortcode"
+msgstr "shortcode"
+
+#: src/oik-content/block.json
+msgctxt "block keyword"
+msgid "dynamic"
+msgstr "dynamic"
+
+#: src/oik-countdown/block.json
+msgctxt "block title"
+msgid "Countdown"
+msgstr "Countdown"
+
+#: src/oik-countdown/block.json
+msgctxt "block description"
+msgid "Countdown timer"
+msgstr "Countdown timer"
+
+#: src/oik-countdown/block.json
+msgctxt "block keyword"
+msgid "Countdown"
+msgstr "Countdown"
+
+#: src/oik-countdown/block.json
+msgctxt "block keyword"
+msgid "timer"
+msgstr "timer"
+
+#: src/oik-countdown/block.json
+msgctxt "block keyword"
+msgid "since"
+msgstr "since"
+
+#: src/oik-follow-me/block.json
+msgctxt "block title"
+msgid "Follow me"
+msgstr "Follow me"
+
+#: src/oik-follow-me/block.json
+msgctxt "block description"
+msgid "Display Social media links"
+msgstr "Display Social media links"
+
+#: src/oik-follow-me/block.json
+msgctxt "block keyword"
+msgid "Follow"
+msgstr "Follow"
+
+#: src/oik-follow-me/block.json
+msgctxt "block keyword"
+msgid "Social"
+msgstr "Social"
+
+#: src/oik-follow-me/block.json
+msgctxt "block keyword"
+msgid "Links"
+msgstr "Links"
+
+#: src/oik-googlemap/block.json
+msgctxt "block title"
+msgid "Google Maps"
+msgstr "Google Maps"
+
+#: src/oik-googlemap/block.json
+msgctxt "block description"
+msgid "Displays a Google Maps map using oik options"
+msgstr "Displays a Google Maps map using oik options"
+
+#: src/oik-googlemap/block.json
+msgctxt "block keyword"
+msgid "Google"
+msgstr "Google"
+
+#: src/oik-googlemap/block.json
+msgctxt "block keyword"
+msgid "maps"
+msgstr "maps"
+
+#: src/oik-shortcode/block.json
+msgctxt "block title"
+msgid "Shortcode block for oik shortcodes"
+msgstr "Shortcode block for oik shortcodes"
+
+#: src/oik-shortcode/block.json
+msgctxt "block description"
+msgid "Expands oik shortcodes"
+msgstr "Expands oik shortcodes"
+
+#: src/oik-shortcode/block.json
+msgctxt "block keyword"
+msgid "Shortcode"
+msgstr "Shortcode"
 
