@@ -4,18 +4,19 @@ Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.0.3
 Tested up to: 5.8
-Stable tag: 4.3.0
+Stable tag: 4.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
 
 Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.
 
-Now with 6 translatable blocks:
+Now with 7 translatable blocks:
 
 * Address - Displays your address from oik-options
 * Contact form - Displays a contact form
 * Countdown - Countdown / count since timer
+* Dynamic content - Dynamic content block
 * Follow me - Displays your social media links
 * Google Maps - Displays a Google Maps map using oik options
 * Shortcode block for oik shortcodes - Expands oik shortcodes
@@ -44,6 +45,10 @@ oik helps you to display information about you, your company, your social networ
 * Whenever you need to change a value you only need to update it in one place; and your website is updated instantly.
 * Shortcodes to display often included key information include: [bw_contact], [bw_telephone], [bw_mobile], [bw_mailto], [bw_company], [bw_address], [bw_show_googlemap], [bw_directions], [bw_logo], [bw_qrcode], [bw_copyright]
 * For your social networking use the [bw_follow_me] shortcode to display your links to Twitter, Facebook, LinkedIn, etcetera
+
+New in oik v4.4.0:
+
+* Dynamic content block oik/content-block
 
 New in oik v4.3.0:
 
@@ -128,6 +133,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 4.4.0 = 
+Update for the Dynamic content block, transferred from oik-blocks. 
+
 = 4.3.0 = 
 Update for compatibility with the Widget block editor in WordPress 5.8.
 
@@ -532,6 +540,15 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.4.0 = 
+* Changed: Improved internationalization and localization of blocks,[github bobbingwide oik issues 177]
+* Added: Transferred oik/content-block from oik-blocks,[github bobbingwide oik issues 180]
+* Fixed: Check bw_theme_field_date exists,[github bobbingwide oik issues 182]
+* Tested: With WordPress 5.8 and WordPress Multi Site
+* Tested: With Gutenberg 11.2.0
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+
 = 4.3.0 =
 * Changed: Refactor blocks to be built using wp-scripts and block.json,[github bobbingwide oik issues 177] 
 * Changed: Blocks are now internationalized,[github bobbingwide oik issues 177]

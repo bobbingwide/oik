@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 4.3.0
+Version: 4.4.0
 Author: bobbingwide
 Author URI: https://bobbingwide.com/about-bobbing-wide
 Text Domain: oik
@@ -619,7 +619,7 @@ function oik_load_script_textdomain_relative_path( $relative, $src ) {
 /**
  * Implements block_type_metadata filter to set the textdomain if not set.
  *
- * Note: $metadata['name'] will be set for each block.
+ * Note: $metadata['name'] will be set for each block with a prefix of oik
  *
  * @param $metadata
  * @return mixed
@@ -629,7 +629,9 @@ function oik_block_type_metadata( $metadata ) {
         $name = $metadata['name'];
         $name_parts = explode( '/', $name );
         $textdomain = $name_parts[0];
-        $metadata['textdomain'] = $textdomain;
+        if ( 'oik' === $textdomain ) {
+            $metadata['textdomain'] = $textdomain;
+        }
     }
     return $metadata;
 }
