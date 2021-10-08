@@ -202,7 +202,8 @@ function bw_register_post_type( $post_type, $post_type_args ) {
   $post_type_args['label'] = bw_array_get_dcb( $post_type_args, 'label', $post_type, "bw_ucfirst"  );
   $post_type_args['singular_label'] = bw_array_get_dcb( $post_type_args, 'singular_label', $post_type_args['label'] , "bw_singularize" );
   $post_type_args['labels'] = bw_array_get_dcb( $post_type_args, 'labels', array( 'singular_name' => $post_type_args['singular_label'], 'name' => $post_type_args['label'] ) , "bw_default_labels" );
-	unset( $post_type_args['cap'] ) ;
+  unset( $post_type_args['cap'] ) ;
+  // bw_trace2( $post_type_args, "post_type_args");
   register_post_type( $post_type, $post_type_args );
 }
 
@@ -221,6 +222,7 @@ function bw_default_labels( $labels= array() ) {
   $ucplural = bw_array_get( $labels, 'name', null );
 	if ( !$ucplural ) {
 		$ucplural = __( 'Posts', "oik" );
+
 	} else {
 		$ucplural = bw_ucfirst( $ucplural );
 	}
@@ -243,12 +245,15 @@ function bw_default_labels( $labels= array() ) {
   $labels['search_items'] = bw_array_get( $labels, 'search_items', sprintf( __( 'View %1$s', "oik" ), $ucplural ) );
   $labels['not_found'] = bw_array_get( $labels, 'not_found', sprintf( __( 'No %1$s found', "oik" ), $lcplural ) );
   $labels['not_found_in_trash'] = bw_array_get( $labels, 'not_found_in_trash', sprintf( __( 'No %1$s found in Trash', "oik") , $lcplural ) ); 
-	// These labels were added in WordPress 4.3.0
+  // These labels were added in WordPress 4.3.0
   $labels['featured_image'] = bw_array_get( $labels, 'featured_image', __( 'Featured Image', "oik" ) );
 	$labels['set_featured_image'] = bw_array_get( $labels, 'set_featured_image', __( 'Set featured image', "oik" ) );
 	$labels['remove_featured_image'] = bw_array_get( $labels, 'remove_featured_image', __( 'Remove featured image', "oik" ) );
 	$labels['use_featured_image'] = bw_array_get( $labels, 'use_featured_image', __( 'Use as featured image', "oik" ) );
-  // should each array element now be translated? 
+  // These labels were added in WordPress 5.8
+	$labels['item_link'] = bw_array_get( $labels, 'item_link', sprintf( __( '%1$s Link', "oik"), $ucsingular ) );
+	$labels['item_link_description'] = bw_array_get( $labels, 'item_link_description', sprintf( __( 'Link to %1$s', "oik"), $ucsingular ) );
+	// should each array element now be translated?
   bw_trace2( $labels, "labels", true, BW_TRACE_VERBOSE );
   return( $labels );
 } 
