@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-08-31T20:42:38+00:00\n"
+"POT-Creation-Date: 2021-10-08T12:28:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 
@@ -909,89 +909,97 @@ msgstr ""
 msgid "Post: "
 msgstr ""
 
-#: includes/bw_register.php:223
+#: includes/bw_register.php:224
 msgid "Posts"
 msgstr ""
 
-#: includes/bw_register.php:235
+#: includes/bw_register.php:237
 msgid "All %1$s"
 msgstr ""
 
-#: includes/bw_register.php:236
-#: includes/bw_register.php:240
-#: includes/bw_register.php:294
+#: includes/bw_register.php:238
+#: includes/bw_register.php:242
+#: includes/bw_register.php:299
 msgid "New %1$s"
 msgstr ""
 
-#: includes/bw_register.php:237
+#: includes/bw_register.php:239
 msgid "Create New %1$s"
 msgstr ""
 
-#: includes/bw_register.php:238
+#: includes/bw_register.php:240
 #: libs/oik_plugins.php:120
 #: libs/oik_themes.php:116
 msgid "Edit"
 msgstr ""
 
-#: includes/bw_register.php:239
+#: includes/bw_register.php:241
 msgid "Edit %1$s"
 msgstr ""
 
-#: includes/bw_register.php:241
-#: includes/bw_register.php:242
 #: includes/bw_register.php:243
+#: includes/bw_register.php:244
+#: includes/bw_register.php:245
 msgid "View %1$s"
 msgstr ""
 
-#: includes/bw_register.php:244
+#: includes/bw_register.php:246
 msgid "No %1$s found"
 msgstr ""
 
-#: includes/bw_register.php:245
+#: includes/bw_register.php:247
 msgid "No %1$s found in Trash"
 msgstr ""
 
-#: includes/bw_register.php:247
+#: includes/bw_register.php:249
 msgid "Featured Image"
 msgstr ""
 
-#: includes/bw_register.php:248
+#: includes/bw_register.php:250
 msgid "Set featured image"
 msgstr ""
 
-#: includes/bw_register.php:249
+#: includes/bw_register.php:251
 msgid "Remove featured image"
 msgstr ""
 
-#: includes/bw_register.php:250
+#: includes/bw_register.php:252
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/bw_register.php:293
-msgid "Update %1$s"
+#: includes/bw_register.php:254
+msgid "%1$s Link"
 msgstr ""
 
-#: includes/bw_register.php:295
-msgid "Parent %1$s"
-msgstr ""
-
-#: includes/bw_register.php:296
-msgid "Parent %1$s:"
-msgstr ""
-
-#: includes/bw_register.php:297
-msgid "Popular %1$s"
+#: includes/bw_register.php:255
+msgid "Link to %1$s"
 msgstr ""
 
 #: includes/bw_register.php:298
-msgid "Separate %1$s with commas"
-msgstr ""
-
-#: includes/bw_register.php:299
-msgid "Add or remove %1$s"
+msgid "Update %1$s"
 msgstr ""
 
 #: includes/bw_register.php:300
+msgid "Parent %1$s"
+msgstr ""
+
+#: includes/bw_register.php:301
+msgid "Parent %1$s:"
+msgstr ""
+
+#: includes/bw_register.php:302
+msgid "Popular %1$s"
+msgstr ""
+
+#: includes/bw_register.php:303
+msgid "Separate %1$s with commas"
+msgstr ""
+
+#: includes/bw_register.php:304
+msgid "Add or remove %1$s"
+msgstr ""
+
+#: includes/bw_register.php:305
 msgid "Choose from most used %1$s"
 msgstr ""
 
