@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017,2018
+<?php // (C) Copyright Bobbing Wide 2017,2018,2021
 
 /** 
  * Unit tests for the includes/bw_register.php file
