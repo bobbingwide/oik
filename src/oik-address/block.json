@@ -4,7 +4,7 @@
   "title": "Address",
   "category": "common",
   "icon": "building",
-  "description": "Displays a Block icon",
+  "description": "Displays your address",
   "attributes": {
     "tag": {
       "type": "string",
