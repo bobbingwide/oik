@@ -83,7 +83,14 @@ function bw_thumbnail_full( $post ) {
 	if ( $first && $file ) {
 		$upload_dir = wp_upload_dir();
 		$baseurl    = $upload_dir['baseurl'];
-		$retimage   = retimage( 'full', $baseurl . '/' . $file );
+		$classes = "full wp-image-" . $post->ID;
+		$width = bw_array_get( $first, 'width', null );
+		$height = bw_array_get( $first, 'height', null );
+		$extras = null;
+		if ( $width && $height ) {
+		    $extras = kv( "loading", "lazy");
+        }
+		$retimage = retimage( $classes, $baseurl . '/' . $file, null, $width, $height, $extras );
 	}
 	return $retimage;
 }
@@ -119,7 +126,7 @@ function bw_link_attachment( $post, $atts ) {
  *
  */
 function bw_format_attachment( $post, $atts ) {
-  bw_trace2();
+  //bw_trace2();
   $atts['title'] = get_the_title( $post->ID );
   $in_block = bw_validate_torf( bw_array_get( $atts, "block", 'n'));
   if ( $in_block ) { 
@@ -279,7 +286,8 @@ function bw_find_post( $posts, $given, $matchfunc="bw_match_byguid_name" ) {
 function bw_format_matched_link( $post, $matched_post, $atts ) {
   $class = bw_array_get( $atts, "class", "" );
   sdiv( $class );
-  $image = retimage( "bw_portfolio", $matched_post->guid, $post->post_title );
+  $image = bw_thumbnail_full( $matched_post );
+  //$image = retimage( "bw_portfolio", $matched_post->guid, $post->post_title );
   $ptspan = "<span>".$post->post_title."</span>";
   BW_::alink( "bw_portfolio", $post->guid, $image.$ptspan );
   ediv( $class );
@@ -320,10 +328,12 @@ function bw_portfolio( $atts = NULL ) {
 }
 
 /**
- * Syntax helper for captions= parameter 
+ * Syntax helper for captions= and titles= parameter
  */
 function _sc_captions() {
-  $syntax = array( "captions" => BW_::bw_skv( "n", "y", __( "Display attachment's Caption and Description", "oik" ) ) );
+  $syntax = array( "captions" => BW_::bw_skv( "n", "y", __( "Display attachment's Caption and Description", "oik" ) )
+  );
+
   return ( $syntax );
 }
 
@@ -362,6 +372,7 @@ function bw_images__syntax( $shortcode="bw_images" ) {
   $syntax['post_mime_type'] = BW_::bw_skv( "image", "<i>" . __( "post mime types", "oik" ) . "</i>", __( "Image type", "oik" ) );
   $syntax['thumbnail'] = BW_::bw_skv( "full", "thumbnail|medium|large|nnn|wxh", __( "image size", "oik" ) ); 
 	$syntax['link'] = BW_::bw_skv( null, "0|id,p", __("link to", "oik" ) );
+    $syntax['titles'] = BW_::bw_skv( "y", "n", __( "Display titles", 'oik') );
   $syntax += _sc_captions();
   $syntax += _sc_classes();
   return( $syntax );

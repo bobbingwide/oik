@@ -137,6 +137,7 @@ function bw_logo( $atts=null ) {
   $text = bw_array_get( $atts, 'text', null );
   $width = bw_array_get( $atts, 'width', null );
   $height = bw_array_get( $atts, 'height', null );
+  $extras = null;
   //$upload_dir = wp_upload_dir();
   //$baseurl = $upload_dir['baseurl'];
   $logo_image = bw_get_option( "logo-image" );
@@ -148,7 +149,10 @@ function bw_logo( $atts=null ) {
   $image_url = bw_get_logo_image_url( $logo_image );
   sdiv( 'bw_logo');
   if ( $image_url ) {
-    $image = retimage( "bw_logo", $image_url, $company, $width, $height );
+      if ( $width && $height ) {
+          $extras = kv( "loading", "lazy");
+      }
+    $image = retimage( "bw_logo", $image_url, $company, $width, $height, $extras );
     if ( $link ) {
 			$link = bw_logo_link( $link, $atts );
       BW_::alink( "bw_logo", $link, $image, $company );

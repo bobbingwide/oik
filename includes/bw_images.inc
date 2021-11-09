@@ -66,8 +66,8 @@ function bw_force_size( $thumbnail, $size ) {
     $thumbnail[1] = _bw_new_width( $aw, $ah, $size[0], $size[1] );
     $thumbnail[2] = _bw_new_height( $aw, $ah, $size[0], $size[1] );
   } else {
-    $thumbnail[1] = null;
-    $thumbnail[2] = null;
+    //$thumbnail[1] = null;
+    //$thumbnail[2] = null;
   }  
   return( $thumbnail );
 }
@@ -165,19 +165,21 @@ function bw_thumbnail( $post_id, $atts=NULL, $attachment=false ) {
         } else {
           $thumbnail = bw_get_fullimage( $post_id, $thumbnail, $atts );
         }  
-      break;     
+      break;
+
       case 'thumbnail':
       case 'medium':
       case 'large':
       default: 
         if ( $attachment ) {
-          $thumbnail = bw_get_attachment_thumbnail( $post_id, $thumbnail, $atts );
+           $thumbnail = bw_get_attachment_thumbnail( $post_id, $thumbnail, $atts );
         } else {
           $thumbnail = bw_get_thumbnail( $post_id, $thumbnail, $atts );
         }
       break;
     }
-  }  
+  }
+
   return( $thumbnail ); 
 }
 
@@ -302,7 +304,11 @@ function bw_get_thumbnail( $post_id = null, $size = 'thumbnail', $atts=NULL ) {
     $thumbnail = bw_force_size( $thumbnail, $size );
     $data_thumb = kv( "data-thumb", $thumbnail[0] );
     $classes = "bw_thumbnail " . bw_get_post_class( $post_id );
-    $return_value = retimage( $classes, $thumbnail[0], $text, $thumbnail[1], $thumbnail[2], $data_thumb ); 
+    $extras = null;
+    if ( $thumbnail[1] && $thumbnail[2] ) {
+        $extras = kv( "loading", "lazy");
+    }
+    $return_value = retimage( $classes, $thumbnail[0], $text, $thumbnail[1], $thumbnail[2], $data_thumb . $extras );
   }
   //bw_trace( $return_value, __FUNCTION__, __LINE__, __FILE__, "return_value" ); 
   return( $return_value );
@@ -379,7 +385,11 @@ function bw_get_attachment_thumbnail( $post_id, $size, $atts ) {
 	if ( $thumbnail ) {
 		$thumbnail_arr = bw_force_size( $thumbnail_arr, $size );
 		$classes = "bw_thumbnail " . bw_get_post_class( $post_id );
-		$thumbnail = retimage( $classes, $thumbnail, $text, $thumbnail_arr[1], $thumbnail_arr[2] );
+		$extras = null;
+		if ( $thumbnail_arr[1] && $thumbnail_arr[2] ) {
+		    $extras = kv( "loading", "lazy");
+        }
+		$thumbnail = retimage( $classes, $thumbnail, $text, $thumbnail_arr[1], $thumbnail_arr[2], $extras );
 	} else {
 		$thumbnail = wp_get_attachment_link( $post_id, $size, false, false );
 	}
