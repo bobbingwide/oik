@@ -267,6 +267,7 @@ function bw_follow_link( $social, $lc_social, $social_network, $atts ) {
   $class = bw_array_get( $atts, "class", null );
   $theme_functions = array( "dash" => "bw_follow_link_dash"
                           , "gener" => "bw_follow_link_gener"
+                          , "svg" => "bw_follow_link_svg"
                           );
   $themefunc = bw_array_get( $theme_functions, $theme, "bw_follow_link_" );
   call_user_func( $themefunc, $social, $lc_social, $social_network, $me, $class );
@@ -279,31 +280,23 @@ function bw_follow_link( $social, $lc_social, $social_network, $atts ) {
  *  facebook
  *  twitter
  *  googleplus
+ *  LinkedIn
  * 
- * We can try simulating LinkedIn using "in"
- * but it's not as good as using the genericons font. 
- *
  * @param string $social - the URL
  * @param string $lc_social - lower case version of the social_network e.g. facebook
  * @param string $social_network - the social network e.g. Facebook
  * @param string $me - whoever me has resolved to be
  */
 function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class ) {
-  // bw_dash( $social );
-  if ( $lc_social == "facebook" ) {
-    $lc_social .= "-alt";
-  }
-  wp_enqueue_style( 'dashicons' );
-  $dash = retstag( "span", "dashicons dashicons-$lc_social bw_follow_me $class" );
-  if ( $lc_social == "linkedin" ) {
-    $dash .= retstag( "span" );
-    $dash .= "in";
+    if ( $lc_social == "facebook" ) {
+        $lc_social .= "-alt";
+    }
+    wp_enqueue_style( 'dashicons' );
+    $dash = retstag( "span", "dashicons dashicons-$lc_social bw_follow_me $class" );
     $dash .= retetag( "span" );
-  }
-  $dash .= retetag( "span" );
-	$dash .= bw_follow_hash_at( $me );
-  $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
-  BW_::alink( null, $social, $dash, $follow_me_tooltip );  
+    $dash .= bw_follow_hash_at( $me );
+    $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
+    BW_::alink( null, $social, $dash, $follow_me_tooltip );
 }
 
 /**
@@ -415,7 +408,7 @@ function bw_follow_me__syntax( $shortcode="bw_follow_me" ) {
 
 	$networks = bw_follow_me_list_networks();
 	$networks = implode( ',', $networks );
-  $syntax = array( "theme" => BW_::bw_skv( null, "gener|dash", __( "Icon font selection", "oik" ) )
+  $syntax = array( "theme" => BW_::bw_skv( null, "gener|dash|svg", __( "Icon selection", "oik" ) )
                  , "class" => BW_::bw_skv( null, "<i>" . __( "class names", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
                  , "alt" => BW_::bw_skv( null, "0", __( "Use option values", "oik" ) )
 	            , "network" => BW_::bw_skv( $networks, "<i>" .  __( "network1,network2", "oik") . "</i>", __("CSV list of network names", "oik" ) )
@@ -446,3 +439,21 @@ function oik_follow_me_unset_or_trim( $attributes, $key ) {
 
 }
 
+/**
+ * Create a follow me link using svg
+ *
+ * WordPress blocks use SVG to display icons.
+ *
+ *
+ * @param string $social - the URL
+ * @param string $lc_social - lower case version of the social_network e.g. facebook
+ * @param string $social_network - the social network e.g. Facebook
+ * @param string $me - whoever me has resolved to be
+ */
+function bw_follow_link_svg( $social, $lc_social, $social_network, $me, $class ) {
+    oik_require_lib( 'class-oik-svg-icons');
+    $svgicons = new OIK_SVG_icons();
+    $dash = $svgicons->get_icon( $lc_social, $class );
+    $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
+    BW_::alink( "svgicons", $social, $dash, $follow_me_tooltip );
+}
