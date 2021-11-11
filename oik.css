@@ -290,7 +290,7 @@ a.x1,
 a.x2, 
 a.x24 { margin: 0 4px 0 0; }
 
-a.bw_follow_new { 
+a.bw_follow_new img {
   border: solid grey 0px;
 	border-radius: 14%; 
 	display: inline-block;  
