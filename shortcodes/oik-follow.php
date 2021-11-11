@@ -76,7 +76,7 @@ function bw_social_url( $lc_social, $social ) {
 function bw_twitter( $atts=null ) {
 	$atts['me'] = bw_array_get_from( $atts, "me,0", null );
 	if ( $atts['me'] ) {
-		$atts['theme'] = bw_array_get( $atts, 'theme', 'dash' );
+		$atts['theme'] = bw_array_get( $atts, 'theme', 'svg' );
 	}
   $atts['network'] = "Twitter" ;
   return( bw_follow( $atts ) );  
@@ -397,7 +397,7 @@ function bw_follow_link_( $social, $lc_social, $social_network, $me, $class ) {
   $imagefile = oik_url( 'images/'. $lc_social . '_' . $suffix . '.png' );
   $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
   $image = retimage( "bw_follow ", $imagefile, $follow_me_tooltip );
-	//$image .= bw_follow_hash_at( $me );
+  $image .= bw_follow_hash_at( $me );
   BW_::alink( $class , $social, $image, $follow_me_tooltip );
 }
 
@@ -454,6 +454,7 @@ function bw_follow_link_svg( $social, $lc_social, $social_network, $me, $class )
     oik_require_lib( 'class-oik-svg-icons');
     $svgicons = new OIK_SVG_icons();
     $dash = $svgicons->get_icon( $lc_social, $class );
+    $dash .= bw_follow_hash_at( $me );
     $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
     BW_::alink( "svgicons", $social, $dash, $follow_me_tooltip );
 }
