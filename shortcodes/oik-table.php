@@ -148,7 +148,7 @@ function bw_format_table_row( $post, $atts, $csv_totals ) {
  * If oik-fields (v1.18 or higher) is not loaded then we need to load the functions to "theme" fields. See bw_format_table_row()
  * If the version loaded still doesn't have bw_theme_field() then we can't continue.
  *
- * @param array $posts - array of post objectgs
+ * @param array $posts - array of post objects
  * @param array $atts - shortcode parameters
  */
 function bw_format_table( $posts, $atts ) {
