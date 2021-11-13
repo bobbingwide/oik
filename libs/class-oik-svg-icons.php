@@ -38,7 +38,7 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
         }
 
         function __construct() {
-            self::$svgicons = $this->list_svg_icons();
+            $this->list_svg_icons();
         }
 
         function get_icons() {
@@ -57,14 +57,19 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
             //oik_require( "shortcodes/oik-dash.php", "oik-bob-bing-wide" );
             //oik_require( "shortcodes/oik-dash-svg-list.php", "oik-bob-bing-wide" );
             //$svgicons = bw_dash_list_svg_icons();
+            //echo count( self::$svgicons );
+            //gob();
             $dpath = bw_array_get( self::$svgicons, $icon, null );
             if ( !$dpath ) {
-                $dpath = bw_array_get( self::$svgicons, 'menu', null );
+                //$dpath = bw_array_get( self::$svgicons, 'menu', null );
             }
-            bw_push();
-            $this->svg_icon( $icon, "svg", $class, $dpath );
-            $dash = bw_ret();
-            bw_pop();
+            $dash = null;
+            if ( $dpath ) {
+	            bw_push();
+	            $this->svg_icon( $icon, "svg", $class, $dpath );
+	            $dash=bw_ret();
+	            bw_pop();
+            }
             return $dash;
 
         }
@@ -101,7 +106,7 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
             $svg .= kv( "width", 24 );
             $svg .= kv( "height", 24 );
             $svg .= kv( "viewBox", "0 0 24 24" );
-
+			// Prefix the icon name with svg_ to avoid unwanted CSS styling on icons such as button.
             stag( "svg aria-hidden", "svg_$icon $font_class $class", null, $svg );
             if ( '<' === $dpath[0] ) {
                 $this->svg_icon_raw( $dpath );
@@ -123,28 +128,38 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
             bw_echo( $dpath );
         }
 
-
-
         /**
          * List SVG icons
          *
-         * Code copied and cobbled from gutenberg/components/dashicon/index.js
+         * Code originally copied and cobbled from gutenberg/components/dashicon/index.js
          * and restructured to return the list of all SVG icons.
          *
-         * Source for "dashicons" is now gutenberg/packages/components/src/dashicon/index.js
-         *
-         * But some Blocks ( e.g. archives ) have their own SVG which isn't just the contents of the path d parameter.
+         * Sources for "icons" are
+		 * - gutenberg/packages/block-library/src/social-link/icons - social link icons
+		 * - gutenberg/packages/icons/src/library - icons in the WordPress icons library
+		 * - https://github.com/WordPress/dashicons/tree/master/sources/svg - orginal dashicons
+		 * -
+         * Some Blocks ( e.g. archives ) have their own SVG which isn't just the contents of the path d parameter.
          * Originally I thought we needed to copy all the HTML within the SVG from the icon: attribute.
          * But now we have a Block icon, we do not need to do this.
          * The dashicon for archive has a different appearance from the block icon.
          *
-         * @TODO Update for new dashicons in WordPress 5.2
+         * @TODO Update for new dashicons in WordPress 5.2-5.8.2 and Gutenberg up to 11.9
          */
         function list_svg_icons() {
+            if ( !function_exists('bw_dash_list_svg_icons') ) {
+                oik_require_lib( 'oik-dash-svg-list');
+            }
+            self::$svgicons = bw_dash_list_svg_icons();
+            //print_r( self::$svgicons );
+            // This doesn't return anything.
+        }
+
+        function list_svg_icons_deprecated() {
             $icons = array();
             $icons['admin-appearance']
-                = 'M14.48 11.06L7.41 3.99l1.5-1.5c.5-.56 2.3-.47 3.51.32 1.21.8 1.43 1.28 2.91 2.1 1.18.64 2.45 1.26 4.45.85zm-.71.71L6.7 4.7 4.93 6.47c-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39.39 1.03 0 1.42-.6.6-1.43 1.11-2.21 1.69-.35.26-.7.53-1.01.84C1.43 14.23.4 16.08 1.4 17.07c.99 1 2.84-.03 4.18-1.36.31-.31.58-.66.85-1.02.57-.78 1.08-1.61 1.69-2.21.39-.39 1.02-.39 1.41 0l1.06 1.06c.39.39 1.02.39 1.41 0z';
-
+            //    = 'M14.48 11.06L7.41 3.99l1.5-1.5c.5-.56 2.3-.47 3.51.32 1.21.8 1.43 1.28 2.91 2.1 1.18.64 2.45 1.26 4.45.85zm-.71.71L6.7 4.7 4.93 6.47c-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39.39 1.03 0 1.42-.6.6-1.43 1.11-2.21 1.69-.35.26-.7.53-1.01.84C1.43 14.23.4 16.08 1.4 17.07c.99 1 2.84-.03 4.18-1.36.31-.31.58-.66.85-1.02.57-.78 1.08-1.61 1.69-2.21.39-.39 1.02-.39 1.41 0l1.06 1.06c.39.39 1.02.39 1.41 0z';
+				  = 'M14.48 11.060l-7.070-7.070 1.5-1.5c0.5-0.56 2.3-0.47 3.51 0.32 1.21 0.8 1.43 1.28 2.91 2.1 1.18 0.64 2.45 1.26 4.45 0.85zM13.77 11.77l-7.070-7.070-1.77 1.77c-0.39 0.39-0.39 1.020 0 1.41l1.060 1.060c0.39 0.39 0.39 1.030 0 1.42-0.6 0.6-1.43 1.11-2.21 1.69-0.35 0.26-0.7 0.53-1.010 0.84-1.34 1.34-2.37 3.19-1.37 4.18 0.99 1 2.84-0.030 4.18-1.36 0.31-0.31 0.58-0.66 0.85-1.020 0.57-0.78 1.080-1.61 1.69-2.21 0.39-0.39 1.020-0.39 1.41 0l1.060 1.060c0.39 0.39 1.020 0.39 1.41 0z';
             $icons['admin-collapse']
                 = 'M10 2.16c4.33 0 7.84 3.51 7.84 7.84s-3.51 7.84-7.84 7.84S2.16 14.33 2.16 10 5.71 2.16 10 2.16zm2 11.72V6.12L6.18 9.97z';
 
