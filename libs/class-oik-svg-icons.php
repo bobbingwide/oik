@@ -98,6 +98,11 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
          * @param string $dpath - All the SVG stuff
          */
         function svg_icon( $icon, $font_class, $class, $dpath ) {
+        	if ( '<' === $dpath[0] ) {
+        		$classes = "svg_$icon $font_class $class";
+		        $this->svg_icon_raw( $dpath, $classes );
+	        } else {
+
             $svg = null;
             $svg .= kv( "role", 'img' );
             $svg .= kv( "focusable", "false" );
@@ -108,12 +113,10 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
             $svg .= kv( "viewBox", "0 0 24 24" );
 			// Prefix the icon name with svg_ to avoid unwanted CSS styling on icons such as button.
             stag( "svg aria-hidden", "svg_$icon $font_class $class", null, $svg );
-            if ( '<' === $dpath[0] ) {
-                $this->svg_icon_raw( $dpath );
-            } else {
-                $this->svg_icon_dpath( $dpath );
-            }
+            $this->svg_icon_dpath( $dpath );
             etag( "svg" );
+            }
+
         }
 
         /**
@@ -124,7 +127,14 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
             bw_echo( "<path" . $kv . " />" );
         }
 
-        function svg_icon_raw( $dpath ) {
+        function svg_icon_raw( $dpath, $classes ) {
+        	bw_trace2();
+        	$svg = null;
+	        $svg .= kv( "width", 24 );
+	        $svg .= kv( "height", 24 );
+        	$dpath = str_ireplace( '<svg', "<svg class=\"$classes\" $svg" , $dpath);
+        	bw_trace2( $dpath, "dpath", null );
+        	//gob();
             bw_echo( $dpath );
         }
 
