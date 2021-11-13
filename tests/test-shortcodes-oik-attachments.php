@@ -35,9 +35,32 @@ class Tests_shortcodes_oik_attachments extends BW_UnitTestCase {
 		$id = self::factory()->post->create( $args );
 		$post = get_post( $id );
 		add_post_meta( $id, "_wp_attached_file", "attached.file", true );
+		$attachment_meta = $this->attachment_meta();
+		add_post_meta( $id, "_wp_attachment_metadata", $attachment_meta, true );
 		return $post;
 	}
-	
+
+	function attachment_meta() {
+		$attachment_meta=[
+			'width' =>'256'
+			,
+			'height'=>'256'
+			,
+			'file'  =>'attached.file'
+			// 'sizes'
+		];
+
+		return $attachment_meta;
+	}
+		/*
+
+			unserialize(
+'a:6:{s:5:"width";s:3:"256";s:6:"height";s:3:"256";
+s:14:"hwstring_small";s:22:"height='96' width='96'";
+s:4:"file";s:22:"2011/08/oik-plugin.jpg";
+s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:22:"oik-plugin-125x125.jpg";s:5:"width";s:3:"125";s:6:"height";s:3:"125";}}
+s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}';
+	*/
 	/**
 	 * Note: We're ok with the fact that wp_get_attachment_link will return "Missing attachment" since $post is not really an attachment
 	 */
@@ -48,6 +71,11 @@ class Tests_shortcodes_oik_attachments extends BW_UnitTestCase {
 		$atts = array( 'captions' => 'y' );
 		$html = bw_ret( bw_format_attachment( $post, $atts ) );
 		$html = $this->replace_home_url( $html );
+		/*
+		-    2 => '<img class="bw_portfolio" src="https://qw/src/post-title/" title="post title" alt="post title"  />'
+		+    2 => '<img class="full wp-image-14033" src="https://qw/src/wp-content/uploads/attached.file" width="256" height="256"  loading="lazy" />'
+		*/
+
 		$html = $this->replace_post_id( $html, $post, 'id="link-' );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
@@ -62,7 +90,7 @@ class Tests_shortcodes_oik_attachments extends BW_UnitTestCase {
 		$atts = array();
 		$html = bw_ret( bw_format_matched_link( $post, $post, $atts ) );
 		$html = $this->replace_home_url( $html );
-		$html = $this->replace_post_id( $html, $post, 'id="link-' );
+		$html = $this->replace_post_id( $html, $post, 'wp-image-' );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
