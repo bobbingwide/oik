@@ -154,8 +154,8 @@ function bw_googlemap_v3(  $title, $lat, $lng, $postcode, $width, $height, $mark
     bw_echo( 'initialize' . $previous. '();' );
   }
   bw_echo( '}' );
-  bw_echo( 'window.onload=initialize' . $map . ';');
-
+  //bw_echo( 'window.onload=initialize' . $map . ';');
+	bw_echo( "window.addEventListener( 'load', initialize$map ); ");
   bw_echo( '</script>' );
   
   
