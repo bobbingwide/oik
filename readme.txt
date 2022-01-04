@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.0.3
-Tested up to: 5.8.1
-Stable tag: 4.4.1
+Tested up to: 5.9-beta4
+Stable tag: 4.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
@@ -45,6 +45,10 @@ oik helps you to display information about you, your company, your social networ
 * Whenever you need to change a value you only need to update it in one place; and your website is updated instantly.
 * Shortcodes to display often included key information include: [bw_contact], [bw_telephone], [bw_mobile], [bw_mailto], [bw_company], [bw_address], [bw_show_googlemap], [bw_directions], [bw_logo], [bw_qrcode], [bw_copyright]
 * For your social networking use the [bw_follow_me] shortcode to display your links to Twitter, Facebook, LinkedIn, etcetera
+
+New in oik v4.5.0:
+
+* Supports lazy loading of images.
 
 New in oik v4.4.0:
 
@@ -133,6 +137,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 4.5.0 =
+Update for improved website performance as measured by Google's PageSpeed Insights, which uses Lighthouse
+
 = 4.4.1 =
 Update for a change to add labels used for Navigation link variations.
 
@@ -543,6 +550,20 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.5.0 =
+* Changed: Add shared library for class OIK_SVG_icons #187
+* Changed: Default to using svg theme for bw_twitter when me attr is defined #187
+* Changed: Replace window.onload with window.addEventListener( 'load' ) Fixes #188
+* Changed: Support SVG icons in bw_follow_me #187
+* Changed: Support [bw_twitter me=@something theme=icon] #187
+* Changed: Support loading=lazy on images, #186
+* Changed: Trace $bw_fields at verbose level #106
+* Fixed: Correct description for Address block, Fixes #185
+* Tested: With WordPress 5.8.1 and WordPress Multi Site
+* Tested: With Gutenberg 12.2.0
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+
 = 4.4.1 =
 * Changed: Set item_link and item_link_description labels,[github bobbingwide oik issues 183]
 * Tested: With WordPress 5.8.1 and WordPress Multi Site
@@ -1942,9 +1963,9 @@ oik plugins are suitable for:
 oik plugins are tested with: 
 
 * WordPress
-* WordPress Multisite
-* PHP 7.3 and 7.4
-* PHPUnit 8
+* WordPress Multi Site
+* PHP 8.0
+* PHPUnit 9
 
 All of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier. 
 These are known as the [OIK Application Programming Interface (OIK API)](https://www.oik-plugins.com/apis/oik-apis)
