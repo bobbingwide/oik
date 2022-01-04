@@ -1,7 +1,7 @@
 /**
  * Follow me block for the [bw_follow_me] shortcode
  *
- * @copyright (C) Copyright Bobbing Wide 2018, 2019, 2020, 2021
+ * @copyright (C) Copyright Bobbing Wide 2018, 2019, 2020, 2021, 2022
  * @author Herb Miller @bobbingwide
  */
 import './style.scss';
