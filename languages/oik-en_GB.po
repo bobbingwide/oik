@@ -1,4 +1,4 @@
-# Copyright (C) 2021 bobbingwide
+# Copyright (C) 2022 bobbingwide
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-11-13T21:54:19+00:00\n"
+"POT-Creation-Date: 2022-01-04T11:25:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik"
@@ -1037,12 +1037,12 @@ msgid "Display the address"
 msgstr "Display the address"
 
 #: includes/oik-sc-help.php:38
-#: build/index.js:2863
+#: build/index.js:1
 msgid "Display the Admin contact name"
 msgstr "Display the Admin contact name"
 
 #: includes/oik-sc-help.php:39
-#: build/index.js:2864
+#: build/index.js:1
 msgid "Alternative slogan"
 msgstr "Alternative slogan"
 
@@ -1063,7 +1063,7 @@ msgid "List bookmarks"
 msgstr "List bookmarks"
 
 #: includes/oik-sc-help.php:44
-#: build/index.js:2875
+#: build/index.js:1
 msgid "Display your Business name"
 msgstr "Display your Business name"
 
@@ -1076,33 +1076,33 @@ msgid "Cite a blockquote"
 msgstr "Cite a blockquote"
 
 #: includes/oik-sc-help.php:49
-#: build/index.js:2880
+#: build/index.js:1
 msgid "Company name"
 msgstr "Company name"
 
 #: includes/oik-sc-help.php:50
-#: build/index.js:2881
+#: build/index.js:1
 msgid "Primary contact name"
 msgstr "Primary contact name"
 
 #: includes/oik-sc-help.php:51
-#: build/index.js:2882
+#: build/index.js:1
 msgid "Contact form button"
 msgstr "Contact form button"
 
 #: includes/oik-sc-help.php:52
-#: build/index.js:2884
+#: build/index.js:1
 msgid "Format a Copyright statement"
 msgstr "Format a Copyright statement"
 
 #: includes/oik-sc-help.php:53
 #: shortcodes/oik-geo.php:59
-#: build/index.js:2892
+#: build/index.js:1
 msgid "Display a 'Google directions' button."
 msgstr "Display a 'Google directions' button."
 
 #: includes/oik-sc-help.php:54
-#: build/index.js:2893
+#: build/index.js:1
 msgid "Display the domain name"
 msgstr "Display the domain name"
 
@@ -1115,7 +1115,7 @@ msgid "Edit Custom CSS file button"
 msgstr "Edit Custom CSS file button"
 
 #: includes/oik-sc-help.php:57
-#: build/index.js:2896
+#: build/index.js:1
 msgid "Email primary contact (formal)"
 msgstr "Email primary contact (formal)"
 
@@ -1124,7 +1124,7 @@ msgid "Format the email signature"
 msgstr "Format the email signature"
 
 #: includes/oik-sc-help.php:59
-#: build/index.js:2897
+#: build/index.js:1
 msgid "Emergency telephone number"
 msgstr "Emergency telephone number"
 
@@ -1133,7 +1133,7 @@ msgid "Facebook link"
 msgstr "Facebook link"
 
 #: includes/oik-sc-help.php:61
-#: build/index.js:2899
+#: build/index.js:1
 msgid "Fax number"
 msgstr "Fax number"
 
@@ -1146,12 +1146,12 @@ msgid "Display defined social media follow me links"
 msgstr "Display defined social media follow me links"
 
 #: includes/oik-sc-help.php:64
-#: build/index.js:2904
+#: build/index.js:1
 msgid "Formal company name"
 msgstr "Formal company name"
 
 #: includes/oik-sc-help.php:65
-#: build/index.js:2905
+#: build/index.js:1
 msgid "Latitude and Longitude"
 msgstr "Latitude and Longitude"
 
@@ -1179,22 +1179,22 @@ msgid "Simple list of pages/posts or custom post types"
 msgstr "Simple list of pages/posts or custom post types"
 
 #: includes/oik-sc-help.php:74
-#: build/index.js:2922
+#: build/index.js:1
 msgid "Display the company logo"
 msgstr "Display the company logo"
 
 #: includes/oik-sc-help.php:75
-#: build/index.js:2923
+#: build/index.js:1
 msgid "Mailto (inline)"
 msgstr "Mailto (inline)"
 
 #: includes/oik-sc-help.php:76
-#: build/index.js:2924
+#: build/index.js:1
 msgid "Mobile phone number (inline)"
 msgstr "Mobile phone number (inline)"
 
 #: includes/oik-sc-help.php:77
-#: build/index.js:2925
+#: build/index.js:1
 msgid "Mobile phone number (block)"
 msgstr "Mobile phone number (block)"
 
@@ -1203,7 +1203,7 @@ msgid "Information about a Drupal module"
 msgstr "Information about a Drupal module"
 
 #: includes/oik-sc-help.php:79
-#: build/index.js:2935
+#: build/index.js:1
 msgid "Display attached PDF files"
 msgstr "Display attached PDF files"
 
@@ -1216,7 +1216,7 @@ msgid "Follow me on Pinterest"
 msgstr "Follow me on Pinterest"
 
 #: includes/oik-sc-help.php:82
-#: build/index.js:2940
+#: build/index.js:1
 msgid "Display matched portfolio files"
 msgstr "Display matched portfolio files"
 
@@ -1225,7 +1225,7 @@ msgid "Display posts"
 msgstr "Display posts"
 
 #: includes/oik-sc-help.php:84
-#: build/index.js:2943
+#: build/index.js:1
 msgid "Powered by WordPress"
 msgstr "Powered by WordPress"
 
@@ -1240,12 +1240,12 @@ msgstr "Show Google map [bw_show_googlemap]"
 #: includes/oik-sc-help.php:87
 #: shortcodes/oik-phone.php:202
 #: shortcodes/oik-phone.php:300
-#: build/index.js:2951
+#: build/index.js:1
 msgid "Skype name"
 msgstr "Skype name"
 
 #: includes/oik-sc-help.php:88
-#: build/index.js:2952
+#: build/index.js:1
 msgid "Primary slogan"
 msgstr "Primary slogan"
 
@@ -1254,12 +1254,12 @@ msgid "Display posts in tabbed blocks"
 msgstr "Display posts in tabbed blocks"
 
 #: includes/oik-sc-help.php:90
-#: build/index.js:2955
+#: build/index.js:1
 msgid "Telephone number (inline)"
 msgstr "Telephone number (inline)"
 
 #: includes/oik-sc-help.php:91
-#: build/index.js:2956
+#: build/index.js:1
 msgid "Telephone number (block)"
 msgstr "Telephone number (block)"
 
@@ -1280,7 +1280,7 @@ msgid "Follow me on Twitter"
 msgstr "Follow me on Twitter"
 
 #: includes/oik-sc-help.php:96
-#: build/index.js:2967
+#: build/index.js:1
 msgid "Site: link to wp-admin"
 msgstr "Site: link to wp-admin"
 
@@ -1302,7 +1302,7 @@ msgid "Display the caption for an image. Standard WordPress shortcode"
 msgstr "Display the caption for an image. Standard WordPress shortcode"
 
 #: includes/oik-sc-help.php:101
-#: build/index.js:2973
+#: build/index.js:1
 msgid "Clear divs "
 msgstr "Clear divs "
 
@@ -1341,7 +1341,7 @@ msgid "NextGen gallery slideshow"
 msgstr "NextGen gallery slideshow"
 
 #: includes/oik-sc-help.php:113
-#: build/index.js:3033
+#: build/index.js:1
 msgid "Paypal shortcodes"
 msgstr "Paypal shortcodes"
 
@@ -1511,7 +1511,7 @@ msgid "Index of the theme_collages post meta to display"
 msgstr "Index of the theme_collages post meta to display"
 
 #: libs/bobbforms.php:509
-#: build/index.js:2582
+#: build/index.js:1
 msgid "None"
 msgstr "None"
 
@@ -1861,7 +1861,7 @@ msgstr "Required height"
 #: shortcodes/oik-link.php:327
 #: shortcodes/oik-logo.php:172
 #: shortcodes/oik-qrcode.php:37
-#: build/index.js:2298
+#: build/index.js:1
 msgid "URL"
 msgstr "URL"
 
@@ -3004,7 +3004,7 @@ msgid "Display unordered or ordered list"
 msgstr "Display unordered or ordered list"
 
 #: shortcodes/oik-login.php:62
-#: build/index.js:2920
+#: build/index.js:1
 msgid "Display the login form or protected content"
 msgstr "Display the login form or protected content"
 
@@ -3017,12 +3017,12 @@ msgid "display 'Remember me?' checkbox"
 msgstr "display 'Remember me?' checkbox"
 
 #: shortcodes/oik-login.php:88
-#: build/index.js:2921
+#: build/index.js:1
 msgid "Display the Login or Logout link"
 msgstr "Display the Login or Logout link"
 
 #: shortcodes/oik-login.php:100
-#: build/index.js:2945
+#: build/index.js:1
 msgid "Display a link to the Registration form, if Registration is enabled"
 msgstr "Display a link to the Registration form, if Registration is enabled"
 
@@ -3091,7 +3091,7 @@ msgid "No snippet available"
 msgstr "No snippet available"
 
 #: shortcodes/oik-parent.php:78
-#: build/index.js:2934
+#: build/index.js:1
 msgid "Display a link back to the parent page"
 msgstr "Display a link back to the parent page"
 
@@ -3357,125 +3357,123 @@ msgstr "Method used to reveal the content"
 msgid "Text above the hidden content"
 msgstr "Text above the hidden content"
 
-#: build/index.js:659
+#: build/index.js:1
 msgid "Block"
 msgstr "Block"
 
-#: build/index.js:660
+#: build/index.js:1
 msgid "Inline"
 msgstr "Inline"
 
-#: build/index.js:689
+#: build/index.js:1
 msgid "Display"
 msgstr "Display"
 
-#: build/index.js:698
-#: build/index.js:2552
+#: build/index.js:1
 msgid "Equivalent shortcode"
 msgstr "Equivalent shortcode"
 
-#: build/index.js:1085
+#: build/index.js:1
 msgid "Descending order"
 msgstr "Descending order"
 
-#: build/index.js:1088
+#: build/index.js:1
 msgid "Ascending order"
 msgstr "Ascending order"
 
-#: build/index.js:1586
+#: build/index.js:1
 msgid "Enter your advanced shortcode parameters"
 msgstr "Enter your advanced shortcode parameters"
 
-#: build/index.js:2290
+#: build/index.js:1
 msgid "Since"
 msgstr "Since"
 
-#: build/index.js:2294
+#: build/index.js:1
 msgid "Until"
 msgstr "Until"
 
-#: build/index.js:2302
+#: build/index.js:1
 msgid "Description"
 msgstr "Description"
 
-#: build/index.js:2306
+#: build/index.js:1
 msgid "Expiry Text"
 msgstr "Expiry Text"
 
-#: build/index.js:2310
+#: build/index.js:1
 msgid "Format"
 msgstr "Format"
 
-#: build/index.js:2313
+#: build/index.js:1
 msgid "The Countdown block will be rendered on the front end."
 msgstr "The Countdown block will be rendered on the front end."
 
-#: build/index.js:2313
+#: build/index.js:1
 msgid "Shortcode equivalent:"
 msgstr "Shortcode equivalent:"
 
-#: build/index.js:2531
-msgid "User"
-msgstr "User"
-
-#: build/index.js:2535
-msgid "Alt"
-msgstr "Alt"
-
-#: build/index.js:2539
-msgid "Network(s)"
-msgstr "Network(s)"
-
-#: build/index.js:2543
-msgid "Theme"
-msgstr "Theme"
-
-#: build/index.js:2583
+#: build/index.js:1
 msgid "Genericons"
 msgstr "Genericons"
 
-#: build/index.js:2584
+#: build/index.js:1
 msgid "Dashicons"
 msgstr "Dashicons"
 
-#: build/index.js:2585
+#: build/index.js:1
 msgid "SVG"
 msgstr "SVG"
 
-#: build/index.js:2723
+#: build/index.js:1
+msgid "User"
+msgstr "User"
+
+#: build/index.js:1
+msgid "Alt"
+msgstr "Alt"
+
+#: build/index.js:1
+msgid "Network(s)"
+msgstr "Network(s)"
+
+#: build/index.js:1
+msgid "Theme"
+msgstr "Theme"
+
+#: build/index.js:1
 msgid "Map"
 msgstr "Map"
 
-#: build/index.js:2743
+#: build/index.js:1
 msgid "This is where the map will appear"
 msgstr "This is where the map will appear"
 
-#: build/index.js:2926
+#: build/index.js:1
 msgid "Read more button to progressively reveal content"
 msgstr "Read more button to progressively reveal content"
 
-#: build/index.js:3064
+#: build/index.js:1
 msgid "Spells out the oik backronym"
 msgstr "Spells out the oik backronym"
 
-#: build/index.js:3233
-#: build/index.js:3254
+#: build/index.js:1
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: build/index.js:3243
+#: build/index.js:1
 msgid "Parameters"
 msgstr "Parameters"
 
-#: build/index.js:3245
+#: build/index.js:1
 msgid "Enter your shortcode parameters"
 msgstr "Enter your shortcode parameters"
 
-#: build/index.js:3249
+#: build/index.js:1
 msgid "Content"
 msgstr "Content"
 
-#: build/index.js:3251
+#: build/index.js:1
 msgid "Enter your shortcode content"
 msgstr "Enter your shortcode content"
 
