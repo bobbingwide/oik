@@ -138,7 +138,7 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 
 == Upgrade Notice ==
 = 4.5.0 =
-Update for improved website performance as measured by Google's PageSpeed Insights, which uses Lighthouse
+Update for improved website performance as measured by Google's PageSpeed Insights, which uses Lighthouse.
 
 = 4.4.1 =
 Update for a change to add labels used for Navigation link variations.
@@ -559,7 +559,7 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 * Changed: Support loading=lazy on images, #186
 * Changed: Trace $bw_fields at verbose level #106
 * Fixed: Correct description for Address block, Fixes #185
-* Tested: With WordPress 5.8.1 and WordPress Multi Site
+* Tested: With WordPress 5.9-beta4 and WordPress Multi Site
 * Tested: With Gutenberg 12.2.0
 * Tested: With PHP 8.0
 * Tested: With PHPUnit 9
