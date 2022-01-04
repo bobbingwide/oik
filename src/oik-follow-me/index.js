@@ -94,7 +94,7 @@ registerBlockType(
 											 onChange={onChangeNetwork}/>
 							</PanelRow>
 							<PanelRow>
-								<SelectControl label={__("Theme", "oik" )}value={props.attributes.fields}
+								<SelectControl label={__("Theme", "oik" )}value={props.attributes.theme}
 											   options={map(themeOptions, (key, label) => ({value: label, label: key}))}
 											   onChange={onChangeTheme}
 								/>
