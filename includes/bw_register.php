@@ -504,8 +504,8 @@ function bw_maybe_register_post_meta( $field_name, $object_type ) {
 function bw_get_field_description( $field_name ) {
     global $bw_fields;
     $description = null;
-    bw_trace2( $bw_fields, "bw_fields");
-    bw_backtrace();
+    bw_trace2( $bw_fields, "bw_fields", true, BW_TRACE_VERBOSE );
+    //bw_backtrace();
     $field = bw_array_get( $bw_fields, $field_name, null );
     if ( $field ) {
         $description = $field['#title'];
