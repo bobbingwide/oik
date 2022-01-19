@@ -103,11 +103,7 @@ export default registerBlockType(
 							</PanelBody>
   					  	</InspectorControls>
 						<div {...blockProps}>
-
-							<SelectControl label={__("Shortcode", "oik" )} value={attributes.shortcode}
-										options={ map( bw_shortcodes, ( key, label ) => ( { value: label, label: label + ' - ' + key } ) ) }
-										onChange={partial( onChangeAttr, 'shortcode' )}
-							/>
+							
 							<ServerSideRender
 								block="oik/shortcode-block" attributes={ attributes }
 							/>
