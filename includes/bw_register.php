@@ -202,6 +202,7 @@ function bw_register_post_type( $post_type, $post_type_args ) {
   $post_type_args['label'] = bw_array_get_dcb( $post_type_args, 'label', $post_type, "bw_ucfirst"  );
   $post_type_args['singular_label'] = bw_array_get_dcb( $post_type_args, 'singular_label', $post_type_args['label'] , "bw_singularize" );
   $post_type_args['labels'] = bw_array_get_dcb( $post_type_args, 'labels', array( 'singular_name' => $post_type_args['singular_label'], 'name' => $post_type_args['label'] ) , "bw_default_labels" );
+  $post_type_args['show_in_nav_menus'] = bw_array_get( $post_type_args, 'show_in_nav_menus', false);
   unset( $post_type_args['cap'] ) ;
   // bw_trace2( $post_type_args, "post_type_args");
   register_post_type( $post_type, $post_type_args );
@@ -385,6 +386,7 @@ function bw_register_custom_tags( $taxonomy, $object_type=null, $arg=null ) {
   $args['hierarchical'] = false;
 	
 	$args['show_in_rest'] = true;
+    $args['show_in_nav_menus'] = bw_array_get( $args, 'show_in_nav_menus', false);
   bw_register_taxonomy( $taxonomy, $object_type, $args) ; 
 }
 
@@ -402,6 +404,7 @@ function bw_register_custom_category( $taxonomy, $object_type=null, $arg=null ) 
 	  $args['rewrite']['hierarchical']=true;
   }
 	$args['show_in_rest'] = true;
+    $args['show_in_nav_menus'] = bw_array_get( $args, 'show_in_nav_menus', false);
   bw_register_taxonomy( $taxonomy, $object_type, $args ); 
 }
 
