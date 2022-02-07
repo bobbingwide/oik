@@ -11,7 +11,7 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-01-04T11:25:48+00:00\n"
+"POT-Creation-Date: 2022-02-06T15:56:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik"
@@ -901,97 +901,97 @@ msgstr "raed mroe"
 msgid "Post: "
 msgstr "Psot:"
 
-#: includes/bw_register.php:224
+#: includes/bw_register.php:225
 msgid "Posts"
 msgstr "Psots"
 
-#: includes/bw_register.php:237
+#: includes/bw_register.php:238
 msgid "All %1$s"
 msgstr "All %1$s"
 
-#: includes/bw_register.php:238
-#: includes/bw_register.php:242
-#: includes/bw_register.php:299
+#: includes/bw_register.php:239
+#: includes/bw_register.php:243
+#: includes/bw_register.php:300
 msgid "New %1$s"
 msgstr "NEw %1$s"
 
-#: includes/bw_register.php:239
+#: includes/bw_register.php:240
 msgid "Create New %1$s"
 msgstr "Certae NEw %1$s"
 
-#: includes/bw_register.php:240
+#: includes/bw_register.php:241
 #: libs/oik_plugins.php:120
 #: libs/oik_themes.php:116
 msgid "Edit"
 msgstr "Eidt"
 
-#: includes/bw_register.php:241
+#: includes/bw_register.php:242
 msgid "Edit %1$s"
 msgstr "Eidt %1$s"
 
-#: includes/bw_register.php:243
 #: includes/bw_register.php:244
 #: includes/bw_register.php:245
+#: includes/bw_register.php:246
 msgid "View %1$s"
 msgstr "Veiw %1$s"
 
-#: includes/bw_register.php:246
+#: includes/bw_register.php:247
 msgid "No %1$s found"
 msgstr "NO %1$s fuond"
 
-#: includes/bw_register.php:247
+#: includes/bw_register.php:248
 msgid "No %1$s found in Trash"
 msgstr "NO %1$s fuond In Tarsh"
 
-#: includes/bw_register.php:249
+#: includes/bw_register.php:250
 msgid "Featured Image"
 msgstr "Faeuterd Iamge"
 
-#: includes/bw_register.php:250
+#: includes/bw_register.php:251
 msgid "Set featured image"
 msgstr "SEt faeuterd iamge"
 
-#: includes/bw_register.php:251
+#: includes/bw_register.php:252
 msgid "Remove featured image"
 msgstr "Rmevoe faeuterd iamge"
 
-#: includes/bw_register.php:252
+#: includes/bw_register.php:253
 msgid "Use as featured image"
 msgstr "UsE As faeuterd iamge"
 
-#: includes/bw_register.php:254
+#: includes/bw_register.php:255
 msgid "%1$s Link"
 msgstr "%1$s Lnik"
 
-#: includes/bw_register.php:255
+#: includes/bw_register.php:256
 msgid "Link to %1$s"
 msgstr "Lnik tO %1$s"
 
-#: includes/bw_register.php:298
+#: includes/bw_register.php:299
 msgid "Update %1$s"
 msgstr "Udptae %1$s"
 
-#: includes/bw_register.php:300
+#: includes/bw_register.php:301
 msgid "Parent %1$s"
 msgstr "Pranet %1$s"
 
-#: includes/bw_register.php:301
+#: includes/bw_register.php:302
 msgid "Parent %1$s:"
 msgstr "Pranet %1$s:"
 
-#: includes/bw_register.php:302
+#: includes/bw_register.php:303
 msgid "Popular %1$s"
 msgstr "Ppoluar %1$s"
 
-#: includes/bw_register.php:303
+#: includes/bw_register.php:304
 msgid "Separate %1$s with commas"
 msgstr "Speratae %1$s wtih cmoams"
 
-#: includes/bw_register.php:304
+#: includes/bw_register.php:305
 msgid "Add or remove %1$s"
 msgstr "Add Or rmevoe %1$s"
 
-#: includes/bw_register.php:305
+#: includes/bw_register.php:306
 msgid "Choose from most used %1$s"
 msgstr "Cohsoe form msot uesd %1$s"
 
