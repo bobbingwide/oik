@@ -1,13 +1,13 @@
 <?php
 if ( !defined( 'OIK_SHORTCODES_INCLUDED' ) ) {
-	define( 'OIK_SHORTCODES_INCLUDED', "3.4.0" );
+	define( 'OIK_SHORTCODES_INCLUDED', "3.5.0" );
 	/**
 	 * Library: oik-shortcodes
 	 * Provides: oik-shortcodes
 	 * Type: shared
 	 * Type: shared
 	 * Depends:    bwtrace
-	 * @copyright (C) Copyright Bobbing Wide 2020
+	 * @copyright (C) Copyright Bobbing Wide 2020-2022
 	 *
 	 */
 
