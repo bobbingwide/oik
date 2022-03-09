@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 5.9-beta4
-* Stable tag: 4.5.0
+* Tested up to: 5.9.1
+* Stable tag: 4.6.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -138,6 +138,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.6.0 
+Update for shared libraries.
+
 # 4.5.0 
 Update for improved website performance as measured by Google's PageSpeed Insights, which uses Lighthouse.
 
@@ -551,6 +554,17 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 4.6.0 
+* Changed: Reconcile shared libraries with improvements for SVG icons
+* Changed: Update language files
+* Changed: Default show_in_nav_menus to false #197
+* Changed: Enable oik shortcodes for term_description #196
+* Changed: Remove SelectControl for attributes.shortcode from the block's main content #195
+* Tested: With WordPres 5.9.1 and WordPress Multi Site
+* Tested: With Gutenberg 12.7.0
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+
 # 4.5.0 
 * Changed: Add shared library for class OIK_SVG_icons #187
 * Changed: Default to using svg theme for bw_twitter when me attr is defined #187
