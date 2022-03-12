@@ -285,6 +285,11 @@ function oik_plugins_settings() {
  */ 
 function oik_plugins_add_settings( ) {
   global $bw_plugin;
+  if ( null === $bw_plugin ) {
+	  $bw_plugin['plugin']='';
+	  $bw_plugin['server']='';
+	  $bw_plugin['apikey']='';
+  }
   bw_form();
   stag( "table", "widefat" );
   BW_::bw_textfield( "plugin", 20, __( "plugin", null ), $bw_plugin['plugin'] );
