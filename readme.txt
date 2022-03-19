@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.0.3
-Tested up to: 5.9.1
-Stable tag: 4.6.0
+Tested up to: 5.9.2
+Stable tag: 4.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
@@ -137,6 +137,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
+= 4.7.0 =
+Update for support for post_name for shortcodes which query posts. 
+
 = 4.6.0 =
 Update for shared libraries.
 
@@ -553,6 +556,15 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.7.0 = 
+* Changed: bw_get_posts() - Add support for post_name or post_name__in #199
+* Changed Update shared library. Split oik_blocks_generate_block into two functions, start and end
+* Fixed: Avoid Warnings for oik options  > plugins Add new plugin #198
+* Tested: With WordPres 5.9.2 and WordPress Multi Site
+* Tested: With Gutenberg 12.8.0
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+
 = 4.6.0 =
 * Changed: Reconcile shared libraries with improvements for SVG icons
 * Changed: Update language files

@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 4.5.0\n"
+"Project-Id-Version: oik 4.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-02-06T15:56:31+00:00\n"
+"POT-Creation-Date: 2022-03-19T19:50:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 
@@ -2010,14 +2010,14 @@ msgid "The default oik plugins server is currently set to: %1$s"
 msgstr ""
 
 #: libs/oik_plugins.php:271
-#: libs/oik_plugins.php:290
-#: libs/oik_plugins.php:305
+#: libs/oik_plugins.php:295
+#: libs/oik_plugins.php:310
 msgid "plugin"
 msgstr ""
 
 #: libs/oik_plugins.php:273
-#: libs/oik_plugins.php:291
-#: libs/oik_plugins.php:306
+#: libs/oik_plugins.php:296
+#: libs/oik_plugins.php:311
 #: libs/oik_themes.php:248
 #: libs/oik_themes.php:266
 #: libs/oik_themes.php:281
@@ -2025,7 +2025,7 @@ msgid "server"
 msgstr ""
 
 #: libs/oik_plugins.php:274
-#: libs/oik_plugins.php:292
+#: libs/oik_plugins.php:297
 #: libs/oik_themes.php:249
 #: libs/oik_themes.php:267
 msgid "apikey"
@@ -2040,45 +2040,45 @@ msgstr ""
 msgid "Add plugin"
 msgstr ""
 
-#: libs/oik_plugins.php:294
+#: libs/oik_plugins.php:299
 msgid "Add new plugin"
 msgstr ""
 
-#: libs/oik_plugins.php:307
+#: libs/oik_plugins.php:312
 #: libs/oik_themes.php:282
 msgid "apikey?"
 msgstr ""
 
-#: libs/oik_plugins.php:309
+#: libs/oik_plugins.php:314
 msgid "Change plugin"
 msgstr ""
 
-#: libs/oik_plugins.php:337
+#: libs/oik_plugins.php:342
 msgid "Error checking the plugin: %1$s"
 msgstr ""
 
-#: libs/oik_plugins.php:343
+#: libs/oik_plugins.php:348
 msgid "A new version of the plugin is available"
 msgstr ""
 
-#: libs/oik_plugins.php:344
-#: libs/oik_plugins.php:351
+#: libs/oik_plugins.php:349
+#: libs/oik_plugins.php:356
 msgid "Plugin: %1$s"
 msgstr ""
 
-#: libs/oik_plugins.php:345
-#: libs/oik_plugins.php:352
+#: libs/oik_plugins.php:350
+#: libs/oik_plugins.php:357
 #: libs/oik_themes.php:310
 #: libs/oik_themes.php:317
 msgid "Current version: %1$s"
 msgstr ""
 
-#: libs/oik_plugins.php:346
+#: libs/oik_plugins.php:351
 #: libs/oik_themes.php:311
 msgid "New version: %1$s"
 msgstr ""
 
-#: libs/oik_plugins.php:350
+#: libs/oik_plugins.php:355
 msgid "Plugin is up to date."
 msgstr ""
 
