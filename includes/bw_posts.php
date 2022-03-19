@@ -488,6 +488,15 @@ function bw_get_posts( $atts=null ) {
   //
   // Note: This supports multiple IDs, comma separated
   $attr['exclude'] = bw_array_get_dcb( $attr, "exclude", NULL, "bw_current_post_id" );
+
+  /*
+   * Support a post_name attribute
+   */
+  $post_name = bw_array_get_from( $atts, ["post_name","post_name__in"], null );
+  if ( $post_name ) {
+      $attr['post_name__in'] = bw_as_array( $post_name );
+  }
+
   
   // set suppress_filters to false when global bw_filters is set
   global $bw_filter;
