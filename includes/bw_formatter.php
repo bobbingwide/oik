@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013-2020
+<?php // (C) Copyright Bobbing Wide 2013-2022
 
 /**
  * Format the post as specified by the user  
@@ -202,6 +202,7 @@ function bw_content( $post ) {
 function bw_field_function_content( $post, &$atts, $f ) {
   $content = bw_content( $post );
   span( "bw_content" );
+  $content = do_blocks( $content );
   e( $content );
   epan( "bw_content" );
 }
@@ -217,6 +218,7 @@ function bw_field_function_content( $post, &$atts, $f ) {
  */
 function bw_field_function_excerpt( $post, &$atts, $f ) {
   $excerpt = bw_excerpt( $post );
+  $excerpt = do_blocks( $excerpt );
   span( "bw_excerpt" );
   e( $excerpt );
   epan( "bw_excerpt" );
