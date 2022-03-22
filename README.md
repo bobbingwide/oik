@@ -5,7 +5,7 @@
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
 * Tested up to: 5.9.2
-* Stable tag: 4.7.1
+* Stable tag: 4.7.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -138,6 +138,9 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.7.2 
+Fix for [bw_pages] rendering blocks change in 4.7.1
+
 # 4.7.1 
 Update for [bw_pages] rendering blocks for Content and Excerpts
 
@@ -560,6 +563,10 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 ## Changelog 
+# 4.7.2 
+* Fixed: Corrected logic to render blocks for Content and Excerpt processing in [bw_pages] #200
+* Tested: With Gutenberg 12.8.1
+
 # 4.7.1 
 * Changed: Render blocks for Content and Excerpt displayed by [bw_pages] #200
 
