@@ -179,7 +179,7 @@ function bw_field_function_featured_image( $post, &$atts, $f ) {
 function bw_content( $post ) {
     if ( bw_process_this_post( $post->ID ) ) {
         $content = $post->post_content;
-        bw_trace2();
+        bw_trace2( $post, "post", true, BW_TRACE_VERBOSE );
         $content = bw_get_the_content($content);
         bw_clear_processed_posts( $post->ID );
     } else {
@@ -202,7 +202,6 @@ function bw_content( $post ) {
 function bw_field_function_content( $post, &$atts, $f ) {
   $content = bw_content( $post );
   span( "bw_content" );
-  $content = do_blocks( $content );
   e( $content );
   epan( "bw_content" );
 }
@@ -218,7 +217,6 @@ function bw_field_function_content( $post, &$atts, $f ) {
  */
 function bw_field_function_excerpt( $post, &$atts, $f ) {
   $excerpt = bw_excerpt( $post );
-  $excerpt = do_blocks( $excerpt );
   span( "bw_excerpt" );
   e( $excerpt );
   epan( "bw_excerpt" );

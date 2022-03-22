@@ -137,15 +137,14 @@ function bw_report_recursion_error( $post, $type='post_content') {  $content = a
  * Why not just invoke do_shortcode() ?
  *  
  */
-function bw_get_the_content( $content ) { 
+function bw_get_the_content( $content ) {
   $doit = strpos( $content, "[" );
+  bw_push();
   if ( $doit !== false ) {
-    bw_push(); 
-    //$content = apply_filters( "the_content", $content );
-    //$content = apply_filters( "get_the_excerpt", $content );
     $content = do_shortcode( $content );
+  }
+  $content = do_blocks( $content );
     bw_pop();
-  }  
   return( $content );
 }
 
@@ -165,15 +164,20 @@ function bw_get_the_content( $content ) {
  */
 function bw_get_the_excerpt( $excerpt ) { 
   $doit = strpos( $excerpt, "[" );
-  if ( $doit !== false ) {
-    bw_push(); 
+
+  bw_push();
+   if ( $doit !== false ) {
+
     $saved_excerpt = bw_global_excerpt( null ); 
     //$excerpt = apply_filters( "get_the_excerpt", $excerpt );
     $excerpt = do_shortcode( $excerpt );
+
     // bw_trace2( $excerpt, "excerpt after", false );
     bw_global_excerpt( $saved_excerpt );
-    bw_pop();
-  }  
+
+  }
+   $excerpt = do_blocks( $excerpt );
+   bw_pop();
   return( $excerpt );
 }
 
