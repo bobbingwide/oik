@@ -453,6 +453,9 @@ function oik_follow_me_unset_or_trim( $attributes, $key ) {
 function bw_follow_link_svg( $social, $lc_social, $social_network, $me, $class ) {
     oik_require_lib( 'class-oik-svg-icons');
     $svgicons = new OIK_SVG_icons();
+    if ( $lc_social === 'github') {
+        $lc_social .= '-link';
+    }
     $dash = $svgicons->get_icon( $lc_social, $class );
     $dash .= bw_follow_hash_at( $me );
     $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
