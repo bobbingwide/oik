@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 4.7.0\n"
+"Project-Id-Version: oik 4.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-19T19:50:13+00:00\n"
+"POT-Creation-Date: 2022-04-04T11:47:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 
@@ -901,11 +901,11 @@ msgstr ""
 msgid "Content not available; already processed."
 msgstr ""
 
-#: includes/bw_posts.php:196
+#: includes/bw_posts.php:200
 msgid "read more"
 msgstr ""
 
-#: includes/bw_posts.php:358
+#: includes/bw_posts.php:362
 msgid "Post: "
 msgstr ""
 
@@ -1045,12 +1045,12 @@ msgid "Display the address"
 msgstr ""
 
 #: includes/oik-sc-help.php:38
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display the Admin contact name"
 msgstr ""
 
 #: includes/oik-sc-help.php:39
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Alternative slogan"
 msgstr ""
 
@@ -1071,7 +1071,7 @@ msgid "List bookmarks"
 msgstr ""
 
 #: includes/oik-sc-help.php:44
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display your Business name"
 msgstr ""
 
@@ -1084,33 +1084,33 @@ msgid "Cite a blockquote"
 msgstr ""
 
 #: includes/oik-sc-help.php:49
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Company name"
 msgstr ""
 
 #: includes/oik-sc-help.php:50
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Primary contact name"
 msgstr ""
 
 #: includes/oik-sc-help.php:51
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Contact form button"
 msgstr ""
 
 #: includes/oik-sc-help.php:52
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Format a Copyright statement"
 msgstr ""
 
 #: includes/oik-sc-help.php:53
 #: shortcodes/oik-geo.php:59
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display a 'Google directions' button."
 msgstr ""
 
 #: includes/oik-sc-help.php:54
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display the domain name"
 msgstr ""
 
@@ -1123,7 +1123,7 @@ msgid "Edit Custom CSS file button"
 msgstr ""
 
 #: includes/oik-sc-help.php:57
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Email primary contact (formal)"
 msgstr ""
 
@@ -1132,7 +1132,7 @@ msgid "Format the email signature"
 msgstr ""
 
 #: includes/oik-sc-help.php:59
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Emergency telephone number"
 msgstr ""
 
@@ -1141,7 +1141,7 @@ msgid "Facebook link"
 msgstr ""
 
 #: includes/oik-sc-help.php:61
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Fax number"
 msgstr ""
 
@@ -1154,12 +1154,12 @@ msgid "Display defined social media follow me links"
 msgstr ""
 
 #: includes/oik-sc-help.php:64
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Formal company name"
 msgstr ""
 
 #: includes/oik-sc-help.php:65
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Latitude and Longitude"
 msgstr ""
 
@@ -1187,22 +1187,22 @@ msgid "Simple list of pages/posts or custom post types"
 msgstr ""
 
 #: includes/oik-sc-help.php:74
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display the company logo"
 msgstr ""
 
 #: includes/oik-sc-help.php:75
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Mailto (inline)"
 msgstr ""
 
 #: includes/oik-sc-help.php:76
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Mobile phone number (inline)"
 msgstr ""
 
 #: includes/oik-sc-help.php:77
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Mobile phone number (block)"
 msgstr ""
 
@@ -1211,7 +1211,7 @@ msgid "Information about a Drupal module"
 msgstr ""
 
 #: includes/oik-sc-help.php:79
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display attached PDF files"
 msgstr ""
 
@@ -1224,7 +1224,7 @@ msgid "Follow me on Pinterest"
 msgstr ""
 
 #: includes/oik-sc-help.php:82
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display matched portfolio files"
 msgstr ""
 
@@ -1233,7 +1233,7 @@ msgid "Display posts"
 msgstr ""
 
 #: includes/oik-sc-help.php:84
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Powered by WordPress"
 msgstr ""
 
@@ -1248,12 +1248,12 @@ msgstr ""
 #: includes/oik-sc-help.php:87
 #: shortcodes/oik-phone.php:202
 #: shortcodes/oik-phone.php:300
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Skype name"
 msgstr ""
 
 #: includes/oik-sc-help.php:88
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Primary slogan"
 msgstr ""
 
@@ -1262,12 +1262,12 @@ msgid "Display posts in tabbed blocks"
 msgstr ""
 
 #: includes/oik-sc-help.php:90
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Telephone number (inline)"
 msgstr ""
 
 #: includes/oik-sc-help.php:91
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Telephone number (block)"
 msgstr ""
 
@@ -1288,7 +1288,7 @@ msgid "Follow me on Twitter"
 msgstr ""
 
 #: includes/oik-sc-help.php:96
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Site: link to wp-admin"
 msgstr ""
 
@@ -1310,7 +1310,7 @@ msgid "Display the caption for an image. Standard WordPress shortcode"
 msgstr ""
 
 #: includes/oik-sc-help.php:101
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Clear divs "
 msgstr ""
 
@@ -1349,7 +1349,7 @@ msgid "NextGen gallery slideshow"
 msgstr ""
 
 #: includes/oik-sc-help.php:113
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Paypal shortcodes"
 msgstr ""
 
@@ -1519,7 +1519,7 @@ msgid "Index of the theme_collages post meta to display"
 msgstr ""
 
 #: libs/bobbforms.php:509
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "None"
 msgstr ""
 
@@ -1869,7 +1869,7 @@ msgstr ""
 #: shortcodes/oik-link.php:327
 #: shortcodes/oik-logo.php:172
 #: shortcodes/oik-qrcode.php:37
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "URL"
 msgstr ""
 
@@ -2724,7 +2724,7 @@ msgstr ""
 #: shortcodes/oik-follow.php:298
 #: shortcodes/oik-follow.php:365
 #: shortcodes/oik-follow.php:398
-#: shortcodes/oik-follow.php:458
+#: shortcodes/oik-follow.php:461
 msgid "Follow %1$s on %2$s"
 msgstr ""
 
@@ -3012,7 +3012,7 @@ msgid "Display unordered or ordered list"
 msgstr ""
 
 #: shortcodes/oik-login.php:62
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display the login form or protected content"
 msgstr ""
 
@@ -3025,12 +3025,12 @@ msgid "display 'Remember me?' checkbox"
 msgstr ""
 
 #: shortcodes/oik-login.php:88
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display the Login or Logout link"
 msgstr ""
 
 #: shortcodes/oik-login.php:100
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display a link to the Registration form, if Registration is enabled"
 msgstr ""
 
@@ -3099,7 +3099,7 @@ msgid "No snippet available"
 msgstr ""
 
 #: shortcodes/oik-parent.php:78
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Display a link back to the parent page"
 msgstr ""
 
@@ -3365,141 +3365,152 @@ msgstr ""
 msgid "Text above the hidden content"
 msgstr ""
 
-#: build/index.js:1
+#: build/address.js:1
 msgid "Block"
 msgstr ""
 
-#: build/index.js:1
+#: build/address.js:1
 msgid "Inline"
 msgstr ""
 
-#: build/index.js:1
+#: build/address.js:1
 msgid "Display"
 msgstr ""
 
-#: build/index.js:1
+#: build/address.js:1
+#: build/follow-me.js:1
 msgid "Equivalent shortcode"
 msgstr ""
 
-#: build/index.js:1
+#: build/content-block.js:1
 msgid "Descending order"
 msgstr ""
 
-#: build/index.js:1
+#: build/content-block.js:1
 msgid "Ascending order"
 msgstr ""
 
-#: build/index.js:1
+#: build/content-block.js:1
 msgid "Enter your advanced shortcode parameters"
 msgstr ""
 
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "Since"
 msgstr ""
 
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "Until"
 msgstr ""
 
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "Description"
 msgstr ""
 
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "Expiry Text"
 msgstr ""
 
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "Format"
 msgstr ""
 
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "The Countdown block will be rendered on the front end."
 msgstr ""
 
-#: build/index.js:1
+#: build/countdown.js:1
 msgid "Shortcode equivalent:"
 msgstr ""
 
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "Genericons"
 msgstr ""
 
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "Dashicons"
 msgstr ""
 
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "SVG"
 msgstr ""
 
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "User"
 msgstr ""
 
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "Alt"
 msgstr ""
 
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "Network(s)"
 msgstr ""
 
-#: build/index.js:1
+#: build/follow-me.js:1
 msgid "Theme"
 msgstr ""
 
-#: build/index.js:1
+#: build/googlemap.js:1
 msgid "Map"
 msgstr ""
 
-#: build/index.js:1
+#: build/googlemap.js:1
 msgid "This is where the map will appear"
 msgstr ""
 
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Read more button to progressively reveal content"
 msgstr ""
 
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Spells out the oik backronym"
 msgstr ""
 
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Shortcode"
 msgstr ""
 
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Parameters"
 msgstr ""
 
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Enter your shortcode parameters"
 msgstr ""
 
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Content"
 msgstr ""
 
-#: build/index.js:1
+#: build/shortcode-block.js:1
 msgid "Enter your shortcode content"
 msgstr ""
 
+#: build/oik-address/block.json
 #: src/oik-address/block.json
 msgctxt "block title"
 msgid "Address"
 msgstr ""
 
+#: build/oik-address/block.json
 #: src/oik-address/block.json
 msgctxt "block description"
 msgid "Displays your address"
 msgstr ""
 
+#: build/oik-address/block.json
 #: src/oik-address/block.json
 msgctxt "block keyword"
 msgid "Address"
 msgstr ""
 
+#: build/oik-address/block.json
+#: build/oik-contact-form/block.json
+#: build/oik-content/block.json
+#: build/oik-countdown/block.json
+#: build/oik-follow-me/block.json
+#: build/oik-googlemap/block.json
+#: build/oik-shortcode/block.json
 #: src/oik-address/block.json
 #: src/oik-contact-form/block.json
 #: src/oik-content/block.json
@@ -3511,131 +3522,157 @@ msgctxt "block keyword"
 msgid "oik"
 msgstr ""
 
+#: build/oik-contact-form/block.json
 #: src/oik-contact-form/block.json
 msgctxt "block title"
 msgid "Contact form"
 msgstr ""
 
+#: build/oik-contact-form/block.json
 #: src/oik-contact-form/block.json
 msgctxt "block description"
 msgid "Displays a Contact form"
 msgstr ""
 
+#: build/oik-contact-form/block.json
 #: src/oik-contact-form/block.json
 msgctxt "block keyword"
 msgid "Contact"
 msgstr ""
 
+#: build/oik-contact-form/block.json
 #: src/oik-contact-form/block.json
 msgctxt "block keyword"
 msgid "form"
 msgstr ""
 
+#: build/oik-content/block.json
 #: src/oik-content/block.json
 msgctxt "block title"
 msgid "Dynamic content block"
 msgstr ""
 
+#: build/oik-content/block.json
 #: src/oik-content/block.json
 msgctxt "block description"
 msgid "Expands content for dynamic oik shortcodes."
 msgstr ""
 
+#: build/oik-content/block.json
 #: src/oik-content/block.json
 msgctxt "block keyword"
 msgid "content"
 msgstr ""
 
+#: build/oik-content/block.json
 #: src/oik-content/block.json
 msgctxt "block keyword"
 msgid "shortcode"
 msgstr ""
 
+#: build/oik-content/block.json
 #: src/oik-content/block.json
 msgctxt "block keyword"
 msgid "dynamic"
 msgstr ""
 
+#: build/oik-countdown/block.json
 #: src/oik-countdown/block.json
 msgctxt "block title"
 msgid "Countdown"
 msgstr ""
 
+#: build/oik-countdown/block.json
 #: src/oik-countdown/block.json
 msgctxt "block description"
 msgid "Countdown timer"
 msgstr ""
 
+#: build/oik-countdown/block.json
 #: src/oik-countdown/block.json
 msgctxt "block keyword"
 msgid "Countdown"
 msgstr ""
 
+#: build/oik-countdown/block.json
 #: src/oik-countdown/block.json
 msgctxt "block keyword"
 msgid "timer"
 msgstr ""
 
+#: build/oik-countdown/block.json
 #: src/oik-countdown/block.json
 msgctxt "block keyword"
 msgid "since"
 msgstr ""
 
+#: build/oik-follow-me/block.json
 #: src/oik-follow-me/block.json
 msgctxt "block title"
 msgid "Follow me"
 msgstr ""
 
+#: build/oik-follow-me/block.json
 #: src/oik-follow-me/block.json
 msgctxt "block description"
 msgid "Display Social media links"
 msgstr ""
 
+#: build/oik-follow-me/block.json
 #: src/oik-follow-me/block.json
 msgctxt "block keyword"
 msgid "Follow"
 msgstr ""
 
+#: build/oik-follow-me/block.json
 #: src/oik-follow-me/block.json
 msgctxt "block keyword"
 msgid "Social"
 msgstr ""
 
+#: build/oik-follow-me/block.json
 #: src/oik-follow-me/block.json
 msgctxt "block keyword"
 msgid "Links"
 msgstr ""
 
+#: build/oik-googlemap/block.json
 #: src/oik-googlemap/block.json
 msgctxt "block title"
 msgid "Google Maps"
 msgstr ""
 
+#: build/oik-googlemap/block.json
 #: src/oik-googlemap/block.json
 msgctxt "block description"
 msgid "Displays a Google Maps map using oik options"
 msgstr ""
 
+#: build/oik-googlemap/block.json
 #: src/oik-googlemap/block.json
 msgctxt "block keyword"
 msgid "Google"
 msgstr ""
 
+#: build/oik-googlemap/block.json
 #: src/oik-googlemap/block.json
 msgctxt "block keyword"
 msgid "maps"
 msgstr ""
 
+#: build/oik-shortcode/block.json
 #: src/oik-shortcode/block.json
 msgctxt "block title"
 msgid "Shortcode block for oik shortcodes"
 msgstr ""
 
+#: build/oik-shortcode/block.json
 #: src/oik-shortcode/block.json
 msgctxt "block description"
 msgid "Expands oik shortcodes"
 msgstr ""
 
+#: build/oik-shortcode/block.json
 #: src/oik-shortcode/block.json
 msgctxt "block keyword"
 msgid "Shortcode"
