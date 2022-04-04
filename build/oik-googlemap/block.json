@@ -1,0 +1,51 @@
+{
+  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "oik/googlemap",
+  "title": "Google Maps",
+  "category": "common",
+  "icon": "location",
+  "description": "Displays a Google Maps map using oik options",
+  "attributes": {
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "className": false,
+    "color": {
+      "gradients": false,
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "Google", "maps", "oik" ],
+  "editorScript": "file:../../build/googlemap.js",
+  "editorStyle": "file:../../build/googlemap.css",
+  "style": "file:../../build/style-googlemap.css"
+}

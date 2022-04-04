@@ -1,0 +1,75 @@
+{
+  "apiVersion": 2,
+  "name": "oik/countdown",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "title": "Countdown",
+  "category": "common",
+  "icon": "clock",
+  "description": "Countdown timer",
+  "attributes": {
+    "since": {
+      "type": "string",
+      "default": ""
+    },
+    "until": {
+      "type": "string",
+      "default": ""
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "expirytext": {
+      "type": "string",
+      "default": ""
+    },
+    "format": {
+      "type": "string",
+      "default": ""
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "className": false,
+    "color": {
+      "gradients": false,
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "Countdown", "timer", "since", "oik" ],
+  "editorScript": "file:../../build/countdown.js",
+  "editorStyle": "file:../../build/countdown.css",
+  "style": "file:../../build/style-countdown.css"
+}

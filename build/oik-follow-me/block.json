@@ -1,0 +1,67 @@
+{
+  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "oik/follow-me",
+  "title": "Follow me",
+  "category": "common",
+  "icon": "share",
+  "description": "Display Social media links",
+  "attributes": {
+    "user": {
+      "type": "string",
+      "default": ""
+    },
+    "alt": {
+      "type": "string",
+      "default": ""
+    },
+    "network": {
+      "type": "string",
+      "default": ""
+    },
+    "theme": {
+      "type": "string",
+      "default": ""
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "className": false,
+    "color": {
+      "gradients": false,
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "Follow", "Social", "Links", "oik" ],
+  "editorScript": "file:../../build/follow-me.js",
+  "editorStyle": "file:../../build/follow-me.css",
+  "style": "file:../../build/style-follow-me.css"
+}

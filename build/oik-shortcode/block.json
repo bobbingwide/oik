@@ -1,0 +1,63 @@
+{
+  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "oik/shortcode-block",
+  "title": "Shortcode block for oik shortcodes",
+  "category": "layout",
+  "icon": "shortcode",
+  "description": "Expands oik shortcodes",
+  "attributes": {
+    "shortcode": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "parameters": {
+      "type": "string",
+      "default": ""
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "className": false,
+    "color": {
+      "gradients": false,
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "Shortcode", "oik" ],
+  "editorScript": "file:../../build/shortcode-block.js",
+  "editorStyle": "file:../../build/shortcode-block.css",
+  "style": "file:../../build/style-shortcode-block.css"
+}

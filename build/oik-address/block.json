@@ -1,0 +1,55 @@
+{
+  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "oik/address",
+  "title": "Address",
+  "category": "common",
+  "icon": "building",
+  "description": "Displays your address",
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "default": "div"
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "className": false,
+    "color": {
+      "gradients": false,
+      "text": true,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "Address", "oik" ],
+  "editorScript": "file:../../build/address.js",
+  "editorStyle": "file:../../build/address.css",
+  "style": "file:../../build/style-address.css"
+}
