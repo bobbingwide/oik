@@ -1,5 +1,6 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik/content-block",
   "title": "Dynamic content block",
   "category": "layout",
@@ -86,5 +87,7 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "content", "shortcode", "dynamic", "oik" ]
+  "keywords": [ "content", "shortcode", "dynamic", "oik" ],
+  "editorScript": "file:../../build/content-block.js",
+  "editorStyle": "file:../../build/content-block.css"
 }

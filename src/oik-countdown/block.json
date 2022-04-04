@@ -1,6 +1,7 @@
 {
   "apiVersion": 2,
   "name": "oik/countdown",
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "title": "Countdown",
   "category": "common",
   "icon": "clock",
@@ -67,5 +68,8 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Countdown", "timer", "since", "oik" ]
+  "keywords": [ "Countdown", "timer", "since", "oik" ],
+  "editorScript": "file:../../build/countdown.js",
+  "editorStyle": "file:../../build/countdown.css",
+  "style": "file:../../build/style-countdown.css"
 }

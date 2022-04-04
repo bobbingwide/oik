@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 4.7.2
+Version: 4.8.0
 Author: bobbingwide
 Author URI: https://bobbingwide.com/about-bobbing-wide
 Text Domain: oik
@@ -593,6 +593,14 @@ function oik_register_dynamic_blocks() {
 	 * from the locale specific .json file in the languages folder.
 	 */
 	$ok = wp_set_script_translations( 'oik-address-editor-script', 'oik' , __DIR__ .'/languages' );
+    $ok = wp_set_script_translations( 'oik-contact-form-editor-script', 'oik' , __DIR__ .'/languages' );
+    $ok = wp_set_script_translations( 'oik-content-block-editor-script', 'oik' , __DIR__ .'/languages' );
+    $ok = wp_set_script_translations( 'oik-countdown-editor-script', 'oik' , __DIR__ .'/languages' );
+    $ok = wp_set_script_translations( 'oik-follow-me-editor-script', 'oik' , __DIR__ .'/languages' );
+    $ok = wp_set_script_translations( 'oik-googlemap-editor-script', 'oik' , __DIR__ .'/languages' );
+    $ok = wp_set_script_translations( 'oik-shortcode-block-editor-script', 'oik' , __DIR__ .'/languages' );
+
+
 	add_filter( 'load_script_textdomain_relative_path', 'oik_load_script_textdomain_relative_path', 10, 2);
 }
 
@@ -609,9 +617,10 @@ function oik_register_dynamic_blocks() {
  * @return mixed
  */
 function oik_load_script_textdomain_relative_path( $relative, $src ) {
-	if ( false !== strrpos( $relative, './build/index.js' )) {
-		$relative = 'build/index.js';
-	}
+
+    if ( false !== strpos( $src, '/oik/src/' )) {
+        $relative = 'build/' . basename( $relative );
+    }
 	//bw_trace2( $relative, "relative");
 	return $relative;
 }

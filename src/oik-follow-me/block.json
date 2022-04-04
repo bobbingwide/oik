@@ -1,5 +1,6 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik/follow-me",
   "title": "Follow me",
   "category": "common",
@@ -59,5 +60,8 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Follow", "Social", "Links", "oik" ]
+  "keywords": [ "Follow", "Social", "Links", "oik" ],
+  "editorScript": "file:../../build/follow-me.js",
+  "editorStyle": "file:../../build/follow-me.css",
+  "style": "file:../../build/style-follow-me.css"
 }

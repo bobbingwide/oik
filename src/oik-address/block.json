@@ -1,5 +1,6 @@
 {
   "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik/address",
   "title": "Address",
   "category": "common",
@@ -48,7 +49,7 @@
     }
   },
   "keywords": [ "Address", "oik" ],
-  "editorScript": "file:../../build/index.js",
-  "editorStyle": "file:../../build/index.css",
-  "style": "file:../../build/style-index.css"
+  "editorScript": "file:../../build/address.js",
+  "editorStyle": "file:../../build/address.css",
+  "style": "file:../../build/style-address.css"
 }
