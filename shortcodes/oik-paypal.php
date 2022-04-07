@@ -94,6 +94,7 @@ define( 'OIK_PAYPAL_SHORTCODES_INCLUDED', true );
 function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
 
   oik_require( "bobbforms.inc" );
+  //  @TODO When the block is rendered then the default values are set if not already set.
   $bw_paypal_email = bw_array_get( $atts, "email", null );
 	if ( !$bw_paypal_email ) {
 		$bw_paypal_email = bw_get_option( "paypal-email" );
@@ -127,16 +128,20 @@ function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
                 $code .= ihidden( "item_number", $atts['sku'] );
                 
 		switch($atts['type']):
-                  case "pay": 
-                         
+                case "pay":
+				case "pay-noCC":
                          $code .= ihidden( "cmd", "_xclick" );
 												 
                         $code .= ihidden( "amount", bw_array_get( $atts, 'amount', "0.00" ) );
                          $code .= ihidden( "button_subtype", "services" );
                          $code .= ihidden( "no_note", "0" );
-                         $code .= ihidden( "bn", "PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" );
-                         $code .= '<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">';
-                           
+                         if ( $atts['type'] === 'pay' ) {
+	                         $code .= ihidden( "bn", "PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest" );
+	                         $code.='<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">';
+                         } else {
+	                         $code .= ihidden( "bn", "PP-BuyNowBF:btn_paynow_LG.gif:NonHostedGuest" );
+                         	 $code.= '<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">';
+                         }
                          // <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">    
                          // $code .= retimage( NULL, "https://www.paypal.com/en_GB/i/scr/pixel.gif", "", 1, 1 );
 
@@ -144,15 +149,21 @@ function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
                   break;
                   
                   case "buy":
+			case "buy-noCC":
                          /* Buy Now and Pay Now are very similar except for the buttons. This one doesn't show the CC (credit cards)
                          */
                          $code .= ihidden( "cmd", "_xclick" );
                          $code .= ihidden( "amount", $atts['amount'] );
                          $code .= ihidden( "button_subtype", "services" );
                          $code .= ihidden( "no_note", "0" );
-                         $code .= ihidden( "bn", "PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" );
-                         $code .= '<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">';
-                           
+                         if ( $atts['type'] === 'buy') {
+	                         $code .= ihidden( "bn", "PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest" );
+	                         $code.='<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">';
+                         } else {
+	                         $code .= ihidden( "bn", "PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" );
+	                         $code.='<input type="image" src="https://www.paypal.com/en_GB/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">';
+                         }
+
                          // <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">    
                          // $code .= retimage( NULL, "https://www.paypal.com/en_GB/i/scr/pixel.gif", "", 1, 1 );
 
@@ -248,6 +259,9 @@ function bw_pp_shortcodes( $atts=NULL, $content=null, $tag=null) {
   
 /**
  * Syntax hook for [paypal] shortcode
+ *
+ * Note: The PayPal block supports `pay-noCC` and `buy-noCC` but it's not documented for the shortcode.
+ * The PayPal block doesn't support weight or shipcost2.
  */  
 function paypal__syntax( $shortcode="paypal" ) {
   $syntax = array( "type" => BW_::bw_skv( "donate", "pay|buy|add|view", __( "Button type", "oik" ) )

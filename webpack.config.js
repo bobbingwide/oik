@@ -8,6 +8,7 @@ module.exports = {
         'countdown': './src/oik-countdown',
         'follow-me': './src/oik-follow-me',
         'googlemap': './src/oik-googlemap',
+        'paypal': './src/oik-paypal',
         'shortcode-block': './src/oik-shortcode'
     },
 };

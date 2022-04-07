@@ -585,8 +585,11 @@ function oik_register_dynamic_blocks() {
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-follow-me', $args );
 	// The Googlemap block is not server side rendered.
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-googlemap' );
+	$args = [ 'render_callback' => 'oik_dynamic_block_paypal' ];
+	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-paypal', $args );
 	$args = [ 'render_callback' => 'oik_dynamic_block_shortcode_block' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-shortcode', $args );
+
 
 	/**
 	 * Localise the script by loading the required strings for the build/index.js file
@@ -598,6 +601,7 @@ function oik_register_dynamic_blocks() {
     $ok = wp_set_script_translations( 'oik-countdown-editor-script', 'oik' , __DIR__ .'/languages' );
     $ok = wp_set_script_translations( 'oik-follow-me-editor-script', 'oik' , __DIR__ .'/languages' );
     $ok = wp_set_script_translations( 'oik-googlemap-editor-script', 'oik' , __DIR__ .'/languages' );
+	$ok = wp_set_script_translations( 'oik-paypal-editor-script', 'oik' , __DIR__ .'/languages' );
     $ok = wp_set_script_translations( 'oik-shortcode-block-editor-script', 'oik' , __DIR__ .'/languages' );
 
 
@@ -642,7 +646,31 @@ function oik_block_type_metadata( $metadata ) {
             $metadata['textdomain'] = $textdomain;
         }
     }
+
+
+    if ( $metadata['name'] === 'oik/paypal') {
+    	$metadata=oik_block_type_metadata_paypal_default_values( $metadata );
+    }
     return $metadata;
+}
+
+/**
+ * Set default values from oik options.
+ *
+ * If the option values aren't set then default values aren't set either.
+ *
+ * @param $metadata
+ * @return array
+ */
+function oik_block_type_metadata_paypal_default_values( $metadata ) {
+	//bw_trace2();
+	// We only need to do this when it's the block editor
+	if ( is_admin() ) {
+		$metadata['attributes']['email']['default']   =bw_get_option( 'paypal-email' );
+		$metadata['attributes']['location']['default']=bw_get_option( 'paypal-country' );
+		$metadata['attributes']['currency']['default']=bw_get_option( 'paypal-currency' );
+	}
+	return $metadata;
 }
 
 /**
@@ -746,6 +774,23 @@ function oik_dynamic_block_content_block( $attributes ) {
     //oik_require( "shortcodes/oik-shortcode.php", "oik-blocks" );
     return $html;
 }
+
+/**
+ * Server rendering PayPal block.
+ *
+ * @param array $attributes array of block attributes.
+ * @return string generated HTML
+ */
+function oik_dynamic_block_paypal( $attributes ) {
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-paypal.php', 'oik', 'bw_pp_shortcodes' );
+	if ( ! $html ) {
+		$attributes['type'] = bw_array_get( $attributes, 'type', 'donate' );
+		$attributes['amount'] = bw_array_get( $attributes, 'amount', '5.00' );
+		$html = bw_pp_shortcodes( $attributes, null, null );
+	}
+	return $html;
+}
+
 	
 /**
  * Initiate oik processing 

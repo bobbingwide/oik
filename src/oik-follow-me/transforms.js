@@ -1,8 +1,7 @@
 /* Transformation to oik-follow-me of oik-block/follow-me and [bw_follow_me]
  *
  */
-const { createBlock
-} = wp.blocks;
+import { createBlock } from '@wordpress/blocks';
 
 const transforms = {
     from: [
