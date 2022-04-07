@@ -112,7 +112,7 @@ Each of the 8 blocks are now delivered separately.
 
 ## Changelog 
 # 4.8.0 
-* Added: Dynamic PayPal block #184
+* Added: Dynamic PayPal block #184 #203
 * Changed: Add custom webpack.config.js for multiple entry points #202
 * Changed: Update blocks and translations for multiple entry points #202
 * Changed: Update build for multiple entry points - one per block #202
