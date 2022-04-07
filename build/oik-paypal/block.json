@@ -1,0 +1,80 @@
+{
+  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "oik/paypal",
+  "title": "PayPal button",
+  "category": "widgets",
+  "icon": "money",
+  "description": "Creates a PayPal button",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "default": "donate"
+    },
+    "amount": {
+      "type": "number",
+      "default": "5.00"
+    },
+    "productname": {
+      "type": "string",
+      "default": ""
+    },
+    "sku": {
+      "type": "string",
+      "default": ""
+    },
+    "shipadd": {
+      "type": "string",
+      "default": "2"
+    },
+   "email":  {
+    "type": "string"
+    },
+    "currency":  {
+      "type": "string"
+    },
+    "location":  {
+      "type": "string"
+    },
+    "shipcost":  {
+      "type": "number"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "className": false,
+    "color": {
+      "gradients": false,
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "payment", "oik" ],
+  "editorScript": "file:../../build/paypal.js",
+  "editorStyle": "file:../../build/paypal.css",
+  "style": "file:../../build/paypal.css"
+}
