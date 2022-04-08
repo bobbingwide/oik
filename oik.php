@@ -787,11 +787,30 @@ function oik_dynamic_block_paypal( $attributes ) {
 		$attributes['type'] = bw_array_get( $attributes, 'type', 'donate' );
 		$attributes['amount'] = bw_array_get( $attributes, 'amount', '5.00' );
 		$html = bw_pp_shortcodes( $attributes, null, null );
+		$html = oik_server_side_wrapper( $attributes, $html );
 	}
 	return $html;
 }
 
-	
+/**
+ * Implements wrapper for Server Side Rendered blocks.
+ *
+ * @param $attributes
+ * @param $html
+ * @return string
+ */
+function oik_server_side_wrapper( $attributes, $html ) {
+	$align_class_name=empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
+	$extra_attributes  =[ 'class'=>$align_class_name ];
+	$wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
+	$html=sprintf(
+		'<div %1$s>%2$s</div>',
+		$wrapper_attributes,
+		$html
+	);
+	return $html;
+}
+
 /**
  * Initiate oik processing 
  */

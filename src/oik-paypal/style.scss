@@ -1,2 +1,7 @@
 /* oik-paypal/style.scss
 */
+/* Remove the border from around a PayPal button. */
+.wp-block-oik-paypal form input[type="image"] {
+  border: none;
+  width: auto;
+}
