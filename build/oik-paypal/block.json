@@ -61,7 +61,7 @@
   "supports": {
     "html": false,
     "customClassName": false,
-    "className": false,
+    "className": true,
     "color": {
       "gradients": false,
       "text": false,
@@ -76,5 +76,5 @@
   "keywords": [ "payment", "oik" ],
   "editorScript": "file:../../build/paypal.js",
   "editorStyle": "file:../../build/paypal.css",
-  "style": "file:../../build/paypal.css"
+  "style": "file:../../build/style-paypal.css"
 }
