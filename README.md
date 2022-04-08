@@ -118,7 +118,7 @@ Each of the 8 blocks are now delivered separately.
 * Changed: Update build for multiple entry points - one per block #202
 * Changes: Update wp-scripts version #202
 * Fixed: Ensure inline style is enqueued for bw_follow_me #187
-* Fixed: bw_follow_me: Choose correct icon for GitHub #202
+* Fixed: bw_follow_me: Choose correct icon for GitHub #187
 * Tested: With WordPress 5.9.3 and WordPress Multi Site
 * Tested: With Gutenberg 12.9.0
 * Tested: With PHP 8.0
