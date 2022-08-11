@@ -232,7 +232,7 @@ function bw_navi_ids( $posts, $atts=null ) {
 function oik_navi_s2eofn_from_query( $atts ) { 
   $bw_query = bw_array_get( $atts, "bw_query", null );
 	$start = 1;
-  bw_trace2( $bw_query, "bw_query", false );
+  bw_trace2( $bw_query, "bw_query", false, BW_TRACE_VERBOSE );
   if ( $bw_query ) {
     $page = bw_array_get( $atts, "paged", 1 );
     $posts_per_page = bw_array_get( $atts, "posts_per_page", null );
