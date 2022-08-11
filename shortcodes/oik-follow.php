@@ -411,7 +411,7 @@ function bw_follow_me__syntax( $shortcode="bw_follow_me" ) {
   $syntax = array( "theme" => BW_::bw_skv( null, "gener|dash|svg", __( "Icon selection", "oik" ) )
                  , "class" => BW_::bw_skv( null, "<i>" . __( "class names", "oik" ) . "</i>", __( "CSS class names", "oik" ) )
                  , "alt" => BW_::bw_skv( null, "0", __( "Use option values", "oik" ) )
-	            , "network" => BW_::bw_skv( $networks, "<i>" .  __( "network1,network2", "oik") . "</i>", __("CSV list of network names", "oik" ) )
+	            , "network" => BW_::bw_skv( $networks, "<i>" .  __( "network1, network2", "oik") . "</i>", __("CSV list of network names", "oik" ) )
                  );
   return( $syntax );
 }

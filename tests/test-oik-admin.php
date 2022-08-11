@@ -431,7 +431,7 @@ $expected[] = '</form>';
 	
 	
 	/**
-	 * The oik themes page expects genesis-oik to be version 1.2.2
+	 * The oik themes page expects genesis-oik to be version 1.3.0
 	 * We need to ensure this version of the theme is installed.
 	 *
 	 */
@@ -444,7 +444,7 @@ $expected[] = '</form>';
 		$this->assertEquals( $expected, $version );
 
 		// Do we really need to update this value each time the theme is updated?
-		$this->assertEquals( "1.2.2", $version );
+		$this->assertEquals( "1.3.0", $version );
 	}
 
 	/**

@@ -7,7 +7,7 @@ class Tests_issue_69 extends BW_UnitTestCase {
 
   /**
 	 * We need to invoke the 'activate_plugin' action when we know that oik_load_plugins is NOT a defined function.
-	 * Then invoke 'admin_menu' which will load oik-admin.php and try 'activate_plugin' again 
+	 * Then invoke 'admin_menu' which will load oik-admin.php and try 'activate_plugin' again
 	 */
 	function test_no_warning_for_activate_plugin() {
 		$exists = function_exists( "oik_load_plugins" );
@@ -17,7 +17,9 @@ class Tests_issue_69 extends BW_UnitTestCase {
 		
 		$exists = function_exists( "oik_load_plugins" );
 		$this->assertFalse( $exists );
-		
+
+		// Note: This test can fail if a plugin such as simple-lightbox is activated.
+        // I got "Error: Call to a member function add_theme_page() on null" from that plugin.
 		do_action( "admin_menu" );
 		
 		$exists = function_exists( "oik_load_plugins" );
