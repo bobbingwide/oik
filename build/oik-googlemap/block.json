@@ -44,7 +44,11 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Google", "maps", "oik" ],
+  "keywords": [
+    "Google",
+    "maps",
+    "oik"
+  ],
   "editorScript": "file:../../build/googlemap.js",
   "editorStyle": "file:../../build/googlemap.css",
   "style": "file:../../build/style-googlemap.css"

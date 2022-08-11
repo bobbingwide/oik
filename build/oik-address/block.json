@@ -48,7 +48,10 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Address", "oik" ],
+  "keywords": [
+    "Address",
+    "oik"
+  ],
   "editorScript": "file:../../build/address.js",
   "editorStyle": "file:../../build/address.css",
   "style": "file:../../build/style-address.css"

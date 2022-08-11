@@ -16,37 +16,37 @@
       "default": ""
     },
     "parameters": {
-"type": "string",
-"default": ""
-},
+      "type": "string",
+      "default": ""
+    },
     "post_type": {
-"type": "string",
-"default": ""
-},
+      "type": "string",
+      "default": ""
+    },
     "post_parent": {
-"type": "string",
-"default": ""
-},
+      "type": "string",
+      "default": ""
+    },
     "numberposts": {
       "type": "integer",
       "default": 10
     },
     "orderby": {
-"type": "string",
-"default": "date"
-},
+      "type": "string",
+      "default": "date"
+    },
     "order": {
-"type": "string",
-"default": "desc"
-},
+      "type": "string",
+      "default": "desc"
+    },
     "align": {
-"type": "string",
-"default": ""
-},
+      "type": "string",
+      "default": ""
+    },
     "format": {
-"type": "string",
-"default": "LIER"
-},
+      "type": "string",
+      "default": "LIER"
+    },
     "textAlign": {
       "type": "string"
     },
@@ -87,7 +87,12 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "content", "shortcode", "dynamic", "oik" ],
+  "keywords": [
+    "content",
+    "shortcode",
+    "dynamic",
+    "oik"
+  ],
   "editorScript": "file:../../build/content-block.js",
   "editorStyle": "file:../../build/content-block.css"
 }

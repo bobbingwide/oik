@@ -56,7 +56,10 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Shortcode", "oik" ],
+  "keywords": [
+    "Shortcode",
+    "oik"
+  ],
   "editorScript": "file:../../build/shortcode-block.js",
   "editorStyle": "file:../../build/shortcode-block.css",
   "style": "file:../../build/style-shortcode-block.css"

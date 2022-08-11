@@ -60,7 +60,12 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Follow", "Social", "Links", "oik" ],
+  "keywords": [
+    "Follow",
+    "Social",
+    "Links",
+    "oik"
+  ],
   "editorScript": "file:../../build/follow-me.js",
   "editorStyle": "file:../../build/follow-me.css",
   "style": "file:../../build/style-follow-me.css"

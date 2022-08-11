@@ -44,7 +44,11 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Contact", "form", "oik" ],
+  "keywords": [
+    "Contact",
+    "form",
+    "oik"
+  ],
   "editorScript": "file:../../build/contact-form.js",
   "editorStyle": "file:../../build/contact-form.css",
   "style": "file:../../build/style-contact-form.css"

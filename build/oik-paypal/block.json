@@ -27,16 +27,16 @@
       "type": "string",
       "default": "2"
     },
-   "email":  {
-    "type": "string"
-    },
-    "currency":  {
+    "email": {
       "type": "string"
     },
-    "location":  {
+    "currency": {
       "type": "string"
     },
-    "shipcost":  {
+    "location": {
+      "type": "string"
+    },
+    "shipcost": {
       "type": "number"
     },
     "className": {
@@ -73,7 +73,10 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "payment", "oik" ],
+  "keywords": [
+    "payment",
+    "oik"
+  ],
   "editorScript": "file:../../build/paypal.js",
   "editorStyle": "file:../../build/paypal.css",
   "style": "file:../../build/style-paypal.css"

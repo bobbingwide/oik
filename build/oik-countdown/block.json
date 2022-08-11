@@ -68,7 +68,12 @@
       "lineHeight": false
     }
   },
-  "keywords": [ "Countdown", "timer", "since", "oik" ],
+  "keywords": [
+    "Countdown",
+    "timer",
+    "since",
+    "oik"
+  ],
   "editorScript": "file:../../build/countdown.js",
   "editorStyle": "file:../../build/countdown.css",
   "style": "file:../../build/style-countdown.css"
