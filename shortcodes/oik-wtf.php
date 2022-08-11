@@ -48,6 +48,7 @@ function bw_wtf( $atts=null, $content=null, $tag=null ) {
   }
   $event = bw_array_get_from( $atts, "event,0", "hover" );
   $effect = bw_array_get_from( $atts, "effect,1", "slideToggle" );
+  /* translators: %1 Event eg Hover, %2 Effect eg slideToggle */
   $text = bw_array_get_from( $atts, "text,2", sprintf( __( '%1$s to %2$s source', "oik" ), $event, $effect ) );
   oik_require( "includes/bw_jquery.inc" );
   bw_jquery_af( "div.bw_wtf", $event , "p.bw_wtf", $effect );

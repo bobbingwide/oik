@@ -200,6 +200,7 @@ function oik_plugin_plugin_inactive( $plugin=null, $dependencies=null, $problem=
   $plugin_name = basename( $plugin, ".php" );
   $dependencies = str_replace( ":", ' ' . __('version', 'oik' ) . ' ', $dependencies );
   $text = "<p><b>";
+  /* translators: %1: plugin name */
   $text .= sprintf( __( '%1$s may not be fully functional.','oik'), $plugin_name );
   $text .= "</b> ";
   $text .= __( 'Please install and activate the required minimum version of this plugin:', 'oik' );

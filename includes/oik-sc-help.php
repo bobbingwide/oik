@@ -142,6 +142,7 @@ function oik_lazy_sc__help( $help, $shortcode ) {
  * These functions return the help and syntax for the shortcodes that are activated
  */
 function div__help() {
+    /* translators: %s <div> - hardcoded */
   return( sprintf( __( 'start a %1$s tag', "oik" ), "&lt;div&gt;" ) );
 }
 
@@ -166,7 +167,8 @@ function div__example() {
  
 /**
  */
-function ediv__help() { 
+function ediv__help() {
+    /* translators: %1: <div> %2: </div> both hardcoded */
   return( esc_html( sprintf( __( 'end a %1$s with %2$s', "oik" ), "<div>", "</div>" ) ) );
 }
 

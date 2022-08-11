@@ -189,6 +189,7 @@ function bw_navi_s2eofn( $start, $end, $count, $prefix=null ) {
       BW_::br( $prefix );
     }
     sdiv( "bw_s2eofn" );
+    /* translators: %1 start page number, %2 end page number, %3 total page count */
     e( sprintf( __( '%1$s to %2$s of %3$s', 'oik') , $start, $end, $count ) );
     ediv();
   }   

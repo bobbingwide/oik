@@ -26,6 +26,7 @@ function oik_plugin_install_plugin( $plugin ) {
 	$link = '<a href="';
 	$link .= $url;
 	$link .= '">';
+	/* translators: %s: plugin name */
 	$link .= sprintf( __( 'Install %1$s', null ), $plugin ) ;
 	$link .= "</a>";
 	return $link ;
@@ -58,6 +59,7 @@ function oik_plugin_activate_plugin( $plugin, $plugin_name) {
 	$link = '<a href="';
 	$link .= $url;
 	$link .= '">';
+	/* translators: %s: plugin name */
 	$link .= sprintf( __( 'Activate %1$s', null ), $plugin_name );
 	$link .= "</a>";
 	return $link;
@@ -75,7 +77,8 @@ function oik_plugin_update_plugin( $plugin ) {
 	$url = wp_nonce_url( $url, "upgrade-plugin_$plugin" ); 
 	$link = '<a href="';
 	$link .= $url;
-	$link .= '">'; 
+	$link .= '">';
+	/* translators: %s: plugin name */
 	$link .= sprintf( __( 'Upgrade %1$s', null ), $plugin );
 	$link .= "</a>";
 	return $link;
@@ -194,8 +197,10 @@ function oik_plugin_plugin_inactive( $plugin=null, $dependencies=null, $problem=
   $plugin_name = basename( $plugin, ".php" );
   $dependencies = str_replace( ":", ' ' . __("version", null) . ' ' , $dependencies );
   $text = "<p><b>";
+
   $text .= sprintf( __( '%1$s may not be fully functional.', null), $plugin_name );
   $text .= "</b> ";
+    /* translators: %s: plugin dependencies */
   $text .= sprintf( __( 'Please install and activate the required minimum version of this plugin: %1$s', null ), $dependencies );
 	$text .= "</p>";
   

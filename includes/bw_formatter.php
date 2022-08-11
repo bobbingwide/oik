@@ -128,6 +128,7 @@ function bw_field_function_title( $post, &$atts, $f ) {
   bw_pop();
   bw_trace2( $atts, "look for title", true, BW_TRACE_VERBOSE );
   if ( empty( $atts['title'] ) ) {
+      /* translators: %s: post ID */
     $atts['title'] = sprintf( __( 'Post: %1$s', "oik" ) , $post->ID );
     
   } 

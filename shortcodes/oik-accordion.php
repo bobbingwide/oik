@@ -99,6 +99,7 @@ function bw_accordion__example( $shortcode="bw_accordion" ) {
 
 function bw_accordion__snippet( $shortcode="bw_accordion" ) {
   $example = "numberposts=2 post_type=page orderby=date order=DESC post_parent=0";
+  /* translators: %s: shortcode name */
   e( sprintf( __( 'Snippet not produced for this shortcode: %1$s', "oik" ), $shortcode ) );
 }
 

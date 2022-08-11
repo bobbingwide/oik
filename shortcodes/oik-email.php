@@ -88,6 +88,7 @@ function _bw_email( $atts=null ) {
   $email = _bw_atdot( $email, $atts ); 
   $title = bw_array_get( $atts, "title",  null );
 	if ( !$title ) {
+	    /* translators: %s: email address */
 		$title = sprintf( __( 'Send email to: %1$s', "oik" ), $email );
 	} else {
 		$title .= $email;

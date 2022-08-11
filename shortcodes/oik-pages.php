@@ -118,7 +118,8 @@ function bw_pages__example( $shortcode="bw_pages" ) {
   e( __( "The default display is formatted with a featured image, excerpt and a read more link.", "oik" ) );
 	e( ' ' );
   $link = "https://www.oik-plugins.com/oik-shortcodes/$shortcode/$shortcode";
-  $link = retlink( NULL, $link, sprintf( __( '%1$s help', "oik" ), $shortcode ) );   
+  $link = retlink( NULL, $link, sprintf( __( '%1$s help', "oik" ), $shortcode ) );
+  /* translators: %s link to shortcode examples on oik-plugins.com */
   e( sprintf( __( 'For examples visit %1$s', "oik" ), $link ) );  
 }
 

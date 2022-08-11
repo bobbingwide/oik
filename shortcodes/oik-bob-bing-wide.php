@@ -208,6 +208,7 @@ function wp3( $atts=NULL) {
  */	 
 function oik__help( $shortcode=NULL ) {
 	if ( $shortcode == "OIK" ) {
+	    /* translators: %s: expanded acronym for OIK - not translatable */
 		return sprintf( __( 'Spells out the %1$s backronym', "oik" ), bw_oik() );
 	} else {
 		return __( "Expand to the logo for oik", "oik" );

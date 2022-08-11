@@ -240,6 +240,7 @@ if ( !defined( 'OIK_SHORTCODES_INCLUDED' ) ) {
 			if ( function_exists( $ppfunc ) ) {
 				$result=$ppfunc( $result, $cf );
 			} else {
+			    /* translators: %s: function name */
 				$result.='<b>' . sprintf( __( 'missing post processing function: %1$s', 'oik' ), $ppfunc ) . '</b>';
 			}
 

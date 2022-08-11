@@ -631,13 +631,16 @@ class BW_List_Table {
 		$approved_comments_number = number_format_i18n( $approved_comments );
 		$pending_comments_number = number_format_i18n( $pending_comments );
 
+		/* translators: %s: Number of comments */
 		$approved_only_phrase = sprintf( _n( '%s comment', '%s comments', $approved_comments ), $approved_comments_number );
+        /* translators: %s: Number of approved comments */
 		$approved_phrase = sprintf( _n( '%s approved comment', '%s approved comments', $approved_comments ), $approved_comments_number );
+        /* translators: %s: Number of pending comments */
 		$pending_phrase = sprintf( _n( '%s pending comment', '%s pending comments', $pending_comments ), $pending_comments_number );
 
 		// No comments at all.
 		if ( ! $approved_comments && ! $pending_comments ) {
-			printf( '<span aria-hidden="true">—</span><span class="screen-reader-text">%s</span>',
+			printf( '<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">%s</span>',
 				__( 'No comments' )
 			);
 		// Approved comments have different display depending on some conditions.
@@ -731,6 +734,7 @@ class BW_List_Table {
 			$infinite_scroll = $this->_pagination_args['infinite_scroll'];
 		}
 
+		/* translators: %s: Number of items */
 		$output = '<span class="displaying-num">' . sprintf( _n( '%s item', '%s items', $total_items ), number_format_i18n( $total_items ) ) . '</span>';
 
 		$current = $this->get_pagenum();
@@ -792,6 +796,7 @@ class BW_List_Table {
 			);
 		}
 		$html_total_pages = sprintf( "<span class='total-pages'>%s</span>", number_format_i18n( $total_pages ) );
+		/* translators: %1$s current page number, %2$s total pages */
 		$page_links[] = $total_pages_before . sprintf( _x( '%1$s of %2$s', 'paging' ), $html_current_page, $html_total_pages ) . $total_pages_after;
 
 		if ( $disable_next ) {

@@ -18,7 +18,8 @@ function bw_qrcode( $atts ) {
   
   $logo_image = bw_get_option( "qrcode-image" );
   $image_url = $baseurl . $logo_image;
-  
+
+  /* translators: %s: company name */
   $image = retimage( NULL, $image_url, sprintf( __( 'QR code for %1$s', "oik" ), $text ) , $width, $height );
   if ( $link ) {
     BW_::alink( NULL, $link, $image, $company );

@@ -125,6 +125,7 @@ function bw_send_email( $email, $subject=null, $message=null, $headers=null, $fi
   $result = wp_mail( $to, $subject, $message, $headers, $attachments );
   bw_trace2( $result, "result of wp_mail" );
   if ( !$result ) {
+      /* translators: %1 email address %2 email subject */
     BW_::p( sprintf( __( 'Failed to send email to: %1$s subject: %2$s', "oik" ), $to, $subject ) );
   }
   return( $result );

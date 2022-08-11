@@ -234,6 +234,7 @@ function bw_table__example( $shortcode="bw_table" ) {
  $example = 'post_type="post" orderby="post_date" order=DESC numberposts=4';
  // oops it went into a loop! 
  //bw_invoke_shortcode( $shortcode, $example, $text );
+ /* translators: %s: shortcode name */
  BW_::p( sprintf( __( 'No example for %1$s', "oik" ) , $shortcode ) );
 } 
 
@@ -241,6 +242,7 @@ function bw_table__example( $shortcode="bw_table" ) {
  * Snippet hook for [bw_table] shortcode
  */
 function bw_table__snippet( $shortcode="bw_table" ) {
+ /* translators: %s: shortcode name */
  BW_::p( sprintf( __( 'No snippet for %1$s', "oik" ),  $shortcode ) ); 
 }
 

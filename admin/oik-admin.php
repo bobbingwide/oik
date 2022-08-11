@@ -245,6 +245,7 @@ function oik_documentation() {
 function oik_support() {
   oik_require( "shortcodes/oik-paypal.php" );
 	oik_require( "shortcodes/oik-bob-bing-wide.php" );
+	/* translators: %1: oik - the plugin name, %2 a link to the company - bobbing wide */
   $text = sprintf( __( 'Support the development of %1$s by making a donation to %2$s', 'oik' ), bw_oik(), bw_lbw() );
   p_( $text );
   e( bw_pp_shortcodes( array( "type" => "donate", "email" => "herb@bobbingwide.com" )) );
@@ -616,6 +617,7 @@ function oik_extra_usage_notes() {
   oik_require( "includes/oik-sc-help.php" );
   BW_::p( __( "Use the shortcodes in your pages, widgets and titles. e.g.", "oik" ) );
   bw_invoke_shortcode( "bw_contact", "alt=1",__( "Display your alternative contact name.", "oik" ) );
+  /* translators: %s: e-mail Not translatable */
   bw_invoke_shortcode( "bw_email", "alt=1 prefix=e-mail", sprintf( __( 'Display your alternative email address, with a prefix of \'%1$s\'.', "oik" ), "e-mail" ) );
   bw_invoke_shortcode( "bw_telephone", "alt=1", __( "Display your alternative telephone number.", "oik" ) );
   bw_invoke_shortcode( "bw_address", "alt=1", __( "Display your alternative address.", "oik" ) );
@@ -810,7 +812,9 @@ function oik_help_do_page() {
   
   $shortcode = bw_array_get( $_REQUEST, "code", null );
   if ( $shortcode ) {
+      /* translators: %s: oik_code_example - non translatable function name */
     BW_::oik_box( null, null, sprintf( __( '%1$s - more information', 'oik' ), $shortcode ), "oik_code_example" );
+    /* translators: %s: oik_code_snippet - non translatable function name */
     BW_::oik_box( null, null, sprintf( __( '%1$s - snippet', 'oik' ), $shortcode ), "oik_code_snippet" ); 
   }
   oik_require( "shortcodes/oik-codes.php" );
@@ -1090,11 +1094,13 @@ function bw_symlinked_plugin( $plugin_data, $r ) {
 	$version = bw_array_get( $plugin_data, "Version", null );
 	$new_version = bw_array_get( $plugin_data, "new_version", null ); 
 	if ( $new_version != $version ) {
-	
+	    /* translators: %s: new version number */
 		$text = sprintf( __( 'WordPress has previously determined that there is a new version available: %s', "oik" ), $new_version );
 		$text .= "<br />";
+		/* translators: %s: Current plugin version */
 		$text .= sprintf( __( 'Current version: %s', "oik" ), $version );
 		$text .= "<br />";
+		/* translators: %s: path to the symlinked plugin */
 		$text .= sprintf( __( 'However, this is a symlinked plugin, located at <br /> %s', "oik" ), $plugin_data['real_path'] );
 		$text .= "&nbsp;";
 		$text .= "<br /><strong>";
@@ -1195,8 +1201,10 @@ function bw_gitrepo_plugin( $plugin_data, $r ) {
 	$new_version = bw_array_get( $plugin_data, "new_version", null ); 
 	$text = __( "This plugin is a Git repository.", "oik" );
 	$text .= "&nbsp;";
+	/* translators: %s: New plugin version */
 	$text .= sprintf( __( 'New version?: %s', "oik" ), $new_version );
 	$text .= "&nbsp;";
+	/* translators: %s: Current plugin version */
 	$text .= sprintf( __( 'Current version: %s', "oik" ), $version );
 	$text .= "<br /><strong>";
 	$text .= __( "Please don't attempt to apply updates using WordPress.", "oik" );

@@ -356,6 +356,7 @@ function _bw_get_an_id() {
  */
 function bw_link__example( $shortcode="bw_link" ) {
 	$id = _bw_get_an_id();
+	/* translators: %s: post ID */
 	$text = sprintf( __( 'Example: Display a link to post with ID=%1$s', "oik" ), $id );
 	$example = $id;
 	bw_invoke_shortcode( $shortcode, $example, $text );

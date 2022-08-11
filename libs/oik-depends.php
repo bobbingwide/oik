@@ -100,6 +100,7 @@ function oik_plugin_inactive( $plugin=null, $dependencies=null, $problem=null ) 
   $dependencies = str_replace( ":", __(" version ", null ), $dependencies );
   list( $depends ) = explode(' ', trim( $dependencies ));
   $text = "<p><b>";
+  /* translators: %s: plugin name */
 	$text .= sprintf( __( 'Plugin %1$s may not be fully functional.', null ), $plug_name );
 	$text .= '</b>';
 	$text .= ' ';

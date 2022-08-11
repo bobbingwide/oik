@@ -234,17 +234,25 @@ function bw_default_labels( $labels= array() ) {
   if ( !$ucsingular ) {
     $ucsingular = bw_singularize( $ucplural );
   }
-  $labels['singular_name'] = $ucsingular; 
+  $labels['singular_name'] = $ucsingular;
+  /* translators: %s: post type label plural capitalised */
   $labels['all_items'] = bw_array_get( $labels, 'all_items', sprintf( __( 'All %1$s', "oik" ), $ucplural ) );
+    /* translators: %s: post type label singular capitalised */
   $labels['add_new'] = bw_array_get( $labels, 'add_new', sprintf( __( 'New %1$s', "oik" ), $ucsingular ) );
+    /* translators: %s: post type label singular capitalised */
   $labels['add_new_item'] = bw_array_get( $labels, 'add_new_item', sprintf( __( 'Create New %1$s', "oik" ), $ucsingular ) );
   $labels['edit'] = bw_array_get( $labels, 'edit', __( 'Edit', "oik" ) );
+    /* translators: %s: post type label singular capitalised */
   $labels['edit_item'] = bw_array_get( $labels, 'edit_item', sprintf( __( 'Edit %1$s', "oik" ), $ucsingular ) );
+    /* translators: %s: post type label singular capitalised */
   $labels['new_item'] = bw_array_get( $labels, 'new_item', sprintf( __( 'New %1$s', "oik" ), $ucsingular ) );
+    /* translators: %s: post type label singular capitalised */
   $labels['view'] = bw_array_get( $labels, 'view', sprintf( __( 'View %1$s', "oik"), $ucsingular ) );
   $labels['view_item'] = bw_array_get( $labels, 'view_item', sprintf( __( 'View %1$s', "oik" ), $ucsingular ) );
   $labels['search_items'] = bw_array_get( $labels, 'search_items', sprintf( __( 'View %1$s', "oik" ), $ucplural ) );
+    /* translators: %s: post type label plural */
   $labels['not_found'] = bw_array_get( $labels, 'not_found', sprintf( __( 'No %1$s found', "oik" ), $lcplural ) );
+    /* translators: %s: post type label plural  */
   $labels['not_found_in_trash'] = bw_array_get( $labels, 'not_found_in_trash', sprintf( __( 'No %1$s found in Trash', "oik") , $lcplural ) ); 
   // These labels were added in WordPress 4.3.0
   $labels['featured_image'] = bw_array_get( $labels, 'featured_image', __( 'Featured Image', "oik" ) );
@@ -252,7 +260,9 @@ function bw_default_labels( $labels= array() ) {
 	$labels['remove_featured_image'] = bw_array_get( $labels, 'remove_featured_image', __( 'Remove featured image', "oik" ) );
 	$labels['use_featured_image'] = bw_array_get( $labels, 'use_featured_image', __( 'Use as featured image', "oik" ) );
   // These labels were added in WordPress 5.8
+    /* translators: %s: post type label singular capitalised */
 	$labels['item_link'] = bw_array_get( $labels, 'item_link', sprintf( __( '%1$s Link', "oik"), $ucsingular ) );
+    /* translators: %s: post type label singular capitalised */
 	$labels['item_link_description'] = bw_array_get( $labels, 'item_link_description', sprintf( __( 'Link to %1$s', "oik"), $ucsingular ) );
 	// should each array element now be translated?
   bw_trace2( $labels, "labels", true, BW_TRACE_VERBOSE );
@@ -296,13 +306,21 @@ function bw_default_taxonomy_labels( $labels = array() ) {
   $labels = bw_default_labels( $labels );
   $ucplural = bw_array_get( $labels, "name", null );
   $ucsingular =  bw_array_get( $labels, "singular_name", $ucplural );
-  $labels['update_item'] = bw_array_get( $labels, "update_item" , sprintf( __( 'Update %1$s',  "oik" ), $ucplural ) ); 
-  $labels['new_item_name'] = bw_array_get( $labels, "new_item_name" , sprintf( __( 'New %1$s', "oik" ), $ucsingular ) ); 
-  $labels['parent_item'] = bw_array_get( $labels, "parent_item" , sprintf( __( 'Parent %1$s', "oik" ), $ucsingular ) ); 
-  $labels['parent_item_colon'] = bw_array_get( $labels, "parent_item_colon" , sprintf( __( 'Parent %1$s:', "oik" ), $ucsingular ) ); 
-  $labels['popular_items'] = bw_array_get( $labels, "popular_items" , sprintf( __( 'Popular %1$s', "oik" ), $ucplural ) ); 
-  $labels['separate_items_with_commas'] = bw_array_get( $labels, "separate_items_with_commas", sprintf( __( 'Separate %1$s with commas', "oik" ), $ucplural ) ); 
-  $labels['add_or_remove_items'] = bw_array_get( $labels, "add_or_remove_items", sprintf( __( 'Add or remove %1$s', "oik" ), $ucplural ) ); 
+    /* translators: %s: post type label plural capitalised */
+  $labels['update_item'] = bw_array_get( $labels, "update_item" , sprintf( __( 'Update %1$s',  "oik" ), $ucplural ) );
+    /* translators: %s: post type label singular capitalised */
+  $labels['new_item_name'] = bw_array_get( $labels, "new_item_name" , sprintf( __( 'New %1$s', "oik" ), $ucsingular ) );
+    /* translators: %s: post type label singular capitalised */
+  $labels['parent_item'] = bw_array_get( $labels, "parent_item" , sprintf( __( 'Parent %1$s', "oik" ), $ucsingular ) );
+    /* translators: %s: post type label singular capitalised */
+  $labels['parent_item_colon'] = bw_array_get( $labels, "parent_item_colon" , sprintf( __( 'Parent %1$s:', "oik" ), $ucsingular ) );
+    /* translators: %s: post type label plural capitalised */
+  $labels['popular_items'] = bw_array_get( $labels, "popular_items" , sprintf( __( 'Popular %1$s', "oik" ), $ucplural ) );
+    /* translators: %s: post type label plural capitalised */
+  $labels['separate_items_with_commas'] = bw_array_get( $labels, "separate_items_with_commas", sprintf( __( 'Separate %1$s with commas', "oik" ), $ucplural ) );
+    /* translators: %s: post type label plural capitalised */
+  $labels['add_or_remove_items'] = bw_array_get( $labels, "add_or_remove_items", sprintf( __( 'Add or remove %1$s', "oik" ), $ucplural ) );
+    /* translators: %s: post type label plural capitalised */
   $labels['choose_from_most_used'] = bw_array_get( $labels, "choose_from_most_used", sprintf( __( 'Choose from most used %1$s', "oik" ), $ucplural ) );
   // $labels['not_found'] = bw_array_get( $labels, "not_found", sprintf( __( 'No %1$s found', "oik") , $ucplural ) );
   //bw_trace2();

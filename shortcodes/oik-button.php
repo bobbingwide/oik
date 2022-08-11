@@ -87,6 +87,7 @@ function bw_contact_button( $atts=NULL ) {
   
   bw_trace( $link, __FUNCTION__, __LINE__, __FILE__, "link" );
   $text = bw_default_empty_arr( $atts, 'text', "contact-text", __( "Contact", "oik" ) );
+  /* translators: %s Name of the contact */
   $title = bw_default_empty_arr( $atts, 'title', "contact-title", sprintf( __( 'Contact %1$s', "oik" ) , $contact ) );
    
   $class = bw_array_get( $atts, 'class', NULL ) . "bw_contact" ;

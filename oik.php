@@ -324,6 +324,7 @@ function oik_admin_bar_menu( &$wp_admin_bar ) {
 	if ( $replace ) {
 		$node = $wp_admin_bar->get_node( 'my-account' );
 		$current_user = wp_get_current_user();
+		/* translators: %s current user display name */
 		$howdy = sprintf( __('Howdy, %s'), '<span class="display-name">' . $current_user->display_name . '</span>' );
 		//bw_trace2( $node, "node: $howdy" );
 		$replace = $replace . " " . '<span class="display-name">' . $current_user->display_name . '</span>';

@@ -295,6 +295,7 @@ function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class 
     $dash = retstag( "span", "dashicons dashicons-$lc_social bw_follow_me $class" );
     $dash .= retetag( "span" );
     $dash .= bw_follow_hash_at( $me );
+    /* translators: %1 who to follow, %2 network name */
     $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
     BW_::alink( null, $social, $dash, $follow_me_tooltip );
 }

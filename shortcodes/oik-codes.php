@@ -150,6 +150,7 @@ function bw_sc_link( $shortcode, $callback=null ) {
   $link .= "/oik-shortcodes/$shortcode/$function"; 
   $link = apply_filters( "bw_sc_link", $link, $shortcode, $function );
   if ( $link ) {
+    /* translators: %s: shortcode name */
     BW_::alink( NULL, $link, "$shortcode", sprintf( __( '%1$s help', "oik" ), $shortcode ) );   
   } else {
     e( $shortcode );
@@ -286,7 +287,8 @@ function bw_code( $atts=null, $content=null, $tag=null ) {
     
     $help = bw_validate_torf( $help );
     if ( $help ) {
-			BW_::p( sprintf( __( 'Help for shortcode: [%1$s]', "oik" ), $shortcode ), "bw_code_help"  );
+       /* translators: %s: shortcode name */
+		BW_::p( sprintf( __( 'Help for shortcode: [%1$s]', "oik" ), $shortcode ), "bw_code_help"  );
       //bw_trace2( $shortcode, "before do_action" );
       do_action( "bw_sc_help", $shortcode );
     }  
@@ -367,6 +369,7 @@ function bw_code_example_link( $atts ) {
 	$link = oik_get_shortcodes_server( );
     $link .= "/oik-shortcodes/$shortcode/$function";
 	$link = apply_filters( "bw_sc_link", $link, $shortcode, $function );
+	/* translators: %s: shortcode name */
     BW_::alink( "bw_code $shortcode", $link, $link_text, sprintf( __( 'Link to help for shortcode: %1$s', "oik" ), $shortcode ) );   
   } else { 
     span( "bw_code $shortcode" );

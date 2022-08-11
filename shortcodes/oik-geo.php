@@ -41,6 +41,7 @@ function bw_directions( $atts=null ) {
   $postcode = bw_get_option_arr( "postal-code", "bw_options", $atts );
   $link = "http://maps.google.co.uk/maps?f=d&hl=en&daddr=" . $lat . "," . $long;  
   $text = __( "Google directions", "oik" );
+  /* translators: %s: company name */
   $title = sprintf( __( 'Get directions to %s', "oik" ), $company );
   if ( $extended && ($company <> $extended) )
     $title .= " - " . $extended;

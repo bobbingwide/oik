@@ -16,6 +16,7 @@ function bw_wpadmin( $atts=null, $content=null, $tags=null ) {
 	if ( $site ) {
 		$site = trim_scheme( $site );
 		$site_url = set_url_scheme( "http://" . $site . "/wp-admin" );
+		/* translators: %s: website name */
 		BW_::alink( null, $site_url, $site, sprintf( __( 'Website: %1$s', "oik" ), $site ) );
 	} else {
 		$site_url = get_option( "siteurl" );

@@ -48,6 +48,7 @@ function bw_contact_form_submit_button( $atts ) {
 	$text = bw_array_get( $atts, "contact", null );
 	if ( !$text ) {
 		$me = bw_get_me( $atts );
+		/* translators: %s: name to contact */
 		$text = sprintf( __( "Contact %s" ), $me ); 
 	}
 	e( isubmit( bw_contact_form_id(), $text, null ) );
@@ -331,7 +332,8 @@ function bw_contact_form__syntax( $shortcode="bw_contact_form" ) {
  */
 function bw_contact_form__example( $shortcode="bw_contact_form" ) {
 	$id = bw_default_user( true ); 
-	$example = "user=$id"; 
+	$example = "user=$id";
+	/* translators: %s: User ID */
 	$text = sprintf( __( 'Display a contact form for user: %1$s', "oik" ), $id );
 	bw_invoke_shortcode( $shortcode, $example, $text );
 }

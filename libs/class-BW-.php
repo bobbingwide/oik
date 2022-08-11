@@ -105,6 +105,7 @@ class BW_ {
 	 * @param string $title - translated title
 	 */
 	static function oik_handlediv( $title ) {
+	    /* translators: %s: panel title */
 		$title = sprintf( __( 'Toggle panel: %s', null ), $title );
 		e( '<button type="button" class="handlediv" aria-expanded="true">' );
 		e( '<span class="screen-reader-text">' . $title . '</span>' );
