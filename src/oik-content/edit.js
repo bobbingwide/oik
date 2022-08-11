@@ -30,7 +30,7 @@ import { orderby, order } from './attributes';
 import { Formats } from './formats';
 import { SelectTextControlCombo } from './SelectTextControlCombo';
 
-import { BwQueryControls } from './query_controls';
+//import { BwQueryControls } from './query_controls';
 
 //import GenericAttrs from './GenericAttrs';
 import { PostTypes } from './post_type';
