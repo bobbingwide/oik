@@ -508,7 +508,7 @@ function bw_get_posts( $atts=null ) {
     $attr['suppress_filters'] = false;
   }
   
-  bw_trace( $attr, __FUNCTION__, __LINE__, __FILE__, "attr", BW_TRACE_INFO );
+  bw_trace( $attr, __FUNCTION__, __LINE__, __FILE__, "attr", BW_TRACE_DEBUG );
   
   $bw_query = bw_array_get( $atts, "bw_query", null );
   if ( $bw_query ) {
@@ -516,7 +516,7 @@ function bw_get_posts( $atts=null ) {
   } else {
     $posts = get_posts( $attr );
   }   
-  bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts", BW_TRACE_INFO );
+  bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts", BW_TRACE_DEBUG );
   return( $posts );
 }
 
