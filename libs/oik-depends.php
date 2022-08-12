@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2012-2021
+<?php // (C) Copyright Bobbing Wide 2012-2022
 if ( !defined( "OIK_DEPENDS_INCLUDED" ) ) {
-define( "OIK_DEPENDS_INCLUDED", "3.2.5" );
+define( "OIK_DEPENDS_INCLUDED", "3.2.6" );
 
 /**
  * Dependency checking library functions

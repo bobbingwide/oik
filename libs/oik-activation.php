@@ -2,11 +2,11 @@
 /**
  * Dependent plugin activation logic.
  *
- * @copyright (C) Copyright Bobbing Wide 2012-2017, 2020
+ * @copyright (C) Copyright Bobbing Wide 2012-2017, 2020, 2022
  * @package oik-libs
  */
 if ( !defined( "OIK_ACTIVATION_INCLUDED" ) ) {
-define( "OIK_ACTIVATION_INCLUDED", "3.2.1" );
+define( "OIK_ACTIVATION_INCLUDED", "3.2.2" );
 
 
 if ( function_exists( "oik_plugin_lazy_activation" ) ) {

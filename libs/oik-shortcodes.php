@@ -1,6 +1,6 @@
 <?php
 if ( !defined( 'OIK_SHORTCODES_INCLUDED' ) ) {
-	define( 'OIK_SHORTCODES_INCLUDED', "3.5.0" );
+	define( 'OIK_SHORTCODES_INCLUDED', "3.5.1" );
 	/**
 	 * Library: oik-shortcodes
 	 * Provides: oik-shortcodes

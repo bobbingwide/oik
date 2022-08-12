@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2013-2021
+<?php // (C) Copyright Bobbing Wide 2013-2022
 if ( !defined( "OIK_THEMES_INCLUDED" ) ) {
-	define( "OIK_THEMES_INCLUDED", "0.2.2" );
+	define( "OIK_THEMES_INCLUDED", "0.2.3" );
 
 /**
  * Library: oik_themes

@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2012-2022
 if ( !defined( "OIK_PLUGINS_INCLUDED" ) ) {
-	define( "OIK_PLUGINS_INCLUDED", "0.3.1" );
+	define( "OIK_PLUGINS_INCLUDED", "0.3.2" );
 
 /**
  * Library: oik_plugins

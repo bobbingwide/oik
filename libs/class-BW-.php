@@ -1,6 +1,6 @@
-<?php // (C) Copyright BobbingWide 2017-2021
+<?php // (C) Copyright BobbingWide 2017-2022
 if ( !defined( "CLASS_BW__INCLUDED" ) ) {
-define( "CLASS_BW__INCLUDED", "3.2.1" );
+define( "CLASS_BW__INCLUDED", "3.2.2" );
 
 /**
  * More HTML output library functions
