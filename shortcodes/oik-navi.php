@@ -57,7 +57,17 @@ function bw_get_parm_shortcode_id( $id ) {
  */
 function bw_check_paged_shortcode( $bwscid ) {
   $page = bw_get_parm_shortcode_id( $bwscid );
-  return( $page);
+  /* Some requests from bots contain trailing slashes either as '/' or '%2F'
+     The paged value needs to be numeric.
+  */
+  $page = trim( $page,'/' );
+  $page = (int) $page;
+  /* Cater for a non numeric value for page.
+  */
+  if ( !$page ) {
+	  $page = 1;
+  }
+  return $page;
 }
 
 /**
@@ -230,7 +240,7 @@ function bw_navi_ids( $posts, $atts=null ) {
  * @param array $atts 
  * @return ID start number (defaults to 1 )
  */
-function oik_navi_s2eofn_from_query( $atts ) { 
+function oik_navi_s2eofn_from_query( $atts ) {
   $bw_query = bw_array_get( $atts, "bw_query", null );
 	$start = 1;
   bw_trace2( $bw_query, "bw_query", false, BW_TRACE_VERBOSE );
