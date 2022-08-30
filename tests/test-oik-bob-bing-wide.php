@@ -35,12 +35,15 @@ class Tests_oik_bob_bing_wide extends BW_UnitTestCase {
 	 * Cheating here. We're not testing that the WordPress version is included by PHP version is not.
 	 */
 	function test_bw_wp_v0_my() {
-    $memory_limit = ini_set( "memory_limit", "256M" );
+		$prev_memory_limit = ini_get( "memory_limit" );
+        $memory_limit = ini_set( "memory_limit", "256M" );
 		$expected_output = null;
 		$expected_output .= ". Memory limit: 256M";
 		$expected_output .= '</span>';
 		$html = bw_wp( array( "v", "m" => "y" ) );
-		$this->assertStringEndsWith( $expected_output, $html ); 
+		$this->assertStringEndsWith( $expected_output, $html );
+		$memory_limit = ini_set( "memory_limit", $prev_memory_limit );
+
 	}
 	
 	/**

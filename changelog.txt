@@ -36,6 +36,12 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.8.1 =
+Maintenance release with improved translators comments. Built using latest wp-scripts.
+
+= 4.8.0 =
+Upgrade for the dynamic PayPal block implemented using [paypal] shortcode logic.
+Each of the 8 blocks are now delivered separately.
 
 = 4.7.2 = 
 Fix for [bw_pages] rendering blocks change in 4.7.1 
@@ -463,6 +469,31 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 == Changelog ==
+= 4.8.1 =
+* Changed: Add translator's comments. #202
+* Changed: Update tests, catering for official translations and theme updates etc
+* Changed: Update build files #202
+* Changed: Reduce trace output from bw_get_posts #106
+* Changed: Don't import BWQueryControls; it's not used
+* Changed: Reduce trace output from oik-navi #106
+* Changed: Updated wp-scripts #202
+* Tested: With WordPress 6.0.1 and WordPress Multi Site
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+* Tested: With Gutenberg 13.8.1
+
+= 4.8.0 =
+* Added: Dynamic PayPal block #184 #203
+* Changed: Add custom webpack.config.js for multiple entry points #202
+* Changed: Update blocks and translations for multiple entry points #202
+* Changed: Update build for multiple entry points - one per block #202
+* Changes: Update wp-scripts version #202
+* Fixed: Ensure inline style is enqueued for bw_follow_me #187
+* Fixed: bw_follow_me: Choose correct icon for GitHub #187
+* Tested: With WordPress 5.9.3 and WordPress Multi Site
+* Tested: With Gutenberg 12.9.0
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
 
 = 4.7.2 = 
 * Fixed: Corrected logic to render blocks for Content and Excerpt processing in [bw_pages] #200

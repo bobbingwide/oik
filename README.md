@@ -5,7 +5,7 @@
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
 * Tested up to: 6.0.1
-* Stable tag: 4.8.1
+* Stable tag: 4.8.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -106,39 +106,17 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 4.8.1 
-Maintenance release with improved translators comments. Built using latest wp-scripts.
-
-# 4.8.0 
-Upgrade for the dynamic PayPal block implemented using [paypal] shortcode logic.
-Each of the 8 blocks are now delivered separately.
+# 4.8.2 
+Adds missing blocks. Update for a fix in oik-navi pagination logic.
 
 ## Changelog 
-# 4.8.1 
-* Changed: Add translator's comments. #202
-* Changed: Update tests, catering for official translations and theme updates etc
-* Changed: Update build files #202
-* Changed: Reduce trace output from bw_get_posts #106
-* Changed: Don't import BWQueryControls; it's not used
-* Changed: Reduce trace output from oik-navi #106
-* Changed: Updated wp-scripts #202
+# 4.8.2 
+* Fixed: Deliver build files for separately delivered blocks. #202
+* Fixed: Cater for invalid bwscidn query parm values passed by bots #168
 * Tested: With WordPress 6.0.1 and WordPress Multi Site
 * Tested: With PHP 8.0
 * Tested: With PHPUnit 9
-* Tested: With Gutenberg 13.8.1
-
-# 4.8.0 
-* Added: Dynamic PayPal block #184 #203
-* Changed: Add custom webpack.config.js for multiple entry points #202
-* Changed: Update blocks and translations for multiple entry points #202
-* Changed: Update build for multiple entry points - one per block #202
-* Changes: Update wp-scripts version #202
-* Fixed: Ensure inline style is enqueued for bw_follow_me #187
-* Fixed: bw_follow_me: Choose correct icon for GitHub #187
-* Tested: With WordPress 5.9.3 and WordPress Multi Site
-* Tested: With Gutenberg 12.9.0
-* Tested: With PHP 8.0
-* Tested: With PHPUnit 9
+* Tested: With Gutenberg 13.9.0
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the
