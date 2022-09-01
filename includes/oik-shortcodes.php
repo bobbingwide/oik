@@ -147,8 +147,10 @@ function bw_oik_lazy_add_shortcodes() {
   
   
   bw_add_shortcode( "bw_navi", "bw_navi", oik_path( "shortcodes/oik-navi.php" ), false );
-  
-  add_filter( "oik_shortcode_result", "oik_navi_shortcode_result", 10, 4 );
+  bw_add_shortcode( "bw_contact_field", "bw_contact_field", oik_path( "shortcodes/oik-contact-field.php" ), false );
+
+
+    add_filter( "oik_shortcode_result", "oik_navi_shortcode_result", 10, 4 );
   add_filter( "oik_shortcode_atts", "oik_navi_shortcode_atts", 10, 3 );
   
 } 
