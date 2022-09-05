@@ -45,8 +45,17 @@ function bw_contact_field( $atts, $content, $tag ) {
     $args = [ '#length' => 30 ];
     $value = bw_array_get( $atts, 'value', null);
     $args['value'] = $value;
-    $required = bw_array_get( $atts, 'required', '0');
+
+    /**
+     * Sets the required flag in #extras if the Label contains a '*' or the
+     * required attribute is set.
+     */
+    $required = ( false !== strpos( $label, '*' ) ) ? 'y' : 'n';
+    $required = bw_array_get( $atts, 'required', $required);
     $args['required'] = $required;
+    if ( bw_validate_torf( $required ) ) {
+        $args['#extras'] = 'required';
+    }
 
     // The prefix could be set in the bw_contact_form shortcode or the first instance of the bw_contact_field shortcode.
     //$prefix = bw_contact_form_prefix( 'oiku_');

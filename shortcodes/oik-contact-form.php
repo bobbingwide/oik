@@ -445,7 +445,7 @@ function _bw_show_contact_form_fields() {
         bw_trace2( $field, "Field", false, BW_TRACE_DEBUG );
         if ( $field ) {
             $value = ''; // $field['#value']
-            bw_form_field( $full_name, $field['#field_type'], $field['#title'], $value , $bw_fields[ $full_name ]);
+            bw_form_field( $full_name, $field['#field_type'], $field['#title'], $value , $bw_fields[ $full_name ]['#args']);
         }
     }
     $bw_contact_fields = [];
