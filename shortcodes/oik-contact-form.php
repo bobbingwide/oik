@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright (C) Copyright Bobbing Wide 2013-2019
+ * @copyright (C) Copyright Bobbing Wide 2013-2022
  * @package oik
  *
 */
@@ -32,6 +32,7 @@ function bw_contact_form_id( $set=false ) {
  * @return string Generated HTML for the contact form
  */
 function bw_contact_form( $atts=null, $content=null, $tag=null ) {
+
 	$email_to = bw_get_option_arr( "email", null, $atts );
 	if ( $email_to ) { 
 		$atts['email'] = $email_to;
@@ -88,7 +89,7 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
         BW_::bw_textfield( bw_contact_field_full_name( "name" ), 30, __("Name *", "oik"), null, "textBox", "required");
         BW_::bw_emailfield( bw_contact_field_full_name( "email" ), 30, __("Email *", "oik"), null, "textBox", "required");
         BW_::bw_textfield( bw_contact_field_full_name( "subject" ), 30, __("Subject", "oik"), null, "textBox");
-        BW_::bw_textarea( bw_contact_field_full_name( "text" ), 30, __("Message", "oik"), null, 10);
+        BW_::bw_textarea( bw_contact_field_full_name( "message" ), 30, __("Message", "oik"), null, 10);
     }
 	// @TODO Optional "required" checkbox
 	//bw_checkbox( "oiku_checkbox, 
@@ -110,6 +111,7 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
  * @param string $content
  */
 function bw_display_contact_form( $atts, $user=null, $content=null ) {
+    oik_require( 'shortcodes/oik-contact-field.php');
 	$contact_form_id = bw_contact_form_id( true );
     bw_contact_form_register_fields( $atts, $content );
 	$contact = bw_array_get( $_REQUEST, $contact_form_id, null );
@@ -160,8 +162,13 @@ function bw_get_message() {
 	return( $message );
 }
 
-function bw_get_contact_field_value( $name ) {
-    $field_name = bw_contact_field_full_name( $name);
+/**
+ * Returns the contact field value given the field name.
+ *
+ * @param $field_name
+ * @return array|mixed|string|string[]|null
+ */
+function bw_get_contact_field_value( $field_name ) {
     $message = bw_array_get( $_REQUEST, $field_name, null );
     $message = sanitize_text_field( $message );
     $message = stripslashes( $message );
@@ -169,13 +176,20 @@ function bw_get_contact_field_value( $name ) {
     return( $message );
 }
 
+
+/**
+ * Gets the contact fields for the email.
+ *
+ * @return string
+ */
 function bw_get_contact_fields() {
     global $bw_contact_fields;
     $field_values = '';
     foreach ( $bw_contact_fields as $field ) {
         $field_value = bw_get_contact_field_value( $field );
         $field_values .= '<br />';
-        $field_values .= $field;
+        $field_values .= bw_query_field_label( $field );
+        $field_values .= ': ';
         $field_values .= $field_value;
     }
     return $field_values;
@@ -311,7 +325,6 @@ function _bw_process_contact_form_oik() {
 	$email_to = bw_array_get( $_REQUEST, "oiku_email_to", null );
 	$message = bw_get_message();
 	if ( $email_to && $message ) {
-        $message .= bw_get_contact_fields();
 		oik_require( "includes/oik-contact-form-email.php" );
 		$fields = array();
 		$subject = bw_get_subject();
@@ -322,6 +335,8 @@ function _bw_process_contact_form_oik() {
 		$fields['comment_type'] = 'oik-contact-form';
 		$send = bw_akismet_check( $fields );
 		if ( $send ) {
+            // We only need the Message field once.
+            $message = bw_get_contact_fields();
 			$message .= "<br />\r\n";
 			$message .= retlink( null, get_permalink() );
 			$fields['message'] = $message;
@@ -417,7 +432,8 @@ function bw_contact_form_register_fields( $atts, $content ) {
 /**
  * Displays the contact form's fields.
  *
- * @TODO Ensure required fields have the 'required' attribute. Set default field lengths and textarea height.
+ * @TODO Ensure required fields have the 'required' attribute.
+ * @TODO Set default field lengths and textarea height.
  */
 function _bw_show_contact_form_fields() {
     global $bw_contact_fields;
