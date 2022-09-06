@@ -44,7 +44,9 @@ function bw_contact_field( $atts, $content, $tag ) {
      */
     $args = [ '#length' => 30 ];
     $value = bw_array_get( $atts, 'value', null);
-    $args['value'] = $value;
+    $args['#default'] = $value;
+    $placeholder = bw_array_get( $atts, 'placeholder', null );
+    $args['#placeholder'] = $placeholder;
 
     /**
      * Sets the required flag in #extras if the Label contains a '*' or the
@@ -70,8 +72,9 @@ function bw_contact_field( $atts, $content, $tag ) {
     // The next line of code is used for testing.
     //bw_form_field( $full_name, $type, $label, $value, $bw_fields[ $full_name ]);
 
-    $html = bw_ret();
 
+    // The contact field is not expected to produce output itself. It's used in the contact form.
+    $html = bw_ret();
     return $html;
 }
 
@@ -96,13 +99,12 @@ function bw_contact_field_type_from_name( $name ) {
     $types = [ 'name' => 'text'
         , 'email' => 'email'
         , 'subject' => 'text'
-        , 'telephone' => 'telephone'
+        , 'telephone' => 'tel' // Not yet supported by bw_form_field()
         , 'message' => 'textarea'
         , 'text' => 'textarea'
         ];
     $type = bw_array_get( $types, $name, 'text');
     return $type;
-
 }
 
 /**
