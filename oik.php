@@ -700,7 +700,8 @@ function oik_dynamic_block_contact_form( $attributes ) {
 	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-contact-form.php', 'oik', 'bw_contact_form' );
 	if ( ! $html ) {
 		if ( did_action( "oik_loaded" ) ) {
-			$html = bw_contact_form( $attributes );
+            bw_add_shortcode( "bw_contact_field", "bw_contact_field", oik_path( "shortcodes/oik-contact-field.php" ), false );
+            $html = bw_contact_form( $attributes );
 		} else {
 			$html="The Contact form block requires the oik plugin.";
 		}
