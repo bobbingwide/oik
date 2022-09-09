@@ -1,0 +1,67 @@
+{
+  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "oik/contact-field",
+  "title": "Contact field",
+  "category": "common",
+  "icon": "text",
+  "description": "Defines a contact form field",
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "default": "text"
+    },
+    "name": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "length": {
+      "type": "numeric"
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "gradient": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "className": false,
+    "color": {
+      "gradients": false,
+      "text": false,
+      "background": false,
+      "link": false
+    },
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false
+    }
+  },
+  "keywords": [ "Contact", "form", "oik" ],
+  "editorScript": "file:../../build/contact-field.js",
+  "editorStyle": "file:../../build/contact-field.css",
+  "style": "file:../../build/style-contact-field.css"
+}

@@ -7,6 +7,12 @@
   "icon": "forms",
   "description": "Displays a Contact form",
   "attributes": {
+    "contact": {
+      "type":   "string"
+    },
+    "email": {
+      "type": "string"
+    },
     "textAlign": {
       "type": "string"
     },

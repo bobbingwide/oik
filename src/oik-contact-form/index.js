@@ -14,7 +14,7 @@ import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 
 import { registerBlockType, createBlock } from '@wordpress/blocks';
-import {AlignmentControl, BlockControls, InspectorControls, useBlockProps, PlainText, BlockIcon} from '@wordpress/block-editor';
+import {AlignmentControl, BlockControls, InspectorControls, useBlockProps, PlainText, BlockIcon, InnerBlocks} from '@wordpress/block-editor';
 import ServerSideRender from '@wordpress/server-side-render';
 import {
     Toolbar,
@@ -44,18 +44,51 @@ registerBlockType(
                     [ `has-text-align-${ textAlign }` ]: textAlign,
                 } ),
             } );
+
+          const innerBlocksTemplate = [ ['oik/contact-field', { label: 'Name', type: 'text'}],
+                                        ['oik/contact-field', { label: 'Email', type: 'email'}],
+                                        ['oik/contact-field', { label: 'Message', type:'textarea'}]
+                                    ];
+            const onChangeContact = (event) => {
+                props.setAttributes({contact: event});
+            };
           return (
+              <Fragment>
+                  <InspectorControls>
+                      <PanelBody>
+                          <PanelRow>
+                              <TextControl label={__("Text for Submit button", "oik" )} value={attributes.contact} onChange={onChangeContact}/>
+                          </PanelRow>
+                      </PanelBody>
+                  </InspectorControls>
+
 					<div { ...blockProps}>
-                       <ServerSideRender
-                        block="oik/contact-form" attributes={ props.attributes }
-                    />
+                        { false &&
+                        <ServerSideRender
+                            block="oik/contact-form" attributes={props.attributes}
+                        />
+                        }
+
+                        <table>
+                            <tbody>
+                                <InnerBlocks template={ innerBlocksTemplate } allowedBlocks={ ['oik/contact-field'] }/>
+                            </tbody>
+                        </table>
+                        <input type="submit" value={ props.attributes.contact } />
+
                     </div>
+              </Fragment>
           );
         },
 				
 		save() {
-				 // Rendering in PHP
-					return null;
+            const blockProps = useBlockProps.save();
+
+            return (
+                <div { ...blockProps }>
+                    <InnerBlocks.Content />
+                </div>
+            );
 		}
     }
 );
