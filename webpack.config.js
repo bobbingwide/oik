@@ -4,6 +4,7 @@ module.exports = {
     entry: {
         'address': './src/oik-address',
         'contact-form': './src/oik-contact-form',
+        'contact-field': '/src/oik-contact-field',
         'content-block': './src/oik-content',
         'countdown': './src/oik-countdown',
         'follow-me': './src/oik-follow-me',
