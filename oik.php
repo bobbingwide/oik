@@ -590,6 +590,8 @@ function oik_register_dynamic_blocks() {
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-paypal', $args );
 	$args = [ 'render_callback' => 'oik_dynamic_block_shortcode_block' ];
 	$registered = register_block_type_from_metadata( __DIR__ .'/src/oik-shortcode', $args );
+    $args = [ 'render_callback' => 'oik_dynamic_block_contact_field' ];
+    $registered = register_block_type_from_metadata( __DIR__ .'/src/oik-contact-field', $args );
 
 
 	/**
@@ -604,6 +606,7 @@ function oik_register_dynamic_blocks() {
     $ok = wp_set_script_translations( 'oik-googlemap-editor-script', 'oik' , __DIR__ .'/languages' );
 	$ok = wp_set_script_translations( 'oik-paypal-editor-script', 'oik' , __DIR__ .'/languages' );
     $ok = wp_set_script_translations( 'oik-shortcode-block-editor-script', 'oik' , __DIR__ .'/languages' );
+    $ok = wp_set_script_translations( 'oik-contact-field-editor-script', 'oik' , __DIR__ .'/languages' );
 
 
 	add_filter( 'load_script_textdomain_relative_path', 'oik_load_script_textdomain_relative_path', 10, 2);
@@ -696,17 +699,39 @@ function oik_dynamic_block_address( $attributes ) {
  * @param array $attributes Attributes to the block.
  * @return string generated HTML
  */
-function oik_dynamic_block_contact_form( $attributes ) {
-	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-contact-form.php', 'oik', 'bw_contact_form' );
+function oik_dynamic_block_contact_form( $attributes, $content, $block ) {
+    bw_trace2();
+	$html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-contact-form.php', 'oik', 'bw_contact_form_block' );
 	if ( ! $html ) {
 		if ( did_action( "oik_loaded" ) ) {
             bw_add_shortcode( "bw_contact_field", "bw_contact_field", oik_path( "shortcodes/oik-contact-field.php" ), false );
-            $html = bw_contact_form( $attributes );
+
+            $html = bw_contact_form_block( $attributes, $content, $block );
 		} else {
 			$html="The Contact form block requires the oik plugin.";
 		}
 	}
 	return $html;
+}
+
+/**
+ * Server rendering contact-field block.
+ *
+ * @param array $attributes Attributes to the block.
+ * @return string generated HTML
+ */
+function oik_dynamic_block_contact_field( $attributes ) {
+    $html = \oik\oik_blocks\oik_blocks_check_server_func( 'shortcodes/oik-contact-field.php', 'oik', 'bw_contact_field' );
+    if ( ! $html ) {
+        if ( did_action( "oik_loaded" ) ) {
+            bw_add_shortcode( "bw_contact_field", "bw_contact_field", oik_path( "shortcodes/oik-contact-field.php" ), false );
+            //$html = bw_contact_field( $attributes, null, null );
+
+        } else {
+            $html="The Contact field block requires the oik plugin.";
+        }
+    }
+    return $html;
 }
 
 /**
