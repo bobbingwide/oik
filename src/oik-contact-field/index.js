@@ -7,7 +7,7 @@
  * @author Herb Miller @bobbingwide
  */
 //import './style.scss';
-//import './editor.scss';
+import './editor.scss';
 
 
 import { __ } from '@wordpress/i18n';
@@ -92,15 +92,12 @@ registerBlockType(
                 </InspectorControls>
 
                     <div { ...blockProps}>
-                    <tr>
-                        <td>
+                        <div className="label">
                             <label for={ attributes.name }>{attributes.label}</label>
-                        </td>
-                        <td>
+                        </div>
+                        <div className="field">
                             <ContactFieldControl type={attributes.type} name={attributes.name} required={attributes.required} />
-
-                        </td>
-                    </tr>
+                        </div>
                     </div>
 
 
