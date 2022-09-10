@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2009-2022
 if ( !defined( "BOBBFORMS_INCLUDED" ) ) {
-define( "BOBBFORMS_INCLUDED", "3.3.0" );
+define( "BOBBFORMS_INCLUDED", "3.4.0" );
 
 /**
  * Library: bobbforms
@@ -331,8 +331,12 @@ function bw_textfield( $name, $len, $text, $value, $class=null, $extras=null, $a
 	if ( $value === null ) {
 		$value = bw_array_get( $_REQUEST, $name, null );
 	}
-	$itext = itext( $name, $len, $value, $class, $extras, $args ); 
-	bw_tablerow( array( $lab, $itext ) );
+	$itext = itext( $name, $len, $value, $class, $extras, $args );
+    if ( bw_is_table() ) {
+        bw_tablerow(array($lab, $itext));
+    } else {
+        bw_gridrow(array($lab, $itext));
+    }
 	return;
 }
 
@@ -351,8 +355,12 @@ function bw_emailfield( $name, $len, $text, $value, $class=null, $extras=null ) 
 	if ( $value === null ) {
 		$value = bw_array_get( $_REQUEST, $name, null );
 	}
-	$itext = iemail( $name, $len, $value, $class, $extras ); 
-	bw_tablerow( array( $lab, $itext ) );
+	$itext = iemail( $name, $len, $value, $class, $extras );
+    if ( bw_is_table() ) {
+        bw_tablerow(array($lab, $itext));
+    } else {
+        bw_gridrow(array($lab, $itext));
+    }
 	return;
 }
 
@@ -378,8 +386,12 @@ function bw_textarea( $name, $len, $text, $value, $rows=10, $args=null ) {
 	if ( null !== $spellcheck ) {
 		$spellcheck = kv( "spellcheck", $spellcheck );
 	}
-	$itext = iarea( $name, $len, $value, $rows, $spellcheck ); 
-	bw_tablerow( array( $lab, $itext) );
+	$itext = iarea( $name, $len, $value, $rows, $spellcheck );
+    if ( bw_is_table() ) {
+        bw_tablerow(array($lab, $itext));
+    } else {
+        bw_gridrow(array($lab, $itext));
+    }
 	return;
 }
 
@@ -403,7 +415,11 @@ function bw_radio( $name, $text, $values, $labels, $class=null, $extras=null ) {
 		$iradios .= iradio( $name, $id, $value, $class, $extra );
 	}   
 	$lab = label( $name, $text );
-	bw_tablerow( array( $lab, $iradios ) );
+    if ( bw_is_table() ) {
+        bw_tablerow(array($lab, $iradios));
+    } else {
+        bw_gridrow(array($lab, $radios));
+    }
 }
 
 /** 
@@ -532,8 +548,12 @@ function iselect( $name, $value, $args ) {
  */
 function bw_select( $name, $text, $value, $args ) {
 	$lab = label( $name, $text );
-	$iselect = iselect( $name, $value, $args ); 
-	bw_tablerow( array( $lab, $iselect ) );
+	$iselect = iselect( $name, $value, $args );
+    if ( bw_is_table() ) {
+        bw_tablerow(array($lab, $iselect));
+    } else {
+        bw_gridrow(array($lab, $iselect));
+    }
 	return;
 }
 
@@ -578,7 +598,11 @@ function icheckbox( $name, $value=NULL, $disabled=false ) {
 function bw_checkbox( $name, $text, $value=1, $args=NULL ) {
 	$lab = BW_::label( $name, $text );
 	$icheckbox = icheckbox( $name, $value );
-	bw_tablerow( array( $lab, $icheckbox ));
+    if ( bw_is_table() ) {
+        bw_tablerow(array($lab, $icheckbox));
+    } else {
+        bw_gridrow(array($lab, $icheckbox));
+    }
 	return;
 }
 
@@ -773,6 +797,66 @@ if ( !function_exists( "bw_verify_nonce" ) ) {
 		bw_trace2( $verified, "wp_verify_nonce?" );
 		return( $verified );
 	}
+}
+
+
+/**
+ * Starts a table or grid.
+ *
+ * @since v3.4.0
+ * @param null $table
+ */
+function bw_table_or_grid_start( $table=null ) {
+    bw_is_table( $table );
+    if ( $table ) {
+        stag( 'table');
+    } else {
+        sdiv( 'bw_grid');
+    }
+}
+
+    /**
+     * Ends a table or grid.
+     * @since v3.4.0
+     */
+function bw_table_or_grid_end() {
+    if ( bw_is_table() ) {
+        etag( 'table');
+    } else {
+        ediv();
+    }
+}
+
+/**
+ * Checks for/sets table or grid.
+ *
+ * @since v3.4.0
+ * @param $table
+ * @return mixed
+ */
+function bw_is_table( $table=null ) {
+    static $bw_table_or_grid;
+    if ( null !== $table ) {
+        $bw_table_or_grid = $table;
+
+    }
+    bw_trace2( $bw_table_or_grid, "table or grid");
+    return $bw_table_or_grid;
+ }
+
+/**
+ * Displays a row as a grid.
+ * @since v3.4.0
+ * @param $array
+ */
+function bw_gridrow( $array ) {
+    if ( count( $array ) ) {
+        foreach ($array as $item) {
+            sdiv();
+            e($item);
+            ediv();
+        }
+    }
 }
 
 } /* end !defined */

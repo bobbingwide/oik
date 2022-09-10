@@ -78,11 +78,16 @@ function bw_contact_form_submit_button( $atts ) {
  */
 function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
 	$email_to = bw_get_option_arr( "email", null, $atts );
-	oik_require( "bobbforms.inc" );
+	oik_require_lib( "bobbforms", "3.4.0" );
 	$class = bw_array_get( $atts, "class", "bw_contact_form" );
 	sdiv( $class );
 	bw_form();
-	stag( "table" );
+	//stag( "table" );
+    if ( function_exists( 'bw_is_table')) {
+        bw_table_or_grid_start( false ); // Start a grid
+    } else {
+        stag( 'table' );
+    }
     if ( $content ) {
         _bw_show_contact_form_fields($atts, $content);
     } else {
@@ -93,7 +98,13 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
     }
 	// @TODO Optional "required" checkbox
 	//bw_checkbox( "oiku_checkbox, 
-	etag( "table" );
+	//etag( "table" );
+    if ( function_exists( 'bw_is_table')) {
+        bw_table_or_grid_end();
+    } else {
+        etag( 'table');
+    }
+
 	e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false, false ) );
 	e( ihidden( "oiku_email_to", $email_to ) );
 	oik_require_lib( "oik-honeypot" );
