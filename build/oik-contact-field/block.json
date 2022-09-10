@@ -1,17 +1,30 @@
 {
   "apiVersion": 2,
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "name": "oik/contact-form",
-  "title": "Contact form",
+  "name": "oik/contact-field",
+  "title": "Contact field",
+  "parent": [
+    "oik/contact-form"
+  ],
   "category": "common",
-  "icon": "forms",
-  "description": "Displays a Contact form",
+  "icon": "text",
+  "description": "Defines a contact form field",
   "attributes": {
-    "contact": {
+    "label": {
       "type": "string"
     },
-    "email": {
+    "type": {
+      "type": "string",
+      "default": "text"
+    },
+    "name": {
       "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "length": {
+      "type": "numeric"
     },
     "textAlign": {
       "type": "string"
@@ -55,7 +68,7 @@
     "form",
     "oik"
   ],
-  "editorScript": "file:../../build/contact-form.js",
-  "editorStyle": "file:../../build/contact-form.css",
-  "style": "file:../../build/style-contact-form.css"
+  "editorScript": "file:../../build/contact-field.js",
+  "editorStyle": "file:../../build/contact-field.css",
+  "style": "file:../../build/style-contact-field.css"
 }
