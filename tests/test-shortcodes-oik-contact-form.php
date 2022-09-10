@@ -39,6 +39,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 	}
 	
 	/**
+     * @since bobbforms v3.4.0 the form is styled as a grid, not a table.
 	 */
 	function test_bw_contact_form() {
 		//$this->setExpectedDeprecated( "bw_translate" );
@@ -50,10 +51,13 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		$html_array = $this->tag_break( $html );
 		$this->assertNotNull( $html_array );
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "_oik_contact_nonce", "_oik_contact_nonce" );
-    //$this->generate_expected_file( $html_array );
+   // $this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
-	
+
+    /*
+     * @since bobbforms v3.4.0 the form is styled as a grid, not a table.
+     */
 	function test_bw_contact_form_bb_BB() {
 		//$this->setExpectedDeprecated( "bw_translate" );
 		$this->switch_to_locale( "bb_BB" );
@@ -64,7 +68,7 @@ class Tests_shortcodes_oik_contact_form extends BW_UnitTestCase {
 		$html_array = $this->tag_break( $html );
 		$this->assertNotNull( $html_array );
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "_oik_contact_nonce", "_oik_contact_nonce" );
-    //$this->generate_expected_file( $html_array );
+   // $this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 		$this->switch_to_locale( "en_GB" );
 	}
