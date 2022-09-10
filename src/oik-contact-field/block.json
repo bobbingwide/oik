@@ -3,6 +3,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik/contact-field",
   "title": "Contact field",
+  "parent": [ "oik/contact-form"],
   "category": "common",
   "icon": "text",
   "description": "Defines a contact form field",

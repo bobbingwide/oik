@@ -450,3 +450,68 @@ function _bw_show_contact_form_fields() {
     }
     $bw_contact_fields = [];
 }
+
+/**
+ * Implements the oik/contact-form block
+ *
+ * Creates/processes an inline contact form for the user.
+ *
+ * @param array $atts - block parameters
+ * @param string $content - Nested HTML
+ * @param object WP_Block - Block object including InnerBlocks
+ * @return string Generated HTML for the contact form
+ */
+function bw_contact_form_block( $atts=null, $content=null, $block=null ) {
+    bw_trace2();
+
+    $email_to = bw_get_option_arr( "email", null, $atts );
+    if ( $email_to ) {
+        $atts['email'] = $email_to;
+        $content = bw_contact_form_inner_blocks( $block->parsed_block['innerBlocks']);
+        bw_display_contact_form($atts, null, $content);
+    } else {
+        /*
+        * If no email address can be found, because it's not passed and not set in the oik-options,
+        * then you'll get this message.
+        */
+        e( __( "Cannot produce contact form for unknown user.", "oik" ) );
+    }
+    return( bw_ret() );
+}
+
+/**
+ * Handles oik/contact-field inner blocks.
+ *
+ * @param $innerBlocks
+ * @return string
+ */
+function bw_contact_form_inner_blocks( $innerBlocks ) {
+    $content = '';
+    bw_trace2();
+    foreach ( $innerBlocks as $innerBlock ) {
+        //$content .= '[bw_contact_field "Name *"][bw_contact_field "Email *"]';]
+        $content .= bw_contact_field_to_shortcode( $innerBlock['attrs'] );
+    }
+    return $content;
+}
+
+/**
+ * Converts an oik/contact-field block's attributes to a bw_contact_field shortcode.
+ *
+ * @param $attrs
+ * @return string
+ */
+function bw_contact_field_to_shortcode( $attrs ) {
+    $content = '[bw_contact_field label="';
+    $content .= bw_array_get( $attrs, 'label', "field" );
+    $content .= '" type="';
+    $content .= bw_array_get( $attrs, 'type', 'text' );
+    $content .= '"';
+    $required = bw_array_get( $attrs, 'required', false );
+    if ( $required ) {
+        $content .= ' required=y';
+    }
+    $content .= "]";
+    return $content;
+}
+
