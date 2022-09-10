@@ -830,15 +830,17 @@ function bw_table_or_grid_end() {
 /**
  * Checks for/sets table or grid.
  *
+ * The default format is table.
+ * To set the display format to grid use `bw_is_table( false )`.
+ *
  * @since v3.4.0
- * @param $table
- * @return mixed
+ * @param $table null to retrieve the current value. true for table, false for grid.
+ * @return mixed the new value.
  */
 function bw_is_table( $table=null ) {
-    static $bw_table_or_grid;
+    static $bw_table_or_grid = true;
     if ( null !== $table ) {
         $bw_table_or_grid = $table;
-
     }
     bw_trace2( $bw_table_or_grid, "table or grid");
     return $bw_table_or_grid;
