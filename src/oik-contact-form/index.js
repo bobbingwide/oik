@@ -1,9 +1,10 @@
 /**
  * Implements the Contact form block
  *
- * Equivalent to [bw_contact_form]
+ * Originally equivalent to [bw_contact_form]
+ * Now equivalent to [bw_contact_form][bw_contact_field "Name"] etc [/bw_contact_form]
  *
- * @copyright (C) Copyright Bobbing Wide 2018, 2020, 2021
+ * @copyright (C) Copyright Bobbing Wide 2018, 2020, 2021, 2022
  * @author Herb Miller @bobbingwide
  */
 import './style.scss';
@@ -45,9 +46,9 @@ registerBlockType(
                 } ),
             } );
 
-          const innerBlocksTemplate = [ ['oik/contact-field', { label: 'Name', type: 'text'}],
-                                        ['oik/contact-field', { label: 'Email', type: 'email'}],
-                                        ['oik/contact-field', { label: 'Message', type:'textarea'}]
+          const innerBlocksTemplate = [ ['oik/contact-field', { label: 'Name', type: 'text', 'required': true }],
+                                        ['oik/contact-field', { label: 'Email', type: 'email', 'required': true }],
+                                        ['oik/contact-field', { label: 'Message', type:'textarea', 'required': true }]
                                     ];
             const onChangeContact = (event) => {
                 props.setAttributes({contact: event});
@@ -68,12 +69,7 @@ registerBlockType(
                             block="oik/contact-form" attributes={props.attributes}
                         />
                         }
-
-                        <table>
-                            <tbody>
-                                <InnerBlocks template={ innerBlocksTemplate } allowedBlocks={ ['oik/contact-field'] }/>
-                            </tbody>
-                        </table>
+                        <InnerBlocks template={ innerBlocksTemplate } allowedBlocks={ ['oik/contact-field'] }/>
                         <input type="submit" value={ props.attributes.contact } />
 
                     </div>
