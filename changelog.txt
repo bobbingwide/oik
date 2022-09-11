@@ -36,6 +36,9 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.8.2 =
+Adds missing blocks. Update for a fix in oik-navi pagination logic.
+
 = 4.8.1 =
 Maintenance release with improved translators comments. Built using latest wp-scripts.
 
@@ -469,6 +472,14 @@ Some plugins have been created as separate plugins (e.g. uk-tides). Others have 
 
 
 == Changelog ==
+= 4.8.2 =
+* Fixed: Deliver build files for separately delivered blocks. #202
+* Fixed: Cater for invalid bwscidn query parm values passed by bots #168
+* Tested: With WordPress 6.0.1 and WordPress Multi Site
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+* Tested: With Gutenberg 13.9.0
+
 = 4.8.1 =
 * Changed: Add translator's comments. #202
 * Changed: Update tests, catering for official translations and theme updates etc

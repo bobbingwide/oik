@@ -4,18 +4,19 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 6.0.1
-* Stable tag: 4.8.2
+* Tested up to: 6.0.2
+* Stable tag: 4.9.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
 
 Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.
 
-Now with 8 blocks:
+Now with 9 blocks:
 
 * Address - Displays your address from oik-options
 * Contact form - Displays a contact form
+* Contact field - Part of the Contact form
 * Countdown - Countdown / count since timer
 * Dynamic content - Dynamic content block
 * Follow me - Displays your social media links
@@ -106,17 +107,20 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 4.8.2 
-Adds missing blocks. Update for a fix in oik-navi pagination logic.
+# 4.9.0 
+Update for an improved Contact form with user definable fields.
 
 ## Changelog 
-# 4.8.2 
-* Fixed: Deliver build files for separately delivered blocks. #202
-* Fixed: Cater for invalid bwscidn query parm values passed by bots #168
+# 4.9.0 
+* Changed: Update Contact form to support user defined fields #207
+* Changed: Update shared library files #207
+* Added: Add oik/contact-field block #207
+* Added: Added [bw_contact_field] shortcode #207
 * Tested: With WordPress 6.0.1 and WordPress Multi Site
 * Tested: With PHP 8.0
 * Tested: With PHPUnit 9
-* Tested: With Gutenberg 13.9.0
+* Tested: With Gutenberg 14.0.2
+
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the
