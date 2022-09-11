@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 4.8.1\n"
+"Project-Id-Version: oik 4.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-08-12T09:44:19+00:00\n"
+"POT-Creation-Date: 2022-09-10T15:44:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik"
@@ -502,6 +502,7 @@ msgstr "Alt. solagn"
 #: admin/oik-admin.php:600
 #: shortcodes/oik-email.php:75
 #: shortcodes/oik-email.php:133
+#: build/contact-field.js:1
 #: build/paypal.js:1
 msgid "Email"
 msgstr "Eamil"
@@ -1511,7 +1512,7 @@ msgstr "cloalge ID"
 msgid "Index of the theme_collages post meta to display"
 msgstr "Idnex Of thE tehme_cloalegs psot mtea tO dsilpay"
 
-#: libs/bobbforms.php:509
+#: libs/bobbforms.php:525
 #: build/follow-me.js:1
 msgid "None"
 msgstr "Nnoe"
@@ -1593,7 +1594,7 @@ msgstr "CSS calss nmaes"
 
 #: libs/oik-sc-help.php:321
 #: libs/oik-sc-help.php:598
-#: shortcodes/oik-contact-form.php:321
+#: shortcodes/oik-contact-form.php:387
 #: shortcodes/oik-galleries.php:35
 #: shortcodes/oik-link.php:324
 msgid "id"
@@ -1768,7 +1769,7 @@ msgstr "Tihs Is A cpaiton"
 #: libs/oik-sc-help.php:397
 #: shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19
-#: shortcodes/oik-contact-form.php:322
+#: shortcodes/oik-contact-form.php:388
 #: shortcodes/oik-countdown.php:97
 #: shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325
@@ -2484,85 +2485,86 @@ msgstr "[bw_codes] - lsit sohtroceds"
 msgid "Use alternative value"
 msgstr "UsE atlreanitve vlaue"
 
-#: shortcodes/oik-contact-form.php:37
+#: shortcodes/oik-contact-form.php:45
+#: shortcodes/oik-contact-form.php:488
 msgid "Cannot produce contact form for unknown user."
 msgstr "Cnaont porudce cnoatct from fOr uknonwn uesr."
 
-#: shortcodes/oik-contact-form.php:52
+#: shortcodes/oik-contact-form.php:60
 msgid "Contact %s"
 msgstr "Cnoatct %s"
 
-#: shortcodes/oik-contact-form.php:78
+#: shortcodes/oik-contact-form.php:94
 msgid "Name *"
 msgstr "Nmae *"
 
-#: shortcodes/oik-contact-form.php:79
+#: shortcodes/oik-contact-form.php:95
 msgid "Email *"
 msgstr "Eamil *"
 
-#: shortcodes/oik-contact-form.php:80
+#: shortcodes/oik-contact-form.php:96
 msgid "Subject"
 msgstr "Sbuejct"
 
-#: shortcodes/oik-contact-form.php:81
+#: shortcodes/oik-contact-form.php:97
 msgid "Message"
 msgstr "Mseasge"
 
-#: shortcodes/oik-contact-form.php:251
+#: shortcodes/oik-contact-form.php:315
 msgid "Thank you for your submission."
 msgstr "Tahnk yOU fOr yuor sbuimssoin."
 
-#: shortcodes/oik-contact-form.php:253
+#: shortcodes/oik-contact-form.php:317
 msgid "Thank you for your submission. Something went wrong. Please try again."
 msgstr "Tahnk yOU fOr yuor sbuimssoin. Smoteihng wnet worng. Pelsae try aagin."
 
-#: shortcodes/oik-contact-form.php:256
+#: shortcodes/oik-contact-form.php:320
 msgid "We would like to thank you for your submission."
 msgstr "WE wuold lkie tO tahnk yOU fOr yuor sbuimssoin."
 
-#: shortcodes/oik-contact-form.php:300
+#: shortcodes/oik-contact-form.php:366
 msgid "Invalid. Please correct and retry."
 msgstr "Ivnlaid. Pelsae croerct And rtery."
 
-#: shortcodes/oik-contact-form.php:314
+#: shortcodes/oik-contact-form.php:380
 msgid "Display a contact form for the specific user"
 msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
-#: shortcodes/oik-contact-form.php:321
-#: shortcodes/oik-contact-form.php:323
+#: shortcodes/oik-contact-form.php:387
+#: shortcodes/oik-contact-form.php:389
 #: shortcodes/oik-paypal.php:268
 msgid "email"
 msgstr "eamil"
 
-#: shortcodes/oik-contact-form.php:321
+#: shortcodes/oik-contact-form.php:387
 msgid "slug"
 msgstr "sulg"
 
-#: shortcodes/oik-contact-form.php:321
+#: shortcodes/oik-contact-form.php:387
 msgid "login"
 msgstr "lgoin"
 
-#: shortcodes/oik-contact-form.php:321
+#: shortcodes/oik-contact-form.php:387
 msgid "Value to identify the user"
 msgstr "Vlaue tO iedtnfiy thE uesr"
 
-#: shortcodes/oik-contact-form.php:322
+#: shortcodes/oik-contact-form.php:388
 msgid "Text for submit button"
 msgstr "Txet fOr sbuimt btuotn"
 
-#: shortcodes/oik-contact-form.php:323
+#: shortcodes/oik-contact-form.php:389
 msgid "Email address for submission"
 msgstr "Eamil adderss fOr sbuimssoin"
 
-#: shortcodes/oik-contact-form.php:337
+#: shortcodes/oik-contact-form.php:403
 msgid "Display a contact form for user: %1$s"
 msgstr "Dsilpay A cnoatct from fOr uesr: %1$s"
 
-#: shortcodes/oik-contact-form.php:347
+#: shortcodes/oik-contact-form.php:413
 msgid "Note: If the form is submitted from Shortcode help then two emails would be sent."
 msgstr "Ntoe: If thE from Is sbuimtted form Sohtrocde hlep tehn twO eamlis wuold bE snet."
 
-#: shortcodes/oik-contact-form.php:348
+#: shortcodes/oik-contact-form.php:414
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "SO thE nroaml sinppet cdoe Is nOt ivnkoed In tihs csae."
 
@@ -3039,19 +3041,19 @@ msgstr "cmoapny"
 msgid "Text for tooltip"
 msgstr "Txet fOr tootlip"
 
-#: shortcodes/oik-navi.php:193
+#: shortcodes/oik-navi.php:203
 msgid "%1$s to %2$s of %3$s"
 msgstr "%1$s tO %2$s Of %3$s"
 
-#: shortcodes/oik-navi.php:340
+#: shortcodes/oik-navi.php:350
 msgid "Simple paginated list"
 msgstr "Smilpe pganitaed lsit"
 
-#: shortcodes/oik-navi.php:350
+#: shortcodes/oik-navi.php:360
 msgid "integer"
 msgstr "itngeer"
 
-#: shortcodes/oik-navi.php:350
+#: shortcodes/oik-navi.php:360
 msgid "Number of posts per page. Default from Reading Settings."
 msgstr "Nmuebr Of psots pEr pgae. Dfeualt form Raeidng Steitgns."
 
@@ -3376,6 +3378,31 @@ msgstr "Dsilpay"
 msgid "Equivalent shortcode"
 msgstr "Euqvilanet sohtrocde"
 
+#: build/contact-field.js:1
+msgid "Text"
+msgstr "Txet"
+
+#: build/contact-field.js:1
+msgid "Textarea"
+msgstr "Txeatera"
+
+#: build/contact-field.js:1
+msgid "Label"
+msgstr "Lbael"
+
+#: build/contact-field.js:1
+#: build/paypal.js:1
+msgid "Type"
+msgstr "Tpye"
+
+#: build/contact-field.js:1
+msgid "Required?"
+msgstr "Rqeiuerd?"
+
+#: build/contact-form.js:1
+msgid "Text for Submit button"
+msgstr "Txet fOr Sbuimt btuotn"
+
 #: build/content-block.js:1
 msgid "Descending order"
 msgstr "Dseecdnnig odrer"
@@ -3453,10 +3480,6 @@ msgid "This is where the map will appear"
 msgstr "Tihs Is wehre thE mAp wlil appaer"
 
 #: build/paypal.js:1
-msgid "Type"
-msgstr "Tpye"
-
-#: build/paypal.js:1
 msgid "Amount"
 msgstr "Aomnut"
 
@@ -3527,6 +3550,7 @@ msgid "Address"
 msgstr "Adderss"
 
 #: build/oik-address/block.json
+#: build/oik-contact-field/block.json
 #: build/oik-contact-form/block.json
 #: build/oik-content/block.json
 #: build/oik-countdown/block.json
@@ -3535,6 +3559,7 @@ msgstr "Adderss"
 #: build/oik-paypal/block.json
 #: build/oik-shortcode/block.json
 #: src/oik-address/block.json
+#: src/oik-contact-field/block.json
 #: src/oik-contact-form/block.json
 #: src/oik-content/block.json
 #: src/oik-countdown/block.json
@@ -3545,6 +3570,34 @@ msgstr "Adderss"
 msgctxt "block keyword"
 msgid "oik"
 msgstr "OIk"
+
+#: build/oik-contact-field/block.json
+#: src/oik-contact-field/block.json
+msgctxt "block title"
+msgid "Contact field"
+msgstr "Cnoatct feild"
+
+#: build/oik-contact-field/block.json
+#: src/oik-contact-field/block.json
+msgctxt "block description"
+msgid "Defines a contact form field"
+msgstr "Dfenies A cnoatct from feild"
+
+#: build/oik-contact-field/block.json
+#: build/oik-contact-form/block.json
+#: src/oik-contact-field/block.json
+#: src/oik-contact-form/block.json
+msgctxt "block keyword"
+msgid "Contact"
+msgstr "Cnoatct"
+
+#: build/oik-contact-field/block.json
+#: build/oik-contact-form/block.json
+#: src/oik-contact-field/block.json
+#: src/oik-contact-form/block.json
+msgctxt "block keyword"
+msgid "form"
+msgstr "from"
 
 #: build/oik-contact-form/block.json
 #: src/oik-contact-form/block.json
@@ -3557,18 +3610,6 @@ msgstr "Cnoatct from"
 msgctxt "block description"
 msgid "Displays a Contact form"
 msgstr "Dsilpyas A Cnoatct from"
-
-#: build/oik-contact-form/block.json
-#: src/oik-contact-form/block.json
-msgctxt "block keyword"
-msgid "Contact"
-msgstr "Cnoatct"
-
-#: build/oik-contact-form/block.json
-#: src/oik-contact-form/block.json
-msgctxt "block keyword"
-msgid "form"
-msgstr "from"
 
 #: build/oik-content/block.json
 #: src/oik-content/block.json
