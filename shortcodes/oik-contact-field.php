@@ -51,12 +51,18 @@ function bw_contact_field( $atts, $content, $tag ) {
     /**
      * Sets the required flag in #extras if the Label contains a '*' or the
      * required attribute is set.
+     * If required sets the requiredindicator to '*' by default.
      */
     $required = ( false !== strpos( $label, '*' ) ) ? 'y' : 'n';
     $required = bw_array_get( $atts, 'required', $required);
     $args['required'] = $required;
     if ( bw_validate_torf( $required ) ) {
+        $label = str_replace( '*', '', $label );
         $args['#extras'] = 'required';
+        $requiredIndicator = bw_array_get( $atts, 'requiredindicator', '*');
+        if (null !== $requiredIndicator) {
+            $label .= '<span class="required">' . $requiredIndicator . '</span>';
+        }
     }
 
     // The prefix could be set in the bw_contact_form shortcode or the first instance of the bw_contact_field shortcode.

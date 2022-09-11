@@ -82,7 +82,6 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
 	$class = bw_array_get( $atts, "class", "bw_contact_form" );
 	sdiv( $class );
 	bw_form();
-	//stag( "table" );
     if ( function_exists( 'bw_is_table')) {
         bw_table_or_grid_start( false ); // Start a grid
     } else {
@@ -96,10 +95,7 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
         BW_::bw_textfield( bw_contact_field_full_name( "subject" ), 30, __("Subject", "oik"), null, "textBox");
         BW_::bw_textarea( bw_contact_field_full_name( "message" ), 30, __("Message", "oik"), null, 10);
     }
-	// @TODO Optional "required" checkbox
-	//bw_checkbox( "oiku_checkbox, 
-	//etag( "table" );
-    if ( function_exists( 'bw_is_table')) {
+	if ( function_exists( 'bw_is_table')) {
         bw_table_or_grid_end();
     } else {
         etag( 'table');
@@ -521,6 +517,10 @@ function bw_contact_field_to_shortcode( $attrs ) {
     $required = bw_array_get( $attrs, 'required', false );
     if ( $required ) {
         $content .= ' required=y';
+        $requiredIndicator = bw_array_get( $attrs, 'requiredIndicator', null );
+        if ( null !== $requiredIndicator ) {
+            $content .= ' requiredindicator="' . $requiredIndicator . '"';
+        }
     }
     $content .= "]";
     return $content;
