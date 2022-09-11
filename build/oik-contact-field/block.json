@@ -23,6 +23,9 @@
     "required": {
       "type": "boolean"
     },
+    "requiredIndicator": {
+      "type": "string"
+    },
     "length": {
       "type": "numeric"
     },

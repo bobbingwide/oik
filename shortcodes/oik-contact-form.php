@@ -209,6 +209,7 @@ function bw_validate_contact_fields() {
         $valid = bw_validate_required_field( $field, $field_value );
         if ( !$valid ) {
             $label = bw_query_field_label( $field );
+            /* translators: %s Label of the required field. eg Text */
             $text = sprintf( __( "Required field not set: %s", 'oik' ), $label );
             bw_contact_issue_message( $field, "bw_field_required", $text);
             break;
@@ -474,10 +475,12 @@ function bw_contact_form_register_fields( $atts, $content ) {
     }
     $content = do_shortcode( $content );
     //print_r( $bw_contact_fields );
+    /*
     $message_field = bw_array_get( $bw_contact_fields, bw_contact_field_full_name('message'), null );
     if ( !$message_field ) {
         $content = do_shortcode( "[bw_contact_field 'Message']" );
     }
+    */
 }
 
 /**
