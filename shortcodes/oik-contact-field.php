@@ -1,11 +1,9 @@
 <?php
-
 /**
  * @copyright (C) Copyright Bobbing Wide 2022
  * @package oik
  *
  */
-
 
 /**
  * Implements bw_contact_field shortcode.
@@ -51,7 +49,7 @@ function bw_contact_field( $atts, $content, $tag ) {
     /**
      * Sets the required flag in #extras if the Label contains a '*' or the
      * required attribute is set.
-     * If required sets the requiredindicator to '*' by default.
+     * If required sets the `requiredindicator` to '*' by default.
      */
     $required = ( false !== strpos( $label, '*' ) ) ? 'y' : 'n';
     $required = bw_array_get( $atts, 'required', $required);
@@ -65,20 +63,10 @@ function bw_contact_field( $atts, $content, $tag ) {
         }
     }
 
-    // The prefix could be set in the bw_contact_form shortcode or the first instance of the bw_contact_field shortcode.
-    //$prefix = bw_contact_form_prefix( 'oiku_');
-
     $full_name = bw_contact_field_full_name( $name );
     bw_register_field( $full_name, $type, $label, $args );
     global $bw_contact_fields;
     $bw_contact_fields[$full_name] = $full_name;
-    //global $bw_fields;
-    //bw_format_field( $bw_fields[ $name ] );
-    //bw_theme_field( $name, $value, $bw_fields[ $name ] );
-    // The next line of code is used for testing.
-    //bw_form_field( $full_name, $type, $label, $value, $bw_fields[ $full_name ]);
-
-
     // The contact field is not expected to produce output itself. It's used in the contact form.
     $html = bw_ret();
     return $html;
@@ -86,12 +74,14 @@ function bw_contact_field( $atts, $content, $tag ) {
 
 /**
  * Returns a field name given the label.
+ *
+ * @param string $label eg 'Name *'
+ * @return string lower cased sanitized version of the label
  */
 function bw_contact_field_name_from_label( $label  ) {
     $name = $label;
     $name = strtolower( $name );
     $name = sanitize_key( $name);
-    //$name = 'oiku_' . $name;
     return $name;
 }
 
@@ -105,7 +95,7 @@ function bw_contact_field_type_from_name( $name ) {
     $types = [ 'name' => 'text'
         , 'email' => 'email'
         , 'subject' => 'text'
-        , 'telephone' => 'tel' // Not yet supported by bw_form_field()
+        , 'telephone' => 'tel' // @TODO Not yet supported by bw_form_field()
         , 'message' => 'textarea'
         , 'text' => 'textarea'
         ];
@@ -121,15 +111,6 @@ function bw_contact_field_type_from_name( $name ) {
  * @return string
  */
 function bw_contact_field_full_name( $name  ) {
-    //$prefix = bw_contact_form_prefix();
     $prefix = bw_contact_form_id();
     return $prefix . '_' . $name;
-}
-
-function bw_contact_form_prefix( $prefix=null ) {
-    static $form_prefix;
-    if ( $prefix !== null ) {
-        $form_prefix = $prefix;
-    }
-    return $form_prefix;
 }

@@ -183,7 +183,6 @@ function bw_get_contact_field_value( $field_name ) {
     return( $message );
 }
 
-
 /**
  * Gets the contact fields for the email.
  *
@@ -200,6 +199,46 @@ function bw_get_contact_fields() {
         $field_values .= $field_value;
     }
     return $field_values;
+}
+
+function bw_validate_contact_fields() {
+    global $bw_contact_fields;
+    $valid = true;
+    foreach ( $bw_contact_fields as $field ) {
+        $field_value = bw_get_contact_field_value( $field);
+        $valid = bw_validate_required_field( $field, $field_value );
+        if ( !$valid ) {
+            $label = bw_query_field_label( $field );
+            $text = sprintf( __( "Required field not set: %s", 'oik' ), $label );
+            bw_contact_issue_message( $field, "bw_field_required", $text);
+            break;
+        }
+    }
+    return $valid;
+}
+
+/**
+ * Validates a required field to be non-empty.
+ *
+ * @param $field_name
+ * @param $field_value
+ * @return bool - false if required field isn't set.
+ */
+function bw_validate_required_field( $field_name, $field_value ) {
+    $field_value = trim( $field_value );
+    global $bw_fields;
+    $valid = false;
+    $field = bw_array_get( $bw_fields, $field_name, null );
+    if ( null === $field ) {
+        return $valid;
+    }
+    // A checkbox value of '0' means it's not checked.
+    if ( 'checkbox' === $field['#field_type']) {
+        $field_value = str_replace( '0', '', $field_value );
+    }
+    $required = bw_array_get( $field['#args'], 'required', null );
+    $valid = ( 'y' === $required ) ? strlen( $field_value) > 0 : true;
+    return $valid;
 }
 
 /**
@@ -321,8 +360,7 @@ function bw_thankyou_message( $fields, $send, $sent ) {
  * Process a contact form submission
  *
  * Handle the contact form submission
- * 1. Check fields
- *   If message is blank then display an error message.
+ * 1. Check for required fields
  * 2. Perform spam checking
  * 3. Send email, copying user if required
  * 4. Display "thank you" message
@@ -331,7 +369,8 @@ function bw_thankyou_message( $fields, $send, $sent ) {
 function _bw_process_contact_form_oik() {
 	$email_to = bw_array_get( $_REQUEST, "oiku_email_to", null );
 	$message = bw_get_message();
-	if ( $email_to && $message ) {
+    $valid = bw_validate_contact_fields();
+	if ( $email_to && $valid ) {
 		oik_require( "includes/oik-contact-form-email.php" );
 		$fields = array();
 		$subject = bw_get_subject();
@@ -356,17 +395,22 @@ function _bw_process_contact_form_oik() {
 		bw_thankyou_message( $fields, $send, $sent );
 	} else {
 		$sent = false;
-		if ( !function_exists( "bw_issue_message" ) ) { 
-			oik_require( "includes/bw_messages.php" );
-		}  
+
 		$text = __( "Invalid. Please correct and retry.", "oik" );
-		bw_issue_message( null, "bw_field_required", $text );
+		bw_contact_issue_message( null, "bw_field_required", $text );
 		$displayed = bw_display_messages();
 		if ( !$displayed ) {
 			p_( $text );
 		}  
 	}
 	return( $sent );
+}
+
+function bw_contact_issue_message( $field, $code, $text, $type='error' ) {
+    if ( !function_exists( "bw_issue_message" ) ) {
+        oik_require( "includes/bw_messages.php" );
+    }
+    bw_issue_message( $field, $code, $text, $type );
 }
 
 /**
