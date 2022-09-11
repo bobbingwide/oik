@@ -33,16 +33,20 @@ const fieldTypes =
 
     [
         {
-            label: __( 'Text' ),
+            label: __( 'Text', 'oik' ),
             value: 'text',
         },
         {
-            label: __( 'Textarea' ),
+            label: __( 'Textarea', 'oik' ),
             value: 'textarea',
         },
         {
-            label: __( 'Email' ),
+            label: __( 'Email', 'oik' ),
             value: 'email',
+        },
+        {
+            label: __( 'Checkbox', 'oik' ),
+            value: 'checkbox',
         },
 
     ];
@@ -71,6 +75,9 @@ registerBlockType(
             const onChangeRequired = (event) => {
                 props.setAttributes({required: event});
             };
+            const onChangeRequiredIndicator = (event) => {
+                props.setAttributes({requiredIndicator: event});
+            };
             return (
                 <Fragment>
                 <InspectorControls>
@@ -88,12 +95,18 @@ registerBlockType(
                         <PanelRow>
                             <ToggleControl label={__("Required?", "oik" )} checked={ !! attributes.required } onChange={onChangeRequired}/>
                         </PanelRow>
+                        <PanelRow>
+                            <TextControl label={__("Required indicator", "oik" )} value={attributes.requiredIndicator} onChange={onChangeRequiredIndicator}/>
+
+                        </PanelRow>
                     </PanelBody>
                 </InspectorControls>
 
                     <div { ...blockProps}>
                         <div className="label">
-                            <label for={ attributes.name }>{attributes.label}</label>
+                            <label for={ attributes.name }>{attributes.label}
+                                { attributes.required && <span className="required">{attributes.requiredIndicator}</span> }
+                            </label>
                         </div>
                         <div className="field">
                             <ContactFieldControl type={attributes.type} name={attributes.name} required={attributes.required} />
