@@ -46,9 +46,10 @@ registerBlockType(
                 } ),
             } );
 
-          const innerBlocksTemplate = [ ['oik/contact-field', { label: 'Name', type: 'text', 'required': true }],
-                                        ['oik/contact-field', { label: 'Email', type: 'email', 'required': true }],
-                                        ['oik/contact-field', { label: 'Message', type:'textarea', 'required': true }]
+          const innerBlocksTemplate = [ ['oik/contact-field', { label: 'Name', type: 'text', 'required': true, 'requiredIndicator': ' *' }],
+                                        ['oik/contact-field', { label: 'Email', type: 'email', 'required': true, 'requiredIndicator': ' *'  }],
+                                        ['oik/contact-field', { label: 'Subject', type: 'text', 'required': false }],
+                                        ['oik/contact-field', { label: 'Message', type:'textarea', 'required': true, 'requiredIndicator': ' *'  }]
                                     ];
             const onChangeContact = (event) => {
                 props.setAttributes({contact: event});

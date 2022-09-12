@@ -83,7 +83,7 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
 	sdiv( $class );
 	bw_form();
     if ( function_exists( 'bw_is_table')) {
-        bw_table_or_grid_start( false ); // Start a grid
+        bw_table_or_grid_start( empty($content) ); // Start a grid if fields are defined
     } else {
         stag( 'table' );
     }
