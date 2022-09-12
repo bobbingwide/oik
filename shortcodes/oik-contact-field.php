@@ -38,7 +38,7 @@ function bw_contact_field( $atts, $content, $tag ) {
     $type = bw_contact_field_type_from_name( $name );
     $type = bw_array_get_from( $atts, '1,type', $type );
     /**
-     * @TODO Implement logic to set the field size, placeholder value, validate required fields, etc.
+     * @TODO Complete the logic to set the field size, placeholder value, default value.
      */
     $args = [ '#length' => 30 ];
     $value = bw_array_get( $atts, 'value', null);
@@ -113,4 +113,19 @@ function bw_contact_field_type_from_name( $name ) {
 function bw_contact_field_full_name( $name  ) {
     $prefix = bw_contact_form_id();
     return $prefix . '_' . $name;
+}
+
+
+function bw_contact_field__help( $shortcode='bw_contact_field') {
+    return __( "Display a contact form field", "oik" );
+}
+
+function bw_contact_field__syntax( $shortcode='bw_contact_field') {
+    $syntax = [ "0,label" =>  BW_::bw_skv( 'field', "<i>" . __( "label", "oik" ) . "</i>", __( "Label for the field", "oik" ) )
+        , "1,type" => BW_::bw_skv( 'text', "textarea|email|checkbox", __( "Input field type", "oik" ) )
+        , "2,name" => BW_::bw_skv( 'field', "<i>" . __( "text", "oik" ) . "</i>", __( "Field name", "oik" ) )
+        , "required" => BW_::bw_skv( 'n', 'y', __("Required field") )
+        , "requiredindicator" => BW_::bw_skv( null, "<i>" . __( "text", "oik" ) . "</i>", __("Text to indicate the field is required. eg *") )
+        ];
+    return $syntax;
 }
