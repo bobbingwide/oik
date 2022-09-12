@@ -77,7 +77,6 @@ function bw_contact_form_submit_button( $atts ) {
  * @param array $atts - shortcode parameters 
  */
 function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
-	$email_to = bw_get_option_arr( "email", null, $atts );
 	oik_require_lib( "bobbforms", "3.4.0" );
 	$class = bw_array_get( $atts, "class", "bw_contact_form" );
 	sdiv( $class );
@@ -101,8 +100,7 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
         etag( 'table');
     }
 
-	e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false, false ) );
-	e( ihidden( "oiku_email_to", $email_to ) );
+	e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false, false )
 	oik_require_lib( "oik-honeypot" );
 	do_action( "oik_add_honeypot" );
 	bw_contact_form_submit_button( $atts );
@@ -131,7 +129,7 @@ function bw_display_contact_form( $atts, $user=null, $content=null ) {
 
         //}
 		if ( $contact ) {
-			$contact = _bw_process_contact_form_oik();
+			$contact = _bw_process_contact_form_oik( $atts['email'] );
 		}
 	}
 	if ( !$contact ) { 
@@ -367,8 +365,7 @@ function bw_thankyou_message( $fields, $send, $sent ) {
  * 4. Display "thank you" message
  * 
  */
-function _bw_process_contact_form_oik() {
-	$email_to = bw_array_get( $_REQUEST, "oiku_email_to", null );
+function _bw_process_contact_form_oik( $email_to ) {
 	$message = bw_get_message();
     $valid = bw_validate_contact_fields();
 	if ( $email_to && $valid ) {
@@ -516,8 +513,6 @@ function _bw_show_contact_form_fields() {
  * @return string Generated HTML for the contact form
  */
 function bw_contact_form_block( $atts=null, $content=null, $block=null ) {
-    bw_trace2();
-
     $email_to = bw_get_option_arr( "email", null, $atts );
     if ( $email_to ) {
         $atts['email'] = $email_to;
@@ -541,9 +536,9 @@ function bw_contact_form_block( $atts=null, $content=null, $block=null ) {
  */
 function bw_contact_form_inner_blocks( $innerBlocks ) {
     $content = '';
-    bw_trace2();
+    //bw_trace2();
     foreach ( $innerBlocks as $innerBlock ) {
-        //$content .= '[bw_contact_field "Name *"][bw_contact_field "Email *"]';]
+
         $content .= bw_contact_field_to_shortcode( $innerBlock['attrs'] );
     }
     return $content;
@@ -572,4 +567,3 @@ function bw_contact_field_to_shortcode( $attrs ) {
     $content .= "]";
     return $content;
 }
-
