@@ -100,7 +100,7 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
         etag( 'table');
     }
 
-	e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false, false )
+	e( wp_nonce_field( "_oik_contact_form", "_oik_contact_nonce", false, false ));
 	oik_require_lib( "oik-honeypot" );
 	do_action( "oik_add_honeypot" );
 	bw_contact_form_submit_button( $atts );
