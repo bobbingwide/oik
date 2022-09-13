@@ -54,10 +54,29 @@ registerBlockType(
             const onChangeContact = (event) => {
                 props.setAttributes({contact: event});
             };
+            const onChangeEmail = (event) => {
+                   props.setAttributes({email: event});
+
+            };
+            /**
+             * Reset fields to defaults if they're blanked out by the user.
+             */
+            const { email, contact } = attributes;
+            if ( email=== undefined || email.trim() === '') {
+                const attributeSettings = wp.data.select('core/blocks').getBlockType('oik/contact-form').attributes;
+                props.setAttributes({email: attributeSettings.email.default});
+            }
+            if ( contact===undefined || contact.trim() === '' ) {
+                const attributeSettings = wp.data.select('core/blocks').getBlockType('oik/contact-form').attributes;
+                props.setAttributes({contact: attributeSettings.contact.default});
+            }
           return (
               <Fragment>
                   <InspectorControls>
                       <PanelBody>
+                          <PanelRow>
+                              <TextControl label={__("Email address", "oik" )} value={attributes.email} onChange={onChangeEmail}/>
+                          </PanelRow>
                           <PanelRow>
                               <TextControl label={__("Text for Submit button", "oik" )} value={attributes.contact} onChange={onChangeContact}/>
                           </PanelRow>
