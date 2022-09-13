@@ -21,7 +21,8 @@
  * [bw_contact_form][bw_contact_field Email][/bw_contact_form]
  * [bw_contact_form][bw_contact_field Name][bw_contact_field Telephone][/bw_contact_form]
  *
- * Note: The Message ( textarea ) field is automatically added. This is a required field.
+ * @since 4.9.0
+ * Note: The Message ( textarea ) field is not automatically added. It's no longer a required field.
  * @param $atts
  * @param $content
  * @param $tag
@@ -63,6 +64,13 @@ function bw_contact_field( $atts, $content, $tag ) {
             $label .= '<span class="required">' . $requiredIndicator . '</span>';
         }
     }
+
+    /**
+     * The class name needs to be applied to the surrounding div.
+     */
+    $class = bw_array_get( $atts, 'class', null);
+    $args['#class'] = $class . " is-style-$type";
+
 
     $full_name = bw_contact_field_full_name( $name );
     bw_register_field( $full_name, $type, $label, $args );
@@ -128,5 +136,6 @@ function bw_contact_field__syntax( $shortcode='bw_contact_field') {
         , "required" => BW_::bw_skv( 'n', 'y', __("Required field") )
         , "requiredindicator" => BW_::bw_skv( null, "<i>" . __( "text", "oik" ) . "</i>", __("Text to indicate the field is required. eg *") )
         ];
+    $syntax += _sc_classes( false );
     return $syntax;
 }

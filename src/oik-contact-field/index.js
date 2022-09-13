@@ -6,9 +6,8 @@
  * @copyright (C) Copyright Bobbing Wide 2022
  * @author Herb Miller @bobbingwide
  */
-//import './style.scss';
+import './style.scss';
 import './editor.scss';
-
 
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
@@ -61,11 +60,7 @@ registerBlockType(
         edit: props=> {
             const { attributes, setAttributes, instanceId, focus, isSelected } = props;
             const { textAlign, label } = props.attributes;
-            const blockProps = useBlockProps( {
-                className: classnames( {
-                    [ `has-text-align-${ textAlign }` ]: textAlign,
-                } ),
-            } );
+            const blockProps = useBlockProps();
             const onChangeLabel = (event) => {
                 props.setAttributes({label: event});
             };
@@ -103,6 +98,7 @@ registerBlockType(
                 </InspectorControls>
 
                     <div { ...blockProps}>
+                        <div>
                         <div className="label">
                             <label for={ attributes.name }>{attributes.label}
                                 { attributes.required && <span className="required">{attributes.requiredIndicator}</span> }
@@ -111,6 +107,7 @@ registerBlockType(
                         <div className="field">
                             <ContactFieldControl type={attributes.type} name={attributes.name} required={attributes.required} />
                         </div>
+                    </div>
                     </div>
 
 

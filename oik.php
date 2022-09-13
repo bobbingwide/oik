@@ -610,7 +610,10 @@ function oik_register_dynamic_blocks() {
 
 
 	add_filter( 'load_script_textdomain_relative_path', 'oik_load_script_textdomain_relative_path', 10, 2);
+
+    oik_register_block_styles();
 }
+
 
 /**
  * Filters $relative so that md5's match what's expected.
@@ -902,6 +905,18 @@ function oik_server_side_wrapper( $attributes, $html ) {
 		$html
 	);
 	return $html;
+}
+
+/**
+ * Register styles for oik blocks.
+ *
+ */
+
+function oik_register_block_styles() {
+    register_block_style( 'oik/contact-field',  [ 'name' => 'grid', 'label' => __( 'Grid', 'oik'), 'is_default' => true ]);
+    register_block_style( 'oik/contact-field',  [ 'name' => 'above', 'label' => __( 'Label above', 'oik') ]);
+    register_block_style( 'oik/contact-field', [ 'name' => 'reversed', 'label' => __( 'Reversed', 'oik')]);
+
 }
 
 /**

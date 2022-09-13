@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2009-2022
 if ( !defined( "BOBBFORMS_INCLUDED" ) ) {
-define( "BOBBFORMS_INCLUDED", "3.4.0" );
+define( "BOBBFORMS_INCLUDED", "3.4.1" );
 
 /**
  * Library: bobbforms
@@ -335,7 +335,7 @@ function bw_textfield( $name, $len, $text, $value, $class=null, $extras=null, $a
     if ( bw_is_table() ) {
         bw_tablerow(array($lab, $itext));
     } else {
-        bw_gridrow(array($lab, $itext));
+        bw_gridrow(array($lab, $itext), $class);
     }
 	return;
 }
@@ -359,7 +359,7 @@ function bw_emailfield( $name, $len, $text, $value, $class=null, $extras=null ) 
     if ( bw_is_table() ) {
         bw_tablerow(array($lab, $itext));
     } else {
-        bw_gridrow(array($lab, $itext));
+        bw_gridrow(array($lab, $itext), $class );
     }
 	return;
 }
@@ -390,7 +390,8 @@ function bw_textarea( $name, $len, $text, $value, $rows=10, $args=null ) {
     if ( bw_is_table() ) {
         bw_tablerow(array($lab, $itext));
     } else {
-        bw_gridrow(array($lab, $itext));
+        $class = bw_array_get( $args, '#class', null );
+        bw_gridrow(array($lab, $itext), $class );
     }
 	return;
 }
@@ -418,7 +419,7 @@ function bw_radio( $name, $text, $values, $labels, $class=null, $extras=null ) {
     if ( bw_is_table() ) {
         bw_tablerow(array($lab, $iradios));
     } else {
-        bw_gridrow(array($lab, $radios));
+        bw_gridrow(array($lab, $radios), $class );
     }
 }
 
@@ -552,7 +553,8 @@ function bw_select( $name, $text, $value, $args ) {
     if ( bw_is_table() ) {
         bw_tablerow(array($lab, $iselect));
     } else {
-        bw_gridrow(array($lab, $iselect));
+        $class = bw_array_get( $args, '#class', null );
+        bw_gridrow(array($lab, $iselect), $class);
     }
 	return;
 }
@@ -593,7 +595,7 @@ function icheckbox( $name, $value=NULL, $disabled=false ) {
  * @param string $name field name
  * @param string $text field label
  * @param integer $value 1 for checked
- * @param array $args future use
+ * @param array $args array of arguments
  */
 function bw_checkbox( $name, $text, $value=1, $args=NULL ) {
 	$lab = BW_::label( $name, $text );
@@ -601,7 +603,8 @@ function bw_checkbox( $name, $text, $value=1, $args=NULL ) {
     if ( bw_is_table() ) {
         bw_tablerow(array($lab, $icheckbox));
     } else {
-        bw_gridrow(array($lab, $icheckbox));
+        $class = bw_array_get( $args, '#class', null );
+        bw_gridrow(array($lab, $icheckbox), $class );
     }
 	return;
 }
@@ -848,16 +851,18 @@ function bw_is_table( $table=null ) {
 
 /**
  * Displays a row as a grid.
+ *
  * @since v3.4.0
+ * @since v3.4.1 Added $class parameter for block styling
  * @param $array
+ * @param string $class - block style
  */
-function bw_gridrow( $array ) {
-    if ( count( $array ) ) {
+function bw_gridrow( $array, $class=null ) {
+    if ( count( $array ) ) { sdiv( $class );
         foreach ($array as $item) {
-            sdiv();
             e($item);
-            ediv();
         }
+        ediv();
     }
 }
 

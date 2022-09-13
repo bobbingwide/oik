@@ -564,6 +564,10 @@ function bw_contact_field_to_shortcode( $attrs ) {
             $content .= ' requiredindicator="' . $requiredIndicator . '"';
         }
     }
+    $class = bw_array_get( $attrs, "className", null );
+    if ( $class ) {
+        $content .= ' class="' . $class . '"';
+    }
     $content .= "]";
     return $content;
 }

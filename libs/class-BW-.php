@@ -1,6 +1,6 @@
 <?php // (C) Copyright BobbingWide 2017-2022
 if ( !defined( "CLASS_BW__INCLUDED" ) ) {
-define( "CLASS_BW__INCLUDED", "3.3.0" );
+define( "CLASS_BW__INCLUDED", "3.3.1" );
 
 /**
  * More HTML output library functions
@@ -174,7 +174,7 @@ class BW_ {
         if ( self::is_table() ) {
             bw_tablerow(array($lab, $itext));
         } else {
-            bw_gridrow(array($lab, $itext));
+            bw_gridrow(array($lab, $itext), $class);
         }
 		return;
 	}
@@ -215,7 +215,7 @@ class BW_ {
         if ( self::is_table() ) {
             bw_tablerow(array($lab, $itext));
         } else {
-            bw_gridrow(array($lab, $itext));
+            bw_gridrow(array($lab, $itext), $class);
         }
 		return;
 	}
@@ -263,7 +263,8 @@ class BW_ {
         if ( self::is_table() ) {
             bw_tablerow(array($lab, $itext));
         } else {
-            bw_gridrow(array($lab, $itext));
+            $class = bw_array_get( $args, '#class', null );
+            bw_gridrow(array($lab, $itext), $class);
         }
 		return;
 	}
@@ -332,7 +333,7 @@ class BW_ {
         if ( self::is_table() ) {
             bw_tablerow(array($lab, $iradios));
         } else {
-            bw_gridrow(array($lab, $iradios));
+            bw_gridrow(array($lab, $iradios), $class);
         }
 }
 
@@ -350,7 +351,8 @@ class BW_ {
         if ( self::is_table() ) {
             bw_tablerow(array($lab, $iselect));
         } else {
-            bw_gridrow(array($lab, $iselect));
+            $class = bw_array_get( $args, '#class', null );
+            bw_gridrow(array($lab, $iselect), $class);
         }
 		return;
 	}

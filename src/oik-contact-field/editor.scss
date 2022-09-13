@@ -1,17 +1,32 @@
 /*
- Display each field using as a grid layout in the block editor.
+ Display each field using a grid layout in the block editor.
  */
-
-.wp-block-oik-contact-field {
+.wp-block-oik-contact-field.is-style-grid > div {
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr 3fr;
+}
 
-  label {
+/**
+ No need for any specific styling for is-style-above
+ since that's what happens by default.
+ */
 
-  }
-  div.field {
+/**
+ Styling for reversing the fields. Useful for checkboxes.
+ */
+.wp-block-oik-contact-field.is-style-reversed > div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 3fr;
+}
 
-  }
+.wp-block-oik-contact-field.is-style-reversed > div .label {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
 
+.wp-block-oik-contact-field.is-style-reversed > div .field {
+  grid-column-start: 1;
+  grid-row-start: 1;
 }

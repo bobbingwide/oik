@@ -1,0 +1,37 @@
+.bw_contact_form .bw_grid > div,
+.bw_contact_form bw_grid .is-style-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 3fr;
+}
+
+/**
+ * We don't need the vertical space between the label and the field
+ */
+.bw_contact_form .bw_grid .is-style-above,
+.wp-block-oik-contact-field .is-style-above {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/**
+ * Reverse the field order - primarily for checkboxes
+ */
+.bw_contact_form .bw_grid .is-style-reversed > div,
+.bw_contact_form .bw_grid .is-style-reversed {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 3fr;
+}
+
+.bw_contact_form .bw_grid .is-style-reversed > div .label,
+.bw_contact_form .bw_grid .is-style-reversed > label {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+
+.bw_contact_form .bw_grid .is-style-reversed > div .field,
+.bw_contact_form .bw_grid .is-style-reversed input {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}

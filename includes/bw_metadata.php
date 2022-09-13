@@ -249,7 +249,7 @@ function bw_form_field_numeric( $name, $type, $title, $value, $args ) {
  * Format a checkbox metabox
  */
 function bw_form_field_checkbox( $name, $type, $title, $value, $args ) {
-  bw_checkbox( $name, $title, $value );
+  bw_checkbox( $name, $title, $value, $args );
 }
 
 /**
