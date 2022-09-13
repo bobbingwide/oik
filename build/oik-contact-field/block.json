@@ -54,7 +54,7 @@
   "supports": {
     "html": false,
     "customClassName": false,
-    "className": false,
+    "className": true,
     "color": {
       "gradients": false,
       "text": false,
