@@ -31,6 +31,7 @@ function bw_contact_field( $atts, $content, $tag ) {
     oik_require( 'includes/bw_register.php');
     oik_require_lib( 'bw_fields');
     oik_require( 'includes/bw_metadata.php');
+    oik_require( 'shortcodes/oik-contact-form.php');
 
     $label = bw_array_get_from( $atts, '0,label', 'field' );
     $name = bw_contact_field_name_from_label( $label );
