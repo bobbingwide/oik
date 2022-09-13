@@ -634,9 +634,13 @@ function oik_load_script_textdomain_relative_path( $relative, $src ) {
 }
 
 /**
- * Implements block_type_metadata filter to set the textdomain if not set.
+ * Implements block_type_metadata filter
  *
- * Note: $metadata['name'] will be set for each block with a prefix of oik
+ * - to set the textdomain if not set, for blocks with a prefix of oik.
+ * - to set defaults for the PayPal block
+ * - to set defaults for the Contact Form block
+ *
+
  *
  * @param $metadata
  * @return mixed
@@ -651,9 +655,12 @@ function oik_block_type_metadata( $metadata ) {
         }
     }
 
-
     if ( $metadata['name'] === 'oik/paypal') {
     	$metadata=oik_block_type_metadata_paypal_default_values( $metadata );
+    }
+
+    if ( $metadata['name'] === 'oik/contact-form') {
+        $metadata = oik_block_type_metadata_contact_form_default_values( $metadata );
     }
     return $metadata;
 }
@@ -675,6 +682,65 @@ function oik_block_type_metadata_paypal_default_values( $metadata ) {
 		$metadata['attributes']['currency']['default']=bw_get_option( 'paypal-currency' );
 	}
 	return $metadata;
+}
+
+/**
+ * Set default values for Contact Form
+ *
+ * If the option values aren't set then default values aren't set either.
+ *
+ * @param $metadata
+ * @return array
+ */
+function oik_block_type_metadata_contact_form_default_values( $metadata ) {
+    // We only need to do this when it's the block editor
+    // not the site / template editor.
+    if ( is_admin() ) {
+
+        $id = oik_maybe_get_current_post_author();
+        if ( null === $id ) {
+           $email = bw_get_option_arr( "email");
+           $me = bw_get_me( [] );
+        } else {
+            $email = bw_get_user_option($id, "email");
+            $me = bw_get_user_option( $id, "display_name");
+        }
+        $metadata['attributes']['email']['default']  = $email;
+
+        /* translators: %s: name to contact */
+        $text = sprintf( __( "Contact %s" ), $me );
+        $metadata['attributes']['contact']['default'] = $text;
+    }
+    return $metadata;
+}
+
+/**
+ * Returns the ID of the current post's author.
+ *
+ * This is run when the request is:
+ * - to edit a post or page template ( URL post.php?post=post-ID&action=edit )
+ * - to edit a page template
+ *
+ * It's not run:
+ * - in the Site Editor ( URL = site-editor.php?postType=wp_template&postId=theme-name )
+ * - for a new post ( URL = post-new.php ) where it could default to the current user
+ * -
+ * @return int|string|null
+ */
+function oik_maybe_get_current_post_author() {
+    $id = null;
+    if ( function_exists( 'oiku_loaded')) {
+        $post = bw_array_get($_REQUEST, "post", null);
+        $action = bw_array_get($_REQUEST, "action", null);
+        if ('edit' === $action && $post) {
+            $post = get_post($post);
+            //bw_trace2($post);
+            if ($post) {
+                $id = $post->post_author;
+            }
+        }
+    }
+    return $id;
 }
 
 /**
