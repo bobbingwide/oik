@@ -22,6 +22,65 @@ function bw_accordion_id( $inc=true ) {
 }
 
 /**
+ * Display pages using modern accordion methods.
+ *
+ * Uses detail and summary tags. No jQuery
+ */
+function bw_accordion( $atts=null, $content=null, $tag=null ) {
+    oik_require( "includes/bw_posts.php" );
+    $posts = bw_get_posts( $atts );
+    if ( $posts ) {
+        //oik_require( "shortcodes/oik-jquery.php" );
+        $debug = bw_array_get( $atts, "debug", false );
+        //bw_jquery_enqueue_script( "jquery-ui-accordion", $debug );
+        //bw_jquery_enqueue_style( "jquery-ui-accordion" );
+        $selector = bw_accordion_id();
+        //bw_jquery( "#$selector", "accordion" );
+        $class = bw_array_get( $atts, "class", "bw_accordion" );
+        sdiv( $class, $selector );
+
+        $cp = bw_current_post_id();
+        foreach ( $posts as $post ) {
+            bw_current_post_id( $post->ID );
+            bw_format_accordion( $post, $atts );
+        }
+        ediv( $class );
+        bw_current_post_id( $cp );
+        bw_clear_processed_posts();
+    }
+    return( bw_ret() );
+}
+
+/**
+ * Format an accordion block
+ *
+ * @param object $post - A post object
+ * @param array $atts - Attributes array - passed from the shortcode
+ *
+ * Should we not do this using
+ *  apply_filters( "bw_format_accordion", $post, $atts );
+ *  or even do_action( "bw_format_accordion", ... ); ?
+ */
+function bw_format_accordion( $post, $atts ) {
+    $atts['title'] = get_the_title( $post->ID );
+    sdiv( 'bw_accordion_item');
+    stag( 'details');
+    stag( 'summary');
+    e( $atts['title']);
+    etag( 'summary');
+    $thumbnail = bw_thumbnail( $post->ID, $atts );
+    //h3( $atts['title'] );
+    if ( $thumbnail ) {
+        bw_format_thumbnail( $thumbnail, $post, $atts );
+    }
+    e( bw_excerpt( $post ) );
+    bw_format_read_more( $post, $atts );
+    etag( 'details');
+    ediv();
+}
+
+
+/**
  * Display pages styled for jQuery accordion
  *
  * Basically we achieve what we can do manually using bw_jq
@@ -39,7 +98,7 @@ function bw_accordion_id( $inc=true ) {
 
 
 */
-function bw_accordion( $atts=null, $content=null, $tag=null ) {
+function bw_accordion_v1( $atts=null, $content=null, $tag=null ) {
   oik_require( "includes/bw_posts.php" );
   $posts = bw_get_posts( $atts );
   if ( $posts ) {
@@ -55,7 +114,7 @@ function bw_accordion( $atts=null, $content=null, $tag=null ) {
     $cp = bw_current_post_id();
     foreach ( $posts as $post ) {
       bw_current_post_id( $post->ID );
-      bw_format_accordion( $post, $atts );
+      bw_format_accordion_v1( $post, $atts );
     }
     ediv( $class );
     bw_current_post_id( $cp );
@@ -74,7 +133,7 @@ function bw_accordion( $atts=null, $content=null, $tag=null ) {
  *  apply_filters( "bw_format_accordion", $post, $atts );
  *  or even do_action( "bw_format_accordion", ... ); ?
  */
-function bw_format_accordion( $post, $atts ) {
+function bw_format_accordion_v1( $post, $atts ) {
   $atts['title'] = get_the_title( $post->ID );
   $thumbnail = bw_thumbnail( $post->ID, $atts );
   h3( $atts['title'] );
