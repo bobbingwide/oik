@@ -316,6 +316,10 @@ div.bw_user-fields-2 {
     position: relative;
 }
 
+div.bw_accordion_item summary {
+    display: list-item;
+}
+
 
  
 
