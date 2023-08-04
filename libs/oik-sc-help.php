@@ -463,7 +463,7 @@ function embed__help( $shortcode='embed' ) {
  * @param string $shortcode
  */
 function embed__example( $shortcode='embed' ) {
-	$atts = 'width="480" src=https://www.youtube.com/watch?v=nH228-XQ-A8';
+	$atts = 'width="480" src=https://youtu.be/awgO9VlUWCY';
   bw_invoke_shortcode( $shortcode, $atts, __( "Embed example", null ) );
 	global $wp_version;
 	if ( version_compare( $wp_version, "4.9", "lt" ) ) {
