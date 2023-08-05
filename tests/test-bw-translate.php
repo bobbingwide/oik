@@ -37,6 +37,9 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	 * - This test should return "0=zero" until WordPress TRAC #41257 is fixed.
 	 * - Once implemented the assertions will need changing.
 	 * - OR the test can be removed if it's implemented in core.
+	 *
+	 * After #57839 the result of translating an empty string is an empty string.
+	 *
 	 */
 	function test_41257_translate_null_returns_translation_of_0() {
 		$entry_digit_0 = new Translation_Entry( array('singular' => '0', 'translations' => array('0=zero') ) );
@@ -44,7 +47,7 @@ class Tests_bw_translate extends BW_UnitTestCase {
 		$domain->add_entry( $entry_digit_0 );
 		$this->assertEquals( '0=zero', $domain->translate( "0" ) );
 		$this->assertEquals( '0=zero', $domain->translate( null ) );
-		$this->assertEquals( '0=zero', $domain->translate( "" ) );
+		$this->assertEquals( '', $domain->translate( "" ) );
 		$this->assertEquals( '0=zero', $domain->translate( 0 ) );
 	}
 	
@@ -68,6 +71,14 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	function test_get_translations_for_domain_verbose() {
 		$translations = get_translations_for_domain( "verbose" );
 		$this->assertInstanceOf( "NOOP_Translations", $translations );
+	}
+
+	function test_get_translations_for_domain_null() {
+		global $l10n;
+		//print_r( $l10n );
+		$translations = get_translations_for_domain( null );
+		$this->assertInstanceOf( "NOOP_Translations", $translations );
+
 	}
 	
 }
