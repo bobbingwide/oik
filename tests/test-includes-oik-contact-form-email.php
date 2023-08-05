@@ -27,6 +27,8 @@ class Tests_includes_oik_contact_form_email extends BW_UnitTestCase {
     [2] => C:\apache\htdocs\wordpress\wp-includes\class-phpmailer.php
     [3] => 698 
 	 * `
+	 * In order for this test to work in s.b/oikcom WP Mail SMTP should be deactivated
+	 *
 	 */ 
 	function test_bw_send_email() {
 		$this->switch_to_locale( 'en_GB' );
