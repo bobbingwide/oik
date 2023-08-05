@@ -22,12 +22,12 @@
 		"l10n": "l10n oik"
 	},
 	"dependencies": {
-		"@wordpress/block-editor": "^9.8.0",
-		"@wordpress/blocks": "^11.15.0",
-		"@wordpress/i18n": "^4.16.0",
+		"@wordpress/block-editor": "^12.6.0",
+		"@wordpress/blocks": "^12.15.0",
+		"@wordpress/i18n": "^4.38.0",
 		"postcss": "^8.4.6"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^24.0.0"
+		"@wordpress/scripts": "^26.9.0"
 	}
 }
