@@ -1,4 +1,4 @@
-# Copyright (C) 2022 bobbingwide
+# Copyright (C) 2023 bobbingwide
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-09-11T18:59:28+00:00\n"
+"POT-Creation-Date: 2023-08-05T12:48:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik"
@@ -1512,7 +1512,7 @@ msgstr "cloalge ID"
 msgid "Index of the theme_collages post meta to display"
 msgstr "Idnex Of thE tehme_cloalegs psot mtea tO dsilpay"
 
-#: libs/bobbforms.php:525
+#: libs/bobbforms.php:526
 #: build/follow-me.js:1
 msgid "None"
 msgstr "Nnoe"
@@ -1594,7 +1594,7 @@ msgstr "CSS calss nmaes"
 
 #: libs/oik-sc-help.php:321
 #: libs/oik-sc-help.php:598
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 #: shortcodes/oik-galleries.php:35
 #: shortcodes/oik-link.php:324
 msgid "id"
@@ -1769,7 +1769,9 @@ msgstr "Tihs Is A cpaiton"
 #: libs/oik-sc-help.php:397
 #: shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19
-#: shortcodes/oik-contact-form.php:429
+#: shortcodes/oik-contact-field.php:135
+#: shortcodes/oik-contact-field.php:137
+#: shortcodes/oik-contact-form.php:426
 #: shortcodes/oik-countdown.php:97
 #: shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325
@@ -2143,11 +2145,28 @@ msgstr "OIk csuotm iamge lnik URL"
 msgid "Howdy, %s"
 msgstr "Hwody, %s"
 
-#: shortcodes/oik-accordion.php:95
+#: oik.php:716
+#: shortcodes/oik-contact-form.php:60
+msgid "Contact %s"
+msgstr "Cnoatct %s"
+
+#: oik.php:918
+msgid "Grid"
+msgstr "Gird"
+
+#: oik.php:919
+msgid "Label above"
+msgstr "Lbael aobve"
+
+#: oik.php:920
+msgid "Reversed"
+msgstr "Rvereesd"
+
+#: shortcodes/oik-accordion.php:154
 msgid "Display the two most recent pages"
 msgstr "Dsilpay thE twO msot rcenet pgaes"
 
-#: shortcodes/oik-accordion.php:103
+#: shortcodes/oik-accordion.php:162
 #: shortcodes/oik-tabs.php:123
 msgid "Snippet not produced for this shortcode: %1$s"
 msgstr "Sinppet nOt porudecd fOr tihs sohtrocde: %1$s"
@@ -2485,90 +2504,114 @@ msgstr "[bw_codes] - lsit sohtroceds"
 msgid "Use alternative value"
 msgstr "UsE atlreanitve vlaue"
 
+#: shortcodes/oik-contact-field.php:129
+msgid "Display a contact form field"
+msgstr "Dsilpay A cnoatct from feild"
+
+#: shortcodes/oik-contact-field.php:133
+msgid "label"
+msgstr "lbael"
+
+#: shortcodes/oik-contact-field.php:133
+msgid "Label for the field"
+msgstr "Lbael fOr thE feild"
+
+#: shortcodes/oik-contact-field.php:134
+msgid "Input field type"
+msgstr "Ipnut feild tpye"
+
+#: shortcodes/oik-contact-field.php:135
+msgid "Field name"
+msgstr "Feild nmae"
+
+#: shortcodes/oik-contact-field.php:136
+msgid "Required field"
+msgstr "Rqeiuerd feild"
+
+#: shortcodes/oik-contact-field.php:137
+msgid "Text to indicate the field is required. eg *"
+msgstr "Txet tO idncitae thE feild Is rqeiuerd. Eg *"
+
 #: shortcodes/oik-contact-form.php:45
-#: shortcodes/oik-contact-form.php:531
+#: shortcodes/oik-contact-form.php:526
 msgid "Cannot produce contact form for unknown user."
 msgstr "Cnaont porudce cnoatct from fOr uknonwn uesr."
 
-#: shortcodes/oik-contact-form.php:60
-msgid "Contact %s"
-msgstr "Cnoatct %s"
-
-#: shortcodes/oik-contact-form.php:93
+#: shortcodes/oik-contact-form.php:92
 msgid "Name *"
 msgstr "Nmae *"
 
-#: shortcodes/oik-contact-form.php:94
+#: shortcodes/oik-contact-form.php:93
 msgid "Email *"
 msgstr "Eamil *"
 
-#: shortcodes/oik-contact-form.php:95
+#: shortcodes/oik-contact-form.php:94
 msgid "Subject"
 msgstr "Sbuejct"
 
-#: shortcodes/oik-contact-form.php:96
+#: shortcodes/oik-contact-form.php:95
 msgid "Message"
 msgstr "Mseasge"
 
-#: shortcodes/oik-contact-form.php:213
+#: shortcodes/oik-contact-form.php:211
 msgid "Required field not set: %s"
 msgstr "Rqeiuerd feild nOt sEt: %s"
 
-#: shortcodes/oik-contact-form.php:351
+#: shortcodes/oik-contact-form.php:349
 msgid "Thank you for your submission."
 msgstr "Tahnk yOU fOr yuor sbuimssoin."
 
-#: shortcodes/oik-contact-form.php:353
+#: shortcodes/oik-contact-form.php:351
 msgid "Thank you for your submission. Something went wrong. Please try again."
 msgstr "Tahnk yOU fOr yuor sbuimssoin. Smoteihng wnet worng. Pelsae try aagin."
 
-#: shortcodes/oik-contact-form.php:356
+#: shortcodes/oik-contact-form.php:354
 msgid "We would like to thank you for your submission."
 msgstr "WE wuold lkie tO tahnk yOU fOr yuor sbuimssoin."
 
-#: shortcodes/oik-contact-form.php:400
+#: shortcodes/oik-contact-form.php:397
 msgid "Invalid. Please correct and retry."
 msgstr "Ivnlaid. Pelsae croerct And rtery."
 
-#: shortcodes/oik-contact-form.php:421
+#: shortcodes/oik-contact-form.php:418
 msgid "Display a contact form for the specific user"
 msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
-#: shortcodes/oik-contact-form.php:428
-#: shortcodes/oik-contact-form.php:430
+#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:427
 #: shortcodes/oik-paypal.php:268
 msgid "email"
 msgstr "eamil"
 
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 msgid "slug"
 msgstr "sulg"
 
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 msgid "login"
 msgstr "lgoin"
 
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 msgid "Value to identify the user"
 msgstr "Vlaue tO iedtnfiy thE uesr"
 
-#: shortcodes/oik-contact-form.php:429
+#: shortcodes/oik-contact-form.php:426
 msgid "Text for submit button"
 msgstr "Txet fOr sbuimt btuotn"
 
-#: shortcodes/oik-contact-form.php:430
+#: shortcodes/oik-contact-form.php:427
 msgid "Email address for submission"
 msgstr "Eamil adderss fOr sbuimssoin"
 
-#: shortcodes/oik-contact-form.php:444
+#: shortcodes/oik-contact-form.php:441
 msgid "Display a contact form for user: %1$s"
 msgstr "Dsilpay A cnoatct from fOr uesr: %1$s"
 
-#: shortcodes/oik-contact-form.php:454
+#: shortcodes/oik-contact-form.php:451
 msgid "Note: If the form is submitted from Shortcode help then two emails would be sent."
 msgstr "Ntoe: If thE from Is sbuimtted form Sohtrocde hlep tehn twO eamlis wuold bE snet."
 
-#: shortcodes/oik-contact-form.php:455
+#: shortcodes/oik-contact-form.php:452
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "SO thE nroaml sinppet cdoe Is nOt ivnkoed In tihs csae."
 
@@ -3410,6 +3453,10 @@ msgstr "Rqeiuerd?"
 #: build/contact-field.js:1
 msgid "Required indicator"
 msgstr "Rqeiuerd idncitaor"
+
+#: build/contact-form.js:1
+msgid "Email address"
+msgstr "Eamil adderss"
 
 #: build/contact-form.js:1
 msgid "Text for Submit button"

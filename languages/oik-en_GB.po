@@ -1,4 +1,4 @@
-# Copyright (C) 2022 bobbingwide
+# Copyright (C) 2023 bobbingwide
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-09-11T18:59:28+00:00\n"
+"POT-Creation-Date: 2023-08-05T12:48:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 msgid "oik"
@@ -1512,7 +1512,7 @@ msgstr "collage ID"
 msgid "Index of the theme_collages post meta to display"
 msgstr "Index of the theme_collages post meta to display"
 
-#: libs/bobbforms.php:525
+#: libs/bobbforms.php:526
 #: build/follow-me.js:1
 msgid "None"
 msgstr "None"
@@ -1594,7 +1594,7 @@ msgstr "CSS class names"
 
 #: libs/oik-sc-help.php:321
 #: libs/oik-sc-help.php:598
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 #: shortcodes/oik-galleries.php:35
 #: shortcodes/oik-link.php:324
 msgid "id"
@@ -1769,7 +1769,9 @@ msgstr "This is a caption"
 #: libs/oik-sc-help.php:397
 #: shortcodes/oik-blockquote.php:30
 #: shortcodes/oik-cite.php:19
-#: shortcodes/oik-contact-form.php:429
+#: shortcodes/oik-contact-field.php:135
+#: shortcodes/oik-contact-field.php:137
+#: shortcodes/oik-contact-form.php:426
 #: shortcodes/oik-countdown.php:97
 #: shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325
@@ -2143,11 +2145,28 @@ msgstr "oik custom image link URL"
 msgid "Howdy, %s"
 msgstr "Hi, %s"
 
-#: shortcodes/oik-accordion.php:95
+#: oik.php:716
+#: shortcodes/oik-contact-form.php:60
+msgid "Contact %s"
+msgstr "Contact %s"
+
+#: oik.php:918
+msgid "Grid"
+msgstr "Grid"
+
+#: oik.php:919
+msgid "Label above"
+msgstr "Label above"
+
+#: oik.php:920
+msgid "Reversed"
+msgstr "Reversed"
+
+#: shortcodes/oik-accordion.php:154
 msgid "Display the two most recent pages"
 msgstr "Display the two most recent pages"
 
-#: shortcodes/oik-accordion.php:103
+#: shortcodes/oik-accordion.php:162
 #: shortcodes/oik-tabs.php:123
 msgid "Snippet not produced for this shortcode: %1$s"
 msgstr "Snippet not produced for this shortcode: %1$s"
@@ -2485,90 +2504,114 @@ msgstr "[bw_codes] - list shortcodes"
 msgid "Use alternative value"
 msgstr "Use alternative value"
 
+#: shortcodes/oik-contact-field.php:129
+msgid "Display a contact form field"
+msgstr "Display a contact form field"
+
+#: shortcodes/oik-contact-field.php:133
+msgid "label"
+msgstr "label"
+
+#: shortcodes/oik-contact-field.php:133
+msgid "Label for the field"
+msgstr "Label for the field"
+
+#: shortcodes/oik-contact-field.php:134
+msgid "Input field type"
+msgstr "Input field type"
+
+#: shortcodes/oik-contact-field.php:135
+msgid "Field name"
+msgstr "Field name"
+
+#: shortcodes/oik-contact-field.php:136
+msgid "Required field"
+msgstr "Required field"
+
+#: shortcodes/oik-contact-field.php:137
+msgid "Text to indicate the field is required. eg *"
+msgstr "Text to indicate the field is required. eg *"
+
 #: shortcodes/oik-contact-form.php:45
-#: shortcodes/oik-contact-form.php:531
+#: shortcodes/oik-contact-form.php:526
 msgid "Cannot produce contact form for unknown user."
 msgstr "Cannot produce contact form for unknown user."
 
-#: shortcodes/oik-contact-form.php:60
-msgid "Contact %s"
-msgstr "Contact %s"
-
-#: shortcodes/oik-contact-form.php:93
+#: shortcodes/oik-contact-form.php:92
 msgid "Name *"
 msgstr "Name *"
 
-#: shortcodes/oik-contact-form.php:94
+#: shortcodes/oik-contact-form.php:93
 msgid "Email *"
 msgstr "Email *"
 
-#: shortcodes/oik-contact-form.php:95
+#: shortcodes/oik-contact-form.php:94
 msgid "Subject"
 msgstr "Subject"
 
-#: shortcodes/oik-contact-form.php:96
+#: shortcodes/oik-contact-form.php:95
 msgid "Message"
 msgstr "Message"
 
-#: shortcodes/oik-contact-form.php:213
+#: shortcodes/oik-contact-form.php:211
 msgid "Required field not set: %s"
 msgstr "Required field not set: %s"
 
-#: shortcodes/oik-contact-form.php:351
+#: shortcodes/oik-contact-form.php:349
 msgid "Thank you for your submission."
 msgstr "Thank you for your submission."
 
-#: shortcodes/oik-contact-form.php:353
+#: shortcodes/oik-contact-form.php:351
 msgid "Thank you for your submission. Something went wrong. Please try again."
 msgstr "Thank you for your submission. Something went wrong. Please try again."
 
-#: shortcodes/oik-contact-form.php:356
+#: shortcodes/oik-contact-form.php:354
 msgid "We would like to thank you for your submission."
 msgstr "We would like to thank you for your submission."
 
-#: shortcodes/oik-contact-form.php:400
+#: shortcodes/oik-contact-form.php:397
 msgid "Invalid. Please correct and retry."
 msgstr "Invalid. Please correct and retry."
 
-#: shortcodes/oik-contact-form.php:421
+#: shortcodes/oik-contact-form.php:418
 msgid "Display a contact form for the specific user"
 msgstr "Display a contact form for the specific user"
 
-#: shortcodes/oik-contact-form.php:428
-#: shortcodes/oik-contact-form.php:430
+#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:427
 #: shortcodes/oik-paypal.php:268
 msgid "email"
 msgstr "email"
 
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 msgid "slug"
 msgstr "slug"
 
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 msgid "login"
 msgstr "login"
 
-#: shortcodes/oik-contact-form.php:428
+#: shortcodes/oik-contact-form.php:425
 msgid "Value to identify the user"
 msgstr "Value to identify the user"
 
-#: shortcodes/oik-contact-form.php:429
+#: shortcodes/oik-contact-form.php:426
 msgid "Text for submit button"
 msgstr "Text for submit button"
 
-#: shortcodes/oik-contact-form.php:430
+#: shortcodes/oik-contact-form.php:427
 msgid "Email address for submission"
 msgstr "Email address for submission"
 
-#: shortcodes/oik-contact-form.php:444
+#: shortcodes/oik-contact-form.php:441
 msgid "Display a contact form for user: %1$s"
 msgstr "Display a contact form for user: %1$s"
 
-#: shortcodes/oik-contact-form.php:454
+#: shortcodes/oik-contact-form.php:451
 msgid "Note: If the form is submitted from Shortcode help then two emails would be sent."
 msgstr "Note: If the form is submitted from Shortcode help then two emails would be sent."
 
-#: shortcodes/oik-contact-form.php:455
+#: shortcodes/oik-contact-form.php:452
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "So the normal snippet code is not invoked in this case."
 
@@ -3410,6 +3453,10 @@ msgstr "Required?"
 #: build/contact-field.js:1
 msgid "Required indicator"
 msgstr "Required indicator"
+
+#: build/contact-form.js:1
+msgid "Email address"
+msgstr "Email address"
 
 #: build/contact-form.js:1
 msgid "Text for Submit button"
