@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2012-2022
+<?php // (C) Copyright Bobbing Wide 2012-2023
 if ( !defined( "OIK_SC_HELP_INCLUDED" ) ) {
-define( "OIK_SC_HELP_INCLUDED", "3.3.9" );
+define( "OIK_SC_HELP_INCLUDED", "3.4.0" );
 
 /**
  * Shortcode help 
@@ -454,7 +454,7 @@ function embed__help( $shortcode='embed' ) {
 /**
  * Example for the embed shortcode
  *
- * The embed shorcode requires an URL which can be provided as embedded content
+ * The embed shortcode requires an URL which can be provided as embedded content
  * or passed in the `src=` parameter.
  * 
  * e.g. 
