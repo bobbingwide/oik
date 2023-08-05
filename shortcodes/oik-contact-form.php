@@ -96,6 +96,7 @@ function _bw_show_contact_form_oik( $atts, $user=null, $content=null  ) {
     }
 	if ( function_exists( 'bw_is_table')) {
         bw_table_or_grid_end();
+		bw_is_table( true );
     } else {
         etag( 'table');
     }
