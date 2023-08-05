@@ -496,7 +496,7 @@ function _bw_show_contact_form_fields() {
         $field = bw_array_get( $bw_fields, $full_name, null );
         bw_trace2( $field, "Field", false, BW_TRACE_DEBUG );
         if ( $field ) {
-            $value = ''; // $field['#value']
+            $value = bw_array_get( $_REQUEST, $full_name );
             bw_form_field( $full_name, $field['#field_type'], $field['#title'], $value , $bw_fields[ $full_name ]['#args']);
         }
     }
