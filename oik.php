@@ -11,7 +11,7 @@ Domain Path: /languages/
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2010-2022 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2010-2023 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -497,7 +497,9 @@ function oik_rest_api_init() {
 
     $context = bw_array_get( $_REQUEST, 'context', null );
     bw_trace2( $context, "context", false );
-    if ( $context === 'edit') {
+    $_locale = bw_array_get( $_REQUEST, '_locale', null );
+    bw_trace2( $_locale, '_locale', false );
+    if ( $context === 'edit' || $_locale === 'user') {
     	//bw_trace_attached_hooks( 'the_content');
 	    if ( function_exists( 'bw_trace_get_attached_hooks')) {
 		    $hooks = bw_trace_get_attached_hooks( 'the_content' );
