@@ -103,7 +103,7 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		$html = bw_report_scripts();
 		$this->assertEquals( '', $html );
 	}
-	
+
 	/**
 	 * Tests for oik-widget-cache Issue #1
 	 * 
@@ -215,6 +215,7 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		$html = bw_ret();
 		$this->assertNotNull( $html );
 		$html = $this->replace_home_url( $html );
+		$html = $this->replace_jquery_versions( $html );
 		$html_array = $this->tag_break( $html );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
@@ -227,6 +228,18 @@ class Tests_issue_68 extends BW_UnitTestCase {
 	function reset_wp_scripts_done() {
 		unset( $GLOBALS['bw_jq'] );
 		unset( $GLOBALS['wp_scripts'] );
+	}
+
+	function replace_jquery_versions( $html ) {
+		$jquery_versions        =[ '6.2.2'=>'3.6.4', '6.3'=>'3.7.0' ];
+		$jquery_migrate_versions=[ '6.2.2'=>'3.4.0', '6.3'=>'3.4.1' ];
+		foreach ( $jquery_versions as $version ) {
+			$html=str_replace( $version, 'm.n.p', $html );
+		}
+		foreach ( $jquery_migrate_versions as $version ) {
+			$html=str_replace( $version, 'm.n.p', $html );
+		}
+		return $html;
 	}
 	
 
