@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2012-2022
+<?php // (C) Copyright Bobbing Wide 2012-2023
 if ( !defined( "OIK_PLUGINS_INCLUDED" ) ) {
-	define( "OIK_PLUGINS_INCLUDED", "0.3.2" );
+	define( "OIK_PLUGINS_INCLUDED", "0.3.3" );
 
 /**
  * Library: oik_plugins
@@ -464,7 +464,7 @@ if ( !function_exists( "bw_update_option" ) ) {
 function bw_update_option( $field, $value=NULL, $options="bw_options" ) {
   $bw_options = get_option( $options );
   $bw_options[ $field ] = $value;
-  bw_trace2( $bw_options );
+  bw_trace2( $bw_options, 'options', true, BW_TRACE_VERBOSE );
   update_option( $options, $bw_options );
   return( $value );
 }
