@@ -61,7 +61,8 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 	 * 
 	 * Notes: 
 	 * - We can't use bw_follow or bw_github since they're not actually shortcodes
-	 * - The test is dependent upon oik-css being active - it alters automatic paragraph creation
+	 * - The test is dependent upon oik-css being active -
+	 *  and for Disable automatic paragraph creation to be deselected; it alters automatic paragraph creation
 	 * - the oik-option value for Twitter is expected to be herb_miller
 	 * - test updated for Issue #68 to report the generated stylesheet link
 	 * - deregisters genericons as it may have been enqueued by Jetpack
@@ -76,6 +77,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		do_action( "oik_add_shortcodes" );
 		_sc__snippet( "bw_twitter", "theme=gener alt=0" );
 		$html = bw_ret();
+
 		$html = $this->replace_oik_url( $html );
 		$html = $this->replace_wp_version( $html );
 		$html = $this->cater_for_theme_supports_html5_style( $html );
@@ -125,7 +127,7 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		$string = implode( "\n", $again );
 		return $string;
 	}
-	
+
 	function test_div__syntax() {
 		$this->switch_to_locale( "en_GB" );
 		$array = div__syntax();
