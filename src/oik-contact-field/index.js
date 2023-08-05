@@ -100,7 +100,7 @@ registerBlockType(
                     <div { ...blockProps}>
                         <div>
                         <div className="label">
-                            <label for={ attributes.name }>{attributes.label}
+                            <label htmlFor={ attributes.name }>{attributes.label}
                                 { attributes.required && <span className="required">{attributes.requiredIndicator}</span> }
                             </label>
                         </div>
