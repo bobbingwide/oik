@@ -1056,10 +1056,10 @@ function bw_check_symlinks() {
 				// so we should be using $plugin here
 				$plugin_file = $plugin; 
 				$plugin_path = $normalized . '/' . $plugin_file;
-				bw_trace2( $plugin_path, "plugin_path", false );
+				bw_trace2( $plugin_path, "plugin_path", false, BW_TRACE_VERBOSE );
 				$real_path = realpath( $plugin_path );
 				$real_path = wp_normalize_path( $real_path );
-				bw_trace2( $real_path, "real_path" );
+				bw_trace2( $real_path, "real_path", false, BW_TRACE_VERBOSE );
 				if ( $real_path != $plugin_path ) { 
 					$myplugins[ $plugin ]['update'] = 0;
 					$myplugins[ $plugin ]['real_path'] = $real_path;
@@ -1073,8 +1073,8 @@ function bw_check_symlinks() {
 				}
 			}
 		}
-		bw_trace2( $wp_list_table->items, "Items" ); 
-		bw_trace2( $myplugins, "myplugins" );
+		bw_trace2( $wp_list_table->items, "Items", false, BW_TRACE_VERBOSE );
+		bw_trace2( $myplugins, "myplugins", false, BW_TRACE_VERBOSE );
 		$wp_list_table->items = $myplugins;
 	}
 }
