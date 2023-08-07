@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2020
+<?php // (C) Copyright Bobbing Wide 2012-2023
 
 /**
  * Dependency checking logic for WordPress plugins and themes
@@ -200,7 +200,7 @@ function oik_plugin_plugin_inactive( $plugin=null, $dependencies=null, $problem=
   $plugin_name = basename( $plugin, ".php" );
   $dependencies = str_replace( ":", ' ' . __('version', 'oik' ) . ' ', $dependencies );
   $text = "<p><b>";
-  /* translators: %1: plugin name */
+  /* translators: %s: plugin dependencies, comma separated */
   $text .= sprintf( __( '%1$s may not be fully functional.','oik'), $plugin_name );
   $text .= "</b> ";
   $text .= __( 'Please install and activate the required minimum version of this plugin:', 'oik' );

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-05T12:48:13+00:00\n"
+"POT-Creation-Date: 2023-08-07T11:21:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 
@@ -158,17 +158,17 @@ msgstr ""
 
 #: admin/oik-activation.php:201
 #: libs/oik-activation.php:198
-#: libs/oik-depends.php:148
+#: libs/oik-depends.php:149
 #: libs/oik_plugins.php:273
 #: libs/oik_themes.php:248
 #: shortcodes/oik-jquery.php:567
 msgid "version"
 msgstr ""
 
-#. translators: %1: plugin name
+#. translators: %s: plugin dependencies, comma separated
 #: admin/oik-activation.php:204
 #: libs/oik-activation.php:201
-#: libs/oik-depends.php:151
+#: libs/oik-depends.php:153
 msgid "%1$s may not be fully functional."
 msgstr ""
 
@@ -1580,27 +1580,27 @@ msgstr ""
 
 #. translators: %s: plugin name
 #: libs/oik-activation.php:30
-#: libs/oik-depends.php:285
+#: libs/oik-depends.php:289
 msgid "Install %1$s"
 msgstr ""
 
 #. translators: %s: plugin name
 #: libs/oik-activation.php:63
-#: libs/oik-depends.php:313
+#: libs/oik-depends.php:318
 msgid "Activate %1$s"
 msgstr ""
 
 #. translators: %s: plugin name
 #: libs/oik-activation.php:82
-#: libs/oik-depends.php:331
+#: libs/oik-depends.php:337
 #: libs/oik_themes.php:398
 msgid "Upgrade %1$s"
 msgstr ""
 
-#. translators: %s: plugin dependencies
+#. translators: %s: plugin dependencies, comma separated
 #: libs/oik-activation.php:204
-#: libs/oik-depends.php:107
-#: libs/oik-depends.php:153
+#: libs/oik-depends.php:108
+#: libs/oik-depends.php:156
 msgid "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr ""
 
@@ -1642,7 +1642,7 @@ msgstr ""
 
 #: libs/oik-sc-help.php:321
 #: libs/oik-sc-help.php:598
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:426
 #: shortcodes/oik-galleries.php:35
 #: shortcodes/oik-link.php:324
 msgid "id"
@@ -1820,7 +1820,7 @@ msgstr ""
 #: shortcodes/oik-cite.php:19
 #: shortcodes/oik-contact-field.php:135
 #: shortcodes/oik-contact-field.php:137
-#: shortcodes/oik-contact-form.php:426
+#: shortcodes/oik-contact-form.php:427
 #: shortcodes/oik-countdown.php:97
 #: shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325
@@ -2599,7 +2599,7 @@ msgid "Text to indicate the field is required. eg *"
 msgstr ""
 
 #: shortcodes/oik-contact-form.php:45
-#: shortcodes/oik-contact-form.php:526
+#: shortcodes/oik-contact-form.php:527
 msgid "Cannot produce contact form for unknown user."
 msgstr ""
 
@@ -2620,66 +2620,66 @@ msgid "Message"
 msgstr ""
 
 #. translators: %s Label of the required field. eg Text
-#: shortcodes/oik-contact-form.php:211
+#: shortcodes/oik-contact-form.php:212
 msgid "Required field not set: %s"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:349
+#: shortcodes/oik-contact-form.php:350
 msgid "Thank you for your submission."
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:351
+#: shortcodes/oik-contact-form.php:352
 msgid "Thank you for your submission. Something went wrong. Please try again."
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:354
+#: shortcodes/oik-contact-form.php:355
 msgid "We would like to thank you for your submission."
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:397
+#: shortcodes/oik-contact-form.php:398
 msgid "Invalid. Please correct and retry."
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:418
+#: shortcodes/oik-contact-form.php:419
 msgid "Display a contact form for the specific user"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:425
-#: shortcodes/oik-contact-form.php:427
+#: shortcodes/oik-contact-form.php:426
+#: shortcodes/oik-contact-form.php:428
 #: shortcodes/oik-paypal.php:268
 msgid "email"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:426
 msgid "slug"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:426
 msgid "login"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:426
 msgid "Value to identify the user"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:426
+#: shortcodes/oik-contact-form.php:427
 msgid "Text for submit button"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:427
+#: shortcodes/oik-contact-form.php:428
 msgid "Email address for submission"
 msgstr ""
 
 #. translators: %s: User ID
-#: shortcodes/oik-contact-form.php:441
+#: shortcodes/oik-contact-form.php:442
 msgid "Display a contact form for user: %1$s"
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:451
+#: shortcodes/oik-contact-form.php:452
 msgid "Note: If the form is submitted from Shortcode help then two emails would be sent."
 msgstr ""
 
-#: shortcodes/oik-contact-form.php:452
+#: shortcodes/oik-contact-form.php:453
 msgid "So the normal snippet code is not invoked in this case."
 msgstr ""
 
