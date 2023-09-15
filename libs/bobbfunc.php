@@ -872,7 +872,7 @@ function bw_funcname( $prefix, $key, $value=NULL ) {
  * @uses plugin_dir_url() to find the plugin base directory then appends the plugin folder and file name
  */
 function oik_url( $file=null, $plugin='oik' ) {
-  $url = plugin_dir_url( null );
+  $url = plugin_dir_url( '' );
   $url .= "$plugin/$file" ;
   return( $url ); 
 }
