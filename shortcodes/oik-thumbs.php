@@ -80,7 +80,7 @@ function bw_thumbs( $atts = NULL ) {
 }
 
 /**
- * Syntax fo [bw_thumbs] shortcode
+ * Syntax for [bw_thumbs] shortcode
  */
 function bw_thumbs__syntax( $shortcode="bw_thumbs" ) {
   $syntax = _sc_posts(); 
