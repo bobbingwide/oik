@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2011-2018 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2018, 2023 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -225,7 +225,7 @@ function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
   $width = bw_array_get( $atts, "width", null );
   $height = bw_array_get( $atts, "height", null );
   $zoom = bw_array_get( $atts, "zoom", 12 ); 
-  $alt = bw_array_get( $atts, "alt", null );
+  $alt = bw_array_get( $atts, "alt", '' );
   $alt = str_replace( "0", "", $alt );
   $gmap_intro = bw_get_option_arr( "gmap_intro", "bw_options", $atts );
   if ( $gmap_intro ) {
@@ -247,8 +247,9 @@ function bw_show_googlemap( $atts=null, $content=null, $tag=null ) {
   if ( !$postcode ) {
     $postcode = bw_get_option_arr( "postal-code", "bw_options", $atts );
   }
-  $postcode = str_replace( " ", "&nbsp;", $postcode );
-	
+  if ( null !== $postcode ) {
+	  $postcode=str_replace( " ", "&nbsp;", $postcode );
+  }
  
   bw_googlemap_v3( $company      
             , $lat
