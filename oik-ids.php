@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2014-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2014-2017, 2023 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -101,7 +101,7 @@ function oik_ids_css() {
  
  * 
  * 
- * In the codex we get told that the manage_edit-post_type_columns filter has been supplanted by manage_${post_type}_posts_columns
+ * In the codex we get told that the manage_edit-post_type_columns filter has been supplanted by manage_{$post_type}_posts_columns
  * 
  * So what about the filter for custom post types?
  * {@link http://codex.wordpress.org/Plugin_API/Action_Reference/manage_$post_type_posts_custom_column}
@@ -176,7 +176,7 @@ function oik_ids_load_edit_php() {
 	add_action( 'manage_pages_custom_column', 'oik_ids_value', 1000, 2 );
   $ptype = bw_array_get( $_REQUEST, "post_type", null ); 
   if ( $ptype ) {
-    add_filter("manage_edit-${ptype}_sortable_columns", "oik_ids_sortable_column" );
+    add_filter("manage_edit-{$ptype}_sortable_columns", "oik_ids_sortable_column" );
   } else {
     add_filter("manage_edit-post_sortable_columns", "oik_ids_sortable_column" ); 
   }
@@ -193,9 +193,9 @@ function oik_ids_load_edit_tags_php() {
 	// For Taxonomy Management
   $taxonomy = bw_array_get( $_REQUEST, "taxonomy", null ); 
   if ( $taxonomy ) {
-		add_action("manage_edit-${taxonomy}_columns", 'oik_ids_column');			
-		add_filter("manage_${taxonomy}_custom_column", 'oik_ids_return_value', 1000, 3);
-    add_filter( 'manage_edit-${taxonomy}_sortable_columns', "oik_ids_sortable_column" );
+		add_action("manage_edit-{$taxonomy}_columns", 'oik_ids_column');			
+		add_filter("manage_{$taxonomy}_custom_column", 'oik_ids_return_value', 1000, 3);
+    add_filter( 'manage_edit-{$taxonomy}_sortable_columns', "oik_ids_sortable_column" );
 	}
 }
 
