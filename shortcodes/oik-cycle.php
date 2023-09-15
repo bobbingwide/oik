@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013, 2014
+<?php // (C) Copyright Bobbing Wide 2013, 2014, 2023
 
 /**
  * Return a list of the jQuery cycle effects 
@@ -46,10 +46,10 @@ function bw_cycle_validate_fx( $fx ) {
  * @param string $class - the class parameter for the cycle
  */          
 function bw_cycle_prevnext_links( $class ) {
-  span( "${class}_prev");
+  span( "{$class}_prev");
   aname( "prev", "Prev" );
   epan();
-  span( "${class}_next" );
+  span( "{$class}_next" );
   aname( "next", "Next" );
   epan();
 } 
@@ -93,8 +93,8 @@ function bw_cycle( $atts=null, $content=null, $tag=null ) {
   bw_jquery_enqueue_style( "cycle.all" );
   $parms_array = array( "fx" => $fx, "fit" => $fit, "width" => "100%");
   if ( $prevnext ) {
-    $parms_array['next'] = "span.${class}_next";  
-    $parms_array['prev'] = "span.${class}_prev";
+    $parms_array['next'] = "span.{$class}_next";  
+    $parms_array['prev'] = "span.{$class}_prev";
     bw_cycle_prevnext_links( $class );
   }
   $parms = bw_jkv( $parms_array );
