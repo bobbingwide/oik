@@ -7,6 +7,7 @@
  * Tests for logic in libs/oik-sc-help.php are in oik-libs
  */
 class Tests_oik_sc_help extends BW_UnitTestCase {
+	public $_url;
 
 	function setUp(): void {
 	
