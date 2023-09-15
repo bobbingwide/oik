@@ -2,6 +2,8 @@
 
 class Tests_issue_124 extends BW_UnitTestCase {
 
+	public $saved_wordpress;
+	public $saved_github;
 	/** 
 	 * Issue #124 - tests for [bw_follow_me] comma separated network parameter
 	 *
