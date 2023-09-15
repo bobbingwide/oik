@@ -3,7 +3,7 @@ if ( defined( 'OIK_TABLE_SHORTCODES_INCLUDED' ) ) return;
 define( 'OIK_TABLE_SHORTCODES_INCLUDED', true );
 /*
 
-    Copyright 2012-2018 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2018, 2023 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -62,8 +62,8 @@ function bw_default_title_arr( $field_arr ) {
  * Determine the columns for the table
  * 
  * Finds the field names of the columns for the table, determines the table title for each field and creates a table heading
- * @uses "oik_table_fields_${post_type} - filter to determine fields to display in the table
- * @uses "oik_table_titles_${post_type} - filter to determine titles to display in the table
+ * @uses "oik_table_fields_{$post_type} - filter to determine fields to display in the table
+ * @uses "oik_table_titles_{$post_type} - filter to determine titles to display in the table
  *
  * Default fields, if not set are title and description (excerpt) 
  * 
@@ -83,7 +83,7 @@ function bw_query_table_columns( $atts=null, $post_type=null ) {
     $field_arr = explode( ",", $fields ); 
     $field_arr = bw_assoc( $field_arr );
   } else {
-    $field_arr = apply_filters( "oik_table_fields_${post_type}", $field_arr, $post_type );
+    $field_arr = apply_filters( "oik_table_fields_{$post_type}", $field_arr, $post_type );
     if ( empty( $field_arr ) ) {
       $field_arr['title'] = 'title';
       $field_arr['excerpt'] = 'excerpt'; 
@@ -91,7 +91,7 @@ function bw_query_table_columns( $atts=null, $post_type=null ) {
   }
   bw_trace2( $field_arr, "field_arr", false );
   $title_arr = bw_default_title_arr( $field_arr ); 
-  $title_arr = apply_filters( "oik_table_titles_${post_type}", $title_arr, $post_type, $field_arr );
+  $title_arr = apply_filters( "oik_table_titles_{$post_type}", $title_arr, $post_type, $field_arr );
  
   bw_table_header( $title_arr );  
   $excerpts = in_array( "excerpt", $field_arr);
