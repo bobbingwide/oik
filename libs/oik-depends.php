@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2012-2023
 if ( !defined( "OIK_DEPENDS_INCLUDED" ) ) {
-define( "OIK_DEPENDS_INCLUDED", "3.2.7" );
+define( "OIK_DEPENDS_INCLUDED", "3.2.8" );
 
 /**
  * Dependency checking library functions
@@ -192,7 +192,7 @@ function oik_plugin_plugin_inactive( $plugin=null, $dependencies=null, $problem=
 */ 
 function oik_check_version( $depend, $version ) {
   $active = true;
-  $version_func = "${depend}_version";
+  $version_func = "{$depend}_version";
   if ( is_callable( $version_func )) {
     $active_version = $version_func();
     $active = version_compare( $active_version, $version, "ge" ); 
