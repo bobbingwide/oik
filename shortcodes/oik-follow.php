@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2019
+<?php // (C) Copyright Bobbing Wide 2010-2019, 2023
 
 /**
  * Create a styled follow me button
@@ -41,7 +41,7 @@ function _bw_social_host( $lc_social ) {
 								, "github" => "github.com"
 								, "wordpress" => "profiles.wordpress.org" 
                 );
-  $host = bw_array_get( $hosts, $lc_social, "www.${lc_social}.com" );
+  $host = bw_array_get( $hosts, $lc_social, "www.{$lc_social}.com" );
   return( $host );
 }
 
@@ -209,10 +209,9 @@ function bw_follow_me( $atts=null ) {
  * @param $atts
  * @return array
  */
-
 function bw_follow_me_networks( $atts ) {
 	$all_networks = bw_follow_me_list_networks();
-	$network = bw_array_get( $atts, 'network', null);
+	$network = bw_array_get( $atts, 'network', '');
 	$network = trim( $network );
 	$lc_network = strtolower( $network );
 	$lc_networks = explode( ',', $lc_network );
@@ -390,7 +389,7 @@ function bw_follow_link_gener( $social, $lc_social, $social_network, $me, $class
  */ 
 function bw_follow_link_( $social, $lc_social, $social_network, $me, $class ) {
 	$suffix = "48";
-	if ( false !== strpos( $class, "old" ) ) {
+	if ( null !== $class && false !== strpos( $class, "old" ) ) {
 		$suffix = "old";
 	}	else {
 		$class .= " bw_follow_new";
