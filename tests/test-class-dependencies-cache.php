@@ -20,7 +20,7 @@ class Tests_class_dependencies_help extends BW_UnitTestCase {
 	 * mentioning 'need not currently exist in the array'
 	 *
 	 * This demonstrates that the index is 1 even after removing index 0.
-	 * 
+	 *
 	 * But will reset to 0 after re-indexing using array_values();
 	 * @return void
 	 */
