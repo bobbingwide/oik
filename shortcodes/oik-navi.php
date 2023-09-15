@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2019
+<?php // (C) Copyright Bobbing Wide 2014-2019, 2023
 
 /**
  * Return the next unique shortcode ID
@@ -416,7 +416,7 @@ function bw_navi_fetch_field_content( $field, $atts ) {
 	$field_type = bw_query_field_type( $field );
 	add_filter( "bw_navi_filter_textarea", "bw_navi_filter_textarea", 10, 3 );
 	add_filter( "bw_navi_filter_sctextarea", "bw_navi_filter_textarea", 10, 3 );
-	$content_array = apply_filters( "bw_navi_filter_${field_type}", $values, $field, $field_type );
+	$content_array = apply_filters( "bw_navi_filter_{$field_type}", $values, $field, $field_type );
 	return( $content_array );
 }
 
