@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2013
+<?php // (C) Copyright Bobbing Wide 2013, 2023
 
 /**
  * Perform symbolic substitution of the fields in the body
@@ -18,7 +18,7 @@
 function bw_replace_fields( $body=null, $fields=array() ) {
   if ( $body ) {
     foreach ( $fields as $name => $value ) {
-      $body = str_replace( "%${name}%", $value, $body );
+      $body = str_replace( "%{$name}%", $value, $body );
     }
   }  
   return( $body );
@@ -121,7 +121,7 @@ function bw_send_email( $email, $subject=null, $message=null, $headers=null, $fi
   $headers = bw_get_email_headers( $headers, $fields );
   $subject = bw_get_email_subject( $subject, $fields );
   $message = bw_get_email_message( $message, $fields );
-  $attachments = null; 
+  $attachments = [];
   $result = wp_mail( $to, $subject, $message, $headers, $attachments );
   bw_trace2( $result, "result of wp_mail" );
   if ( !$result ) {
