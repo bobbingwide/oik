@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2017, 2023
 /**
  * Logic to create metaboxes for each of the custom fields defined for a particular post type
  *
@@ -227,7 +227,7 @@ if ( !function_exists( "bw_form_field_date" ) ) {
 		wp_enqueue_style( "jquery-ui-datepicker-css", oik_url( "css/jquery.ui.datepicker.css" ) );
 		wp_enqueue_style( "jquery-ui-theme-css", oik_url( "css/jquery-ui-1.9.2.custom.css" ) );
 		bw_datepicker_enqueue_script();
-		bw_jquery( "#${name}", "datepicker", bw_jkv( "dateFormat : 'yy-mm-dd', changeMonth: true, changeYear: true" ) );
+		bw_jquery( "#{$name}", "datepicker", bw_jkv( "dateFormat : 'yy-mm-dd', changeMonth: true, changeYear: true" ) );
 		if ( $value ) {
 			$value = bw_format_date( $value );
 		}
@@ -370,7 +370,7 @@ function _bw_form_field_title( $field_title, $args ) {
  * @return string customized field title
  */
 function bw_l10n_field_title( $field_name, $field_title, $field_type, $field_value, $args=null ) {
-  $field_title = apply_filters( "oik_form_field_title_${field_name}", $field_title, $field_type );
+  $field_title = apply_filters( "oik_form_field_title_{$field_name}", $field_title, $field_type );
   $field_title = _bw_form_field_title( $field_title, $args ); 
   return( $field_title );
 }
@@ -490,7 +490,7 @@ function bw_effort_save_postdata( $post_id, $post, $update ) {
      * @param integer $post_id The ID of this post
      * @param object $post the post object
      */
-    do_action( "save_post_${post_type}", $post_id, $post, $update );
+    do_action( "save_post_{$post_type}", $post_id, $post, $update );
   
     global $bw_mapping; 
     //bw_trace( $bw_mapping, __FUNCTION__, __LINE__, __FILE__, "bw_mapping" );
