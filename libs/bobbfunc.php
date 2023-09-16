@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2009-2021
+<?php // (C) Copyright Bobbing Wide 2009-2023
 if ( !defined( "BOBBFUNC_INCLUDED" ) ) {
-define( "BOBBFUNC_INCLUDED", "3.4.2" );
+define( "BOBBFUNC_INCLUDED", "3.4.3" );
 
 /**
  * HTML output library functions
