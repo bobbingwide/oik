@@ -64,6 +64,8 @@ class Tests_issue_68 extends BW_UnitTestCase {
 	 * elseif ( 'no' == $_GET['test'] ) {
 	check_ajax_referer( 'update_can_compress_scripts' );
 	update_site_option( 'can_compress_scripts', 3 );
+	 *
+	 * This test sometimes fails in `s.b/oikcom`. Workaround is to set the value of `can_compress_scripts` to 1 using phpMyAdmin.
 	 */
 	function test_compress_css() {
 
