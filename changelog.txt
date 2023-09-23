@@ -36,6 +36,12 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.9.1 =
+Upgrade for compatibility with WordPress 6.3
+
+= 4.9.0 =
+Update for an improved Contact form with user definable fields.
+
 = 4.8.2 =
 Adds missing blocks. Update for a fix in oik-navi pagination logic.
 
@@ -470,8 +476,29 @@ Upgrade oik to version 1.12 before updating oik-nivo-slider to version 1.2. For 
 There are many changes in version 1.11 to support lazy invocation of code.  
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
-
 == Changelog ==
+= 4.9.1 =
+* Changed: Update to latest wp-scripts #218
+* Changed: Make compatible with WordPress 6.3 #217
+* Changed: Improve Contact form and Contact field blocks #207
+* Changed: Add BW_TRACE_VERBOSE to some trace calls #106
+* Changed: Improve bw_accordion accessibility using detail/summary and no jQuery #211
+* Changed: Replace YouTube video in embed example
+* Tested: With WordPress 6.3 and WordPress Multi Site
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+* Tested: With Gutenberg 16.3.0
+
+= 4.9.0 = 
+* Changed: Update Contact form to support user defined fields #207
+* Changed: Update shared library files #207
+* Added: Add oik/contact-field block #207
+* Added: Added [bw_contact_field] shortcode #207
+* Tested: With WordPress 6.0.1 and WordPress Multi Site
+* Tested: With PHP 8.0
+* Tested: With PHPUnit 9
+* Tested: With Gutenberg 14.0.2
+
 = 4.8.2 =
 * Fixed: Deliver build files for separately delivered blocks. #202
 * Fixed: Cater for invalid bwscidn query parm values passed by bots #168

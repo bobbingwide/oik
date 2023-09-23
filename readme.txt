@@ -3,8 +3,8 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.0.3
-Tested up to: 6.3
-Stable tag: 4.9.1
+Tested up to: 6.3.1
+Stable tag: 4.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
@@ -106,35 +106,18 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
-= 4.9.1 =
-Upgrade for compatibility with WordPress 6.3
-
-= 4.9.0 =
-Update for an improved Contact form with user definable fields. 
+= 4.9.2 = 
+Upgrade for support for PHP 8.1 and PHP 8.2
 
 == Changelog ==
-= 4.9.1 =
-* Changed: Update to latest wp-scripts #218
-* Changed: Make compatible with WordPress 6.3 #217
-* Changed: Improve Contact form and Contact field blocks #207
-* Changed: Add BW_TRACE_VERBOSE to some trace calls #106
-* Changed: Improve bw_accordion accessibility using detail/summary and no jQuery #211
-* Changed: Replace YouTube video in embed example
-* Tested: With WordPress 6.3 and WordPress Multi Site
-* Tested: With PHP 8.0
-* Tested: With PHPUnit 9
-* Tested: With Gutenberg 16.3.0
-
-= 4.9.0 = 
-* Changed: Update Contact form to support user defined fields #207
-* Changed: Update shared library files #207
-* Added: Add oik/contact-field block #207
-* Added: Added [bw_contact_field] shortcode #207
-* Tested: With WordPress 6.0.1 and WordPress Multi Site
-* Tested: With PHP 8.0
-* Tested: With PHPUnit 9
-* Tested: With Gutenberg 14.0.2
-
+= 4.9.2 = 
+* Changed: Support PHP 8.1 and PHP 8.2 #220
+* Changed: Adjust test to work when WooCommerce is activated #217
+* Changed: Add/update translators comments #219
+* Tested: With WordPress 6.3.1 and WordPress Multisite
+* Tested: With Gutenberg 16.6.0
+* Tested: With PHP 8.1 and PHP 8.2
+* Tested: With PHPUnit 9.6
 
 == Further reading ==
 If you want to read more about the oik plugins then please visit the
@@ -191,9 +174,9 @@ oik plugins are suitable for:
 oik plugins are tested with: 
 
 * WordPress
-* WordPress Multi Site
-* PHP 8.0
-* PHPUnit 9
+* WordPress Multisite
+* PHP 8.1 & PHP 8.2
+* PHPUnit 9.6
 
 All of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier. 
 These are known as the [OIK Application Programming Interface (OIK API)](https://www.oik-plugins.com/apis/oik-apis)
