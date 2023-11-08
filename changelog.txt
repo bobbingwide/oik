@@ -36,6 +36,9 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.9.2 = 
+Upgrade for support for PHP 8.1 and PHP 8.2
+
 = 4.9.1 =
 Upgrade for compatibility with WordPress 6.3
 
@@ -477,6 +480,15 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.9.2 = 
+* Changed: Support PHP 8.1 and PHP 8.2 #220
+* Changed: Adjust test to work when WooCommerce is activated #217
+* Changed: Add/update translators comments #219
+* Tested: With WordPress 6.3.1 and WordPress Multisite
+* Tested: With Gutenberg 16.6.0
+* Tested: With PHP 8.1 and PHP 8.2
+* Tested: With PHPUnit 9.6
+
 = 4.9.1 =
 * Changed: Update to latest wp-scripts #218
 * Changed: Make compatible with WordPress 6.3 #217
