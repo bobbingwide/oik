@@ -264,16 +264,22 @@ function bw_akismet_check( $fields ) {
  * If there's any evidence of an attempt to include an URL then treat it as spam.
  * The code supports http or https and is case insensitive.
  *
+ * Fields checked now include the author, email and content.
+ *
  * @param array $fields
  * @return bool
  */
 function bw_basic_spam_check( $fields ) {
-	//print_r( $fields );
-	$content = bw_array_get( $fields, "comment_content", null );
-	$content = strtolower( $content );
-	if ( false !== strpos( $content, 'http')) {
-		bw_trace2( "Spam check found http");
-		return false;
+
+	//bw_trace2();
+	$fields_to_check = [ "comment_author", "comment_author_email", "comment_content" ];
+	foreach ( $fields_to_check as $field ) {
+		$content=bw_array_get( $fields, $field, '' );
+		$content=strtolower( $content );
+		if ( false !== strpos( $content, 'http' ) ) {
+			bw_trace2( "Spam check found http" );
+			return false;
+		}
 	}
 	return true;
 }
