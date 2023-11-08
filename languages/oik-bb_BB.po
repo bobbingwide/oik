@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 4.9.1\n"
+"Project-Id-Version: oik 4.10.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,9 +11,9 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-05T12:48:13+00:00\n"
+"POT-Creation-Date: 2023-11-08T19:06:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.8.1\n"
 msgid "oik"
 msgstr "OIk"
 
@@ -148,7 +148,7 @@ msgstr "Udptae"
 
 #: admin/oik-activation.php:201
 #: libs/oik-activation.php:198
-#: libs/oik-depends.php:148
+#: libs/oik-depends.php:149
 #: libs/oik_plugins.php:273
 #: libs/oik_themes.php:248
 #: shortcodes/oik-jquery.php:567
@@ -157,7 +157,7 @@ msgstr "vreison"
 
 #: admin/oik-activation.php:204
 #: libs/oik-activation.php:201
-#: libs/oik-depends.php:151
+#: libs/oik-depends.php:153
 msgid "%1$s may not be fully functional."
 msgstr "%1$s mAy nOt bE fluly fnutcoianl."
 
@@ -997,11 +997,11 @@ msgstr "Add Or rmevoe %1$s"
 msgid "Choose from most used %1$s"
 msgstr "Cohsoe form msot uesd %1$s"
 
-#: includes/oik-contact-form-email.php:36
+#: includes/oik-contact-form-email.php:38
 msgid "Contact form submission"
 msgstr "Cnoatct from sbuimssoin"
 
-#: includes/oik-contact-form-email.php:129
+#: includes/oik-contact-form-email.php:131
 msgid "Failed to send email to: %1$s subject: %2$s"
 msgstr "Fiaeld tO sned eamil tO: %1$s sbuejct: %2$s"
 
@@ -1459,7 +1459,7 @@ msgid "Copyright text prefix"
 msgstr "Cporygiht txet perifx"
 
 #: includes/oik-sc-help.php:201
-#: shortcodes/oik-googlemap.php:287
+#: shortcodes/oik-googlemap.php:288
 msgid "company name"
 msgstr "cmoapny nmae"
 
@@ -1536,24 +1536,24 @@ msgid "Updates"
 msgstr "Udptaes"
 
 #: libs/oik-activation.php:30
-#: libs/oik-depends.php:285
+#: libs/oik-depends.php:289
 msgid "Install %1$s"
 msgstr "Isnatll %1$s"
 
 #: libs/oik-activation.php:63
-#: libs/oik-depends.php:313
+#: libs/oik-depends.php:318
 msgid "Activate %1$s"
 msgstr "Atcvitae %1$s"
 
 #: libs/oik-activation.php:82
-#: libs/oik-depends.php:331
-#: libs/oik_themes.php:398
+#: libs/oik-depends.php:337
+#: libs/oik_themes.php:400
 msgid "Upgrade %1$s"
 msgstr "Ugparde %1$s"
 
 #: libs/oik-activation.php:204
-#: libs/oik-depends.php:107
-#: libs/oik-depends.php:153
+#: libs/oik-depends.php:108
+#: libs/oik-depends.php:156
 msgid "Please install and activate the required minimum version of this plugin: %1$s"
 msgstr "Pelsae isnatll And atcvitae thE rqeiuerd mnimium vreison Of tihs pulign: %1$s"
 
@@ -1576,7 +1576,7 @@ msgstr "OIk gneretaed eaxpmle."
 #: libs/oik-sc-help.php:319
 #: shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20
-#: shortcodes/oik-follow.php:413
+#: shortcodes/oik-follow.php:412
 #: shortcodes/oik-phone.php:221
 #: shortcodes/oik-phone.php:291
 #: shortcodes/oik-phone.php:304
@@ -1587,14 +1587,14 @@ msgstr "calss nmaes"
 #: shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20
 #: shortcodes/oik-cycle.php:127
-#: shortcodes/oik-follow.php:413
+#: shortcodes/oik-follow.php:412
 #: shortcodes/oik-phone.php:221
 msgid "CSS class names"
 msgstr "CSS calss nmaes"
 
 #: libs/oik-sc-help.php:321
 #: libs/oik-sc-help.php:598
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:432
 #: shortcodes/oik-galleries.php:35
 #: shortcodes/oik-link.php:324
 msgid "id"
@@ -1771,7 +1771,7 @@ msgstr "Tihs Is A cpaiton"
 #: shortcodes/oik-cite.php:19
 #: shortcodes/oik-contact-field.php:135
 #: shortcodes/oik-contact-field.php:137
-#: shortcodes/oik-contact-form.php:426
+#: shortcodes/oik-contact-form.php:433
 #: shortcodes/oik-countdown.php:97
 #: shortcodes/oik-countdown.php:99
 #: shortcodes/oik-link.php:325
@@ -2007,23 +2007,23 @@ msgstr "ThE dfeualt OIk puligns sreevr Is cruertnly sEt tO: %1$s"
 
 #: libs/oik_plugins.php:272
 #: libs/oik_plugins.php:296
-#: libs/oik_plugins.php:311
+#: libs/oik_plugins.php:312
 msgid "plugin"
 msgstr "pulign"
 
 #: libs/oik_plugins.php:274
-#: libs/oik_plugins.php:297
-#: libs/oik_plugins.php:312
+#: libs/oik_plugins.php:298
+#: libs/oik_plugins.php:314
 #: libs/oik_themes.php:249
-#: libs/oik_themes.php:267
-#: libs/oik_themes.php:282
+#: libs/oik_themes.php:268
+#: libs/oik_themes.php:284
 msgid "server"
 msgstr "sreevr"
 
 #: libs/oik_plugins.php:275
-#: libs/oik_plugins.php:298
+#: libs/oik_plugins.php:299
 #: libs/oik_themes.php:250
-#: libs/oik_themes.php:268
+#: libs/oik_themes.php:269
 msgid "apikey"
 msgstr "aipeky"
 
@@ -2036,45 +2036,45 @@ msgstr "atcoins"
 msgid "Add plugin"
 msgstr "Add pulign"
 
-#: libs/oik_plugins.php:300
+#: libs/oik_plugins.php:301
 msgid "Add new plugin"
 msgstr "Add nEw pulign"
 
-#: libs/oik_plugins.php:313
-#: libs/oik_themes.php:283
+#: libs/oik_plugins.php:315
+#: libs/oik_themes.php:285
 msgid "apikey?"
 msgstr "aipeky?"
 
-#: libs/oik_plugins.php:315
+#: libs/oik_plugins.php:317
 msgid "Change plugin"
 msgstr "Cahgne pulign"
 
-#: libs/oik_plugins.php:344
+#: libs/oik_plugins.php:346
 msgid "Error checking the plugin: %1$s"
 msgstr "Error cehkcnig thE pulign: %1$s"
 
-#: libs/oik_plugins.php:350
+#: libs/oik_plugins.php:352
 msgid "A new version of the plugin is available"
 msgstr "A nEw vreison Of thE pulign Is aavlibale"
 
-#: libs/oik_plugins.php:352
-#: libs/oik_plugins.php:361
+#: libs/oik_plugins.php:354
+#: libs/oik_plugins.php:363
 msgid "Plugin: %1$s"
 msgstr "Pulign: %1$s"
 
-#: libs/oik_plugins.php:354
-#: libs/oik_plugins.php:362
-#: libs/oik_themes.php:313
-#: libs/oik_themes.php:320
+#: libs/oik_plugins.php:356
+#: libs/oik_plugins.php:364
+#: libs/oik_themes.php:315
+#: libs/oik_themes.php:322
 msgid "Current version: %1$s"
 msgstr "Cruernt vreison: %1$s"
 
-#: libs/oik_plugins.php:356
-#: libs/oik_themes.php:314
+#: libs/oik_plugins.php:358
+#: libs/oik_themes.php:316
 msgid "New version: %1$s"
 msgstr "NEw vreison: %1$s"
 
-#: libs/oik_plugins.php:360
+#: libs/oik_plugins.php:362
 msgid "Plugin is up to date."
 msgstr "Pulign Is Up tO dtae."
 
@@ -2104,7 +2104,7 @@ msgstr "ThE dfeualt OIk tehems sreevr Is cruertnly sEt tO: %1$s"
 
 #: libs/oik_themes.php:247
 #: libs/oik_themes.php:266
-#: libs/oik_themes.php:281
+#: libs/oik_themes.php:282
 msgid "theme"
 msgstr "tehme"
 
@@ -2112,28 +2112,28 @@ msgstr "tehme"
 msgid "Add theme"
 msgstr "Add tehme"
 
-#: libs/oik_themes.php:270
+#: libs/oik_themes.php:271
 msgid "Add new theme"
 msgstr "Add nEw tehme"
 
-#: libs/oik_themes.php:285
+#: libs/oik_themes.php:287
 msgid "Change theme"
 msgstr "Cahgne tehme"
 
-#: libs/oik_themes.php:304
+#: libs/oik_themes.php:306
 msgid "Error checking the theme: %1$s"
 msgstr "Error cehkcnig thE tehme: %1$s"
 
-#: libs/oik_themes.php:310
+#: libs/oik_themes.php:312
 msgid "A new version of the theme is available"
 msgstr "A nEw vreison Of thE tehme Is aavlibale"
 
-#: libs/oik_themes.php:312
-#: libs/oik_themes.php:319
+#: libs/oik_themes.php:314
+#: libs/oik_themes.php:321
 msgid "Theme: %1$s"
 msgstr "Tehme: %1$s"
 
-#: libs/oik_themes.php:318
+#: libs/oik_themes.php:320
 msgid "Theme is up to date."
 msgstr "Tehme Is Up tO dtae."
 
@@ -2295,7 +2295,7 @@ msgid "e.g."
 msgstr "E.g."
 
 #: shortcodes/oik-bookmarks.php:57
-#: shortcodes/oik-googlemap.php:294
+#: shortcodes/oik-googlemap.php:295
 #: shortcodes/oik-phone.php:219
 #: shortcodes/oik-slideshows.php:81
 #: shortcodes/oik-slideshows.php:83
@@ -2533,7 +2533,7 @@ msgid "Text to indicate the field is required. eg *"
 msgstr "Txet tO idncitae thE feild Is rqeiuerd. Eg *"
 
 #: shortcodes/oik-contact-form.php:45
-#: shortcodes/oik-contact-form.php:526
+#: shortcodes/oik-contact-form.php:533
 msgid "Cannot produce contact form for unknown user."
 msgstr "Cnaont porudce cnoatct from fOr uknonwn uesr."
 
@@ -2553,65 +2553,65 @@ msgstr "Sbuejct"
 msgid "Message"
 msgstr "Mseasge"
 
-#: shortcodes/oik-contact-form.php:211
+#: shortcodes/oik-contact-form.php:212
 msgid "Required field not set: %s"
 msgstr "Rqeiuerd feild nOt sEt: %s"
 
-#: shortcodes/oik-contact-form.php:349
+#: shortcodes/oik-contact-form.php:356
 msgid "Thank you for your submission."
 msgstr "Tahnk yOU fOr yuor sbuimssoin."
 
-#: shortcodes/oik-contact-form.php:351
+#: shortcodes/oik-contact-form.php:358
 msgid "Thank you for your submission. Something went wrong. Please try again."
 msgstr "Tahnk yOU fOr yuor sbuimssoin. Smoteihng wnet worng. Pelsae try aagin."
 
-#: shortcodes/oik-contact-form.php:354
+#: shortcodes/oik-contact-form.php:361
 msgid "We would like to thank you for your submission."
 msgstr "WE wuold lkie tO tahnk yOU fOr yuor sbuimssoin."
 
-#: shortcodes/oik-contact-form.php:397
+#: shortcodes/oik-contact-form.php:404
 msgid "Invalid. Please correct and retry."
 msgstr "Ivnlaid. Pelsae croerct And rtery."
 
-#: shortcodes/oik-contact-form.php:418
+#: shortcodes/oik-contact-form.php:425
 msgid "Display a contact form for the specific user"
 msgstr "Dsilpay A cnoatct from fOr thE sepicifc uesr"
 
-#: shortcodes/oik-contact-form.php:425
-#: shortcodes/oik-contact-form.php:427
+#: shortcodes/oik-contact-form.php:432
+#: shortcodes/oik-contact-form.php:434
 #: shortcodes/oik-paypal.php:268
 msgid "email"
 msgstr "eamil"
 
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:432
 msgid "slug"
 msgstr "sulg"
 
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:432
 msgid "login"
 msgstr "lgoin"
 
-#: shortcodes/oik-contact-form.php:425
+#: shortcodes/oik-contact-form.php:432
 msgid "Value to identify the user"
 msgstr "Vlaue tO iedtnfiy thE uesr"
 
-#: shortcodes/oik-contact-form.php:426
+#: shortcodes/oik-contact-form.php:433
 msgid "Text for submit button"
 msgstr "Txet fOr sbuimt btuotn"
 
-#: shortcodes/oik-contact-form.php:427
+#: shortcodes/oik-contact-form.php:434
 msgid "Email address for submission"
 msgstr "Eamil adderss fOr sbuimssoin"
 
-#: shortcodes/oik-contact-form.php:441
+#: shortcodes/oik-contact-form.php:448
 msgid "Display a contact form for user: %1$s"
 msgstr "Dsilpay A cnoatct from fOr uesr: %1$s"
 
-#: shortcodes/oik-contact-form.php:451
+#: shortcodes/oik-contact-form.php:458
 msgid "Note: If the form is submitted from Shortcode help then two emails would be sent."
 msgstr "Ntoe: If thE from Is sbuimtted form Sohtrocde hlep tehn twO eamlis wuold bE snet."
 
-#: shortcodes/oik-contact-form.php:452
+#: shortcodes/oik-contact-form.php:459
 msgid "So the normal snippet code is not invoked in this case."
 msgstr "SO thE nroaml sinppet cdoe Is nOt ivnkoed In tihs csae."
 
@@ -2763,26 +2763,26 @@ msgstr "feild"
 msgid "oik options field to use"
 msgstr "OIk otpoins feild tO UsE"
 
-#: shortcodes/oik-follow.php:299
-#: shortcodes/oik-follow.php:366
-#: shortcodes/oik-follow.php:399
-#: shortcodes/oik-follow.php:462
+#: shortcodes/oik-follow.php:298
+#: shortcodes/oik-follow.php:365
+#: shortcodes/oik-follow.php:398
+#: shortcodes/oik-follow.php:461
 msgid "Follow %1$s on %2$s"
 msgstr "Floolw %1$s On %2$s"
 
-#: shortcodes/oik-follow.php:412
+#: shortcodes/oik-follow.php:411
 msgid "Icon selection"
 msgstr "Iocn sleceiton"
 
-#: shortcodes/oik-follow.php:414
+#: shortcodes/oik-follow.php:413
 msgid "Use option values"
 msgstr "UsE otpoin vlaeus"
 
-#: shortcodes/oik-follow.php:415
+#: shortcodes/oik-follow.php:414
 msgid "network1, network2"
 msgstr "nteowrk1, nteowrk2"
 
-#: shortcodes/oik-follow.php:415
+#: shortcodes/oik-follow.php:414
 msgid "CSV list of network names"
 msgstr "CSV lsit Of nteowrk nmaes"
 
@@ -2838,83 +2838,83 @@ msgstr "E.g."
 msgid "The Google directions button will enable the user to get directions to you."
 msgstr "ThE Goolge driceitnos btuotn wlil eanlbe thE uesr tO gEt driceitnos tO yOU."
 
-#: shortcodes/oik-googlemap.php:272
+#: shortcodes/oik-googlemap.php:273
 msgid "To display a Google Map for your company location"
 msgstr "TO dsilpay A Goolge MAp fOr yuor cmoapny lcotaoin"
 
-#: shortcodes/oik-googlemap.php:273
+#: shortcodes/oik-googlemap.php:274
 msgid "Some of the default values are extracted from oik information:"
 msgstr "Smoe Of thE dfeualt vlaeus ArE etxartced form OIk ifnroamiton:"
 
-#: shortcodes/oik-googlemap.php:275
+#: shortcodes/oik-googlemap.php:276
 msgid "company - for the Company name"
 msgstr "cmoapny - fOr thE Cmoapny nmae"
 
-#: shortcodes/oik-googlemap.php:276
+#: shortcodes/oik-googlemap.php:277
 msgid "lat - for the latitude"
 msgstr "lAt - fOr thE ltatidue"
 
-#: shortcodes/oik-googlemap.php:277
+#: shortcodes/oik-googlemap.php:278
 msgid "long - for the longitude"
 msgstr "lnog - fOr thE lnoigutde"
 
-#: shortcodes/oik-googlemap.php:278
+#: shortcodes/oik-googlemap.php:279
 msgid "width - map width (  100% )"
 msgstr "wdith - mAp wdith (  100% )"
 
-#: shortcodes/oik-googlemap.php:279
+#: shortcodes/oik-googlemap.php:280
 msgid "height - map height ( 400px - to allow for the info window )"
 msgstr "hiehgt - mAp hiehgt ( 400px - tO allow fOr thE ifno wniodw )"
 
-#: shortcodes/oik-googlemap.php:287
+#: shortcodes/oik-googlemap.php:288
 msgid "type your company name"
 msgstr "tpye yuor cmoapny nmae"
 
-#: shortcodes/oik-googlemap.php:288
+#: shortcodes/oik-googlemap.php:289
 msgid "latitude"
 msgstr "ltatidue"
 
-#: shortcodes/oik-googlemap.php:289
+#: shortcodes/oik-googlemap.php:290
 msgid "longitude"
 msgstr "lnoigutde"
 
-#: shortcodes/oik-googlemap.php:290
+#: shortcodes/oik-googlemap.php:291
 msgid "postcode"
 msgstr "psoctdoe"
 
-#: shortcodes/oik-googlemap.php:290
+#: shortcodes/oik-googlemap.php:291
 msgid "postcode or ZIP code"
 msgstr "psoctdoe Or ZIP cdoe"
 
-#: shortcodes/oik-googlemap.php:291
+#: shortcodes/oik-googlemap.php:292
 #: shortcodes/oik-logo.php:174
 #: shortcodes/oik-qrcode.php:40
 msgid "width"
 msgstr "wdith"
 
-#: shortcodes/oik-googlemap.php:291
+#: shortcodes/oik-googlemap.php:292
 msgid "width of the Google map"
 msgstr "wdith Of thE Goolge mAp"
 
-#: shortcodes/oik-googlemap.php:292
+#: shortcodes/oik-googlemap.php:293
 #: shortcodes/oik-logo.php:175
 #: shortcodes/oik-qrcode.php:41
 msgid "height"
 msgstr "hiehgt"
 
-#: shortcodes/oik-googlemap.php:292
+#: shortcodes/oik-googlemap.php:293
 msgid "height of the map"
 msgstr "hiehgt Of thE mAp"
 
-#: shortcodes/oik-googlemap.php:293
+#: shortcodes/oik-googlemap.php:294
 msgid "marker1,marker2"
 msgstr "mraekr1,mraekr2"
 
-#: shortcodes/oik-googlemap.php:293
+#: shortcodes/oik-googlemap.php:294
 msgid "Additional markers"
 msgstr "Addtioianl mraekrs"
 
-#: shortcodes/oik-googlemap.php:294
+#: shortcodes/oik-googlemap.php:295
 msgid "Zoom level"
 msgstr "Zoom lveel"
 
