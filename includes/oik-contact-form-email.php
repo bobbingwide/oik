@@ -18,7 +18,9 @@
 function bw_replace_fields( $body=null, $fields=array() ) {
   if ( $body ) {
     foreach ( $fields as $name => $value ) {
-      $body = str_replace( "%{$name}%", $value, $body );
+		if ( null !== $value) {
+			$body=str_replace( "%{$name}%", $value, $body );
+		}
     }
   }  
   return( $body );
