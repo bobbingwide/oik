@@ -158,7 +158,11 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		wp_enqueue_script( "issue-68", "http://example.com/issue-68.js", array(), "1.0", null, false );
 		bw_save_scripts();
 		$html = bw_report_scripts();
+		// Cater for WordPress 6.4 as well - previously attributes were double quoted.
+		$html = str_replace( '"', "'", $html);
 		$html = str_replace(  "type='text/javascript' ", '', $html );
+
+		//$html = str_replace(  'type="text/javascript" ', '', $html );
 		//$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}
@@ -233,8 +237,8 @@ class Tests_issue_68 extends BW_UnitTestCase {
 	}
 
 	function replace_jquery_versions( $html ) {
-		$jquery_versions        =[ '6.2.2'=>'3.6.4', '6.3'=>'3.7.0' ];
-		$jquery_migrate_versions=[ '6.2.2'=>'3.4.0', '6.3'=>'3.4.1' ];
+		$jquery_versions        =[ '6.2.2'=>'3.6.4', '6.3'=>'3.7.0', '6.4' => '3.7.1' ];
+		$jquery_migrate_versions=[ '6.2.2'=>'3.4.0', '6.3'=>'3.4.1', '6.4' => '3.4.1' ];
 		foreach ( $jquery_versions as $version ) {
 			$html=str_replace( $version, 'm.n.p', $html );
 		}
