@@ -4,7 +4,7 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 6.4
+* Tested up to: 6.4.1
 * Stable tag: 4.10.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -111,12 +111,11 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 Update for improved basic spam checking on the contact form.
 
 ## Changelog 
-
 # 4.10.0 
 * Changed: Support PHP 8.1 and PHP 8.2 #220
 * Changed: Improve bw_basic_spam_check() #221
 * Changed: Update PHPUnit tests for WordPress 6.4 changes #222
-* Tested: With WordPress 6.4 and WordPress Multisite
+* Tested: With WordPress 6.4.1 and WordPress Multisite
 * Tested: With Gutenberg 16.9.0
 * Tested: With PHP 8.1 and PHP 8.2
 * Tested: With PHPUnit 9.6
