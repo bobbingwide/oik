@@ -272,7 +272,7 @@ function bw_akismet_check( $fields ) {
 function bw_basic_spam_check( $fields ) {
 
 	//bw_trace2();
-	$fields_to_check = [ "comment_author", "comment_author_email", "comment_content" ];
+	$fields_to_check = [ "comment_author", "comment_author_email", "comment_content", "subject" ];
 	foreach ( $fields_to_check as $field ) {
 		$content=bw_array_get( $fields, $field, '' );
 		$content=strtolower( $content );
@@ -306,7 +306,7 @@ function bw_call_akismet( $query_string ) {
 /**
  * Return the query_string to pass to Akismet given the fields in $fields and $_SERVER
  * 
- * @link http://akismet.com/development/api/#comment-check
+ * @link https://akismet.com/development/api/#comment-check
  * blog (required) -The front page or home URL of the instance making the request. 
  *                  For a blog or wiki this would be the front page. Note: Must be a full URI, including http://.
  * user_ip (required) - IP address of the comment submitter.
@@ -316,8 +316,9 @@ function bw_call_akismet( $query_string ) {
  * permalink - The permanent location of the entry the comment was submitted to.
  * comment_type - May be blank, comment, trackback, pingback, or a made up value like "registration".
  * comment_author - Name submitted with the comment
- * Use "viagra-test-123" to always get a spam response
+ * Use akismet-guaranteed-spam to always get a spam response
  * comment_author_email - Email address submitted with the comment
+ * Use akismet-guaranteed-spam@example.com
  * comment_author_url - URL submitted with comment
  * comment_content - The content that was submitted. 
  * Note: $fields['comment_content'] is the sanitized version of the user's input
@@ -384,6 +385,8 @@ function _bw_process_contact_form_oik( $email_to ) {
 		$fields['comment_author_email'] = bw_array_get( $_REQUEST, bw_contact_field_full_name( 'email'), null );
 		$fields['comment_author_url'] = null;
 		$fields['comment_type'] = 'oik-contact-form';
+		$fields['subject'] = $subject;
+
 		$send = bw_akismet_check( $fields );
 		if ( $send ) {
             // We only need the Message field once.
