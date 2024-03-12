@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017,2020
+<?php // (C) Copyright Bobbing Wide 2012-2017,2020,2024
 
 /**
  * Register functions for custom post types, taxonomies and fields
@@ -205,7 +205,8 @@ function bw_register_post_type( $post_type, $post_type_args ) {
   $post_type_args['show_in_nav_menus'] = bw_array_get( $post_type_args, 'show_in_nav_menus', false);
   unset( $post_type_args['cap'] ) ;
   // bw_trace2( $post_type_args, "post_type_args");
-  register_post_type( $post_type, $post_type_args );
+  $post_type_object = register_post_type( $post_type, $post_type_args );
+  //bw_trace2( $post_type_object, 'post_type_object', false, BW_TRACE_VERBOSE );
 }
 
 /**
