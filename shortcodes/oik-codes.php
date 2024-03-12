@@ -681,7 +681,9 @@ function bw_code__example() {
 	//oik__help();
   BW_::br();
   bw_lazy_sc_syntax( "oik" );
-  oik__example();
+  if ( function_exists( "oik__example")) {
+	  oik__example();
+  }
 }
 
 /**
