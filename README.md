@@ -107,10 +107,16 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
+# 4.10.2 
+Update for a security fix to prevent JavaScript in URLs #224
+
 # 4.10.1 
-Update for basic spam checking on the contact form subject and support for PHP 8.3
+Update for basic spam checking on the contact form subject, and support for PHP 8.3
 
 ## Changelog 
+# 4.10.2 
+* Fixed: Escape the URL in links. #224  Props: Wordfence. Vulnerability Researcher: Francesco Carlucci
+
 # 4.10.1 
 * Changed: Support PHP 8.3 #220
 * Changed: Spam check subject for #221
