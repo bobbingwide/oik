@@ -431,9 +431,9 @@ function bw_effort_box( $post, $args ) {
 	//sdiv( "panel-wrap" );
   stag( 'table', "form-table" );
   foreach ( $fields as $field ) {
-    $data = $bw_fields[$field];
+    $data = bw_array_get( $bw_fields, $field, null);
     //bw_trace2( $field );
-    $metabox_field = bw_check_metabox_field( $data );
+    $metabox_field =( null === $data ) ? null : bw_check_metabox_field( $data );
     if ( $metabox_field ) {
       $multiple = bw_array_get( $data['#args'], "#multiple", false );
       $value = get_post_meta( $post->ID, $field, !$multiple );
