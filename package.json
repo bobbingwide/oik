@@ -1,6 +1,6 @@
 {
 	"name": "oik",
-	"version": "4.10.2",
+	"version": "4.10.3",
 	"description": "OIK Information Kit",
 	"author": "bobbingwide",
 	"license": "GPL-2.0-or-later",
@@ -22,12 +22,12 @@
 		"l10n": "l10n oik"
 	},
 	"dependencies": {
-		"@wordpress/block-editor": "^12.13.0",
-		"@wordpress/blocks": "^12.22.0",
-		"@wordpress/i18n": "^4.45.0",
+		"@wordpress/block-editor": "^12.21.0",
+		"@wordpress/blocks": "^12.30.0",
+		"@wordpress/i18n": "^4.53.0",
 		"postcss": "^8.4.31"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.16.0"
+		"@wordpress/scripts": "^27.4.0"
 	}
 }
