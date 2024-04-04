@@ -3,14 +3,15 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.0.3
-Tested up to: 6.4.3
-Stable tag: 4.10.1
+Tested up to: 6.5
+Stable tag: 4.10.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
 
-Over 80 advanced, powerful shortcodes for displaying the content of your WordPress website.
+Over 80 advanced, powerful shortcodes, and 9 blocks for displaying the content of your WordPress website.
 
+== Description ==
 Now with 9 blocks:
 
 * Address - Displays your address from oik-options
@@ -20,11 +21,9 @@ Now with 9 blocks:
 * Dynamic content - Dynamic content block
 * Follow me - Displays your social media links
 * Google Maps - Displays a Google Maps map using oik options
-* PayPal button - PayPal button for: Pay Now, Buy Now, Donate, Add to Cart, and View Cart / Checkout 
+* PayPal button - PayPal button for: Pay Now, Buy Now, Donate, Add to Cart, and View Cart / Checkout
 * Shortcode block for oik shortcodes - Expands oik shortcodes
 
-
-== Description ==
 The *oik base* plugin provides a series of advanced WordPress shortcodes that help you display dynamic content from your website's pages, posts, attachments, links and custom post types.
 The OIK Information Kit uses lazy smart shortcode technology to display your WordPress website's content including your often included key-information. 
 The functionality in the oik base plugin is used by over 40 other WordPress plugins, providing powerful facilities for an efficient, performant website.
@@ -106,22 +105,15 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
-= 4.10.2 = 
-Update for a security fix to prevent JavaScript in URLs #224
+= 4.10.3 = 
+Tested with WordPress 6.5
  
-= 4.10.1 = 
-Update for basic spam checking on the contact form subject, and support for PHP 8.3 
-
 == Changelog ==
-= 4.10.2 = 
-* Fixed: Escape the URL in links. #224  Props: Wordfence. Vulnerability Researcher: Francesco Carlucci
-
-= 4.10.1 = 
-* Changed: Support PHP 8.3 #220
-* Changed: Spam check subject for #221
-* Tested: With WordPress 6.4.3 and WordPress Multisite
+= 4.10.3 = 
+* Changed: Update build files
+* Tested: With WordPress 6.5 and WordPress Multisite
 * Tested: With PHP 8.3
-* Tested: With PHPUnit 9.6
+* Tested: With PHPUnit 9.6 
 
 == Further reading ==
 If you want to read more about the oik plugins then please visit the
