@@ -317,6 +317,10 @@ function bw_form_function( $prefix="bw_form_field_", $field_type= 'text', $field
   $testname = $prefix . $field_name; 
   if ( function_exists( $testname ))
     $funcname = $testname;
+
+  $testname = $prefix . str_replace( '-', '_', $field_name );
+	if ( function_exists( $testname ))
+		$funcname = $testname;
     
   return bw_trace2( $funcname );
 } 
