@@ -1,0 +1,1 @@
+.wp-block-oik-contact-field.is-style-grid>div,.wp-block-oik-contact-field.is-style-reversed>div{display:grid;gap:10px;grid-template-columns:1fr 3fr}.wp-block-oik-contact-field.is-style-reversed>div .label{grid-column-start:2;grid-row-start:1}.wp-block-oik-contact-field.is-style-reversed>div .field{grid-column-start:1;grid-row-start:1}
