@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 6.5
-* Stable tag: 4.10.3
+* Tested up to: 6.5.4
+* Stable tag: 4.11.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -106,13 +106,15 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 4.10.3 
-Tested with WordPress 6.5
+# 4.11.0 
+Update for a pre-requisite change to support an improvement to oik-fields
 
 ## Changelog 
-# 4.10.3 
-* Changed: Update build files
-* Tested: With WordPress 6.5 and WordPress Multisite
+# 4.11.0 
+* Changed: Update build files #218
+* Changed: Change from classnames to clsx package #218
+* Changed: Extend bw_form_function() to support fields containing hyphens #226
+* Tested: With WordPress 6.5.4 and WordPress Multisite
 * Tested: With PHP 8.3
 * Tested: With PHPUnit 9.6
 

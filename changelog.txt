@@ -36,6 +36,9 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.10.3 = 
+Tested with WordPress 6.5
+
 = 4.10.2 = 
 Update for a security fix to prevent JavaScript in URLs #224
  
@@ -489,6 +492,12 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.10.3 = 
+* Changed: Update build files
+* Tested: With WordPress 6.5 and WordPress Multisite
+* Tested: With PHP 8.3
+* Tested: With PHPUnit 9.6 
+
 = 4.10.2 = 
 * Fixed: Escape the URL in links. #224  Props: Wordfence. Vulnerability Researcher: Francesco Carlucci
 
