@@ -57,6 +57,9 @@ class Tests_shortcodes_oik_galleries extends BW_UnitTestCase {
 		remove_shortcode( "nggallery" );
 		$this->switch_to_locale( "en_GB" );
 		$html = bw_ret( nggallery__example() );
+		// Fiddle the result to pretend wptexturize worked for double quotes.
+		//$html = str_replace( '"', '&#8221;', $html );
+
     //$this->generate_expected_file( $html );
 		$this->assertArrayEqualsFile( $html );
 	}

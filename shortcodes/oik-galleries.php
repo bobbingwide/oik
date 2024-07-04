@@ -68,7 +68,7 @@ function bw_callablefunction( $class, $method ) {
  * http://nextgen-gallery.com/gallery-page/
  */
 function nggallery__example( $shortcode="nggallery" ) {
-  bw_invoke_shortcode( $shortcode, 'id=1 template="carousel"', __( "To display NextGEN gallery with id=1 and the carousel template", "oik" ) );
+  bw_invoke_shortcode( $shortcode, 'id=1 template=carousel', __( "To display NextGEN gallery with id=1 and the carousel template", "oik" ) );
   BW_::alink( null, "https://www.imagely.com/docs/displaying-galleries-overview/", __( "Visit the NextGEN Gallery page", "oik" ) );
 	
 }
