@@ -106,11 +106,11 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 
 == Upgrade Notice ==
 = 4.12.0 = 
-Update for a security fix. 
+Update for a security fix to the [bw_button] shortcode.
  
 == Changelog ==
 = 4.12.0 = 
-* Fixed: Escape the class and links on [bw_button] shortcode.  Props: Wordfence. Vulnerability Researcher: 
+* Fixed: Escape the class and links on [bw_button] shortcode.  Props: Wordfence Vulnerability Researcher: Rafshanzani Suhada
 * Changed: Update PHPUnit tests for #227, #228
 * Changed: Performance fix: Add logic to check a tried_classes array #229
 * Tested: With WordPress 6.6-RC2 and WordPress Multisite
