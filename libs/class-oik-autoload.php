@@ -1,9 +1,9 @@
 <?php
 if ( !defined( "CLASS_OIK_AUTOLOAD_INCLUDED" ) ) {
-define( "CLASS_OIK_AUTOLOAD_INCLUDED", "1.1.0" );
+define( "CLASS_OIK_AUTOLOAD_INCLUDED", "2.0.0" );
 
 /**
- * @copyright (C) Copyright Bobbing Wide 2016-2021
+ * @copyright (C) Copyright Bobbing Wide 2016-2021, 2024
  * @package oik, oik-libs
  *
  * Implement autoloading for shared libraries
@@ -37,6 +37,12 @@ class OIK_Autoload {
 	 */
 	private static $instance;
 
+    /**
+     * Array of classes we've already tried. Initially empty.
+     * key is the class name, value is the number of times requested.
+     */
+    private $tried_classes = [];
+
 	/**
 	 * @var bool True to autoload shared library classes. False initially.
 	 */
@@ -68,17 +74,29 @@ class OIK_Autoload {
 		$loads_more = apply_filters( "oik_query_autoload_classes", self::$loads );
 		self::$loads = $loads_more;
 		$this->classes = null;
+        // bw_trace2( self::$loads, "self::loads", false );
 	}
 	
 	/**
 	 * Autoloads a class if we know how to.
 	 * 
-	 * The fact that we have gotten here means that the class is not already loaded so we need to load it.
+	 * The fact that we have gotten here means that the class is not already loaded, so we need to load it
+	 * ... that's assuming we haven't already tried.
+	 *
 	 * @TODO We should also know which pre-requisite classes to load. Does spl_autoload_register() handle this?
 	 * 
 	 * What if we can't?
 	 */
-	function autoload( $class ) {
+	function autoload( $class )     {
+		// Bail early if we've already tried to load this class.
+		// This can happen if a plugin calls class_exists() multiple times
+		// for the same class name but the class wasn't loaded.
+        if (array_key_exists( $class, $this->tried_classes )) {
+            $this->tried_classes[ $class ]++;
+            return;
+        }
+        $this->tried_classes[ $class ] = 1;
+        //bw_trace2( $this->tried_classes, "tried_classes", false, BW_TRACE_DEBUG );
 		if ( $this->autoload_shared_library ) {
 			$library_file = $this->load_shared_library_class_file( $class );
 			if ( $library_file && !is_wp_error( $library_file)) {
@@ -108,8 +126,8 @@ class OIK_Autoload {
 	 * @return string fully qualified file name
 	 */
 	function file( $class_file ) {
-		bw_trace2( null, null, true, BW_TRACE_DEBUG );
-		bw_backtrace( BW_TRACE_VERBOSE );
+		//bw_trace2( null, null, true, BW_TRACE_DEBUG );
+		//bw_backtrace( BW_TRACE_VERBOSE );
 		$file = $class_file->file;
 		if ( !$file ) {
 			$file = str_replace( "_", "-", $class_file->class );
@@ -135,8 +153,12 @@ class OIK_Autoload {
 		$class_file = bw_array_get( $this->classes, $class, null );
 		if ( $class_file ) {
 			$class_file = (object) $class_file;
-		}
-		bw_trace2( $class_file, "class_file", true, BW_TRACE_DEBUG );
+            //bw_trace2( $class_file, "class_file", true, BW_TRACE_DEBUG );
+		} else {
+            //bw_trace2( $class, "No class_file", false, BW_TRACE_DEBUG );
+            //bw_backtrace();
+        }
+
 		return( $class_file );
 	}
 	
@@ -156,10 +178,12 @@ class OIK_Autoload {
 		$class_file = bw_array_get( self::$loads, $class, null );
 	 */
 	function set_classes() {
-		bw_trace2( null, null, false, BW_TRACE_VERBOSE );
+        $this->classes = [];
+		//bw_trace2( null, null, false, BW_TRACE_VERBOSE );
 		foreach ( self::$loads as $class => $load ) {
 			self::set_class( $class, $load );
 		}
+        //bw_trace2( $this->classes, "set classes", false );
 	}
 	
 	/**
@@ -168,7 +192,7 @@ class OIK_Autoload {
 	 * If the $class is numeric we need to extract the name from the array
 	 */
 	function set_class( $class, $load ) {
-		bw_trace2( $load, $class, false, BW_TRACE_VERBOSE );
+		//bw_trace2( $load, $class, false, BW_TRACE_VERBOSE );
 		if ( is_numeric( $class ) ) {
 			$class = $load[ "class" ];
 		}
