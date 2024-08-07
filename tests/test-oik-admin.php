@@ -386,10 +386,12 @@ $expected[] = '</form>';
 		$this->assertNotNull( $html );
 		$html = $this->replace_admin_url( $html );
 		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+		$html = $this->replace_created_nonce( $html, "delete_plugin_us-tides" );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
 		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
+
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
 		// $this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
@@ -810,6 +812,7 @@ $expected[] = '</form>';
 		$this->assertNotNull( $html );
 		$html = $this->replace_admin_url( $html );
 		$html = str_replace( oik_get_plugins_server(), "http://qw/oikcom", $html );
+	    $html = $this->replace_created_nonce( $html, "delete_plugin_us-tides" );
 		$html_array = $this->tag_break( $html );
 		
 		$this->assertNotNull( $html_array );
