@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2012-2024
 if ( !defined( "OIK_PLUGINS_INCLUDED" ) ) {
-	define( "OIK_PLUGINS_INCLUDED", "0.3.5" );
+	define( "OIK_PLUGINS_INCLUDED", "0.3.6" );
 
 /**
  * Library: oik_plugins
@@ -110,11 +110,12 @@ function _oik_plugins_settings_row( $plugin, $version, $server, $apikey, $progra
   $row[] = $server . "&nbsp;"; //itext( "server[$plugin]", 100, $server ); //esc_html( stripslashes( $server ) )); //iarea( $plugin, 100, $server, 10 );
   $row[] = $apikey . "&nbsp;"; //itext( "apikey[$plugin]", 26, $apikey );
   $links = null;
-	
+	$url = admin_url("admin.php?page=oik_plugins&amp;delete_plugin=$plugin");
+	$url = wp_nonce_url( $url, "delete_plugin_$plugin" );
 	if ( $programmatically_registered ) {
-		$links .= retlink( null, admin_url("admin.php?page=oik_plugins&amp;delete_plugin=$plugin"), __( "Reset", null ), __( "Reset plugin's profile entry", null ) ); 
+		$links .= retlink( null, $url, __( "Reset", null ), __( "Reset plugin's profile entry", null ) );
 	} else {
-		$links .= retlink( null, admin_url("admin.php?page=oik_plugins&amp;delete_plugin=$plugin"), __( "Delete", null ), __( "Delete plugin's profile entry", null ) ); 
+		$links .= retlink( null, $url, __( "Delete", null ), __( "Delete plugin's profile entry", null ) );
 	}
   $links .= "&nbsp;";
   $links .= retlink( null, admin_url("admin.php?page=oik_plugins&amp;edit_plugin=$plugin"), __( "Edit", null ) ); 
@@ -206,12 +207,21 @@ function _oik_plugins_update_settings( $plugin ) {
 }
 
 /**
- * Delete the settings for a plugin
+ * Delete the settings for a plugin.
+ *
+ * To prevent CSRF, this action is now protected by a nonce.
+ * No messages are produced if the nonce is invalid.
  *
  * @param array $plugin
  */
 function _oik_plugins_delete_settings( $plugin ) {
-  bw_delete_option( $plugin, "bw_plugins" );
+	$delete = bw_verify_nonce( "delete_plugin_$plugin", "_wpnonce");
+	if ( $delete ) {
+		bw_delete_option( $plugin, "bw_plugins" );
+		// "Plugin server information reset/deleted for $plugin"
+	} else {
+		// "Nonce check failed !$delete! for $plugin"		;
+	}
 }  
 
 /**
