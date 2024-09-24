@@ -1,6 +1,6 @@
 <?php 
 /*
-    Copyright 2012-2017,2020 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2017,2020, 2024 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -158,7 +158,7 @@ function bw_format_attachment( $post, $atts ) {
     e( $post->post_title );   // Title
     epan();  
   }
-  ep(); 
+  bw_echo( '</p>' );
    
   if ( bw_validate_torf( bw_array_get( $atts, 'captions', 'n' )) ) { 
     BW_::p( $post->post_excerpt, "caption" ); // Caption

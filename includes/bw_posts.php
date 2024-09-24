@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2011-2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2011-2024 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -296,8 +296,8 @@ function bw_format_read_more( $post, $atts ) {
   if ( trim( $read_more ) !== '') {
     sp();
     $read_more = bw_more_text( null, $atts );
-    art_button( get_permalink( $post->ID ), $read_more, $read_more ); 
-    ep(); 
+    art_button( get_permalink( $post->ID ), $read_more, $read_more );
+	bw_echo( '</p>' );
   }  
 }
 

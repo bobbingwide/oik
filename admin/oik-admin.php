@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2019
+<?php // (C) Copyright Bobbing Wide 2011-2019, 2024
 
 /**
  * oik admin functions not in the oik-admin library
@@ -236,7 +236,7 @@ function oik_documentation() {
   eul();
   sp();
   BW_::alink( "button button-secondary", "https://www.oik-plugins.com", __( "oik documentation", "oik" ), __( "Read the documentation for the oik plugin", "oik" ) );
-  ep();
+  bw_echo( '</p>' );
 } 
 
 /**

@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2017, 2024
 
 /**
  * Implement [bw_geo] shortcode
@@ -23,7 +23,7 @@ function bw_geo( $atts=null, $content=null, $tag=null ) {
     e( bw_get_option_arr( "long", "bw_options", $atts ) );
     epan();
   epan();
-  ep(); 
+  bw_echo( '</p>' );
   return( bw_ret());
 }
 

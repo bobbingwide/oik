@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2012-2023
+<?php // (C) Copyright Bobbing Wide 2012-2024
 if ( !defined( "OIK_SC_HELP_INCLUDED" ) ) {
-define( "OIK_SC_HELP_INCLUDED", "3.4.1" );
+define( "OIK_SC_HELP_INCLUDED", "3.5.0" );
 
 /**
  * Shortcode help 
@@ -578,7 +578,7 @@ function bw_invoke_shortcode( $shortcode, $atts=null, $text=null ) {
   stag( "code" );
   e( $example ); 
   etag( "code" ); 
-  ep();
+  bw_echo( '</p>' );
   //p( $example );
 	$saved = bw_global_post();
 	$expanded = bw_expand_shortcode( $example );
