@@ -36,6 +36,9 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.12.1 = 
+Update for a security improvement to the oik plugins delete plugin action.
+
 = 4.12.0 = 
 Update for a security fix to the [bw_button] shortcode
 
@@ -498,6 +501,13 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.12.1 = 
+* Changed: Protect oik plugins delete_plugin action with nonce #230 Props: Patchstack Vulnerability Researcher: Abdi Pranata
+* Changed: Update PHPUnit tests for #230
+* Tested: With WordPress 6.6.1 and WordPress Multisite
+* Tested: With PHP 8.3
+* Tested: With PHPUnit 9.6 
+
 = 4.12.0 = 
 * Fixed: Escape the class and links on [bw_button] shortcode.  Props: Wordfence Vulnerability Researcher: Rafshanzani Suhada
 * Changed: Update PHPUnit tests for #227, #228

@@ -558,7 +558,7 @@ function bw_format_skv( $value ) {
 }
 
 /**
- * Calls a shortcode for a simple example
+ * Calls a shortcode for a simple example.
  *
  * @uses apply_filters() rather than do_shortcode() since the shortcodes that get invoked
  * may not support the current_filter() - which on an admin page could be oik-options_page_oik_options-1

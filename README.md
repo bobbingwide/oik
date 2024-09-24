@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 6.6.1
-* Stable tag: 4.12.1
+* Tested up to: 6.6.2
+* Stable tag: 4.13.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -106,14 +106,13 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 4.12.1 
-Update for a security improvement to the oik plugins delete plugin action.
+# 4.13.0 
+Removes dependency on bobbfunc's ep(), which has been renamed to bw_ep() to avoid a function name conflict
 
 ## Changelog 
-# 4.12.1 
-* Changed: Protect oik plugins delete_plugin action with nonce #230 Props: Patchstack Vulnerability Researcher: Abdi Pranata
-* Changed: Update PHPUnit tests for #230
-* Tested: With WordPress 6.6.1 and WordPress Multisite
+# 4.13.0 
+* Changed: Remove dependency on bobbfunc's ep() #232
+* Tested: With WordPress 6.6.2 and WordPress Multisite
 * Tested: With PHP 8.3
 * Tested: With PHPUnit 9.6
 
