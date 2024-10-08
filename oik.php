@@ -165,8 +165,26 @@ function oik_main_init() {
 		* It doesn't mean that all the APIs are available.
 		*/
 		do_action( 'oik_loaded' );
+		bw_block_theme_extras();
 	}	else {
 		bw_trace2( $bobbfunc, "bobbfunc?", false, BW_TRACE_ERROR );
+	}
+}
+
+/**
+ * Add extras for block themes.
+ *
+ * If it's a block theme we need to run `oik_add_shortcodes`
+ * to ensure that oik based shortcodes are registered for use throughout
+ * the whole processing of the theme.
+ *
+ * @return void
+ */
+function bw_block_theme_extras() {
+	$theme = wp_get_theme();
+	$is_block_theme = $theme->is_block_theme();
+	if ( $is_block_theme ) {
+		do_action("oik_add_shortcodes");
 	}
 }
 
