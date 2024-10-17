@@ -1,9 +1,9 @@
 <?php
 if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
-    define( 'CLASS_OIK_SVG_ICONS_INCLUDED', '0.2.0');
+    define( 'CLASS_OIK_SVG_ICONS_INCLUDED', '0.2.1');
 
     /**
-     * @copyright (C) Copyright Bobbing Wide 2016-2022
+     * @copyright (C) Copyright Bobbing Wide 2016-2022, 2024
      * @package oik, oik-libs
      *
      * Implement SVG icons to replace dashicons and genericons
@@ -103,6 +103,7 @@ if ( !defined( 'CLASS_OIK_SVG_ICONS_INCLUDED' ) ) {
 	     * @param string $dpath - All the SVG stuff
 	     */
 	    function svg_icon( $icon, $font_class, $class, $dpath, $size=24 ) {
+			$dpath = str_replace( 'Rule', '-rule', $dpath );
 		    if ( '<' === $dpath[0] ) {
 			    $classes="svg_$icon $font_class $class";
 			    $this->svg_icon_raw( $dpath, $classes, $size );
