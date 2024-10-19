@@ -47,6 +47,7 @@ function bw_oik_lazy_add_shortcodes() {
   bw_add_shortcode( 'bw_admin', 'bw_admin_sc', oik_path( "shortcodes/oik-company.php" ) );
 
   bw_add_shortcode( 'bw_twitter', 'bw_twitter', oik_path( "shortcodes/oik-follow.php" ), false );
+  bw_add_shortcode( 'bw_x', 'bw_x', oik_path( "shortcodes/oik-follow.php" ), false );
   bw_add_shortcode( 'bw_facebook', 'bw_facebook', oik_path( "shortcodes/oik-follow.php" ), false );
   bw_add_shortcode( 'bw_linkedin', 'bw_linkedin', oik_path( "shortcodes/oik-follow.php" ), false );
   bw_add_shortcode( 'bw_youtube', 'bw_youtube', oik_path( "shortcodes/oik-follow.php" ), false );
@@ -113,6 +114,7 @@ function bw_oik_lazy_add_shortcodes() {
   // bw_add_shortcode_file ( 'ngslideshow', oik_path( "shortcodes/oik-slideshows.php") );
 
   bw_add_shortcode( 'gpslides', 'bw_gp_slideshow', oik_path( "shortcodes/oik-slideshows.php"), false  );
+
 
   add_action( "bw_sc_help", "bw_sc_help" );
   add_action( "bw_sc_syntax", "bw_sc_syntax" );
