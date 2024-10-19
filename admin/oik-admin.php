@@ -446,6 +446,7 @@ function oik_address_info( $option, $options, $alt0_suffix ) {
  */
 function oik_follow_me( $option, $options, $alt0_suffix ) {
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Twitter URL", "oik" ), " [bw_twitter$alt0_suffix]" ), $options, 'twitter', 50 );
+  BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "X URL", "oik" ), " [bw_x$alt0_suffix]" ), $options, 'x', 50 );
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Facebook URL", "oik" ), " [bw_facebook$alt0_suffix]" ), $options, 'facebook', 50 );
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "LinkedIn URL", "oik" ), " [bw_linkedin$alt0_suffix]" ), $options, 'linkedin', 50 );
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Google Plus URL", "oik" ), " [bw_googleplus$alt0_suffix]" ), $options, 'googleplus', 50 );
@@ -567,7 +568,8 @@ function oik_usage_notes() {
   bw_invoke_shortcode( "bw_show_googlemap", $alt0_suffix, __( "Display a Google Map for your primary address.", "oik" ) );
   bw_invoke_shortcode( "bw_directions", $alt0_suffix, __( "Display a button for obtaining directions to your address.", "oik" ) );
   bw_invoke_shortcode( "bw_follow_me", $alt0_suffix, __( "Show all your <b>Follow me</b> buttons.", "oik" ) );
-  bw_invoke_shortcode( "bw_follow_me", "$alt0_suffix theme=gener", __( "Show your <b>Follow me</b> buttons using genericons.", "oik" ) );
+  //bw_invoke_shortcode( "bw_follow_me", "$alt0_suffix theme=gener", __( "Show your <b>Follow me</b> buttons using genericons.", "oik" ) );
+  bw_invoke_shortcode( "bw_follow_me", "$alt0_suffix theme=svg", __( "Show your <b>Follow me</b> buttons using SVGs.", "oik" ) );
   BW_::p( __( "For more information about the shortcodes you can use select <b>Shortcode help</b>", "oik" ) );
   BW_::alink( "button-secondary", admin_url( "admin.php?page=oik_sc_help"), __( "Shortcode help", "oik" ), __( "Discover shortcodes you can use", "oik" ) );
   bw_flush();
