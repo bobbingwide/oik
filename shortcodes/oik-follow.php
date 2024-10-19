@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2010-2019, 2023
+<?php // (C) Copyright Bobbing Wide 2010-2019, 2023, 2024
 
 /**
  * Create a styled follow me button

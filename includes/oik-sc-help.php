@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2017, 2024
 
 /**
  * To maintain backward compatibility with plugins which are dependent upon oik

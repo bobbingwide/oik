@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2011-2018
+<?php // (C) Copyright Bobbing Wide 2011-2018, 2024
 
 /**
  * Implement "oik_add_shortcodes" action for oik
