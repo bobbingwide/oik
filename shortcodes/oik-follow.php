@@ -83,6 +83,25 @@ function bw_twitter( $atts=null ) {
 }
 
 /**
+ * Implement [bw_x] shortcode
+ *
+ * The [bw_x] shortcode replaces the [bw_twitter] shortcode.
+ * It displays the new X logo instead of the tweeting bird
+ * except for theme=gener which doesn't have the X logo,
+ * so it displays the twitter logo.
+ *
+ * Supports me= as a positional parameter overriding the stored values
+ */
+function bw_x( $atts=null ) {
+	$atts['me'] = bw_array_get_from( $atts, "me,0", null );
+	if ( $atts['me'] ) {
+		$atts['theme'] = bw_array_get( $atts, 'theme', 'svg' );
+	}
+	$atts['network'] = "X" ;
+	return( bw_follow( $atts ) );
+}
+
+/**
  * Implement [bw_facebook] shortcode 
  */
 function bw_facebook( $atts=null ) {
@@ -238,6 +257,7 @@ function bw_follow_me_list_networks() {
 	$lc_networks = [];
 	$networks = array(
 		'Twitter',
+		'X',
 		'Facebook',
 		'LinkedIn',
 		'YouTube',
@@ -290,6 +310,13 @@ function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class 
     if ( $lc_social == "facebook" ) {
         $lc_social .= "-alt";
     }
+	if ( $lc_social === 'x' ) {
+		$lc_social = 'twitter';
+	}
+	if ( $lc_social === 'github') {
+		// There is no dashicon for GitHub. So don't display anything. They should be using SVG by now.
+		return;
+	}
     wp_enqueue_style( 'dashicons' );
     $dash = retstag( "span", "dashicons dashicons-$lc_social bw_follow_me $class" );
     $dash .= retetag( "span" );
@@ -353,6 +380,9 @@ function bw_follow_link_gener( $social, $lc_social, $social_network, $me, $class
     case "googleplus":
     case "facebook":
       $lc_social .= "-alt";
+	  break;
+	case 'x':
+	   $lc_social = 'twitter';
   }
   
   if ( !wp_style_is( 'genericons', 'registered' ) ) {
@@ -456,6 +486,12 @@ function bw_follow_link_svg( $social, $lc_social, $social_network, $me, $class )
     if ( $lc_social === 'github') {
         $lc_social .= '-link';
     }
+	if ( $lc_social === 'x' ) {
+		$lc_social .= '-link';
+	}
+	if ( $lc_social === 'flickr' ) {
+		$lc_social .= '-link';
+	}
     $dash = $svgicons->get_icon( $lc_social, $class );
     $dash .= bw_follow_hash_at( $me );
     $follow_me_tooltip = sprintf( __( 'Follow %1$s on %2$s', "oik" ), $me, $social_network );
