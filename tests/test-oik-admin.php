@@ -575,6 +575,7 @@ $expected[] = '</form>';
 		$bw_options['customjQCSS'] = "http://qw/wordpress/wp-content/themes/jquery-ui/themes/base/jquery-ui.css";
 		$bw_options['customCSS'] = "custom.css";
 		$bw_options['twitter'] = "herb_miller";
+		$bw_options['x'] = "herb_miller";
 		$bw_options['facebook'] = "bobbingwide";
 		$bw_options['linkedin'] = "herbmiller777";
 		$bw_options['googleplus'] = "herbmiller777";
@@ -673,7 +674,13 @@ $expected[] = '</form>';
     //$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
-	
+
+	/**
+	 * Removes most shortcodes except [bw].
+	 *
+	 * The side effect of this is that it removes the shortcode executed in tests for bb_BB.
+	 * @return void
+	 */
 	function remove_most_shortcodes() {
 		remove_all_shortcodes();
 		bw_add_shortcode( 'bw', 'bw_bw', oik_path( "shortcodes/oik-bw.php" ) );
