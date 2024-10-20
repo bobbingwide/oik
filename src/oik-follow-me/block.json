@@ -1,5 +1,5 @@
 {
-  "apiVersion": 2,
+  "apiVersion": 3,
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "oik/follow-me",
   "title": "Follow me",
@@ -62,6 +62,6 @@
   },
   "keywords": [ "Follow", "Social", "Links", "oik" ],
   "editorScript": "file:../../build/follow-me.js",
-  "editorStyle": "file:../../build/follow-me.css",
+  "editorStyle": ["file:../../build/follow-me.css","genericons"],
   "style": "file:../../build/style-follow-me.css"
 }
