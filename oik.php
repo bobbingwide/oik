@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 4.13.0
+Version: 5.0.0
 Author: bobbingwide
 Author URI: https://bobbingwide.com/about-bobbing-wide
 Text Domain: oik
@@ -181,11 +181,49 @@ function oik_main_init() {
  * @return void
  */
 function bw_block_theme_extras() {
-	$theme = wp_get_theme();
-	$is_block_theme = $theme->is_block_theme();
+	$theme         =wp_get_theme();
+	$is_block_theme=$theme->is_block_theme();
 	if ( $is_block_theme ) {
-		do_action("oik_add_shortcodes");
+		do_action( "oik_add_shortcodes" );
 	}
+	add_action( 'enqueue_block_assets', 'oik_enqueue_block_assets' );
+	add_action( 'enqueue_block_editor_assets', 'oik_enqueue_block_editor_assets' );
+}
+
+/**
+ * Enqueues block assets for both editor and front-end.
+ * @return void
+ */
+function oik_enqueue_block_assets() {
+	//bw_backtrace();
+	oik_register_genericons();
+}
+
+/**
+ * Enqueues block assets for the editor.
+ *
+ * @return void
+ */
+function oik_enqueue_block_editor_assets() {
+	//bw_backtrace();
+	oik_register_genericons();
+}
+
+/**
+ * Registers the genericons style.
+ *
+ * The oik/follow-me block is dependent upon this style for theme=genericons.
+ * We only need to register the genericons style.
+ * It's not necessary to enqueue it until the block is actually used.
+ * This is done automatically due to the dependency of the follow-me block's styles on genericons.
+ * See the block.json file.
+ * @return void
+ */
+function oik_register_genericons() {
+	if ( !wp_style_is( 'genericons', 'registered' ) ) {
+		wp_register_style( 'genericons', oik_url( 'css/genericons/genericons.css' ), false );
+	}
+	//wp_enqueue_style( 'genericons' );
 }
 
 /**
@@ -685,6 +723,7 @@ function oik_block_type_metadata( $metadata ) {
     if ( $metadata['name'] === 'oik/contact-form') {
         $metadata = oik_block_type_metadata_contact_form_default_values( $metadata );
     }
+
     return $metadata;
 }
 
