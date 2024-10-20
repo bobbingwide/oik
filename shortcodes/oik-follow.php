@@ -317,6 +317,10 @@ function bw_follow_link_dash( $social, $lc_social, $social_network, $me, $class 
 		// There is no dashicon for GitHub. So don't display anything. They should be using SVG by now.
 		return;
 	}
+	if ( $lc_social === 'flickr') {
+		// There is no dashicon for Flickr. So don't display anything. They should be using SVG by now.
+		return;
+	}
     wp_enqueue_style( 'dashicons' );
     $dash = retstag( "span", "dashicons dashicons-$lc_social bw_follow_me $class" );
     $dash .= retetag( "span" );
