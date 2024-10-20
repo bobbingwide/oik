@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.0.3
-* Tested up to: 6.6.2
-* Stable tag: 4.13.0
+* Tested up to: 6.7-beta3
+* Stable tag: 4.14.0
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -106,13 +106,15 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 4.13.0 
-Removes dependency on bobbfunc's ep(), which has been renamed to bw_ep() to avoid a function name conflict
+# 4.14.0 
+Improved support for block based themes. New shortcode [bw_x] to replace [bw_twitter].
 
 ## Changelog 
-# 4.13.0 
-* Changed: Remove dependency on bobbfunc's ep() #232
-* Tested: With WordPress 6.6.2 and WordPress Multisite
+# 4.14.0 
+* Changed: Update [bw_follow_me] to support X #231
+* Added: [bw_x] shortcode to replace [bw_twitter] #231
+* Added: Add bw_block_theme_extras. Automatically enable oik shortcodes for block based themes #233
+* Tested: With WordPress 6.7-beta3 and WordPress Multisite
 * Tested: With PHP 8.3
 * Tested: With PHPUnit 9.6
 
