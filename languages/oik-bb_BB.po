@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: oik 5.0.0\n"
+"Project-Id-Version: oik 4.14.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oik\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language: bb_BB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-17T13:56:09+00:00\n"
+"POT-Creation-Date: 2024-10-20T13:39:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 msgid "oik"
@@ -1584,7 +1584,7 @@ msgstr "OIk gneretaed eaxpmle."
 #: libs/oik-sc-help.php:319
 #: shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20
-#: shortcodes/oik-follow.php:435
+#: shortcodes/oik-follow.php:446
 #: shortcodes/oik-phone.php:221
 #: shortcodes/oik-phone.php:291
 #: shortcodes/oik-phone.php:304
@@ -1595,7 +1595,7 @@ msgstr "calss nmaes"
 #: shortcodes/oik-blockquote.php:31
 #: shortcodes/oik-cite.php:20
 #: shortcodes/oik-cycle.php:127
-#: shortcodes/oik-follow.php:435
+#: shortcodes/oik-follow.php:446
 #: shortcodes/oik-phone.php:221
 msgid "CSS class names"
 msgstr "CSS calss nmaes"
@@ -2145,28 +2145,28 @@ msgstr "Tehme: %1$s"
 msgid "Theme is up to date."
 msgstr "Tehme Is Up tO dtae."
 
-#: oik.php:270
+#: oik.php:308
 msgid "oik custom image link URL"
 msgstr "OIk csuotm iamge lnik URL"
 
-#: oik.php:346
+#: oik.php:384
 msgid "Howdy, %s"
 msgstr "Hwody, %s"
 
-#: oik.php:734
+#: oik.php:773
 #: shortcodes/oik-contact-form.php:60
 msgid "Contact %s"
 msgstr "Cnoatct %s"
 
-#: oik.php:936
+#: oik.php:975
 msgid "Grid"
 msgstr "Gird"
 
-#: oik.php:937
+#: oik.php:976
 msgid "Label above"
 msgstr "Lbael aobve"
 
-#: oik.php:938
+#: oik.php:977
 msgid "Reversed"
 msgstr "Rvereesd"
 
@@ -2771,26 +2771,26 @@ msgstr "feild"
 msgid "oik options field to use"
 msgstr "OIk otpoins feild tO UsE"
 
-#: shortcodes/oik-follow.php:318
-#: shortcodes/oik-follow.php:388
-#: shortcodes/oik-follow.php:421
-#: shortcodes/oik-follow.php:490
+#: shortcodes/oik-follow.php:329
+#: shortcodes/oik-follow.php:399
+#: shortcodes/oik-follow.php:432
+#: shortcodes/oik-follow.php:501
 msgid "Follow %1$s on %2$s"
 msgstr "Floolw %1$s On %2$s"
 
-#: shortcodes/oik-follow.php:434
+#: shortcodes/oik-follow.php:445
 msgid "Icon selection"
 msgstr "Iocn sleceiton"
 
-#: shortcodes/oik-follow.php:436
+#: shortcodes/oik-follow.php:447
 msgid "Use option values"
 msgstr "UsE otpoin vlaeus"
 
-#: shortcodes/oik-follow.php:437
+#: shortcodes/oik-follow.php:448
 msgid "network1, network2"
 msgstr "nteowrk1, nteowrk2"
 
-#: shortcodes/oik-follow.php:437
+#: shortcodes/oik-follow.php:448
 msgid "CSV list of network names"
 msgstr "CSV lsit Of nteowrk nmaes"
 
