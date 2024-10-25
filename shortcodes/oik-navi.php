@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2014-2019, 2023
+<?php // (C) Copyright Bobbing Wide 2014-2019, 2023, 2024
 
 /**
  * Return the next unique shortcode ID
@@ -26,7 +26,7 @@ function bw_get_shortcode_id( $set=false ) {
  * <a href=url?bwscid123=1> page 1 </a>
  * <a href=url?bwscid123=2> page 2 </a>
  * 
- * If they've chosen another link the value is not set.   *
+ * If they've chosen another link the value is not set.   
  *
  * @param integer - the ID of the bwscidnnn field 
  * @return integer - the required page ID, defaults to 1 if not set
@@ -144,13 +144,27 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
   //  'type' => 'plain',
   //  'add_args' => false, // array of query args to add
   //  'add_fragment' => '',
-  $links = paginate_links( $args ); 
+  $links = paginate_links( $args );
+  $links = bw_navi_add_rel( $links);
   //bw_trace2( $args, "args" );
   //bw_trace2( $links, "links", false );
 	sdiv( "page-numbers pagination");
     e( $links );
     ediv();
 	$_SERVER['REQUEST_URI'] = $saved_request_uri;
+}
+
+/**
+ * Adds rel attr to each link.
+ *
+ * @param $links
+ * @param $rel string default noindex.
+ *
+ * @return array|string|string[]
+ */
+function bw_navi_add_rel( $links, $rel="noindex" ) {
+	$links = str_replace( '<a class', '<a rel=' . $rel . ' class', $links );
+	return $links;
 }
 
 /**
