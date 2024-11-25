@@ -374,7 +374,7 @@ function bw_jquery_enqueue_ui_theme() {
  */
 function bwsc_jquery( $atts=null, $content=null, $tag=null ) {
   bw_trace2( null, null, true, BW_TRACE_DEBUG );
-  $selector = bw_array_get_from( $atts, "selector,0", null );
+  $selector = bw_array_get_from( $atts, "selector,0", '' );
   $method = bw_array_get_from( $atts, "method,1", null );
   if ( !$method ) {
     $method = str_replace( ".", "", $selector );
