@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017-2019
+<?php // (C) Copyright Bobbing Wide 2017-2019, 2024
 
 
 class Tests_oik_admin extends BW_UnitTestCase {
@@ -433,9 +433,9 @@ $expected[] = '</form>';
 	
 	
 	/**
-	 * The oik themes page expects genesis-oik to be version 1.3.1
+	 * The oik themes page expects genesis-oik to be version 1.4.0
 	 * We need to ensure this version of the theme is installed.
-	 *
+	 * Note: It doesn't need to be activated.
 	 */
 	function test_bw_get_theme_version() {
 		//delete_transient( "theme_slugs" );
@@ -446,7 +446,7 @@ $expected[] = '</form>';
 		$this->assertEquals( $expected, $version );
 
 		// Do we really need to update this value each time the theme is updated?
-		$this->assertEquals( "1.3.3", $version );
+		$this->assertEquals( "1.4.0", $version );
 	}
 
 	/**
