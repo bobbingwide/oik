@@ -3,3 +3,4 @@ images/gradient_48.png
 flh0grep.*
 .phpunit.result.cache
 node_modules
+.phpunit.cache/

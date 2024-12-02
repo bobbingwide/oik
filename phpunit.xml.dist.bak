@@ -1,0 +1,100 @@
+<phpunit
+	bootstrap="../../plugins/oik-batch/oik-wp.php"
+	backupGlobals="false"
+	colors="false"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	>
+	<!-- for PHPUnit 9.5.2 -->
+	<testsuites>
+	
+		<testsuite name="prerequisites">
+			<file>tests/Tests_prerequisites.php</file>
+		</testsuite>
+		<testsuite name="oik">
+			<file>tests/Tests_bw_translate.php</file>
+			<file>tests/Tests_wpautop.php</file>
+			<file>tests/Tests_issue_69.php</file>
+			<file>tests/Tests_oik_bobbcomp.php</file>
+			<file>tests/Tests_oik_bobbfunc.php</file>
+			<file>tests/Tests_bw_metadata.php</file>
+			<file>tests/Tests_class_dependencies_help.php</file>
+			<file>tests/Tests_oik_add_shortcodes.php</file>
+			<file>tests/Tests_oik_bob_bing_wide.php</file>
+			<file>tests/Tests_oik_countdown.php</file>
+			<file>tests/Tests_oik_filters.php</file>
+			<file>tests/Tests_oik_follow.php</file>
+			<file>tests/Tests_oik_googlemap.php</file>
+			<file>tests/Tests_oik_jquery.php</file>
+			<file>tests/Tests_oik_sc_help.php</file>
+			<file>tests/Tests_issue_71.php</file>
+			<file>tests/Tests_issue_9.php</file>
+			<file>tests/Tests_issue_63.php</file>
+			<file>tests/Tests_issue_2.php</file>
+			<file>tests/Tests_issue_7.php</file>
+			<file>tests/Tests_issue_65.php</file>
+			<file>tests/Tests_issue_68.php</file>
+			<file>tests/Tests_issue_79.php</file>
+			<file>tests/Tests_issue_91.php</file>
+			<file>tests/Tests_issue_116.php</file>
+			<file>tests/Tests_issue_117.php</file>
+			<file>tests/Tests_issue_124.php</file>
+			<file>tests/Tests_issue_125.php</file>
+			<file>tests/Tests_oik_admin.php</file>
+			<file>tests/Tests_includes_bw_fields.php</file>
+			<file>tests/Tests_includes_bw_formatter.php</file>
+			<file>tests/Tests_includes_bw_images.php</file>
+			<file>tests/Tests_includes_bw_messages.php</file>
+			<file>tests/Tests_includes_bw_nav_tab.php</file>
+			<file>tests/Tests_includes_bw_posts.php</file>
+			<file>tests/Tests_includes_bw_register.php</file>
+			<file>tests/Tests_includes_oik_contact_form_email.php</file>
+			<file>tests/Tests_shortcodes_oik_address.php</file>
+			<file>tests/Tests_shortcodes_oik_attachments.php</file>
+			<file>tests/Tests_shortcodes_oik_blockquote.php</file>
+			<file>tests/Tests_shortcodes_oik_blocks.php</file>
+			<file>tests/Tests_shortcodes_oik_bookmarks.php</file>
+			<file>tests/Tests_shortcodes_oik_bob_bing_wide.php</file>
+			<file>tests/Tests_shortcodes_oik_button.php</file>
+			<file>tests/Tests_shortcodes_oik_bw.php</file>
+			<file>tests/Tests_shortcodes_oik_cite.php</file>
+			<file>tests/Tests_shortcodes_oik_codes.php</file>
+			<file>tests/Tests_shortcodes_oik_company.php</file>
+			<file>tests/Tests_shortcodes_oik_contact_form.php</file>
+			<file>tests/Tests_shortcodes_oik_count.php</file>
+			<file>tests/Tests_shortcodes_oik_countdown.php</file>
+			<file>tests/Tests_shortcodes_oik_cycle.php</file>
+			
+			<file>tests/Tests_shortcodes_oik_domain.php</file>
+			<file>tests/Tests_shortcodes_oik_email.php</file>
+			<file>tests/Tests_shortcodes_oik_follow.php</file>
+			<file>tests/Tests_shortcodes_oik_galleries.php</file>
+			<file>tests/Tests_shortcodes_oik_googlemap.php</file>
+			<file>tests/Tests_shortcodes_oik_iframe.php</file>
+			<file>tests/Tests_shortcodes_oik_jquery.php</file>
+			<file>tests/Tests_shortcodes_oik_link.php</file>
+			<file>tests/Tests_shortcodes_oik_list.php</file>
+			<file>tests/Tests_shortcodes_oik_login.php</file>
+			<file>tests/Tests_shortcodes_oik_logo.php</file>
+			<file>tests/Tests_shortcodes_oik_navi.php</file>
+			<file>tests/Tests_shortcodes_oik_phone.php</file>
+			<file>tests/Tests_shortcodes_oik_pages.php</file>
+			<file>tests/Tests_shortcodes_oik_parent.php</file>
+			<file>tests/Tests_shortcodes_oik_paypal.php</file>
+			<file>tests/Tests_shortcodes_oik_posts.php</file>
+			<file>tests/Tests_shortcodes_oik_power.php</file>
+			<file>tests/Tests_shortcodes_oik_qrcode.php</file>
+			<file>tests/Tests_shortcodes_oik_slideshows.php</file>
+			<file>tests/Tests_shortcodes_oik_table.php</file>
+			<file>tests/Tests_shortcodes_oik_tabs.php</file>
+			<file>tests/Tests_shortcodes_oik_thumbs.php</file>
+			<file>tests/Tests_shortcodes_oik_tree.php</file>
+			<file>tests/Tests_shortcodes_oik_wtf.php</file>
+		</testsuite>
+		<testsuite name="random">
+			<!-- We can't actually run tests in a random order due to use of static variables -->
+			<directory prefix="Tests_random" suffix=".php">tests/</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>
