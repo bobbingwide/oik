@@ -26,7 +26,7 @@ function bw_get_shortcode_id( $set=false ) {
  * <a href=url?bwscid123=1> page 1 </a>
  * <a href=url?bwscid123=2> page 2 </a>
  * 
- * If they've chosen another link the value is not set.   
+ * If they've chosen another link the value is not set.
  *
  * @param integer - the ID of the bwscidnnn field 
  * @return integer - the required page ID, defaults to 1 if not set
@@ -163,7 +163,9 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
  * @return array|string|string[]
  */
 function bw_navi_add_rel( $links, $rel="noindex" ) {
-	$links = str_replace( '<a class', '<a rel=' . $rel . ' class', $links );
+	if ( $links ) {
+		$links=str_replace( '<a class', '<a rel=' . $rel . ' class', $links );
+	}
 	return $links;
 }
 
