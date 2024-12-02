@@ -498,6 +498,10 @@ function bw_set_geocoded_address( $input, $json ) {
     $country_name = $json->results[0]->address_components[3]->long_name;  
     $country_abbr =  $json->results[0]->address_components[3]->short_name; 
     */
+  } else {
+	  $lat = '';
+	  $long = '';
+
   }
   $input['lat'] = $lat;
   $input['long'] = $long;
