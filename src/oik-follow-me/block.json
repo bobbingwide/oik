@@ -47,8 +47,8 @@
   },
   "supports": {
     "html": false,
-    "customClassName": false,
-    "className": false,
+    "customClassName": true,
+    "className": true,
     "color": {
       "gradients": false,
       "text": false,
