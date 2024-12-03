@@ -36,6 +36,9 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.14.0 = 
+Improved support for block based themes. New shortcode [bw_x] to replace [bw_twitter].
+
 = 4.13.0 = 
 Removes dependency on bobbfunc's ep(), which has been renamed to bw_ep() to avoid a function name conflict 
 
@@ -504,6 +507,14 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.14.0 = 
+* Changed: Update [bw_follow_me] to support X #231
+* Added: [bw_x] shortcode to replace [bw_twitter] #231
+* Added: Add bw_block_theme_extras. Automatically enable oik shortcodes for block based themes #233
+* Tested: With WordPress 6.7-beta3 and WordPress Multisite
+* Tested: With PHP 8.3
+* Tested: With PHPUnit 9.6 
+
 = 4.13.0 = 
 * Changed: Remove dependency on bobbfunc's ep() #232
 * Tested: With WordPress 6.6.2 and WordPress Multisite

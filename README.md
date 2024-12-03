@@ -3,9 +3,9 @@
 * Contributors: bobbingwide, vsgloik
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
-* Requires at least: 5.0.3
-* Tested up to: 6.7-beta3
-* Stable tag: 4.14.0
+* Requires at least: 5.5
+* Tested up to: 6.7.1
+* Stable tag: 4.14.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -106,17 +106,21 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 4.14.0 
-Improved support for block based themes. New shortcode [bw_x] to replace [bw_twitter].
+# 4.14.1 
+Tested with WordPress 6.7.1 and PHP 8.4
 
 ## Changelog 
-# 4.14.0 
-* Changed: Update [bw_follow_me] to support X #231
-* Added: [bw_x] shortcode to replace [bw_twitter] #231
-* Added: Add bw_block_theme_extras. Automatically enable oik shortcodes for block based themes #233
-* Tested: With WordPress 6.7-beta3 and WordPress Multisite
-* Tested: With PHP 8.3
-* Tested: With PHPUnit 9.6
+# 4.14.1 
+* Changed: Support PHPUnit 10 & 11 #220
+* Changed: Latest version of Genesis-oik is v1.4.0 #220
+* Changed: Enable className and customClassName on follow-me block #220
+* Changed: Don't str_replace( null ) #220 #235
+* Changed: Avoid notices when $lat and $long uninitialized #220
+* Changed: Don't str_replace() null #220
+* Changed: Set rel=noindex on shortcode pagination links #235
+* Tested: With WordPress 6.7.1 and WordPress Multisite
+* Tested: With PHP 8.3 & PHP 8.4
+* Tested: With PHPUnit 9.6, 10 and 11
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the
@@ -174,8 +178,8 @@ oik plugins are tested with:
 
 * WordPress
 * WordPress Multisite
-* PHP 8.1, PHP 8.2 and PHP 8.3
-* PHPUnit 9.6
+* PHP 8.1, PHP 8.2, PHP 8.3 & PHP 8.4
+* PHPUnit 9.6, 10.5 & 11.4
 
 All of the plugins are developed using a set of functions that can make PHP and HTML coding a bit easier.
 These are known as the [OIK Application Programming Interface (OIK API)](https://www.oik-plugins.com/apis/oik-apis)
