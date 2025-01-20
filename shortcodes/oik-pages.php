@@ -66,8 +66,10 @@ function bw_query_post_formatter( $atts ) {
  */
 function bw_pages( $atts = NULL ) {
   $atts['numberposts'] = bw_array_get( $atts, 'numberposts', 10 );
+  $args = $atts;
+  unset( $args['format']);
   $cp = bw_current_post_id();
-  $posts = bw_get_posts( $atts );
+  $posts = bw_get_posts( $args );
   // If we get into an infinite loop during development then you'll want to uncomment this line.
   //return( "shortcircuit");
   bw_trace( $posts, __FUNCTION__, __LINE__, __FILE__, "posts" );
