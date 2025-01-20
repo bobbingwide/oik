@@ -50,7 +50,11 @@ function bw_load_noderef2_flat( $post_type, $args ) {
 		$post_type = array( $post_type, 1 );	
   }
   $args['post_type'] = $post_type;
+  $args['exclude'] = -1;
+  bw_trace2( $args, "args", false );
+
   $posts = bw_get_posts( $args );
+
   $options = bw_post_array( $posts );
   return( $options );
 }
