@@ -108,7 +108,8 @@ function bw_form_field_select( $name, $type, $title, $value, $args ) {
 function bw_post_array( $posts ) {
   $options = array();
   foreach ($posts as $post ) {
-    $options[$post->ID] = $post->post_title; 
+	  $option_label = apply_filters( 'bw_post_array', $post->post_title, $post );
+    $options[$post->ID] = $option_label;
   }
   return bw_trace2( $options );
 }
@@ -160,6 +161,8 @@ function bw_load_noderef( $args ) {
       unset( $args['post_parent'] );
     }
     $args['post_type'] = $post_type;
+	$args['exclude'] = -1;
+	bw_trace2( $args, "args", false );
     $posts = bw_get_posts( $args );
     $options += bw_post_array( $posts );
   }
