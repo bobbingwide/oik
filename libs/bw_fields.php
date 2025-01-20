@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2013-2018, 2020, 2021, 2023
+<?php // (C) Copyright Bobbing Wide 2013-2018, 2020, 2021, 2023, 2024, 2025
 if ( !defined( "BW_FIELDS_INCLUDED" ) ) {
-define( "BW_FIELDS_INCLUDED", "4.4.1" );
+define( "BW_FIELDS_INCLUDED", "4.6.0" );
 
 /**
  * Library: bw_fields
@@ -280,6 +280,26 @@ function bw_theme_field__excerpt( $key, $value, $field ) {
   sepan( $key, $value );
 }
 
+/**
+ * Theme the "post parent"
+ *
+ * @param string $key - the field name
+ * @param string $value - the field value
+ * @param array $field - array of key value pairs
+ */
+function bw_theme_field__post_parent( $key, $value, $field ) {
+	bw_trace2();
+	//sepan( $key, $value);
+
+	if ( $value ) {
+		$link = get_permalink( $value );
+		$parent = get_post( $value);
+		BW_::alink( "post_parent", $link, $parent->post_title );
+	} else {
+		sepan( $key, '' );
+	}
+}
+
 
 /** 
  * Default theming of metadata based on field name ( $key ) or content? ( $value )
@@ -481,13 +501,17 @@ function bw_format_taxonomy( $field, $post_id ) {
 }  
 }
 
-/** 
- * If the field type is not defined then it's probably a post object's property
+/**
+ * Themes an object's property.
+ *
+ * If the field type is not defined then it's probably a post object's property.
+ * @TODO Decide if it's OK to display the post_password field.
  */ 
 if ( !function_exists( "bw_theme_object_property" ) ) {  
 function bw_theme_object_property( $post_id, $value, $atts=null ) {
   $post = get_post( $post_id ); 
-	if ( $post ) { 
+	if ( $post ) {
+			//bw_trace2( $post, "post");
 			if ( property_exists( $post, $value ) ) {
 			$field_value = $post->$value ;
 			bw_theme_field( $value, $field_value, $atts ); 
