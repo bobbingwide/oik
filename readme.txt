@@ -4,7 +4,7 @@ Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.5
 Tested up to: 6.7.1
-Stable tag: 4.14.1
+Stable tag: 4.15.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
@@ -105,18 +105,16 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
-= 4.14.1 = 
-Tested with WordPress 6.7.1 and PHP 8.4 
+= 4.15.0 = 
+Implements several improvements required by dependent plugins. 
  
 == Changelog ==
-= 4.14.1 = 
-* Changed: Support PHPUnit 10 & 11 #220
-* Changed: Latest version of Genesis-oik is v1.4.0 #220
-* Changed: Enable className and customClassName on follow-me block #220
-* Changed: Don't str_replace( null ) #220 #235
-* Changed: Avoid notices when $lat and $long uninitialized #220
-* Changed: Don't str_replace() null #220
-* Changed: Set rel=noindex on shortcode pagination links #235
+= 4.15.0 = 
+* Changed: Don't pass format parameter to bw_get_posts() #241
+* Changed: Attempt to reduce the width of select lists in meta boxes
+* Added: Add bw_theme_field__post_parent() #238
+* Changed: don't exclude the current post in bw_load_noderef and bw_load_noderef2_flat #239
+* Added: Invoke bw_post_array filter #240
 * Tested: With WordPress 6.7.1 and WordPress Multisite
 * Tested: With PHP 8.3 & PHP 8.4
 * Tested: With PHPUnit 9.6, 10 and 11
