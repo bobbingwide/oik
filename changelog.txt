@@ -36,6 +36,9 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.15.0 = 
+Implements several improvements required by dependent plugins. 
+
 = 4.14.1 = 
 Tested with WordPress 6.7.1 and PHP 8.4 
 
@@ -510,6 +513,16 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.15.0 = 
+* Changed: Don't pass format parameter to bw_get_posts() #241
+* Changed: Attempt to reduce the width of select lists in meta boxes
+* Added: Add bw_theme_field__post_parent() #238
+* Changed: don't exclude the current post in bw_load_noderef and bw_load_noderef2_flat #239
+* Added: Invoke bw_post_array filter #240
+* Tested: With WordPress 6.7.1 and WordPress Multisite
+* Tested: With PHP 8.3 & PHP 8.4
+* Tested: With PHPUnit 9.6, 10 and 11
+
 = 4.14.1 = 
 * Changed: Support PHPUnit 10 & 11 #220
 * Changed: Latest version of Genesis-oik is v1.4.0 #220
