@@ -79,7 +79,6 @@ function bw_check_paged_shortcode( $bwscid ) {
  * @param array $atts
  */
 function oik_navi_lazy_paginate_links( $atts ) {
-	//	bw_trace2();
   $bwscid = bw_array_get( $atts, "bwscid", null );
   $bwscpage = bw_array_get( $atts, "paged", null );
   $bw_query = bw_array_get( $atts, "bw_query", null );
@@ -132,7 +131,7 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
                , "before_page_number" => "["
                , "after_page_number" => "]"
                , "add_args" => false
-	            , "type" => "plain"
+	            , "type" => "array"
                );
   // We don't need to worry about these yet             
   //  'show_all' => false,
@@ -145,6 +144,9 @@ function bw_navi_paginate_links( $id, $page, $pages ) {
   //  'add_args' => false, // array of query args to add
   //  'add_fragment' => '',
   $links = paginate_links( $args );
+  if ( is_array( $links )) {
+	  $links=implode( '', $links );
+  }
   $links = bw_navi_add_rel( $links);
   //bw_trace2( $args, "args" );
   //bw_trace2( $links, "links", false );
