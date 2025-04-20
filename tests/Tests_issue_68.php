@@ -236,6 +236,14 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		unset( $GLOBALS['wp_scripts'] );
 	}
 
+    /**
+     * Replaces jQuery versions with m.n.p
+     *
+     * Also replaces .min.js with .js
+     * @param $html
+     * @return array|string|string[]
+     */
+
 	function replace_jquery_versions( $html ) {
 		$jquery_versions        =[ '6.2.2'=>'3.6.4', '6.3'=>'3.7.0', '6.4' => '3.7.1' ];
 		$jquery_migrate_versions=[ '6.2.2'=>'3.4.0', '6.3'=>'3.4.1', '6.4' => '3.4.1' ];
@@ -245,6 +253,7 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		foreach ( $jquery_migrate_versions as $version ) {
 			$html=str_replace( $version, 'm.n.p', $html );
 		}
+        $html = str_replace( '.min.js', '.js', $html );
 		return $html;
 	}
 	
