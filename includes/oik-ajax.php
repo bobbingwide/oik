@@ -1,20 +1,21 @@
-<?php // (C) Copyright Bobbing Wide 2013-2017
-
+<?php // (C) Copyright Bobbing Wide 2013-2017, 2025
 
 /**
  * Ajax shortcode list
  * 
- * List the shortcodes when requested by AJAX
- * 
+ * List the shortcodes when requested by AJAX.
+ * Only do this if the current user is able to edit posts.
  */
 function oik_ajax_list_shortcodes() {
-  do_action( "oik_add_shortcodes" );
-  oik_require( 'shortcodes/oik-codes.php' );
-  $sc_list = bw_shortcode_list();
-  $sc_json = json_encode( $sc_list );   
-  bw_trace2( $sc_json );
-  echo $sc_json;
-  die(); 
+	if ( current_user_can( 'edit_posts')) {
+		do_action( "oik_add_shortcodes" );
+		oik_require( 'shortcodes/oik-codes.php' );
+		$sc_list=bw_shortcode_list();
+		$sc_json=json_encode( $sc_list );
+		bw_trace2( $sc_json );
+		echo $sc_json;
+	}
+	die();
 }
 
 /**
@@ -90,7 +91,7 @@ function oik_ajax_do_shortcode() {
 
  
 /**
- * Register AJAX actions
+ * Register AJAX actions.
  */
 function oik_ajax_lazy_init() {
   add_action( 'wp_ajax_oik_ajax_list_shortcodes', 'oik_ajax_list_shortcodes' );
@@ -98,7 +99,3 @@ function oik_ajax_lazy_init() {
   add_action( 'wp_ajax_oik_ajax_load_shortcode_help', 'oik_ajax_load_shortcode_help' );
   add_action( 'wp_ajax_do_shortcode', "oik_ajax_do_shortcode", 9 );
 }
-
-
-
-
