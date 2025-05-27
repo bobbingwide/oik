@@ -4,8 +4,8 @@
 * Donate link: https://www.oik-plugins.com/oik/oik-donate/
 * Tags: blocks, shortcodes, shortcode, advanced
 * Requires at least: 5.5
-* Tested up to: 6.8
-* Stable tag: 4.15.1
+* Tested up to: 6.8.1
+* Stable tag: 4.15.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Gutenberg compatible: Yes
@@ -106,16 +106,12 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 ## Upgrade Notice 
-# 4.15.1 
-Tested with WordPress 6.8 and PHP 8.4
+# 4.15.2 
+Update for a security fix.
 
 ## Changelog 
 # 4.15.1 
-* Changed: Update replace_jquery_versions to cater for .min.js #220
-* Fixed: Avoid unwanted <br /> tags in pagination links #242
-* Tested: With WordPress 6.8 and WordPress Multisite
-* Tested: With PHP 8.3 & PHP 8.4
-* Tested: With PHPUnit 9.6, 10 and 11
+* Fixed: Prevent unauthorised users (subscribers) from listing shortcodes via AJAX, Props: Ngô Thái An.
 
 ## Further reading 
 If you want to read more about the oik plugins then please visit the

@@ -36,6 +36,9 @@ Six blocks for the Gutenberg block editor.
 These blocks build on existing functionality. They can be a lot easier to use than the original shortcodes.
 
 == Upgrade Notice ==
+= 4.15.1 = 
+Tested with WordPress 6.8 and PHP 8.4 
+
 = 4.15.0 = 
 Implements several improvements required by dependent plugins. 
 
@@ -513,6 +516,13 @@ There are many changes in version 1.11 to support lazy invocation of code.
 Some plugins have been created as separate plugins (e.g. uk-tides). Others have been changed so that you can activate them by changing oik settings, so are no longer activatable.
 
 == Changelog ==
+= 4.15.1 = 
+* Changed: Update replace_jquery_versions to cater for .min.js #220
+* Fixed: Avoid unwanted <br /> tags in pagination links #242
+* Tested: With WordPress 6.8 and WordPress Multisite
+* Tested: With PHP 8.3 & PHP 8.4
+* Tested: With PHPUnit 9.6, 10 and 11
+
 = 4.15.0 = 
 * Changed: Don't pass format parameter to bw_get_posts() #241
 * Changed: Attempt to reduce the width of select lists in meta boxes
