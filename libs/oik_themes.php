@@ -58,7 +58,7 @@ function oik_lazy_themes_server_settings() {
   }  
 
   if ( $edit_theme ) {
-    global $bw_theme;
+	global $bw_theme;
     $bw_themes = get_option( "bw_themes" );
     $bw_theme = bw_array_get( $bw_themes, $edit_theme, null );
     if  ( null == $bw_theme ) {
@@ -169,22 +169,29 @@ function _oik_themes_settings_table() {
  
  */
 function _oik_themes_add_settings( $theme ) {
-  $field = bw_array_get( $theme, "theme", null );
-  unset( $theme['theme'] );
-  bw_update_option( $field, $theme, "bw_themes" );
-  $theme['theme'] = "";
-  $ok = true;
+	$ok = false;
+	$continue = bw_verify_nonce( "_oik_theme_form", "_oik_theme_nonce" );
+	if ( $continue ) {
+		$field=bw_array_get( $theme, "theme", null );
+		unset( $theme['theme'] );
+		bw_update_option( $field, $theme, "bw_themes" );
+		$theme['theme'] = "";
+		$ok = true;
+	}
   return( $ok ); 
 }
 
 function _oik_themes_update_settings( $theme ) {
-  $field = bw_array_get( $theme, "theme", null );
-  if ( $theme ) { 
-    unset( $theme['theme'] );
-    bw_update_option( $field, $theme, "bw_themes" );
-  } else {
-    //gobang();
-  }  
+	$continue = bw_verify_nonce( "_oik_theme_form", "_oik_theme_nonce" );
+	if ( $continue ) {
+        $field = bw_array_get( $theme, "theme", null );
+        if ( $theme ) {
+            unset( $theme['theme'] );
+            bw_update_option( $field, $theme, "bw_themes" );
+        } else {
+            //gobang();
+        }
+	}
 }
 
 function _oik_themes_delete_settings( $theme ) {
@@ -215,9 +222,9 @@ function oik_themes_validate_theme( $theme ) {
  */
 function _oik_themes_settings_validate( $add_theme=true ) {
   global $bw_theme;
-  $bw_theme['theme'] = sanitize_key( trim( bw_array_get( $_REQUEST, "theme", null ) ) );
-  $bw_theme['server'] = esc_url_raw( trim( bw_array_get( $_REQUEST, "server", null ) ) );
-  $bw_theme['apikey'] = sanitize_key( trim( bw_array_get( $_REQUEST, "apikey", null ) ) );
+  $bw_theme['theme'] = sanitize_key( trim( bw_array_get( $_REQUEST, "theme", '' ) ) );
+  $bw_theme['server'] = esc_url_raw( trim( bw_array_get( $_REQUEST, "server", '' ) ) );
+  $bw_theme['apikey'] = sanitize_key( trim( bw_array_get( $_REQUEST, "apikey", '' ) ) );
   
   $ok = oik_themes_validate_theme( $bw_theme['theme'] );
   
@@ -261,6 +268,9 @@ function oik_themes_settings() {
  */ 
 function oik_themes_add_settings( ) {
   global $bw_theme;
+  if ( null === $bw_theme ) {
+	  _oik_themes_settings_validate( false );
+  }
   bw_form();
   stag( "table", "widefat" );
   BW_::bw_textfield( "theme", 20, __( "theme", null ), $bw_theme['theme'] );
@@ -269,6 +279,7 @@ function oik_themes_add_settings( ) {
   BW_::bw_textfield( "apikey", 26, __( "apikey", null ) , $bw_theme["apikey"] );
   etag( "table" );
   BW_::p( isubmit( "_oik_themes_add_settings", __( "Add new theme", null ), null, "button-primary" ) );
+  e( wp_nonce_field( "_oik_theme_form", "_oik_theme_nonce", false, false ));
   etag( "form" );
 }
 
@@ -285,6 +296,7 @@ function oik_themes_edit_settings( ) {
   BW_::bw_textfield( "apikey", 26, __( "apikey?", null ), $bw_theme["apikey"] );
   etag( "table" );
   BW_::p( isubmit( "_oik_themes_edit_settings", __( "Change theme", null ), null, "button-primary" ));
+  e( wp_nonce_field( "_oik_theme_form", "_oik_theme_nonce", false, false ));
   etag( "form" );
 }
 
@@ -294,6 +306,8 @@ function oik_themes_edit_settings( ) {
  */
 function oik_themes_check() {
   $check_theme = bw_array_get( $_REQUEST, "check_theme", null );
+  $check_theme = sanitize_key( trim( $check_theme ) );
+
   $check_version = bw_array_get( $_REQUEST, "check_version", null );
   if ( $check_theme && $check_version ) {
     // Check the theme from the remote server ? What does this mean? Validate the apikey perhaps?
@@ -318,8 +332,8 @@ function oik_themes_check() {
             oik_theme_new_version( $response );
       } else {
         BW_::p( __( "Theme is up to date.", null ) );
-        BW_::p( sprintf( __( 'Theme: %1$s', null ), $check_theme) );
-        BW_::p( sprintf( __( 'Current version: %1$s', null ), $check_version ) );
+        BW_::p( sprintf( __( 'Theme: %1$s', null ), esc_attr( $check_theme) ) );
+        BW_::p( sprintf( __( 'Current version: %1$s', null ), esc_attr( $check_version ) ) );
       }  
     }
   }
