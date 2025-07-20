@@ -58,7 +58,7 @@ function oik_lazy_themes_server_settings() {
   }  
 
   if ( $edit_theme ) {
-    global $bw_theme;
+	global $bw_theme;
     $bw_themes = get_option( "bw_themes" );
     $bw_theme = bw_array_get( $bw_themes, $edit_theme, null );
     if  ( null == $bw_theme ) {
@@ -294,6 +294,8 @@ function oik_themes_edit_settings( ) {
  */
 function oik_themes_check() {
   $check_theme = bw_array_get( $_REQUEST, "check_theme", null );
+  $check_theme = sanitize_key( trim( $check_theme ) );
+
   $check_version = bw_array_get( $_REQUEST, "check_version", null );
   if ( $check_theme && $check_version ) {
     // Check the theme from the remote server ? What does this mean? Validate the apikey perhaps?
@@ -318,8 +320,8 @@ function oik_themes_check() {
             oik_theme_new_version( $response );
       } else {
         BW_::p( __( "Theme is up to date.", null ) );
-        BW_::p( sprintf( __( 'Theme: %1$s', null ), $check_theme) );
-        BW_::p( sprintf( __( 'Current version: %1$s', null ), $check_version ) );
+        BW_::p( sprintf( __( 'Theme: %1$s', null ), esc_attr( $check_theme) ) );
+        BW_::p( sprintf( __( 'Current version: %1$s', null ), esc_attr( $check_version ) ) );
       }  
     }
   }
