@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017-2019, 2024
+<?php // (C) Copyright Bobbing Wide 2017-2019, 2024, 2025
 
 
 class Tests_oik_admin extends BW_UnitTestCase {
@@ -918,6 +918,7 @@ $expected[] = '</form>';
 		//$html = $this->replace_admin_url( $html );
 		//$html = str_replace( oik_get_themes_server(), "http://qw/oikcom", $html );
 		$html_array = $this->tag_break( $html );
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "_oik_theme_nonce", "_oik_theme_nonce" );
 		
 		$this->assertNotNull( $html_array );
 		//$this->generate_expected_file( $html_array );
@@ -935,7 +936,8 @@ $expected[] = '</form>';
 		//$html = $this->replace_admin_url( $html );
 		//$html = str_replace( oik_get_themes_server(), "http://qw/oikcom", $html );
 		$html_array = $this->tag_break( $html );
-		
+		$html_array = $this->replace_nonce_with_nonsense( $html_array, "_oik_theme_nonce", "_oik_theme_nonce" );
+
 		$this->assertNotNull( $html_array );
 		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
