@@ -136,7 +136,7 @@ $expected[] = '<input type="hidden" name="_wp_http_referer" value="/" />';
 $expected[] = '<tr>';
 $expected[] = '<td>';
 $expected[] = '<label for="bw_buttons[oik-button-shortcodes]">';
-$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-bn-icon.gif" title="Button shortcodes" alt="Button shortcodes"  /> Button shortcodes</label>';
+$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-bn-icon.gif" alt="Button shortcodes"  /> Button shortcodes</label>';
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-button-shortcodes]" value="0" />';
@@ -146,7 +146,7 @@ $expected[] = '</tr>';
 $expected[] = '<tr>';
 $expected[] = '<td>';
 $expected[] = '<label for="bw_buttons[oik-paypal-shortcodes]">';
-$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-pp-icon.gif" title="PayPal shortcodes" alt="PayPal shortcodes"  /> PayPal shortcodes</label>';
+$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-pp-icon.gif" alt="PayPal shortcodes"  /> PayPal shortcodes</label>';
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-paypal-shortcodes]" value="0" />';
@@ -156,7 +156,7 @@ $expected[] = '</tr>';
 $expected[] = '<tr>';
 $expected[] = '<td>';
 $expected[] = '<label for="bw_buttons[oik-shortc-shortcodes]">';
-$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-sc-icon.gif" title="ALL shortcodes" alt="ALL shortcodes"  /> ALL shortcodes</label>';
+$expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-sc-icon.gif" alt="ALL shortcodes"  /> ALL shortcodes</label>';
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-shortc-shortcodes]" value="0" />';
@@ -433,7 +433,7 @@ $expected[] = '</form>';
 	
 	
 	/**
-	 * The oik themes page expects genesis-oik to be version 1.4.0
+	 * The oik themes page expects genesis-oik to be version 1.4.1
 	 * We need to ensure this version of the theme is installed.
 	 * Note: It doesn't need to be activated.
 	 */
@@ -446,7 +446,7 @@ $expected[] = '</form>';
 		$this->assertEquals( $expected, $version );
 
 		// Do we really need to update this value each time the theme is updated?
-		$this->assertEquals( "1.4.0", $version );
+		$this->assertEquals( "1.4.1-beta1", $version );
 	}
 
 	/**
