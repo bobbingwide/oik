@@ -88,7 +88,7 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 	 * 
 	 * bw_link 0th parameter      | Expected to produce              | Implemented?
 	 * ----------------------     | -------------------              | --------
-	 *                          	| empty link							       	 | Yes
+	 *                          	| empty string  		       	 | Yes - a11y improvement
 	 * /          	            	| Link to $domain                  | Yes
 	 * /somewhere                 | Link to $domain/somwehere        | Yes
 	 * /somewhere/child           | Link to $domain/somewhere/child  | Yes
@@ -112,7 +112,7 @@ class Tests_shortcodes_oik_link extends BW_UnitTestCase {
 		$domain = bw_get_domain();
 		$is_ssl = is_ssl();
 		$this->assertTrue( $is_ssl );
-		$inout = array( "" => '<a class="bw_link" href="#"></a>'
+		$inout = array( "" => ''
 									, "/" => '<a class="bw_link" href="https://' . $domain . '">/</a>'
 									, "/somewhere" => '<a class="bw_link" href="https://' . $domain . '/somewhere">/somewhere</a>'
 									, "/somewhere/child" => '<a class="bw_link" href="https://' . $domain . '/somewhere/child">/somewhere/child</a>'
