@@ -88,6 +88,8 @@ class Tests_shortcodes_oik_parent extends BW_UnitTestCase {
 	/** 
 	 * Tests the path where the link is numeric
 	 * We use 0 as the ID so that the post doesn't exist
+	 * After a11y changes we no longer produce empty links.
+	 * So we now expect an empty string.
 	 */
 	function test_bw_post_link_numeric() {
 		$this->switch_to_locale( "en_GB" );
@@ -101,6 +103,8 @@ class Tests_shortcodes_oik_parent extends BW_UnitTestCase {
 	/** 
 	 * Tests the path where the link is numeric
 	 * We use 0 as the ID so that the post doesn't exist
+	 * After a11y changes we no longer produce empty links.
+	 * So we now expect an empty string.
 	 */
 	function test_bw_post_link_numeric_bb_BB() {
 		$this->switch_to_locale( "bb_BB" );
@@ -110,8 +114,5 @@ class Tests_shortcodes_oik_parent extends BW_UnitTestCase {
 		$this->assertArrayEqualsFile( $html );
 		$this->switch_to_locale( "en_GB" );
 	} 
-	
-	
-	
+
 }
-	
