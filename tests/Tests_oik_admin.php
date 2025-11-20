@@ -446,7 +446,7 @@ $expected[] = '</form>';
 		$this->assertEquals( $expected, $version );
 
 		// Do we really need to update this value each time the theme is updated?
-		$this->assertEquals( "1.4.1-beta1", $version );
+		$this->assertEquals( "1.4.1", $version );
 	}
 
 	/**
