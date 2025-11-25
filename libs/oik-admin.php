@@ -60,6 +60,7 @@ function bw_load_plugin( $set="bw_buttons", $option="oik-button-shortcodes", $pl
 		ediv( "postbox" );
 	}
 
+
 	/**
 	 * Displays the toggle button for the postbox
 	 * 
@@ -188,6 +189,8 @@ function oik_enqueue_scripts() {
 	//wp_enqueue_script( 'jquery-ui-selectable' );
 	//wp_enqueue_script( 'wp-pointer' ); 
 	//wp_enqueue_script( 'utils' );
+	// Disable saving of postbox state and order.
+	wp_enqueue_script( 'disable_postbox_save' );
 }
 
 } /* end !defined() */
