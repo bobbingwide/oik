@@ -320,6 +320,17 @@ div.bw_accordion_item summary {
     display: list-item;
 }
 
+/**
+Attempted a11y improvement to avoid Color Contrast messages from WAVE for oik's dashboard postboxes.
+Would also target the core dashboard items if they also used screen-reader-text
+ */
+button.handlediv span.screen-reader-text,
+button.handle-order-lower span.screen-reader-text,
+button.handle-order-higher span.screen-reader-text,
+.community-events-footer .screen-reader-text {
+    color: #000000;
+    background-color: #ffffff;
+}
 
  
 
