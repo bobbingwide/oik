@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2012-2017
+<?php // (C) Copyright Bobbing Wide 2012-2017, 2025
 /**
  * Returns the next selector for [bw_accordion]
  *
@@ -37,7 +37,6 @@ function bw_accordion( $atts=null, $content=null, $tag=null ) {
         $selector = bw_accordion_id();
         //bw_jquery( "#$selector", "accordion" );
         $class = bw_array_get( $atts, "class", "bw_accordion" );
-		bw_trace2( sanitize_html_class( $class ), "class", true);
         sdiv( esc_attr( sanitize_html_class( $class ) ) , $selector );
 
         $cp = bw_current_post_id();
