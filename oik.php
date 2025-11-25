@@ -3,7 +3,7 @@
 Plugin Name: oik
 Plugin URI: https://www.oik-plugins.com/oik-plugins/oik
 Description: OIK Information Kit - Over 80 lazy smart shortcodes for displaying WordPress content
-Version: 4.15.3
+Version: 4.16.0-beta6
 Author: bobbingwide
 Author URI: https://bobbingwide.com/about-bobbing-wide
 Text Domain: oik
@@ -68,6 +68,7 @@ function oik_plugin_file_loaded() {
   } else {
     add_action('wp_enqueue_scripts', 'oik_enqueue_stylesheets', 11);
     add_action( 'admin_enqueue_scripts', 'add_thickbox' );
+	add_action( 'admin_enqueue_scripts', "oik_admin_enqueue_scripts");
   }
   add_action( 'init', 'oik_main_init', 20 );
   add_action( 'init', 'oik_register_dynamic_blocks', 21 );
@@ -119,6 +120,13 @@ function oik_enqueue_stylesheets() {
 	}
 }
 
+/**
+ * Registers scripts for oik-admin.
+ */
+function oik_admin_enqueue_scripts() {
+	wp_register_script( 'disable_postbox_save', oik_url( 'admin/oik_disable_postbox_save.js') , 'postbox', '0.0.1', true );
+	//wp_enqueue_script( 'disable_postbox_save' );
+}
 /**
  * Query the timestamp for a file
  * 
