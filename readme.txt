@@ -3,7 +3,7 @@ Contributors: bobbingwide, vsgloik
 Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.5
-Tested up to: 6.8.2
+Tested up to: 6.9
 Stable tag: 4.15.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
