@@ -105,16 +105,15 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
-= 4.15.3 = 
-Update for two security fixes.
+= 4.15.4 = 
+Update for a security fix.
  
 == Changelog ==
-= 4.15.3 =
-* Fixed: Security fixes: XSS in check theme, XSRF in add theme Props: Nguyen Xuan Chien
-* Tested: With WordPress 6.8.2 and WordPress Multisite
+= 4.15.4 =
+* Fixed: Security: sanitize the class attribute for bw_accordion shortcode. Props: Muhammad Yudha - DJ
+* Tested: With WordPress 6.8.3 and WordPress Multisite
 * Tested: With PHP 8.3 and PHP 8.4
 * Tested: With PHPUnit 9, 10 & 11
-
 
 == Further reading ==
 If you want to read more about the oik plugins then please visit the
