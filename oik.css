@@ -321,8 +321,9 @@ div.bw_accordion_item summary {
 }
 
 /**
-Attempted a11y improvement to avoid Color Contrast messages from WAVE for oik's dashboard postboxes.
-Would also target the core dashboard items if they also used screen-reader-text
+  Attempted a11y improvement to avoid Color Contrast messages from WAVE for oik's dashboard postboxes.
+  These also target the core dashboard items.
+  They work for the Default Administration Color Scheme with WordPress 6.9
  */
 button.handlediv span.screen-reader-text,
 button.handle-order-lower span.screen-reader-text,
@@ -332,8 +333,16 @@ button.handle-order-higher span.screen-reader-text,
     background-color: #ffffff;
 }
 
- 
+.community-events-footer {
+    color: #74747b;
+}
+.row-actions {
+    color: #6e7177;
+}
 
+.activity-block .subsubsub li {
+    color: #74747b;
+}
 
 
 
