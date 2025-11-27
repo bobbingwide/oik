@@ -138,16 +138,18 @@ function bw_field_function_title( $post, &$atts, $f ) {
 } 
 
 /**
- * Format the 'thumbnail' image (format=I)
+ * Formats the 'thumbnail' image (format=I).
  * 
- * Applies the thumbnail= parameter to determine the size of the image
+ * Applies the thumbnail= parameter to determine the size of the image.
+ * For a11y it now sets the alt attribute on the image from the post's title.
  *
  */ 
 function bw_field_function_image( $post, &$atts, $f ) {
-  $thumbnail = bw_thumbnail( $post->ID, $atts );
-  if ( $thumbnail ) {
-    bw_format_thumbnail( $thumbnail, $post, $atts );
-  }
+	$atts['title'] = get_the_title( $post->ID );
+	$thumbnail = bw_thumbnail( $post->ID, $atts );
+	if ( $thumbnail ) {
+		bw_format_thumbnail( $thumbnail, $post, $atts );
+	}
 }
 
 /**
