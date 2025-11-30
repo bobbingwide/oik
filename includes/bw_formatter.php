@@ -160,7 +160,8 @@ function bw_field_function_image( $post, &$atts, $f ) {
  *
  */ 
 function bw_field_function_featured_image( $post, &$atts, $f ) {
-  $atts['post_id'] = $post->ID; 
+  $atts['post_id'] = $post->ID;
+  $atts['title'] = get_the_title( $post->ID );
   $thumbnail = bw_get_thumbnail_size( $atts );
   if ( $thumbnail ) {
     $thumbnail_image = bw_get_thumbnail( $post->ID, $thumbnail, $atts );
