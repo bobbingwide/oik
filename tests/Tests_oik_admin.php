@@ -140,7 +140,7 @@ $expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-button-shortcodes]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_buttons[oik-button-shortcodes]" id="bw_buttons[oik-button-shortcodes]" checked="checked"/>';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-button-shortcodes]" id="bw_buttons[oik-button-shortcodes]" checked="checked" aria-label="bw_buttons[oik-button-shortcodes]"/>';
 $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '<tr>';
@@ -150,7 +150,7 @@ $expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-paypal-shortcodes]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_buttons[oik-paypal-shortcodes]" id="bw_buttons[oik-paypal-shortcodes]" checked="checked"/>';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-paypal-shortcodes]" id="bw_buttons[oik-paypal-shortcodes]" checked="checked" aria-label="bw_buttons[oik-paypal-shortcodes]"/>';
 $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '<tr>';
@@ -160,7 +160,7 @@ $expected[] = '<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-shortc-shortcodes]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_buttons[oik-shortc-shortcodes]" id="bw_buttons[oik-shortc-shortcodes]"/>';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-shortc-shortcodes]" id="bw_buttons[oik-shortc-shortcodes]" aria-label="bw_buttons[oik-shortc-shortcodes]"/>';
 $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '<tr>';
@@ -169,7 +169,7 @@ $expected[] = '<label for="bw_buttons[oik-quicktags]">[] quicktag for HTML edito
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-quicktags]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_buttons[oik-quicktags]" id="bw_buttons[oik-quicktags]" checked="checked"/>';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-quicktags]" id="bw_buttons[oik-quicktags]" checked="checked" aria-label="bw_buttons[oik-quicktags]"/>';
 $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '<tr>';
@@ -178,7 +178,7 @@ $expected[] = '<label for="bw_buttons[oik-shortcake]">Integrate with shortcake</
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_buttons[oik-shortcake]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_buttons[oik-shortcake]" id="bw_buttons[oik-shortcake]"/>';
+$expected[] = '<input type="checkbox" name="bw_buttons[oik-shortcake]" id="bw_buttons[oik-shortcake]" aria-label="bw_buttons[oik-shortcake]"/>';
 $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '</table>';
@@ -249,7 +249,7 @@ $expected[] = '<label for="bw_admin_options[show_ids]">Show IDs on admin pages</
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_admin_options[show_ids]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_admin_options[show_ids]" id="bw_admin_options[show_ids]" checked="checked"/>';
+$expected[] = '<input type="checkbox" name="bw_admin_options[show_ids]" id="bw_admin_options[show_ids]" checked="checked" aria-label="bw_admin_options[show_ids]"/>';
 $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '</table>';
@@ -285,7 +285,7 @@ $expected[] = '<label for="bw_admin_options[show_ids]">Show IDs on admin pages</
 $expected[] = '</td>';
 $expected[] = '<td>';
 $expected[] = '<input type="hidden" name="bw_admin_options[show_ids]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_admin_options[show_ids]" id="bw_admin_options[show_ids]"/>';
+$expected[] = '<input type="checkbox" name="bw_admin_options[show_ids]" id="bw_admin_options[show_ids]" aria-label="bw_admin_options[show_ids]"/>';
 $expected[] = '</td>';
 $expected[] = '</tr>';
 $expected[] = '</table>';
@@ -315,7 +315,7 @@ $expected[] = '</form>';
     $expected = array();
 		$expected[] = '<input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />';
 		$expected[] = '<div class="wrap">';
-		$expected[] = '<h2>Menu header title</h2>';
+		$expected[] = '<h1>Menu header title</h1>';
 		$expected[] = '<div class="metabox-holder">';
 		$expected[] = '<div class="postbox-container menu header class">';
 		$expected[] = '<div class="meta-box-sortables ui-sortable">';
@@ -393,7 +393,7 @@ $expected[] = '</form>';
 		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
 
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
-		// $this->generate_expected_file( $html_array );
+		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	
 	}
@@ -671,7 +671,7 @@ $expected[] = '</form>';
 		//$html_array = $this->replace_nonce_with_nonsense( $html_array );
 		
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
-    //$this->generate_expected_file( $html_array );
+        //$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
 
@@ -826,7 +826,7 @@ $expected[] = '</form>';
 		// @TODO Implement nonce checking in oik_lazy_plugins_server_settings
 		$html_array = $this->replace_nonce_with_nonsense( $html_array, "closedpostboxesnonce", "closedpostboxesnonce" );
     $expected = array();
-	  //$this->generate_expected_file( $html_array );
+	    //$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	

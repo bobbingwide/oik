@@ -1,16 +1,20 @@
 <input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />
 <div class="wrap">
-<h2>extra shortcode options</h2>
+<h1>extra shortcode options</h1>
 <div class="metabox-holder">
 <div class="postbox-container w60pc">
 <div class="meta-box-sortables ui-sortable">
 <div class="postbox " id="oik_extra_shortcode_options">
+<div class="postbox-header">
+<h2 class="hndle">alternative values using alt=1</h2>
+<div class="handle-actions hide-if-no-js">
 <button type="button" class="handlediv" aria-expanded="true">
 <span class="screen-reader-text">Toggle panel: alternative values using alt=1</span>
 <span class="toggle-indicator" aria-hidden="true">
 </span>
 </button>
-<h3 class="hndle">alternative values using alt=1</h3>
+</div>
+</div>
 <div class="inside">
 <form method="post" action="options.php">
 <table class="form-table">
@@ -103,7 +107,7 @@
 <label for="bw_options1[gmap_intro]">Google Maps introductory text for [bw_show_googlemap alt=1]</label>
 </td>
 <td>
-<textarea rows="5" cols="50" name="bw_options1[gmap_intro]">This Google map shows you where [bw_company] is located</textarea>
+<textarea rows="5" cols="50" name="bw_options1[gmap_intro]" id="bw_options1[gmap_intro]">This Google map shows you where [bw_company] is located</textarea>
 </td>
 </tr>
 <tr>
@@ -136,12 +140,16 @@
 <div class="postbox-container w40pc">
 <div class="meta-box-sortables ui-sortable">
 <div class="postbox " id="oik_extra_usage_notes">
+<div class="postbox-header">
+<h2 class="hndle">usage notes</h2>
+<div class="handle-actions hide-if-no-js">
 <button type="button" class="handlediv" aria-expanded="true">
 <span class="screen-reader-text">Toggle panel: usage notes</span>
 <span class="toggle-indicator" aria-hidden="true">
 </span>
 </button>
-<h3 class="hndle">usage notes</h3>
+</div>
+</div>
 <div class="inside">
 <p>Use the shortcodes in your pages, widgets and titles. e.g.</p>
 <p>Display your alternative contact name.</p>

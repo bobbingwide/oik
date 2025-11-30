@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017, 2025
 
 class Tests_issue_9 extends BW_UnitTestCase {
 
@@ -114,20 +114,20 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	}
 	
 	function test_BW_bw_textarea() {
-		$expected = '<tr><td><label for="test">Text area</label></td><td><textarea rows="10" cols="9" name="test">Textarea value</textarea></td></tr>';
+		$expected = '<tr><td><label for="test">Text area</label></td><td><textarea rows="10" cols="9" name="test" id="test">Textarea value</textarea></td></tr>';
 		$actual = bw_ret( BW_::bw_textarea( "test", 9, __( "Text area", "oik" ), "Textarea value", 10 ) );
 		$this->assertEquals( $expected, $actual );
 	}
 	
 	function test_BW_bw_textarea_arr() {
-		$expected = '<tr><td><label for="options[test]">Text area</label></td><td><textarea rows="5" cols="10" name="options[test]">Textarea value</textarea></td></tr>';
+		$expected = '<tr><td><label for="options[test]">Text area</label></td><td><textarea rows="5" cols="10" name="options[test]" id="options[test]">Textarea value</textarea></td></tr>';
 		$array = [ 'test' => "Textarea value" ];
 		$actual = bw_ret( BW_::bw_textarea_arr( "options", __( "Text area", "oik" ), $array, "test", 10 ) );
 		$this->assertEquals( $expected, $actual );
 	}
  
 	function test_BW_bw_textarea_cb_arr() {
-		$expected = '<tr><td><label for="options[test]">Text area&nbsp;<input type="hidden" name="options[test_cb]" value="0" /><input type="checkbox" name="options[test_cb]" id="options[test_cb]" checked="checked"/></label></td><td><textarea rows="5" cols="10" name="options[test]">Textarea value</textarea></td></tr>';
+		$expected = '<tr><td><label for="options[test]">Text area&nbsp;<input type="hidden" name="options[test_cb]" value="0" /><input type="checkbox" name="options[test_cb]" id="options[test_cb]" checked="checked" aria-label="options[test_cb]"/></label></td><td><textarea rows="5" cols="10" name="options[test]" id="options[test]">Textarea value</textarea></td></tr>';
     $array = [ 'test_cb' => "on", "test" => "Textarea value" ];
 		$actual = bw_ret( BW_::bw_textarea_cb_arr( "options", __( "Text area", "oik" ) , $array, "test", 10 ) );
 		$this->assertEquals( $expected, $actual );
@@ -140,7 +140,7 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	}
 
 	function test_BW_bw_select() {
-		$expected = '<tr><td><label for="test">Select list</label></td><td><select name="test"><option value="yes"  selected=\'selected\'>Yes</option><option value="no" >No</option><option value="maybe" >Maybe</option></select></td></tr>';
+		$expected = '<tr><td><label for="test">Select list</label></td><td><select name="test" id="test"><option value="yes"  selected=\'selected\'>Yes</option><option value="no" >No</option><option value="maybe" >Maybe</option></select></td></tr>';
 		$options = array( "yes" => __( "Yes" )
 									  , "no" => __( "No" )
 										, "maybe" => __( "Maybe" )
@@ -154,7 +154,7 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	}
 	
 	function test_BW_bw_select_arr() {
-		$expected = '<tr><td><label for="options[test]">Select list</label></td><td><select name="options[test]"><option value="yes"  selected=\'selected\'>Yes</option><option value="no" >No</option><option value="maybe" >Maybe</option></select></td></tr>';
+		$expected = '<tr><td><label for="options[test]">Select list</label></td><td><select name="options[test]" id="options[test]"><option value="yes"  selected=\'selected\'>Yes</option><option value="no" >No</option><option value="maybe" >Maybe</option></select></td></tr>';
 		$array = [ "test" => "yes" ];
 		$options = array( "yes" => __( "Yes" )
 									  , "no" => __( "No" )

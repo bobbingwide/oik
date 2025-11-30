@@ -1,16 +1,20 @@
 <input type="hidden" id="closedpostboxesnonce" name="closedpostboxesnonce" value="nonsense" />
 <div class="wrap">
-<h2>shortcode options</h2>
+<h1>shortcode options</h1>
 <div class="metabox-holder">
 <div class="postbox-container w60pc">
 <div class="meta-box-sortables ui-sortable">
 <div class="postbox " id="oik_main_shortcode_options">
+<div class="postbox-header">
+<h2 class="hndle">Often included key information</h2>
+<div class="handle-actions hide-if-no-js">
 <button type="button" class="handlediv" aria-expanded="true">
 <span class="screen-reader-text">Toggle panel: Often included key information</span>
 <span class="toggle-indicator" aria-hidden="true">
 </span>
 </button>
-<h3 class="hndle">Often included key information</h3>
+</div>
+</div>
 <div class="inside">
 <form method="post" action="options.php">
 <table class="form-table">
@@ -199,7 +203,7 @@
 <label for="bw_options[gmap_intro]">Google Maps introductory text for [bw_show_googlemap alt=0]</label>
 </td>
 <td>
-<textarea rows="5" cols="50" name="bw_options[gmap_intro]">
+<textarea rows="5" cols="50" name="bw_options[gmap_intro]" id="bw_options[gmap_intro]">
 </textarea>
 </td>
 </tr>
@@ -257,7 +261,7 @@
 </td>
 <td>
 <input type="hidden" name="bw_options[oikCSS]" value="0" />
-<input type="checkbox" name="bw_options[oikCSS]" id="bw_options[oikCSS]"/>
+<input type="checkbox" name="bw_options[oikCSS]" id="bw_options[oikCSS]" aria-label="bw_options[oikCSS]"/>
 </td>
 </tr>
 <tr>
@@ -401,7 +405,7 @@
 <label for="bw_options[paypal-currency]">PayPal currency</label>
 </td>
 <td>
-<select name="bw_options[paypal-currency]">
+<select name="bw_options[paypal-currency]" id="bw_options[paypal-currency]">
 <option value="GBP"  selected='selected'>GBP</option>
 <option value="USD" >USD</option>
 <option value="EUR" >EUR</option>
@@ -443,7 +447,7 @@
 </td>
 <td>
 <input type="hidden" name="bw_options[login-logo]" value="0" />
-<input type="checkbox" name="bw_options[login-logo]" id="bw_options[login-logo]" checked="checked"/>
+<input type="checkbox" name="bw_options[login-logo]" id="bw_options[login-logo]" checked="checked" aria-label="bw_options[login-logo]"/>
 </td>
 </tr>
 <tr>
@@ -459,7 +463,7 @@
 <label for="bw_options[art-version]">Artisteer version</label>
 </td>
 <td>
-<select name="bw_options[art-version]">
+<select name="bw_options[art-version]" id="bw_options[art-version]">
 <option value="na" >na</option>
 <option value="41"  selected='selected'>41</option>
 <option value="40" >40</option>
@@ -499,12 +503,16 @@
 <div class="postbox-container w40pc">
 <div class="meta-box-sortables ui-sortable">
 <div class="postbox " id="oik_usage_notes">
+<div class="postbox-header">
+<h2 class="hndle">Usage notes</h2>
+<div class="handle-actions hide-if-no-js">
 <button type="button" class="handlediv" aria-expanded="true">
 <span class="screen-reader-text">Toggle panel: Usage notes</span>
 <span class="toggle-indicator" aria-hidden="true">
 </span>
 </button>
-<h3 class="hndle">Usage notes</h3>
+</div>
+</div>
 <div class="inside">
 <p>Use the shortcodes in your pages, widgets and titles. e.g.</p>
 <p>Display your contact name.</p>
