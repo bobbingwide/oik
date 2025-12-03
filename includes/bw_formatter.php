@@ -107,7 +107,9 @@ function _bw_field_functions() {
     $fields['t'] = "bw_field_function_tags"; 
     $fields['a'] = "bw_field_function_author"; 
     $fields['d'] = "bw_field_function_date"; 
-    $fields['e'] = "bw_field_function_edit"; 
+    $fields['e'] = "bw_field_function_edit";
+	$fields['J'] = 'bw_field_function_image_link';
+	$fields['K'] = 'bw_field_function_link_image';
     // Apply_filters to allow other formatting functions provided by other plugins 
     $fields = apply_filters( "bw_field_functions", $fields );
   }
@@ -416,3 +418,57 @@ function bw_format_block_end( $post, $atts, $in_block ) {
  * We should be able to survive with bw_default_sep and bw_format_sep being loaded from the bw_fields library.
  * So these functions are now longer required here.
  */
+
+
+/**
+ * Formats an image & title link (format=J).
+ *
+ * @param $post
+ * @param $atts
+ * @param $f
+ *
+ * @return void
+ *
+ */
+function bw_field_function_image_link( $post, &$atts, $f ) {
+	$linktext = '';
+	$thumbnail = bw_get_thumbnail_size( $atts );
+    if ( $thumbnail ) {
+		$atts['title'] = '';
+	    $thumbnail_image=bw_get_thumbnail( $post->ID, $thumbnail, $atts );
+		$linktext .= $thumbnail_image;
+    }
+	$linktext .= '<p class="title">';
+	$linktext .= get_the_title( $post->ID );
+	$linktext .= '</p>';
+
+	$url = get_the_permalink( $post );
+	bw_trace2( $linktext, $url, false );
+	BW_::alink( 'bw_image_link', $url, $linktext, '', '' );
+
+}
+/**
+ * Formats a title & image link (format=K).
+ *
+ * @param $post
+ * @param $atts
+ * @param $f
+ *
+ * @return void
+ *
+ */
+function bw_field_function_link_image( $post, &$atts, $f ) {
+	$linktext = '';
+	$linktext .= '<p class="title">';
+	$linktext .= get_the_title( $post->ID );
+	$linktext .= '</p>';
+	$thumbnail = bw_get_thumbnail_size( $atts );
+	if ( $thumbnail ) {
+		$atts['title'] = '';
+		$thumbnail_image=bw_get_thumbnail( $post->ID, $thumbnail, $atts );
+		$linktext .= $thumbnail_image;
+	}
+	$url = get_the_permalink( $post );
+	bw_trace2( $linktext, $url, false );
+	BW_::alink( 'bw_link_image', $url, $linktext, '', '' );
+}
