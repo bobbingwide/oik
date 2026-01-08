@@ -31,9 +31,9 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		$expected_output = '<a href="';
 		$expected_output .= $this->_url;
 		$expected_output .= '/oik_sc_param/audio-src,mp3,m4a,ogg,wav,wma-parameter"';
-		$expected_output .= ' title="audio src,mp3,m4a,ogg,wav,wma parameter">src,mp3,m4a,ogg,wav,wma</a>';
+		$expected_output .= '>src,mp3,m4a,ogg,wav,wma</a>';
     $link = bw_form_sc_parm_help( "src,mp3,m4a,ogg,wav,wma", "audio" );
-		$this->assertEquals( $link, $expected_output );
+		$this->assertEquals( $expected_output, $link );
 	}
 
 	/**

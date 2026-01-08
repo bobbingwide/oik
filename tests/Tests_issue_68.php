@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017-2019
+<?php // (C) Copyright Bobbing Wide 2017-2026
 
 class Tests_issue_68 extends BW_UnitTestCase {
 
@@ -204,6 +204,7 @@ class Tests_issue_68 extends BW_UnitTestCase {
 		
 		$html = bw_ret();
 		$html_array = $this->tag_break( $html );
+		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	

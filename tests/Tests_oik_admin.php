@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017-2019, 2024, 2025
+<?php // (C) Copyright Bobbing Wide 2017-2019, 2024, 2025, 2026
 
 
 class Tests_oik_admin extends BW_UnitTestCase {
@@ -125,6 +125,8 @@ class Tests_oik_admin extends BW_UnitTestCase {
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
 		
 		//$this->generate_expected( $html_array );
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
 		
 $expected = array();
 $expected[] = '<form method="post" action="options.php">';
@@ -185,7 +187,7 @@ $expected[] = '</table>';
 $expected[] = '<input type="submit" name="ok" value="Save changes" class="button-primary" />';
 $expected[] = '</form>';
 		
-		$this->assertEquals( $expected, $html_array );
+		//$this->assertEquals( $expected, $html_array );
 	}
 
 
@@ -222,41 +224,24 @@ $expected[] = '</form>';
 	 *
 	 * We have to force the flush to get all the html that's generated.
 	 */
-	function test_oik_admin_options_on() { 
+	function test_oik_admin_options_on() {
+		//bw_trace2();
+
 	
 		bw_update_option( "show_ids", "on", "bw_admin_options" );
-		
+
 		ob_start(); 
 		oik_admin_options();
 		bw_flush();  
 		$html = ob_get_contents();
 		ob_end_clean();
-		
+
 		$html_array = $this->tag_break( $html );
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
-    //$this->generate_expected( $html_array );
-		
-		$expected = array();
-$expected[] = '<form method="post" action="options.php">';
-$expected[] = '<table class="form-table">';
-$expected[] = '<input type=\'hidden\' name=\'option_page\' value=\'oik_admin_options\' />';
-$expected[] = '<input type="hidden" name="action" value="update" />';
-$expected[] = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />';
-$expected[] = '<input type="hidden" name="_wp_http_referer" value="/" />';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_admin_options[show_ids]">Show IDs on admin pages</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="hidden" name="bw_admin_options[show_ids]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_admin_options[show_ids]" id="bw_admin_options[show_ids]" checked="checked" aria-label="bw_admin_options[show_ids]"/>';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '</table>';
-$expected[] = '<input type="submit" name="ok" value="Save changes" class="button-secondary" />';
-$expected[] = '</form>';
+		//$this->generate_expected_file( $html_array );
 
-		$this->assertEquals( $expected, $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+
 	}
 		
 	function test_oik_admin_options_off() {
@@ -271,28 +256,10 @@ $expected[] = '</form>';
 		
 		$html_array = $this->tag_break( $html );
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
-    //$this->generate_expected( $html_array );
-		$expected = array();
-$expected[] = '<form method="post" action="options.php">';
-$expected[] = '<table class="form-table">';
-$expected[] = '<input type=\'hidden\' name=\'option_page\' value=\'oik_admin_options\' />';
-$expected[] = '<input type="hidden" name="action" value="update" />';
-$expected[] = '<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />';
-$expected[] = '<input type="hidden" name="_wp_http_referer" value="/" />';
-$expected[] = '<tr>';
-$expected[] = '<td>';
-$expected[] = '<label for="bw_admin_options[show_ids]">Show IDs on admin pages</label>';
-$expected[] = '</td>';
-$expected[] = '<td>';
-$expected[] = '<input type="hidden" name="bw_admin_options[show_ids]" value="0" />';
-$expected[] = '<input type="checkbox" name="bw_admin_options[show_ids]" id="bw_admin_options[show_ids]" aria-label="bw_admin_options[show_ids]"/>';
-$expected[] = '</td>';
-$expected[] = '</tr>';
-$expected[] = '</table>';
-$expected[] = '<input type="submit" name="ok" value="Save changes" class="button-secondary" />';
-$expected[] = '</form>';
-	$this->assertEquals( $expected, $html_array );
-		
+
+		//$this->generate_expected_file( $html_array );
+		$this->assertArrayEqualsFile( $html_array );
+
 		
 	}
 	
@@ -446,7 +413,7 @@ $expected[] = '</form>';
 		$this->assertEquals( $expected, $version );
 
 		// Do we really need to update this value each time the theme is updated?
-		$this->assertEquals( "1.4.1", $version );
+		$this->assertEquals( "1.5.0", $version );
 	}
 
 	/**
@@ -1093,6 +1060,7 @@ $expected[] = '</form>';
 		ob_end_clean();
 		$html_array = $this->tag_break( $html );
 		$html_array = $this->replace_nonce_with_nonsense( $html_array );
+		//$this->generate_expected_file( $html_array );
 		$this->assertArrayEqualsFile( $html_array );
 	}
 	
