@@ -344,6 +344,14 @@ button.handle-order-higher span.screen-reader-text,
     color: #74747b;
 }
 
+div.bw_grid div {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 1.5%;
+    margin-bottom: 10px;
+}
+
 
 
 
