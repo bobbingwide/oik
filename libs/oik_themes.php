@@ -255,7 +255,7 @@ function oik_themes_settings() {
 										, __( "version", null )
 										, __( "server", null ) 
 										, __( "apikey", null )
-										, __( "actions", null ) ) );
+										, __( "actions", null ) ), 'tr', 'th' );
   etag( "thead");
   _oik_themes_settings_table();
   etag( "table" );
