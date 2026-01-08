@@ -255,11 +255,13 @@ function oik_support() {
  * Display the oik admin options
  */
 function oik_admin_options() { 
-  $option = 'bw_admin_options'; 
+  $option = 'bw_admin_options';
+  bw_is_table( false );
   $options = bw_form_start( $option, 'oik_admin_options' );
   bw_checkbox_arr( "bw_admin_options", __( "Show IDs on admin pages", "oik" ), $options, 'show_ids' );
-  etag( "table" );
-  e( isubmit( "ok", __("Save changes", "oik" ), null, "button-secondary" ) ); 
+  //etag( "table" );
+	bw_table_or_grid_end();
+  p( isubmit( "ok", __("Save changes", "oik" ), null, "button-secondary" ) );
   etag( "form" );
 }
 
