@@ -136,7 +136,7 @@ static function bw_retrieve_result( $request ) {
 	$response_code = wp_remote_retrieve_response_code( $request );
 	if ( $response_code == 200 || $response_code == 201 ) {
 		$response = wp_remote_retrieve_body( $request );
-		bw_trace2( $response, $response_code );
+		bw_trace2( $response, $response_code, true, BW_TRACE_VERBOSE );
 		if ( empty( $response ) ) {
 			$result = null;
 		} else {

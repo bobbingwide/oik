@@ -1,6 +1,6 @@
-<?php // (C) Copyright Bobbing Wide 2012-2024
+<?php // (C) Copyright Bobbing Wide 2012-2026
 if ( !defined( "OIK_PLUGINS_INCLUDED" ) ) {
-	define( "OIK_PLUGINS_INCLUDED", "0.3.6" );
+	define( "OIK_PLUGINS_INCLUDED", "0.4.0" );
 
 /**
  * Library: oik_plugins
@@ -302,12 +302,15 @@ function oik_plugins_add_settings( ) {
 	  $bw_plugin['apikey']='';
   }
   bw_form();
-  stag( "table", "widefat" );
+  //bw_is_table( false );
+  bw_table_or_grid_start( false );
+  //stag( "table", "widefat" );
   BW_::bw_textfield( "plugin", 20, __( "plugin", null ), $bw_plugin['plugin'] );
   $plugin_server = ( null === $bw_plugin['server']) ? '' : stripslashes( $bw_plugin['server'] );
   BW_::bw_textfield( "server", 100, __( "server", null ), $plugin_server );
   BW_::bw_textfield( "apikey", 26, __( "apikey", null ), $bw_plugin["apikey"] );
-  etag( "table" );
+  //etag( "table" );
+	bw_table_or_grid_end();
   BW_::p( isubmit( "_oik_plugins_add_settings", __( "Add new plugin", null ), null, "button-primary" ) );
   etag( "form" );
 }
@@ -318,12 +321,14 @@ function oik_plugins_add_settings( ) {
 function oik_plugins_edit_settings( ) {
   global $bw_plugin;
   bw_form();
-  stag( "table", "wide-fat" );
+  bw_table_or_grid_start( false );
+  //stag( "table", "wide-fat" );
   bw_tablerow( array( __( "plugin", null ), $bw_plugin['plugin'] . ihidden( 'plugin', $bw_plugin['plugin']) ) );
   $plugin_server = ( null === $bw_plugin['server']) ? '' : stripslashes( $bw_plugin['server'] );
   BW_::bw_textfield( "server", 100, __( "server", null ), $plugin_server );
   BW_::bw_textfield( "apikey", 26, __( "apikey?", null ), $bw_plugin["apikey"] );
-  etag( "table" );
+  //etag( "table" );
+  bw_table_or_grid_end();
   BW_::p( isubmit( "_oik_plugins_edit_settings", __( "Change plugin", null ), null, "button-primary" ));
   etag( "form" );
 }
