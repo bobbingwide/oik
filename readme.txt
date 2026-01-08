@@ -4,7 +4,7 @@ Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: blocks, shortcodes, shortcode, advanced
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 4.15.3
+Stable tag: 4.16.0-RC1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Gutenberg compatible: Yes
@@ -81,16 +81,11 @@ Yes - see above
 = Where are the blocks documented? =
 [oik blocks](https://www.oik-plugins.com/oik-plugins/oik)
 
-For blocks of many other WordPress plugins ( including WordPress SEO, Jetpack, WooCommerce ) see [blocks.wp-a2z.org](https://blocks.wp-a2z.org)
-
 = Where are the shortcodes documented? =
 
 [oik shortcodes](https://www.oik-plugins.com/shortcodes)
 
 The shortcode reference includes the standard WordPress shortcodes and help for shortcodes provided by other oik plugins.
-
-For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCommerce) see [WP-a2z.org](https://wp-a2z.org/sitemap/sites)
-
 
 == Screenshots ==
 1. oik options - Options
@@ -105,16 +100,35 @@ For other popular WordPress plugins (e.g. Jetpack, Easy-Digital-Downloads, WooCo
 10. oik options - Buttons
 
 == Upgrade Notice ==
-= 4.15.3 = 
-Update for two security fixes.
+= 4.16.0-RC1 = 
+Upgrade for many accessibility (a11y) improvements for both the front end and admin areas.
  
 == Changelog ==
-= 4.15.3 =
-* Fixed: Security fixes: XSS in check theme, XSRF in add theme Props: Nguyen Xuan Chien
-* Tested: With WordPress 6.8.2 and WordPress Multisite
+= 4.16.0-RC1 = 
+* Accessibility: Remove invalid lang=HTML attr #79
+* Accessibility: Default styling for forms which are now grids not tables #79
+* Accessibility: Avoid Layout table alert #79
+* Accessibility: Avoid Suspicious link alerts for link and more. #79
+* Accessibility: Add $class parm to bw_table_or_grid_start() #79
+* Accessibility: use grid rather than table for admin options form #79
+* Changed: Add format=J and format=K for accessibility improvements #79
+* Changed: a11y - set alt attribute for featured images displayed by bw_pages #79
+* Changed: Update tests for a11y improvements #79
+* Changed: a11y - set alt attribute for linked images displayed by bw_pages #79
+* Changed: Implement Administration Color Scheme CSS fixes to reduce WAVE Contrast errors (a11y) #79
+* Changed: Implement improvements for a11y #79 and postbox #81
+* Changed: Register disable_postbox_save script #81
+* Accessibility: Avoid Color Contrast errors for screen-reader-text #79
+* Changed: Enqueue disable_postbox_save #81
+* Changed: Remove bw_trace2() call
+* Fixed: Disable the saving of postboxes when used in oik admin pages. #81
+* Accessibility: add id attr to textarea field #79
+* Accessibility: omit title attr from img tag as alt attr present #79
+* Accessibility: Don't produce empty links #79
+* Tested: Update tests for a11y improvements #79
+* Tested: With WordPress 6.9 and WordPress Multisite
 * Tested: With PHP 8.3 and PHP 8.4
 * Tested: With PHPUnit 9, 10 & 11
-
 
 == Further reading ==
 If you want to read more about the oik plugins then please visit the
