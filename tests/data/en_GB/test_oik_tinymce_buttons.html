@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<form method="post" action="options.php">
+<div class="bw_grid">
+<input type='hidden' name='option_page' value='oik_buttons_options' />
+<input type="hidden" name="action" value="update" />
+<input type="hidden" id="_wpnonce" name="_wpnonce" value="nonsense" />
+<input type="hidden" name="_wp_http_referer" value="/" />
+<div>
+<label for="bw_buttons[oik-button-shortcodes]">
+<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-bn-icon.gif" alt=""  /> Button shortcodes</label>
+<input type="hidden" name="bw_buttons[oik-button-shortcodes]" value="0" />
+<input type="checkbox" name="bw_buttons[oik-button-shortcodes]" id="bw_buttons[oik-button-shortcodes]" checked="checked" aria-label="bw_buttons[oik-button-shortcodes]"/>
+</div>
+<div>
+<label for="bw_buttons[oik-paypal-shortcodes]">
+<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-pp-icon.gif" alt=""  /> PayPal shortcodes</label>
+<input type="hidden" name="bw_buttons[oik-paypal-shortcodes]" value="0" />
+<input type="checkbox" name="bw_buttons[oik-paypal-shortcodes]" id="bw_buttons[oik-paypal-shortcodes]" checked="checked" aria-label="bw_buttons[oik-paypal-shortcodes]"/>
+</div>
+<div>
+<label for="bw_buttons[oik-shortc-shortcodes]">
+<img class="" src="https://qw/src/wp-content/plugins/oik/admin/bw-sc-icon.gif" alt=""  /> ALL shortcodes</label>
+<input type="hidden" name="bw_buttons[oik-shortc-shortcodes]" value="0" />
+<input type="checkbox" name="bw_buttons[oik-shortc-shortcodes]" id="bw_buttons[oik-shortc-shortcodes]" aria-label="bw_buttons[oik-shortc-shortcodes]"/>
+</div>
+<div>
+<label for="bw_buttons[oik-quicktags]">[] quicktag for HTML editor</label>
+<input type="hidden" name="bw_buttons[oik-quicktags]" value="0" />
+<input type="checkbox" name="bw_buttons[oik-quicktags]" id="bw_buttons[oik-quicktags]" checked="checked" aria-label="bw_buttons[oik-quicktags]"/>
+</div>
+<div>
+<label for="bw_buttons[oik-shortcake]">Integrate with shortcake</label>
+<input type="hidden" name="bw_buttons[oik-shortcake]" value="0" />
+<input type="checkbox" name="bw_buttons[oik-shortcake]" id="bw_buttons[oik-shortcake]" aria-label="bw_buttons[oik-shortcake]"/>
+</div>
+</div>
+<input type="submit" name="ok" value="Save changes" class="button-primary" />
+</form>
