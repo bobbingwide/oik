@@ -1,6 +1,6 @@
 <?php
 /*
-    Copyright 2012-2014 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2012-2014, 2026 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,
@@ -54,7 +54,7 @@ function bw_wtf( $atts=null, $content=null, $tag=null ) {
   bw_jquery_af( "div.bw_wtf", $event , "p.bw_wtf", $effect );
   sdiv( "bw_wtf" );
   BW_::p( $text );
-  stag( 'p', "bw_wtf", null, 'lang="HTML" escaped="true" style="display:none;"' );
+  stag( 'p', "bw_wtf", null, 'escaped="true" style="display:none;"' );
   $escaped_content = str_replace(array( "[", "]" ), array( "&#091;", "&#093;" ), $escaped_content ); 
 	//$escaped_content = str_replace( "&#8211;", "&#045;&#045;", $escaped_content );
 	$escaped_content = str_replace( "-", "&#045;", $escaped_content );
