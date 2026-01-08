@@ -89,6 +89,7 @@ function oik_options_add_page() {
   add_submenu_page( 'oik_menu', __( 'oik buttons', 'oik'), __('Buttons', 'oik'), 'manage_options', 'oik_buttons', 'oik_buttons_do_page' );
   add_submenu_page( 'oik_menu', __( 'oik shortcode help', 'oik' ), __("Shortcode help", 'oik'), 'manage_options', 'oik_sc_help', "oik_help_do_page" );
   //add_submenu_page( 'oik_menu', __( 'oik admin options', 'oik' ), __("Admin options", 'oik'), 'manage_options', 'oik_admin_options", "oik_admin_options_do_page" );
+
 }
 
 /**
@@ -195,20 +196,22 @@ function oik_default_tinymce_buttons() {
  */
 
 function oik_tinymce_buttons() {
-  $option = 'bw_buttons'; 
+  $option = 'bw_buttons';
+  bw_is_table( false );
   $options = bw_form_start( $option, 'oik_buttons_options' );
   $options = bw_reset_options( $option, $options, "oik_default_tinymce_buttons", "_oik_reset_buttons" );
   $options = bw_recreate_options( 'bw_buttons' );
   
-  $imagefile_bw = retimage( NULL, oik_url( 'admin/bw-bn-icon.gif' ), __( "Button shortcodes", "oik" ) );
-  $imagefile_pp = retimage( NULL, oik_url( 'admin/bw-pp-icon.gif' ), __( "PayPal shortcodes", "oik" ) );
-  $imagefile_sc = retimage( NULL, oik_url( 'admin/bw-sc-icon.gif' ), __( "ALL shortcodes", "oik" ) );
+  $imagefile_bw = retimage( NULL, oik_url( 'admin/bw-bn-icon.gif' ), '' );
+  $imagefile_pp = retimage( NULL, oik_url( 'admin/bw-pp-icon.gif' ), '' );
+  $imagefile_sc = retimage( NULL, oik_url( 'admin/bw-sc-icon.gif' ), '' );
   bw_checkbox_arr( "bw_buttons", $imagefile_bw . ' ' . __("Button shortcodes", "oik" ), $options, 'oik-button-shortcodes' );
   bw_checkbox_arr( "bw_buttons", $imagefile_pp . ' ' . __("PayPal shortcodes", "oik" ), $options, 'oik-paypal-shortcodes' );
   bw_checkbox_arr( "bw_buttons", $imagefile_sc . ' ' . __("ALL shortcodes", "oik" ), $options, 'oik-shortc-shortcodes' );
   bw_checkbox_arr( "bw_buttons", __( "[] quicktag for HTML editor", "oik" ), $options, "oik-quicktags" );
   bw_checkbox_arr( "bw_buttons", __( "Integrate with shortcake", "oik" ), $options, "oik-shortcake" );
-  etag( "table" );
+  //etag( "table" );
+	bw_table_or_grid_end();
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
   etag( "form" );
   bw_flush();
@@ -261,7 +264,7 @@ function oik_admin_options() {
   bw_checkbox_arr( "bw_admin_options", __( "Show IDs on admin pages", "oik" ), $options, 'show_ids' );
   //etag( "table" );
 	bw_table_or_grid_end();
-  p( isubmit( "ok", __("Save changes", "oik" ), null, "button-secondary" ) );
+  BW_::p( isubmit( "ok", __("Save changes", "oik" ), null, "button-secondary" ) );
   etag( "form" );
 }
 
@@ -484,7 +487,8 @@ function _oik_alt0_suffix() {
  
  */
 function oik_main_shortcode_options() {
-  $option = 'bw_options'; 
+  $option = 'bw_options';
+  bw_is_table( false );
   $options = bw_form_start( $option, 'oik_options_options' );
   $alt0_suffix = _oik_alt0_suffix();
   oik_contact_numbers( $option, $options, $alt0_suffix );	
@@ -547,7 +551,8 @@ function oik_main_shortcode_options() {
   $options['howdy'] = bw_array_get( $options, "howdy", null );
   BW_::bw_textfield_arr( $option, __( "'Howdy,' replacement string", "oik" ), $options, 'howdy', 10 );
 
-  etag( "table" ); 		
+  //etag( "table" );
+  bw_table_or_grid_end();
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
 	
   etag( "form" );
@@ -598,6 +603,7 @@ function oik_options_do_page_1() {
 function oik_extra_shortcode_options() {    
   $alt = "1";
   $option = "bw_options$alt";
+  bw_is_table( false );
   $options = bw_form_start( $option, "oik_options_options$alt" );
   $alt1_suffix = " alt=1";
   BW_::bw_textfield_arr( $option, BW_::bwtnt( __( "Contact", "oik" ), " [bw_contact$alt1_suffix]" ), $options, 'contact', 50 );    
@@ -608,7 +614,8 @@ function oik_extra_shortcode_options() {
   //oik_contact_info( $option, $options, $alt1_suffix );
   oik_address_info( $option, $options, $alt1_suffix );
 
-  etag( "table" ); 
+  //etag( "table" );
+  bw_table_or_grid_end();
   e( isubmit( "ok", __("Save changes", "oik" ), null, "button-primary" ) ); 
   etag( "form" );
   bw_flush();
