@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017, 2026
 
 
 class Tests_bw_translate extends BW_UnitTestCase {
@@ -52,9 +52,15 @@ class Tests_bw_translate extends BW_UnitTestCase {
 	}
 	
 	/**
+	 * Tests bw_translate, expected a deprecated message.
+	 *
+	 * This test will produce trace output for bw_trace_deprecated_function_run().
+	 *
+	 * I'm not quite sure what this comment below was about...
+	 *
 	 * We can't change the value of a constant from FALSE
 	 * so if you want to allow calls to bw_translate to be run without deprecated messages
-	 * being produce then you have to comment out any setting in wp-config.php 
+	 * being produced then you have to comment out any setting in wp-config.php
 	 */
 	function test_bw_translate_bobbingwide() {
 		if ( !defined( 'BW_TRANSLATE_DEPRECATED' ) ) {

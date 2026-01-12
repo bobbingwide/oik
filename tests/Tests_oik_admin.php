@@ -267,6 +267,8 @@ $expected[] = '</form>';
 	 * Tests oik_menu_header
 	 * 
 	 * @TODO Test oik_enqueue_scripts() separately
+	 *
+	 * This test will produce several trace records for bw_trace_deprecated_function_run.
 	 */
 	function test_oik_menu_header() {
 		if ( !defined( 'BW_TRANSLATE_DEPRECATED' ) ) {

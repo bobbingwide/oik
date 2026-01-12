@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017, 2025
+<?php // (C) Copyright Bobbing Wide 2017, 2025, 2026
 
 class Tests_issue_9 extends BW_UnitTestCase {
 
@@ -26,6 +26,10 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		oik_require_lib( "class-BW-" );
 	}
 
+	/**
+	 *  This test will produce several trace records for bw_trace_deprecated_function_run.
+	 *
+	 */
 	function test_BW_p() {
 		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( p( "This page left intentionally blank" ) );
@@ -33,6 +37,10 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 
+	/**
+	 *  This test will produce several trace records for bw_trace_deprecated_function_run.
+	 *
+	 */
 	function test_BW_alink() {
 		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( _alink( null, "http://example.com", "Text", "Alt" ) );
@@ -40,7 +48,8 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 	
-	/** 
+	/**
+	 *   This test will produce several trace records for bw_trace_deprecated_function_run.
 	 */
 	function test_BW_oik_menu_header() {
 		$this->setExpectedDeprecated( "bw_translate" );
@@ -63,6 +72,8 @@ class Tests_issue_9 extends BW_UnitTestCase {
 	 * So we might as well pass a non-null value and see it being translated; the old way and the new way.
 	 * 
 	 * Note: Here we're using the en_US spelling. The translations should be the same.
+	 *
+	 * This test will produce several trace records for bw_trace_deprecated_function_run.
 	 */
 	function test_BW_oik_box() {
 		$this->setExpectedDeprecated( "bw_translate" );
@@ -72,6 +83,9 @@ class Tests_issue_9 extends BW_UnitTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 
+	/**
+	 * This test will produce several trace records for bw_trace_deprecated_function_run.
+	 */
 	function test_BW_bwtnt() {
 		$this->setExpectedDeprecated( "bw_translate" );
 		$expected = bw_ret( _bwtnt( "Text", " etc" ) );

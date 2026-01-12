@@ -1,4 +1,4 @@
-<?php // (C) Copyright Bobbing Wide 2017
+<?php // (C) Copyright Bobbing Wide 2017, 2026
 
 /** 
  * Unit tests for the libs\bobbfunc.php file
@@ -34,8 +34,11 @@ class Tests_oik_bobbfunc extends BW_UnitTestCase {
 	}
 		
 	/**
+	 *
 	 * To test bw_tt() we may need to have used bw_dtt() 
 	 * If bw_dtt() hasn't been called then the string might not get translated
+	 *
+	 * This test will produce several (5) trace records for bw_trace_deprecated_function_run.
 	 */
 	function test_bw_tt() {
 		$this->setExpectedDeprecated( "bw_translate" );

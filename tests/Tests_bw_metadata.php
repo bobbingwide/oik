@@ -113,7 +113,9 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 	}
 	
 	/**
-	 * This is the code that is being deprecated
+	 * This is the code that is being deprecated.
+	 *
+	 * This test will produce several trace records for bw_trace_deprecated_function_run.
 	 */
 	function test__bw_form_field_title_hash_hint() {
 		$this->setExpectedDeprecated( "bw_translate" );
@@ -129,7 +131,8 @@ class Tests_bw_metadata extends BW_UnitTestCase {
 	 * This is the code that is being deprecated.
 	 * Note: #hint strings only get translated if the string itself has been somehow registered as translatable
 	 * So "bobbingwide will be translated but "bobbing wide" won't be.
-	 * 
+	 *
+	 *  This test will produce several trace records for bw_trace_deprecated_function_run.
 	 */
 	function test__bw_form_field_title_hash_hint_bb_BB() {
 		$this->setExpectedDeprecated( "bw_translate" );
