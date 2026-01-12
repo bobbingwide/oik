@@ -69,7 +69,7 @@ oik_require( "includes/bw_images.inc" );
  * @param post $post - the post
  * @return string - HTML to display the image
  */
-function bw_thumbnail_full( $post ) {
+function bw_thumbnail_full( $post, $title="" ) {
 	$attachment_meta = get_post_meta( $post->ID, "_wp_attachment_metadata", false );
 	bw_trace2( $attachment_meta, "attachment_meta", false, BW_TRACE_VERBOSE );
 	$first = bw_array_get( $attachment_meta, 0, null );
@@ -90,7 +90,7 @@ function bw_thumbnail_full( $post ) {
 		if ( $width && $height ) {
 		    $extras = kv( "loading", "lazy");
         }
-		$retimage = retimage( $classes, $baseurl . '/' . $file, null, $width, $height, $extras );
+		$retimage = retimage( $classes, $baseurl . '/' . $file, $title, $width, $height, $extras );
 	}
 	return $retimage;
 }
@@ -142,7 +142,7 @@ function bw_format_attachment( $post, $atts ) {
   // so wp_get_attachment_link is not doing much really! 
   $atts['thumbnail'] = bw_array_get( $atts, 'thumbnail', 'thumbnail' ); 
   if ( $atts['thumbnail'] == "full" ) { 
-    $thumbnail = bw_thumbnail_full( $post );
+    $thumbnail = bw_thumbnail_full( $post, $atts['title'] );
     // $thumbnail = retimage( "full", $post->guid );
     // bw_link_thumbnail( $thumbnail, $post->ID, $atts );
   } else {
