@@ -106,8 +106,8 @@ Upgrade for many accessibility (a11y) improvements for both the front end and ad
 
 ## Changelog 
 # 4.16.0 
-* Fixed: Security: Don't attempt to return shortcode help for some requests. Props: sequence_XO #246
-* Changed: Update tests for WordPress 7 TRAC 64500 #247
+* Fixed: Security: Don't attempt to return shortcode help for some requests. Props: youssef 3id #246
+* Changed: Update tests for WordPress 7.0 TRAC 64500 #247
 * Tested: With WordPress 7.0 and 7.1 and WordPress Multisite
 * Tested: With PHP 8.3 and PHP 8.4
 * Tested: With PHPUnit 10 & 11
