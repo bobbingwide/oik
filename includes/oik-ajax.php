@@ -45,11 +45,14 @@ function oik_ajax_load_shortcode_help() {
   oik_require( "includes/oik-sc-help.php" );
   $shortcode = bw_array_get( $_REQUEST, 'shortcode', 'oik' );
   bw_trace2( $shortcode, "shortcode" );
-  $sc_help = bw_lazy_sc_example( $shortcode );
-  bw_trace2( $sc_help, "sc_help" );
-  echo $sc_help;
-  bw_flush();
-  die();
+  $shortcode_escaped = esc_html( $shortcode );
+  if ( $shortcode_escaped === $shortcode ) {
+      $sc_help = bw_lazy_sc_example($shortcode);
+      bw_trace2($sc_help, "sc_help");
+      echo $sc_help;
+      bw_flush();
+  }
+  wp_die();
 }
 
 /**

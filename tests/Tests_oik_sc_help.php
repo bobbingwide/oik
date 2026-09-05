@@ -296,5 +296,22 @@ class Tests_oik_sc_help extends BW_UnitTestCase {
 		$html = str_replace( $wp_version, "x.y.z", $html );
 		return $html;
   }
-	
+
+    function test_bw_lazy_sc_example_oik() {
+        oik_require( "includes/oik-sc-help.php" );
+        bw_lazy_sc_example('oik');
+        $html = bw_ret();
+        $expected_output = '<br />e.g.<span class="bw_oik"><abbr  title="OIK Information Kit">oik</abbr></span>';
+        $this->assertEquals( $expected_output, $html );
+
+    }
+
+    function test_bw_lazy_sc_example_issue_246() {
+        oik_require( "includes/oik-sc-help.php" );
+        bw_lazy_sc_example('zzz<script>alert(document.domain)</script>');
+        $html = bw_ret();
+        $this->assertEquals( '', $html );
+
+    }
+
 }

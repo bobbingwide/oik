@@ -1,6 +1,6 @@
 <?php // (C) Copyright Bobbing Wide 2012-2026
 if ( !defined( "OIK_SC_HELP_INCLUDED" ) ) {
-define( "OIK_SC_HELP_INCLUDED", "3.5.1" );
+define( "OIK_SC_HELP_INCLUDED", "3.5.2" );
 
 /**
  * Shortcode help 
@@ -152,14 +152,19 @@ function _bw_lazy_sc_help( $shortcode ) {
 }
 
 /**
- * Display a shortcode example
- * 
+ * Displays a shortcode example.
+ *
+ * Sanitize the shortcode and only call the example function if the escaped version is the same as the original.
+ *
  * @param string $shortcode
  * @param array $atts - shortcode example parameters
  */
 function bw_lazy_sc_example( $shortcode, $atts=null ) {
-  $funcname = bw_load_shortcode_suffix( $shortcode, "__example" ); 
-  $funcname( $shortcode, $atts ); 
+    $shortcode_escaped = esc_html( $shortcode );
+    if ( $shortcode_escaped === $shortcode ) {
+        $funcname = bw_load_shortcode_suffix($shortcode, "__example");
+        $funcname($shortcode, $atts);
+    }
 }
 
 /**
